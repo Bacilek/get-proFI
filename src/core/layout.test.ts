@@ -1,5 +1,5 @@
-import { layoutRoadmap, NODE_H, NODE_W, GAP_X, GAP_Y, readiness } from './layout'
-import type { LessonMeta, LessonProgress, Module } from './types'
+import { badgesByModule, layoutRoadmap, milestoneBadges, NODE_H, NODE_W, GAP_X, GAP_Y, readiness } from './layout'
+import type { LessonMeta, LessonProgress, Milestone, Module } from './types'
 
 const l = (id: string, prerequisites: string[] = []): LessonMeta => ({ id, title: id, prerequisites, topics: [] })
 const modules: Module[] = [
@@ -38,4 +38,18 @@ test('readiness is the done share in covered modules', () => {
   expect(readiness({ coversModules: ['m1'] }, modules, progress)).toBeCloseTo(1 / 3)
   expect(readiness({ coversModules: ['m1', 'm2'] }, modules, progress)).toBeCloseTo(1 / 5)
   expect(readiness({}, modules, progress)).toBeNull()
+})
+
+test('badges: midterms numbered in order, exam is E, mapped to covered modules', () => {
+  const ms = [
+    { id: 'q', title: 'Q', type: 'quiz' },
+    { id: 'm1', title: 'Mid 1', type: 'midterm', coversModules: ['m1'] },
+    { id: 'm2', title: 'Mid 2', type: 'midterm', coversModules: ['m2'] },
+    { id: 'x', title: 'Exam', type: 'exam', coversModules: ['m1', 'm2'] },
+  ] as Milestone[]
+  const badges = milestoneBadges(ms)
+  expect(badges.map((b) => b.label)).toEqual(['I', 'II', 'E'])
+  const map = badgesByModule(ms, badges)
+  expect(map.get('m1')?.map((b) => b.label)).toEqual(['I', 'E'])
+  expect(map.get('m2')?.map((b) => b.label)).toEqual(['II', 'E'])
 })

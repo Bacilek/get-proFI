@@ -1,8 +1,16 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Bar } from '../../components/Charts'
 import { courseSlug, hasLesson, localId } from '../../content'
-import { layoutRoadmap, NODE_H, NODE_W, readiness } from '../../core/layout'
+import {
+  badgesByModule,
+  layoutRoadmap,
+  milestoneBadges,
+  NODE_H,
+  NODE_W,
+  readiness,
+  type MilestoneBadge,
+} from '../../core/layout'
 import { lessonState } from '../../core/prereq'
 import type { Course, LessonMeta, LessonProgress } from '../../core/types'
 import { setLessonStars } from '../../hooks'
@@ -25,18 +33,28 @@ export function Roadmap({
   const titles = new Map(course.modules.flatMap((m) => m.lessons).map((l) => [l.id, l.title]))
   const pos = new Map(layout.nodes.map((n) => [n.lesson.id, n]))
   const selected = layout.nodes.find((n) => n.lesson.id === selectedId)?.lesson
+  const badges = milestoneBadges(course.milestones)
+  const badgeMap = badgesByModule(course.milestones, badges)
 
   return (
     <div className="space-y-3">
-      <div className="overflow-x-auto rounded-xl border border-line bg-surface p-4">
+      <div
+        className="overflow-x-auto rounded-2xl border border-line bg-surface p-5 shadow-sm"
+        style={{ backgroundImage: 'radial-gradient(var(--line) 1px, transparent 1px)', backgroundSize: '18px 18px' }}
+      >
         <div className="relative" style={{ width: layout.width, height: layout.height }}>
           <svg className="absolute inset-0" width={layout.width} height={layout.height} aria-hidden>
+            <defs>
+              <marker id="rm-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L8,4 L0,8 z" fill="context-stroke" />
+              </marker>
+            </defs>
             {layout.edges.map((e) => {
               const a = pos.get(e.from)!
               const b = pos.get(e.to)!
               const x1 = a.x + NODE_W
               const y1 = a.y + NODE_H / 2
-              const x2 = b.x
+              const x2 = b.x - 2
               const y2 = b.y + NODE_H / 2
               const mid = (x1 + x2) / 2
               const active = selectedId === e.from || selectedId === e.to
@@ -46,7 +64,10 @@ export function Roadmap({
                   d={`M${x1},${y1} C${mid},${y1} ${mid},${y2} ${x2},${y2}`}
                   fill="none"
                   stroke={active ? 'var(--fg)' : 'var(--line-strong)'}
-                  strokeWidth={active ? 2 : 1}
+                  strokeWidth={active ? 2 : 1.25}
+                  strokeLinecap="round"
+                  opacity={active || !selectedId ? 1 : 0.35}
+                  markerEnd="url(#rm-arrow)"
                 />
               )
             })}
@@ -54,6 +75,7 @@ export function Roadmap({
           {layout.nodes.map((n) => {
             const st = lessonState(n.lesson, progress)
             const s = progress.get(n.lesson.id)?.stars ?? 0
+            const corner = badgeMap.get(n.moduleId) ?? []
             return (
               <button
                 key={n.lesson.id}
@@ -65,7 +87,7 @@ export function Roadmap({
                     : 'Double-click to open'
                 }
                 className={[
-                  'absolute flex flex-col justify-between rounded-lg border px-2.5 py-1.5 text-left text-xs leading-tight shadow-sm transition hover:-translate-y-px hover:shadow-md',
+                  'absolute flex flex-col justify-between rounded-xl border px-3 py-2 text-left text-xs leading-tight shadow-sm transition duration-150 hover:-translate-y-0.5 hover:shadow-lg',
                   st.status === 'done' ? 'border-ok bg-ok-bg' : '',
                   st.status === 'available' ? 'border-line-strong bg-surface' : '',
                   st.status === 'locked' ? 'border-dashed border-line-strong bg-bg text-muted' : '',
@@ -79,7 +101,20 @@ export function Roadmap({
                   borderLeft: `5px solid ${colorOf.get(n.moduleId)}`,
                 }}
               >
-                <span className="line-clamp-2 text-[12.5px] font-medium">{n.lesson.title}</span>
+                {corner.length > 0 && (
+                  <span className="absolute right-1.5 top-1 flex gap-0.5">
+                    {corner.map((b) => (
+                      <span
+                        key={b.milestoneId}
+                        title={b.title}
+                        className="rounded-full bg-fg/10 px-1.5 text-[10px] font-bold leading-4 tracking-wide text-muted"
+                      >
+                        {b.label}
+                      </span>
+                    ))}
+                  </span>
+                )}
+                <span className="line-clamp-2 pr-8 text-[12.5px] font-medium">{n.lesson.title}</span>
                 <span className="flex items-center justify-between">
                   <span className="text-star">{stars(s)}</span>
                   {st.status === 'done' && <span className="font-semibold text-ok">✓</span>}
@@ -90,7 +125,7 @@ export function Roadmap({
           })}
         </div>
       </div>
-      <Legend course={course} colorOf={colorOf} />
+      <Legend course={course} colorOf={colorOf} badges={badges} />
       {selected && <LessonPanel course={course} lesson={selected} progress={progress} titles={titles} />}
       <Readiness course={course} progress={progress} />
     </div>
@@ -159,30 +194,65 @@ function Readiness({ course, progress }: { course: Course; progress: ReadonlyMap
   )
 }
 
-function Legend({ course, colorOf }: { course: Course; colorOf: ReadonlyMap<string, string> }) {
+function Legend({
+  course,
+  colorOf,
+  badges,
+}: {
+  course: Course
+  colorOf: ReadonlyMap<string, string>
+  badges: readonly MilestoneBadge[]
+}) {
   const state = (cls: string, label: string) => (
-    <span className="flex items-center gap-1.5">
-      <span className={`inline-block h-3.5 w-5 rounded border ${cls}`} />
+    <span className="flex items-center gap-2">
+      <span className={`inline-block h-4 w-6 rounded-md border ${cls}`} />
       {label}
     </span>
   )
+  const group = (title: string, children: ReactNode) => (
+    <div className="space-y-1.5">
+      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-faint">{title}</h4>
+      <div className="flex flex-col gap-1">{children}</div>
+    </div>
+  )
   return (
-    <div className="space-y-2 rounded-xl border border-line bg-surface p-3 text-xs text-muted">
-      <div className="flex flex-wrap gap-x-5 gap-y-1">
-        {state('border-ok bg-ok-bg', 'done (at least 1 star)')}
-        {state('border-line-strong bg-surface', 'available')}
-        {state('border-dashed border-line-strong bg-bg', 'earlier lessons not done yet (you can still open it)')}
-      </div>
-      <div className="flex flex-wrap gap-x-4 gap-y-1">
-        <span>Left stripe = module:</span>
-        {course.modules.map((m) => (
-          <span key={m.id} className="flex items-center gap-1.5">
-            <span className="inline-block h-3 w-1.5 rounded-sm" style={{ background: colorOf.get(m.id) }} />
+    <section className="grid gap-x-8 gap-y-4 rounded-2xl border border-line bg-surface p-4 text-xs text-muted sm:grid-cols-2 lg:grid-cols-4">
+      {group(
+        'Status',
+        <>
+          {state('border-ok bg-ok-bg', 'Done (at least 1 star)')}
+          {state('border-line-strong bg-surface', 'Available')}
+          {state('border-dashed border-line-strong bg-bg', 'Earlier lessons missing')}
+        </>,
+      )}
+      {group(
+        'Module (left stripe)',
+        course.modules.map((m) => (
+          <span key={m.id} className="flex items-center gap-2">
+            <span className="inline-block h-4 w-1.5 rounded-sm" style={{ background: colorOf.get(m.id) }} />
             {m.title}
           </span>
-        ))}
-      </div>
-      <p>Click a cell for details, double-click to open the lesson.</p>
-    </div>
+        )),
+      )}
+      {badges.length > 0 &&
+        group(
+          'Needed for (top right)',
+          badges.map((b) => (
+            <span key={b.milestoneId} className="flex items-center gap-2">
+              <span className="w-7 rounded-full bg-fg/10 px-1.5 text-center text-[10px] font-bold leading-4 text-muted">
+                {b.label}
+              </span>
+              {b.title}
+            </span>
+          )),
+        )}
+      {group(
+        'Controls',
+        <>
+          <span>Click a cell for details</span>
+          <span>Double-click to open the lesson</span>
+        </>,
+      )}
+    </section>
   )
 }
