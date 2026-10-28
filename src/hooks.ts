@@ -1,7 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { courseSlug } from './content'
 import { db } from './core/db'
-import type { Course, LessonProgress, MilestoneResult } from './core/types'
+import type { Attempt, Course, LessonProgress, MilestoneResult, TopicRating } from './core/types'
 
 /** Milestone results of one course keyed by the *local* milestone id. */
 export function useCourseResults(course: Course): ReadonlyMap<string, MilestoneResult> {
@@ -22,4 +22,22 @@ export function useLessonProgress(): ReadonlyMap<string, LessonProgress> {
 
 export function setLessonStars(lessonId: string, stars: LessonProgress['stars']): Promise<unknown> {
   return db.lessons.put({ lessonId, stars, updatedAt: Date.now() })
+}
+
+export function useTopicRating(topic: string): TopicRating | undefined {
+  return useLiveQuery(() => db.ratings.get(topic), [topic])
+}
+
+export function setTopicRating(topic: string, rating: TopicRating['rating']): Promise<unknown> {
+  return db.ratings.put({ topic, rating, at: Date.now() })
+}
+
+/** Records one answered question and, once a practice round is finished, raises (never lowers) the lesson stars. */
+export function recordAttempt(a: Omit<Attempt, 'id' | 'at'>): Promise<unknown> {
+  return db.attempts.add({ ...a, at: Date.now() })
+}
+
+export async function raiseStars(lessonId: string, stars: LessonProgress['stars']): Promise<void> {
+  const current = (await db.lessons.get(lessonId))?.stars ?? 0
+  if (stars > current) await setLessonStars(lessonId, stars)
 }

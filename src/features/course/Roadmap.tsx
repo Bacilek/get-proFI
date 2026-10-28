@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { courseSlug, hasLesson, localId } from '../../content'
 import { layoutRoadmap, NODE_H, NODE_W, readiness } from '../../core/layout'
 import { lessonState } from '../../core/prereq'
 import type { Course, LessonMeta, LessonProgress } from '../../core/types'
@@ -82,17 +84,19 @@ export function Roadmap({
         </div>
       </div>
       <p className="text-xs text-slate-500">Amber ring = taught this week. Dashed = prerequisites not done yet (you can still open it).</p>
-      {selected && <LessonPanel lesson={selected} progress={progress} titles={titles} />}
+      {selected && <LessonPanel course={course} lesson={selected} progress={progress} titles={titles} />}
       <Bosses course={course} progress={progress} />
     </div>
   )
 }
 
 function LessonPanel({
+  course,
   lesson,
   progress,
   titles,
 }: {
+  course: Course
   lesson: LessonMeta
   progress: ReadonlyMap<string, LessonProgress>
   titles: ReadonlyMap<string, string>
@@ -103,6 +107,9 @@ function LessonPanel({
     <section className="rounded-md border border-slate-200 bg-white p-3 text-sm">
       <h3 className="font-semibold">{lesson.title}</h3>
       <p className="text-slate-500">Week {lesson.week}</p>
+      <Link className="mt-1 inline-block underline" to={`/c/${courseSlug(course)}/l/${localId(lesson.id)}`}>
+        {hasLesson(course, localId(lesson.id)) ? 'Open lesson →' : 'Open lesson (content not written yet) →'}
+      </Link>
       {st.status === 'locked' && (
         <p className="mt-1 text-amber-800">Do first: {st.missing.map((m) => titles.get(m) ?? m).join(', ')}</p>
       )}

@@ -2,6 +2,7 @@ import { HashRouter, Link, Route, Routes } from 'react-router-dom'
 import { courseSlug, courses } from './content'
 import CourseView from './pages/CourseView'
 import Dashboard from './pages/Dashboard'
+import LessonPage from './pages/LessonPage'
 import Settings from './pages/Settings'
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/c/:slug" element={<CourseView />} />
+            <Route path="/c/:slug/l/:lessonId" element={<LessonPage />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<p>Not found.</p>} />
           </Routes>

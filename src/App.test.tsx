@@ -17,3 +17,14 @@ test('course page shows roadmap and marking a lesson updates its mastery', async
   fireEvent.click(await screen.findByRole('button', { name: '★★★' }))
   await waitFor(() => expect(screen.getByRole('button', { name: /Limita funkce.*★★★/ })).toBeInTheDocument(), { timeout: 3000 })
 })
+
+test('lesson page renders markdown with math and practice records stars', async () => {
+  window.location.hash = '#/c/mb142/l/differential'
+  render(<App />)
+  expect(await screen.findByRole('heading', { name: 'Intuice' })).toBeInTheDocument()
+  expect(document.querySelector('.katex')).not.toBeNull()
+  // first question is numeric: 2,926 (decimal comma) is accepted
+  fireEvent.change(await screen.findByLabelText('Answer'), { target: { value: '2,926' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Check' }))
+  expect(await screen.findByText('Correct')).toBeInTheDocument()
+})
