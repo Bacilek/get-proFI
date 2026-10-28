@@ -1,0 +1,136 @@
+[
+  {
+    "id": "re-resolvent",
+    "type": "choice",
+    "prompt": "Rezolventou klauzulí $\\{\\neg p,r,\\neg t,u\\}$ a $\\{s,\\neg q,\\neg r\\}$ je…",
+    "options": [
+      "$\\{\\neg p,\\neg t,u,s,\\neg q\\}$",
+      "$\\{\\neg p,\\neg t,u\\}$",
+      "$\\{\\neg p,r,\\neg t,u,s,\\neg q,\\neg r\\}$",
+      "$\\square$"
+    ],
+    "answer": 0,
+    "solution": "Rezolvuje se na $r$ (v první je $r$, ve druhé $\\neg r$): spojí se zbylé literály obou klauzulí: $\\{\\neg p,\\neg t,u\\}\\cup\\{s,\\neg q\\}=\\{\\neg p,\\neg t,u,s,\\neg q\\}$.",
+    "hints": [
+      "Najdi komplementární dvojici literálů.",
+      "Odstraň ji a sjednoť zbytek."
+    ]
+  },
+  {
+    "id": "re-refute-chain",
+    "type": "free",
+    "prompt": "Rezolucí (vyvrácením negace závěru) dokaž, že z $\\{p\\Rightarrow q,\\ q\\Rightarrow r\\}$ plyne $p\\Rightarrow r$.",
+    "solution": "Klauzule: $\\{\\neg p,q\\}$, $\\{\\neg q,r\\}$. Negace závěru: $\\neg(p\\Rightarrow r)\\equiv p\\wedge\\neg r$ ⇒ $\\{p\\}$, $\\{\\neg r\\}$. $\\{\\neg p,q\\}+\\{p\\}\\to\\{q\\}$; $\\{q\\}+\\{\\neg q,r\\}\\to\\{r\\}$; $\\{r\\}+\\{\\neg r\\}\\to\\square$. Množina je nesplnitelná ⇒ závěr plyne.",
+    "hints": [
+      "Přidej klauzule $\\{p\\}$ a $\\{\\neg r\\}$.",
+      "Cíl je prázdná klauzule."
+    ]
+  },
+  {
+    "id": "re-two-literals",
+    "type": "choice",
+    "prompt": "Je následující krok platným rezolučním pravidlem? Z $\\{\\neg s,p,q\\}$ a $\\{\\neg s,\\neg p,\\neg q\\}$ odvodíme $\\{\\neg s\\}$ (rezolvováno na $p$ i $q$ najednou).",
+    "options": [
+      "ano, odstraní se obě dvojice",
+      "ne – rezoluční pravidlo rezolvuje na jednom literálu; tento krok nezachovává pravdivost",
+      "ano, ale jen pro Hornovy klauzule",
+      "ano, jen když $s$ je pravdivé"
+    ],
+    "answer": 1,
+    "solution": "Rezolvovat lze vždy jen na jednom literálu. Protipříklad: $\\{p,q\\},\\{\\neg p,\\neg q\\}$ jsou pravdivé v $p=0,q=1$, ale rezolventa □ pravdivá není. Odvození $\\{\\neg s\\}$ z těchto klauzulí by také nebylo korektní (např. $s=1,q=1,p=0$: obě klauzule pravdivé, $\\{\\neg s\\}$ ne).",
+    "hints": [
+      "Zkus interpretaci $p=0$, $q=1$.",
+      "Pravidlo je definováno pro jeden komplementární pár."
+    ]
+  },
+  {
+    "id": "re-horn",
+    "type": "choice",
+    "prompt": "Která klauzule **není** Hornova?",
+    "options": [
+      "$[s]$",
+      "$[r,\\neg q]$",
+      "$[p,q,\\neg r]$",
+      "$[\\neg r,\\neg t]$"
+    ],
+    "answer": 2,
+    "solution": "Hornova klauzule má nejvýše jeden pozitivní literál. $[p,q,\\neg r]$ má dva ($p$, $q$). $[s]$ je fakt, $[r,\\neg q]$ pravidlo, $[\\neg r,\\neg t]$ cíl.",
+    "hints": [
+      "Spočítej literály bez negace.",
+      "Nejvýše jeden."
+    ]
+  },
+  {
+    "id": "re-horn-types",
+    "type": "free",
+    "prompt": "Vysvětli intuitivní význam faktů, pravidel a cílů mezi Hornovými klauzulemi a zapiš, jak jim odpovídá Prolog.",
+    "solution": "**Fakt** $[p]$: tvrzení, které platí (Prolog `p.`). **Pravidlo** $[p,\\neg q_1,\\dots,\\neg q_m]$ ≡ $p\\Leftarrow q_1\\wedge\\dots\\wedge q_m$: „$p$ platí, pokud platí všechna $q_i$“ (Prolog `p :- q1, ..., qm.`). **Cíl** $[\\neg p_1,\\dots,\\neg p_n]$: negace dotazu $p_1\\wedge\\dots\\wedge p_n$ – co chceme dokázat (Prolog `?- p1, ..., pn.`); vyvrácení cíle = dotaz plyne z programu.",
+    "hints": [
+      "Kolik pozitivních literálů má každý typ?",
+      "Cíl je to, co přidáme při důkazu sporem."
+    ]
+  },
+  {
+    "id": "re-sld-step",
+    "type": "choice",
+    "prompt": "SLD rezolventou cíle $[\\neg s,\\neg u]$ a pravidla $[s]$ (fakt) je…",
+    "options": ["$[\\neg u]$", "$[\\neg s]$", "$\\square$", "$[s,\\neg u]$"],
+    "answer": 0,
+    "solution": "SLD rezoluce vybírá první literál cíle ($\\neg s$) a rezolvuje s klauzulí, jejíž hlava je $s$. Fakt $[s]$ nemá negativní literály, takže zbyde zbytek cíle: $[\\neg u]$.",
+    "hints": [
+      "Vždy první literál cíle.",
+      "Fakt nepřidává nic nového."
+    ]
+  },
+  {
+    "id": "re-sld-tree",
+    "type": "free",
+    "prompt": "Program: `1: q :- r.  2: q :- t.  3: q.  4: r.  5: u :- q.  6: s.`  Dotaz `?- s, u.` Nakresli SLD odvození nejlevnější úspěšné větve a řekni, kolik větví vzniklo v uzlu `?- q`.",
+    "solution": "`?- s,u` →(6)→ `?- u` →(5)→ `?- q`. Zde se strom větví na tři pravidla: (1) `?- r` →(4)→ □ (úspěch), (2) `?- t` – nelze ničím rezolvovat (neúspěch), (3) fakt `q` → □ (úspěch). Prolog jde zleva a první větev (1,4) dá `true`. V uzlu `?- q` jsou **3 větve**, dvě úspěšné a jedna neúspěšná.",
+    "hints": [
+      "Rezolvuj vždy první cíl pravidlem se shodnou hlavou.",
+      "Pravidla pro `q` jsou 1, 2, 3."
+    ]
+  },
+  {
+    "id": "re-forward-chaining",
+    "type": "choice",
+    "prompt": "KB: $(B\\wedge D)\\Rightarrow E$, $A\\Rightarrow B$, $(A\\wedge F)\\Rightarrow D$, $F\\Rightarrow A$, $C\\Rightarrow B$, fakt $F$. Dopředné řetězení pro dotaz $E$ – v jakém pořadí se symboly odvodí (vyberou z fronty)?",
+    "options": [
+      "F, A, B, D, E",
+      "F, A, D, B, E",
+      "F, C, B, A, E",
+      "E, B, D, A, F"
+    ],
+    "answer": 0,
+    "solution": "Fronta začíná faktem $F$. $F$ ⇒ $F\\Rightarrow A$ má count 0 ⇒ do fronty $A$. $A$: $A\\Rightarrow B$ count 0 ⇒ $B$; $(A\\wedge F)\\Rightarrow D$ count 0 ⇒ $D$ (fronta $B,D$). $B$: $(B\\wedge D)\\Rightarrow E$ count 1. $D$: count 0 ⇒ $E$. $E$ je dotaz. $C$ se neodvodí.",
+    "hints": [
+      "Fronta je FIFO, začíná faktem F.",
+      "B se do fronty dostává před D."
+    ]
+  },
+  {
+    "id": "re-chaining-complexity",
+    "type": "choice",
+    "prompt": "Dopředné i zpětné řetězení v Hornově bázi znalostí mají časovou složitost…",
+    "options": ["lineární v délce báze znalostí", "exponenciální", "kvadratickou", "nerozhodnutelnou"],
+    "answer": 0,
+    "solution": "Každý symbol se odvodí nejvýše jednou a každé pravidlo se zpracuje jen při snížení počtu premis – časově lineární vůči velikosti KB. Prolog vychází ze zpětného řetězení (SLD).",
+    "hints": [
+      "Každé pravidlo se spustí nejvýš jednou.",
+      "Proto je Hornova logika lehká."
+    ]
+  },
+  {
+    "id": "re-sld-completeness",
+    "type": "choice",
+    "prompt": "SLD rezoluce je úplná pro…",
+    "options": ["libovolné množiny klauzulí", "Hornovy klauzule", "jen fakta", "jen množiny bez cílů"],
+    "answer": 1,
+    "solution": "SLD (lineární rezoluce na uspořádaných klauzulích s výběrovým pravidlem) stačí pro Hornovy klauzule; pro obecné klauzule se používá obecná rezoluce.",
+    "hints": [
+      "Prolog pracuje jen s fakty a pravidly.",
+      "Obecný případ potřebuje obecnou rezoluci."
+    ]
+  }
+]

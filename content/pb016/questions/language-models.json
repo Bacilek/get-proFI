@@ -1,0 +1,84 @@
+[
+  {
+    "id": "lm-sentence",
+    "type": "numeric",
+    "prompt": "Bigramový model: $P(\\text{pes})=0{,}4$, $P(\\text{běží}\\mid\\text{pes})=0{,}3$. Jaká je pravděpodobnost věty „pes běží“?",
+    "answer": 0.12,
+    "tolerance": 0.001,
+    "solution": "$P=0{,}4\\cdot0{,}3=0{,}12$.",
+    "hints": [
+      "Řetězové pravidlo.",
+      "Součin."
+    ]
+  },
+  {
+    "id": "lm-greedy",
+    "type": "choice",
+    "prompt": "Model: $P(\\text{běží}\\mid\\text{pes})=0{,}3$, $P(\\text{štěká}\\mid\\text{pes})=0{,}5$, $P(\\text{spí}\\mid\\text{pes})=0{,}2$. Co vygeneruje greedy strategie po slově „pes“?",
+    "options": [
+      "běží",
+      "štěká",
+      "spí",
+      "náhodné slovo"
+    ],
+    "answer": 1,
+    "solution": "Greedy volí $\\arg\\max_wP(w\\mid\\text{kontext})$ – nejpravděpodobnější slovo je „štěká“ (0,5).",
+    "hints": [
+      "Vyber maximum.",
+      "Bez náhody."
+    ]
+  },
+  {
+    "id": "lm-count",
+    "type": "numeric",
+    "prompt": "V korpusu `<s> Pes je velký </s>`, `<s> Velký je pes </s>`, `<s> Pes obvykle nebývá fialový </s>` spočítej $P(\\text{pes}\\mid\\text{<s>})$ (desetinné číslo, 2 místa).",
+    "answer": 0.67,
+    "tolerance": 0.01,
+    "solution": "$C(\\text{<s>}\\ \\text{pes})=2$ (věty 1 a 3), $C(\\text{<s>})=3$ ⇒ $2/3\\approx0{,}67$.",
+    "hints": [
+      "Kolik vět začíná slovem pes?",
+      "Kolik je všech vět?"
+    ]
+  },
+  {
+    "id": "lm-count2",
+    "type": "numeric",
+    "prompt": "Ve stejném korpusu spočítej $P(\\text{je}\\mid\\text{pes})$ (desetinné číslo, 2 místa).",
+    "answer": 0.33,
+    "tolerance": 0.01,
+    "solution": "„pes“ se vyskytuje 3×: před „je“ (1×), před `</s>` (1×) a před „obvykle“ (1×). $P=1/3\\approx0{,}33$.",
+    "hints": [
+      "Spočítej výskyty slova pes.",
+      "Kolikrát za ním následuje „je“?"
+    ]
+  },
+  {
+    "id": "lm-perplexity",
+    "type": "numeric",
+    "prompt": "Bigramový model přiřadil testovací větě čtyři kroky, každý s podmíněnou pravděpodobností 0,5. Jaká je perplexita ($P(W)^{-1/N}$)?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$P(W)=0{,}5^4=0{,}0625$, $N=4$: $0{,}0625^{-1/4}=2$.",
+    "hints": [
+      "Odmocnina čtvrtého stupně z $1/P$.",
+      "$0{,}5^{-1}=2$."
+    ]
+  },
+  {
+    "id": "lm-perp-better",
+    "type": "choice",
+    "prompt": "Který model je pro daný testovací text lepší?",
+    "options": [
+      "ten s vyšší perplexitou",
+      "ten s nižší perplexitou",
+      "ten s delším korpusem",
+      "ten s větším $n$ vždy"
+    ],
+    "answer": 1,
+    "solution": "Nižší perplexita = vyšší pravděpodobnost testovacího textu (po normalizaci délkou) = lepší model; ideální model má perplexitu 1.",
+    "hints": [
+      "Perplexita je převrácená normalizovaná pravděpodobnost.",
+      "Menší = lepší."
+    ]
+  }
+]

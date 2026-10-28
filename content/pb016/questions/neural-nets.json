@@ -1,0 +1,89 @@
+[
+  {
+    "id": "nn-unit",
+    "type": "numeric",
+    "prompt": "Jednotka má vstupy $a_1=0{,}84$, $a_2=0{,}02$, váhy $w_{1}=-0{,}15$, $w_2=12{,}4$ a prahovou váhu $w_0=3{,}8$. Vnitřní potenciál je $\\xi=-w_0+w_1a_1+w_2a_2$. Kolik je $\\xi$? (3 desetinná místa)",
+    "answer": -3.678,
+    "tolerance": 0.002,
+    "solution": "$\\xi=-3{,}8+(-0{,}15)(0{,}84)+12{,}4\\cdot0{,}02=-3{,}8-0{,}126+0{,}248=-3{,}678$.",
+    "hints": [
+      "Práh se odečítá.",
+      "Sečti tři členy."
+    ]
+  },
+  {
+    "id": "nn-sigmoid",
+    "type": "numeric",
+    "prompt": "Pro $\\xi=-3{,}678$ je výstup jednotky se sigmoidou $\\sigma(\\xi)=1/(1+e^{-\\xi})$. Kolik je přibližně $\\sigma(-3{,}678)$? (3 desetinná místa)",
+    "answer": 0.025,
+    "tolerance": 0.002,
+    "solution": "$e^{3{,}678}\\approx39{,}6$, $\\sigma=1/(1+39{,}6)\\approx0{,}0247\\approx0{,}025$ – jednotka je téměř neaktivní.",
+    "hints": [
+      "Záporný vstup dává výstup blízko 0.",
+      "$\\sigma(0)=0{,}5$."
+    ]
+  },
+  {
+    "id": "nn-nonlinear",
+    "type": "choice",
+    "prompt": "Proč musí být aktivační funkce skrytých vrstev **nelineární**?",
+    "options": [
+      "jinak by celá síť dělala jen jednu lineární funkci",
+      "kvůli derivaci",
+      "kvůli softmaxu",
+      "jen aby byla pomalejší"
+    ],
+    "answer": 0,
+    "solution": "Skládání lineárních funkcí je zase lineární funkce, takže vícevrstvá síť by nebyla výpočetně silnější než jedna vrstva.",
+    "hints": [
+      "Co dá kompozice lineárních zobrazení?",
+      "Souvisí s expresivitou."
+    ]
+  },
+  {
+    "id": "nn-gradient",
+    "type": "choice",
+    "prompt": "Jak se upravují váhy při učení sítě?",
+    "options": [
+      "v opačném směru než gradient chyby ($w\\leftarrow w-\\eta\\nabla E$)",
+      "ve směru gradientu",
+      "náhodně",
+      "podle hodnoty aktivace"
+    ],
+    "answer": 0,
+    "solution": "Gradient $\\nabla E$ ukazuje směr nejrychlejšího růstu chyby, proto váhy posouváme proti němu (snížení chyby).",
+    "hints": [
+      "Chyba se má zmenšovat.",
+      "Gradient = růst."
+    ]
+  },
+  {
+    "id": "nn-softmax",
+    "type": "numeric",
+    "prompt": "Spočítej $\\text{softmax}(1,2,3)$ – kolik je třetí složka? (3 desetinná místa)",
+    "answer": 0.665,
+    "tolerance": 0.002,
+    "solution": "$e^1+e^2+e^3\\approx2{,}718+7{,}389+20{,}086=30{,}193$; třetí složka $20{,}086/30{,}193\\approx0{,}665$. Složky ≈ (0,090; 0,245; 0,665), součet 1.",
+    "hints": [
+      "Čitatel $e^3\\approx20{,}09$.",
+      "Jmenovatel je součet všech tří exponenciál."
+    ]
+  },
+  {
+    "id": "nn-softmax-zero",
+    "type": "choice",
+    "prompt": "Může funkce softmax vrátit pro nějakou kategorii **nulovou** pravděpodobnost?",
+    "options": [
+      "ne, exponenciála je vždy kladná, takže každý výstup je > 0",
+      "ano, pro záporné vstupy",
+      "ano, pro dostatečně velký vstup jiné kategorie (přesně nulu)",
+      "jen pro 2 kategorie"
+    ],
+    "answer": 0,
+    "solution": "$e^{x}>0$ pro každé $x$, takže všechny výstupy jsou kladné (i když mohou být blízko nule); součet je 1.",
+    "hints": [
+      "Exponenciála je kladná.",
+      "Blízko 0 ≠ rovno 0."
+    ]
+  }
+]

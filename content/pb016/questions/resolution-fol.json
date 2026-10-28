@@ -1,0 +1,148 @@
+[
+  {
+    "id": "rf-apply-subst",
+    "type": "choice",
+    "prompt": "Pro $S=\\{P(x,y),\\neg Q(y,f(x))\\}$ a $\\Phi=\\{x/c,y/b\\}$ je $S\\Phi$…",
+    "options": [
+      "$\\{P(c,b),\\neg Q(b,f(c))\\}$",
+      "$\\{P(b,c),\\neg Q(c,f(b))\\}$",
+      "$\\{P(c,y),\\neg Q(y,f(c))\\}$",
+      "nedefinováno"
+    ],
+    "answer": 0,
+    "solution": "Každý výskyt $x$ se nahradí $c$, každý výskyt $y$ se nahradí $b$ (včetně vnořeného $f(x)\\to f(c)$).",
+    "hints": [
+      "Dosazuj současně všude.",
+      "Pozor na $x$ uvnitř $f(x)$."
+    ]
+  },
+  {
+    "id": "rf-simultaneous",
+    "type": "choice",
+    "prompt": "Pro $S=\\{P(x),Q(y)\\}$ a $\\Phi=\\{x/y,\\ y/x\\}$ je $S\\Phi=$",
+    "options": ["$\\{P(y),Q(x)\\}$", "$\\{P(x),Q(x)\\}$", "$\\{P(y),Q(y)\\}$", "$\\{P(x),Q(y)\\}$"],
+    "answer": 0,
+    "solution": "Substituce se aplikuje **současně**: $x\\to y$ a $y\\to x$ zároveň, výsledek $\\{P(y),Q(x)\\}$ (je to přejmenování).",
+    "hints": [
+      "Neprovádíš dvě substituce za sebou.",
+      "Každý symbol se nahradí jen jednou."
+    ]
+  },
+  {
+    "id": "rf-mgu-1",
+    "type": "choice",
+    "prompt": "Nejobecnější unifikátor množiny $\\{Q(x,x),Q(y,c)\\}$ ($c$ konstanta) je…",
+    "options": [
+      "$\\{x/c,\\ y/c\\}$",
+      "$\\{x/y\\}$",
+      "množina není unifikovatelná",
+      "$\\{y/x\\}$"
+    ],
+    "answer": 0,
+    "solution": "Argumenty: $x$ s $y$ ⇒ $x/y$; druhé $x$ (nyní $y$) s $c$ ⇒ $y/c$. Výsledek $\\{x/c,y/c\\}$ (obě literály $Q(c,c)$).",
+    "hints": [
+      "Unifikuj argument po argumentu.",
+      "Druhý argument vynutí hodnotu $c$."
+    ]
+  },
+  {
+    "id": "rf-mgu-2",
+    "type": "choice",
+    "prompt": "Unifikátorem množiny $\\{P(z,f(z)),\\ P(f(x),f(f(c)))\\}$ je…",
+    "options": [
+      "$\\{z/f(c),\\ x/c\\}$",
+      "$\\{z/f(x)\\}$",
+      "$\\{z/c,\\ x/c\\}$",
+      "není unifikovatelná"
+    ],
+    "answer": 0,
+    "solution": "Z prvního argumentu $z=f(x)$; z druhého $f(z)=f(f(c))\\Rightarrow z=f(c)$. Tedy $f(x)=f(c)\\Rightarrow x=c$, $z=f(c)$. Po aplikaci: $P(f(c),f(f(c)))$ v obou literálech.",
+    "hints": [
+      "První argument: $z$ vs. $f(x)$.",
+      "Druhý argument: $f(z)$ vs. $f(f(c))$."
+    ]
+  },
+  {
+    "id": "rf-not-unifiable",
+    "type": "choice",
+    "prompt": "Která množina literálů **není** unifikovatelná?",
+    "options": [
+      "$\\{P(x),P(y)\\}$",
+      "$\\{P(z,f(z)),\\ P(f(x),f(c))\\}$",
+      "$\\{Q(x,x),Q(y,c)\\}$",
+      "$\\{P(x,f(y)),P(c,z)\\}$"
+    ],
+    "answer": 1,
+    "solution": "$z=f(x)$ z prvního argumentu, z druhého $f(z)=f(c)$ ⇒ $z=c$; pak $f(x)=c$ – funkční symbol vs. konstanta, spor.",
+    "hints": [
+      "Řeš argument po argumentu.",
+      "Hledej spor funkce × konstanta."
+    ]
+  },
+  {
+    "id": "rf-occurs",
+    "type": "choice",
+    "prompt": "Množina $\\{P(x),\\ P(f(x))\\}$ je…",
+    "options": [
+      "unifikovatelná substitucí $\\{x/f(x)\\}$",
+      "neunifikovatelná (occurs check – $x$ se vyskytuje v termu $f(x)$)",
+      "unifikovatelná substitucí $\\{x/c\\}$",
+      "unifikovatelná jen v nekonečné doméně"
+    ],
+    "answer": 1,
+    "solution": "Aby $x=f(x)$, musela by substituce vytvořit nekonečný term. Occurs check to zakazuje, množina není unifikovatelná.",
+    "hints": [
+      "Dosaď $x/f(x)$ – splynou literály?",
+      "Kontroluj výskyt proměnné v termu."
+    ]
+  },
+  {
+    "id": "rf-resolvent-1",
+    "type": "choice",
+    "prompt": "Rezolventou klauzulí $\\{P(x),\\neg Q(x)\\}$ a $\\{Q(c)\\}$ je…",
+    "options": ["$\\{P(c)\\}$ s unifikátorem $\\{x/c\\}$", "$\\{P(x)\\}$", "$\\square$", "neexistuje"],
+    "answer": 0,
+    "solution": "Rezolvuje se na $Q$: $\\neg Q(x)$ a $Q(c)$ se unifikují $\\{x/c\\}$; zbyde $P(x)\\{x/c\\}=P(c)$.",
+    "hints": [
+      "Unifikuj $Q(x)$ a $Q(c)$.",
+      "Substituci aplikuj na celou rezolventu."
+    ]
+  },
+  {
+    "id": "rf-resolvent-none",
+    "type": "choice",
+    "prompt": "Klauzule $\\{P(f(x),z)\\}$ a $\\{\\neg P(g(x),f(y))\\}$ mají rezolventu…",
+    "options": [
+      "□",
+      "nemají – $f(x)$ a $g(x)$ nejdou unifikovat",
+      "$\\{P(f(x),z)\\}$",
+      "$\\{z/f(y)\\}$"
+    ],
+    "answer": 1,
+    "solution": "Pro rezoluci by se musely unifikovat $P(f(x),z)$ a $P(g(x),f(y))$ – první argumenty $f(x)$ a $g(x)$ mají různé funkční symboly ⇒ nelze. Rezolventa neexistuje.",
+    "hints": [
+      "Unifikuj první argumenty.",
+      "$f\\ne g$."
+    ]
+  },
+  {
+    "id": "rf-rename",
+    "type": "free",
+    "prompt": "Najdi rezolventu klauzulí $\\{Q(x),\\neg P(c)\\}$ a $\\{P(y),\\neg R(y,x)\\}$. Na co si musíš dát pozor?",
+    "solution": "Klauzule sdílejí proměnnou $x$ ⇒ nejprve přejmenuj $x$ ve druhé klauzuli na $x_1$: $\\{P(y),\\neg R(y,x_1)\\}$. Rezolvuj na $P$: unifikuj $P(c)$ a $P(y)$: $\\Phi=\\{y/c\\}$. Rezolventa: $\\{Q(x),\\neg R(c,x_1)\\}$.",
+    "hints": [
+      "Společné proměnné před rezolucí přejmenuj.",
+      "Rezolvuješ na predikátu $P$."
+    ]
+  },
+  {
+    "id": "rf-dragons",
+    "type": "free",
+    "prompt": "Z předpokladů „Existuje drak.“, „Draci spí nebo loví.“, „Když mají draci hlad, nespí.“ dokaž rezolucí „Když má drak hlad, loví.“ (formalizace, skolemizace, vyvrácení).",
+    "solution": "Predikáty: $D(x)$ drak, $H(x)$ má hlad, $L(x)$ loví, $S(x)$ spí. Předpoklady: $\\exists x\\,D(x)$; $\\forall x\\,(D\\Rightarrow S\\vee L)$; $\\forall x\\,(D\\wedge H\\Rightarrow\\neg S)$. Závěr $\\forall x\\,(D\\wedge H\\Rightarrow L)$, negace $\\exists x\\,(D\\wedge H\\wedge\\neg L)$. Klauzule: $\\{D(a)\\}$, $\\{\\neg D(x),S(x),L(x)\\}$, $\\{\\neg D(x),\\neg H(x),\\neg S(x)\\}$, negace: $\\{D(b)\\}$, $\\{H(b)\\}$, $\\{\\neg L(b)\\}$. Vyvrácení: $\\{\\neg D(x),S(x),L(x)\\}+\\{\\neg L(b)\\}\\ (x/b)\\to\\{\\neg D(b),S(b)\\}$; $\\{\\neg D(x),\\neg H(x),\\neg S(x)\\}+\\{H(b)\\}\\ (x/b)\\to\\{\\neg D(b),\\neg S(b)\\}$; $\\to\\{\\neg D(b)\\}$; $+\\{D(b)\\}\\to\\square$. Přímé odvození: první dvě klauzule rezolvovat na $S$ ⇒ $\\{\\neg D(x),\\neg H(x),L(x)\\}$.",
+    "hints": [
+      "Negace závěru zavádí novou konstantu $b$.",
+      "Rezolvuj na $S$ a $L$."
+    ]
+  }
+]

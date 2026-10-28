@@ -1,0 +1,87 @@
+[
+  {
+    "id": "pb-bayes-test",
+    "type": "numeric",
+    "prompt": "Prevalence nemoci je 1 %. Test je pozitivní u 90 % nemocných a u 5 % zdravých. Jaká je pravděpodobnost, že pacient s pozitivním testem je nemocný? (na 3 desetinná místa)",
+    "answer": 0.154,
+    "tolerance": 0.002,
+    "solution": "$P(n\\mid+)=\\frac{0{,}9\\cdot0{,}01}{0{,}9\\cdot0{,}01+0{,}05\\cdot0{,}99}=\\frac{0{,}009}{0{,}0585}\\approx0{,}154$.",
+    "hints": [
+      "Použij Bayesovu větu.",
+      "Jmenovatel = $P(+)$ přes nemocné i zdravé."
+    ]
+  },
+  {
+    "id": "pb-conditional",
+    "type": "numeric",
+    "prompt": "Kostka: jaká je pravděpodobnost, že padlo sudé číslo, pokud víme, že padlo alespoň 4? (desetinné číslo na 3 místa)",
+    "answer": 0.667,
+    "tolerance": 0.002,
+    "solution": "$P(\\text{sudé}\\mid\\ge4)=\\frac{P(\\{4,6\\})}{P(\\{4,5,6\\})}=\\frac{2/6}{3/6}=\\frac23\\approx0{,}667$.",
+    "hints": [
+      "Podmínka zužuje $\\Omega$ na $\\{4,5,6\\}$.",
+      "Kolik z nich je sudých?"
+    ]
+  },
+  {
+    "id": "pb-independent",
+    "type": "choice",
+    "prompt": "Jevy $A$, $B$ jsou stochasticky nezávislé, právě když…",
+    "options": [
+      "$P(A\\cap B)=P(A)\\,P(B)$",
+      "$P(A\\cap B)=0$",
+      "$P(A\\cup B)=1$",
+      "$P(A)=P(B)$"
+    ],
+    "answer": 0,
+    "solution": "Nezávislost: $P(A\\cap B)=P(A)P(B)$ (ekvivalentně $P(A\\mid B)=P(A)$). Disjunktní jevy s nenulovou pravděpodobností jsou naopak závislé.",
+    "hints": [
+      "Zjištění $B$ nesmí změnit pravděpodobnost $A$.",
+      "Součin pravděpodobností."
+    ]
+  },
+  {
+    "id": "pb-bayes-rule",
+    "type": "choice",
+    "prompt": "Bayesova věta říká:",
+    "options": [
+      "$P(A\\mid B)=\\dfrac{P(B\\mid A)P(A)}{P(B)}$",
+      "$P(A\\mid B)=P(B\\mid A)$",
+      "$P(A\\mid B)=P(A)+P(B)$",
+      "$P(A\\mid B)=\\dfrac{P(A)}{P(B)}$"
+    ],
+    "answer": 0,
+    "solution": "Převádí $P(B\\mid A)$ na $P(A\\mid B)$ pomocí apriorních pravděpodobností.",
+    "hints": [
+      "Podmíněnost se obrací.",
+      "Apriorní $P(A)$ a „evidence“ $P(B)$."
+    ]
+  },
+  {
+    "id": "pb-bn-order",
+    "type": "choice",
+    "prompt": "Jak se obvykle volí pořadí uzlů při stavbě Bayesovské sítě pro kompaktní síť?",
+    "options": [
+      "příčiny před následky",
+      "následky před příčinami",
+      "abecedně",
+      "náhodně – nemá vliv"
+    ],
+    "answer": 0,
+    "solution": "Pořadí lze zvolit libovolně, ale přidávání příčin před následky obvykle vede ke kompaktnější síti (méně rodičů).",
+    "hints": [
+      "Rodiče uzlu mají být jeho přímé příčiny.",
+      "Pořadí ovlivňuje počet hran."
+    ]
+  },
+  {
+    "id": "pb-bn-def",
+    "type": "free",
+    "prompt": "Co je Bayesovská síť a co obsahují její uzly a hrany?",
+    "solution": "Acyklický orientovaný graf; uzly jsou náhodné proměnné, hrana $A\\to B$ znamená, že $B$ přímo závisí na rodiči $A$. U každého uzlu je tabulka $P(X_i\\mid\\text{Parents}(X_i))$; společné rozdělení je součin těchto podmíněných pravděpodobností.",
+    "hints": [
+      "Graf bez cyklů.",
+      "Tabulky podmíněných pravděpodobností."
+    ]
+  }
+]

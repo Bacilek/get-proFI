@@ -20,12 +20,16 @@ Sem. start 14. 9. 2026 (týden 1; přednášky Po 14:00). Cvičení k tématu js
 | 4 | hry | minimax, alpha-beta, games-advanced | w05 (piškvorky, minimax, alfa-beta) | – |
 | 5 | logický agent, výrokovka | logic-agent, propositional, normal-forms | w06+ (logika – PDF zadání, pen&paper) | – |
 | 6 | PL1 | fol-basics, fol-forms, other-logics | w07+ | – |
-| 7–12 | inference/rezoluce, reprezentace znalostí, NLP, učení, hluboké učení, generativní modely | **zatím nezpracováno (chybí slidy)** | | |
+| 7 | inference, rezoluce | resolution, resolution-fol (**jen ze sbírky kap. 7**) | w07+ | – |
+| 8 | reprezentace znalostí, nejistota | knowledge-repr, probability-bayes (**jen ze sbírky kap. 8**) | | – |
+| 9 | NLP | grammars (**jen kap. 9.2; předzpracování dat prázdné**) | | – |
+| 10–11 | učení, stromy, neurony, hluboké učení | decision-trees, perceptron, neural-nets (**jen kap. 10–11**; CNN/hluboké učení chybí) | | – |
+| 12 | generativní modely | language-models (**jen kap. 12.2–12.3**; etika AI prázdná) | | – |
 
-Dnes (28. 10.) je týden 7; slidy jsou jen uui01–06.
+Dnes (28. 10.) je týden 7; slidy jsou jen uui01–06. Lekce př. 7–12 vznikly ze sbírky (kap. 7–12) předem – nejsou v rozsahu průběžné písemky (př. 1–5), ale jsou v coversModules zkoušky.
 
 ## Co je hotové
-- Kurz `pb016`: 17 lekcí v 6 modulech (př. 1–6), ~150 otázek (všechny s hints; číselné odpovědi a pořadí algoritmů ověřeny skriptem: A*/greedy na Rumunsku, Dijkstra, alfa-beta, počty obarvení/řešení CSP, SEND+MORE, pravdivostní tabulky, 8-puzzle h1/h2).
+- Kurz `pb016`: 26 lekcí (př. 1–6 podle slidů; **př. 7–12 jen ze sbírky, rozpracováno – po nahrání slidů zkontrolovat a doplnit**), 209 otázek (všechny s hints; číselné odpovědi a pořadí algoritmů ověřeny skriptem: A*/greedy na Rumunsku, Dijkstra, alfa-beta, počty obarvení/řešení CSP, SEND+MORE, pravdivostní tabulky, 8-puzzle h1/h2).
 - Milníky: odpovědníky (14. 12. = poslední cvičení), průběžná písemka (bez data), závěrečná (bez data). Modul `fol` (př. 6) není v rozsahu průběžné písemky.
 - ROPOT 01–03 (viz níže) zapracovány do otázek (`ai-optimization-which`, `ai-turing-players`, `pf-sort-configs`, `pf-queens-n3`, `pf-4queens-actions`, `is-astar-f`, `is-greedy-pick`, `us-properties`, `ao-tictactoe-leaves`, `ao-solutions-rn`, `csp-count-zero`, `csp-queens-model`).
 - Výsledky odpovědníků (uživatel, z ROPOTs): 01 = 2,0 b (4/4), 02 = 1,25 b (3 správně, 1 špatně: greedy → správně D, uživatel zvolil B), 03 = 2,0 b (4/4) ⇒ **5,25 b z 6**. Zadat do appky ručně (milník `minitests` neseedován schválně – po zadání by zmizel z „upcoming“).
@@ -34,7 +38,7 @@ Dnes (28. 10.) je týden 7; slidy jsou jen uui01–06.
 - Slidy uui01–uui06 (+ handouty) a Dijkstra_a_A_star_VM_2026 (24. 3. 2026, V. Míč): zpracováno do lekcí 1–6.
 - Notebooky w02–w05 (zadání i řešení) a w01 (organizace): zpracováno (koncepty do lekcí, kód do `free` otázek `us-code-*`, `csp-code-python`, `ao-code-dragon`, `mm-code-tictactoe`).
 - ROPOTs 01.png–03.png: viz výše.
-- Nezpracováno/zachováno: `Lectures/sbirka/*` – sbírka příkladů (12 kapitol) vč. klíče a shrnutí; využita jen pro definice a vybrané příklady kap. 1–6. Číslované příklady (kap. 1–6) lze ještě převést na otázky; kap. 7–12 čekají na slidy.
+- Nezpracováno/zachováno: `Lectures/sbirka/*` – sbírka příkladů (12 kapitol) vč. klíče a shrnutí; využita jen pro definice a vybrané příklady kap. 1–6. Číslované příklady (kap. 1–6) lze ještě převést na otázky; kap. 7–12 zpracovány jen jako rozpracované lekce (viz výše).
 
 ## Chyby / poznámky ke zdrojům
 - Slidy 4: odhad backgammon „20 × (21·20)³ ≈ 1,2·10⁹“ – přepočet dává ≈ 1,5·10⁹ (neopisovat).

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "gr-generate",
+    "type": "choice",
+    "prompt": "Gramatika: $S\\to NP\\,VP$, $NP\\to Noun\\mid Adj\\,NP$, $VP\\to Verb$; Noun → dítě | člověk | kapsa; Adj → starý | cestující | nové; Verb → píše | sedí | mluví. Kterou větu **nelze** vygenerovat?",
+    "options": [
+      "starý člověk mluví",
+      "nové nové kapsa píše",
+      "cestující sedí",
+      "dítě píše"
+    ],
+    "answer": 2,
+    "solution": "NP musí končit podstatným jménem (Noun). „cestující“ je Adj, takže „cestující sedí“ nelze odvodit. „nové nové kapsa píše“ jde (i když gramaticky špatně).",
+    "hints": [
+      "Která věta nemá Noun?",
+      "NP → Adj NP … Noun."
+    ]
+  },
+  {
+    "id": "gr-overgenerate",
+    "type": "choice",
+    "prompt": "Věta „nové nové kapsa píše“ je v gramatice odvoditelná, ale v češtině špatně (neshoda v rodě). Co to znamená pro kvalitu gramatiky?",
+    "options": [
+      "nízké pokrytí",
+      "nízká přesnost (gramatika generuje věty, které nepatří do jazyka)",
+      "gramatika není bezkontextová",
+      "nic"
+    ],
+    "answer": 1,
+    "solution": "Přesnost je podíl vygenerovaných vět, které patří do jazyka; vygenerovaná špatná věta ji snižuje.",
+    "hints": [
+      "Přesnost vs. pokrytí.",
+      "Generuje se něco navíc."
+    ]
+  },
+  {
+    "id": "gr-coverage",
+    "type": "numeric",
+    "prompt": "Zamýšlený jazyk $L$ má 10 vět; gramatika $G$ generuje 8 vět, z nichž 6 patří do $L$. Jaké je **pokrytí** gramatiky? (desetinné číslo)",
+    "answer": 0.6,
+    "tolerance": 0.001,
+    "solution": "Pokrytí $=|L\\cap L(G)|/|L|=6/10=0{,}6$. (Přesnost by byla $6/8=0{,}75$.)",
+    "hints": [
+      "Dělíš velikostí $L$.",
+      "Průnik má 6 vět."
+    ]
+  },
+  {
+    "id": "gr-precision",
+    "type": "numeric",
+    "prompt": "Stejná situace ($|L|=10$, $|L(G)|=8$, $|L\\cap L(G)|=6$). Jaká je **přesnost** gramatiky? (desetinné číslo)",
+    "answer": 0.75,
+    "tolerance": 0.001,
+    "solution": "Přesnost $=|L\\cap L(G)|/|L(G)|=6/8=0{,}75$.",
+    "hints": [
+      "Dělíš velikostí $L(G)$.",
+      "Podíl vygenerovaných vět patřících do $L$."
+    ]
+  },
+  {
+    "id": "gr-derive",
+    "type": "free",
+    "prompt": "Odvoď větu „starý člověk mluví“ v gramatice z předchozích příkladů a popiš syntaktický strom.",
+    "solution": "$S\\Rightarrow NP\\,VP\\Rightarrow Adj\\,NP\\,VP\\Rightarrow$ starý $NP\\,VP\\Rightarrow$ starý $Noun\\,VP\\Rightarrow$ starý člověk $VP\\Rightarrow$ starý člověk $Verb\\Rightarrow$ starý člověk mluví. Strom: $S$ → ($NP$ → ($Adj$ starý, $NP$ → $Noun$ člověk), $VP$ → $Verb$ mluví).",
+    "hints": [
+      "Rozepisuj vždy nejlevější neterminál.",
+      "NP → Adj NP → … Noun."
+    ]
+  }
+]

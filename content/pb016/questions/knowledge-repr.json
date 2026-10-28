@@ -1,0 +1,63 @@
+[
+  {
+    "id": "kr-inherit",
+    "type": "choice",
+    "prompt": "Sémantická síť: *ovoce* má chuť sladkou a do zmrzliny ano; *rajče* je podtřída ovoce s výjimkou „do zmrzliny: ne“. Je rajče sladké a vhodné do zmrzliny?",
+    "options": [
+      "sladké ano, do zmrzliny ano",
+      "sladké ano, do zmrzliny ne",
+      "sladké ne, do zmrzliny ne",
+      "sladké ne, do zmrzliny ano"
+    ],
+    "answer": 1,
+    "solution": "Sladkost se zdědí z ovoce (rajče nemá vlastní hodnotu), vhodnost do zmrzliny rajče přepisuje výjimkou „ne“.",
+    "hints": [
+      "Co se zdědí od nadtřídy?",
+      "Co je přepsáno výjimkou?"
+    ]
+  },
+  {
+    "id": "kr-vertical",
+    "type": "choice",
+    "prompt": "Které vztahy se ve sémantické síti kreslí **vertikálně** a tvoří hierarchii pojmů?",
+    "options": [
+      "barva a chuť",
+      "instance a podtřída",
+      "část a celek",
+      "všechny vztahy"
+    ],
+    "answer": 1,
+    "solution": "Vertikálně se kreslí instance a podtřída (hierarchie, dědičnost). Vlastnosti (barva, chuť) a část–celek se kreslí horizontálně.",
+    "hints": [
+      "Hierarchie = taxonomie.",
+      "Vlastnosti jsou „horizontální“."
+    ]
+  },
+  {
+    "id": "kr-frame",
+    "type": "free",
+    "prompt": "Převeď na rámce: *ovoce* (chuť: sladká, do zmrzliny: ano jako výchozí hodnoty), *maliny* (podtřída ovoce), *maliny v kuchyni* (instance malin, barva červená).",
+    "solution": "ovoce: *chuť: sladká, *do_zmrzliny: ano. maliny: podtřída: ovoce. maliny v kuchyni: instance: maliny, *barva: červená. Hvězdička označuje vzorovou hodnotu, kterou lze při dědění přepsat výjimkou. Objekty a hodnoty slotů odpovídají uzlům sítě, sloty hranám.",
+    "hints": [
+      "Objekt, slot, hodnota slotu.",
+      "Sloty s `*` jsou výchozí."
+    ]
+  },
+  {
+    "id": "kr-ontology",
+    "type": "choice",
+    "prompt": "Co je ontologie?",
+    "options": [
+      "formální systém popisující svět pojmy, vztahy a axiomy",
+      "algoritmus prohledávání",
+      "druh neuronové sítě",
+      "pravděpodobnostní rozdělení"
+    ],
+    "answer": 0,
+    "solution": "Ontologie je formální systém popisující svět (nebo jeho část) pomocí pojmů, vztahů mezi nimi a axiomů; konkrétní znalosti se vyjadřují jejím slovníkem.",
+    "hints": [
+      "Souvisí se slovníkem predikátů.",
+      "Viz znalostní inženýrství."
+    ]
+  }
+]

@@ -223,6 +223,134 @@
           ]
         }
       ]
+    },
+    {
+      "id": "inference",
+      "title": "7. Inference a rezoluce (př. 7, zatím jen ze sbírky)",
+      "lessons": [
+        {
+          "id": "pb016:resolution",
+          "title": "Rezoluce ve výrokové logice, SLD, Hornovy klauzule, řetězení",
+          "week": 7,
+          "prerequisites": [
+            "pb016:normal-forms"
+          ],
+          "topics": [
+            "pb016:resolution"
+          ]
+        },
+        {
+          "id": "pb016:resolution-fol",
+          "title": "Unifikace a rezoluce v PL1",
+          "week": 7,
+          "prerequisites": [
+            "pb016:resolution",
+            "pb016:fol-forms"
+          ],
+          "topics": [
+            "pb016:resolution-fol"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "title": "8. Reprezentace a vyvozování znalostí (př. 8, zatím jen ze sbírky)",
+      "lessons": [
+        {
+          "id": "pb016:knowledge-repr",
+          "title": "Ontologie, sémantické sítě, rámce",
+          "week": 8,
+          "prerequisites": [
+            "pb016:fol-basics"
+          ],
+          "topics": [
+            "pb016:knowledge-repr"
+          ]
+        },
+        {
+          "id": "pb016:probability-bayes",
+          "title": "Nejisté znalosti: pravděpodobnost, Bayes, Bayesovské sítě",
+          "week": 8,
+          "prerequisites": [
+            "pb016:propositional"
+          ],
+          "topics": [
+            "pb016:probability-bayes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nlp",
+      "title": "9. Zpracování přirozeného jazyka (př. 9, zatím jen ze sbírky)",
+      "lessons": [
+        {
+          "id": "pb016:grammars",
+          "title": "Bezkontextové gramatiky, pokrytí a přesnost",
+          "week": 9,
+          "prerequisites": [
+            "pb016:ai-intro"
+          ],
+          "topics": [
+            "pb016:grammars"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "10–11. Učení, neuronové sítě (př. 10–11, zatím jen ze sbírky)",
+      "lessons": [
+        {
+          "id": "pb016:decision-trees",
+          "title": "Rozhodovací stromy, entropie, informační zisk",
+          "week": 10,
+          "prerequisites": [
+            "pb016:probability-bayes"
+          ],
+          "topics": [
+            "pb016:decision-trees"
+          ]
+        },
+        {
+          "id": "pb016:perceptron",
+          "title": "Perceptron a lineární klasifikace",
+          "week": 10,
+          "prerequisites": [],
+          "topics": [
+            "pb016:perceptron"
+          ]
+        },
+        {
+          "id": "pb016:neural-nets",
+          "title": "Neuronové sítě, aktivační funkce, backpropagation, softmax",
+          "week": 11,
+          "prerequisites": [
+            "pb016:perceptron"
+          ],
+          "topics": [
+            "pb016:neural-nets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gen",
+      "title": "12. Generativní modely (př. 12, zatím jen ze sbírky)",
+      "lessons": [
+        {
+          "id": "pb016:language-models",
+          "title": "Jazykové modely, n-gramy, perplexita",
+          "week": 12,
+          "prerequisites": [
+            "pb016:probability-bayes"
+          ],
+          "topics": [
+            "pb016:language-models"
+          ]
+        }
+      ]
     }
   ],
   "milestones": [
@@ -262,7 +390,12 @@
         "decomp",
         "games",
         "logic",
-        "fol"
+        "fol",
+        "inference",
+        "knowledge",
+        "nlp",
+        "ml",
+        "gen"
       ],
       "info": "Max 60 b, dva řádné a jeden opravný termín. Celkem max 104 b (24 + 20 + 60): A > 95, E > 63. Podmínka: ≥ 10 b z odpovědníků."
     }
@@ -278,7 +411,7 @@
     },
     {
       "id": "lectures-7-12",
-      "text": "Slidy přednášek 7–12 (inference/rezoluce, reprezentace znalostí, NLP, strojové učení, hluboké učení, generativní modely) – zatím jen sbírka ch. 7–12 bez slidů; nahrát do sources/PB016/Lectures/slides."
+      "text": "Slidy přednášek 7–12 (rezoluce, reprezentace znalostí, NLP, strojové učení, hluboké učení, generativní modely) – lekce př. 7–12 jsou zatím sepsané jen ze sbírky (kap. 7–12), bez slidů a bez etiky AI, předzpracování dat, hlubokého učení/CNN, transformerů; po nahrání slidů do sources/PB016/Lectures/slides doplnit a zkontrolovat."
     },
     {
       "id": "seminars",

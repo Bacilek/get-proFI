@@ -1,0 +1,84 @@
+[
+  {
+    "id": "dt-entropy-max",
+    "type": "numeric",
+    "prompt": "Jaká je entropie binárního datasetu s 50 % pozitivních a 50 % negativních příkladů?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$E=-\\tfrac12\\log_2\\tfrac12-\\tfrac12\\log_2\\tfrac12=1$ (maximum pro binární třídu).",
+    "hints": [
+      "Dosaď $P_1=P_2=1/2$.",
+      "$\\log_2\\tfrac12=-1$."
+    ]
+  },
+  {
+    "id": "dt-entropy-pure",
+    "type": "numeric",
+    "prompt": "Jaká je entropie datasetu, kde všechny příklady patří do jedné třídy?",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$E=-1\\cdot\\log_21-0\\cdot\\log_20=0$ (dle konvence $0\\log0=0$) – žádná nejistota.",
+    "hints": [
+      "Jedna třída má pravděpodobnost 1.",
+      "$\\log_21=0$."
+    ]
+  },
+  {
+    "id": "dt-entropy-7",
+    "type": "numeric",
+    "prompt": "Dataset má 7 příkladů: 4 ANO a 3 NE. Spočítej entropii (3 desetinná místa).",
+    "answer": 0.985,
+    "tolerance": 0.002,
+    "solution": "$E=-\\tfrac47\\log_2\\tfrac47-\\tfrac37\\log_2\\tfrac37\\approx0{,}571\\cdot0{,}807+0{,}429\\cdot1{,}222\\approx0{,}985$.",
+    "hints": [
+      "Použij $\\log_2$.",
+      "$\\tfrac47\\approx0{,}571$."
+    ]
+  },
+  {
+    "id": "dt-gain",
+    "type": "numeric",
+    "prompt": "V datasetu 4 ANO / 3 NE ($E\\approx0{,}985$) rozdělí atribut Počasí příklady na: zataženo (1 ANO, 1 NE), slunečno (3 ANO), déšť (2 NE). Spočítej informační zisk (2 desetinná místa).",
+    "answer": 0.7,
+    "tolerance": 0.01,
+    "solution": "$\\text{Gain}=0{,}985-\\big(\\tfrac27\\cdot1+\\tfrac37\\cdot0+\\tfrac27\\cdot0\\big)=0{,}985-0{,}286\\approx0{,}70$.",
+    "hints": [
+      "Čisté podmnožiny mají entropii 0.",
+      "Zataženo má entropii 1 a váhu $2/7$."
+    ]
+  },
+  {
+    "id": "dt-best",
+    "type": "choice",
+    "prompt": "Pro dataset 4 ANO / 3 NE jsou informační zisky: Vlhkost 0,59; Počasí 0,70; Větrno 0,13; Teplota 0,02. Který atribut zvolíš v kořeni?",
+    "options": [
+      "Vlhkost",
+      "Počasí",
+      "Větrno",
+      "Teplota"
+    ],
+    "answer": 1,
+    "solution": "Do kořene dáš atribut s největším informačním ziskem – Počasí.",
+    "hints": [
+      "Maximalizuj zisk.",
+      "Zisk = pokles entropie."
+    ]
+  },
+  {
+    "id": "dt-leaf",
+    "type": "choice",
+    "prompt": "Kdy je uzel při učení rozhodovacího stromu prohlášen za list?",
+    "options": [
+      "když příklady v uzlu patří jedné třídě, nebo byly otestovány všechny atributy",
+      "vždy v hloubce 2",
+      "když entropie roste",
+      "nikdy – strom se rozšiřuje donekonečna"
+    ],
+    "answer": 0,
+    "solution": "List vznikne, když jsou v uzlu příklady jedné třídy (label = ta třída), nebo když už nezbývají atributy k testování (label = převládající třída; strom pak nemusí být konzistentní).",
+    "hints": [
+      "Dva případy.",
+      "Čistá množina nebo došly atributy."
+    ]
+  }
+]
