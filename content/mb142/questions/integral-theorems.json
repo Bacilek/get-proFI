@@ -1,0 +1,66 @@
+[
+  {
+    "id": "inttheorems-x0",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=4-x^2$ má na $[0,3]$ průměrnou hodnotu $1$. V kterém bodě $x_0\\in[0,3]$ ji nabývá? (na 3 desetinná místa)",
+    "answer": 1.732,
+    "tolerance": 0.001,
+    "solution": "$4-x_0^2=1\\Rightarrow x_0=\\sqrt3\\approx1{,}732$."
+  },
+  {
+    "id": "inttheorems-deriv-simple",
+    "type": "numeric",
+    "prompt": "Nechť $F(x)=\\displaystyle\\int_0^x t^2\\sin t\\,\\mathrm{d}t$. Určete $F'\\!\\left(\\frac{\\pi}{2}\\right)$ (na 3 desetinná místa).",
+    "answer": 2.467,
+    "tolerance": 0.001,
+    "solution": "Fundamentální vztah: $F'(x)=x^2\\sin x$, tedy $F'(\\frac\\pi2)=\\frac{\\pi^2}{4}\\approx2{,}467$."
+  },
+  {
+    "id": "inttheorems-two-limits",
+    "type": "numeric",
+    "prompt": "Nechť $H(x)=\\displaystyle\\int_x^{x^2}\\ln t\\,\\mathrm{d}t$. Určete $H'(e)$ (na 3 desetinná místa).",
+    "answer": 9.873,
+    "tolerance": 0.002,
+    "solution": "$H'(x)=-\\ln x+\\ln(x^2)\\cdot2x=(4x-1)\\ln x$. Pro $x=e$: $4e-1\\approx9{,}873$."
+  },
+  {
+    "id": "inttheorems-lower-limit",
+    "type": "choice",
+    "prompt": "Pro spojitou $f$ je $\\left(\\displaystyle\\int_x^{c}f(t)\\,\\mathrm{d}t\\right)'=$",
+    "options": ["$-f(x)$", "$f(x)$", "$f(c)-f(x)$", "$0$"],
+    "answer": 0,
+    "solution": "$\\int_x^c f=-\\int_c^x f$, derivace je $-f(x)$."
+  },
+  {
+    "id": "inttheorems-discontinuous",
+    "type": "choice",
+    "prompt": "Funkce $f=-1$ na $[-1,0)$ a $f=1$ na $[0,1]$ má průměrnou hodnotu $0$. Co z toho plyne?",
+    "options": [
+      "Hodnotu $0$ nenabývá, protože $f$ není spojitá; věta o střední hodnotě (ii) se spojitostí vyžaduje",
+      "Věta o střední hodnotě je špatně",
+      "$f$ není integrovatelná",
+      "$f$ nabývá $0$ v bodě $x=0$"
+    ],
+    "answer": 0,
+    "solution": "$f$ je integrovatelná (po částech konstantní), $\\operatorname{av}(f)=0$, ale $f$ nabývá jen $\\pm1$. Část (ii) věty potřebuje spojitost."
+  },
+  {
+    "id": "inttheorems-F-continuity",
+    "type": "choice",
+    "prompt": "Nechť $f\\in R[a,b]$ je nespojitá v jednom bodě. Co platí o $F(x)=\\displaystyle\\int_a^x f$?",
+    "options": [
+      "$F$ je spojitá na $[a,b]$",
+      "$F$ je nespojitá ve stejném bodě",
+      "$F$ nemusí být ohraničená",
+      "$F'=f$ všude"
+    ],
+    "answer": 0,
+    "solution": "$F$ je vždy spojitá (integrál mění plochu spojitě). Rovnost $F'=f$ platí jen v bodech spojitosti $f$."
+  },
+  {
+    "id": "inttheorems-free-G",
+    "type": "free",
+    "prompt": "Určete derivaci $G(x)=\\displaystyle\\int_{\\sin x}^{1}\\arcsin t\\,\\mathrm{d}t$.",
+    "solution": "Dolní mez $\\sin x$ dává mínus a řetízkové pravidlo:\n\n$G'(x)=-\\arcsin(\\sin x)\\cdot\\cos x=-x\\cos x$ (pro $x\\in[-\\frac\\pi2,\\frac\\pi2]$)."
+  }
+]
