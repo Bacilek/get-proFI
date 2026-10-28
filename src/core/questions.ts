@@ -29,6 +29,14 @@ export interface ChoiceQuestion extends QuestionBase {
   answer: number
 }
 
+/** Several options are correct; the user ticks all of them (exact set match, no partial credit). */
+export interface MultiQuestion extends QuestionBase {
+  type: 'multi'
+  options: string[]
+  /** Indices into `options` of all correct options. */
+  answers: number[]
+}
+
 /** Self-graded: the user compares with `solution` and says whether they had it. */
 export interface FreeQuestion extends QuestionBase {
   type: 'free'
@@ -51,7 +59,7 @@ export interface CodeQuestion extends QuestionBase {
   checklist: string[]
 }
 
-export type Question = NumericQuestion | ChoiceQuestion | FreeQuestion | FillQuestion | CodeQuestion
+export type Question = NumericQuestion | ChoiceQuestion | MultiQuestion | FreeQuestion | FillQuestion | CodeQuestion
 
 /** Parses numbers typed by a Czech user: accepts decimal comma, spaces and a few fraction forms ("1/2"). */
 export function parseNumber(input: string): number | null {
@@ -78,4 +86,10 @@ export function checkFill(q: FillQuestion, inputs: string[]): boolean[] {
 export function checkNumeric(q: NumericQuestion, input: string): boolean {
   const n = parseNumber(input)
   return n !== null && Math.abs(n - q.answer) <= (q.tolerance ?? 1e-6)
+}
+
+/** True when exactly the correct options are ticked. */
+export function checkMulti(q: MultiQuestion, picked: readonly number[]): boolean {
+  const want = new Set(q.answers)
+  return picked.length === want.size && picked.every((i) => want.has(i))
 }

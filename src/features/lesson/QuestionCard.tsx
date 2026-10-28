@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Markdown } from '../../components/Markdown'
-import { checkFill, checkNumeric, fillParts, type Question } from '../../core/questions'
+import { checkFill, checkMulti, checkNumeric, fillParts, type Question } from '../../core/questions'
 
 /** One question with its answer UI; call sites should `key` it by question id. */
 export function QuestionCard({
@@ -17,6 +17,8 @@ export function QuestionCard({
   const [revealed, setRevealed] = useState<null | boolean>(null) // null = not answered; boolean = was correct
   const [input, setInput] = useState('')
   const [choice, setChoice] = useState<number | null>(null)
+  const [multi, setMulti] = useState<number[]>([])
+  const [lastPicked, setLastPicked] = useState<number[]>([])
   const [freeShown, setFreeShown] = useState(false)
   const [hintsShown, setHintsShown] = useState(0)
   const [fillInputs, setFillInputs] = useState<string[]>([])
@@ -31,8 +33,8 @@ export function QuestionCard({
   }
 
   return (
-    <div className="space-y-3">
-      <Markdown>{q.prompt}</Markdown>
+    <div className="space-y-4 text-base">
+      <div className="text-[1.05rem] leading-relaxed"><Markdown>{q.prompt}</Markdown></div>
 
       {revealed === null && hintsShown > 0 && (
         <ol className="space-y-1 rounded border border-line bg-surface/50 p-2 text-sm">
@@ -55,29 +57,67 @@ export function QuestionCard({
         >
           <input
             aria-label="Answer"
-            className="rounded border border-line px-2 py-1"
+            className="rounded-lg border border-line px-3 py-1.5"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <button className="rounded bg-accent px-3 py-1 text-white">Check</button>
+          <button className="rounded-lg bg-accent px-4 py-1.5 font-medium text-white">Check</button>
         </form>
       )}
 
-      {revealed === null && q.type === 'choice' && (
-        <div className="space-y-1">
-          {q.options.map((o, i) => (
-            <label key={i} className="flex items-center gap-2">
-              <input type="radio" name={`q-${q.id}`} checked={choice === i} onChange={() => setChoice(i)} />
-              <Markdown>{o}</Markdown>
-            </label>
-          ))}
-          <button
-            disabled={choice === null}
-            className="rounded bg-accent px-3 py-1 text-white disabled:opacity-40"
-            onClick={() => void answer(choice === q.answer)}
-          >
-            Check
-          </button>
+      {(q.type === 'choice' || q.type === 'multi') && (
+        <div className="space-y-3">
+          {q.type === 'multi' && revealed === null && (
+            <p className="text-sm text-muted">Select all correct options ({q.answers.length} of {q.options.length}).</p>
+          )}
+          <ul className="space-y-2">
+            {q.options.map((o, i) => {
+              const picked = revealed === null ? (q.type === 'choice' ? choice === i : multi.includes(i)) : lastPicked.includes(i)
+              const correct = q.type === 'choice' ? i === q.answer : q.answers.includes(i)
+              const state =
+                revealed === null
+                  ? picked ? 'border-accent bg-accent/10' : 'border-line hover:border-line-strong'
+                  : correct ? 'border-ok bg-ok-bg' : picked ? 'border-bad bg-warn-bg' : 'border-line opacity-70'
+              return (
+                <li key={i}>
+                  <button
+                    type="button"
+                    disabled={revealed !== null}
+                    aria-pressed={picked}
+                    onClick={() =>
+                      q.type === 'choice' ? setChoice(i) : setMulti((m) => (m.includes(i) ? m.filter((x) => x !== i) : [...m, i]))
+                    }
+                    className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left ${state}`}
+                  >
+                    <span
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center border text-sm ${q.type === 'choice' ? 'rounded-full' : 'rounded-md'} ${picked ? 'border-accent bg-accent text-white' : 'border-line-strong'}`}
+                    >
+                      {picked ? '✓' : ''}
+                    </span>
+                    <span className="min-w-0"><Markdown>{o}</Markdown></span>
+                    {revealed !== null && correct && <span className="ml-auto text-sm font-medium text-ok">correct</span>}
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+          {revealed === null && (
+            <button
+              disabled={q.type === 'choice' ? choice === null : multi.length === 0}
+              className="rounded-lg bg-accent px-5 py-2 font-medium text-white disabled:opacity-40"
+              onClick={() => {
+                if (q.type === 'choice') {
+                  setLastPicked(choice === null ? [] : [choice])
+                  void answer(choice === q.answer)
+                } else {
+                  setLastPicked(multi)
+                  void answer(checkMulti(q, multi))
+                }
+              }}
+            >
+              Check
+            </button>
+          )}
         </div>
       )}
 
@@ -104,7 +144,7 @@ export function QuestionCard({
               </span>
             ))}
           </pre>
-          <button className="rounded bg-accent px-3 py-1 text-white">Check</button>
+          <button className="rounded-lg bg-accent px-4 py-1.5 font-medium text-white">Check</button>
         </form>
       )}
 
@@ -122,11 +162,11 @@ export function QuestionCard({
       {revealed === null && selfGraded && !freeShown && (
         <div className="flex gap-3">
         {hintsShown < hints.length && (
-          <button className="rounded border border-line px-3 py-1" onClick={() => setHintsShown(hintsShown + 1)}>
+          <button className="rounded-lg border border-line px-4 py-1.5" onClick={() => setHintsShown(hintsShown + 1)}>
             {hintsShown === 0 ? 'Hint' : 'Next hint'}
           </button>
         )}
-        <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => setFreeShown(true)}>
+        <button className="rounded-lg bg-accent px-4 py-1.5 font-medium text-white" onClick={() => setFreeShown(true)}>
           Show solution
         </button>
         </div>
@@ -141,7 +181,7 @@ export function QuestionCard({
               <Markdown>{item}</Markdown>
             </label>
           ))}
-          <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => void answer(q.checklist.every((_, i) => ticked[i]))}>
+          <button className="rounded-lg bg-accent px-4 py-1.5 font-medium text-white" onClick={() => void answer(q.checklist.every((_, i) => ticked[i]))}>
             Done
           </button>
         </div>
@@ -157,13 +197,16 @@ export function QuestionCard({
       )}
 
       {revealed === null && !selfGraded && (
-        <div className="flex gap-3 text-sm text-muted">
+        <div className="flex gap-4 text-sm text-muted">
           {hintsShown < hints.length && (
             <button className="underline" onClick={() => setHintsShown(hintsShown + 1)}>
               {hintsShown === 0 ? 'Hint' : 'Next hint'}
             </button>
           )}
-          <button className="underline" onClick={() => void answer(false)}>
+          <button className="underline" onClick={() => {
+            setLastPicked([])
+            void answer(false)
+          }}>
             Give up, show solution
           </button>
         </div>
@@ -175,7 +218,7 @@ export function QuestionCard({
             {revealed ? 'Correct' : 'Not quite'}
           </p>
           {!selfGraded && <Markdown>{q.solution}</Markdown>}
-          <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => void onNext()}>
+          <button className="rounded-lg bg-accent px-4 py-1.5 font-medium text-white" onClick={() => void onNext()}>
             {nextLabel}
           </button>
         </div>

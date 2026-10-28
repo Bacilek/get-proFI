@@ -1,4 +1,4 @@
-import { checkFill, checkNumeric, fillParts, parseNumber, type FillQuestion, type NumericQuestion } from './questions'
+import { checkFill, checkMulti, checkNumeric, fillParts, parseNumber, type FillQuestion, type MultiQuestion, type NumericQuestion } from './questions'
 
 test('checkFill ignores whitespace and case, accepts alternatives, flags missing blanks', () => {
   const q = { id: 'q', type: 'fill', prompt: '', solution: '', code: 'public ___ void F() { ___ }', blanks: [['virtual', 'abstract'], ['return;']] } as FillQuestion
@@ -22,4 +22,11 @@ test('checkNumeric respects tolerance', () => {
   expect(checkNumeric(q, '1,052')).toBe(true)
   expect(checkNumeric(q, '1.1')).toBe(false)
   expect(checkNumeric(q, 'x')).toBe(false)
+})
+
+test('checkMulti needs exactly the correct set', () => {
+  const q = { id: 'q', type: 'multi', prompt: '', solution: '', options: ['a', 'b', 'c'], answers: [0, 2] } as MultiQuestion
+  expect(checkMulti(q, [2, 0])).toBe(true)
+  expect(checkMulti(q, [0])).toBe(false)
+  expect(checkMulti(q, [0, 1, 2])).toBe(false)
 })

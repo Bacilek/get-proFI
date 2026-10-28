@@ -20,7 +20,12 @@
     "id": "ol-modal",
     "type": "choice",
     "prompt": "V modální logice platí $\\Box\\varphi\\equiv\\dots$",
-    "options": ["$\\Diamond\\neg\\varphi$", "$\\neg\\Diamond\\neg\\varphi$", "$\\neg\\Box\\varphi$", "$\\Diamond\\varphi$"],
+    "options": [
+      "$\\Diamond\\neg\\varphi$",
+      "$\\neg\\Diamond\\neg\\varphi$",
+      "$\\neg\\Box\\varphi$",
+      "$\\Diamond\\varphi$"
+    ],
     "answer": 1,
     "solution": "Nutnost = nemožnost opaku: $\\Box\\varphi\\equiv\\neg\\Diamond\\neg\\varphi$ a $\\Diamond\\varphi\\equiv\\neg\\Box\\neg\\varphi$ (obdoba duality $\\forall$/$\\exists$).",
     "hints": [
@@ -32,7 +37,12 @@
     "id": "ol-which-logic",
     "type": "choice",
     "prompt": "„Petr Pavel je prezident ČR“ je v roce 2026 pravdivé a v roce 2020 nepravdivé. Jaký druh logiky explicitně pracuje s časem jako parametrem pravdivosti?",
-    "options": ["fuzzy", "temporální", "výroková", "HOL"],
+    "options": [
+      "fuzzy",
+      "temporální",
+      "výroková",
+      "HOL"
+    ],
     "answer": 1,
     "solution": "Temporální logiky vyhodnocují pravdivost ve vztahu k času. Výroková logika dává každému výroku jednu hodnotu bez ohledu na čas.",
     "hints": [
@@ -59,8 +69,29 @@
   },
   {
     "id": "ol-kengineering",
-    "type": "free",
-    "prompt": "Vyjmenuj kroky znalostního inženýrství (knowledge engineering) z přednášky.",
+    "type": "multi",
+    "prompt": "Které z těchto činností jsou kroky **znalostního inženýrství** (knowledge engineering) z přednášky? Označ všech sedm správných.",
+    "options": [
+      "identifikovat otázky",
+      "navrhnout grafické rozhraní aplikace",
+      "shromáždit příslušné znalosti (knowledge acquisition)",
+      "určit slovník predikátů, funkcí a konstant (ontologii)",
+      "natrénovat neuronovou síť na datech",
+      "zakódovat obecné znalosti o doméně",
+      "zakódovat popis instance problému",
+      "položit dotazy inferenční proceduře a získat odpovědi",
+      "dokázat úplnost inferenčního kalkulu",
+      "ladit a evaluovat bázi znalostí"
+    ],
+    "answers": [
+      0,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9
+    ],
     "solution": "1) identifikovat otázky; 2) shromáždit příslušné znalosti (knowledge acquisition); 3) určit slovník predikátů, funkcí a konstant (ontologii) – ovlivňuje efektivitu; 4) zakódovat obecné znalosti o doméně; 5) zakódovat popis instance problému; 6) položit dotazy inferenční proceduře a získat odpovědi; 7) ladit a evaluovat bázi znalostí (jde odvodit nepravdivé / nejde odvodit pravdivé závěry?).",
     "hints": [
       "Začíná se otázkami, končí laděním.",
@@ -69,8 +100,23 @@
   },
   {
     "id": "ol-propositional-pros",
-    "type": "free",
-    "prompt": "Uveď dvě výhody a dvě nevýhody výrokové logiky (podle přednášky).",
+    "type": "multi",
+    "prompt": "Které z tvrzení o **výrokové logice** platí podle přednášky (výhody i omezení)? Označ všechna správná.",
+    "options": [
+      "je deklarativní (syntaxe odpovídá faktům)",
+      "význam výroku závisí na kontextu, stejně jako v přirozeném jazyce",
+      "umí částečné, disjunktivní a negované informace",
+      "umí jednou formulí vyjádřit „pro každé pole platí…“",
+      "je kompoziční (význam $P_1wedge P_2$ plyne z významu $P_1$ a $P_2$)",
+      "má velmi omezenou expresivitu (výrok se musí vypsat pro každé pole zvlášť)",
+      "neumí vyjádřit negaci informace"
+    ],
+    "answers": [
+      0,
+      2,
+      4,
+      5
+    ],
     "solution": "Výhody: deklarativní (syntaxe odpovídá faktům); umí částečné, disjunktivní a negované informace (víc než většina datových struktur); kompoziční (význam $P_1\\wedge P_2$ plyne z významu $P_1$, $P_2$); význam je kontextově nezávislý. Nevýhoda: velmi omezená expresivita – nelze říct „jámy způsobují vánek ve vedlejších místnostech“ jinak než vyjmenováním výroku pro každé pole. (Přirozený jazyk je expresivní, ale víceznačný a kontextově závislý.)",
     "hints": [
       "Co umí výrokovka lépe než databáze?",

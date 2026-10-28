@@ -51,8 +51,27 @@
   },
   {
     "id": "ai-agent-props",
-    "type": "free",
-    "prompt": "Vyjmenuj pět vlastností **inteligentního agenta** z přednášky.",
+    "type": "multi",
+    "prompt": "Které z těchto vlastností má **inteligentní agent** podle přednášky? Označ všech pět správných.",
+    "options": [
+      "jedná za nějakým účelem",
+      "je vševědoucí a nikdy nedělá chyby",
+      "jedná samostatně",
+      "vždy nalezne optimální řešení",
+      "jedná na základě vstupů ze svého prostředí",
+      "vyžaduje schválení člověka při každé akci",
+      "pracuje delší dobu",
+      "funguje jen v plně pozorovatelném prostředí",
+      "adaptuje se na změny",
+      "musí vypadat jako člověk"
+    ],
+    "answers": [
+      0,
+      2,
+      4,
+      6,
+      8
+    ],
     "solution": "Inteligentní agent: (1) jedná za nějakým účelem, (2) jedná samostatně, (3) jedná na základě vstupů ze svého prostředí, (4) pracuje delší dobu, (5) adaptuje se na změny.",
     "hints": [
       "Začni otázkou „proč“ agent jedná.",

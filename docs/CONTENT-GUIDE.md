@@ -15,9 +15,10 @@ Pevná struktura: `## Intuice` (1–3 věty) → `## Vzorec` / definice → `## 
 
 ## Otázky (`questions/<localId>.json`)
 ```json
-{ "id": "unikátní v kurzu", "type": "numeric|choice|free", "prompt": "md+KaTeX",
+{ "id": "unikátní v kurzu", "type": "numeric|choice|multi|free", "prompt": "md+KaTeX",
   "answer": 2.926, "tolerance": 0.001,          // numeric (desetinná čárka při zadání se akceptuje)
   "options": ["..."], "answer": 0,              // choice: index správné
+  "options": ["..."], "answers": [0, 2],       // multi: indexy VŠECH správných (zaškrtávání; místo free u otázek „vyjmenuj N věcí“, 5–10 možností)
   "solution": "md+KaTeX" }                      // free: sebehodnocení po zobrazení řešení
 ```
 V JSON dvojitě escapovat zpětná lomítka (`\sqrt`). Hvězdy: 90 % správně = 3, 70 % = 2, 50 % = 1 (nikdy se neodebírají).

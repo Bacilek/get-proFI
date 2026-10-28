@@ -86,8 +86,23 @@
   },
   {
     "id": "ga-mcts-pros",
-    "type": "free",
-    "prompt": "Uveď výhody a nevýhody MCTS a kdy se hodí.",
+    "type": "multi",
+    "prompt": "Které z tvrzení o **MCTS** (Monte Carlo tree search) platí? Označ všechna správná.",
+    "options": [
+      "nepotřebuje heuristiku ani funkci Eval",
+      "vždy najde optimální tah",
+      "kdykoliv poskytne aktuální nejlepší odhad",
+      "vyžaduje pečlivě navrženou heuristickou funkci",
+      "nemusí vždy najít nejlepší tah (jde o statistický odhad)",
+      "prohledává celý strom do pevné hloubky",
+      "může potřebovat hodně simulací"
+    ],
+    "answers": [
+      0,
+      2,
+      4,
+      6
+    ],
     "solution": "Výhody: obecnost (nepotřebuje heuristiku ani Eval), přizpůsobivost (strom se rozrůstá podle simulovaných her), kdykoliv poskytne aktuální nejlepší odhad, jednoduchost. Nevýhody: nemusí vždy najít nejlepší tahy (statistický odhad), může potřebovat hodně simulací. Používá se v současných špičkových herních strategiích (např. Go, spolu s neuronovými sítěmi).",
     "hints": [
       "Co MCTS nepotřebuje?",

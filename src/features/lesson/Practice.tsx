@@ -25,12 +25,12 @@ export function Practice({
   if (index >= questions.length) {
     const stars = starsFromScore(correctCount, questions.length)
     return (
-      <section className="rounded-md border border-line bg-surface p-3 text-sm">
+      <section className="rounded-xl border border-line bg-surface p-5 text-base">
         <p>
           Result: <strong>{correctCount} / {questions.length}</strong> – {'★'.repeat(stars) || 'no stars yet'}
         </p>
         <button
-          className="mt-2 rounded border border-line px-3 py-1"
+          className="mt-3 rounded-lg border border-line px-4 py-1.5"
           onClick={() => {
             setIndex(0)
             setCorrectCount(0)
@@ -46,8 +46,11 @@ export function Practice({
   const last = index + 1 >= questions.length
 
   return (
-    <section className="space-y-3 rounded-md border border-line bg-surface p-3 text-sm">
-      <p className="text-muted">Question {index + 1} / {questions.length}</p>
+    <section className="space-y-4 rounded-xl border border-line bg-surface p-5 text-base sm:p-6">
+      <div className="flex items-center gap-3">
+        <p className="text-sm font-medium text-muted">Question {index + 1} / {questions.length}</p>
+        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-line"><div className="h-full bg-accent" style={{ width: `${(index / questions.length) * 100}%` }} /></div>
+      </div>
       <QuestionCard
         key={q.id}
         q={q}

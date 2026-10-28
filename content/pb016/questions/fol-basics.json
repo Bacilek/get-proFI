@@ -118,8 +118,19 @@
   },
   {
     "id": "fb-vs-propositional",
-    "type": "free",
-    "prompt": "Uveď dvě věci, které umí PL1 a výroková logika ne, na příkladu Wumpusovy jeskyně.",
+    "type": "multi",
+    "prompt": "Které **dvě** věci umí PL1, ale výroková logika ne (příklad Wumpusovy jeskyně)? Označ obě.",
+    "options": [
+      "použít spojky $wedge$, $\u000bee$, $\neg$, $Rightarrow$",
+      "říct jednou formulí „Jámy způsobují vánek v sousedních místnostech“ pro celou mapu",
+      "vyjádřit, že v místnosti [1,2] je vánek",
+      "kvantifikovat („pro všechny“, „existuje“) a mluvit o objektech, relacích a funkcích",
+      "mít pravdivostní hodnoty true a false"
+    ],
+    "answers": [
+      1,
+      3
+    ],
     "solution": "PL1 umí: (1) strukturovat výroky (predikáty nad objekty) – lze říct „Jámy způsobují vánek v sousedních místnostech“ jednou formulí $\\forall x,y\\,(\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)\\Rightarrow\\text{S_vánkem}(y))$, kdežto ve výrokové logice by se musel vypsat výrok pro každé pole mapy; (2) kvantifikovat („pro všechny“, „existuje“) a mluvit o objektech, relacích a funkcích; (3) pracovat se situacemi/časem (Result). Silnější expresivita, nižší složitost než přirozený jazyk.",
     "hints": [
       "Kolik formulí potřebuješ pro celou mapu ve výrokové logice?",
