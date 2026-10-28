@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { HashRouter, Link, Route, Routes } from 'react-router-dom'
 import { courseSlug, courses } from './content'
+import Achievements from './pages/Achievements'
 import CourseView from './pages/CourseView'
 import Dashboard from './pages/Dashboard'
 import LessonPage from './pages/LessonPage'
@@ -48,6 +49,9 @@ export default function App() {
               <Link to="/review" className="text-muted hover:text-fg">
                 Review
               </Link>
+              <Link to="/achievements" className="text-muted hover:text-fg">
+                Achievements
+              </Link>
               <Link to="/settings" className="text-muted hover:text-fg">
                 Settings
               </Link>
@@ -61,7 +65,8 @@ export default function App() {
             <Route path="/c/:slug" element={<CourseView />} />
             <Route path="/c/:slug/l/:lessonId" element={<LessonPage />} />
             <Route path="/review" element={<Review />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/achievements" element={<Achievements />} />
+            <Route path="/settings"element={<Settings />} />
             <Route path="*" element={<p>Not found.</p>} />
           </Routes>
         </main>
