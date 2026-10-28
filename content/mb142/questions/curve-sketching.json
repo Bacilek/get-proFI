@@ -64,7 +64,11 @@
     "prompt": "Funkce $f(x)=\\frac{8(x-2)}{x^2}$: hodnota lokálního maxima.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "$f=\\frac8x-\\frac{16}{x^2}$, $f'=\\frac{-8x+32}{x^3}=0$ v $x=4$; $f(4)=1$. Roste na $(0,4)$, klesá na $(-\\infty,0)$ a $(4,\\infty)$; asymptoty $x=0$, $y=0$."
+    "solution": "$f=\\frac8x-\\frac{16}{x^2}$, $f'=\\frac{-8x+32}{x^3}=0$ v $x=4$; $f(4)=1$. Roste na $(0,4)$, klesá na $(-\\infty,0)$ a $(4,\\infty)$; asymptoty $x=0$, $y=0$.",
+    "hints": [
+      "Přepiš $f=\\frac8x-\\frac{16}{x^2}$ a derivuj.",
+      "$f'=0$ dává stacionární bod; podle znaménka $f'$ rozhodni o maximu."
+    ]
   },
   {
     "id": "cs-quad-min",
@@ -72,6 +76,10 @@
     "prompt": "Funkce $f(x)=\\frac{x^2-x+1}{(x-1)^2}$: hodnota lokálního minima.",
     "answer": 0.75,
     "tolerance": 0.001,
-    "solution": "$f'=\\frac{-x-1}{(x-1)^3}$, nulová v $x=-1$; $f(-1)=\\frac34$ (klesá na $(-\\infty,-1)$, roste na $(-1,1)$, klesá na $(1,\\infty)$). Asymptoty $x=1$, $y=1$."
+    "solution": "$f'=\\frac{-x-1}{(x-1)^3}$, nulová v $x=-1$; $f(-1)=\\frac34$ (klesá na $(-\\infty,-1)$, roste na $(-1,1)$, klesá na $(1,\\infty)$). Asymptoty $x=1$, $y=1$.",
+    "hints": [
+      "Derivace podílu, pak zkrať $(x-1)$.",
+      "$f'=\\frac{-x-1}{(x-1)^3}$; stacionární bod $x=-1$, dosaď do $f$."
+    ]
   }
 ]

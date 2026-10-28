@@ -27,3 +27,7 @@ V JSON dvojitě escapovat zpětná lomítka (`\sqrt`). Hvězdy: 90 % správně =
 - **Ověřování:** u každé numerické otázky přepočítat odpověď ručně (a zapsat postup do `solution`); tolerance 0.001 (u zaokrouhlení na 3 místa dát podle potřeby 0.002).
 - **Zápis souborů:** na Windows psát lekce a JSON nástrojem Write (složené Bash heredocy s uvozovkami a `\` padají).
 - **Po každé lekci:** README předmětu (sekce Zpracováno), `docs/ROADMAP.md` (Aktuální stav), `npm test && npm run lint && npm run build`, commit + push.
+
+## Nápovědy a řešení u otázek
+- `solution` = postup krok za krokem (ne jen výsledek); zobrazí se po odpovědi nebo po „Give up, show solution" (počítá se jako chyba).
+- `hints` (volitelné pole stringů, 2–3 kusy, od nejmlhavější): uživatel je odkrývá po jedné tlačítkem Hint / Next hint před odpovědí. Zatím mají hints jen otázky přidané ze zápočtovek (viz `content/mb142/README.md`); ostatní se doplňují po lekcích.

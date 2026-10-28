@@ -56,6 +56,10 @@
     "prompt": "Tečná rovina ke grafu $f(x,y)=\\frac{x\\cos y-y\\cos x}{1+\\sin x+\\sin y}$ v bodě $[0,0,f(0,0)]$. Určete $f_y(0,0)$.",
     "answer": -1,
     "tolerance": 0.001,
-    "solution": "$f_y(0,0)=-1$, $f_x(0,0)=1$, $f(0,0)=0$ → $z=x-y$ (vzorová písemka I)."
+    "solution": "$f_y(0,0)=-1$, $f_x(0,0)=1$, $f(0,0)=0$ → $z=x-y$ (vzorová písemka I).",
+    "hints": [
+      "Dosazení $x=y=0$ zjednoduší většinu členů; jmenovatel je $1$.",
+      "$f_y$: derivuj čitatel podle $y$: $-x\\sin y-\\cos x$ → v počátku $-1$."
+    ]
   }
 ]

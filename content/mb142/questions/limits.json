@@ -119,7 +119,11 @@
     "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sin 3x}{\\operatorname{tg}2x}$",
     "answer": 1.5,
     "tolerance": 0.001,
-    "solution": "$\\frac{\\sin3x}{3x}\\cdot\\frac{2x}{\\sin2x}\\cdot\\frac32\\cos2x\\to\\frac32$ (vzorová písemka I)."
+    "solution": "$\\frac{\\sin3x}{3x}\\cdot\\frac{2x}{\\sin2x}\\cdot\\frac32\\cos2x\\to\\frac32$ (vzorová písemka I).",
+    "hints": [
+      "Přepiš $\\operatorname{tg}2x=\\frac{\\sin2x}{\\cos2x}$.",
+      "Uměle vytvoř $\\frac{\\sin3x}{3x}\\to1$ a $\\frac{2x}{\\sin2x}\\to1$."
+    ]
   },
   {
     "id": "limits-sqrt-quad",
@@ -127,7 +131,11 @@
     "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{4+3x+x^2}-2}{x+x^2}$",
     "answer": 0.75,
     "tolerance": 0.001,
-    "solution": "Rozšíříme $\\sqrt{\\cdot}+2$: čitatel $3x+x^2=x(3+x)$, jmenovatel $x(1+x)(\\sqrt{\\cdot}+2)$ → $\\frac{3}{1\\cdot4}=\\frac34$."
+    "solution": "Rozšíříme $\\sqrt{\\cdot}+2$: čitatel $3x+x^2=x(3+x)$, jmenovatel $x(1+x)(\\sqrt{\\cdot}+2)$ → $\\frac{3}{1\\cdot4}=\\frac34$.",
+    "hints": [
+      "Typ $\\frac00$ s odmocninou → rozšiř konjugovaným výrazem $\\sqrt{4+3x+x^2}+2$.",
+      "Čitatel se změní na $3x+x^2$; vytkni $x$ a zkrať."
+    ]
   },
   {
     "id": "limits-sin5x-cos2x",
@@ -135,7 +143,11 @@
     "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sin(5x)\\cos(2x)}{3x}$ (na 3 desetinná místa)",
     "answer": 1.667,
     "tolerance": 0.001,
-    "solution": "$\\frac53\\cdot\\frac{\\sin5x}{5x}\\cos2x\\to\\frac53\\approx1{,}667$ (1. písemka, skupina 09)."
+    "solution": "$\\frac53\\cdot\\frac{\\sin5x}{5x}\\cos2x\\to\\frac53\\approx1{,}667$ (1. písemka, skupina 09).",
+    "hints": [
+      "Vytvoř $\\frac{\\sin5x}{5x}$: vynásob a vyděl pěti.",
+      "$\\cos2x\\to1$, zbyde $\\frac53$."
+    ]
   },
   {
     "id": "limits-sqrt4-x",
@@ -143,7 +155,11 @@
     "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{x+4}-2}{x}$",
     "answer": 0.25,
     "tolerance": 0.001,
-    "solution": "Rozšíření: $\\frac{x}{x(\\sqrt{x+4}+2)}\\to\\frac14$ (nebo derivace $\\sqrt{x+4}$ v 0)."
+    "solution": "Rozšíření: $\\frac{x}{x(\\sqrt{x+4}+2)}\\to\\frac14$ (nebo derivace $\\sqrt{x+4}$ v 0).",
+    "hints": [
+      "Typ $\\frac00$, odmocnina → rozšiř $\\sqrt{x+4}+2$.",
+      "Čitatel $=(x+4)-4=x$, zkrať $x$."
+    ]
   },
   {
     "id": "limits-ex-x-1",
@@ -151,7 +167,11 @@
     "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{e^x-x-1}{x^2}$",
     "answer": 0.5,
     "tolerance": 0.001,
-    "solution": "l'Hospital dvakrát: $\\frac{e^x-1}{2x}\\to\\frac{e^x}{2}\\to\\frac12$ (nebo Taylor $e^x=1+x+\\frac{x^2}{2}+\\dots$)."
+    "solution": "l'Hospital dvakrát: $\\frac{e^x-1}{2x}\\to\\frac{e^x}{2}\\to\\frac12$ (nebo Taylor $e^x=1+x+\\frac{x^2}{2}+\\dots$).",
+    "hints": [
+      "Typ $\\frac00$ → l'Hospital (nebo Taylor $e^x$).",
+      "Po první derivaci je to znovu $\\frac00$: $\\frac{e^x-1}{2x}$."
+    ]
   },
   {
     "id": "limits-cos-sin-cos2x",
@@ -159,7 +179,11 @@
     "prompt": "$\\displaystyle\\lim_{x\\to\\pi/4}\\frac{\\cos x-\\sin x}{\\cos 2x}$ (na 3 desetinná místa)",
     "answer": 0.707,
     "tolerance": 0.001,
-    "solution": "$\\cos2x=(\\cos x-\\sin x)(\\cos x+\\sin x)$, limita $\\frac1{\\cos x+\\sin x}=\\frac1{\\sqrt2}\\approx0{,}707$ (ukázková zkouška)."
+    "solution": "$\\cos2x=(\\cos x-\\sin x)(\\cos x+\\sin x)$, limita $\\frac1{\\cos x+\\sin x}=\\frac1{\\sqrt2}\\approx0{,}707$ (ukázková zkouška).",
+    "hints": [
+      "Typ $\\frac00$; využij $\\cos2x=\\cos^2x-\\sin^2x$.",
+      "Rozlož na $(\\cos x-\\sin x)(\\cos x+\\sin x)$ a zkrať."
+    ]
   },
   {
     "id": "limits-sin4x-tan3x",
@@ -167,7 +191,11 @@
     "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sin(4x)\\tan(3x)}{x^2}$",
     "answer": 12,
     "tolerance": 0.001,
-    "solution": "$4\\cdot3\\cdot\\frac{\\sin4x}{4x}\\cdot\\frac{\\tan3x}{3x}\\to12$."
+    "solution": "$4\\cdot3\\cdot\\frac{\\sin4x}{4x}\\cdot\\frac{\\tan3x}{3x}\\to12$.",
+    "hints": [
+      "Rozděl na $\\frac{\\sin4x}{x}\\cdot\\frac{\\tan3x}{x}$.",
+      "Každý faktor má limitu ($4$ a $3$) díky $\\frac{\\sin y}{y}\\to1$, $\\frac{\\tan y}{y}\\to1$."
+    ]
   },
   {
     "id": "limits-sqrt-minus-x",
@@ -175,7 +203,11 @@
     "prompt": "$\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+6x-1}-x\\right)$",
     "answer": 3,
     "tolerance": 0.001,
-    "solution": "Rozšíření: $\\frac{6x-1}{\\sqrt{x^2+6x-1}+x}\\to\\frac{6}{2}=3$."
+    "solution": "Rozšíření: $\\frac{6x-1}{\\sqrt{x^2+6x-1}+x}\\to\\frac{6}{2}=3$.",
+    "hints": [
+      "Typ $\\infty-\\infty$ s odmocninou → rozšiř $\\sqrt{x^2+6x-1}+x$.",
+      "Čitatel $6x-1$; vyděl čitatel i jmenovatel $x$."
+    ]
   },
   {
     "id": "limits-x2lnx",
@@ -183,6 +215,10 @@
     "prompt": "$\\displaystyle\\lim_{x\\to0^+}x^2\\ln x$",
     "answer": 0,
     "tolerance": 0.001,
-    "solution": "$\\frac{\\ln x}{x^{-2}}$, l'Hospital: $\\frac{1/x}{-2x^{-3}}=-\\frac{x^2}{2}\\to0$."
+    "solution": "$\\frac{\\ln x}{x^{-2}}$, l'Hospital: $\\frac{1/x}{-2x^{-3}}=-\\frac{x^2}{2}\\to0$.",
+    "hints": [
+      "Typ $0\\cdot(-\\infty)$: převeď na zlomek $\\frac{\\ln x}{x^{-2}}$.",
+      "Teď $\\frac{-\\infty}{\\infty}$ → l'Hospital."
+    ]
   }
 ]

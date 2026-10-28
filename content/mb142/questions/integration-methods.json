@@ -69,6 +69,10 @@
       "$\\frac{3^x}{\\ln 3}(x+1)+C$"
     ],
     "answer": 0,
-    "solution": "Per partes $u=x$, $v'=3^x$: $x\\frac{3^x}{\\ln3}-\\frac1{\\ln3}\\int3^x dx=\\frac{3^x}{\\ln3}\\left(x-\\frac1{\\ln3}\\right)+C$."
+    "solution": "Per partes $u=x$, $v'=3^x$: $x\\frac{3^x}{\\ln3}-\\frac1{\\ln3}\\int3^x dx=\\frac{3^x}{\\ln3}\\left(x-\\frac1{\\ln3}\\right)+C$.",
+    "hints": [
+      "Součin polynomu a exponenciální funkce → per partes.",
+      "$u=x$, $v'=3^x$, $v=\\frac{3^x}{\\ln3}$."
+    ]
   }
 ]

@@ -88,7 +88,11 @@
     "prompt": "Tečna ke grafu $f(x)=\\sqrt{x^2+1}$ v bodě $x_0=\\sqrt3$ je $y=\\frac{\\sqrt3}2x+q$. Určete $q$.",
     "answer": 0.5,
     "tolerance": 0.001,
-    "solution": "$f(\\sqrt3)=2$, $f'=\\frac{x}{\\sqrt{x^2+1}}=\\frac{\\sqrt3}2$; $q=2-\\frac32=\\frac12$."
+    "solution": "$f(\\sqrt3)=2$, $f'=\\frac{x}{\\sqrt{x^2+1}}=\\frac{\\sqrt3}2$; $q=2-\\frac32=\\frac12$.",
+    "hints": [
+      "Tečna: $y=f(x_0)+f'(x_0)(x-x_0)$.",
+      "$f(\\sqrt3)=2$, $f'(\\sqrt3)=\\frac{\\sqrt3}{2}$."
+    ]
   },
   {
     "id": "da-tangent-cos",
@@ -96,7 +100,11 @@
     "prompt": "Tečna ke grafu $f(x)=3x-\\cos x$ v $x_0=\\pi/2$ je $y=4x+q$. Určete $q$ (na 3 desetinná místa).",
     "answer": -1.571,
     "tolerance": 0.002,
-    "solution": "$f(\\frac\\pi2)=\\frac{3\\pi}2$, $f'=3+\\sin x=4$; $q=\\frac{3\\pi}2-2\\pi=-\\frac\\pi2$."
+    "solution": "$f(\\frac\\pi2)=\\frac{3\\pi}2$, $f'=3+\\sin x=4$; $q=\\frac{3\\pi}2-2\\pi=-\\frac\\pi2$.",
+    "hints": [
+      "$f'(x)=3+\\sin x$, v $\\frac\\pi2$ je $4$.",
+      "$q=f(\\frac\\pi2)-4\\cdot\\frac\\pi2$."
+    ]
   },
   {
     "id": "da-velocity",
@@ -104,7 +112,11 @@
     "prompt": "$s(t)=12(t+1)^{-2}+4t$. Určete okamžitou rychlost v čase $t=1$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "$v=-24(t+1)^{-3}+4=-3+4=1$ m/s."
+    "solution": "$v=-24(t+1)^{-3}+4=-3+4=1$ m/s.",
+    "hints": [
+      "Rychlost je derivace dráhy: $v=s'(t)$.",
+      "Derivuj $12(t+1)^{-2}$ jako složenou funkci."
+    ]
   },
   {
     "id": "da-acceleration",
@@ -112,6 +124,10 @@
     "prompt": "$s(t)=12(t+1)^{-2}+4t$. Určete zrychlení v čase $t=1$.",
     "answer": 4.5,
     "tolerance": 0.001,
-    "solution": "$a=72(t+1)^{-4}=\\frac{72}{16}=4{,}5$ m/s²."
+    "solution": "$a=72(t+1)^{-4}=\\frac{72}{16}=4{,}5$ m/s².",
+    "hints": [
+      "Zrychlení je druhá derivace dráhy: $a=s''(t)$.",
+      "$s'=-24(t+1)^{-3}+4$."
+    ]
   }
 ]

@@ -79,6 +79,10 @@
       "nikde"
     ],
     "answer": 0,
-    "solution": "Znaménko určuje jen $(x^2-1)^3$: záporné na $(-1,1)$ → konkávní; konvexní na $(-\\infty,-1)$ a $(1,\\infty)$ (vzorová písemka I)."
+    "solution": "Znaménko určuje jen $(x^2-1)^3$: záporné na $(-1,1)$ → konkávní; konvexní na $(-\\infty,-1)$ a $(1,\\infty)$ (vzorová písemka I).",
+    "hints": [
+      "Konvexnost určuje znaménko $f''$; čitatel $4(3x^2+1)$ je vždy kladný.",
+      "Rozhoduje tedy jen znaménko $(x^2-1)^3$."
+    ]
   }
 ]

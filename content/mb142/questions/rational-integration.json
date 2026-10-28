@@ -64,6 +64,11 @@
       "$\\frac32\\ln|x+1|+C$"
     ],
     "answer": 0,
-    "solution": "$3x+4=\\frac32(2x+2)+1$; $\\int\\frac{2x+2}{x^2+2x+2}=\\ln(\\dots)$, $\\int\\frac{dx}{(x+1)^2+1}=\\operatorname{arctg}(x+1)$."
+    "solution": "$3x+4=\\frac32(2x+2)+1$; $\\int\\frac{2x+2}{x^2+2x+2}=\\ln(\\dots)$, $\\int\\frac{dx}{(x+1)^2+1}=\\operatorname{arctg}(x+1)$.",
+    "hints": [
+      "Jmenovatel nemá reálné kořeny – rozlož čitatel na násobek derivace jmenovatele plus konstantu.",
+      "$(x^2+2x+2)'=2x+2$, tedy $3x+4=\\frac32(2x+2)+1$.",
+      "Zbytek: $x^2+2x+2=(x+1)^2+1$ → arctg."
+    ]
   }
 ]

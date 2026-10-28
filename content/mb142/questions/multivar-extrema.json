@@ -66,6 +66,10 @@
       "lokální minimum v $[-2,1]$"
     ],
     "answer": 0,
-    "solution": "$f_x=2x-4$, $f_y=2y+2$ → $[2,-1]$; Hessián $\\operatorname{diag}(2,2)$ je pozitivně definitní; $f=(x-2)^2+(y+1)^2$."
+    "solution": "$f_x=2x-4$, $f_y=2y+2$ → $[2,-1]$; Hessián $\\operatorname{diag}(2,2)$ je pozitivně definitní; $f=(x-2)^2+(y+1)^2$.",
+    "hints": [
+      "Najdi stacionární bod: $f_x=f_y=0$.",
+      "Hessián je $\\operatorname{diag}(2,2)$ – pozitivně definitní."
+    ]
   }
 ]

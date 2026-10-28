@@ -39,7 +39,11 @@
     "prompt": "Pomocí diferenciálu aproximujte $\\cos61^\\circ$ (na 4 desetinná místa).",
     "answer": 0.4848,
     "tolerance": 0.0003,
-    "solution": "$f=\\cos x$ v $\\frac\\pi3$: $\\frac12-\\frac{\\sqrt3}2\\cdot\\frac\\pi{180}\\approx0{,}4849$."
+    "solution": "$f=\\cos x$ v $\\frac\\pi3$: $\\frac12-\\frac{\\sqrt3}2\\cdot\\frac\\pi{180}\\approx0{,}4849$.",
+    "hints": [
+      "$f(x+\\Delta x)\\approx f(x)+f'(x)\\Delta x$ s $x=60^\\circ=\\frac\\pi3$.",
+      "$\\Delta x=1^\\circ=\\frac\\pi{180}$ rad, $f'=-\\sin x$."
+    ]
   },
   {
     "id": "diff-arctan105",
@@ -47,6 +51,10 @@
     "prompt": "Pomocí diferenciálu aproximujte $\\operatorname{arctg}1{,}05$ (na 3 desetinná místa).",
     "answer": 0.81,
     "tolerance": 0.001,
-    "solution": "$\\frac\\pi4+\\frac12\\cdot0{,}05=0{,}7854+0{,}025\\approx0{,}810$."
+    "solution": "$\\frac\\pi4+\\frac12\\cdot0{,}05=0{,}7854+0{,}025\\approx0{,}810$.",
+    "hints": [
+      "Vyjdi z bodu $x=1$, $\\Delta x=0{,}05$.",
+      "$f'(x)=\\frac1{1+x^2}$, tedy $f'(1)=\\frac12$."
+    ]
   }
 ]

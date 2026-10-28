@@ -87,6 +87,10 @@
       "$+\\infty$"
     ],
     "answer": 0,
-    "solution": "$\\frac{\\ln x}{\\operatorname{tg}x}$ – čitatel $\\to-\\infty$, jmenovatel $\\to0^+$, tedy $-\\infty$ (nejde o neurčitý výraz; ukázková zkouška)."
+    "solution": "$\\frac{\\ln x}{\\operatorname{tg}x}$ – čitatel $\\to-\\infty$, jmenovatel $\\to0^+$, tedy $-\\infty$ (nejde o neurčitý výraz; ukázková zkouška).",
+    "hints": [
+      "Přepiš $\\operatorname{cotg}x=\\frac1{\\operatorname{tg}x}$.",
+      "Podívej se na znaménka a limity čitatele a jmenovatele – je to opravdu neurčitý výraz?"
+    ]
   }
 ]

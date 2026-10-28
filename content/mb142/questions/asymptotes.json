@@ -76,6 +76,10 @@
       "jen $y=1$"
     ],
     "answer": 0,
-    "solution": "Svislé v bodech nespojitosti $\\pm1$ (limity $\\pm\\infty$), vodorovná $\\lim_{x\\to\\pm\\infty}f=1$."
+    "solution": "Svislé v bodech nespojitosti $\\pm1$ (limity $\\pm\\infty$), vodorovná $\\lim_{x\\to\\pm\\infty}f=1$.",
+    "hints": [
+      "Svislé asymptoty hledej v bodech nespojitosti (kde je jmenovatel 0).",
+      "Pro $x\\to\\pm\\infty$ spočti $\\lim f(x)$."
+    ]
   }
 ]

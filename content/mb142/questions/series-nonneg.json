@@ -112,7 +112,11 @@
       "nelze rozhodnout ($q=1$)"
     ],
     "answer": 0,
-    "solution": "$\\sqrt[n]{a_n}=3\\arcsin\\frac1n\\to0<1$."
+    "solution": "$\\sqrt[n]{a_n}=3\\arcsin\\frac1n\\to0<1$.",
+    "hints": [
+      "Je tam $n$-tá mocnina → odmocninové kritérium.",
+      "$\\arcsin\\frac1n\\to0$."
+    ]
   },
   {
     "id": "nonneg-root-limsup",
@@ -125,7 +129,11 @@
       "je alternující, použijeme Leibniz"
     ],
     "answer": 0,
-    "solution": "$\\sqrt[n]{|a_n|}=\\frac3{6\\pm1}\\in\\{\\frac37,\\frac35\\}$, $\\limsup=\\frac35<1$ → konverguje absolutně (ukázková zkouška; podílové kritérium by selhalo)."
+    "solution": "$\\sqrt[n]{|a_n|}=\\frac3{6\\pm1}\\in\\{\\frac37,\\frac35\\}$, $\\limsup=\\frac35<1$ → konverguje absolutně (ukázková zkouška; podílové kritérium by selhalo).",
+    "hints": [
+      "Odmocninové kritérium s $|a_n|$; jmenovatel střídá $5$ a $7$.",
+      "Podívej se na $\\limsup$ (větší z hodnot)."
+    ]
   },
   {
     "id": "nonneg-integral-lnlog",
@@ -138,6 +146,11 @@
       "Řada konverguje, protože $a_n\\to0$"
     ],
     "answer": 0,
-    "solution": "$f(x)=\\frac1{(x+5)\\ln(x+5)}$ je kladná a klesající. Substitucí $t=\\ln(x+5)$: $\\int\\frac{dt}{t}=[\\ln t]_{\\ln7}^{\\infty}=\\infty$. Integrál diverguje, tedy i řada (zápočtovka 2025, př. 5). $a_n\\to0$ konvergenci nezaručuje."
+    "solution": "$f(x)=\\frac1{(x+5)\\ln(x+5)}$ je kladná a klesající. Substitucí $t=\\ln(x+5)$: $\\int\\frac{dt}{t}=[\\ln t]_{\\ln7}^{\\infty}=\\infty$. Integrál diverguje, tedy i řada (zápočtovka 2025, př. 5). $a_n\\to0$ konvergenci nezaručuje.",
+    "hints": [
+      "Členy jsou kladné a klesající – hodí se integrální kritérium.",
+      "Vnitřek se ve jmenovateli opakuje: zkus substituci $t=\\ln(x+5)$.",
+      "Po substituci vyjde $\\int\\frac{dt}{t}$ – konverguje to?"
+    ]
   }
 ]

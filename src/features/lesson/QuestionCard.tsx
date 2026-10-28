@@ -18,6 +18,8 @@ export function QuestionCard({
   const [input, setInput] = useState('')
   const [choice, setChoice] = useState<number | null>(null)
   const [freeShown, setFreeShown] = useState(false)
+  const [hintsShown, setHintsShown] = useState(0)
+  const hints = q.hints ?? []
 
   async function answer(correct: boolean) {
     setRevealed(correct)
@@ -27,6 +29,17 @@ export function QuestionCard({
   return (
     <div className="space-y-3">
       <Markdown>{q.prompt}</Markdown>
+
+      {revealed === null && hintsShown > 0 && (
+        <ol className="space-y-1 rounded border border-line bg-surface/50 p-2 text-sm">
+          {hints.slice(0, hintsShown).map((h, i) => (
+            <li key={i} className="flex gap-2">
+              <span className="text-muted">Hint {i + 1}:</span>
+              <Markdown>{h}</Markdown>
+            </li>
+          ))}
+        </ol>
+      )}
 
       {revealed === null && q.type === 'numeric' && (
         <form
@@ -65,9 +78,16 @@ export function QuestionCard({
       )}
 
       {revealed === null && q.type === 'free' && !freeShown && (
+        <div className="flex gap-3">
+        {hintsShown < hints.length && (
+          <button className="rounded border border-line px-3 py-1" onClick={() => setHintsShown(hintsShown + 1)}>
+            {hintsShown === 0 ? 'Hint' : 'Next hint'}
+          </button>
+        )}
         <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => setFreeShown(true)}>
           Show solution
         </button>
+        </div>
       )}
       {revealed === null && q.type === 'free' && freeShown && (
         <div className="space-y-2">
@@ -76,6 +96,19 @@ export function QuestionCard({
             <button className="rounded border border-ok px-3 py-1" onClick={() => void answer(true)}>I had it</button>
             <button className="rounded border border-bad px-3 py-1" onClick={() => void answer(false)}>I missed it</button>
           </div>
+        </div>
+      )}
+
+      {revealed === null && q.type !== 'free' && (
+        <div className="flex gap-3 text-sm text-muted">
+          {hintsShown < hints.length && (
+            <button className="underline" onClick={() => setHintsShown(hintsShown + 1)}>
+              {hintsShown === 0 ? 'Hint' : 'Next hint'}
+            </button>
+          )}
+          <button className="underline" onClick={() => void answer(false)}>
+            Give up, show solution
+          </button>
         </div>
       )}
 

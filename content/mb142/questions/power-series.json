@@ -100,7 +100,11 @@
       "$R=2$, $I=(0,4)$"
     ],
     "answer": 0,
-    "solution": "$R=1$. V $x=1$: $-\\sum\\frac1{\\sqrt{n^2-1}}$ diverguje (srovnání s $\\sum\\frac1n$); v $x=3$: Leibniz konverguje."
+    "solution": "$R=1$. V $x=1$: $-\\sum\\frac1{\\sqrt{n^2-1}}$ diverguje (srovnání s $\\sum\\frac1n$); v $x=3$: Leibniz konverguje.",
+    "hints": [
+      "Poloměr: poměr $\\frac{|a_n|}{|a_{n+1}|}$ s $\\sqrt{n^2-1}$ v limitě $\\to1$.",
+      "V krajních bodech: $x=1$ srovnej s $\\sum\\frac1n$, $x=3$ použij Leibnize."
+    ]
   },
   {
     "id": "ps-interval-shifted",
@@ -113,6 +117,11 @@
       "$[-3,3]$"
     ],
     "answer": 1,
-    "solution": "$R=3$. V $x=3$ vychází $\\sum\\frac1{n-3}$ (harmonická, diverguje); v $x=-3$ vychází $\\sum\\frac{(-1)^n}{n-3}$ (Leibniz, konverguje). Interval $[-3,3)$ (zápočtovka 2025, př. 6)."
+    "solution": "$R=3$. V $x=3$ vychází $\\sum\\frac1{n-3}$ (harmonická, diverguje); v $x=-3$ vychází $\\sum\\frac{(-1)^n}{n-3}$ (Leibniz, konverguje). Interval $[-3,3)$ (zápočtovka 2025, př. 6).",
+    "hints": [
+      "Poloměr: $R=\\lim\\frac{|a_n|}{|a_{n+1}|}$ s $a_n=\\frac1{(n-3)3^n}$.",
+      "Vyjde $R=3$; zbývá prozkoumat $x=\\pm3$ zvlášť.",
+      "V $x=3$ je to $\\sum\\frac1{n-3}$ (harmonická), v $x=-3$ je alternující → Leibniz."
+    ]
   }
 ]

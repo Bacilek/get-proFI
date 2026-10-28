@@ -92,7 +92,11 @@
     "prompt": "$\\displaystyle\\sum_{n=3}^\\infty\\frac{2n}{n^3+3n^2+2n}$",
     "answer": 0.5,
     "tolerance": 0.001,
-    "solution": "$\\frac{2}{(n+1)(n+2)}=2\\left(\\frac1{n+1}-\\frac1{n+2}\\right)$, teleskop: $2\\cdot\\frac14=\\frac12$."
+    "solution": "$\\frac{2}{(n+1)(n+2)}=2\\left(\\frac1{n+1}-\\frac1{n+2}\\right)$, teleskop: $2\\cdot\\frac14=\\frac12$.",
+    "hints": [
+      "Rozlož $n^3+3n^2+2n=n(n+1)(n+2)$ a zkrať $n$.",
+      "Parciální zlomky: $\\frac2{(n+1)(n+2)}=2\\left(\\frac1{n+1}-\\frac1{n+2}\\right)$; řada se teleskopuje."
+    ]
   },
   {
     "id": "seriesintro-squares-area",
@@ -100,7 +104,11 @@
     "prompt": "Do čtverce o straně $a$ vepisujeme čtverce spojením středů stran (donekonečna). Součet obsahů všech čtverců je $k\\cdot a^2$. Určete $k$.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "Obsahy $a^2,\\frac{a^2}2,\\frac{a^2}4,\\dots$ → $\\frac{a^2}{1-1/2}=2a^2$. Součet obvodů: $\\frac{4a}{1-1/\\sqrt2}=4a(2+\\sqrt2)$."
+    "solution": "Obsahy $a^2,\\frac{a^2}2,\\frac{a^2}4,\\dots$ → $\\frac{a^2}{1-1/2}=2a^2$. Součet obvodů: $\\frac{4a}{1-1/\\sqrt2}=4a(2+\\sqrt2)$.",
+    "hints": [
+      "Každý další čtverec má poloviční obsah.",
+      "Geometrická řada s $q=\\frac12$."
+    ]
   },
   {
     "id": "seriesintro-sum-3n-2n",
@@ -108,6 +116,11 @@
     "prompt": "Sečtěte $\\displaystyle\\sum_{n=1}^\\infty\\frac{3^n-3\\cdot2^n}{6^n}$.",
     "answer": -0.5,
     "tolerance": 0.001,
-    "solution": "Rozdělíme na dvě geometrické řady: $\\sum(\\tfrac12)^n=1$, $\\sum(\\tfrac13)^n=\\tfrac12$, tedy $1-3\\cdot\\tfrac12=-\\tfrac12$ (zápočtovka 2025, př. 4)."
+    "solution": "Rozdělíme na dvě geometrické řady: $\\sum(\\tfrac12)^n=1$, $\\sum(\\tfrac13)^n=\\tfrac12$, tedy $1-3\\cdot\\tfrac12=-\\tfrac12$ (zápočtovka 2025, př. 4).",
+    "hints": [
+      "Rozděl zlomek na dva členy se stejným jmenovatelem $6^n$.",
+      "Dostaneš $(\\frac12)^n$ a $3\\cdot(\\frac13)^n$ – dvě geometrické řady od $n=1$.",
+      "Geometrická řada od $n=1$: $\\sum q^n=\\frac{q}{1-q}$."
+    ]
   }
 ]

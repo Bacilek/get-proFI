@@ -7,8 +7,10 @@ interface QuestionBase {
   topic?: GlobalId
   /** Markdown with KaTeX. */
   prompt: string
-  /** Markdown with KaTeX, shown after answering. */
+  /** Markdown with KaTeX, shown after answering (or on giving up): worked steps, not just the result. */
   solution: string
+  /** Optional progressive hints, vaguest first; the user reveals them one by one before answering. */
+  hints?: string[]
 }
 
 export interface NumericQuestion extends QuestionBase {

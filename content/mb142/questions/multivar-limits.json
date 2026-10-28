@@ -73,7 +73,11 @@
       "je 2"
     ],
     "answer": 0,
-    "solution": "Polárně $\\frac{\\sin2\\varphi+\\sin^2\\varphi}{\\cos^2\\varphi+5\\sin^2\\varphi}$ závisí na $\\varphi$ (např. $y=0$: 0; $x=0$: $\\frac15$)."
+    "solution": "Polárně $\\frac{\\sin2\\varphi+\\sin^2\\varphi}{\\cos^2\\varphi+5\\sin^2\\varphi}$ závisí na $\\varphi$ (např. $y=0$: 0; $x=0$: $\\frac15$).",
+    "hints": [
+      "Zkus dvě různé cesty k počátku: $y=0$ a $x=0$.",
+      "Vyjdou různé hodnoty → limita neexistuje."
+    ]
   },
   {
     "id": "mvl-x2-4y2",
@@ -86,6 +90,9 @@
       "je 1/4"
     ],
     "answer": 0,
-    "solution": "Po ose $x$ ($y=0$) dává 1, po ose $y$ ($x=0$) dává 0."
+    "solution": "Po ose $x$ ($y=0$) dává 1, po ose $y$ ($x=0$) dává 0.",
+    "hints": [
+      "Dosaď $y=0$ a pak $x=0$."
+    ]
   }
 ]
