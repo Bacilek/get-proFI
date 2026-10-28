@@ -1,0 +1,24 @@
+{
+  "code": "PB006",
+  "title": "PB006 (název doplnit)",
+  "semester": "podzim 2026",
+  "semesterStart": "2026-09-14",
+  "modules": [],
+  "milestones": [],
+  "openItems": [
+    {
+      "id": "course-info",
+      "text": "Doplnit do sources/PB006/course.txt podmínky a fungování předmětu (hodnocení, body, termíny) a katalog; pak z toho založit milníky, moduly a lekce."
+    },
+    {
+      "id": "course-title",
+      "text": "Doplnit název předmětu a potvrdit začátek semestru (semesterStart je zatím odhad 14. 9. 2026)."
+    }
+  ],
+  "materials": {
+    "lecture": 1,
+    "seminar": 1,
+    "ropot": 1,
+    "syllabus": 1
+  }
+}

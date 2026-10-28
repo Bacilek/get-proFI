@@ -15,7 +15,7 @@
 4. [x] Lesson renderer (MD + KaTeX), cvičení (numeric/choice/free), hvězdy z cvičení, self-rating tématu; ukázková lekce `differential` (z vlastních znalostí, překontrolovat proti slidům)
 5. [x] Mezery + spaced repetition + math drill generátory (stránka /review: due otázky (SM-2), nejslabší témata, drill; generátory v `src/core/drill.ts` pro derivace, určitý integrál, parciální derivace, geometrickou řadu)
 6. [x] Achievementy (odvozené z postupu, bez tabulky; `src/core/achievements.ts`, stránka /achievements)
-7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), PB016 (př. 1–6 hotové, př. 7–12 rozpracované ze sbírky, čekají na slidy, viz `content/pb016/README.md`), pak PB006, VB001, PV028
+7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), PB016 (př. 1–6 hotové, př. 7–12 rozpracované ze sbírky, čekají na slidy, viz `content/pb016/README.md`), PB006 (založená kostra, čeká na podmínky a materiály, viz `content/pb006/README.md`), pak VB001, PV028
 
 ## Aktuální stav
 **UI (28. 10. 2026):** lekce se renderují jako karty (sekce Intuice/Vzorec/Příklad/Pozor/Praxe, vzorce v rámečcích, `src/components/prettify.ts`); roadmapa: dvojklik otevře lekci, legenda barev, bez zvýraznění aktuálního týdne; milníky: čas, info jako odrážky, body k minimu + ruční zadání bodů (`cumulative` milníky); upozornění na chybějící materiály po týdnech se Skip (`materials`, tabulka `skips`); ROPOT trainer (`/c/pb016/ropot`, 9 generátorů + 76 ručních otázek `ro-*`).
