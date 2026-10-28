@@ -1,0 +1,42 @@
+[
+  {
+    "id": "bs-sup-open",
+    "type": "numeric",
+    "prompt": "Urči $\\sup A$ pro $A=(0,3)$.",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "$3$ je nejmenší horní závora; v $A$ ale neleží, takže maximum neexistuje."
+  },
+  {
+    "id": "bs-inf-seq",
+    "type": "numeric",
+    "prompt": "Urči $\\inf A$ pro $A=\\{\\tfrac1n:n=1,2,3,\\dots\\}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Všechny členy jsou kladné a libovolně se blíží k $0$, takže $\\inf A=0$. Minimum neexistuje ($0\\notin A$), maximum je $1$."
+  },
+  {
+    "id": "bs-max-exists",
+    "type": "choice",
+    "prompt": "Která z množin má maximum?",
+    "options": ["$(0,1)$", "$[0,1)$", "$(0,1]$", "$(-\\infty,\\infty)$"],
+    "answer": 2,
+    "solution": "Maximum $1$ má jen $(0,1]$, protože $1$ do ní patří. U $(0,1)$ a $[0,1)$ je $1=\\sup$, ale není prvkem; $\\mathbb R$ není shora omezená."
+  },
+  {
+    "id": "bs-sup-vs-max",
+    "type": "choice",
+    "prompt": "Množina $A=\\{1-\\tfrac1n:n\\ge1\\}$. Které tvrzení platí?",
+    "options": ["$\\sup A=1$, maximum neexistuje", "$\\sup A=1$ a $\\max A=1$", "$\\sup A$ neexistuje", "$\\sup A=\\tfrac12$"],
+    "answer": 0,
+    "solution": "Členy $0,\\tfrac12,\\tfrac23,\\dots$ rostou k $1$, ale $1$ nikdy nenabudou: $1-\\tfrac1n<1$. Množina je shora omezená, tedy supremum $1$ existuje, maximum ne."
+  },
+  {
+    "id": "bs-interval-notation",
+    "type": "choice",
+    "prompt": "Který zápis je správný?",
+    "options": ["$[2,\\infty)$", "$[2,\\infty]$", "$(2,\\infty]$", "$[\\infty,2)$"],
+    "answer": 0,
+    "solution": "$\\infty$ do intervalu nikdy nepatří, proto vždy kulatá závorka u $\\infty$."
+  }
+]

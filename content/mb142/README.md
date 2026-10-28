@@ -15,6 +15,7 @@ Sem. start 16. 9. 2026 (týden 1) => 28. 10. je týden 7. Přednášky podle str
 lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka, tahák), 2025/ (loňské přílohy + zápočtovky s řešením), skupiny 01–09 materiály. Seznam zpracovaného bude níže.
 
 ## Zpracováno
+- `basics`, `limits`, `continuity`: prednasky_MB142.pdf, pdf s. 4–16 (tisk. 1–13, týden 1: sup/inf, intervaly, limity: definice, věty, základní limity, př. 1–18; spojitost, Weierstrass, Bolzano, body nespojitosti, př. 19–22). Důkazy zhuštěny.
 - `differential` (z vlastních znalostí, překontrolovat proti slidům).
 - `antiderivative`, `integration-methods`, `rational-integration`: prednasky_MB142.pdf, pdf s. 71–81 (tisk. 68–78, týden 6).
 - `riemann`: pdf s. 82–89 (tisk. 79–86, týden 7).
@@ -26,7 +27,7 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 - `series-nonneg`: pdf s. 118–123 (tisk. 115–120, týden 8–9: srovnávací, integrální, podílové, odmocninové kritérium, p-řada).
 - `series-alternating`: pdf s. 124–132 (tisk. 121–129, týden 9: Leibniz, odhad chyby, absolutní/relativní konvergence, přerovnání, součin řad).
 - `power-series`: pdf s. 132–144 (tisk. 129–141, týden 9: poloměr konvergence, spojitost, derivace/integrace člen po členu, příklady 166–180).
-- `taylor-series`: pdf s. 144–148 (tisk. 141–145, týden 10: Taylorova/Maclaurinova řada, konvergence k f, rozvoje elementárních funkcí, aplikace; př. 181–187; Eulerův součet 1/n² a Wallis jen zmíněno). Konec kap. 3. Další: starší témata (limity, derivace, Taylorův polynom `mb142:taylor`) – kap. 4+ jen pracovní verze.
+- `taylor-series`: pdf s. 144–148 (tisk. 141–145, týden 10: Taylorova/Maclaurinova řada, konvergence k f, rozvoje elementárních funkcí, aplikace; př. 181–187; Eulerův součet 1/n² a Wallis jen zmíněno). Konec kap. 3. Další: derivace (pdf s. 17–36), pak Taylorův polynom `mb142:taylor` – kap. 4+ jen pracovní verze.
 
 ## Otevřené položky (chybí od uživatele)
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).
