@@ -15,7 +15,7 @@ export default function LessonPage() {
   return <LessonBody key={lesson.id} course={course} lesson={lesson} />
 }
 
-type Loaded = { md: string | null; questions: Question[] } | null
+type Loaded = { md: string | null; questions: Question[] } | 'error' | null
 
 function LessonBody({
   course,
@@ -34,9 +34,13 @@ function LessonBody({
   useEffect(() => {
     let cancelled = false
     const id = localId(lesson.id)
-    Promise.all([loadLesson(course, id), loadQuestions(course, id)]).then(([md, questions]) => {
-      if (!cancelled) setLoaded({ md, questions })
-    })
+    Promise.all([loadLesson(course, id), loadQuestions(course, id)])
+      .then(([md, questions]) => {
+        if (!cancelled) setLoaded({ md, questions })
+      })
+      .catch(() => {
+        if (!cancelled) setLoaded('error')
+      })
     return () => {
       cancelled = true
     }
@@ -58,8 +62,13 @@ function LessonBody({
       </header>
 
       {loaded === null && <p className="text-muted">Loading…</p>}
-      {loaded && loaded.md === null && <p className="rounded border border-dashed border-line p-3 text-muted">Content for this lesson is not written yet.</p>}
-      {loaded?.md && <Markdown lesson>{loaded.md}</Markdown>}
+      {loaded === 'error' && (
+        <p className="rounded border border-warn p-3 text-warn">
+          Could not load the lesson. The local server is probably not running: start the app again with the desktop icon.
+        </p>
+      )}
+      {loaded && loaded !== 'error' && loaded.md === null && <p className="rounded border border-dashed border-line p-3 text-muted">Content for this lesson is not written yet.</p>}
+      {loaded && loaded !== 'error' && loaded.md && <Markdown lesson>{loaded.md}</Markdown>}
 
       <section className="flex flex-wrap items-center gap-2 text-sm">
         <span>How well do you know this topic?</span>
@@ -75,7 +84,7 @@ function LessonBody({
         ))}
       </section>
 
-      {loaded && (
+      {loaded && loaded !== 'error' && (
         <section>
           <h2 className="mb-2 text-lg font-semibold">Practice</h2>
           <Practice course={course} lessonId={lesson.id} topic={topic} questions={loaded.questions} />
