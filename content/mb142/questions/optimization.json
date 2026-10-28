@@ -211,5 +211,18 @@
       "Dosaď do $V=\\frac13\\pi r^2v$.",
       "Derivuj podle $v$."
     ]
+  },
+  {
+    "id": "y25-opt-cyl",
+    "type": "numeric",
+    "prompt": "Do koule o poloměru $R=1$ vepíšeme válec největšího objemu. Jaký je tento objem (4 des.)? (Obecně $\\frac{4\\pi R^3}{3\\sqrt3}$.)",
+    "answer": 2.4183991523122903,
+    "tolerance": 0.001,
+    "solution": "$r^2=R^2-\\frac{h^2}4$, $V=\\pi h(R^2-\\frac{h^2}4)$, $V'=0\\Rightarrow h=\\frac{2R}{\\sqrt3}$, $V=\\frac{4\\pi R^3}{3\\sqrt3}\\approx2{,}4184$.",
+    "hints": [
+      "Výška $h$, poloměr $r$ s $r^2+\\frac{h^2}4=R^2$.",
+      "$V=\\pi r^2h$.",
+      "Polož $V'=0$."
+    ]
   }
 ]

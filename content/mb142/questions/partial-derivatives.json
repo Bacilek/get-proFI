@@ -403,5 +403,57 @@
       "$f_x=-\\frac y{x^2+y^2}$, $f_y=\\frac x{x^2+y^2}$.",
       "Přírůstky $-0{,}05$ a $+0{,}02$."
     ]
+  },
+  {
+    "id": "y25-pa-A-fx",
+    "type": "numeric",
+    "prompt": "Pro $f=\\dfrac{2x^2-2xy-y^2}{x^2+y^2}$ je $f_x=\\dfrac{2y(3xy+x^2-y^2)}{(x^2+y^2)^2}$. Kolik je $f_x(1,1)$ (4 des.)?",
+    "answer": 1.5,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{2\\cdot1\\cdot(3+1-1)}{4}=\\frac64=1{,}5$.",
+    "hints": [
+      "Dosaď $x=y=1$.",
+      "Čitatel $2(3+1-1)=6$.",
+      "Jmenovatel $4$."
+    ]
+  },
+  {
+    "id": "y25-pa-A-fy",
+    "type": "numeric",
+    "prompt": "Pro $f=\\dfrac{2x^2-2xy-y^2}{x^2+y^2}$ je $f_y=\\dfrac{2x(y^2-x^2-3xy)}{(x^2+y^2)^2}$. Kolik je $f_y(1,1)$?",
+    "answer": -1.5,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{2(1-1-3)}{4}=-\\frac64=-1{,}5$.",
+    "hints": [
+      "Dosaď $x=y=1$.",
+      "Čitatel $2(1-1-3)=-6$.",
+      "Jmenovatel $4$."
+    ]
+  },
+  {
+    "id": "y25-pa-sin",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=xy^3+\\sin(xy)$ spočti $f_{xy}(1,0)$, kde $f_{xy}=3y^2+\\cos(xy)-xy\\sin(xy)$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$f_{xy}(1,0)=0+\\cos0-0=1$.",
+    "hints": [
+      "$f_x=y^3+y\\cos(xy)$.",
+      "Pak derivuj podle $y$.",
+      "Dosaď $[1,0]$."
+    ]
+  },
+  {
+    "id": "y25-pa-atan",
+    "type": "numeric",
+    "prompt": "Pro $f=\\operatorname{arctg}\\frac xy$ spočti $f_x(0,1)$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$f_x=\\frac{1/y}{1+x^2/y^2}=\\frac{y}{x^2+y^2}$, $f_x(0,1)=1$ (a $f_y(0,1)=-\\frac{x}{x^2+y^2}=0$).",
+    "hints": [
+      "$f_x=\\frac{y}{x^2+y^2}$.",
+      "Dosaď $[0,1]$.",
+      "$\\frac11$."
+    ]
   }
 ]

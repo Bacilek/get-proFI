@@ -484,5 +484,93 @@
       "$\\frac{x}{x+y}\\to1$.",
       "Použij $(1+\\frac1x)^x\\to e$."
     ]
+  },
+  {
+    "id": "y25-mv-1a",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[1,1]}\\frac{2xy}{xy+2x-y}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Jmenovatel v bodě je $1+2-1=2\\ne0$, funkce spojitá: $\\frac22=1$.",
+    "hints": [
+      "Je jmenovatel v $[1,1]$ nenulový?",
+      "Dosaď.",
+      "$\\frac{2}{2}$."
+    ]
+  },
+  {
+    "id": "y25-mv-1b",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{2xy}{xy+2x-y}$?",
+    "options": [
+      "neexistuje (např. podél $y=0$ je $0$, podél $y=2x$ je $2$)",
+      "$0$",
+      "$2$",
+      "$1$"
+    ],
+    "answer": 0,
+    "solution": "Podél $y=0$: $0$. Podél $y=2x$: $\\frac{4x^2}{2x^2+2x-2x}=2$. Různé hodnoty ⇒ limita neexistuje.",
+    "hints": [
+      "Zkus cestu $y=0$.",
+      "Zkus cestu $y=2x$ (jmenovatel se zjednoduší).",
+      "Porovnej hodnoty."
+    ]
+  },
+  {
+    "id": "y25-mv-2a",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^3y+2y^4}{(x^2+y^2)^2}$?",
+    "options": [
+      "neexistuje",
+      "$0$",
+      "$1$",
+      "$2$"
+    ],
+    "answer": 0,
+    "solution": "Podél $x=0$: $\\frac{2y^4}{y^4}=2$; podél $y=0$: $0$. Různé hodnoty.",
+    "hints": [
+      "Zkus $x=0$.",
+      "Zkus $y=0$.",
+      "Porovnej."
+    ]
+  },
+  {
+    "id": "y25-mv-2b",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{3xy^2}{x^2+y^2}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "V polárních: $3\\rho\\cos\\varphi\\sin^2\\varphi\\to0$ ($|\\frac{y^2}{x^2+y^2}|\\le1$, $x\\to0$).",
+    "hints": [
+      "Odhadni $\\frac{y^2}{x^2+y^2}\\le1$.",
+      "Zbude $3|x|\\to0$.",
+      "Sevření."
+    ]
+  },
+  {
+    "id": "y25-mv-A-a",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{4x^2y^4+y^6}{x^6+y^6}$, pokud existuje; jinak zadej $-1$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "Podél $x=0$: $1$. Podél $y=0$: $0$. Limita neexistuje.",
+    "hints": [
+      "Zkus $x=0$.",
+      "Zkus $y=0$.",
+      "Různé hodnoty ⇒ neexistuje."
+    ]
+  },
+  {
+    "id": "y25-mv-B-c",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^2y^2-x^3y+y^4}{x^4+y^4}$, pokud existuje; jinak zadej $-1$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "Podél $y=0$: $0$. Podél $x=0$: $1$. Limita neexistuje.",
+    "hints": [
+      "Zkus $y=0$.",
+      "Zkus $x=0$.",
+      "Různé hodnoty."
+    ]
   }
 ]

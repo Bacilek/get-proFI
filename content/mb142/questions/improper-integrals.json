@@ -355,5 +355,88 @@
       "Pod osou $x$ je část $x<1$ (funkce záporná) – obsah bere absolutní hodnotu.",
       "Sečti obě části."
     ]
+  },
+  {
+    "id": "y25-ii-3a",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^\\infty(4x+1)e^{-x}dx$.",
+    "answer": 5,
+    "tolerance": 0.001,
+    "solution": "$4\\int xe^{-x}+\\int e^{-x}=4+1=5$.",
+    "hints": [
+      "$\\int_0^\\infty xe^{-x}dx=1$.",
+      "$\\int_0^\\infty e^{-x}dx=1$.",
+      "$4+1$."
+    ]
+  },
+  {
+    "id": "y25-ii-3b",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_1^\\infty\\frac4{x^3+2x}dx$ (4 des.).",
+    "answer": 1.0986122886681096,
+    "tolerance": 0.001,
+    "solution": "$\\frac4{x(x^2+2)}=\\frac2x-\\frac{2x}{x^2+2}$, primitivní $\\ln\\frac{x^2}{x^2+2}$; $0-\\ln\\frac13=\\ln3\\approx1{,}0986$.",
+    "hints": [
+      "Parciální zlomky.",
+      "$\\ln\\frac{x^2}{x^2+2}\\to0$ v $\\infty$.",
+      "Dolní mez $-\\ln\\frac13$."
+    ]
+  },
+  {
+    "id": "y25-ii-2a",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{-\\infty}^0x^2e^{x^3}dx$ (4 des.).",
+    "answer": 0.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{e^{x^3}}3\\Big|_{-\\infty}^0=\\frac13$.",
+    "hints": [
+      "Primitivní $\\frac13e^{x^3}$.",
+      "Limita v $-\\infty$ je $0$.",
+      "$\\frac13-0$."
+    ]
+  },
+  {
+    "id": "y25-ii-2b",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1\\frac{e^{-\\sqrt x}}{\\sqrt x}dx$ (4 des.).",
+    "answer": 1.2642411176571153,
+    "tolerance": 0.0005,
+    "solution": "Subst. $t=\\sqrt x$: $2\\int_0^1e^{-t}dt=2(1-e^{-1})\\approx1{,}2642$.",
+    "hints": [
+      "$t=\\sqrt x$, $\\frac{dx}{\\sqrt x}=2\\,dt$.",
+      "$\\int_0^1e^{-t}=1-e^{-1}$.",
+      "Vynásob dvěma."
+    ]
+  },
+  {
+    "id": "y25-ii-vol",
+    "type": "numeric",
+    "prompt": "Objem tělesa vzniklého rotací grafu $y=\\frac1{1+x}$ kolem osy $x$ pro $x\\in[0,\\infty)$ (4 des.):",
+    "answer": 3.141592653589793,
+    "tolerance": 0.0005,
+    "solution": "$\\pi\\int_0^\\infty\\frac{dx}{(1+x)^2}=\\pi$ (plášť má nekonečný obsah).",
+    "hints": [
+      "$V=\\pi\\int y^2dx$.",
+      "$\\int_0^\\infty(1+x)^{-2}=1$.",
+      "$\\pi$."
+    ]
+  },
+  {
+    "id": "y25-ii-div",
+    "type": "choice",
+    "prompt": "Integrál $\\displaystyle\\int_0^\\infty\\frac{dx}{\\sqrt{x+2}}$:",
+    "options": [
+      "diverguje",
+      "konverguje k $2\\sqrt2$",
+      "konverguje k $\\sqrt2$",
+      "konverguje k $0$"
+    ],
+    "answer": 0,
+    "solution": "$2\\sqrt{x+2}\\to\\infty$ pro $x\\to\\infty$.",
+    "hints": [
+      "Primitivní $2\\sqrt{x+2}$.",
+      "Limita v $\\infty$.",
+      "Diverguje."
+    ]
   }
 ]

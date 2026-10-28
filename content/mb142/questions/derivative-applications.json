@@ -423,5 +423,101 @@
       "Směrnice tečny $=\\frac1x=1$.",
       "$\\arctan1$."
     ]
+  },
+  {
+    "id": "y25-t-sin",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=2\\sqrt2\\sin x$, $x_0=\\frac\\pi4$. Kolik je směrnice tečny $f'(\\frac\\pi4)$?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$f'=2\\sqrt2\\cos x$, $f'(\\frac\\pi4)=2\\sqrt2\\cdot\\frac{\\sqrt2}2=2$. $f(\\frac\\pi4)=2$.",
+    "hints": [
+      "$f'=2\\sqrt2\\cos x$.",
+      "$\\cos\\frac\\pi4=\\frac{\\sqrt2}2$.",
+      "$2\\sqrt2\\cdot\\frac{\\sqrt2}{2}$."
+    ]
+  },
+  {
+    "id": "y25-t-sin-normal",
+    "type": "numeric",
+    "prompt": "Pro $f(x)=2\\sqrt2\\sin x$ je tečna v $x_0=\\frac\\pi4$: $y-2=2\\left(x-\\frac\\pi4\\right)$. Kolik je $y$ na normále v bodě $x=\\frac\\pi4+2$?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Směrnice normály $-\\frac12$: $y=2-\\frac12\\cdot2=1$.",
+    "hints": [
+      "Normála má směrnici $-\\frac1{k_t}=-\\frac12$.",
+      "Prochází bodem $[\\frac\\pi4,2]$.",
+      "$2-\\frac12\\cdot2$."
+    ]
+  },
+  {
+    "id": "y25-t-xln",
+    "type": "numeric",
+    "prompt": "Pro $g(x)=x\\ln(1+x^2)+3$ spočítej $g'(0)$ (tečna v bodě $[0,3]$ je $y=3$).",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$g'=\\ln(1+x^2)+\\frac{2x^2}{1+x^2}$, $g'(0)=0$. Tečna $y=3$, normála $x=0$.",
+    "hints": [
+      "Součinové pravidlo.",
+      "$\\ln1=0$.",
+      "Druhý člen $\\frac{2x^2}{1+x^2}=0$ v $0$."
+    ]
+  },
+  {
+    "id": "y25-t-exp",
+    "type": "choice",
+    "prompt": "Tečna a normála ke grafu $y=e^{x^2}(x^2+2x+1)$ v bodě $[-1,y_0]$:",
+    "options": [
+      "tečna $y=0$, normála $x=-1$",
+      "tečna $y=1$, normála $x=-1$",
+      "tečna $x=-1$, normála $y=0$",
+      "tečna $y=e$, normála $x=-1$"
+    ],
+    "answer": 0,
+    "solution": "$y=e^{x^2}(x+1)^2$: $y(-1)=0$, $y'=e^{x^2}[2x(x+1)^2+2(x+1)]$ ⇒ $y'(-1)=0$. Tečna je vodorovná $y=0$, normála svislá $x=-1$.",
+    "hints": [
+      "$y=e^{x^2}(x+1)^2$.",
+      "V $x=-1$ je dvojnásobný kořen.",
+      "Derivace v dvojnásobném kořeni je $0$."
+    ]
+  },
+  {
+    "id": "y25-t-balloon",
+    "type": "numeric",
+    "prompt": "Balón stoupá kolmo vzhůru, radar je 500 m od místa vzletu a ukazuje elevační úhel $\\frac\\pi4$, úhel roste rychlostí $0{,}14$ rad/min. Jak rychle (m/min) balón stoupá?",
+    "answer": 140,
+    "tolerance": 0.001,
+    "solution": "$h=500\\tan\\theta$, $h'=\\frac{500}{\\cos^2\\theta}\\theta'=500\\cdot2\\cdot0{,}14=140$ m/min.",
+    "hints": [
+      "Vztah $\\tan\\theta=\\frac h{500}$.",
+      "Derivuj podle času.",
+      "$\\frac1{\\cos^2(\\pi/4)}=2$."
+    ]
+  },
+  {
+    "id": "y25-t-sin2",
+    "type": "numeric",
+    "prompt": "Tečna ke grafu $y=\\sin^2x$ v bodě $x_0=\\frac\\pi4$: kolik je směrnice?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$y'=2\\sin x\\cos x=\\sin2x$, $y'(\\frac\\pi4)=1$. Tečna $y-\\frac12=x-\\frac\\pi4$, normála má směrnici $-1$.",
+    "hints": [
+      "$y'=\\sin2x$.",
+      "$\\sin\\frac\\pi2=1$.",
+      "Normála: $-1$."
+    ]
+  },
+  {
+    "id": "y25-t-cos2",
+    "type": "numeric",
+    "prompt": "Tečna ke grafu $y=\\cos^2x$ v bodě $x_0=\\frac\\pi4$: kolik je směrnice?",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$y'=-\\sin2x$, $y'(\\frac\\pi4)=-1$. $y(\\frac\\pi4)=\\frac12$.",
+    "hints": [
+      "$(\\cos^2x)'=-2\\cos x\\sin x$.",
+      "$=-\\sin2x$.",
+      "Dosaď $\\frac\\pi4$."
+    ]
   }
 ]

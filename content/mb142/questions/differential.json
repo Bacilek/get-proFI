@@ -127,5 +127,70 @@
       "$f'(x)=\\frac13x^{-2/3}$.",
       "$f(64)+f'(64)\\cdot6$."
     ]
+  },
+  {
+    "id": "y25-d-cos61",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $\\cos61^\\circ$ (4 des.).",
+    "answer": 0.4848850052980482,
+    "tolerance": 0.0005,
+    "solution": "$f=\\cos x$ v $x_0=60^\\circ=\\frac\\pi3$, $h=\\frac\\pi{180}$: $\\frac12-\\frac{\\sqrt3}2\\cdot\\frac\\pi{180}\\approx0{,}4849$.",
+    "hints": [
+      "Převeď na radiány.",
+      "$f'=-\\sin x$.",
+      "$\\sin60^\\circ=\\frac{\\sqrt3}2$."
+    ]
+  },
+  {
+    "id": "y25-d-4root15",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $\\sqrt[4]{15}$ (4 des.).",
+    "answer": 1.96875,
+    "tolerance": 0.001,
+    "solution": "$f=\\sqrt[4]x$, $x_0=16$, $h=-1$: $f'=\\frac1{4\\cdot8}=\\frac1{32}$ ⇒ $2-\\frac1{32}=1{,}96875$.",
+    "hints": [
+      "$16=2^4$.",
+      "$f'(16)=\\frac14\\cdot16^{-3/4}=\\frac1{32}$.",
+      "$h=-1$."
+    ]
+  },
+  {
+    "id": "y25-d-e110",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $e^{1/10}$ (2 des.).",
+    "answer": 1.1,
+    "tolerance": 0.005,
+    "solution": "$e^h\\approx1+h$, $h=\\frac1{10}$: $1{,}1$.",
+    "hints": [
+      "Bod $x_0=0$.",
+      "$f'(0)=1$.",
+      "$1+0{,}1$."
+    ]
+  },
+  {
+    "id": "y25-d-cbrt25",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $\\sqrt[3]{25}$ (4 des.).",
+    "answer": 2.925925925925926,
+    "tolerance": 0.001,
+    "solution": "$x_0=27$, $h=-2$, $f'(27)=\\frac1{3\\cdot9}=\\frac1{27}$ ⇒ $3-\\frac2{27}\\approx2{,}9259$.",
+    "hints": [
+      "$27=3^3$.",
+      "$f'=\\frac13x^{-2/3}$.",
+      "$h=-2$."
+    ]
+  },
+  {
+    "id": "y25-d-4root80",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $\\sqrt[4]{80}$ (4 des.).",
+    "answer": 2.990740740740741,
+    "tolerance": 0.001,
+    "solution": "$x_0=81$, $h=-1$, $f'(81)=\\frac1{4\\cdot27}=\\frac1{108}$ ⇒ $3-\\frac1{108}\\approx2{,}9907$.",
+    "hints": [
+      "$81=3^4$.",
+      "$f'=\\frac14x^{-3/4}$.",
+      "$h=-1$."
+    ]
   }
 ]

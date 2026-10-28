@@ -318,5 +318,41 @@
       "Porovnej s $f(1)=2$.",
       "Spojitost zleva/zprava vyžaduje rovnost s $f(1)$."
     ]
+  },
+  {
+    "id": "y25-c-atan-x4",
+    "type": "choice",
+    "prompt": "Nespojitost funkce $\\operatorname{arctg}\\dfrac{x+2}{x^4}$ v $x_0=0$:",
+    "options": [
+      "odstranitelná",
+      "1. druhu (skok)",
+      "2. druhu",
+      "žádná"
+    ],
+    "answer": 0,
+    "solution": "Argument $\\to+\\infty$ z obou stran, tedy obě jednostranné limity jsou $\\frac\\pi2$; v $0$ není funkce definovaná ⇒ odstranitelná.",
+    "hints": [
+      "Limity argumentu zleva i zprava.",
+      "Obě $+\\infty$.",
+      "Limita existuje."
+    ]
+  },
+  {
+    "id": "y25-c-1sinx",
+    "type": "choice",
+    "prompt": "Nespojitost funkce $\\dfrac{1+\\sin x}x$ v $x_0=0$:",
+    "options": [
+      "2. druhu",
+      "odstranitelná",
+      "1. druhu",
+      "žádná"
+    ],
+    "answer": 0,
+    "solution": "Čitatel $\\to1$, $\\frac1x\\to\\pm\\infty$ ⇒ nevlastní jednostranné limity ⇒ 2. druh.",
+    "hints": [
+      "Čitatel $\\to1$.",
+      "Jednostranné limity nevlastní.",
+      "2. druh."
+    ]
   }
 ]

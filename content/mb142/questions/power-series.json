@@ -310,5 +310,106 @@
       "Součet $\\frac{1+q}{(1-q)^2}$ (derivace geometrické řady).",
       "$1+q=\\frac12$, $(1-q)^2=\\frac94$."
     ]
+  },
+  {
+    "id": "y25-ps-b-R",
+    "type": "numeric",
+    "prompt": "Poloměr konvergence řady $\\sum_{n=1}^\\infty\\frac{2^n}{n^2}x^n$ (4 des.):",
+    "answer": 0.5,
+    "tolerance": 0.0005,
+    "solution": "$\\sqrt[n]{|a_n|}\\to2$ ⇒ $R=\\frac12$; v krajních bodech $\\sum\\frac{(\\pm1)^n}{n^2}$ konverguje ⇒ $I=[-\\frac12,\\frac12]$.",
+    "hints": [
+      "Odmocninové / podílové kritérium.",
+      "$\\lim\\frac{a_n}{a_{n+1}}=\\frac12$.",
+      "Krajní body konvergují."
+    ]
+  },
+  {
+    "id": "y25-ps-c",
+    "type": "choice",
+    "prompt": "Interval konvergence $\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^n(x+2)^n}{\\sqrt n+n}$ je:",
+    "options": [
+      "$(-3,-1]$",
+      "$[-3,-1]$",
+      "$(-3,-1)$",
+      "$[-3,-1)$"
+    ],
+    "answer": 0,
+    "solution": "$R=1$, střed $-2$. V $x=-1$ vyjde alternující řada s členem $\\frac1{n+\\sqrt n}$ (konverguje, Leibniz); v $x=-3$ je $(-1)^n(-1)^n=1$ a řada $\\sum\\frac1{n+\\sqrt n}$ diverguje (jako $\\sum\\frac1n$).",
+    "hints": [
+      "Střed $-2$, poloměr $1$.",
+      "Pro $x=-3$: $(-1)^n(-1)^n=1$ ⇒ $\\sum\\frac{1}{n+\\sqrt n}$.",
+      "Pro $x=-1$: alternující."
+    ]
+  },
+  {
+    "id": "y25-ps-d",
+    "type": "numeric",
+    "prompt": "Poloměr konvergence řady $\\sum_{n=3}^\\infty(-2x\\ln n)^n$ je:",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$\\sqrt[n]{|a_n|}=2|x|\\ln n\\to\\infty$ pro $x\\ne0$ ⇒ $R=0$.",
+    "hints": [
+      "Odmocninové kritérium.",
+      "$\\ln n\\to\\infty$.",
+      "Konverguje jen pro $x=0$."
+    ]
+  },
+  {
+    "id": "y25-ps-e",
+    "type": "choice",
+    "prompt": "Interval konvergence $\\displaystyle\\sum_{n=1}^\\infty\\frac{7^nx^n}{n+1}$ je:",
+    "options": [
+      "$\\left[-\\frac17,\\frac17\\right)$",
+      "$\\left(-\\frac17,\\frac17\\right)$",
+      "$\\left[-\\frac17,\\frac17\\right]$",
+      "$\\left(-\\frac17,\\frac17\\right]$"
+    ],
+    "answer": 0,
+    "solution": "$R=\\frac17$. V $x=\\frac17$: $\\sum\\frac1{n+1}$ diverguje; v $x=-\\frac17$: $\\sum\\frac{(-1)^n}{n+1}$ konverguje (Leibniz).",
+    "hints": [
+      "$R=\\frac17$.",
+      "Pravý konec: harmonická řada.",
+      "Levý konec: alternující."
+    ]
+  },
+  {
+    "id": "y25-ps-sum-4n3",
+    "type": "numeric",
+    "prompt": "Součet $\\displaystyle\\sum_{n=1}^\\infty\\frac{x^{4n-3}}{4n-3}$ je $\\frac14\\ln\\frac{1+x}{1-x}+\\frac12\\operatorname{arctg}x$. Kolik je pro $x=\\frac12$ (4 des.)?",
+    "answer": 0.5064768766674305,
+    "tolerance": 0.001,
+    "solution": "Derivace $\\sum x^{4n-4}=\\frac1{1-x^4}=\\frac12\\left(\\frac1{1-x^2}+\\frac1{1+x^2}\\right)$; $\\frac14\\ln3+\\frac12\\operatorname{arctg}\\frac12\\approx0{,}5065$.",
+    "hints": [
+      "Derivuj člen po členu.",
+      "Rozlož $\\frac1{1-x^4}$.",
+      "Integruj."
+    ]
+  },
+  {
+    "id": "y25-ps-sum-alt",
+    "type": "numeric",
+    "prompt": "Součet $\\displaystyle\\sum_{n=1}^\\infty(-1)^n(2n+1)x^{2n}$ je $\\frac{1-x^2}{(1+x^2)^2}-1$. Kolik je pro $x=\\frac12$ (4 des.)?",
+    "answer": -0.52,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{3/4}{25/16}-1=0{,}48-1=-0{,}52$. ($n=0$ člen $=1$ se odečte od $\\frac{1-x^2}{(1+x^2)^2}=\\left(\\frac x{1+x^2}\\right)'$.)",
+    "hints": [
+      "$\\sum_{n\\ge0}$ je derivace $\\frac x{1+x^2}$.",
+      "Odečti člen $n=0$.",
+      "Dosaď $x=\\frac12$."
+    ]
+  },
+  {
+    "id": "y25-ps-sum-n",
+    "type": "numeric",
+    "prompt": "Součet $\\displaystyle\\sum_{n=1}^\\infty n(n+1)x^n=\\frac{2x}{(1-x)^3}$. Kolik je pro $x=\\frac12$?",
+    "answer": 8,
+    "tolerance": 0.001,
+    "solution": "$\\frac{1}{(1/2)^3}=8$.",
+    "hints": [
+      "Dosaď $x=\\frac12$.",
+      "$(1-x)^3=\\frac18$.",
+      "$\\frac{1}{1/8}$."
+    ]
   }
 ]

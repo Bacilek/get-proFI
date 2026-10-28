@@ -213,5 +213,122 @@
       "Primitivní funkce $-(x+1)e^{-x}$.",
       "Dosaď $e^{-\\ln2}=\\frac12$."
     ]
+  },
+  {
+    "id": "y25-di-5x1",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1\\frac{5x+1}{x+2}dx$ (4 des.).",
+    "answer": 1.3508140270265276,
+    "tolerance": 0.001,
+    "solution": "$\\frac{5x+1}{x+2}=5-\\frac9{x+2}$, $[5x-9\\ln(x+2)]_0^1=5-9\\ln\\frac32\\approx1{,}3508$.",
+    "hints": [
+      "Vyděl polynomy.",
+      "$5-\\frac{9}{x+2}$.",
+      "$\\int\\frac{dx}{x+2}=\\ln(x+2)$."
+    ]
+  },
+  {
+    "id": "y25-di-sin2x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{\\pi/6}^{\\pi/3}\\frac{\\sin2x}{\\cos x}dx$ (4 des.).",
+    "answer": 0.7320508075688772,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\sin2x}{\\cos x}=2\\sin x$, $[-2\\cos x]=2(\\cos\\frac\\pi6-\\cos\\frac\\pi3)=\\sqrt3-1\\approx0{,}7321$.",
+    "hints": [
+      "$\\sin2x=2\\sin x\\cos x$.",
+      "Zbude $\\int2\\sin x$.",
+      "Dosaď."
+    ]
+  },
+  {
+    "id": "y25-di-x4x2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^{\\sqrt3}\\frac x{4-x^2}dx$ (4 des.).",
+    "answer": 0.6931471805599453,
+    "tolerance": 0.0005,
+    "solution": "$-\\frac12\\ln(4-x^2)\\Big|_0^{\\sqrt3}=-\\frac12\\ln1+\\frac12\\ln4=\\ln2\\approx0{,}6931$.",
+    "hints": [
+      "Čitatel je (násobek) derivace jmenovatele.",
+      "$-\\frac12\\ln(4-x^2)$.",
+      "Dosaď $\\sqrt3$."
+    ]
+  },
+  {
+    "id": "y25-di-x2xex",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^2(x^2-x)e^xdx$ (4 des.).",
+    "answer": 4.3890560989306495,
+    "tolerance": 0.001,
+    "solution": "Per partes: primitivní $e^x(x^2-3x+3)$; $e^2(4-6+3)-3=e^2-3\\approx4{,}3891$.",
+    "hints": [
+      "Dvakrát per partes.",
+      "Primitivní $e^x(x^2-3x+3)$.",
+      "Dosaď $2$ a $0$."
+    ]
+  },
+  {
+    "id": "y25-di-2x3",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_1^e(2x-3)\\ln x\\,dx$ (4 des.).",
+    "answer": 1.1945280494653248,
+    "tolerance": 0.001,
+    "solution": "Per partes: $(x^2-3x)\\ln x-\\frac{x^2}2+3x$; $\\frac{e^2}2-\\frac52=\\frac{e^2-5}2\\approx1{,}1945$.",
+    "hints": [
+      "$u=\\ln x$, $v'=2x-3$.",
+      "Primitivní $(x^2-3x)\\ln x-\\frac{x^2}2+3x$.",
+      "Dosaď."
+    ]
+  },
+  {
+    "id": "y25-di-x2cos",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^\\pi x^2\\cos x\\,dx$ (4 des.).",
+    "answer": -6.283185307179586,
+    "tolerance": 0.001,
+    "solution": "Primitivní $x^2\\sin x+2x\\cos x-2\\sin x$; v $\\pi$: $-2\\pi$, v $0$: $0$ ⇒ $-2\\pi\\approx-6{,}2832$.",
+    "hints": [
+      "Dvakrát per partes.",
+      "Primitivní $x^2\\sin x+2x\\cos x-2\\sin x$.",
+      "$\\cos\\pi=-1$."
+    ]
+  },
+  {
+    "id": "y25-di-xsqrt",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1x\\sqrt{1-x^2}\\,dx$ (4 des.).",
+    "answer": 0.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "Subst. $t=1-x^2$: $\\frac12\\int_0^1\\sqrt t\\,dt=\\frac13$.",
+    "hints": [
+      "$t=1-x^2$, $x\\,dx=-\\frac{dt}2$.",
+      "$\\frac12\\int_0^1t^{1/2}dt$.",
+      "$\\frac12\\cdot\\frac23$."
+    ]
+  },
+  {
+    "id": "y25-di-3x5",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^2 3x\\sqrt{5+x^2}\\,dx$ (4 des.).",
+    "answer": 15.819660112501051,
+    "tolerance": 0.001,
+    "solution": "Subst. $t=5+x^2$: $\\frac32\\int_5^9\\sqrt t\\,dt=(5+x^2)^{3/2}\\Big|_0^2=27-5\\sqrt5\\approx15{,}8197$.",
+    "hints": [
+      "$t=5+x^2$.",
+      "$3x\\,dx=\\frac32dt$.",
+      "Meze $5$ až $9$."
+    ]
+  },
+  {
+    "id": "y25-di-x3",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1\\frac{x^3}{\\sqrt{x^2+1}}dx$ (4 des.).",
+    "answer": 0.19526214587563495,
+    "tolerance": 0.0005,
+    "solution": "Subst. $t=x^2+1$: $\\frac12\\int_1^2\\frac{t-1}{\\sqrt t}dt=\\frac12\\left[\\frac23t^{3/2}-2\\sqrt t\\right]_1^2=\\frac{2-\\sqrt2}3\\approx0{,}1953$.",
+    "hints": [
+      "$t=x^2+1$, $x\\,dx=\\frac{dt}2$.",
+      "$x^2=t-1$.",
+      "Integruj $\\frac{t-1}{\\sqrt t}$."
+    ]
   }
 ]

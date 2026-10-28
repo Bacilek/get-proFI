@@ -433,5 +433,109 @@
       "Existuje limita podílu derivací?",
       "Vyděl čitatel i jmenovatel $x$."
     ]
+  },
+  {
+    "id": "y25-lh-A",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac1x-\\frac1{\\sin x}\\right)$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\sin x-x}{x\\sin x}$, typ $\\frac00$. L’H: $\\frac{\\cos x-1}{\\sin x+x\\cos x}\\to\\frac00$, znovu: $\\frac{-\\sin x}{2\\cos x-x\\sin x}\\to0$.",
+    "hints": [
+      "Společný jmenovatel.",
+      "Dvakrát l’Hospital.",
+      "Po druhé derivaci dosaď $0$."
+    ]
+  },
+  {
+    "id": "y25-lh-B",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac1x-\\frac1{e^x-1}\\right)$ (4 des.).",
+    "answer": 0.5,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{e^x-1-x}{x(e^x-1)}\\sim\\frac{x^2/2}{x^2}=\\frac12$ (nebo dvakrát l’H).",
+    "hints": [
+      "Společný jmenovatel.",
+      "Rozvoj $e^x-1-x\\approx\\frac{x^2}2$.",
+      "$\\frac{x^2/2}{x^2}$."
+    ]
+  },
+  {
+    "id": "y25-lh-xtan",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{x-\\sin x}{x-\\operatorname{tg}x}$ (4 des.).",
+    "answer": -0.5,
+    "tolerance": 0.0005,
+    "solution": "Typ $\\frac00$. $x-\\sin x\\sim\\frac{x^3}6$, $x-\\operatorname{tg}x\\sim-\\frac{x^3}3$ ⇒ $-\\frac12$ (třikrát l’H).",
+    "hints": [
+      "Rozviň čitatel i jmenovatel do třetího řádu.",
+      "$\\tan x=x+\\frac{x^3}3+\\dots$.",
+      "$\\frac{1/6}{-1/3}$."
+    ]
+  },
+  {
+    "id": "y25-lh-xsinx",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac1{x\\sin x}-\\frac1{x^2}\\right)$ (4 des.).",
+    "answer": 0.16666666666666666,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{x-\\sin x}{x^2\\sin x}\\sim\\frac{x^3/6}{x^3}=\\frac16$.",
+    "hints": [
+      "Společný jmenovatel $x^2\\sin x$.",
+      "$x-\\sin x\\sim\\frac{x^3}6$.",
+      "$\\frac16$."
+    ]
+  },
+  {
+    "id": "y25-lh-xtan2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac1{x\\operatorname{tg}x}-\\frac1{x^2}\\right)$ (4 des.).",
+    "answer": -0.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{x-\\operatorname{tg}x}{x^2\\operatorname{tg}x}\\sim\\frac{-x^3/3}{x^3}=-\\frac13$.",
+    "hints": [
+      "Společný jmenovatel $x^2\\operatorname{tg}x$.",
+      "$x-\\operatorname{tg}x\\sim-\\frac{x^3}3$.",
+      "$-\\frac13$."
+    ]
+  },
+  {
+    "id": "y25-lh-ln",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac1{\\ln(x+1)}-\\frac1x\\right)$ (4 des.).",
+    "answer": 0.5,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{x-\\ln(1+x)}{x\\ln(1+x)}\\sim\\frac{x^2/2}{x^2}=\\frac12$.",
+    "hints": [
+      "$\\ln(1+x)=x-\\frac{x^2}2+\\dots$.",
+      "Čitatel $\\sim\\frac{x^2}2$.",
+      "Jmenovatel $\\sim x^2$."
+    ]
+  },
+  {
+    "id": "y25-lh-atan-x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\left(\\frac2\\pi\\operatorname{arctg}x\\right)^x$ (4 des.).",
+    "answer": 0.5290778082677353,
+    "tolerance": 0.001,
+    "solution": "$\\operatorname{arctg}x=\\frac\\pi2-\\frac1x+\\dots$ ⇒ $\\left(1-\\frac2{\\pi x}\\right)^x\\to e^{-2/\\pi}\\approx0{,}5290$.",
+    "hints": [
+      "Typ $1^\\infty$.",
+      "$\\frac2\\pi\\operatorname{arctg}x=1-\\frac{2}{\\pi x}+\\dots$.",
+      "$(1+\\frac ax)^x\\to e^a$."
+    ]
+  },
+  {
+    "id": "y25-lh-sintan",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0^+}(\\sin x)^{\\operatorname{tg}x}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$\\ln=\\operatorname{tg}x\\ln\\sin x\\sim x\\ln x\\to0$ ⇒ limita $e^0=1$.",
+    "hints": [
+      "Zlogaritmuj.",
+      "$\\operatorname{tg}x\\ln\\sin x\\sim x\\ln x$.",
+      "$x\\ln x\\to0$."
+    ]
   }
 ]

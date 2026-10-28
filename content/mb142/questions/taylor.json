@@ -213,5 +213,18 @@
       "$\\sin x-x=-\\frac{x^3}6+O(x^5)$.",
       "Vyděl $x^3$."
     ]
+  },
+  {
+    "id": "y25-ty-acot",
+    "type": "numeric",
+    "prompt": "Taylorův polynom 3. stupně funkce $\\operatorname{arccotg}x$ v bodě $1$ je $\\frac\\pi4-\\frac12h+\\frac14h^2-\\frac1{12}h^3$, $h=x-1$. Aproximuj $\\operatorname{arccotg}1{,}03$ (5 des.).",
+    "answer": 0.7706209133974483,
+    "tolerance": 0.00005,
+    "solution": "$\\frac\\pi4-0{,}015+0{,}000225-0{,}00000225\\approx0{,}77062$.",
+    "hints": [
+      "$h=0{,}03$.",
+      "Dosaď do polynomu.",
+      "Členy: $-0{,}015$, $+0{,}000225$, $-2{,}25\\cdot10^{-6}$."
+    ]
   }
 ]

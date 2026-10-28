@@ -400,5 +400,109 @@
       "$\\sum_{n\\ge0}2^{-n}=2$.",
       "$\\pi^2\\approx9{,}87$."
     ]
+  },
+  {
+    "id": "y25-si-1-3n",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=2}^\\infty\\frac1{3^n}$ (4 des.).",
+    "answer": 0.16666666666666666,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{1/9}{1-1/3}=\\frac16$.",
+    "hints": [
+      "První člen $\\frac19$.",
+      "$q=\\frac13$.",
+      "$\\frac{1/9}{2/3}$."
+    ]
+  },
+  {
+    "id": "y25-si-6a",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=0}^\\infty\\frac{2^{n+1}-7\\cdot3^n}{6^n}$.",
+    "answer": -11,
+    "tolerance": 0.001,
+    "solution": "$2\\sum\\left(\\frac13\\right)^n-7\\sum\\left(\\frac12\\right)^n=2\\cdot\\frac32-7\\cdot2=-11$.",
+    "hints": [
+      "Rozděl na dvě geometrické řady.",
+      "$\\frac{2^n}{6^n}=(\\frac13)^n$, $\\frac{3^n}{6^n}=(\\frac12)^n$.",
+      "$3-14$."
+    ]
+  },
+  {
+    "id": "y25-si-6b",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=0}^\\infty\\frac{5\\cdot4^n-3^{n+1}}{6^n}$.",
+    "answer": 9,
+    "tolerance": 0.001,
+    "solution": "$5\\cdot\\frac1{1-2/3}-3\\cdot\\frac1{1-1/2}=15-6=9$.",
+    "hints": [
+      "$\\frac{4^n}{6^n}=(\\frac23)^n$.",
+      "$3^{n+1}=3\\cdot3^n$.",
+      "$15-6$."
+    ]
+  },
+  {
+    "id": "y25-si-7",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=1}^\\infty\\left(\\frac5{2^{2n-1}}-\\frac1{2^{2n}}\\right)$.",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "$\\frac5{2^{2n-1}}=\\frac{10}{4^n}$, tedy člen $\\frac{9}{4^n}$; $9\\cdot\\frac{1/4}{3/4}=3$.",
+    "hints": [
+      "$2^{2n-1}=\\frac{4^n}2$.",
+      "Člen $\\frac{10-1}{4^n}$.",
+      "$9\\cdot\\frac13$."
+    ]
+  },
+  {
+    "id": "y25-si-n4",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=1}^\\infty\\frac n{4^n}$ (4 des.). (Aritmeticko-geometrická řada.)",
+    "answer": 0.4444444444444444,
+    "tolerance": 0.0005,
+    "solution": "$S=\\frac{q}{(1-q)^2}$ s $q=\\frac14$: $\\frac{1/4}{9/16}=\\frac49\\approx0{,}4444$. (Nebo: $S-\\frac S4=\\sum\\frac1{4^n}=\\frac13$.)",
+    "hints": [
+      "$S-\\frac S4=\\frac14+\\frac1{16}+\\dots$.",
+      "$\\frac34S=\\frac13$.",
+      "$S=\\frac49$."
+    ]
+  },
+  {
+    "id": "y25-si-n1-4",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=1}^\\infty\\frac{n-1}{4^n}$ (4 des.).",
+    "answer": 0.1111111111111111,
+    "tolerance": 0.0005,
+    "solution": "$\\sum\\frac n{4^n}-\\sum\\frac1{4^n}=\\frac49-\\frac13=\\frac19$.",
+    "hints": [
+      "Rozděl na dvě řady.",
+      "$\\sum\\frac{1}{4^n}=\\frac13$.",
+      "$\\frac49-\\frac39$."
+    ]
+  },
+  {
+    "id": "y25-si-3n1",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=1}^\\infty\\frac1{(3n+1)(3n-2)}$ (4 des.).",
+    "answer": 0.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "$\\frac1{(3n+1)(3n-2)}=\\frac13\\left(\\frac1{3n-2}-\\frac1{3n+1}\\right)$, teleskop: $\\frac13\\cdot1$.",
+    "hints": [
+      "Parciální zlomky.",
+      "Teleskopický součet.",
+      "První člen $\\frac1{3\\cdot1-2}=1$."
+    ]
+  },
+  {
+    "id": "y25-si-4n2",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=1}^\\infty\\frac1{4n^2-1}$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "$\\frac12\\left(\\frac1{2n-1}-\\frac1{2n+1}\\right)$, $S_N=\\frac12\\left(1-\\frac1{2N+1}\\right)\\to\\frac12$.",
+    "hints": [
+      "Rozklad $\\frac1{(2n-1)(2n+1)}$.",
+      "Teleskop.",
+      "$\\frac12\\cdot1$."
+    ]
   }
 ]

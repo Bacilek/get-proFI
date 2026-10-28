@@ -325,5 +325,23 @@
       "Integruj člen po členu.",
       "Odhadni první vynechaný člen."
     ]
+  },
+  {
+    "id": "y25-ts-1x-m2",
+    "type": "choice",
+    "prompt": "Taylorova řada $f(x)=\\frac1x$ se středem $x_0=-2$ (pro $|x+2|<2$) je:",
+    "options": [
+      "$-\\displaystyle\\sum_{n=0}^\\infty\\frac{(x+2)^n}{2^{n+1}}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(x+2)^n}{2^{n+1}}$",
+      "$-\\displaystyle\\sum_{n=0}^\\infty\\frac{(x+2)^n}{2^n}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^n(x+2)^n}{2^n}$"
+    ],
+    "answer": 0,
+    "solution": "$\\frac1x=\\frac1{-2+(x+2)}=-\\frac12\\cdot\\frac1{1-\\frac{x+2}2}=-\\sum\\frac{(x+2)^n}{2^{n+1}}$.",
+    "hints": [
+      "$x=-2+(x+2)$.",
+      "Vytkni $-2$.",
+      "Geometrická řada s $q=\\frac{x+2}2$."
+    ]
   }
 ]

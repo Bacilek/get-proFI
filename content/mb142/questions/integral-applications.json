@@ -206,5 +206,44 @@
       "Poloměr$^2=4z$.",
       "$\\int_0^14\\pi z\\,dz$."
     ]
+  },
+  {
+    "id": "y25-ia-area",
+    "type": "numeric",
+    "prompt": "Obsah plochy ohraničené grafy $f(x)=x^2$ a $g(x)=2-x$:",
+    "answer": 4.5,
+    "tolerance": 0.001,
+    "solution": "Průsečíky $x=-2,1$: $\\int_{-2}^1(2-x-x^2)dx=\\frac92$.",
+    "hints": [
+      "$x^2=2-x\\Rightarrow x=-2,1$.",
+      "Horní funkce $2-x$.",
+      "$\\int_{-2}^{1}(2-x-x^2)dx$."
+    ]
+  },
+  {
+    "id": "y25-ia-vol-line",
+    "type": "numeric",
+    "prompt": "Přímka $3x+2y-6=0$ rotuje kolem osy $x$ pro $x\\in[0,2]$. Kolik je objem tělesa (4 des.)?",
+    "answer": 18.84955592153876,
+    "tolerance": 0.001,
+    "solution": "$y=3-\\frac32x$: $V=\\pi\\int_0^2\\left(3-\\frac32x\\right)^2dx=6\\pi\\approx18{,}8496$ (kužel $r=3$, $v=2$: $\\frac13\\pi9\\cdot2$).",
+    "hints": [
+      "$y=3-\\frac{3}{2}x$.",
+      "$V=\\pi\\int y^2dx$.",
+      "Kužel: $\\frac13\\pi r^2v$."
+    ]
+  },
+  {
+    "id": "y25-ia-surf-line",
+    "type": "numeric",
+    "prompt": "Stejná přímka $3x+2y-6=0$ na $[0,2]$ rotuje kolem osy $x$. Kolik je obsah pláště (4 des.)? (Obecně $3\\pi\\sqrt{13}$.)",
+    "answer": 33.98152019741693,
+    "tolerance": 0.01,
+    "solution": "$S=2\\pi\\int y\\sqrt{1+y'^2}dx=2\\pi\\cdot\\frac{\\sqrt{13}}2\\cdot3=3\\pi\\sqrt{13}\\approx33{,}98$ (plášť kužele $\\pi rl$, $l=\\sqrt{13}$).",
+    "hints": [
+      "$y'=-\\frac32$, $\\sqrt{1+\\frac94}=\\frac{\\sqrt{13}}2$.",
+      "$\\int_0^2y\\,dx=3$.",
+      "Plášť kužele $\\pi rl$."
+    ]
   }
 ]

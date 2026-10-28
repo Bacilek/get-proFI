@@ -295,5 +295,67 @@
       "Dosaď do $f$.",
       "$\\operatorname{arctg}1$."
     ]
+  },
+  {
+    "id": "y25-cs-xatan",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=x-2\\operatorname{arctg}x$ má lokální maximum v $x=-1$. Kolik je $f(-1)$ (4 des.)?",
+    "answer": 0.5707963267948966,
+    "tolerance": 0.0005,
+    "solution": "$f'=1-\\frac2{1+x^2}=0\\Rightarrow x=\\pm1$; $f(-1)=-1+\\frac\\pi2\\approx0{,}5708$ (max), $f(1)=1-\\frac\\pi2$ (min).",
+    "hints": [
+      "$f'=0$ pro $x=\\pm1$.",
+      "$\\operatorname{arctg}(-1)=-\\frac\\pi4$.",
+      "$-1-2\\cdot(-\\frac\\pi4)$."
+    ]
+  },
+  {
+    "id": "y25-cs-gauss",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=e^{-x^2}$ má inflexní body v $x=\\pm\\frac1{\\sqrt2}$. Kolik je $f\\left(\\frac1{\\sqrt2}\\right)$ (4 des.)?",
+    "answer": 0.6065306597126334,
+    "tolerance": 0.0005,
+    "solution": "$f''=(4x^2-2)e^{-x^2}=0\\Rightarrow x^2=\\frac12$; $f=e^{-1/2}\\approx0{,}6065$.",
+    "hints": [
+      "$f'=-2xe^{-x^2}$.",
+      "$f''=(4x^2-2)e^{-x^2}$.",
+      "$e^{-1/2}$."
+    ]
+  },
+  {
+    "id": "y25-cs-A-asym",
+    "type": "choice",
+    "prompt": "Funkce $f(x)=\\dfrac{x^3-x^2-1}{x^2-3x-4}$ má:",
+    "options": [
+      "svislé asymptoty $x=-1$, $x=4$ a šikmou $y=x+2$",
+      "jen svislou $x=4$",
+      "svislé $x=-1,4$ a vodorovnou $y=1$",
+      "šikmou $y=x-2$ a žádnou svislou"
+    ],
+    "answer": 0,
+    "solution": "$x^2-3x-4=(x-4)(x+1)$, v obou bodech čitatel $\\ne0$. Dělení: $x^3-x^2-1=(x^2-3x-4)(x+2)+10x+7$ ⇒ $y=x+2$.",
+    "hints": [
+      "Rozlož jmenovatel.",
+      "Zkontroluj čitatele v $-1,4$.",
+      "Vyděl polynom."
+    ]
+  },
+  {
+    "id": "y25-cs-B-asym",
+    "type": "choice",
+    "prompt": "Šikmá asymptota funkce $f(x)=\\dfrac{x^3+3x^2+1}{x^2+x-6}$ je:",
+    "options": [
+      "$y=x+2$",
+      "$y=x+3$",
+      "$y=x-2$",
+      "$y=x$"
+    ],
+    "answer": 0,
+    "solution": "$x^3+3x^2+1=(x^2+x-6)(x+2)+4x+13$.",
+    "hints": [
+      "Vyděl polynom.",
+      "Podíl $x+2$.",
+      "Zbytek $\\to0$ po vydělení."
+    ]
   }
 ]

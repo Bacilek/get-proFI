@@ -411,5 +411,88 @@
       "$\\sin x=\\frac{2t}{1+t^2}$.",
       "Zbyde $\\int\\frac{dt}t$."
     ]
+  },
+  {
+    "id": "y25-im-24a",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_1^e(2x+5)\\ln x\\,dx$ (4 des.).",
+    "answer": 9.194528049465294,
+    "tolerance": 0.001,
+    "solution": "Per partes: $(x^2+5x)\\ln x-\\frac{x^2}2-5x$; $\\left[\\dots\\right]_1^e=\\frac{e^2}2+\\frac{11}2\\approx9{,}1945$.",
+    "hints": [
+      "$u=\\ln x$, $v'=2x+5$.",
+      "Primitivní $(x^2+5x)\\ln x-\\frac{x^2}2-5x$.",
+      "Dosaď $e$ a $1$."
+    ]
+  },
+  {
+    "id": "y25-im-24b",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^\\pi x^2\\sin x\\,dx$ (4 des.).",
+    "answer": 5.869604401089358,
+    "tolerance": 0.001,
+    "solution": "Dvakrát per partes: $-x^2\\cos x+2x\\sin x+2\\cos x$; $[\\dots]_0^\\pi=(\\pi^2-2)-2=\\pi^2-4\\approx5{,}8696$.",
+    "hints": [
+      "Per partes dvakrát.",
+      "Primitivní $-x^2\\cos x+2x\\sin x+2\\cos x$.",
+      "Dosaď $\\pi$ a $0$."
+    ]
+  },
+  {
+    "id": "y25-im-24d",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^\\infty(x^2+1)e^{-x}dx$.",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^\\infty x^2e^{-x}=2$, $\\int_0^\\infty e^{-x}=1$ ⇒ $3$.",
+    "hints": [
+      "$\\Gamma(3)=2$.",
+      "$\\int e^{-x}=1$.",
+      "Sečti."
+    ]
+  },
+  {
+    "id": "y25-im-25a",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{(1+\\ln x)^3}x\\,dx$ $(x>0)$ je:",
+    "options": [
+      "$\\dfrac{(1+\\ln x)^4}4+C$",
+      "$(1+\\ln x)^4+C$",
+      "$\\dfrac{(1+\\ln x)^3}3+C$",
+      "$\\dfrac{\\ln^4 x}{4}+C$"
+    ],
+    "answer": 0,
+    "solution": "Subst. $t=1+\\ln x$, $dt=\\frac{dx}x$: $\\int t^3dt=\\frac{t^4}4$.",
+    "hints": [
+      "$t=1+\\ln x$.",
+      "$dt=\\frac{dx}{x}$.",
+      "$\\int t^3dt$."
+    ]
+  },
+  {
+    "id": "y25-im-25c",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1\\frac{\\operatorname{arctg}^4x}{1+x^2}dx$ (4 des.).",
+    "answer": 0.05976946968462528,
+    "tolerance": 0.0005,
+    "solution": "Subst. $t=\\operatorname{arctg}x$: $\\int_0^{\\pi/4}t^4dt=\\frac{(\\pi/4)^5}5\\approx0{,}0603$.",
+    "hints": [
+      "$t=\\operatorname{arctg}x$.",
+      "$dt=\\frac{dx}{1+x^2}$.",
+      "Meze $0$ až $\\frac\\pi4$."
+    ]
+  },
+  {
+    "id": "y25-im-ex2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_1^4e^{\\sqrt x}dx$ (4 des.).",
+    "answer": 14.7781121978613,
+    "tolerance": 0.001,
+    "solution": "Subst. $t=\\sqrt x$, $dx=2t\\,dt$: $2\\int_1^2te^tdt=2[(t-1)e^t]_1^2=2e^2\\approx14{,}7781$.",
+    "hints": [
+      "$t=\\sqrt x$, $dx=2t\\,dt$.",
+      "Per partes: $\\int te^t=(t-1)e^t$.",
+      "Meze $1$ a $2$."
+    ]
   }
 ]
