@@ -50,7 +50,8 @@
       "cumulative": true,
       "info": [
         "6 domácích úkolů během semestru, nepravidelně, max 3 b za úkol (18 b celkem)",
-        "Nutná podmínka k připuštění ke zkoušce: alespoň 12 b",
+        "Nutná podmínka k připuštění ke zkoušce: alespoň 12 b (2/3 bodů)",
+        "Body nad limit se přičítají k bodům ze zkoušky (vylepšují známku)",
         "Odevzdává se do odevzdávárny v ISu, řešení v C#",
         "DÚ1: 3 úlohy po 1 b, deadline 6. 10. 2026, 23:59",
         "DÚ2: 2 úlohy po 1,5 b, deadline 3. 11. 2026, 23:59 (odevzdávárny du02a a du02b zvlášť)",
@@ -66,6 +67,8 @@
       "coversModules": ["intro", "names", "types", "control", "subroutines"],
       "info": [
         "Dvě části: teoretická (písemně) a praktická (programování na počítači)",
+        "Z každé části nutno získat alespoň 50 % bodů",
+        "Praktická část je podobná domácím úkolům, jen složitější",
         "Datum, bodování a hranice zatím neznámé"
       ]
     }

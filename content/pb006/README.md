@@ -17,4 +17,10 @@ Kód se nespouští (v prohlížeči není C# runtime). Zadání `code` jsou var
 `Lectures/is_export/01-05` (slidy), `Lectures/sbirka.pdf` (sbírka, 9 kapitol), `Lectures/code/` (ukázky), `Tasks/`, `course.txt`. Složky `Seminars`, `ROPOTs`, `Syllabus` předmět nepoužívá (nevytvářet).
 
 ## Zpracováno
-Kostra, podmínky, milníky, nové typy otázek `fill` a `code`. Lekce zatím ne (pointer `materials.lecture` = 6 je nastaven, až budou lekce 1-5 hotové).
+- Slidy 01-05 (`Lectures/is_export`) -> lekce `intro`, `names`, `types`, `control`, `subroutines` (61 otázek: choice, fill, code, free). Pointer `materials.lecture` = 6.
+- Sbírka (`sbirka.pdf`) zatím jen jako inspirace (kap. 2-5); otázky z ní ještě nepřevedeny.
+- DÚ1, DÚ2 (`Tasks/01-02`) nezpracovávat jako řešení (aktivní úkoly); slouží jen jako vzor stylu zadání v `code` otázkách. DÚ2 obsahuje unifikaci typů (viz lekce `types`).
+- Podmínky: ze slidů 01 doplněno 50 % z každé části zkoušky, DÚ min 2/3 (12 b), body nad limit se přičítají ke zkoušce.
+
+## Dále
+Přednášky 06+ (ADT, OOP, výjimky...) z ISu, kód z `Lectures/code/` (`Stack.cs`, `Device*.cs`, `Interfaces.cs`, `Expression*.cs`, `GStack.cs`, Python stack/BinTree) patří k pozdějším tématům, využít v lekcích OOP. Recordings: doplnit odkazy.

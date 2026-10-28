@@ -1,0 +1,167 @@
+[
+  {
+    "id": "types-classify",
+    "type": "choice",
+    "prompt": "Do které kategorie patří Python?",
+    "options": ["silně staticky typovaný", "silně dynamicky typovaný", "slabě staticky typovaný", "slabě dynamicky typovaný"],
+    "answer": 1,
+    "solution": "Python typy kontroluje až za běhu (**dynamicky**) a neprovede operaci nad nevhodným typem (`1 + \"a\"` = TypeError), je tedy **silně** typovaný. Silně statické: Java, Haskell, C#. Slabě statické: C, C++. Slabě dynamické: Perl, PHP, JavaScript.",
+    "hints": ["Kdy se typy kontrolují? A dovolí `1 + \"a\"`?"]
+  },
+  {
+    "id": "types-value-ref",
+    "type": "choice",
+    "prompt": "Který z těchto typů je v C# **odkazový**?",
+    "options": ["`int`", "`bool`", "`struct Point`", "`string`"],
+    "answer": 3,
+    "solution": "`string` je odkazový (a neměnný) typ. `int`, `bool`, `enum` a `struct` jsou hodnotové.",
+    "hints": ["Hodnotové jsou jednoduché typy, enumy a struktury."]
+  },
+  {
+    "id": "types-name-vs-struct",
+    "type": "choice",
+    "prompt": "```c\nstruct A { char x; int y; };\nstruct B { char x; int y; };\ntypedef struct A C;\ntypedef int Age;\n```\n\nKterá tvrzení platí v C?",
+    "options": [
+      "`struct A` a `struct B` jsou stejný typ (strukturální ekvivalence)",
+      "`struct A` a `C` jsou stejný typ, `struct A` a `struct B` různé",
+      "`int` a `Age` jsou různé typy",
+      "žádné"
+    ],
+    "answer": 1,
+    "solution": "C používá jmennou ekvivalenci pro `struct/union/enum` (A ≠ B i při shodné struktuře) a `typedef` je jen **alias**: `C` je `struct A`, `Age` je `int`.",
+    "hints": ["Co dělá `typedef`: nový typ, nebo nové jméno?"]
+  },
+  {
+    "id": "types-cast-div",
+    "type": "choice",
+    "prompt": "```c\nint a = 5, b = 2;\nfloat r1 = (float) a / b;\nfloat r2 = (float) (a / b);\n```\n\nHodnoty `r1` a `r2`:",
+    "options": ["2.5 a 2.5", "2.5 a 2.0", "2.0 a 2.5", "2.0 a 2.0"],
+    "answer": 1,
+    "solution": "Cast má vyšší prioritu než `/`: `(float) a / b` = `5.0 / 2` = **2.5**. V `(float)(a / b)` se nejdřív celočíselně vydělí `5 / 2 = 2` a až pak převede na `2.0`.",
+    "hints": ["Co se vyhodnotí dříve: cast, nebo dělení?"]
+  },
+  {
+    "id": "types-unsigned-promotion",
+    "type": "choice",
+    "prompt": "```c\nunsigned int a = 1;\nsigned int b = -2;\nif (a + b > 0) puts(\"-1 > 0\"); else puts(\"ok\");\n```\n\nCo vypíše?",
+    "options": ["ok", "-1 > 0", "chyba překladu", "nedefinované chování"],
+    "answer": 1,
+    "solution": "Při smíšené aritmetice se `int` převede na `unsigned int`: `b` = 4294967294, součet přeteče na 4294967295 > 0, vypíše se `-1 > 0`. U `unsigned short` by `a` a `b` prošly integer promotion na `int` a vypsalo by se `ok`.",
+    "hints": ["Který typ „vyhraje“ při smíšené aritmetice signed/unsigned stejné šířky?"]
+  },
+  {
+    "id": "types-nullable",
+    "type": "choice",
+    "prompt": "```csharp\nint? x = null;\nint z = x ?? -1;\nint w = x;\n```\n\nCo se stane?",
+    "options": [
+      "oba řádky se přeloží, `z == -1`, `w == 0`",
+      "`z == -1`, ale `int w = x;` je chyba překladu",
+      "chyba na `??`",
+      "`z == null`"
+    ],
+    "answer": 1,
+    "solution": "`??` vrací pravou stranu, je-li levá `null`: `z == -1`. Nullable `int?` nelze přiřadit do `int` bez `x ?? výchozí`, `x.Value` nebo přetypování (jinak chyba překladu).",
+    "hints": ["Smí se `int?` implicitně převést na `int`?"]
+  },
+  {
+    "id": "types-unify-1",
+    "type": "choice",
+    "prompt": "Najdi nejobecnější unifikátor rovnice `[a] = [[b]]`.",
+    "options": ["`a = Int, b = Int`", "`a = [b]`, `b` zůstává volná", "`a = [[b]]`", "nemá řešení"],
+    "answer": 1,
+    "solution": "Seznam seznamů prvků typu `b`: `a` je prvek vnějšího seznamu, tedy `a = [b]`. Konkrétní řešení (`b = Int`) existují, ale nejobecnější nechává `b` volnou.",
+    "hints": ["Odstraň vnější `[ ]` z obou stran."]
+  },
+  {
+    "id": "types-unify-2",
+    "type": "choice",
+    "prompt": "Která soustava rovností **nemá** řešení?",
+    "options": [
+      "`[a] = [Int]`",
+      "`[a] = b -> b`",
+      "`a -> b = Int -> Bool`",
+      "`[a] = [[b]]`"
+    ],
+    "answer": 1,
+    "solution": "`[a]` (seznam) a `b -> b` (funkční typ) mají různé typové konstruktory, takže se nesjednotí. Ostatní mají řešení.",
+    "hints": ["Hledej rovnost, kde se na obou stranách liší vnější konstruktor."]
+  },
+  {
+    "id": "types-unify-occurs",
+    "type": "choice",
+    "prompt": "Proč soustava `[a] = b`, `[b] = a` nemá konečné řešení?",
+    "options": [
+      "`a` a `b` jsou stejná proměnná",
+      "Dosazením vznikne `a = [[a]]`: proměnná by se vyskytovala sama v sobě (occurs check).",
+      "Seznam nelze unifikovat s proměnnou.",
+      "Má, a to `a = b = []`."
+    ],
+    "answer": 1,
+    "solution": "Z `b = [a]` a `a = [b]` dostaneme `a = [[a]]`, což je nekonečný typ. Proto `UnifyVar` před vazbou `v := T` kontroluje, zda se `v` v `T` nevyskytuje (**occurs check**).",
+    "hints": ["Dosaď jedno za druhé."]
+  },
+  {
+    "id": "types-infer-add",
+    "type": "choice",
+    "prompt": "Jaký typ odvodí Haskell (s jediným numerickým typem `Int`) pro\n\n```haskell\nadd [] = 0\nadd (x:xs) = x + add xs\n```",
+    "options": ["`Int -> Int`", "`[Int] -> Int`", "`[a] -> a`", "`[Int] -> [Int]`"],
+    "answer": 1,
+    "solution": "`0 :: Int`, `+ :: Int -> Int -> Int`; vzory `[]`, `x:xs` říkají, že argument je seznam, a prvky `x` jsou sčítány, tedy `Int`. Výsledek: `add :: [Int] -> Int`.",
+    "hints": ["Co víš o typu argumentu z levé strany a o typu výsledku z `0` a `+`?"]
+  },
+  {
+    "id": "types-var",
+    "type": "choice",
+    "prompt": "Která z těchto deklarací v C# je **chyba**?",
+    "options": ["`var i = 5;`", "`var s = \"Hello\";`", "`var a = new[] { 0, 1, 2 };`", "`var x;`"],
+    "answer": 3,
+    "solution": "`var` musí mít inicializátor, ze kterého překladač typ odvodí. `var x;` nejde přeložit. Ostatní jsou `int`, `string`, `int[]`.",
+    "hints": ["Z čeho by překladač odvodil typ?"]
+  },
+  {
+    "id": "types-fill-nullable",
+    "type": "fill",
+    "prompt": "Doplň deklaraci nullable typu a výchozí hodnotu.",
+    "code": "int___ x = null;\nint z = x ___ -1;",
+    "blanks": [["?"], ["??"]],
+    "solution": "`int? x` je `Nullable<int>`, výraz `x ?? -1` vrátí `-1`, je-li `x` `null`, jinak hodnotu `x`.",
+    "hints": ["Přípona typu.", "Operátor „null-coalescing“."]
+  },
+  {
+    "id": "types-fill-array",
+    "type": "fill",
+    "prompt": "Vytvoř obdélníkové pole 4×2 a schodovité pole se 3 řádky.",
+    "code": "int[___] m = new int[4, 2];\nint[][] j = new int[3]___;",
+    "blanks": [[","], ["[]"]],
+    "solution": "Obdélníkové: `int[,] m = new int[4, 2];`. Schodovité je pole polí: `int[][] j = new int[3][];` a každý řádek se pak alokuje zvlášť (`j[0] = new int[5];`).",
+    "hints": ["Čárka odděluje rozměry.", "Pole polí se v druhé dimenzi alokuje později."]
+  },
+  {
+    "id": "types-explain-equiv",
+    "type": "free",
+    "prompt": "Vysvětli rozdíl mezi jmennou a strukturální typovou ekvivalencí a uveď jazyk pro každou. Co dělá `typedef` v C?",
+    "solution": "**Jmenná**: typy jsou stejné, mají-li stejné jméno / jsou z téže deklarace (Pascal, Ada, Java, C#). **Strukturální**: stejná struktura po rozbalení jmen (Algol, ML). C kombinuje: jmenná pro `struct/union/enum`, jinak strukturální. `typedef` zavádí jen **alias** (nový název, ne nový typ). Ada rozlišuje `subtype` (stejný typ) a `new` (odvozený, nový typ).",
+    "hints": ["Co se porovnává: jména, nebo struktura?"]
+  },
+  {
+    "id": "types-explain-dangling",
+    "type": "free",
+    "prompt": "Co je visící ukazatel (dangling pointer) a co ztracená proměnná (lost variable)? Jak vzniknou a jak se jim bránit?",
+    "solution": "**Visící ukazatel**: obsahuje adresu již dealokované proměnné (např. `p2 = p1; free(p1);` pak je `p2` visící). Nebezpečí: adresa může být znovu použita pro jiný objekt. **Ztracená proměnná**: objekt na haldě, ke kterému nevede žádný ukazatel (po přepsání jediného ukazatele), tzn. **memory leak**. Obrana: garbage collection (proti ztrátě), reference bez aritmetiky, zákaz explicitní dealokace.",
+    "hints": ["Jeden případ je ukazatel bez objektu, druhý objekt bez ukazatele."]
+  },
+  {
+    "id": "types-write-pascal",
+    "type": "code",
+    "prompt": "Napiš v C# `static int[][] Pascal(int n)`, která vrátí **schodovité pole** prvních `n` řádků Pascalova trojúhelníku (řádek `i` má `i + 1` prvků, krajní prvky 1, ostatní součet dvou nad nimi). Např. `Pascal(4)` = `[[1],[1,1],[1,2,1],[1,3,3,1]]`.",
+    "starter": "static int[][] Pascal(int n)\n{\n    \n}",
+    "checklist": [
+      "Vnější pole má `n` prvků, každý řádek se alokuje zvlášť s délkou `i + 1`.",
+      "První a poslední prvek řádku je 1.",
+      "Vnitřní prvky počítá jako `p[i-1][j-1] + p[i-1][j]`.",
+      "`Pascal(0)` vrátí prázdné pole bez výjimky."
+    ],
+    "solution": "```csharp\nstatic int[][] Pascal(int n)\n{\n    int[][] p = new int[n][];\n    for (int i = 0; i < n; i++)\n    {\n        p[i] = new int[i + 1];\n        p[i][0] = p[i][i] = 1;\n        for (int j = 1; j < i; j++)\n            p[i][j] = p[i - 1][j - 1] + p[i - 1][j];\n    }\n    return p;\n}\n```",
+    "hints": ["Kolik prvků má řádek `i`?", "Vnější pole se vytvoří `new int[n][]`, řádky se přidávají postupně.", "Krajní prvky nastav na 1, zbytek z předchozího řádku."]
+  }
+]

@@ -15,10 +15,12 @@
 4. [x] Lesson renderer (MD + KaTeX), cvičení (numeric/choice/free), hvězdy z cvičení, self-rating tématu; ukázková lekce `differential` (z vlastních znalostí, překontrolovat proti slidům)
 5. [x] Mezery + spaced repetition + math drill generátory (stránka /review: due otázky (SM-2), nejslabší témata, drill; generátory v `src/core/drill.ts` pro derivace, určitý integrál, parciální derivace, geometrickou řadu)
 6. [x] Achievementy (odvozené z postupu, bez tabulky; `src/core/achievements.ts`, stránka /achievements)
-7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), PB016 (př. 1–6 hotové, př. 7–12 rozpracované ze sbírky, čekají na slidy, viz `content/pb016/README.md`), PB006 (založená kostra, čeká na podmínky a materiály, viz `content/pb006/README.md`), pak VB001, PV028
+7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), PB016 (př. 1–6 hotové, př. 7–12 rozpracované ze sbírky, čekají na slidy, viz `content/pb016/README.md`), PB006 (př. 1-5 hotové, kódový drill, viz `content/pb006/README.md`), pak VB001, PV028
 
 ## Aktuální stav
 **UI (28. 10. 2026):** lekce se renderují jako karty (sekce Intuice/Vzorec/Příklad/Pozor/Praxe, vzorce v rámečcích, `src/components/prettify.ts`); roadmapa: dvojklik otevře lekci, legenda barev, bez zvýraznění aktuálního týdne; milníky: čas, info jako odrážky, body k minimu + ruční zadání bodů (`cumulative` milníky); upozornění na chybějící materiály po týdnech se Skip (`materials`, tabulka `skips`); ROPOT trainer (`/c/pb016/ropot`, 9 generátorů + 76 ručních otázek `ro-*`).
+
+**PB006 (28. 10. 2026):** kurz `pb006` – 5 lekcí / 61 otázek z přednášek 1–5 (úvod, jména a rozsahy, typy a unifikace, tok řízení, podprogramy). Nové typy otázek pro kódovací předměty: `fill` (kód s mezerami `___`, auto-check) a `code` (napiš vlastní kód, odhal referenční řešení, odškrtni checklist). Kód se nespouští. Milníky: DÚ 6× max 3 b (min 12, týdenní body), zkouška (teorie + praxe, min 50 % každé části). Chybí: datum zkoušky, termíny DÚ3–6, záznamy přednášek, přednášky 6+ (viz `openItems`).
 
 **PB016 (28. 10. 2026):** kurz `pb016` – 26 lekcí / 209 otázek: př. 1–6 podle slidů (prohledávání, CSP, hry, výrokovka, PL1) hotové, př. 7–12 (rezoluce, znalosti/Bayes, gramatiky, stromy/perceptron/NN, jazykové modely) jen ze sbírky jako rozpracované; milníky: odpovědníky (24 b, min 10), průběžná písemka (20 b, př. 1–5, datum TBD), zkouška (60 b). Chybí: slidy př. 7–12, materiály ze cvičení 6+, ROPOTs 5+ (viz `openItems`). Syllabus × přednášky jsou posunuté, lekce jsou seskupeny podle témat (tabulka v README předmětu).
 

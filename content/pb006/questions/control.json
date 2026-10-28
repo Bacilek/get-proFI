@@ -1,0 +1,181 @@
+[
+  {
+    "id": "control-eval-order",
+    "type": "choice",
+    "prompt": "C#:\n\n```csharp\nstatic int a = 1;\nstatic int Foo() { a = 2; return 3; }\nstatic void Main() { a = a + Foo(); Console.WriteLine(a); }\n```\n\nCo vypíše?",
+    "options": [
+      "4",
+      "5",
+      "3",
+      "nedefinované"
+    ],
+    "answer": 0,
+    "solution": "C# vyhodnocuje operandy **zleva doprava**: levé `a` se přečte (1), pak `Foo()` nastaví `a = 2` a vrátí 3. Součet `1 + 3 = 4` se přiřadí do `a`. V C by pořadí nebylo definováno (výsledek 4 nebo 5).",
+    "hints": [
+      "Kdy se přečte hodnota levého `a`: před, nebo po volání `Foo()`?"
+    ]
+  },
+  {
+    "id": "control-short-circuit",
+    "type": "choice",
+    "prompt": "C#:\n\n```csharp\nint a = 5, b = 1;\nbool r = (a > 3) || (++b > 0);\nConsole.WriteLine(r + \" \" + b);\n```\n\nCo vypíše?",
+    "options": [
+      "True 1",
+      "True 2",
+      "False 1",
+      "True 0"
+    ],
+    "answer": 0,
+    "solution": "`||` je zkrácené: levý operand `a > 3` je pravda, pravý se **nevyhodnotí**, `++b` se neprovede, `b` zůstane 1. Pro `|` (nezkrácené) by bylo `True 2`.",
+    "hints": [
+      "Musí se vyhodnotit pravá strana, když je levá už pravda?"
+    ]
+  },
+  {
+    "id": "control-postfix",
+    "type": "choice",
+    "prompt": "```csharp\nint a = 5;\nint b = a++ + ++a;\n```\n\nJaké jsou hodnoty `a` a `b` (C#, zleva doprava)?",
+    "options": [
+      "a = 7, b = 12",
+      "a = 7, b = 11",
+      "a = 6, b = 11",
+      "a = 7, b = 13"
+    ],
+    "answer": 0,
+    "solution": "Zleva: `a++` vrátí 5 a `a` je 6; `++a` zvýší na 7 a vrátí 7. `b = 5 + 7 = 12`, `a = 7`.",
+    "hints": [
+      "Postfix vrací starou hodnotu, prefix novou.",
+      "Operandy jdou zleva doprava."
+    ]
+  },
+  {
+    "id": "control-precedence",
+    "type": "choice",
+    "prompt": "Jak se v C# vyhodnotí `1 + 2 * 3 > 6 && !false`?",
+    "options": [
+      "False",
+      "True",
+      "chyba typů",
+      "záleží na překladači"
+    ],
+    "answer": 1,
+    "solution": "`2 * 3 = 6`, `1 + 6 = 7`, `7 > 6` je `True`. Priority: `!` (unární) > `*` > `+` > `>` > `&&`: `(7 > 6) && (!false)` = `True && True` = **True**.",
+    "hints": [
+      "Aritmetické > relační > logické."
+    ]
+  },
+  {
+    "id": "control-dangling-else",
+    "type": "choice",
+    "prompt": "```c\nint sum = 0, count = 1, result = 9;\nif (sum == 0)\n    if (count == 0)\n        result = 0;\nelse\n    result = 1;\n```\n\nJaká bude hodnota `result`?",
+    "options": [
+      "0",
+      "1",
+      "9",
+      "chyba překladu"
+    ],
+    "answer": 2,
+    "solution": "`else` patří k nejbližšímu nespárovanému `if`, tedy k `if (count == 0)`. Vnější podmínka je pravdivá, vnitřní ne (`count == 1`), takže se nic nepřiřadí a `result` zůstane **9**.",
+    "hints": [
+      "Odsazení kompilátor ignoruje.",
+      "K jakému `if` se váže `else`?"
+    ]
+  },
+  {
+    "id": "control-python-gen",
+    "type": "choice",
+    "prompt": "```python\ndef foo():\n    print(\"start\")\n    yield 1\n    print(\"mid\")\n    yield 2\n\nit = foo()\nprint(\"created\")\nprint(next(it))\n```\n\nCo se vypíše?",
+    "options": [
+      "start, created, 1",
+      "created, start, 1",
+      "created, 1",
+      "start, 1, created"
+    ],
+    "answer": 1,
+    "solution": "Volání `foo()` jen vytvoří generátor, tělo neběží. Vypíše se `created`. `next(it)` spustí tělo do prvního `yield`: `start`, pak se vrátí 1 a `print` vypíše `1`.",
+    "hints": [
+      "Kdy se začne vykonávat tělo generátorové funkce?"
+    ]
+  },
+  {
+    "id": "control-foreach",
+    "type": "choice",
+    "prompt": "Čím je v C# `foreach` ve skutečnosti?",
+    "options": [
+      "samostatným příkazem bez vazby na rozhraní",
+      "cukrem nad `GetEnumerator()`, `MoveNext()` a `Current` (kolekce implementuje `IEnumerable`)",
+      "cukrem nad indexováním `a[i]`",
+      "cukrem nad `yield from`"
+    ],
+    "answer": 1,
+    "solution": "`foreach` získá enumerátor (`GetEnumerator()`), volá `MoveNext()` a čte `Current`; proto musí kolekce implementovat `IEnumerable`. `yield from` existuje jen v Pythonu.",
+    "hints": [
+      "Na jakém rozhraní závisí?"
+    ]
+  },
+  {
+    "id": "control-fill-yield",
+    "type": "fill",
+    "prompt": "Doplň generátor sudých čísel z intervalu.",
+    "code": "static IEnumerable<int> Evens(int first, int last)\n{\n    for (int n = first; n <= last; n++)\n        if (n % 2 == 0)\n            ___ ___ n;\n}",
+    "blanks": [
+      [
+        "yield"
+      ],
+      [
+        "return"
+      ]
+    ],
+    "solution": "`yield return n;` vrátí prvek a pozastaví běh metody; při dalším `MoveNext()` pokračuje za ním. Metoda musí vracet `IEnumerable<int>`.",
+    "hints": [
+      "Dvě klíčová slova, první pozastavuje běh, druhé vrací hodnotu."
+    ]
+  },
+  {
+    "id": "control-fill-pyiter",
+    "type": "fill",
+    "prompt": "Doplň Python iterátor, který vrací mocniny dvou do `max`.",
+    "code": "class PowersOfTwo:\n    def __init__(self, max=1024): self.max = max\n    def __iter__(self):\n        self.x = 1\n        return self\n    def ___(self):\n        self.x = 2 * self.x\n        if self.x > self.max:\n            raise ___\n        return self.x",
+    "blanks": [
+      [
+        "__next__"
+      ],
+      [
+        "StopIteration",
+        "StopIteration()"
+      ]
+    ],
+    "solution": "Iterátor implementuje `__iter__()` (vrací sám sebe) a `__next__()`; konec signalizuje výjimka `StopIteration`.",
+    "hints": [
+      "Magická metoda volaná z `next(it)`.",
+      "Výjimka, která ukončí `for`."
+    ]
+  },
+  {
+    "id": "control-explain-short",
+    "type": "free",
+    "prompt": "Co je zkrácené vyhodnocování, k čemu je dobré a jaké je jeho nebezpečí? Uveď příklad.",
+    "solution": "Výsledek lze určit bez vyhodnocení všech operandů: `a && b` nevyhodnotí `b`, když `a` je nepravda (u `||` když je pravda). Dobré pro ochranné podmínky: `index < len && list[index] != key` nepřečte mimo pole. Nebezpečí: **vedlejší efekty** v pravém operandu se nemusí provést (`a || (b++ / 3)`). Jazyky: C, C#, Python, ML; v C# nezkrácené `&`, `|`; Ada má `and then`, `or else`.",
+    "hints": [
+      "Příklad s kontrolou meze pole."
+    ]
+  },
+  {
+    "id": "control-write-gen",
+    "type": "code",
+    "prompt": "Napiš v C# líný generátor `static IEnumerable<int> Fibonacci()`, který vrací nekonečnou posloupnost 0, 1, 1, 2, 3, 5, 8, ... Pak řekni, jak z něj vezmeš prvních 10 prvků (pomocí `foreach` s čítačem, bez LINQ).",
+    "starter": "static IEnumerable<int> Fibonacci()\n{\n    \n}",
+    "checklist": [
+      "Používá `yield return` (nic se nevrací najednou).",
+      "Smyčka je nekonečná (`while (true)`), stav drží ve dvou proměnných.",
+      "Začíná 0, 1, 1, 2 (správná inicializace).",
+      "Spotřebitel si prvky bere `foreach` + `break` po 10 prvcích."
+    ],
+    "solution": "```csharp\nstatic IEnumerable<int> Fibonacci()\n{\n    int a = 0, b = 1;\n    while (true)\n    {\n        yield return a;\n        (a, b) = (b, a + b);\n    }\n}\n\nint count = 0;\nforeach (int f in Fibonacci())\n{\n    Console.WriteLine(f);\n    if (++count == 10) break;\n}\n```\nPozn.: `int` po cca 47. prvku přeteče; na dlouhé řady `long`.",
+    "hints": [
+      "Co si generátor musí pamatovat mezi voláními?",
+      "Nekonečný cyklus je tu v pořádku, protože je líný.",
+      "Před `break` je potřeba počítat prvky."
+    ]
+  }
+]
