@@ -1,0 +1,97 @@
+[
+  {
+    "id": "improper-1-over-x2",
+    "type": "numeric",
+    "prompt": "Spočtěte $\\displaystyle\\int_1^\\infty\\frac{1}{x^2}\\,\\mathrm{d}x$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$\\left[-\\frac1x\\right]_1^\\infty=0+1=1$."
+  },
+  {
+    "id": "improper-exp",
+    "type": "numeric",
+    "prompt": "Spočtěte $\\displaystyle\\int_0^\\infty e^{-2x}\\,\\mathrm{d}x$ (na 3 desetinná místa).",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "$\\left[-\\frac12e^{-2x}\\right]_0^\\infty=0+\\frac12=0{,}5$."
+  },
+  {
+    "id": "improper-sqrt-second-kind",
+    "type": "numeric",
+    "prompt": "Spočtěte $\\displaystyle\\int_0^1\\frac{1}{\\sqrt x}\\,\\mathrm{d}x$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "Neohraničená u $0$: $\\left[2\\sqrt x\\right]_0^1=2-\\lim_{x\\to0^+}2\\sqrt x=2$."
+  },
+  {
+    "id": "improper-ln",
+    "type": "numeric",
+    "prompt": "Spočtěte $\\displaystyle\\int_0^1\\ln x\\,\\mathrm{d}x$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "Per partes: primitivní funkce je $x\\ln x-x$. $\\lim_{x\\to0^+}x\\ln x=0$ (l'Hospital na $\\frac{\\ln x}{1/x}$), takže $[x\\ln x-x]_0^1=(0-1)-0=-1$."
+  },
+  {
+    "id": "improper-xexp",
+    "type": "numeric",
+    "prompt": "Spočtěte $\\displaystyle\\int_0^\\infty x\\,e^{-x}\\,\\mathrm{d}x$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Per partes ($u'=e^{-x}$, $v=x$): $[-xe^{-x}]_0^\\infty+\\int_0^\\infty e^{-x}\\,\\mathrm{d}x=0+1=1$, protože $xe^{-x}\\to0$ (l'Hospital)."
+  },
+  {
+    "id": "improper-arctan",
+    "type": "numeric",
+    "prompt": "Spočtěte $\\displaystyle\\int_{-\\infty}^{\\infty}\\frac{1}{1+x^2}\\,\\mathrm{d}x$ (na 3 desetinná místa).",
+    "answer": 3.142,
+    "tolerance": 0.001,
+    "solution": "$[\\arctan x]_{-\\infty}^{\\infty}=\\frac\\pi2-\\left(-\\frac\\pi2\\right)=\\pi\\approx3{,}142$."
+  },
+  {
+    "id": "improper-subst",
+    "type": "numeric",
+    "prompt": "Spočtěte $\\displaystyle\\int_0^\\infty\\frac{x}{(x^2+4)^2}\\,\\mathrm{d}x$ (na 3 desetinná místa).",
+    "answer": 0.125,
+    "tolerance": 0.001,
+    "solution": "$t=x^2$: $\\frac12\\int_0^\\infty\\frac{\\mathrm{d}t}{(t+4)^2}=\\frac12\\cdot\\frac14=\\frac18=0{,}125$ (obecně $\\frac{1}{2a^2}$)."
+  },
+  {
+    "id": "improper-p-test",
+    "type": "choice",
+    "prompt": "Které tvrzení je správné?",
+    "options": [
+      "$\\int_1^\\infty x^{-3/2}\\,\\mathrm{d}x$ konverguje a $\\int_0^1 x^{-3/2}\\,\\mathrm{d}x$ diverguje",
+      "$\\int_1^\\infty x^{-3/2}\\,\\mathrm{d}x$ diverguje a $\\int_0^1 x^{-3/2}\\,\\mathrm{d}x$ konverguje",
+      "Oba konvergují",
+      "Oba divergují"
+    ],
+    "answer": 0,
+    "solution": "Na $[1,\\infty)$ konverguje $\\iff p>1$ ($p=\\frac32$ ano). Na $(0,1]$ konverguje $\\iff p<1$ ($p=\\frac32$ ne)."
+  },
+  {
+    "id": "improper-1-over-x",
+    "type": "choice",
+    "prompt": "Co platí pro $\\displaystyle\\int_1^\\infty\\frac{1}{\\sqrt x}\\,\\mathrm{d}x$?",
+    "options": [
+      "Diverguje, $p=\\frac12\\le1$: $[2\\sqrt x]_1^\\infty=\\infty$",
+      "Konverguje k $2$",
+      "Konverguje k $1$",
+      "Limita neexistuje (osciluje)"
+    ],
+    "answer": 0,
+    "solution": "$[2\\sqrt x]_1^b=2\\sqrt b-2\\to\\infty$. Konvergence na $[1,\\infty)$ vyžaduje $p>1$."
+  },
+  {
+    "id": "improper-inside-singularity",
+    "type": "choice",
+    "prompt": "Student spočetl $\\displaystyle\\int_{-1}^{1}\\frac{1}{x^2}\\,\\mathrm{d}x=\\left[-\\frac1x\\right]_{-1}^1=-2$. Správně je:",
+    "options": [
+      "Diverguje: singularita je uvnitř v $0$, rozdělí se na dva nevlastní integrály a každý diverguje k $\\infty$",
+      "Konverguje k $2$",
+      "Konverguje k $-2$",
+      "Konverguje k $0$ ze symetrie"
+    ],
+    "answer": 0,
+    "solution": "$\\int_0^1x^{-2}=\\infty$ (viz $p=2\\ge1$), takže integrál diverguje; záporný výsledek z kladné funkce je vždy signál chyby."
+  }
+]
