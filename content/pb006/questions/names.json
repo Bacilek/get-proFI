@@ -1,0 +1,128 @@
+[
+  {
+    "id": "names-static-dynamic",
+    "type": "choice",
+    "prompt": "Jazyk C-like:\n\n```c\nconst int b = 5;\nint foo() { int a = b + 5; return a; }\nint bar() { int b = 2; return foo(); }\n```\n\nCo vrátí `bar()` při **dynamickém** rozsahu?",
+    "options": ["10", "7", "5", "chyba"],
+    "answer": 1,
+    "solution": "Při dynamickém rozsahu `foo` vidí `b` z posledního volajícího, tedy `b = 2` z `bar`: `a = 2 + 5 = 7`. Při statickém rozsahu by `foo` použil globální `b = 5` a vrátilo by se 10.",
+    "hints": ["Která vazba `b` je aktivní v okamžiku volání `foo` z `bar`?", "Dynamický rozsah se řídí pořadím volání."]
+  },
+  {
+    "id": "names-python-nonlocal",
+    "type": "choice",
+    "prompt": "Co vypíše?\n\n```python\nx = 0\ndef outer():\n    x = 1\n    def inner():\n        nonlocal x\n        x = 2\n        print(\"inner:\", x)\n    inner()\n    print(\"outer:\", x)\nouter()\nprint(\"global:\", x)\n```",
+    "options": [
+      "inner: 2, outer: 1, global: 2",
+      "inner: 2, outer: 2, global: 0",
+      "inner: 2, outer: 2, global: 2",
+      "inner: 2, outer: 1, global: 0"
+    ],
+    "answer": 1,
+    "solution": "`nonlocal x` svazuje `x` v `inner` s `x` z nejbližší obklopující funkce `outer` (ne s globálním). `inner` tedy změní `outer`ovo `x` na 2, globální zůstane 0. S `global x` by to bylo 2/1/2.",
+    "hints": ["Na které `x` míří `nonlocal`?"]
+  },
+  {
+    "id": "names-aliasing",
+    "type": "choice",
+    "prompt": "Co vypíše?\n\n```python\nclass Node:\n    def __init__(self):\n        self.key = 0\nnodes = [Node()] * 3\nnodes[0].key = 42\nprint(nodes[0].key, nodes[1].key, nodes[2].key)\n```",
+    "options": ["42 0 0", "42 42 42", "0 0 0", "chyba"],
+    "answer": 1,
+    "solution": "`[Node()] * 3` vytvoří jediný objekt `Node` a seznam se **třemi odkazy** na něj (aliasing). Změna přes `nodes[0]` je proto vidět i přes `nodes[1]`, `nodes[2]`. Správně: `[Node() for _ in range(3)]`.",
+    "hints": ["Kolikrát se zavolá konstruktor `Node()`?"]
+  },
+  {
+    "id": "names-python-unbound",
+    "type": "choice",
+    "prompt": "Co se stane?\n\n```python\nc = 42\ndef foo():\n    print(c)\n    c = 121\nfoo()\n```",
+    "options": ["vypíše 42", "vypíše 121", "UnboundLocalError", "NameError na řádku `c = 42`"],
+    "answer": 2,
+    "solution": "Protože se ve `foo` do `c` přiřazuje, je `c` lokální v celém těle funkce (rozhodne se při překladu). `print(c)` pak čte lokální `c` před přiřazením: **UnboundLocalError**. Bez `c = 121` by se vypsalo 42.",
+    "hints": ["Kde se rozhoduje, zda je proměnná lokální?", "Čte se lokální `c` ještě před přiřazením."]
+  },
+  {
+    "id": "names-csharp-use-before-decl",
+    "type": "choice",
+    "prompt": "Kód ve třídě v C#:\n\n```csharp\nint i = 0;\nvoid F()\n{\n    i = 1;\n    int i;\n    i = 2;\n}\n```\n\nCo udělá překladač?",
+    "options": [
+      "Přeloží, `i = 1` nastaví pole třídy.",
+      "Chyba: `i` je lokální v celém bloku, ale je použito před deklarací.",
+      "Přeloží s varováním o zastínění.",
+      "Přeloží, obě přiřazení jdou do lokální `i`."
+    ],
+    "answer": 1,
+    "solution": "V C# platí rozsah lokální deklarace od **začátku bloku**, ale použití před deklarací je chyba. `i = 1` by tedy neznamenalo pole třídy, ale lokální `i` před deklarací, a to se nepřeloží.",
+    "hints": ["Od kdy platí rozsah lokální proměnné v C#?"]
+  },
+  {
+    "id": "names-bash-dynamic",
+    "type": "choice",
+    "prompt": "Bash:\n\n```bash\nx=30\nf1 () { echo \"in f1: $x\"; }\nf2 () { local x=42; f1; }\nf2\n```\n\nCo vypíše `f2`?",
+    "options": ["in f1: 30", "in f1: 42", "nic", "chybu"],
+    "answer": 1,
+    "solution": "Bash má **dynamický rozsah**: `f1` vidí `x` z nejbližšího volajícího (`f2` ho lokálně změnil na 42). Při statickém rozsahu by bylo 30.",
+    "hints": ["Který `x` je aktivní, když `f2` zavolá `f1`?"]
+  },
+  {
+    "id": "names-static-counter",
+    "type": "choice",
+    "prompt": "Co vypíše?\n\n```c\nint counter() { static int count = 0; count++; return count; }\nvoid main() { printf(\"%d \", counter()); printf(\"%d \", counter()); }\n```",
+    "options": ["1 1", "1 2", "0 1", "undefined"],
+    "answer": 1,
+    "solution": "`static` lokální proměnná má **statickou dobu života**: vznikne jednou a drží hodnotu mezi voláními. Vazba jména je jen v tělě funkce, ale objekt žije celý běh. Výstup `1 2`.",
+    "hints": ["Rozlišuj rozsah jména a dobu života objektu."]
+  },
+  {
+    "id": "names-js-hoisting",
+    "type": "choice",
+    "prompt": "Co vypíše JavaScript?\n\n```javascript\nfunction foo() {\n  console.log(x);\n  var x = 42;\n  console.log(x);\n}\nfoo();\n```",
+    "options": ["ReferenceError", "undefined, 42", "42, 42", "null, 42"],
+    "answer": 1,
+    "solution": "`var` je **hoisted**: deklarace platí v celé funkci, ale inicializace zůstává na místě. První `console.log` vidí `x` bez hodnoty (`undefined`), druhý 42. S `let` by první řádek dal ReferenceError (temporal dead zone).",
+    "hints": ["Kam se „přesune“ deklarace `var x` a kam přiřazení?"]
+  },
+  {
+    "id": "names-binding-time",
+    "type": "choice",
+    "prompt": "Která dvojice vystihuje základní princip časování vazeb?",
+    "options": [
+      "dřívější vazba = pružnost, pozdější = efektivita",
+      "dřívější vazba = efektivita, pozdější = pružnost",
+      "dynamická vazba je vždy rychlejší",
+      "čas vazby nemá vliv"
+    ],
+    "answer": 1,
+    "solution": "Čím dříve (např. při překladu) je vazba známa, tím efektivněji lze program přeložit a zkontrolovat; pozdní (za běhu) vazba dává jazyku pružnost (polymorfismus, dynamické typy).",
+    "hints": ["Co všechno může překladač zoptimalizovat, když zná vazbu předem?"]
+  },
+  {
+    "id": "names-fill-declare",
+    "type": "fill",
+    "prompt": "Doplň dopředné deklarace, aby se dvě vzájemně rekurzivní funkce v C přeložily.",
+    "code": "int is_odd(int n);               // ___\nint is_even(int n) { return n == 0 ? 1 : is_odd(n - 1); }\nint is_odd(int n)  { return n == 0 ? 0 : ___(n - 1); }",
+    "blanks": [["deklarace", "declaration", "prototyp", "prototype"], ["is_even"]],
+    "solution": "První řádek je **deklarace** (prototyp): zavádí jméno, ale ne tělo. Díky ní lze `is_odd` volat z `is_even` dříve, než je definována. Druhé volání je `is_even(n - 1)`.",
+    "hints": ["Co je řádek bez těla funkce?", "Jak se jmenuje funkce, která má být volána?"]
+  },
+  {
+    "id": "names-explain-scope",
+    "type": "free",
+    "prompt": "Vysvětli rozdíl mezi statickým a dynamickým rozsahem a uveď jednu výhodu a jednu nevýhodu každého.",
+    "solution": "**Statický**: vazba jména závisí na struktuře kódu, zjistí se při překladu (C, Python, Java, C#). + přehledný, předvídatelný, lze kontrolovat při překladu; – dává často větší přístup než nutné, svádí ke globálním proměnným.\n\n**Dynamický**: vazba závisí na pořadí volání za běhu (Bash, Perl `local`, Emacs Lisp). + pohodlná změna implicitního chování podprogramu bez parametrů; – kód se špatně chápe a ladí, typy až za běhu, snadné náhodné zastínění (konsenzus: není to dobrý nápad; alternativy: globály, implicitní parametry).",
+    "hints": ["Kdy a podle čeho se vazba určí?"]
+  },
+  {
+    "id": "names-write-swap-scope",
+    "type": "code",
+    "prompt": "Napiš v C# funkci `static void SwapEnds(int[] a)`, která v poli prohodí první a poslední prvek pomocí lokální proměnné ve vnořeném bloku `{ ... }`, a vysvětli v komentáři, kde končí rozsah dočasné proměnné. Pole má aspoň 1 prvek.",
+    "starter": "static void SwapEnds(int[] a)\n{\n    \n}",
+    "checklist": [
+      "Dočasná proměnná je deklarována uvnitř bloku.",
+      "Správně prohazuje `a[0]` a `a[a.Length - 1]`.",
+      "Funguje i pro pole o jednom prvku.",
+      "Dočasná proměnná se mimo blok nepoužívá (po bloku už neplatí)."
+    ],
+    "solution": "```csharp\nstatic void SwapEnds(int[] a)\n{\n    {\n        int temp = a[0];          // rozsah temp: jen tento blok\n        a[0] = a[a.Length - 1];\n        a[a.Length - 1] = temp;\n    }\n    // zde už temp neexistuje\n}\n```\nPole je referenční typ, funkce proto mění původní pole (aliasing).",
+    "hints": ["Co je potřeba k prohození dvou hodnot?", "Blok `{ }` zavádí nový rozsah.", "Pole se předává odkazem na objekt."]
+  }
+]
