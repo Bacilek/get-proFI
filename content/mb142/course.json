@@ -1,0 +1,463 @@
+{
+  "code": "MB142",
+  "title": "Aplikovaná matematická analýza",
+  "semester": "podzim 2026",
+  "semesterStart": "2026-09-16",
+  "exam": {
+    "maxPoints": 40,
+    "requiredPoints": 20,
+    "bonusPoints": 5,
+    "requiredWithBonus": 15,
+    "bonusFrom": {
+      "milestoneId": "midterm1",
+      "minPoints": 8
+    }
+  },
+  "modules": [
+    {
+      "id": "diff",
+      "title": "1. Diferenciální počet jedné proměnné",
+      "lessons": [
+        {
+          "id": "mb142:basics",
+          "title": "Reálná čísla, supremum, intervaly (+ středoškolské minimum)",
+          "week": 1,
+          "prerequisites": [],
+          "topics": [
+            "mb142:basics"
+          ]
+        },
+        {
+          "id": "mb142:limits",
+          "title": "Limita funkce",
+          "week": 1,
+          "prerequisites": [
+            "mb142:basics"
+          ],
+          "topics": [
+            "mb142:limits"
+          ]
+        },
+        {
+          "id": "mb142:continuity",
+          "title": "Spojitost a body nespojitosti",
+          "week": 1,
+          "prerequisites": [
+            "mb142:limits"
+          ],
+          "topics": [
+            "mb142:continuity"
+          ]
+        },
+        {
+          "id": "mb142:derivative-def",
+          "title": "Derivace: definice a geometrický význam",
+          "week": 2,
+          "prerequisites": [
+            "mb142:continuity"
+          ],
+          "topics": [
+            "mb142:derivative-def"
+          ]
+        },
+        {
+          "id": "mb142:derivative-rules",
+          "title": "Pravidla derivování",
+          "week": 2,
+          "prerequisites": [
+            "mb142:derivative-def"
+          ],
+          "topics": [
+            "mb142:derivative-rules"
+          ]
+        },
+        {
+          "id": "mb142:derivative-elementary",
+          "title": "Derivace elementárních funkcí",
+          "week": 2,
+          "prerequisites": [
+            "mb142:derivative-rules"
+          ],
+          "topics": [
+            "mb142:derivative-elementary"
+          ]
+        },
+        {
+          "id": "mb142:derivative-applications",
+          "title": "Tečna, normála, slovní úlohy",
+          "week": 2,
+          "prerequisites": [
+            "mb142:derivative-elementary"
+          ],
+          "topics": [
+            "mb142:derivative-applications"
+          ]
+        },
+        {
+          "id": "mb142:mean-value",
+          "title": "Věty o střední hodnotě",
+          "week": 2,
+          "prerequisites": [
+            "mb142:derivative-rules"
+          ],
+          "topics": [
+            "mb142:mean-value"
+          ]
+        },
+        {
+          "id": "mb142:lhospital",
+          "title": "L'Hospitalovo pravidlo",
+          "week": 3,
+          "prerequisites": [
+            "mb142:derivative-elementary",
+            "mb142:mean-value"
+          ],
+          "topics": [
+            "mb142:lhospital"
+          ]
+        },
+        {
+          "id": "mb142:implicit",
+          "title": "Derivace implicitně zadaných funkcí",
+          "week": 3,
+          "prerequisites": [
+            "mb142:derivative-rules"
+          ],
+          "topics": [
+            "mb142:implicit"
+          ]
+        },
+        {
+          "id": "mb142:differential",
+          "title": "Diferenciál funkce",
+          "week": 3,
+          "prerequisites": [
+            "mb142:derivative-elementary"
+          ],
+          "topics": [
+            "mb142:differential"
+          ]
+        },
+        {
+          "id": "mb142:taylor",
+          "title": "Taylorův polynom",
+          "week": 3,
+          "prerequisites": [
+            "mb142:differential"
+          ],
+          "topics": [
+            "mb142:taylor"
+          ]
+        },
+        {
+          "id": "mb142:monotonicity",
+          "title": "Monotonie a extrémy",
+          "week": 4,
+          "prerequisites": [
+            "mb142:derivative-elementary"
+          ],
+          "topics": [
+            "mb142:monotonicity"
+          ]
+        },
+        {
+          "id": "mb142:convexity",
+          "title": "Konvexnost, konkávnost, inflexe",
+          "week": 4,
+          "prerequisites": [
+            "mb142:monotonicity"
+          ],
+          "topics": [
+            "mb142:convexity"
+          ]
+        },
+        {
+          "id": "mb142:asymptotes",
+          "title": "Asymptoty",
+          "week": 4,
+          "prerequisites": [
+            "mb142:limits"
+          ],
+          "topics": [
+            "mb142:asymptotes"
+          ]
+        },
+        {
+          "id": "mb142:curve-sketching",
+          "title": "Celkový průběh funkce",
+          "week": 4,
+          "prerequisites": [
+            "mb142:monotonicity",
+            "mb142:convexity",
+            "mb142:asymptotes"
+          ],
+          "topics": [
+            "mb142:curve-sketching"
+          ]
+        },
+        {
+          "id": "mb142:optimization",
+          "title": "Optimalizace (extremální úlohy)",
+          "week": 4,
+          "prerequisites": [
+            "mb142:monotonicity"
+          ],
+          "topics": [
+            "mb142:optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multivar",
+      "title": "2. Funkce více proměnných",
+      "lessons": [
+        {
+          "id": "mb142:horner-partial-fractions",
+          "title": "Hornerovo schéma a parciální zlomky",
+          "week": 5,
+          "prerequisites": [
+            "mb142:basics"
+          ],
+          "topics": [
+            "mb142:horner-partial-fractions"
+          ]
+        },
+        {
+          "id": "mb142:multivar-limits",
+          "title": "Limita a spojitost více proměnných",
+          "week": 5,
+          "prerequisites": [
+            "mb142:limits"
+          ],
+          "topics": [
+            "mb142:multivar-limits"
+          ]
+        },
+        {
+          "id": "mb142:partial-derivatives",
+          "title": "Parciální derivace",
+          "week": 5,
+          "prerequisites": [
+            "mb142:multivar-limits",
+            "mb142:derivative-rules"
+          ],
+          "topics": [
+            "mb142:partial-derivatives"
+          ]
+        },
+        {
+          "id": "mb142:multivar-extrema",
+          "title": "Extrémy funkcí více proměnných",
+          "week": 5,
+          "prerequisites": [
+            "mb142:partial-derivatives",
+            "mb142:monotonicity"
+          ],
+          "topics": [
+            "mb142:multivar-extrema"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "integral",
+      "title": "3. Integrální počet",
+      "lessons": [
+        {
+          "id": "mb142:antiderivative",
+          "title": "Primitivní funkce",
+          "week": 6,
+          "prerequisites": [
+            "mb142:derivative-elementary"
+          ],
+          "topics": [
+            "mb142:antiderivative"
+          ]
+        },
+        {
+          "id": "mb142:integration-methods",
+          "title": "Základní integrační metody (substituce, per partes)",
+          "week": 6,
+          "prerequisites": [
+            "mb142:antiderivative"
+          ],
+          "topics": [
+            "mb142:integration-methods"
+          ]
+        },
+        {
+          "id": "mb142:rational-integration",
+          "title": "Integrace racionálních lomených funkcí",
+          "week": 6,
+          "prerequisites": [
+            "mb142:integration-methods",
+            "mb142:horner-partial-fractions"
+          ],
+          "topics": [
+            "mb142:rational-integration"
+          ]
+        },
+        {
+          "id": "mb142:riemann",
+          "title": "Riemannův integrál: konstrukce a vlastnosti",
+          "week": 7,
+          "prerequisites": [
+            "mb142:antiderivative"
+          ],
+          "topics": [
+            "mb142:riemann"
+          ]
+        },
+        {
+          "id": "mb142:integral-theorems",
+          "title": "Věty o střední hodnotě, integrál jako funkce horní meze",
+          "week": 7,
+          "prerequisites": [
+            "mb142:riemann",
+            "mb142:mean-value"
+          ],
+          "topics": [
+            "mb142:integral-theorems"
+          ]
+        },
+        {
+          "id": "mb142:definite-integral-methods",
+          "title": "Metody výpočtu určitého integrálu",
+          "week": 7,
+          "prerequisites": [
+            "mb142:integral-theorems",
+            "mb142:integration-methods"
+          ],
+          "topics": [
+            "mb142:definite-integral-methods"
+          ]
+        },
+        {
+          "id": "mb142:integral-applications",
+          "title": "Aplikace určitého integrálu",
+          "week": 7,
+          "prerequisites": [
+            "mb142:definite-integral-methods"
+          ],
+          "topics": [
+            "mb142:integral-applications"
+          ]
+        },
+        {
+          "id": "mb142:improper-integrals",
+          "title": "Nevlastní integrály",
+          "week": 8,
+          "prerequisites": [
+            "mb142:definite-integral-methods",
+            "mb142:limits"
+          ],
+          "topics": [
+            "mb142:improper-integrals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "series",
+      "title": "4. Nekonečné řady",
+      "lessons": [
+        {
+          "id": "mb142:series-intro",
+          "title": "Nekonečné číselné řady",
+          "week": 8,
+          "prerequisites": [
+            "mb142:limits"
+          ],
+          "topics": [
+            "mb142:series-intro"
+          ]
+        },
+        {
+          "id": "mb142:series-nonneg",
+          "title": "Řady s nezápornými členy (kritéria)",
+          "week": 9,
+          "prerequisites": [
+            "mb142:series-intro",
+            "mb142:improper-integrals"
+          ],
+          "topics": [
+            "mb142:series-nonneg"
+          ]
+        },
+        {
+          "id": "mb142:series-alternating",
+          "title": "Alternující a absolutně konvergentní řady",
+          "week": 9,
+          "prerequisites": [
+            "mb142:series-nonneg"
+          ],
+          "topics": [
+            "mb142:series-alternating"
+          ]
+        },
+        {
+          "id": "mb142:power-series",
+          "title": "Mocninné řady a poloměr konvergence",
+          "week": 9,
+          "prerequisites": [
+            "mb142:series-alternating"
+          ],
+          "topics": [
+            "mb142:power-series"
+          ]
+        },
+        {
+          "id": "mb142:taylor-series",
+          "title": "Taylorovy a Maclaurinovy řady, aplikace",
+          "week": 10,
+          "prerequisites": [
+            "mb142:power-series",
+            "mb142:taylor"
+          ],
+          "topics": [
+            "mb142:taylor-series"
+          ]
+        }
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "midterm1",
+      "title": "1. zápočtová písemka (diferenciální počet)",
+      "type": "midterm",
+      "date": "2026-10-20",
+      "maxPoints": 12,
+      "minPoints": 8,
+      "boss": true
+    },
+    {
+      "id": "midterm2",
+      "title": "2. zápočtová písemka (integrály, řady)",
+      "type": "midterm",
+      "maxPoints": 12,
+      "boss": true
+    },
+    {
+      "id": "exam",
+      "title": "Zkouška (120 min)",
+      "type": "exam",
+      "maxPoints": 40,
+      "minPoints": 15,
+      "boss": true
+    }
+  ],
+  "openItems": [
+    {
+      "id": "bonus-rules",
+      "text": "Ověřit přesná pravidla bonusu (+5 b) a vztah k 2. písemce"
+    }
+  ],
+  "initialResults": [
+    {
+      "milestoneId": "midterm1",
+      "points": 8.25
+    }
+  ]
+}

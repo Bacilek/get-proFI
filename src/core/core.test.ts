@@ -1,4 +1,4 @@
-import { daysUntil, examPointsNeeded, semesterWeek, upcoming } from './milestones'
+import { bonusGranted, daysUntil, examPointsNeeded, semesterWeek, upcoming } from './milestones'
 import { lessonState, studyOrder } from './prereq'
 import { starsFromScore, topicMastery, weakestTopics } from './progress'
 import { DAY_MS, isDue, newReview, review } from './srs'
@@ -138,6 +138,15 @@ describe('milestones', () => {
     expect(examPointsNeeded(rule, false)).toBe(20)
     expect(examPointsNeeded(rule, true)).toBe(15)
     expect(examPointsNeeded({ maxPoints: 40, requiredPoints: 20 }, true)).toBe(20)
+  })
+
+  test('bonusGranted depends on the source milestone result', () => {
+    const rule = { maxPoints: 40, requiredPoints: 20, bonusFrom: { milestoneId: 'm1', minPoints: 8 } }
+    const res = (p: number) => new Map([['m1', { milestoneId: 'm1', points: p, at: 0 }]])
+    expect(bonusGranted(rule, res(8.25))).toBe(true)
+    expect(bonusGranted(rule, res(7.5))).toBe(false)
+    expect(bonusGranted(rule, new Map())).toBe(false)
+    expect(bonusGranted({ maxPoints: 40, requiredPoints: 20 }, res(12))).toBe(false)
   })
 
   test('upcoming: skips past and resulted, sorted, TBD last', () => {

@@ -47,6 +47,8 @@ export interface ExamRule {
   bonusPoints?: number
   /** Requirement after the bonus is granted. */
   requiredWithBonus?: number
+  /** The bonus is granted when this milestone result reaches `minPoints`. */
+  bonusFrom?: { milestoneId: string; minPoints: number }
 }
 
 export interface Course {
@@ -60,6 +62,8 @@ export interface Course {
   milestones: Milestone[]
   /** Information the user still has to provide (shown as a warning on the course). */
   openItems?: { id: string; text: string }[]
+  /** Known results, seeded into the database once (user can edit them later). */
+  initialResults?: { milestoneId: string; points: number }[]
 }
 
 // --- user progress (stored in IndexedDB) ---

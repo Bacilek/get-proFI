@@ -18,9 +18,16 @@ export function semesterWeek(course: Pick<Course, 'semesterStart'>, now: Date): 
   return Math.floor((startOfDay(now) - start) / (7 * DAY_MS)) + 1
 }
 
+/** True when the milestone result that grants the exam bonus is good enough. */
+export function bonusGranted(rule: ExamRule, results: ReadonlyMap<string, MilestoneResult>): boolean {
+  const b = rule.bonusFrom
+  if (!b) return false
+  return (results.get(b.milestoneId)?.points ?? -Infinity) >= b.minPoints
+}
+
 /** Points still required at the exam given the (optional) earned bonus. */
-export function examPointsNeeded(rule: ExamRule, bonusGranted: boolean): number {
-  return bonusGranted && rule.requiredWithBonus !== undefined
+export function examPointsNeeded(rule: ExamRule, granted: boolean): number {
+  return granted && rule.requiredWithBonus !== undefined
     ? rule.requiredWithBonus
     : rule.requiredPoints
 }
