@@ -1,0 +1,38 @@
+[
+  {
+    "id": "antiderivative-ln-abs",
+    "type": "choice",
+    "prompt": "Která funkce je primitivní k $\\frac{1}{x}$ na $(-\\infty,0)$ i na $(0,\\infty)$?",
+    "options": ["$\\ln x$", "$\\ln\\lvert x\\rvert$", "$-\\frac{1}{x^2}$", "$\\frac{1}{x^2}$"],
+    "answer": 1,
+    "solution": "$(\\ln\\lvert x\\rvert)'=\\frac1x$ pro $x>0$ i $x<0$ (pro $x<0$: $\\frac{1}{-x}\\cdot(-1)=\\frac1x$). $\\ln x$ je definovaný jen pro $x>0$."
+  },
+  {
+    "id": "antiderivative-f1",
+    "type": "numeric",
+    "prompt": "Nechť $F'(x)=3x^2+2x$ a $F(0)=5$. Určete $F(1)$.",
+    "answer": 7,
+    "tolerance": 0.001,
+    "solution": "$F(x)=x^3+x^2+C$, $F(0)=C=5$, tedy $F(1)=1+1+5=7$."
+  },
+  {
+    "id": "antiderivative-arctg",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{1}{x^2+9}\\,\\mathrm{d}x=$",
+    "options": ["$\\arctan x+C$", "$\\frac13\\operatorname{arctg}\\frac{x}{3}+C$", "$3\\operatorname{arctg}\\frac{x}{3}+C$", "$\\ln(x^2+9)+C$"],
+    "answer": 1,
+    "solution": "Vzorec $\\int\\frac{1}{a^2+x^2}\\mathrm{d}x=\\frac1a\\operatorname{arctg}\\frac xa$ pro $a=3$. Zderivuj: $\\frac13\\cdot\\frac{1}{1+x^2/9}\\cdot\\frac13=\\frac{1}{9+x^2}$."
+  },
+  {
+    "id": "antiderivative-free-sum",
+    "type": "free",
+    "prompt": "Spočtěte $\\displaystyle\\int\\left(2^x-\\frac{2}{x}\\right)\\mathrm{d}x$.",
+    "solution": "$\\frac{2^x}{\\ln 2}-2\\ln\\lvert x\\rvert+C$."
+  },
+  {
+    "id": "antiderivative-free-sqrt",
+    "type": "free",
+    "prompt": "Spočtěte $\\displaystyle\\int\\left(\\sqrt{x}+\\frac{3}{x^2}\\right)\\mathrm{d}x$.",
+    "solution": "$\\int x^{1/2}\\mathrm{d}x=\\frac23x^{3/2}$, $\\int 3x^{-2}\\mathrm{d}x=-\\frac3x$. Výsledek: $\\frac23x\\sqrt{x}-\\frac3x+C$."
+  }
+]

@@ -15,7 +15,8 @@ Sem. start 16. 9. 2026 (týden 1) => 28. 10. je týden 7. Přednášky podle str
 lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka, tahák), 2025/ (loňské přílohy + zápočtovky s řešením), skupiny 01–09 materiály. Seznam zpracovaného bude níže.
 
 ## Zpracováno
-(zatím nic)
+- `differential` (z vlastních znalostí, překontrolovat proti slidům).
+- `antiderivative`, `integration-methods`, `rational-integration`: prednasky_MB142.pdf, pdf s. 71–81 (tisk. 68–78, týden 6). Zdroj zatím nemazat (zbytek slidů se zpracovává).
 
 ## Otevřené položky (chybí od uživatele)
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "intmethods-xcos",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int x\\cos x\\,\\mathrm{d}x=$",
+    "options": ["$x\\sin x+\\cos x+C$", "$x\\sin x-\\cos x+C$", "$\\frac{x^2}{2}\\sin x+C$", "$\\cos x-x\\sin x+C$"],
+    "answer": 0,
+    "solution": "Per partes: $u'=\\cos x$, $v=x$ dává $x\\sin x-\\int\\sin x\\,\\mathrm{d}x=x\\sin x+\\cos x$."
+  },
+  {
+    "id": "intmethods-subst-choice",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{2x}{(x^2+1)^2}\\,\\mathrm{d}x=$",
+    "options": ["$-\\frac{1}{x^2+1}+C$", "$\\frac{1}{x^2+1}+C$", "$\\ln(x^2+1)^2+C$", "$-\\frac{2}{(x^2+1)^3}+C$"],
+    "answer": 0,
+    "solution": "$t=x^2+1$, $\\mathrm{d}t=2x\\,\\mathrm{d}x$: $\\int t^{-2}\\mathrm{d}t=-\\frac1t$."
+  },
+  {
+    "id": "intmethods-lnx",
+    "type": "numeric",
+    "prompt": "Nechť $F'(x)=\\ln x$ na $(0,\\infty)$ a $F(1)=0$. Určete $F(e)$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Per partes: $F(x)=x\\ln x-x+C$. Z $F(1)=-1+C=0$ je $C=1$. $F(e)=e-e+1=1$."
+  },
+  {
+    "id": "intmethods-exp-sin",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int e^x\\sin x\\,\\mathrm{d}x=$",
+    "options": ["$\\frac12e^x(\\sin x-\\cos x)+C$", "$\\frac12e^x(\\sin x+\\cos x)+C$", "$e^x\\cos x+C$", "$e^x(\\sin x-\\cos x)+C$"],
+    "answer": 0,
+    "solution": "Dvakrát per partes se vrátí $I$: $I=e^x(\\sin x-\\cos x)-I$, tedy $2I=e^x(\\sin x-\\cos x)$."
+  },
+  {
+    "id": "intmethods-free-xlnx",
+    "type": "free",
+    "prompt": "Spočtěte $\\displaystyle\\int x\\ln x\\,\\mathrm{d}x$.",
+    "solution": "Per partes: $u'=x$, $u=\\frac{x^2}{2}$, $v=\\ln x$, $v'=\\frac1x$.\n\n$\\frac{x^2}{2}\\ln x-\\int\\frac{x}{2}\\mathrm{d}x=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C$."
+  },
+  {
+    "id": "intmethods-free-x2cos",
+    "type": "free",
+    "prompt": "Spočtěte $\\displaystyle\\int x^2\\cos x^3\\,\\mathrm{d}x$.",
+    "solution": "Substituce $t=x^3$, $\\mathrm{d}t=3x^2\\mathrm{d}x$: $\\frac13\\int\\cos t\\,\\mathrm{d}t=\\frac13\\sin x^3+C$."
+  }
+]

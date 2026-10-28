@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ratint-divide",
+    "type": "choice",
+    "prompt": "Čím začneš integrál $\\displaystyle\\int\\frac{x^3+x^2}{x^2+1}\\,\\mathrm{d}x$?",
+    "options": ["Dělením polynomů", "Rovnou parciálními zlomky", "Per partes", "Substitucí $t=x^2$"],
+    "answer": 0,
+    "solution": "Stupeň čitatele (3) je větší než jmenovatele (2), nejdřív se dělí: $x+1-\\frac{x+1}{x^2+1}$."
+  },
+  {
+    "id": "ratint-coef-A",
+    "type": "numeric",
+    "prompt": "V rozkladu $\\dfrac{1}{(x-1)(x+2)}=\\dfrac{A}{x-1}+\\dfrac{B}{x+2}$ určete $A$.",
+    "answer": 0.3333,
+    "tolerance": 0.001,
+    "solution": "Zakryj $(x-1)$ a dosaď $x=1$: $A=\\frac{1}{1+2}=\\frac13$. Obdobně $B=-\\frac13$."
+  },
+  {
+    "id": "ratint-arctg-half",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{1}{x^2+4}\\,\\mathrm{d}x=$",
+    "options": ["$\\frac12\\operatorname{arctg}\\frac x2+C$", "$2\\operatorname{arctg}\\frac x2+C$", "$\\operatorname{arctg}\\frac x2+C$", "$\\frac12\\ln(x^2+4)+C$"],
+    "answer": 0,
+    "solution": "$\\frac{1}{x^2+4}=\\frac14\\cdot\\frac{1}{(x/2)^2+1}$, substituce $t=\\frac x2$ ($\\mathrm{d}x=2\\,\\mathrm{d}t$): $\\frac12\\operatorname{arctg}t$."
+  },
+  {
+    "id": "ratint-value",
+    "type": "numeric",
+    "prompt": "Nechť $F'(x)=\\dfrac{x}{x^2+4}$ a $F(0)=0$. Určete $F(2)$ (na 3 desetinná místa).",
+    "answer": 0.347,
+    "tolerance": 0.001,
+    "solution": "$F(x)=\\frac12\\ln(x^2+4)+C$, $C=-\\frac12\\ln4$. $F(2)=\\frac12\\ln8-\\frac12\\ln4=\\frac12\\ln2\\approx0{,}347$."
+  },
+  {
+    "id": "ratint-free-diff-squares",
+    "type": "free",
+    "prompt": "Spočtěte $\\displaystyle\\int\\frac{1}{x^2-1}\\,\\mathrm{d}x$.",
+    "solution": "$\\frac{1}{x^2-1}=\\frac12\\left(\\frac{1}{x-1}-\\frac{1}{x+1}\\right)$, tedy $\\frac12\\ln\\lvert x-1\\rvert-\\frac12\\ln\\lvert x+1\\rvert+C=\\frac12\\ln\\left\\lvert\\frac{x-1}{x+1}\\right\\rvert+C$."
+  },
+  {
+    "id": "ratint-free-divide",
+    "type": "free",
+    "prompt": "Spočtěte $\\displaystyle\\int\\frac{x^3+x^2}{x^2+1}\\,\\mathrm{d}x$.",
+    "solution": "Dělení: $x+1-\\frac{x+1}{x^2+1}$.\n\n$\\int(x+1)\\mathrm{d}x=\\frac{x^2}{2}+x$, $\\int\\frac{x}{x^2+1}=\\frac12\\ln(x^2+1)$, $\\int\\frac{1}{x^2+1}=\\operatorname{arctg}x$.\n\nVýsledek: $\\frac{x^2}{2}+x-\\frac12\\ln(x^2+1)-\\operatorname{arctg}x+C$."
+  }
+]
