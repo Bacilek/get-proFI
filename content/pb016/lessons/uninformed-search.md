@@ -20,6 +20,10 @@ Stavový prostor je (implicitní) graf. Prohledávání = opakované **expandov�
 
 **IDS** kombinuje výhody: paměť jako DFS (lineární), úplnost a optimalitu jako BFS. Opakované generování vrchních vrstev je zanedbatelné – většina uzlů je v poslední vrstvě. Je to nejvhodnější neinformovaná strategie pro velké prostory a neznámou hloubku řešení.
 
+**Využij znalost domény (sbírka 2.3.8).** Stavový prostor „1 má následníky $2k$ a $2k+1$“ je binární strom. Cíl $n$ najdeš **bez prohledávání**: zapiš $n$ binárně, první jedničku (start) vynech a zbylé bity čti jako akce: 0 = Vlevo ($2k$), 1 = Vpravo ($2k+1$). Pro $11=1011_2$: zbylé bity 0, 1, 1 → Vlevo, Vpravo, Vpravo: $1\to2\to5\to11$.
+
+**Limit DFS a nalezené řešení (sbírka 2.3.4).** Pro konkrétní graf platí: s příliš malým limitem DLS řešení nenajde, s limitem rovným $d$ najde optimální, s větším limitem může najít delší (neoptimální) řešení a od jisté hodnoty (délka nejdelší cesty) se chová jako obyčejné DFS. DFS může najít řešení dříve než BFS (cíl hned na první větvi), nekonečný prostor s cílem „bokem“ ho DFS nenajde nikdy a na cestě (graf typu cesta, start na kraji) procházejí DFS i BFS uzly ve stejném pořadí.
+
 ## Mini příklad
 
 $b=10$, $d=5$: počet vygenerovaných uzlů

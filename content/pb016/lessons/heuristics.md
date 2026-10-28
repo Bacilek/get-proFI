@@ -25,6 +25,8 @@ Dobrá heuristika je **přípustná** a zároveň co nejblíž skutečné ceně.
 **Rozvrh procesorů** (úlohy $t_i$ s dobou $D_i$, $m$ procesorů, precedence; minimalizuj celkový čas): stav = (nezařazené, běžící s časy dokončení, čas). Heuristika
 $h=\max\!\big(0,\ \tfrac{\sum_i D_i+\sum_j F_j}{m}-\text{Fin}\big)$, kde $\text{Fin}=\max_j F_j$ – ideální rozložení práce bez prostojů a bez precedence (relaxace) ⇒ přípustná.
 
+**Návrh heuristiky z geometrie tahu (sbírka 2.4.6).** $x,y$ = vzdálenost do cíle po osách. **Král** (8 směrů, tah o 1): potřebuje alespoň $\max(x,y)$ tahů (diagonála zkracuje obě osy najednou), přípustné je i $(x+y)/2$. **Jezdec** (tah $(\pm1,\pm2)$): jedním tahem se zmenší $\max(x,y)$ nejvýš o 2 a $x+y$ nejvýš o 3, takže přípustné jsou $\max(x,y)/2$ a $(x+y)/3$. Obecně: odhad dělíme tím, **kolik nejvýš se vzdálenost zmenší jedním tahem**.
+
 ## Mini příklad
 
 Stav 8-posunovačky (cíl `1 2 3 / 4 5 6 / 7 8 _`):

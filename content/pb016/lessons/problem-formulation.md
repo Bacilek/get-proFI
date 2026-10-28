@@ -38,6 +38,8 @@ U přiřazení není každá konfigurace přípustná: jeden úkol může dostat
 
 **Posunovačka** (hra $m\times m$, $n=m^2-1$ kamenů; akce = pohyb mezery): 8-posunovačka má $9!/2=181\,440$ dosažitelných stavů (polovina konfigurací je nedosažitelná), $b\le 4$. Optimální řešení obecné $n$-posunovačky je **NP-úplné**.
 
+**Metriky pro 8-posunovačku:** $b=4$, hloubka cíle záleží na startu a nejhůř je **31** tahů; polovina počátečních konfigurací je neřešitelná. **Piškvorky $3\times3$:** $b=9$, $d=5$ (nejdřív po 5. tahu), $m=9$; počet různých her není $9!$, protože mnoho her skončí dřív.
+
 ## Mini příklad
 
 Úkol: seřadit $n$ různých čísel vzestupně hrubou silou (generují se všechny posloupnosti a testuje se seřazenost). Konfigurace = permutace $\Rightarrow n!$ stavů. Pro $n=3$: $3!=6$.

@@ -25,6 +25,14 @@ Uzel může být ve stromu ve více kopiích (strom není nutně podgrafem grafu
 $$F(N)=c(M,N)+\begin{cases}h(N)&\text{neexpandovaný}\\0&\text{cíl}\\\min_i F(N_i)&\text{OR}\\\sum_i F(N_i)&\text{AND}\end{cases}$$
 Při $h\le h^*$ najde optimální strom řešení. Např. cesta mezi městy: $h$ = vzdušná vzdálenost.
 
+**Další poznatky ze sbírky (3.1):**
+- **Symbolická integrace jako dekompozice:** OR uzel = alternativní přístupy (substituce, goniometrická identita, dělení polynomů), AND uzel = rozklad integrálu na podintegrály, které musí vyjít všechny. Takto pracují matematické řešiče (např. WolframAlpha). Prakticky užitečný je strom řešení s lehce řešitelnými listy.
+- **Hry s perfektní informací** (vždy znám celý stav: piškvorky, šachy, go; ne poker či kostky) jdou modelovat AND/OR grafem. Je-li uzel „nesplněný“ (např. hráč prohrává při optimální hře soupeře), může se přesto dosáhnout remízy proti nedokonalému soupeři; výsledek stromu řešení platí pro *racionálního* protihráče.
+- **Koncové uzly nejsou nutné:** list typu **AND** bez následníků je splněný, list typu **OR** bez následníků je triviálně nesplněný.
+- **Bipartitní tvar:** každý AND/OR graf jde převést na graf, kde se typy uzlů střídají (následníci AND jsou OR a naopak). Typ uzlu pak plyne ze vzdálenosti od kořene, takže se v implementaci nemusí ukládat.
+- **Smyčky** mezi uzly jsou v AND/OR grafu povolené (v kurzu se s nimi nepočítá, často je lze ignorovat díky předchozímu OR uzlu).
+- **Hanojské věže:** při $n$ discích se fyzicky přesune disk $2^n-1$krát (1 disk: 1, 3 disky: 7, 4 disky: 15).
+
 ## Mini příklad
 
 Kořen $R$ (OR) má následníky $A$, $B$. $A$ (AND): $C$ (OR: listy true, false), $D$ (AND: listy true, true). $B$ (OR): $E$ (list false), $F$ (OR: listy true, true).

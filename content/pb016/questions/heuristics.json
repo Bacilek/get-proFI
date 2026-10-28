@@ -157,5 +157,40 @@
     "hints": [
       "Která heuristika je bližší skutečné ceně?"
     ]
+  },
+  {
+    "id": "h-king",
+    "type": "choice",
+    "prompt": "Král se na šachovnici pohybuje o 1 pole všemi osmi směry, $x,y$ jsou vzdálenosti do cíle po osách. Která heuristika (počet tahů) je přípustná a zároveň nejpřesnější?",
+    "options": [
+      "$x+y$",
+      "$\\max(x,y)$",
+      "$2\\max(x,y)$",
+      "$x\\cdot y$"
+    ],
+    "answer": 1,
+    "solution": "Diagonální tah zmenší obě vzdálenosti najednou, proto je počet tahů přesně $\\max(x,y)$. $x+y$ by nadhodnocovalo (diagonála), ostatní ještě víc.",
+    "hints": [
+      "Kolik tahů potřebuje král na pole o $(3,3)$?"
+    ]
+  },
+  {
+    "id": "h-knight",
+    "type": "multi",
+    "prompt": "Jezdec (tah $(\\pm1,\\pm2)$ nebo $(\\pm2,\\pm1)$), $x,y$ jsou vzdálenosti do cíle po osách. Které heuristiky (počet tahů) jsou přípustné?",
+    "options": [
+      "$x+y$",
+      "$\\max(x,y)$",
+      "$\\max(x,y)/2$",
+      "$(x+y)/3$"
+    ],
+    "answers": [
+      2,
+      3
+    ],
+    "solution": "Jedním tahem se $\\max(x,y)$ zmenší nejvýš o 2 a $x+y$ nejvýš o 3, takže $\\max(x,y)/2$ a $(x+y)/3$ nikdy nenadhodnotí. $x+y$ a $\\max(x,y)$ ano (např. cíl o $(1,2)$ je 1 tah, ale $x+y=3$, $\\max=2$).",
+    "hints": [
+      "Kolik tahů potřebuje jezdec na pole $(1,2)$?"
+    ]
   }
 ]

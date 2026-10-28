@@ -33,6 +33,14 @@ Množina formulí $T$ je splnitelná, má-li model, v němž jsou pravdivé vše
 
 **Spojky vs. jazyk:** v přirozeném jazyce je „nebo“ často XOR; implikace ve výrokové logice nepředpokládá příčinný vztah a z nepravdivé premisy plyne cokoliv („5 je sudá ⇒ AZ Tower je nejvyšší“ je pravdivá).
 
+**Doplňky ze sbírky (kap. 5):**
+- **Syntax přesně podle definice:** abeceda = výrokové proměnné, spojky, závorky; formule vznikají z proměnných a spojek ($\neg(\varphi)$, $(\varphi)\vee(\psi)$, …). *Bez závorkové konvence* je slovo jako `p ∧ q ∧ r` nebo `¬¬p` neformule (chybí závorky), `(p)¬(q)` má špatnou aritu spojky a `=` není logická spojka.
+- **Interpretace × valuace:** interpretace $I:P\to\{0,1\}$ přiřazuje hodnoty jen proměnným, valuace je její rozšíření na všechny formule podle sémantiky spojek.
+- **Množina formulí = jedna formule:** $T=\{\varphi_1,\dots,\varphi_n\}$ má stejné modely jako $\varphi_1\wedge\dots\wedge\varphi_n$; prázdné množině odpovídá tautologie. **Splnitelnost množiny** vyžaduje jednu interpretaci pro všechny formule najednou (nestačí, že je splnitelná každá zvlášť).
+- **Vlastnosti vyplývání:** z $T\models\varphi$ a $T\models\psi$ plyne $T\models\varphi\wedge\psi$ i $T\models\varphi\vee\psi$; z $T\models\varphi\vee\psi$ ale **neplyne** $T\models\varphi$ ani $T\models\psi$ (např. $p\vee q\models p\vee q$). Z $T\models\varphi$ plyne $T\models\varphi\vee\psi$, ale ne $T\models\varphi\wedge\psi$. **Monotónie:** z $T\models\varphi$ plyne $T\cup\{\psi\}\models\varphi$ (přidáním předpokladu přibývají důsledky, modely se jen zužují); opačně ne ($\{p,\ p\wedge\neg p\}\models p\wedge\neg p$, ale $\{p\}\not\models p\wedge\neg p$).
+- **Počítání formulí:** nad $n$ proměnnými je $2^n$ interpretací a formule je dána hodnotou v každé, takže existuje $2^{2^n}$ vzájemně neekvivalentních formulí ($n=3$: 256); pravdivých právě v polovině interpretací je $\binom{2^n}{2^{n-1}}$.
+- **Logické spojky obecně:** $n$-ární spojka je dána tabulkou o $2^n$ řádcích, takže je $2^{2^n}$ různých $n$-árních spojek. Spojku lze zavést i ekvivalencí: nulární $\bot:\approx p\wedge\neg p$, $\top:\approx p\vee\neg p$, $\varphi\Rightarrow\psi:\approx\neg\varphi\vee\psi$. Úplný systém spojek tvoří i $\{\neg,\Rightarrow\}$: $\varphi\vee\psi:\approx\neg\varphi\Rightarrow\psi$, $\varphi\wedge\psi:\approx\neg(\varphi\Rightarrow\neg\psi)$; v obvodech stačí samotné NAND či NOR.
+
 ## Mini příklad
 
 $\varphi\equiv p\wedge(q\Rightarrow\neg p)$:

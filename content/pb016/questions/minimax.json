@@ -156,5 +156,73 @@
     "hints": [
       "Souvisí to s hodnotou jedné funkce pro oba hráče."
     ]
+  },
+  {
+    "id": "mm-modelable",
+    "type": "multi",
+    "prompt": "Které z těchto her lze modelovat (konečným) minimax stromem dvou hráčů? Označ všechny.",
+    "options": [
+      "šachy s pravidlem 50 tahů",
+      "kámen-nůžky-papír",
+      "tenis",
+      "piškvorky $3\\times3$",
+      "piškvorky na neomezené ploše"
+    ],
+    "answers": [
+      0,
+      3
+    ],
+    "solution": "Minimax potřebuje střídání tahů, konečně mnoho možností v každém uzlu a konečnou hru. Kámen-nůžky-papír se hraje současně, tenis má nekonečně mnoho tahů, neomezené piškvorky nekonečně hluboké větve.",
+    "hints": [
+      "U každé hry se ptej: střídají se hráči, je počet tahů konečný a je hra konečná?"
+    ]
+  },
+  {
+    "id": "mm-vs-andor",
+    "type": "choice",
+    "prompt": "Jak se každý AND/OR strom vyjádří jako minimax strom?",
+    "options": [
+      "Listy ohodnotit 1 (splněný) / 0, AND uzly jako MIN, OR uzly jako MAX.",
+      "AND uzly jako MAX, OR uzly jako MIN.",
+      "Jen se přejmenují uzly, listy nemají hodnoty.",
+      "Nelze, minimax je obecnější a opačná cesta neexistuje."
+    ],
+    "answer": 0,
+    "solution": "AND je splněný, když jsou splněni všichni, tj. minimum hodnot je 1 (MIN). OR potřebuje aspoň jeden, tj. maximum je 1 (MAX). Minimax je tedy zobecnění AND/OR.",
+    "hints": [
+      "Kdy je minimum z hodnot 0/1 rovno 1?"
+    ]
+  },
+  {
+    "id": "mm-left-condition",
+    "type": "choice",
+    "prompt": "Kořen je MAX se dvěma MIN dětmi: vlevo s listy $a,b$, vpravo s listy $c,d$. Kdy MAX zvolí levou větev?",
+    "options": [
+      "$\\min(a,b)\\ge\\min(c,d)$",
+      "$\\max(a,b)\\ge\\max(c,d)$",
+      "$a+b\\ge c+d$",
+      "$\\min(a,b)\\le\\min(c,d)$"
+    ],
+    "answer": 0,
+    "solution": "Hodnota levého MIN uzlu je $\\min(a,b)$, pravého $\\min(c,d)$. MAX bere větší.",
+    "hints": [
+      "Spočítej hodnoty obou MIN uzlů."
+    ]
+  },
+  {
+    "id": "mm-complexity",
+    "type": "choice",
+    "prompt": "Minimax strom má $V$ uzlů a $E$ hran. Jaká je časová složitost algoritmu minimax?",
+    "options": [
+      "$O(V+E)$",
+      "$O(V^2)$",
+      "$O(b^{m/2})$",
+      "$O(2^V)$"
+    ],
+    "answer": 0,
+    "solution": "Minimax je DFS s konstantní prací v každém uzlu, každý uzel i hranu navštíví právě jednou. $O(b^{m/2})$ je nejlepší případ alfa-beta.",
+    "hints": [
+      "Na co se minimax podobá?"
+    ]
   }
 ]

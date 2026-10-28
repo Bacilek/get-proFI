@@ -24,6 +24,13 @@ Pravidlo řezu: ukonči prohledávání následníků, jakmile **$\beta\le\alpha
 
 **Vylepšení:** prohledávání do klidných stavů (*quiescence search*), efekt horizontu (zvraty za hranicí hloubky), dopředné ořezávání (heuristické zahazování stavů).
 
+**Doplňující poznatky ze sbírky (4.2):**
+- **Nejhorší případ** alfa-beta je stejný jako u minimaxu: stačí strom, kde jsou všechny uzly stejného typu (např. MIN), kořen je pak minimum všech listů a musí se projít všechny. Řezy se vyplatí jen v průměru.
+- **$\alpha$ je dolní mez** (co už má MAX zaručeno), **$\beta$ horní mez** (co už má MIN zaručeno). Řez nastane, když další prohledávání nemůže změnit hodnotu u rodiče.
+- **Návrh listů:** *maximum řezů* získáš, když mají všechny listy stejnou hodnotu (další list nepřináší novou informaci); *žádné řezy* získáš shora: zvol hodnotu kořene a ve stromu ji u každého MAX uzlu zajisti až **posledním** potomkem.
+- **Strom jen z MAX uzlů:** $\beta=+\infty$ po celou dobu, řez nastane jen tehdy, když se objeví list s hodnotou $+\infty$.
+- **Transformace listů a optimální strategie:** nezmění se při přičtení konstanty, při násobení **kladnou** konstantou, při libovolné transformaci zachovávající **uspořádání** hodnot, ani při záměně MIN/MAX spolu s násobením $-1$ (pohled druhého hráče). Při násobení **zápornou** konstantou by se našla nejhorší strategie.
+
 ## Mini příklad
 
 Strom z minimaxu: $a_1:(3,12,8)$, $a_2:(2,4,6)$, $a_3:(14,5,2)$, kořen MAX.

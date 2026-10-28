@@ -230,5 +230,38 @@
     "hints": [
       "Co by chtěl člověk z DFS a co z BFS?"
     ]
+  },
+  {
+    "id": "us-binary-path",
+    "type": "choice",
+    "prompt": "Stavový prostor: stav 1, každý stav $k$ má následníky $2k$ (Vlevo) a $2k+1$ (Vpravo). Která posloupnost akcí vede z 1 do cíle 13, bez prohledávání?",
+    "options": [
+      "Vpravo, Vlevo, Vpravo",
+      "Vlevo, Vpravo, Vpravo",
+      "Vpravo, Vpravo, Vlevo",
+      "Vlevo, Vlevo, Vpravo"
+    ],
+    "answer": 0,
+    "solution": "$13=1101_2$. První jedničku vynecháme, zbytek $101$: 1 = Vpravo, 0 = Vlevo, 1 = Vpravo. Kontrola: $1\\to3\\to6\\to13$.",
+    "hints": [
+      "Zapiš cíl binárně.",
+      "Každý bit po první jedničce je jeden krok."
+    ]
+  },
+  {
+    "id": "us-dfs-vs-bfs-claim",
+    "type": "choice",
+    "prompt": "Který příklad ukazuje, že DFS **může** najít řešení dříve než BFS?",
+    "options": [
+      "Cíl leží hned na první větvi, kterou DFS prochází, hluboko pod kořenem.",
+      "Všechny cíle jsou ve stejné hloubce jako kořen.",
+      "Graf je nekonečný a cíl leží na druhé větvi.",
+      "DFS to nikdy nedokáže, BFS je vždy rychlejší."
+    ],
+    "answer": 0,
+    "solution": "BFS musí projít celé mělčí vrstvy, DFS jde rovnou dolů. Pokud je cíl na první větvi, DFS skončí dřív. V nekonečném grafu s cílem na druhé větvi DFS cíl nenajde nikdy.",
+    "hints": [
+      "Kdo prohledává celé vrstvy před tím, než jde hlouběji?"
+    ]
   }
 ]

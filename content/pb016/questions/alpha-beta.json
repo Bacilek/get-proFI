@@ -146,5 +146,59 @@
     "hints": [
       "Po první větvi je $\\alpha$ její minimum."
     ]
+  },
+  {
+    "id": "ab-worst",
+    "type": "choice",
+    "prompt": "Strom, ve kterém jsou všechny uzly typu MIN, vyhodnocuješ alfa-beta. Kolik řezů nastane a proč?",
+    "options": [
+      "Žádný: kořen je minimum všech listů, musí se projít všechny.",
+      "Mnoho, protože MIN uzly vždy řežou.",
+      "Řez po prvním listu, protože $\\alpha=-\\infty$.",
+      "Právě jeden, v posledním uzlu."
+    ],
+    "answer": 0,
+    "solution": "Bez střídání MAX/MIN se $\\alpha$ nikdy nezvýší nad $-\\infty$, řez ($v\\le\\alpha$) nenastane. Takový strom ukazuje, že v nejhorším případě je alfa-beta stejně složitá jako minimax.",
+    "hints": [
+      "Čemu se rovná $\\alpha$, když není žádný MAX uzel?"
+    ]
+  },
+  {
+    "id": "ab-transform",
+    "type": "multi",
+    "prompt": "Které úpravy listů minimax stromu **nezmění** optimální strategii? Označ všechny.",
+    "options": [
+      "ke všem listům přičteme konstantu $c$",
+      "všechny listy vynásobíme kladnou konstantou",
+      "všechny listy vynásobíme zápornou konstantou",
+      "hodnoty libovolně změníme, ale zachováme jejich uspořádání",
+      "všechny MIN↔MAX a listy vynásobíme $-1$"
+    ],
+    "answers": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "solution": "Optimální strategii určuje jen uspořádání hodnot. Záporná konstanta uspořádání obrátí (najdeš nejhorší strategii). Záměna MIN/MAX s násobením $-1$ je pohled druhého hráče.",
+    "hints": [
+      "Mění se pořadí listů od nejmenšího po největší?"
+    ]
+  },
+  {
+    "id": "ab-all-max",
+    "type": "choice",
+    "prompt": "Strom z uzlů pouze typu MAX se vyhodnocuje alfa-beta. Kdy může dojít k řezu?",
+    "options": [
+      "Jen když se objeví list s hodnotou $+\\infty$.",
+      "Nikdy.",
+      "Po každém druhém listu.",
+      "Když je $\\alpha\\ge\\beta$ hned po prvním listu."
+    ],
+    "answer": 0,
+    "solution": "$\\beta$ zůstává $+\\infty$, řez v MAX uzlu je při $v\\ge\\beta$, tedy jen když list nabyde $+\\infty$ (leaves jsou z rozšířených reálných čísel).",
+    "hints": [
+      "Čemu se rovná $\\beta$ bez MIN uzlů?"
+    ]
   }
 ]

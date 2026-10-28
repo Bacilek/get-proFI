@@ -301,5 +301,90 @@
     "hints": [
       "Kolik je řádků tabulky?"
     ]
+  },
+  {
+    "id": "prop-count-formulas",
+    "type": "numeric",
+    "prompt": "Kolik vzájemně neekvivalentních formulí výrokové logiky lze sestavit ze tří proměnných $p_1,p_2,p_3$ (každá se může vyskytnout i vícekrát)?",
+    "answer": 256,
+    "solution": "$2^3=8$ interpretací, formule je určena hodnotou (0/1) v každé: $2^8=256$.",
+    "hints": [
+      "Kolik je interpretací?",
+      "Každá interpretace má dvě možné hodnoty formule."
+    ]
+  },
+  {
+    "id": "prop-count-half",
+    "type": "numeric",
+    "prompt": "Kolik neekvivalentních formulí nad dvěma proměnnými je pravdivých právě ve dvou ze čtyř interpretací?",
+    "answer": 6,
+    "solution": "Vybíráme, které 2 ze 4 interpretací mají být pravdivé: $\\binom42=6$.",
+    "hints": [
+      "Formule je dána množinou interpretací, ve kterých platí."
+    ]
+  },
+  {
+    "id": "prop-count-connectives",
+    "type": "numeric",
+    "prompt": "Kolik existuje vzájemně neekvivalentních **ternárních** (tříargumentových) logických spojek?",
+    "answer": 256,
+    "solution": "Tabulka má $2^3=8$ řádků, každý může mít 0 nebo 1: $2^8=256$. Obecně $2^{2^n}$.",
+    "hints": [
+      "Kolik řádků má tabulka spojky o 3 argumentech?"
+    ]
+  },
+  {
+    "id": "prop-entail-facts",
+    "type": "multi",
+    "prompt": "Pro množinu formulí $T$ a formule $\\varphi,\\psi$: která tvrzení platí? Označ všechna správná.",
+    "options": [
+      "Z $T\\models\\varphi$ a $T\\models\\psi$ plyne $T\\models\\varphi\\wedge\\psi$.",
+      "Z $T\\models\\varphi\\vee\\psi$ plyne $T\\models\\varphi$ nebo $T\\models\\psi$.",
+      "Z $T\\models\\varphi$ plyne $T\\models\\varphi\\vee\\psi$.",
+      "Z $T\\models\\varphi$ plyne $T\\models\\varphi\\wedge\\psi$.",
+      "Z $T\\models\\varphi$ plyne $T\\cup\\{\\psi\\}\\models\\varphi$.",
+      "Z $T\\cup\\{\\psi\\}\\models\\varphi$ plyne $T\\models\\varphi$."
+    ],
+    "answers": [
+      0,
+      2,
+      4
+    ],
+    "solution": "Důsledky se přidáváním předpokladů jen rozšiřují (modely se zužují). Disjunkce $\\varphi\\vee\\psi$ může plynout, aniž plyne některý člen (např. $p\\vee q\\models p\\vee q$). Opačná implikace v posledním bodě nemusí platit: $\\{p\\}\\cup\\{p\\wedge\\neg p\\}\\models p\\wedge\\neg p$.",
+    "hints": [
+      "Modely $T\\cup\\{\\psi\\}$ jsou podmnožinou modelů $T$."
+    ]
+  },
+  {
+    "id": "prop-imp-only",
+    "type": "choice",
+    "prompt": "Máš jen spojky $\\neg$ a $\\Rightarrow$. Čím nahradíš $\\varphi\\vee\\psi$?",
+    "options": [
+      "$\\neg\\varphi\\Rightarrow\\psi$",
+      "$\\varphi\\Rightarrow\\neg\\psi$",
+      "$\\neg(\\varphi\\Rightarrow\\psi)$",
+      "$\\neg\\varphi\\Rightarrow\\neg\\psi$"
+    ],
+    "answer": 0,
+    "solution": "$\\neg\\varphi\\Rightarrow\\psi\\equiv\\neg\\neg\\varphi\\vee\\psi\\equiv\\varphi\\vee\\psi$. Konjunkce: $\\neg(\\varphi\\Rightarrow\\neg\\psi)$.",
+    "hints": [
+      "Použij $\\alpha\\Rightarrow\\beta\\equiv\\neg\\alpha\\vee\\beta$ zpětně."
+    ]
+  },
+  {
+    "id": "prop-empty-set",
+    "type": "choice",
+    "prompt": "Co platí o prázdné množině formulí $\\emptyset$?",
+    "options": [
+      "Je splnitelná (pravdivá v každé interpretaci) a $\\emptyset\\models\\varphi$ platí právě pro tautologie $\\varphi$.",
+      "Je nesplnitelná.",
+      "Je splnitelná, ale $\\emptyset\\models\\varphi$ neplatí pro žádnou $\\varphi$.",
+      "Není definována."
+    ],
+    "answer": 0,
+    "solution": "Všech nula formulí je pravdivých v libovolné interpretaci, takže každá interpretace je model. Vyplývání z $\\emptyset$ tedy znamená platnost ve všech interpretacích, tj. tautologii.",
+    "hints": [
+      "Kolik formulí musí být v interpretaci pravdivých?"
+    ]
   }
 ]

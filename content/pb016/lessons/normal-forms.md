@@ -30,6 +30,12 @@ Příklad: $(p\vee\neg q)\wedge(\neg p\vee\neg q\vee r)$ je KNF, ne úplná. Úp
 
 **Z pravdivostní tabulky:** ÚDNF = disjunkce duálních klauzulí pro **pravdivé** řádky; ÚKNF = konjunkce klauzulí pro **nepravdivé** řádky (literály s opačným znaménkem než v řádku).
 
+**Triky z cvičení (sbírka 5.3):**
+- **ÚKNF jedním řádkem:** má-li formule v tabulce jediný nepravdivý řádek, je ÚKNF jedna klauzule. Např. $(r\Rightarrow p)\vee\neg(q\wedge r)$ je nepravdivá jen pro $p=0,q=1,r=1$, takže ÚKNF je $(p\vee\neg q\vee\neg r)$.
+- **Z DNF/KNF na úplnou formu:** doplň chybějící proměnnou tautologií $(q\vee\neg q)$ a roznásob, duplicitní klauzule odstraň: $(\neg q\wedge r)\vee(r\wedge\neg p)\to(\neg q\wedge r\wedge p)\vee(\neg q\wedge r\wedge\neg p)\vee(q\wedge r\wedge\neg p)$.
+- **Zjednodušení DNF:** duální klauzule pohlcená jinou (např. $p\wedge\neg r$ a $\neg r\wedge\neg q\wedge p$ vůči $p$) se vypustí: $p\vee(p\wedge\neg r)\vee(\neg r\wedge\neg q)\vee(\neg r\wedge\neg q\wedge p)\approx p\vee(\neg r\wedge\neg q)$.
+- **Příklady převodu:** $(p\Rightarrow q)\Rightarrow r\approx(p\vee r)\wedge(\neg q\vee r)$ (KNF) a $\approx(p\wedge\neg q)\vee r$ (DNF); $(p\Leftrightarrow q)\Rightarrow(r\vee s)\approx(p\wedge\neg q)\vee(q\wedge\neg p)\vee r\vee s$.
+
 ## Mini příklad
 
 $V_{1,1}\Leftrightarrow(J_{1,2}\vee J_{2,1})$:

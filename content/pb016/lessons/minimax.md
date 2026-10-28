@@ -23,6 +23,20 @@ Algoritmus: rekurzivní DFS, `MAX-VALUE` volá `MIN-VALUE` a naopak; MAX si pama
 
 **AND/OR × minimax:** AND/OR graf zná jen výhra/prohra (list splněn/nesplněn); minimax umí **skóre**. Stav „já na tahu“ = MAX (≈ OR), „soupeř na tahu“ = MIN (≈ AND).
 
+**Které hry jde modelovat minimax stromem (sbírka 4.1):**
+- **Šachy:** ano, listy $-1/0/1$; konečný strom zaručuje pravidlo 50 tahů (bez tahu pěšce a braní končí remízou, tyto změny nelze vzít zpět). Strom je ale tak velký, že optimální hru neznáme, proto se používá minimax s hloubkovým limitem a ohodnocovací funkcí.
+- **Sudoku:** formálně ano (samé MAX uzly, listy 1 pro platné vyplnění), ale není to hra dvou hráčů a minimax se nehodí.
+- **Piškvorky na neomezené ploše:** ne, každá úroveň je nekonečně široká a existují nekonečné větve.
+- **Kámen-nůžky-papír:** ne, hráči nestřídají tahy, ale volí **současně**, takže hráč nezná stav a strom nelze sestrojit.
+- **Tenis:** ne, nekonečně mnoho možností (směrů míče) už v prvním patře.
+
+**Vztahy a vlastnosti:**
+- **Složitost** minimaxu je $O(V+E)$ (jde o DFS s konstantní prací v uzlu); každý uzel a hrana se navštíví jednou.
+- **Minimax rozšiřuje AND/OR:** AND/OR strom je minimax strom, kde listy mají hodnotu 1 (splněný) nebo 0, AND ↔ MIN, OR ↔ MAX.
+- **Střídání typů:** potomka stejného typu jako rodič lze smazat a jeho děti přivěsit k rodiči, takže lze polynomiálně převést strom na střídavý.
+- **Podmínka volby tahu:** aby MAX volil levou větev (dvě MIN děti s listy $a,b$ vlevo, $c,d$ vpravo), musí platit $\min(a,b)\ge\min(c,d)$.
+- **Nekonečné hry** (pronásledovatel × zloděj, hráči mohou donekonečna střídat pole): strom je nekonečný a minimax (DFS) by padl do nekonečné větve; řeší se omezením počtu kol (pro 3 kola vyjde kořen 2) nebo BFS s doménovou znalostí.
+
 ## Mini příklad
 
 MAX → tři MIN uzly $a_1,a_2,a_3$ s listy $(3,12,8)$, $(2,4,6)$, $(14,5,2)$.

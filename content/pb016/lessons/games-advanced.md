@@ -23,6 +23,9 @@ Výhody: obecnost (nepotřebuje heuristiku), přizpůsobivost (strom roste podle
 
 **Přehled úspěchů:** dáma – Chinook (1994, databáze koncovek); šachy – Deep Blue (1997), 200 mil. pozic/s; Go – $b>300$, AlphaGo porazil Lee Sedola 4:1 (2016) a Ke Jie 3:0 (2017), AlphaGo Zero se učí jen hrou sama proti sobě (neuronové sítě + posilované učení).
 
+**Uzly náhody v praxi (sbírka 4.3):** uzel náhody se značí kosočtvercem, hrany nesou pravděpodobnosti a hodnota uzlu je **očekávání** $\sum P(n)\cdot\text{minimax}(n)$. Příklad: první hráč zvolí číslo $k\in\{1,2,3\}$, hodí se třemi mincemi; padnou-li všechny stejně (pravd. $\tfrac14$), soupeř volí z $\{-1,0\}$, jinak z $\{1,2\}$ a první hráč dostane součin. Soupeř minimalizuje: ve stavu „všechny stejně“ dá $-k$, jinak $k$, očekávání je $\tfrac14(-k)+\tfrac34k=k/2$, takže se vyplatí volit $k=3$ (očekávání 1,5).
+Podmínky na volbu větve vedou na **nerovnice s pravděpodobnostmi**: s uzly $-0{,}2$ (vlevo) a $0{,}2a+0{,}8b$ (vpravo) se při $b=1$ vybere levá větev, právě když $-0{,}2\ge0{,}2a+0{,}8$, tedy $a\le-5$.
+
 ## Mini příklad
 
 **Expectiminimax:** MAX má dva tahy vedoucí na uzly náhody.

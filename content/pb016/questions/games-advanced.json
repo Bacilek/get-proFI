@@ -203,5 +203,26 @@
     "hints": [
       "Simulace se nahrazuje evaluační funkcí."
     ]
+  },
+  {
+    "id": "ga-chance-ineq",
+    "type": "numeric",
+    "prompt": "Kořen je MAX: vlevo hodnota $-0{,}2$, vpravo náhodný uzel $0{,}2a+0{,}8b$. Při $b=1$ zvolí MAX levou větev, právě když $a\\le a_0$. Čemu se rovná $a_0$?",
+    "answer": -5,
+    "solution": "$-0{,}2\\ge0{,}2a+0{,}8\\Rightarrow-1\\ge0{,}2a\\Rightarrow a\\le-5$.",
+    "hints": [
+      "Napiš nerovnost: levá hodnota $\\ge$ pravá hodnota."
+    ]
+  },
+  {
+    "id": "ga-coins-expected",
+    "type": "numeric",
+    "prompt": "Hra: první hráč zvolí $k\\in\\{1,2,3\\}$, pak se hodí třemi mincemi. Padnou-li všechny stejně (pravd. $\\tfrac14$), soupeř vybere z $\\{-1,0\\}$, jinak z $\\{1,2\\}$ a první hráč dostane součin $k\\cdot$ číslo. Soupeř minimalizuje. Jaké je očekávání pro $k=3$?",
+    "answer": 1.5,
+    "tolerance": 1e-9,
+    "solution": "Všechny stejně: soupeř volí $\\min(-3,0)=-3$. Jinak $\\min(3,6)=3$. Očekávání $\\tfrac14(-3)+\\tfrac34\\cdot3=1{,}5$.",
+    "hints": [
+      "Soupeř volí číslo, které dá prvnímu hráči nejmenší součin."
+    ]
   }
 ]

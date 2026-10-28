@@ -183,5 +183,122 @@
     "hints": [
       "Řídí se jen odhadem do cíle, ne cenou dosavadní cesty."
     ]
+  },
+  {
+    "id": "is-sum-admissible",
+    "type": "choice",
+    "prompt": "Máš dvě přípustné heuristiky $h_1$, $h_2$. Které z kombinací jsou **vždy** přípustné?",
+    "options": [
+      "$h_1+h_2$ i $\\max(h_1,h_2)$",
+      "$\\max(h_1,h_2)$ i $\\min(h_1,h_2)$, ale ne $h_1+h_2$",
+      "pouze $\\min(h_1,h_2)$",
+      "všechny tři"
+    ],
+    "answer": 1,
+    "solution": "$\\max$ i $\\min$ nikdy nepřekročí skutečnou cenu, protože ji nepřekročí ani jedna z nich. Součet ji překročit může (např. $h_1=h_2=h^*$ dá $2h^*$).",
+    "hints": [
+      "Zkus $h_1=h_2=h^*$."
+    ]
+  },
+  {
+    "id": "is-ucs-astar",
+    "type": "choice",
+    "prompt": "Která heuristika změní A* na prohledávání podle ceny (uniform-cost search)?",
+    "options": [
+      "$h(n)=0$ pro všechny uzly",
+      "$h(n)=g(n)$",
+      "$h(n)=\\infty$",
+      "Vzdušná vzdálenost do cíle"
+    ],
+    "answer": 0,
+    "solution": "Při $h\\equiv0$ je $f(n)=g(n)$, tedy řazení podle ceny cesty, což je UCS. Nulová heuristika je přípustná i konzistentní, proto je UCS úplné a optimální. Proto také platí, že BFS je speciální případ UCS (stejné ceny hran) a DFS, BFS, UCS jsou best-first s $f=-\\text{depth}$, $\\text{depth}$, $g$.",
+    "hints": [
+      "Co zbyde z $g+h$, když $h$ je nula?"
+    ]
+  },
+  {
+    "id": "is-rook-manhattan",
+    "type": "choice",
+    "prompt": "Věž se pohybuje o libovolný počet polí po řádku nebo sloupci. Cena = počet tahů. Je Manhattanská vzdálenost přípustná heuristikou pro cestu věže z $A$ do $B$?",
+    "options": [
+      "Ne, nadhodnocuje: věž urazí víc polí jedním tahem.",
+      "Ano, nikdy nenadhodnocuje.",
+      "Ano, ale není konzistentní.",
+      "Ne, protože věž nemůže přeskakovat figury."
+    ],
+    "answer": 0,
+    "solution": "Například z jednoho rohu do druhého po řádku stačí 1 tah, ale Manhattan dá 7. Kdyby se cena měřila v projitých polích, byla by přípustná.",
+    "hints": [
+      "Kolik tahů potřebuje věž na vzdálenost 7 po řádku?"
+    ]
+  },
+  {
+    "id": "is-greedy-jump",
+    "type": "choice",
+    "prompt": "Greedy best-first prošel uzly B, E, H, F, D, ale výsledná cesta je B–H–F–D. Proč se pořadí navštívení liší od cesty?",
+    "options": [
+      "Uzel E se expandoval, ale cesta vede jinudy: do fronty se vracíme k dříve objeveným uzlům s nejlepším $h$ („skáčeme“).",
+      "Algoritmus je chybně implementován.",
+      "Cesta je vždy jen pořadí expandovaných uzlů.",
+      "E je cíl."
+    ],
+    "answer": 0,
+    "solution": "Greedy drží všechny objevené uzly v prioritní frontě a může se vrátit k libovolnému, který má aktuálně nejnižší $h$. Pořadí expanze tedy není totéž co nalezená cesta.",
+    "hints": [
+      "Kde greedy uchovává uzly, které ještě nezpracoval?"
+    ]
+  },
+  {
+    "id": "is-tree-search-loop",
+    "type": "choice",
+    "prompt": "Greedy best-first ve verzi **tree-search** (bez seznamu navštívených) na grafu se slepou uličkou D, která je „bližší“ cíli. Co se stane?",
+    "options": [
+      "Může cyklit donekonečna mezi D a jeho sousedem, cíl nenajde.",
+      "Vždy najde optimální cestu.",
+      "Skončí s chybou po prvním kroku.",
+      "Je úplný, protože h je přípustná."
+    ],
+    "answer": 0,
+    "solution": "Tree-search nekontroluje navštívené uzly, takže slepá ulička s nízkým $h$ se do fronty vrací pořád dokola. Graph-search (s kontrolou) smyčku odstraní, ale greedy tak není obecně optimální.",
+    "hints": [
+      "Co chybí tree-search verzi proti graph-search?"
+    ]
+  },
+  {
+    "id": "is-astar-fstar",
+    "type": "choice",
+    "prompt": "A* s konzistentní heuristikou a optimálním řešením o ceně $C^*$. Co platí o uzlech podle $f$?",
+    "options": [
+      "Expanduje všechny uzly s $f<C^*$ a žádný s $f>C^*$.",
+      "Může vynechat uzel s $f<C^*$.",
+      "Expanduje jen uzly s $f=C^*$.",
+      "Počet expandovaných uzlů s $f>C^*$ nejde předem určit."
+    ],
+    "answer": 0,
+    "solution": "S konzistentní $h$ A* expanduje všechny uzly s $f<C^*$, nanejvýš některé s $f=C^*$ a žádný s $f>C^*$. Proto lepší (dominující) heuristika znamená méně uzlů.",
+    "hints": [
+      "Cíl se vybere z fronty až při $f=C^*$."
+    ]
+  },
+  {
+    "id": "is-heur-facts",
+    "type": "multi",
+    "prompt": "Které tvrzení o heuristikách platí? Označ všechna správná.",
+    "options": [
+      "Každá konzistentní heuristika je přípustná.",
+      "Každá přípustná heuristika je konzistentní.",
+      "$h\\equiv0$ je přípustná i konzistentní.",
+      "Pro libovolný stavový prostor existuje přípustná a zároveň konzistentní heuristika.",
+      "Součet dvou přípustných heuristik je přípustná heuristika."
+    ],
+    "answers": [
+      0,
+      2,
+      3
+    ],
+    "solution": "Konzistence (trojúhelníková nerovnost) implikuje přípustnost (indukcí od cíle), opačně ne. $h\\equiv0$ je vždy přípustná i konzistentní, takže taková heuristika existuje vždy. Součet přípustných může skutečnou cenu překročit.",
+    "hints": [
+      "Najdi protipříklad k přípustná ⇒ konzistentní: $h(A)>c(A,B)+h(B)$."
+    ]
   }
 ]

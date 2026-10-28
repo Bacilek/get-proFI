@@ -261,5 +261,73 @@
     "hints": [
       "Pro každou hodnotu $X$ hledej větší $Y$."
     ]
+  },
+  {
+    "id": "csp-count-small",
+    "type": "numeric",
+    "prompt": "CSP: $A\\in\\{1,2,3\\}$, $B\\in\\{1,2,3\\}$, omezení $A<B$ a $A+B\\neq4$. Kolik má řešení?",
+    "answer": 2,
+    "solution": "Dvojice s $A<B$: (1,2), (1,3), (2,3). Součet 4 mají (1,3), takže zbývají (1,2) a (2,3): **2** řešení.",
+    "hints": [
+      "Nejdřív vypiš dvojice s $A<B$."
+    ]
+  },
+  {
+    "id": "csp-latin3",
+    "type": "numeric",
+    "prompt": "Kolik latinských čtverců $3\\times3$ (každý řádek i sloupec je permutace čísel 1, 2, 3) existuje?",
+    "answer": 12,
+    "solution": "Řešení CSP s devíti proměnnými $x_{ij}\\in\\{1,2,3\\}$ a `ALL_DISTINCT` na každém řádku a sloupci. První řádek: $3!=6$ možností, druhý řádek má pak 2 možnosti (posun, který se nesmí shodovat po sloupcích) a třetí je určen: $6\\cdot2=12$.",
+    "hints": [
+      "První řádek je libovolná permutace."
+    ]
+  },
+  {
+    "id": "csp-zebra-model",
+    "type": "choice",
+    "prompt": "Einsteinova hádanka: proměnné mají doménu $\\{1..5\\}$ a hodnota je číslo domu zleva doprava. Jak zapíšeš „Majitel zeleného domu je **bezprostředně napravo** od majitele bílého“?",
+    "options": [
+      "zelený = bílý + 1",
+      "zelený = bílý",
+      "|zelený − bílý| = 1",
+      "zelený > bílý"
+    ],
+    "answer": 0,
+    "solution": "Bezprostředně napravo znamená o jedno číslo víc. $|a-b|=1$ je „vedle sebe“ (bez určení strany), $>$ dovoluje i vzdálenější domy.",
+    "hints": [
+      "Rozlišuj „vedle“ a „hned napravo“."
+    ]
+  },
+  {
+    "id": "csp-knight-constraint",
+    "type": "choice",
+    "prompt": "V úloze rozmístit figury tak, aby se neohrožovaly, má jezdec $J$ a jiná figura $X$ omezení $(J_r-X_r)^2+(J_s-X_s)^2\\neq5$. Co zakazuje?",
+    "options": [
+      "Aby $X$ stála na pole, které jezdec napadá (tah o $(\\pm1,\\pm2)$ nebo $(\\pm2,\\pm1)$).",
+      "Aby $X$ stála na stejném řádku.",
+      "Aby $X$ stála na stejném poli.",
+      "Aby $X$ stála na diagonále."
+    ],
+    "answer": 0,
+    "solution": "Čtverec vzdálenosti jezdcova tahu je $1^2+2^2=5$. Zákaz stejného pole je zvláštní omezení $(\\dots)^2+(\\dots)^2>0$.",
+    "hints": [
+      "Spočítej $1^2+2^2$."
+    ]
+  },
+  {
+    "id": "csp-algebrogram-model",
+    "type": "choice",
+    "prompt": "Algebrogram $PPP\\cdot PP$ s prvočíselnými číslicemi: kolik proměnných a jakou doménu zavedeš, když každé písmeno P (na každé pozici) může být jiná číslice?",
+    "options": [
+      "Proměnná pro každou pozici (18), doména $\\{2,3,5,7\\}$.",
+      "Jedna proměnná $P$ s doménou $\\{2,3,5,7\\}$.",
+      "Tři proměnné s doménou $\\{100..999\\}$.",
+      "18 proměnných s doménou $\\{0..9\\}$."
+    ],
+    "answer": 0,
+    "solution": "Každé písmeno je zvlášť (nutně se nerovnají), takže potřebuješ proměnnou pro každou pozici. Prvočíselné číslice jsou 2, 3, 5, 7. Omezení jsou 3 rovnice nad zapsanými čísly.",
+    "hints": [
+      "Nutně musí být všechna P stejná číslice?"
+    ]
   }
 ]

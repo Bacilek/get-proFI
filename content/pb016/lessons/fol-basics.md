@@ -26,6 +26,17 @@ Interpretací jedné syntaxe může být víc – např. $\forall x\,(x<\text{Su
 $\exists x\forall y\,\text{ráda}(x,y)$ = existuje osoba, která má ráda *všechny*; $\forall y\exists x\,\text{ráda}(x,y)$ = každého má někdo rád (pokaždé potenciálně jiný).
 **Dualita:** $\forall x\,\varphi\equiv\neg\exists x\,\neg\varphi$, $\exists x\,\varphi\equiv\neg\forall x\,\neg\varphi$; negace: $\neg\forall x\,P\equiv\exists x\,\neg P$.
 
+**Doplňky ze sbírky (kap. 6.1 a 6.2):**
+- **Jazyk $L$** = množina funkčních (konstanty jsou nulární) a predikátových symbolů s aritou; nejde o formální jazyk. Termy jsou jen proměnné a $f(t_1,\dots,t_n)$ (bez spojek a kvantifikátorů); symbol použitý ve špatné roli (predikát jako funkce, funkce s jinou aritou) dává slovo, které není term ani formule. Rovnost je v jazyce vždy, takže i bez predikátů existují formule ($x=x$).
+- **Výskyty proměnných:** výskyt (použití v termu, ne za kvantifikátorem) je **vázaný**, leží-li v podformuli začínající $\forall x$ / $\exists x$, jinak **volný**. Ve `∀z(x = y ⇒ ∃x P(x,y)) ∨ Q(x)` má $x$ tři výskyty (volný, vázaný, volný), $y$ dva volné, $z$ žádný. **Uzavřená formule (sentence)** nemá volný výskyt; značení $\varphi(x_1,\dots,x_n)$ vyjmenovává volné proměnné.
+- **Hodnota termu** v interpretaci $I$ a valuaci $V$: $|x|=V(x)$, $|f(t_1,\dots,t_n)|=I(f)(|t_1|,\dots,|t_n|)$. Příklad: $D=\{0,1,2\}$, $I(f)$ = sčítání mod 3, $I(c)=1$, $V\equiv2$: $|f(c,x)|=(1+2)\bmod3=0$.
+- **Formule v interpretaci bez valuace** znamená pravdivost pro **každou** valuaci, tedy jako by byly volné proměnné univerzálně uzavřeny ($\models_I P(x,y)\iff\models_I\forall x\forall yP(x,y)$).
+- **Pořadí kvantifikátorů rozhoduje:** v $(\mathbb R,<)$ je $\forall x\exists y\,x<y$ pravdivé, $\exists y\forall x\,x<y$ nepravdivé.
+- **Prázdná relace:** v $D=\{0\}$ s $I(P)=\emptyset$ je $\forall x(P(x)\Rightarrow\psi)$ pravdivé pro libovolné $\psi$ (předpoklad implikace nikdy neplatí).
+- **Vlastnosti vyjádřené formulí:** $\forall x\forall y\forall z((Q(x,y)\wedge Q(y,z))\Rightarrow Q(x,z))$ říká, že $I(Q)$ je tranzitivní; $\exists x\forall y(P(y)\Rightarrow x=y)$ platí právě když $|I(P)|\le1$ (s $P(x)\wedge$ navíc právě 1). V $\mathbb Z$ s $+$: $x+x=x$ vyjadřuje $x=0$, $\exists z(K(z)\wedge x+z=y)$ vyjadřuje $x<y$.
+- **$\exists$ jako zkratka:** $\exists x\varphi:\approx\neg\forall x\neg\varphi$. Nahrazení disjunkcí přes prvky domény je špatně (doména není dána, může být nekonečná a prvky domény nejsou termy).
+- **Tautologie s kvantifikátory:** platí $\forall x(P\wedge Q)\Leftrightarrow\forall xP\wedge\forall xQ$, $\exists x(P\vee Q)\Leftrightarrow\exists xP\vee\exists xQ$, $\forall x\forall yR\Leftrightarrow\forall y\forall xR$. **Neplatí** $\forall x(A\vee B)\Rightarrow(\forall xA\vee\forall xB)$, $(\exists xA\wedge\exists xB)\Rightarrow\exists x(A\wedge B)$ ani $(\forall xP\Rightarrow\forall xQ)\Rightarrow\forall x(P\Rightarrow Q)$.
+
 ## Mini příklad
 
 Sokrates: $\forall x\,(\text{čl}(x)\Rightarrow\text{sm}(x))\wedge\text{čl}(\text{So})\ \models\ \text{sm}(\text{So})$, ve výrokové logice nevyjádřitelné.

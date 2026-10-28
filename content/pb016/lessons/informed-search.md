@@ -18,6 +18,14 @@ Když o poloze cíle něco tušíš (třeba vzdušnou čarou), expanduj nejdří
 
 **Pseudokód:** prioritní fronta záznamů $(f,g,\text{cesta})$; vyber nejmenší $f$, je-li cíl → vrať cestu; jinak přidej následníky s $g'=g+c$ a $f'=g'+h$.
 
+**Vztahy a pravidla (sbírka 2.4):**
+- **Best-first search** = obecná kostra s prioritní frontou podle $f$. DFS ($f=-\text{depth}$), BFS ($f=\text{depth}$) a UCS ($f=g$) jsou její speciální případy. BFS je navíc UCS se stejnými cenami hran a **UCS je A\* s $h\equiv0$** (ta je přípustná i konzistentní).
+- **Tree-search × graph-search:** tree-search si nepamatuje navštívené uzly, a proto může cyklit (greedy s „lákavou“ slepou uličkou donekonečna). Graph-search cykly ošetří.
+- **Greedy „skáče“:** pořadí expandovaných uzlů se může lišit od výsledné cesty, protože se vrací k libovolnému dříve objevenému uzlu s nejmenším $h$.
+- **Přípustnost × konzistence:** konzistentní ⇒ přípustná; opak neplatí (protipříklad $h(A)>c(A,B)+h(B)$). $h\equiv0$ je vždy obojí, takže vhodná heuristika vždy existuje. **Max/min** přípustných heuristik je přípustné, **součet** ne.
+- **Cena mění přípustnost:** Manhattanská vzdálenost je přípustná pro posun políček po jednom, ale pro věž, která jde o libovolný počet polí za jeden tah, **není** (nadhodnocuje); byla by přípustná, kdyby se cena měřila v projitých polích.
+- DFS nemusí expandovat víc uzlů než A\* (může mít štěstí); BFS je úplné i s nulovými cenami hran (nulové hrany ale mohou ohrozit úplnost UCS).
+
 ## Mini příklad
 
 Rumunsko, cesta Arad → Bukurešť, $h$ = vzdušná vzdálenost.

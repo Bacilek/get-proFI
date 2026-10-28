@@ -155,5 +155,47 @@
     "hints": [
       "Co se děje v AND uzlu a co v OR uzlu?"
     ]
+  },
+  {
+    "id": "ao-leaf-model",
+    "type": "choice",
+    "prompt": "Jak lze v AND/OR grafu bez zvláštních koncových uzlů vyjádřit listy „splněný“ a „nesplněný“?",
+    "options": [
+      "Splněný = AND bez následníků, nesplněný = OR bez následníků.",
+      "Splněný = OR bez následníků, nesplněný = AND bez následníků.",
+      "Nelze, koncové uzly jsou nutné.",
+      "Oba jako AND s jedním následníkem."
+    ],
+    "answer": 0,
+    "solution": "AND bez následníků: „všichni následníci jsou splněni“ platí triviálně (prázdná podmínka). OR bez následníků: „aspoň jeden následník je splněn“ nelze splnit.",
+    "hints": [
+      "Prázdná konjunkce je pravdivá, prázdná disjunkce nepravdivá."
+    ]
+  },
+  {
+    "id": "ao-integral-nodes",
+    "type": "choice",
+    "prompt": "AND/OR graf řeší neurčitý integrál. Uzel „integrál $\\int f$“ má tři následníky: substituce, goniometrická identita a rozklad na součet dvou integrálů. Jakého typu je tento uzel a čeho jsou následníci?",
+    "options": [
+      "OR: jde o alternativní přístupy, stačí jeden, který vyjde.",
+      "AND: musí se použít všechny tři metody.",
+      "OR: musí vyjít všechny tři.",
+      "AND: je to jediný možný přístup."
+    ],
+    "answer": 0,
+    "solution": "Metody jsou alternativy, stačí jedna úspěšná, proto OR. Rozklad na součet dvou integrálů vytvoří AND uzel (oba podintegrály musí být vyřešeny).",
+    "hints": [
+      "Potřebuješ všechny, nebo stačí kterýkoliv?"
+    ]
+  },
+  {
+    "id": "ao-hanoi-moves",
+    "type": "numeric",
+    "prompt": "Hanojské věže se 6 disky. Kolikrát se při řešení dekompozicí fyzicky přesune disk?",
+    "answer": 63,
+    "solution": "Dekompozice: $n-1$ disků pryč, 1 disk, $n-1$ disků zpět, tedy $T(n)=2T(n-1)+1=2^n-1$. Pro $n=6$: $2^6-1=63$.",
+    "hints": [
+      "Pro 1, 3 a 4 disky je to 1, 7, 15."
+    ]
   }
 ]

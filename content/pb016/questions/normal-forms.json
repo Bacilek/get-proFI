@@ -125,5 +125,37 @@
     "hints": [
       "AND z OR klauzulí."
     ]
+  },
+  {
+    "id": "nf-single-false",
+    "type": "choice",
+    "prompt": "Formule nad $p,q,r$ je nepravdivá jen v interpretaci $p=0$, $q=1$, $r=1$. Jak vypadá její ÚKNF?",
+    "options": [
+      "$(p\\vee\\neg q\\vee\\neg r)$",
+      "$(\\neg p\\wedge q\\wedge r)$",
+      "$(\\neg p\\vee q\\vee r)$",
+      "$(p\\wedge\\neg q\\wedge\\neg r)$"
+    ],
+    "answer": 0,
+    "solution": "Každému nepravdivému řádku odpovídá klauzule, která je v něm nepravdivá: literály s opačným znaménkem než hodnota v řádku, tedy $p$ (hodnota 0), $\\neg q$ (hodnota 1), $\\neg r$ (hodnota 1).",
+    "hints": [
+      "Klauzule musí být nepravdivá právě v tom řádku."
+    ]
+  },
+  {
+    "id": "nf-absorb",
+    "type": "choice",
+    "prompt": "Zjednoduš DNF $p\\vee(p\\wedge\\neg r)\\vee(\\neg r\\wedge\\neg q)\\vee(\\neg r\\wedge\\neg q\\wedge p)$.",
+    "options": [
+      "$p\\vee(\\neg r\\wedge\\neg q)$",
+      "$p\\wedge\\neg r$",
+      "$p\\vee\\neg r$",
+      "$\\neg r\\wedge\\neg q$"
+    ],
+    "answer": 0,
+    "solution": "Klauzule $p\\wedge\\neg r$ je pohlcena klauzulí $p$ a $\\neg r\\wedge\\neg q\\wedge p$ klauzulí $\\neg r\\wedge\\neg q$ (nebo $p$). Zbývá $p\\vee(\\neg r\\wedge\\neg q)$.",
+    "hints": [
+      "Pokud je pravdivá kratší duální klauzule, delší s ní spojená už nic nepřidá."
+    ]
   }
 ]
