@@ -425,7 +425,7 @@
   "milestones": [
     {
       "id": "midterm1",
-      "title": "1. zápočtová písemka (diferenciální počet)",
+      "title": "Vnitro 1: diferenciální počet",
       "type": "midterm",
       "date": "2026-10-20",
       "maxPoints": 12,
@@ -434,22 +434,24 @@
       "coversModules": [
         "diff",
         "multivar"
-      ]
+      ],
+      "info": "Zápočtová písemka, max 12 b. Alespoň 8 b dává bonus +5 b ke zkoušce (pak stačí 15/40). Délka: TBD."
     },
     {
       "id": "midterm2",
-      "title": "2. zápočtová písemka (integrály, řady)",
+      "title": "Vnitro 2: integrály a řady",
       "type": "midterm",
       "maxPoints": 12,
       "boss": true,
       "coversModules": [
         "integral",
         "series"
-      ]
+      ],
+      "info": "Zápočtová písemka, max 12 b. Datum a délka: TBD."
     },
     {
       "id": "exam",
-      "title": "Zkouška (120 min)",
+      "title": "Zkouška: celá látka",
       "type": "exam",
       "maxPoints": 40,
       "minPoints": 15,
@@ -459,7 +461,8 @@
         "multivar",
         "integral",
         "series"
-      ]
+      ],
+      "info": "Písemná, 120 min, max 40 b. K úspěchu 15 b (s bonusem z vnitra), jinak 20 b. Celkem alespoň 20 b pro E."
     }
   ],
   "openItems": [

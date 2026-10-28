@@ -20,6 +20,8 @@ export interface Milestone {
   minPoints?: number
   /** Exams and midterms are shown as "boss" nodes on the roadmap. */
   boss?: boolean
+  /** Extra details shown in a tooltip on hover (duration, rules, ...). */
+  info?: string
   /** Module ids whose lessons this milestone tests (used for readiness on the roadmap). */
   coversModules?: string[]
 }
