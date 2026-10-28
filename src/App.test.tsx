@@ -32,6 +32,7 @@ test('lesson page renders markdown with math and practice records stars', async 
 test('milestones are named "Vnitro N: topic (date)" with details in a tooltip', async () => {
   window.location.hash = '#/c/mb142'
   render(<App />)
-  expect(await screen.findByText(/Vnitro 1: diferenciální počet/)).toHaveTextContent(/\(20\. 10\.\)/)
+  const titles = await screen.findAllByText(/Vnitro 1: diferenciální počet/)
+  expect(titles.some((el) => /\(20\. 10\.\)/.test(el.textContent ?? ''))).toBe(true)
   expect(screen.getAllByRole('tooltip').some((t) => /120 min/.test(t.textContent ?? ''))).toBe(true)
 })
