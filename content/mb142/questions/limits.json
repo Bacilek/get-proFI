@@ -539,5 +539,301 @@
       "Zjisti znaménko zlomku zprava a zleva.",
       "Nevlastní limity patří k nespojitosti 2. druhu."
     ]
+  },
+  {
+    "id": "g01-lim-conj",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to9}\\frac{\\sqrt x-3}{x-9}$.",
+    "answer": 0.16666666666666666,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac00$. $x-9=(\\sqrt x-3)(\\sqrt x+3)$, po zkrácení $\\frac1{\\sqrt x+3}\\to\\frac16$.",
+    "hints": [
+      "Dosazením vyjde $\\frac00$.",
+      "Jmenovatel rozlož jako rozdíl čtverců: $x-9=(\\sqrt x-3)(\\sqrt x+3)$.",
+      "Zkrať $\\sqrt x-3$ a dosaď $x=9$."
+    ]
+  },
+  {
+    "id": "g01-lim-sqrt-inf",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+4x}-x\\right)$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "Typ $\\infty-\\infty$. Rozšíříme: $\\frac{4x}{\\sqrt{x^2+4x}+x}=\\frac{4}{\\sqrt{1+4/x}+1}\\to\\frac42=2$.",
+    "hints": [
+      "Typ $\\infty-\\infty$ – rozšiř sdruženým výrazem $\\sqrt{x^2+4x}+x$.",
+      "V čitateli zbude $(x^2+4x)-x^2=4x$.",
+      "Vyděl čitatel i jmenovatel $x$ a pošli $x\\to\\infty$."
+    ]
+  },
+  {
+    "id": "g01-lim-rat-deg-eq",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\frac{5x-3x^6+x^3}{4x-10x^6+2x^3}$.",
+    "answer": 0.3,
+    "tolerance": 0.001,
+    "solution": "Rozhoduje nejvyšší mocnina $x^6$: $\\frac{-3x^6}{-10x^6}=\\frac3{10}$.",
+    "hints": [
+      "Vytkni ve čitateli i jmenovateli $x^6$.",
+      "Ostatní členy po vydělení míří k $0$.",
+      "Zbývá podíl vedoucích koeficientů."
+    ]
+  },
+  {
+    "id": "g01-lim-rat-deg-lt",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\frac{7x^3-2x+1}{3x^5+x^2-4}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Stupeň čitatele (3) je menší než stupeň jmenovatele (5), limita je $0$.",
+    "hints": [
+      "Porovnej stupně polynomů.",
+      "Vyděl čitatel i jmenovatel $x^5$.",
+      "Čitatel pak míří k $0$, jmenovatel k $3$."
+    ]
+  },
+  {
+    "id": "g01-lim-arccos2x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\arccos(2x)-\\frac\\pi2}{x}$.",
+    "answer": -2,
+    "tolerance": 0.001,
+    "solution": "Ze základní limity $\\lim_{u\\to0}\\frac{\\arccos u-\\pi/2}{u}=-1$ pro $u=2x$: $2\\cdot(-1)=-2$.",
+    "hints": [
+      "Použij základní limitu $\\frac{\\arccos u-\\pi/2}{u}\\to-1$.",
+      "Vynásob a vyděl dvojkou, aby ve jmenovateli bylo $2x$.",
+      "Výsledek je $2\\cdot(-1)$."
+    ]
+  },
+  {
+    "id": "g01-lim-sin6x-sin5x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sin6x}{\\sin5x}$.",
+    "answer": 1.2,
+    "tolerance": 0.001,
+    "solution": "$\\sin6x\\sim6x$, $\\sin5x\\sim5x$, tedy limita je $\\frac65$.",
+    "hints": [
+      "Použij $\\sin u\\sim u$ pro $u\\to0$.",
+      "Čitatel nahraď $6x$, jmenovatel $5x$.",
+      "Zkrať $x$."
+    ]
+  },
+  {
+    "id": "g01-lim-tan3x-sin8x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\tan3x}{\\sin8x}$.",
+    "answer": 0.375,
+    "tolerance": 0.001,
+    "solution": "$\\tan3x\\sim3x$, $\\sin8x\\sim8x$, tedy limita je $\\frac38$.",
+    "hints": [
+      "Použij ekvivalence $\\tan u\\sim u$, $\\sin u\\sim u$.",
+      "Podíl se změní na $\\frac{3x}{8x}$.",
+      "Zkrať $x$."
+    ]
+  },
+  {
+    "id": "g01-lim-ln4x-sin7x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\ln(1+4x)}{\\sin7x}$.",
+    "answer": 0.5714285714285714,
+    "tolerance": 0.001,
+    "solution": "$\\ln(1+4x)\\sim4x$, $\\sin7x\\sim7x$, tedy $\\frac47$.",
+    "hints": [
+      "Použij $\\ln(1+u)\\sim u$ a $\\sin u\\sim u$.",
+      "Podíl přejde na $\\frac{4x}{7x}$.",
+      "Zkrať $x$."
+    ]
+  },
+  {
+    "id": "g01-lim-e3x-5x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{e^{3x}-1}{5x}$.",
+    "answer": 0.6,
+    "tolerance": 0.001,
+    "solution": "$e^{3x}-1\\sim3x$, tedy $\\frac{3x}{5x}=\\frac35$.",
+    "hints": [
+      "Použij $e^u-1\\sim u$ pro $u\\to0$.",
+      "Za $u$ dosaď $3x$.",
+      "Zkrať $x$."
+    ]
+  },
+  {
+    "id": "g01-lim-binom7",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{(1+x)^7-1}{x}$.",
+    "answer": 7,
+    "tolerance": 0.001,
+    "solution": "$(1+x)^7=1+7x+\\dots$ (členy vyššího řádu), tedy podíl $\\to7$. (Je to derivace $(1+x)^7$ v $0$.)",
+    "hints": [
+      "Rozviň $(1+x)^7$ podle binomické věty.",
+      "Konstanta $1$ se odečte, vytkni $x$.",
+      "Zbylé členy kromě $7$ mají faktor $x$ a míří k $0$."
+    ]
+  },
+  {
+    "id": "g01-lim-abs-x",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\lim_{x\\to0}\\frac{|x|}{x}$?",
+    "options": [
+      "$1$",
+      "$-1$",
+      "$0$",
+      "neexistuje"
+    ],
+    "answer": 3,
+    "solution": "Zprava je $\\frac{|x|}{x}=1$, zleva $-1$. Jednostranné limity se liší, oboustranná limita neexistuje.",
+    "hints": [
+      "Rozlišuj $x>0$ a $x<0$.",
+      "Pro $x>0$ je $|x|=x$, pro $x<0$ je $|x|=-x$.",
+      "Porovnej obě jednostranné limity."
+    ]
+  },
+  {
+    "id": "g01-lim-sin-1x",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\lim_{x\\to0}\\sin\\frac1x$?",
+    "options": [
+      "$0$",
+      "$1$",
+      "neexistuje (osciluje mezi $-1$ a $1$)",
+      "$\\infty$"
+    ],
+    "answer": 2,
+    "solution": "Pro $x_n=\\frac1{\\pi/2+2n\\pi}\\to0$ je $\\sin\\frac1{x_n}=1$, pro $y_n=\\frac1{-\\pi/2+2n\\pi}\\to0$ je $-1$. Dvě posloupnosti s různými limitami => limita neexistuje.",
+    "hints": [
+      "Zkus najít posloupnosti $x_n\\to0$, pro které je $\\sin\\frac1{x_n}=1$, a jiné, kde je $-1$.",
+      "Větu o sevření nelze použít – chybí činitel $x$ před sinem.",
+      "Dvě různé hodnoty podél posloupností znamenají, že limita neexistuje."
+    ]
+  },
+  {
+    "id": "g01-lim-xx",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0^+}x^x$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$x^x=e^{x\\ln x}$ a $x\\ln x\\to0$, tedy $e^0=1$.",
+    "hints": [
+      "Přepiš $x^x=e^{x\\ln x}$.",
+      "Spočti limitu exponentu $x\\ln x$ pro $x\\to0^+$ (typ $0\\cdot\\infty$).",
+      "Exponent míří k $0$."
+    ]
+  },
+  {
+    "id": "g01-lim-x1x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}x^{1/x}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$x^{1/x}=e^{\\frac{\\ln x}{x}}$ a $\\frac{\\ln x}{x}\\to0$, tedy $e^0=1$.",
+    "hints": [
+      "Přepiš $x^{1/x}=e^{\\frac{\\ln x}{x}}$.",
+      "Limita exponentu je typ $\\frac\\infty\\infty$ (l’Hospital nebo srovnání růstu funkcí).",
+      "Logaritmus roste pomaleji než $x$."
+    ]
+  },
+  {
+    "id": "g01-lim-euler3",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\left(1+\\frac3x\\right)^x$ (zaokrouhli na 2 des. místa).",
+    "answer": 20.085536923187668,
+    "tolerance": 0.01,
+    "solution": "$\\left(1+\\frac ax\\right)^x\\to e^a$, zde $e^3\\approx20{,}09$.",
+    "hints": [
+      "Použij $\\left(1+\\frac ax\\right)^x\\to e^a$.",
+      "Zde $a=3$.",
+      "Výsledek je $e^3$."
+    ]
+  },
+  {
+    "id": "g01-lim-param-sqrt",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{1+4x}-1}{x}$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "Rozšíříme: $\\frac{4x}{x(\\sqrt{1+4x}+1)}=\\frac{4}{\\sqrt{1+4x}+1}\\to2$. (Obecně pro $\\sqrt{1+ax}$ vyjde $\\frac a2$.)",
+    "hints": [
+      "Rozšiř sdruženým výrazem $\\sqrt{1+4x}+1$.",
+      "V čitateli zbyde $4x$.",
+      "Zkrať $x$ a dosaď $x=0$."
+    ]
+  },
+  {
+    "id": "g01-lim-param-sin",
+    "type": "numeric",
+    "prompt": "Pro jaké $a$ je $\\displaystyle\\lim_{x\\to0}\\frac{\\sin x-ax}{x}=0$?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\sin x-ax}{x}=\\frac{\\sin x}{x}-a\\to1-a$. Limita je $0$ právě pro $a=1$.",
+    "hints": [
+      "Rozděl zlomek na $\\frac{\\sin x}x-a$.",
+      "První člen má limitu $1$.",
+      "Polož $1-a=0$."
+    ]
+  },
+  {
+    "id": "g01-lim-param-exp",
+    "type": "numeric",
+    "prompt": "Pro jaké $a$ je limita $\\displaystyle\\lim_{x\\to0}\\frac{e^x-1-ax}{x^2}$ konečná?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Pro $a\\ne1$ je čitatel $\\sim(1-a)x$ a podíl diverguje. Pro $a=1$ je čitatel $\\sim\\frac{x^2}2$ a limita je $\\frac12$.",
+    "hints": [
+      "Rozviň $e^x=1+x+\\frac{x^2}2+\\dots$.",
+      "Čitatel je $(1-a)x+\\frac{x^2}2+\\dots$.",
+      "Aby měl podíl s $x^2$ konečnou limitu, musí zmizet člen s $x$."
+    ]
+  },
+  {
+    "id": "g01-lim-sin4x-exp2x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sin4x\\,(e^{2x}-1)}{x^2}$.",
+    "answer": 8,
+    "tolerance": 0.001,
+    "solution": "$\\sin4x\\sim4x$, $e^{2x}-1\\sim2x$, tedy $\\frac{4x\\cdot2x}{x^2}=8$.",
+    "hints": [
+      "Použij ekvivalence u obou činitelů v čitateli.",
+      "Čitatel se změní na $4x\\cdot2x$.",
+      "Zkrať $x^2$."
+    ]
+  },
+  {
+    "id": "g01-lim-euler5",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{n\\to\\infty}\\left(1+\\frac1n\\right)^{5n}$ (zaokrouhli na 2 des. místa).",
+    "answer": 148.4131591025766,
+    "tolerance": 0.01,
+    "solution": "$\\left(1+\\frac1n\\right)^{5n}=\\left[\\left(1+\\frac1n\\right)^n\\right]^5\\to e^5\\approx148{,}41$.",
+    "hints": [
+      "Přepiš $(\\dots)^{5n}$ jako pátou mocninu $(\\dots)^n$.",
+      "Limita $\\left(1+\\frac1n\\right)^n$ je $e$.",
+      "Výsledek zaokrouhli na 2 des. místa."
+    ]
+  },
+  {
+    "id": "g01-lim-tan-sqrt",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{1+\\tan x}-\\sqrt{1-\\tan x}}{\\sin x}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Rozšíříme: čitatel $=\\frac{2\\tan x}{\\sqrt{1+\\tan x}+\\sqrt{1-\\tan x}}$, takže podíl je $\\frac{2\\tan x}{\\sin x}\\cdot\\frac1{\\sqrt{1+\\tan x}+\\sqrt{1-\\tan x}}\\to2\\cdot\\frac12=1$.",
+    "hints": [
+      "Rozšiř sdruženým výrazem (součet odmocnin).",
+      "V čitateli zbude $(1+\\tan x)-(1-\\tan x)=2\\tan x$.",
+      "Použij $\\frac{\\tan x}{\\sin x}\\to1$; součet odmocnin míří k $2$."
+    ]
+  },
+  {
+    "id": "g01-lim-sqrt2-cos",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt2-\\sqrt{1+\\cos x}}{\\sin^2x}$ (zaokrouhli na 3 des. místa).",
+    "answer": 0.1767766952966369,
+    "tolerance": 0.001,
+    "solution": "Rozšíříme: čitatel $=\\frac{1-\\cos x}{\\sqrt2+\\sqrt{1+\\cos x}}$. Dále $\\frac{1-\\cos x}{\\sin^2x}=\\frac1{1+\\cos x}\\to\\frac12$ a součet odmocnin $\\to2\\sqrt2$, tedy $\\frac1{2\\cdot2\\sqrt2}=\\frac{\\sqrt2}8\\approx0{,}177$.",
+    "hints": [
+      "Rozšiř sdruženým výrazem $\\sqrt2+\\sqrt{1+\\cos x}$.",
+      "V čitateli vznikne $2-(1+\\cos x)=1-\\cos x$.",
+      "Použij $\\sin^2x=(1-\\cos x)(1+\\cos x)$ a zkrať."
+    ]
   }
 ]
