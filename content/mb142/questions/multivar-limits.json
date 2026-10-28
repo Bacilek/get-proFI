@@ -122,5 +122,258 @@
     "hints": [
       "Dosaď $y=0$ a pak $x=0$."
     ]
+  },
+  {
+    "id": "cv5-lim-2xy-A",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[1,1]}\\frac{2xy}{x^2+2x-y}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Jmenovatel v bodě $[1,1]$ je $1+2-1=2\\neq0$, funkce je tam spojitá (racionální), takže stačí dosadit: $\\frac{2\\cdot1\\cdot1}{2}=1$.",
+    "hints": [
+      "Zjisti, zda se jmenovatel v bodě $[1,1]$ nerovná nule.",
+      "Racionální funkce je spojitá všude, kde je jmenovatel nenulový.",
+      "Pak limita je prostě hodnota funkce – dosaď $x=y=1$."
+    ]
+  },
+  {
+    "id": "cv5-lim-2xy-B",
+    "type": "choice",
+    "prompt": "Co platí pro $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{2xy}{x^2+2x-y}$?",
+    "options": [
+      "neexistuje – po $y=2x$ vyjde $4$, po ostatních přímkách $y=kx$ vyjde $0$",
+      "existuje a je $0$, protože po všech přímkách $y=kx$ vychází $0$",
+      "existuje a je $2$",
+      "neexistuje, protože se jmenovatel v $[0,0]$ rovná nule"
+    ],
+    "answer": 0,
+    "solution": "Po $y=kx$ je $\\frac{2kx^2}{x^2+(2-k)x}=\\frac{2kx}{x+2-k}\\to0$ pro $k\\neq2$. Pro $k=2$ je ale jmenovatel $x^2$ a výraz je $\\frac{4x^2}{x^2}=4$. Dvě cesty s různými limitami ($0$ a $4$), takže limita neexistuje. (Nulový jmenovatel sám o sobě nic nedokazuje; a samotné přímky $y=kx$ by nás kvůli výjimce $k=2$ svedly k chybnému závěru.)",
+    "hints": [
+      "Zkus přímky $y=kx$ a zkrať mocninu $x$.",
+      "Po dosazení $y=kx$ vyjde $\\frac{2kx}{x+2-k}$ – co se stane pro $k=2$?",
+      "Pro $k=2$ se ve jmenovateli ruší člen $2x-kx$ a zůstane $x^2$."
+    ]
+  },
+  {
+    "id": "cv5-lim-x2y-polar",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^2y}{x^2+y^2}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Polárně: $\\frac{\\rho^3\\cos^2\\varphi\\sin\\varphi}{\\rho^2}=\\rho\\cos^2\\varphi\\sin\\varphi$, $|\\cdot|\\le\\rho\\to0$. Limita je $0$.",
+    "hints": [
+      "Použij polární souřadnice $x=\\rho\\cos\\varphi,\\ y=\\rho\\sin\\varphi$.",
+      "Zkrať $\\rho^2$; zbyde $\\rho$ krát omezená funkce úhlu.",
+      "Omezená funkce krát něco, co jde k nule, jde k nule."
+    ]
+  },
+  {
+    "id": "cv5-lim-2x2",
+    "type": "choice",
+    "prompt": "Co platí pro $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{2x^2}{x^2+y^2}$?",
+    "options": [
+      "neexistuje – po ose $x$ vyjde $2$, po ose $y$ vyjde $0$",
+      "existuje a je $0$",
+      "existuje a je $2$",
+      "existuje a je $1$"
+    ],
+    "answer": 0,
+    "solution": "Polárně vyjde $2\\cos^2\\varphi$, což závisí na úhlu. Konkrétně pro $y=0$: $\\frac{2x^2}{x^2}=2$, pro $x=0$: $0$. Limita neexistuje.",
+    "hints": [
+      "Zkus dvě cesty: po ose $x$ ($y=0$) a po ose $y$ ($x=0$).",
+      "Pro $y=0$ se $x^2$ zkrátí.",
+      "Porovnej výsledky obou cest."
+    ]
+  },
+  {
+    "id": "sb2-lim-sinxy-x",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{\\sin(xy)}{x}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\sin(xy)}{x}=\\frac{\\sin(xy)}{xy}\\cdot y\\to1\\cdot0=0$ (pro $xy\\to0$ je $\\frac{\\sin t}{t}\\to1$).",
+    "hints": [
+      "Připomeň si $\\lim_{t\\to0}\\frac{\\sin t}{t}=1$ a uprav zlomek tak, aby se objevilo $\\frac{\\sin(xy)}{xy}$.",
+      "Rozšiř: $\\frac{\\sin(xy)}{x}=\\frac{\\sin(xy)}{xy}\\cdot y$.",
+      "Spočti limitu každého z obou činitelů zvlášť."
+    ]
+  },
+  {
+    "id": "sb2-lim-xy1",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[1,1]}\\frac{xy-1}{1-x^2y^2}$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "$1-x^2y^2=(1-xy)(1+xy)$, tedy $\\frac{xy-1}{(1-xy)(1+xy)}=-\\frac1{1+xy}\\to-\\frac12$.",
+    "hints": [
+      "Dosazením vyjde $\\frac00$ – jmenovatel rozlož podle vzorce $a^2-b^2$.",
+      "$1-x^2y^2=(1-xy)(1+xy)$.",
+      "Po zkrácení (pozor na znaménko $xy-1=-(1-xy)$) dosaď $x=y=1$."
+    ]
+  },
+  {
+    "id": "sb2-lim-x2y2-22",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[2,2]}\\frac{x^2-y^2}{x^2-3y+3x-xy}$.",
+    "answer": 0.8,
+    "tolerance": 0.001,
+    "solution": "Jmenovatel: $x^2-xy+3x-3y=x(x-y)+3(x-y)=(x+3)(x-y)$; čitatel $(x+y)(x-y)$. Po zkrácení $\\frac{x+y}{x+3}\\to\\frac45$.",
+    "hints": [
+      "Dosazením vyjde $\\frac00$; zkus oba polynomy rozložit na součin a zkrátit společný činitel $x-y$.",
+      "Jmenovatel vytkni po dvojicích: $x(x-y)+3(x-y)$.",
+      "Zbyde $\\frac{x+y}{x+3}$ – dosaď $[2,2]$."
+    ]
+  },
+  {
+    "id": "sb2-lim-x2y-x4y2",
+    "type": "choice",
+    "prompt": "Co platí pro $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^2y}{x^4+y^2}$?",
+    "options": [
+      "neexistuje – po parabole $y=x^2$ vyjde $\\frac12$, po přímkách vychází $0$",
+      "existuje a je $0$",
+      "existuje a je $\\frac12$",
+      "je $+\\infty$"
+    ],
+    "answer": 0,
+    "solution": "Po $y=kx$: $\\frac{kx^3}{x^4+k^2x^2}=\\frac{kx}{x^2+k^2}\\to0$. Po $y=x^2$: $\\frac{x^4}{2x^4}=\\frac12$. Různé limity ⇒ neexistuje.",
+    "hints": [
+      "Přímky $y=kx$ nestačí – zkus i parabolu.",
+      "Po $y=x^2$ jsou oba členy ve jmenovateli stejného řádu.",
+      "Dosaď $y=x^2$ a porovnej s hodnotou $0$ z přímek."
+    ]
+  },
+  {
+    "id": "sb2-lim-x2-y2",
+    "type": "choice",
+    "prompt": "Co platí pro $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^2-y^2}{x^2+y^2}$?",
+    "options": [
+      "neexistuje – po ose $x$ vyjde $1$, po ose $y$ vyjde $-1$",
+      "existuje a je $0$",
+      "existuje a je $1$",
+      "existuje a je $-1$"
+    ],
+    "answer": 0,
+    "solution": "Polárně: $\\cos^2\\varphi-\\sin^2\\varphi=\\cos2\\varphi$ závisí na $\\varphi$. Po ose $x$ ($y=0$) je hodnota $1$, po ose $y$ ($x=0$) je $-1$.",
+    "hints": [
+      "Zkus cesty $y=0$ a $x=0$.",
+      "Po $y=0$ dostaneš $\\frac{x^2}{x^2}$.",
+      "Hodnoty se liší, takže limita neexistuje."
+    ]
+  },
+  {
+    "id": "sb2-lim-sqrt",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{3(x^2+y^2)}{\\sqrt{x^2+y^2+4}-2}$.",
+    "answer": 12,
+    "tolerance": 0.001,
+    "solution": "Rozšíříme $\\sqrt{x^2+y^2+4}+2$: jmenovatel $=(x^2+y^2+4)-4=x^2+y^2$. Výraz je $3(\\sqrt{x^2+y^2+4}+2)\\to3\\cdot4=12$.",
+    "hints": [
+      "Dosazením vyjde $\\frac00$; zbav se odmocniny ve jmenovateli.",
+      "Rozšiř zlomek výrazem $\\sqrt{x^2+y^2+4}+2$ (vzorec $(a-b)(a+b)$).",
+      "Po zkrácení $x^2+y^2$ stačí dosadit."
+    ]
+  },
+  {
+    "id": "sb2-lim-polar-1",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[0,1]}\\frac{x^2+y(y-1)^2}{x^2+(y-1)^2}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Substituce $x=\\rho\\cos\\varphi,\\ y=1+\\rho\\sin\\varphi$: čitatel $\\rho^2\\cos^2\\varphi+(1+\\rho\\sin\\varphi)\\rho^2\\sin^2\\varphi$, jmenovatel $\\rho^2$. Výraz $=\\cos^2\\varphi+\\sin^2\\varphi+\\rho\\sin^3\\varphi=1+\\rho\\sin^3\\varphi\\to1$.",
+    "hints": [
+      "Limitní bod je $[0,1]$, takže polární souřadnice zaveď kolem něj: $y=1+\\rho\\sin\\varphi$.",
+      "Čitatel i jmenovatel jsou dělitelné $\\rho^2$.",
+      "Zbude $1+\\rho\\sin^3\\varphi$ – co se stane pro $\\rho\\to0$?"
+    ]
+  },
+  {
+    "id": "sb2-lim-3var",
+    "type": "choice",
+    "prompt": "Co platí pro $\\displaystyle\\lim_{[x,y,z]\\to[0,0,0]}\\frac{x^2}{x^2+y^2+z^2}$?",
+    "options": [
+      "neexistuje – po ose $x$ vyjde $1$, po ose $y$ vyjde $0$",
+      "existuje a je $0$",
+      "existuje a je $1$",
+      "existuje a je $\\frac13$"
+    ],
+    "answer": 0,
+    "solution": "Ve sférických souřadnicích je výraz $\\cos^2\\varphi\\sin^2\\vartheta$, závisí na úhlech. Po ose $x$: $\\frac{x^2}{x^2}=1$, po ose $y$: $\\frac0{y^2}=0$.",
+    "hints": [
+      "I ve třech proměnných stačí najít dvě cesty s různou limitou.",
+      "Zkus osu $x$ ($y=z=0$) a osu $y$ ($x=z=0$).",
+      "Hodnoty $1$ a $0$ se liší."
+    ]
+  },
+  {
+    "id": "sb2-lim-iterated",
+    "type": "choice",
+    "prompt": "Pro $f(x,y)=\\dfrac{x-y}{x+y}$ je $\\displaystyle\\lim_{x\\to0}\\lim_{y\\to0}f(x,y)=1$ a $\\displaystyle\\lim_{y\\to0}\\lim_{x\\to0}f(x,y)=-1$. Co plyne pro limitu $\\displaystyle\\lim_{[x,y]\\to[0,0]}f(x,y)$?",
+    "options": [
+      "neexistuje, protože se dvojnásobné limity liší",
+      "existuje a je $0$ jako průměr",
+      "existuje a je $1$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "Kdyby dvojná limita existovala, musely by se (pokud existují) obě dvojnásobné limity rovnat jí, tedy i sobě navzájem. Protože $1\\neq-1$, dvojná limita neexistuje. Opačně to neplatí: shoda dvojnásobných limit existenci dvojné limity nezaručuje.",
+    "hints": [
+      "Co musí platit, pokud existuje dvojná limita a nějaká dvojnásobná limita?",
+      "Dvojnásobné limity by se pak musely rovnat dvojné, tedy i sobě.",
+      "Tady $1\\neq-1$."
+    ]
+  },
+  {
+    "id": "sb2-cont-xy2",
+    "type": "choice",
+    "prompt": "Je funkce $f(x,y)=\\dfrac{xy^2}{x^2+y^2}$ pro $[x,y]\\neq[0,0]$, $f(0,0)=0$ spojitá v $[0,0]$?",
+    "options": [
+      "ano – limita v počátku je $0=f(0,0)$",
+      "ne – limita v počátku neexistuje",
+      "ne – limita je $1$",
+      "ne – funkce není v $[0,0]$ definovaná"
+    ],
+    "answer": 0,
+    "solution": "Polárně $\\frac{\\rho^3\\cos\\varphi\\sin^2\\varphi}{\\rho^2}=\\rho\\cos\\varphi\\sin^2\\varphi$, $|\\cdot|\\le\\rho\\to0$. Limita je $0=f(0,0)$, funkce je spojitá.",
+    "hints": [
+      "Spojitost v bodě = limita existuje a rovná se hodnotě funkce.",
+      "Spočti limitu v polárních souřadnicích.",
+      "Zbude $\\rho\\cdot$(omezená funkce)."
+    ]
+  },
+  {
+    "id": "sb2-cont-x2y2",
+    "type": "choice",
+    "prompt": "Je funkce $f(x,y)=\\dfrac{x^2y^2}{x^4+y^4}$ pro $[x,y]\\neq[0,0]$, $f(0,0)=0$ spojitá v $[0,0]$?",
+    "options": [
+      "ne – po $y=x$ vychází $\\frac12$, ale $f(0,0)=0$",
+      "ano – po osách vychází $0$",
+      "ano – limita je $\\frac12$",
+      "ne – funkce není definovaná v $[0,0]$"
+    ],
+    "answer": 0,
+    "solution": "Po $y=x$: $\\frac{x^4}{2x^4}=\\frac12\\ne0$, po ose $x$: $0$. Limita v počátku neexistuje, funkce tedy není spojitá.",
+    "hints": [
+      "Porovnej hodnotu limity po různých cestách.",
+      "Zkus $y=x$ a $y=0$.",
+      "Limita po $y=x$ není rovna $f(0,0)$."
+    ]
+  },
+  {
+    "id": "sb2-cont-points",
+    "type": "choice",
+    "prompt": "Kde je funkce $f(x,y)=\\dfrac{x^2+3y}{x^2-3y}$ nespojitá?",
+    "options": [
+      "na parabole $y=\\frac{x^2}{3}$",
+      "pouze v bodě $[0,0]$",
+      "na přímce $y=x$",
+      "nikde, je spojitá na $\\mathbb R^2$"
+    ],
+    "answer": 0,
+    "solution": "Racionální funkce je spojitá všude, kde je jmenovatel nenulový. $x^2-3y=0\\iff y=\\frac{x^2}3$ (parabola).",
+    "hints": [
+      "Racionální funkce je spojitá všude, kde je definovaná.",
+      "Hledej nuly jmenovatele.",
+      "Vyjádři $y$ z rovnice $x^2-3y=0$."
+    ]
   }
 ]

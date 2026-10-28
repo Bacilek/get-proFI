@@ -91,5 +91,239 @@
       "Dosazení $x=y=0$ zjednoduší většinu členů; jmenovatel je $1$.",
       "$f_y$: derivuj čitatel podle $y$: $-x\\sin y-\\cos x$ → v počátku $-1$."
     ]
+  },
+  {
+    "id": "cv5-pd-fxy-sin",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=xy^3+\\sin(xy)$ spočti $f_{xy}(1,\\pi)$ (3 desetinná místa).",
+    "answer": 28.608813203268074,
+    "tolerance": 0.002,
+    "solution": "$f_x=y^3+y\\cos(xy)$, dále $f_{xy}=3y^2+\\cos(xy)-xy\\sin(xy)$. V bodě $[1,\\pi]$: $3\\pi^2+\\cos\\pi-\\pi\\sin\\pi=3\\pi^2-1\\approx28{,}609$.",
+    "hints": [
+      "Nejdřív derivuj podle $x$ (člen $\\sin(xy)$ jako složená funkce), pak výsledek podle $y$.",
+      "$f_x=y^3+y\\cos(xy)$; při derivování podle $y$ použij u druhého členu součinové pravidlo.",
+      "Dosaď $x=1,\\ y=\\pi$; $\\sin\\pi=0$, $\\cos\\pi=-1$."
+    ]
+  },
+  {
+    "id": "cv5-pd-fyy-sin",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=xy^3+\\sin(xy)$ spočti $f_{yy}(2,\\tfrac\\pi2)$ (3 desetinná místa).",
+    "answer": 18.84955592153876,
+    "tolerance": 0.002,
+    "solution": "$f_y=3xy^2+x\\cos(xy)$, $f_{yy}=6xy-x^2\\sin(xy)$. V $[2,\\frac\\pi2]$: $xy=\\pi$, tedy $6\\pi-4\\sin\\pi=6\\pi\\approx18{,}850$.",
+    "hints": [
+      "Derivuj dvakrát podle $y$, $x$ je konstanta.",
+      "$f_y=3xy^2+x\\cos(xy)$; u kosinu pozor na vnitřní derivaci $x$.",
+      "V daném bodě je $xy=\\pi$, takže $\\sin(xy)=0$."
+    ]
+  },
+  {
+    "id": "cv5-pd-fy-poly",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=x^3y^2+xy^3$ spočti $f_y(1,2)$.",
+    "answer": 16,
+    "tolerance": 0.001,
+    "solution": "$f_y=2x^3y+3xy^2$, tedy $f_y(1,2)=2\\cdot1\\cdot2+3\\cdot1\\cdot4=4+12=16$.",
+    "hints": [
+      "Derivuj podle $y$, $x$ je konstanta.",
+      "$\\partial_y(x^3y^2)=2x^3y$ a $\\partial_y(xy^3)=3xy^2$.",
+      "Dosaď $x=1,\\ y=2$."
+    ]
+  },
+  {
+    "id": "cv5-pd-approx-power",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu přibližně vyčísli $1{,}04^{\\,2{,}02}$.",
+    "answer": 1.08,
+    "tolerance": 0.002,
+    "solution": "$f(x,y)=x^y$ v $[1,2]$: $f=1$, $f_x=yx^{y-1}=2$, $f_y=x^y\\ln x=0$. $f(1{,}04;2{,}02)\\approx1+2\\cdot0{,}04+0\\cdot0{,}02=1{,}08$ (přesně $1{,}0825$).",
+    "hints": [
+      "Zvol $f(x,y)=x^y$ a bod $[1,2]$, kde se hodnota snadno spočte.",
+      "$f_x=yx^{y-1}$ a $f_y=x^y\\ln x$; v bodě $[1,2]$ spočti oba.",
+      "$\\Delta x=0{,}04,\\ \\Delta y=0{,}02$; pozor, $\\ln1=0$."
+    ]
+  },
+  {
+    "id": "cv5-pd-tangent-exp",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=2x^2y-3xy^3+y+\\mathrm e^{x^2}$ spočti $f_x(-2,1)$ (2 desetinná místa).",
+    "answer": -229.39260013257694,
+    "tolerance": 0.05,
+    "solution": "$f_x=4xy-3y^3+2x\\,\\mathrm e^{x^2}$. V $[-2,1]$: $-8-3-4\\mathrm e^{4}=-11-4\\mathrm e^4\\approx-229{,}39$. (Pak $f_y=2x^2-9xy^2+1=27$ a $f(-2,1)=15+\\mathrm e^4$.)",
+    "hints": [
+      "Derivuj podle $x$, $y$ je konstanta; $\\mathrm e^{x^2}$ je složená funkce.",
+      "$\\partial_x\\mathrm e^{x^2}=2x\\mathrm e^{x^2}$.",
+      "Dosaď $x=-2,\\ y=1$; $\\mathrm e^{4}\\approx54{,}598$."
+    ]
+  },
+  {
+    "id": "cv5-pd-tangent-poly",
+    "type": "numeric",
+    "prompt": "Tečná rovina ke grafu $f(x,y)=2x^2y-3xy^3+y$ v bodě odpovídajícím $[x_0,y_0]=[-2,1]$ má rovnici $z=ax+by+c$. Kolik je $c$?",
+    "answer": -34,
+    "tolerance": 0.001,
+    "solution": "$f(-2,1)=8+6+1=15$, $f_x=4xy-3y^3=-11$, $f_y=2x^2-9xy^2+1=27$. $z=15-11(x+2)+27(y-1)=-11x+27y-34$, tedy $c=-34$.",
+    "hints": [
+      "Potřebuješ $f(-2,1)$, $f_x(-2,1)$ a $f_y(-2,1)$.",
+      "$z=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y_0)$.",
+      "Rozepiš závorky a sečti konstanty: $15-11\\cdot2-27\\cdot1$."
+    ]
+  },
+  {
+    "id": "sb2-pd-sqrt-fx",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=y^2+y\\sqrt{1+x^2}$ spočti $f_x(2,5)$ (3 desetinná místa).",
+    "answer": 4.47213595499958,
+    "tolerance": 0.002,
+    "solution": "$f_x=\\frac{xy}{\\sqrt{1+x^2}}$, tedy $f_x(2,5)=\\frac{10}{\\sqrt5}=2\\sqrt5\\approx4{,}472$.",
+    "hints": [
+      "Derivuj podle $x$; $y^2$ je konstanta a $y$ je konstantní násobek.",
+      "$\\partial_x\\sqrt{1+x^2}=\\frac{x}{\\sqrt{1+x^2}}$.",
+      "Dosaď $x=2,\\ y=5$."
+    ]
+  },
+  {
+    "id": "sb2-pd-sqrt-cubic",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=\\sqrt{2x^3-3y^3}$ spočti $f_y(3,2)$ (3 desetinná místa).",
+    "answer": -3.2863353450309964,
+    "tolerance": 0.002,
+    "solution": "$f_y=\\frac{-9y^2}{2\\sqrt{2x^3-3y^3}}$. V $[3,2]$ je $2x^3-3y^3=54-24=30$, tedy $f_y=\\frac{-36}{2\\sqrt{30}}=-\\frac{18}{\\sqrt{30}}\\approx-3{,}286$.",
+    "hints": [
+      "Odmocnina je složená funkce: $(\\sqrt u)'=\\frac{u'}{2\\sqrt u}$.",
+      "Vnitřní funkce $u=2x^3-3y^3$ má $u_y=-9y^2$.",
+      "V bodě $[3,2]$ je $u=30$ a $u_y=-36$."
+    ]
+  },
+  {
+    "id": "sb2-pd-exp-power",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=y^{3x+y}$ spočti $f_x(1,2)$ (2 desetinná místa).",
+    "answer": 66.54212933375474,
+    "tolerance": 0.01,
+    "solution": "$f=\\mathrm e^{(3x+y)\\ln y}$, $f_x=3\\ln y\\cdot y^{3x+y}$. V $[1,2]$: $3\\ln2\\cdot2^5=96\\ln2\\approx66{,}54$.",
+    "hints": [
+      "Při derivování podle $x$ je $y$ konstanta; je to exponenciála $a^{3x+y}$ s konstantním základem $a=y$.",
+      "Přepiš $y^{3x+y}=\\mathrm e^{(3x+y)\\ln y}$.",
+      "$f_x=3\\ln y\\cdot y^{3x+y}$; dosaď $x=1,\\ y=2$."
+    ]
+  },
+  {
+    "id": "sb2-pd-fxxy",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=x^5+12x^3y-y^7$ spočti $f_{xxy}(2,1)$.",
+    "answer": 144,
+    "tolerance": 0.001,
+    "solution": "$f_x=5x^4+36x^2y$, $f_{xx}=20x^3+72xy$, $f_{xxy}=72x$. Tedy $f_{xxy}(2,1)=144$. (Podle Schwarzovy věty by vyšlo totéž i pro $f_{xyx}$ a $f_{yxx}$.)",
+    "hints": [
+      "Derivuj postupně: dvakrát podle $x$, pak podle $y$.",
+      "$f_{xx}=20x^3+72xy$.",
+      "Člen $20x^3$ nezávisí na $y$; zbyde $72x$."
+    ]
+  },
+  {
+    "id": "sb2-pd-fyy-ln",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=\\ln(x+y^2)$ spočti $f_{yy}(1,2)$.",
+    "answer": -0.24,
+    "tolerance": 0.001,
+    "solution": "$f_y=\\frac{2y}{x+y^2}$, $f_{yy}=\\frac{2(x+y^2)-2y\\cdot2y}{(x+y^2)^2}=\\frac{2(x-y^2)}{(x+y^2)^2}$. V $[1,2]$: $\\frac{2(1-4)}{25}=-\\frac{6}{25}=-0{,}24$.",
+    "hints": [
+      "Nejdřív $f_y$ (řetízkové pravidlo), pak ještě jednou podle $y$ jako podíl.",
+      "$f_y=\\frac{2y}{x+y^2}$.",
+      "Podílové pravidlo; v čitateli se objeví $2(x+y^2)-4y^2$."
+    ]
+  },
+  {
+    "id": "sb2-diff-sqrt-prod",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu přibližně vyčísli $\\sqrt{2{,}08\\cdot1{,}99}$ (3 desetinná místa).",
+    "answer": 2.035,
+    "tolerance": 0.002,
+    "solution": "$f=\\sqrt{xy}$ v $[2,2]$: $f=2$, $f_x=\\frac12\\sqrt{y/x}=\\frac12$, $f_y=\\frac12$. $\\mathrm df=\\frac12\\cdot0{,}08+\\frac12\\cdot(-0{,}01)=0{,}035$ ⇒ $\\approx2{,}035$.",
+    "hints": [
+      "Vezmi $f=\\sqrt{xy}$ v bodě $[2,2]$.",
+      "$f_x=\\frac12\\sqrt{\\frac yx}$, $f_y=\\frac12\\sqrt{\\frac xy}$; v $[2,2]$ vyčísli.",
+      "Přírůstky: $\\Delta x=0{,}08,\\ \\Delta y=-0{,}01$."
+    ]
+  },
+  {
+    "id": "sb2-diff-sqrt-cubes",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu přibližně vyčísli $\\sqrt{(1{,}02)^3+(1{,}97)^3}$ (3 desetinná místa).",
+    "answer": 2.95,
+    "tolerance": 0.002,
+    "solution": "$f=\\sqrt{x^3+y^3}$ v $[1,2]$: $f=3$, $f_x=\\frac{3x^2}{2f}=\\frac12$, $f_y=\\frac{3y^2}{2f}=2$. $\\mathrm df=\\frac12\\cdot0{,}02+2\\cdot(-0{,}03)=-0{,}05$ ⇒ $\\approx2{,}95$.",
+    "hints": [
+      "Vezmi $f=\\sqrt{x^3+y^3}$ v bodě $[1,2]$, kde $f=3$.",
+      "$f_x=\\frac{3x^2}{2f}$ a $f_y=\\frac{3y^2}{2f}$.",
+      "Přírůstky: $\\Delta x=0{,}02,\\ \\Delta y=-0{,}03$."
+    ]
+  },
+  {
+    "id": "sb2-diff-ln-ratio",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu přibližně vyčísli $\\ln\\dfrac{3{,}01}{2{,}9}$ (3 desetinná místa).",
+    "answer": 0.037,
+    "tolerance": 0.002,
+    "solution": "$f=\\ln\\frac xy$ v $[3,3]$: $f=0$, $f_x=\\frac1x=\\frac13$, $f_y=-\\frac1y=-\\frac13$. $\\mathrm df=\\frac13\\cdot0{,}01-\\frac13\\cdot(-0{,}1)=\\frac{0{,}11}3\\approx0{,}037$.",
+    "hints": [
+      "Vezmi $f=\\ln\\frac xy$ v bodě $[3,3]$, kde $f=0$.",
+      "$f_x=\\frac1x,\\ f_y=-\\frac1y$.",
+      "Přírůstky: $\\Delta x=0{,}01,\\ \\Delta y=-0{,}1$."
+    ]
+  },
+  {
+    "id": "sb2-diff-arctg-ratio",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu přibližně vyčísli $\\operatorname{arctg}\\dfrac{1{,}02}{0{,}95}$ (3 desetinná místa).",
+    "answer": 0.82,
+    "tolerance": 0.002,
+    "solution": "$f=\\operatorname{arctg}\\frac xy$ v $[1,1]$: $f=\\frac\\pi4$, $f_x=\\frac{y}{x^2+y^2}=\\frac12$, $f_y=-\\frac{x}{x^2+y^2}=-\\frac12$. $\\mathrm df=\\frac12\\cdot0{,}02+\\frac12\\cdot0{,}05=0{,}035$ ⇒ $\\approx0{,}785+0{,}035=0{,}820$.",
+    "hints": [
+      "Vezmi $f=\\operatorname{arctg}\\frac xy$ v bodě $[1,1]$, kde $f=\\frac\\pi4$.",
+      "$f_x=\\frac{y}{x^2+y^2}$ a $f_y=-\\frac{x}{x^2+y^2}$.",
+      "Přírůstky: $\\Delta x=0{,}02,\\ \\Delta y=-0{,}05$."
+    ]
+  },
+  {
+    "id": "sb2-pd-tangent-quartic",
+    "type": "numeric",
+    "prompt": "Tečná rovina ke grafu $f(x,y)=x^3+y^4-2xy$ v bodě $[1,2,f(1,2)]$ má rovnici $z=ax+by+c$. Kolik je $c$?",
+    "answer": -46,
+    "tolerance": 0.001,
+    "solution": "$f(1,2)=1+16-4=13$, $f_x=3x^2-2y=-1$, $f_y=4y^3-2x=30$. $z=13-(x-1)+30(y-2)=-x+30y-46$, tedy $c=-46$.",
+    "hints": [
+      "Spočti $f(1,2)$, $f_x(1,2)$ a $f_y(1,2)$.",
+      "$z=f(1,2)+f_x(1,2)(x-1)+f_y(1,2)(y-2)$.",
+      "Rozepiš závorky a sečti konstanty: $13+1-60$."
+    ]
+  },
+  {
+    "id": "sb2-pd-tangent-ln",
+    "type": "numeric",
+    "prompt": "Tečná rovina ke grafu $f(x,y)=\\ln(x+2y)$ v bodě $[2,1,f(2,1)]$ má rovnici $z=f(2,1)+f_x(2,1)(x-2)+f_y(2,1)(y-1)$. Jakou hodnotu $z$ rovina nabývá v bodě $[3,2]$? (3 desetinná místa)",
+    "answer": 2.136294361119891,
+    "tolerance": 0.002,
+    "solution": "$f(2,1)=\\ln4$, $f_x=\\frac1{x+2y}=\\frac14$, $f_y=\\frac2{x+2y}=\\frac12$. $z(3,2)=\\ln4+\\frac14\\cdot1+\\frac12\\cdot1=\\ln4+0{,}75\\approx2{,}136$.",
+    "hints": [
+      "Spočti $f_x$ a $f_y$ v bodě $[2,1]$; ve jmenovateli je $x+2y=4$.",
+      "$f_x=\\frac14,\\ f_y=\\frac12$.",
+      "Dosaď $x-2=1,\\ y-1=1$ a přičti $\\ln4\\approx1{,}386$."
+    ]
+  },
+  {
+    "id": "sb2-pd-tangent-arctg",
+    "type": "numeric",
+    "prompt": "Tečná rovina ke grafu $f(x,y)=\\operatorname{arctg}\\dfrac yx$ v bodě $\\left[1,1,\\tfrac\\pi4\\right]$. Jakou hodnotu $z$ rovina nabývá v bodě $[2,0]$? (3 desetinná místa)",
+    "answer": -0.21460183660255172,
+    "tolerance": 0.002,
+    "solution": "$f_x=\\frac{-y}{x^2+y^2}=-\\frac12$, $f_y=\\frac{x}{x^2+y^2}=\\frac12$. $z=\\frac\\pi4-\\frac12(x-1)+\\frac12(y-1)$; v $[2,0]$: $\\frac\\pi4-\\frac12-\\frac12=\\frac\\pi4-1\\approx-0{,}215$.",
+    "hints": [
+      "Potřebuješ obě parciální derivace $\\operatorname{arctg}\\frac yx$ v $[1,1]$.",
+      "$f_x=\\frac{-y}{x^2+y^2},\\ f_y=\\frac{x}{x^2+y^2}$.",
+      "Dosaď $x-1=1,\\ y-1=-1$ do rovnice roviny."
+    ]
   }
 ]

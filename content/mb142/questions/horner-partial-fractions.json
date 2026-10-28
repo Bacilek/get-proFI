@@ -95,5 +95,94 @@
       "Ansatz: $\\frac A x+\\frac B{x^2}+\\frac{Cx+D}{x^2+1}$; dosaď $x=0$ pro nalezení $B$.",
       "Zbylé koeficienty porovnej u $x$, $x^2$, $x^3$."
     ]
+  },
+  {
+    "id": "cv5-horner-value",
+    "type": "numeric",
+    "prompt": "Pomocí Hornerova schématu spočti $f(2)$ pro $f(x)=2x^3-5x^2+x+6$.",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "Koeficienty $2,-5,1,6$, $x_0=2$: $2\\to2\\cdot2-5=-1\\to2\\cdot(-1)+1=-1\\to2\\cdot(-1)+6=4$. Tedy $f(2)=4$ (a $f(x)=(x-2)(2x^2-x-1)+4$).",
+    "hints": [
+      "Hornerovo schéma: opiš první koeficient, pak vždy vynásob $x_0$ a přičti další koeficient.",
+      "Posloupnost začíná $2,\\ 2\\cdot2-5,\\dots$",
+      "Poslední číslo schématu je hodnota $f(2)$."
+    ]
+  },
+  {
+    "id": "cv5-horner-value-gap",
+    "type": "numeric",
+    "prompt": "Pomocí Hornerova schématu spočti $f(-2)$ pro $f(x)=x^4-3x^2+2x-5$.",
+    "answer": -5,
+    "tolerance": 0.001,
+    "solution": "Chybějící člen $x^3$ doplň koeficientem $0$: $1,0,-3,2,-5$ a $x_0=-2$: $1\\to-2\\to4-3=1\\to-2+2=0\\to0-5=-5$. $f(-2)=-5$.",
+    "hints": [
+      "Nezapomeň na chybějící mocniny – jejich koeficient je $0$.",
+      "Koeficienty: $1,\\,0,\\,-3,\\,2,\\,-5$ a $x_0=-2$.",
+      "Postupně: $1,\\ -2,\\ \\dots$"
+    ]
+  },
+  {
+    "id": "cv5-pf-9-A",
+    "type": "numeric",
+    "prompt": "V rozkladu $\\dfrac{x+1}{x(x^2+1)(x^2+2)}=\\dfrac Ax+\\dfrac{Bx+C}{x^2+1}+\\dfrac{Dx+E}{x^2+2}$ urči $A$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "Vynásob $x$ a dosaď $x=0$: $A=\\frac{0+1}{(0+1)(0+2)}=\\frac12$.",
+    "hints": [
+      "Zakryj činitel $x$ ve jmenovateli původního zlomku a dosaď $x=0$ do zbytku.",
+      "$A=\\frac{x+1}{(x^2+1)(x^2+2)}\\Big|_{x=0}$.",
+      "Čitatel je $1$, jmenovatel $1\\cdot2$."
+    ]
+  },
+  {
+    "id": "cv5-pf-9-B",
+    "type": "numeric",
+    "prompt": "V rozkladu $\\dfrac{x+1}{x(x^2+1)(x^2+2)}=\\dfrac Ax+\\dfrac{Bx+C}{x^2+1}+\\dfrac{Dx+E}{x^2+2}$ urči $B$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "Po vynásobení společným jmenovatelem: $x+1=A(x^2+1)(x^2+2)+(Bx+C)\\,x(x^2+2)+(Dx+E)\\,x(x^2+1)$. Z $x=0$ je $A=\\frac12$. Dosazení $x=i$ (kořen $x^2+1$): $i+1=(Bi+C)\\,i\\,(1)\\Rightarrow i+1=-B+Ci$, tedy $B=-1,\\ C=1$. Dosazení $x=i\\sqrt2$ dá $D=\\frac12,\\ E=-1$. Úplný rozklad: $\\frac1{2x}+\\frac{-x+1}{x^2+1}+\\frac{x-2}{2(x^2+2)}$. Kontrola: koeficient u $x^4$ musí být nulový, $A+B+D=\\frac12-1+\\frac12=0$.",
+    "hints": [
+      "Vynásob rozklad jmenovatelem a porovnej koeficienty u nejvyšších mocnin.",
+      "Čitatel $x+1$ má stupeň $1$, takže koeficient u $x^4$ vyjde $0$: $A+B+D=0$. Potřebuješ ještě $A$ a $D$.",
+      "Praktičtěji: dosaď komplexní kořen $x=i$ činitele $x^2+1$; $Bx+C$ pak vyjde z rovnice $i+1=(Bi+C)\\,i$."
+    ]
+  },
+  {
+    "id": "cv5-pf-10-coef",
+    "type": "numeric",
+    "prompt": "V rozkladu $\\dfrac{1}{x^3(x+1)}=\\dfrac{A}{x}+\\dfrac{B}{x^2}+\\dfrac{C}{x^3}+\\dfrac{D}{x+1}$ urči $B$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$1=Ax^2(x+1)+Bx(x+1)+C(x+1)+Dx^3$. $x=0$: $C=1$; $x=-1$: $D=-1$. Koeficient u $x^3$: $0=A+D\\Rightarrow A=1$; u $x^2$: $0=A+B\\Rightarrow B=-1$.",
+    "hints": [
+      "Vynásob společným jmenovatelem $x^3(x+1)$ a porovnávej.",
+      "Dosazením $x=0$ a $x=-1$ najdeš $C$ a $D$.",
+      "Koeficient u $x^3$ dává $A+D=0$, koeficient u $x^2$ dává $A+B=0$."
+    ]
+  },
+  {
+    "id": "cv5-pf-10-free",
+    "type": "free",
+    "prompt": "Rozlož na parciální zlomky $\\dfrac{1}{x^3(x+1)}$ a zkontroluj výsledek zpětným sečtením.",
+    "solution": "Tvar: $\\frac{A}{x}+\\frac{B}{x^2}+\\frac{C}{x^3}+\\frac{D}{x+1}$. Z $1=Ax^2(x+1)+Bx(x+1)+C(x+1)+Dx^3$: $x=0\\Rightarrow C=1$, $x=-1\\Rightarrow D=-1$, koeficient u $x^3$: $A+D=0\\Rightarrow A=1$, u $x^2$: $A+B=0\\Rightarrow B=-1$. Výsledek: $\\frac1x-\\frac1{x^2}+\\frac1{x^3}-\\frac1{x+1}$. Kontrola: společný jmenovatel $x^3(x+1)$, čitatel $x^2(x+1)-x(x+1)+(x+1)-x^3=1$.",
+    "hints": [
+      "Vícenásobný kořen $0$ dává členy pro všechny mocniny $x,x^2,x^3$.",
+      "Vynásob společným jmenovatelem a dosazuj $x=0$, $x=-1$.",
+      "Zbylé koeficienty vyřeš z porovnání koeficientů u $x^3$ a $x^2$."
+    ]
+  },
+  {
+    "id": "cv5-pf-improper",
+    "type": "numeric",
+    "prompt": "Rozlož $\\dfrac{x^3}{x^2-1}=x+\\dfrac{A}{x-1}+\\dfrac{B}{x+1}$. Kolik je $A$?",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "Čitatel má vyšší stupeň než jmenovatel, nejdřív dělíme: $x^3=x(x^2-1)+x$, tedy $\\frac{x^3}{x^2-1}=x+\\frac{x}{x^2-1}$. Dále $\\frac{x}{(x-1)(x+1)}=\\frac A{x-1}+\\frac B{x+1}$: $x=1\\Rightarrow A=\\frac12$, $x=-1\\Rightarrow B=\\frac12$.",
+    "hints": [
+      "Stupeň čitatele je větší než stupeň jmenovatele – nejdřív polynomy vyděl.",
+      "$x^3=x\\cdot(x^2-1)+x$.",
+      "Zbylý zlomek $\\frac{x}{(x-1)(x+1)}$ rozlož; pro $A$ dosaď $x=1$ do $\\frac{x}{x+1}$."
+    ]
   }
 ]

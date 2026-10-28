@@ -101,5 +101,304 @@
       "Najdi stacionární bod: $f_x=f_y=0$.",
       "Hessián je $\\operatorname{diag}(2,2)$ – pozitivně definitní."
     ]
+  },
+  {
+    "id": "sb2-ext-01",
+    "type": "numeric",
+    "prompt": "Najdi hodnotu lokálního minima funkce $f=x^2+y^2-xy-2x+y$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$f_x=2x-y-2=0,\\ f_y=2y-x+1=0$ ⇒ $[1,0]$. $f_{xx}=2,\\ f_{xy}=-1,\\ f_{yy}=2$, $D=4-1=3>0,\\ f_{xx}>0$ ⇒ minimum. $f(1,0)=1-2=-1$.",
+    "hints": [
+      "Najdi stacionární bod z $f_x=f_y=0$ (lineární soustava).",
+      "Soustava $2x-y=2,\\ 2y-x=-1$ má jediné řešení; Hessova matice je konstantní.",
+      "Ověř definitnost Hessiánu (minory $2$ a $D$) a dosaď bod do $f$."
+    ]
+  },
+  {
+    "id": "sb2-ext-02",
+    "type": "numeric",
+    "prompt": "Funkce $f=\\ln(xy)-4x-9y$ (na $xy>0$) má v bodě $[\\tfrac14,\\tfrac19]$ lokální maximum. Jaká je jeho hodnota? (Zaokrouhli na 3 desetinná místa.)",
+    "answer": -5.5835,
+    "tolerance": 0.002,
+    "solution": "$f_x=\\frac1x-4=0,\\ f_y=\\frac1y-9=0$ ⇒ $[\\frac14,\\frac19]$. $f_{xx}=-\\frac1{x^2}=-16,\\ f_{yy}=-81,\\ f_{xy}=0$ ⇒ negativně definitní ⇒ maximum. $f=\\ln\\frac1{36}-1-1=-2-\\ln36\\approx-5{,}5835$.",
+    "hints": [
+      "Dosaď stacionární bod; využij $\\ln(xy)=\\ln x+\\ln y$ nebo přímo součin $xy$.",
+      "Spočti $xy$ v daném bodě a pak $-4x-9y$ zvlášť."
+    ]
+  },
+  {
+    "id": "sb2-ext-03",
+    "type": "numeric",
+    "prompt": "Kolik stacionárních bodů má $f=xy(4-x-y)$?",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "$f_x=y(4-2x-y)=0,\\ f_y=x(4-x-2y)=0$. Z první rovnice $y=0$ nebo $4-2x-y=0$, z druhé $x=0$ nebo $4-x-2y=0$. Kombinace: $y=0,x=0$ ⇒ $[0,0]$; $y=0,\\ 4-x-2y=0$ ⇒ $[4,0]$; $4-2x-y=0,\\ x=0$ ⇒ $[0,4]$; obě závorky ⇒ $[\\frac43,\\frac43]$. Celkem $4$.",
+    "hints": [
+      "Každá rovnice je součin dvou činitelů – rozlož na případy.",
+      "Čtyři kombinace „činitel $=0$“ z první a druhé rovnice; každá dá nanejvýš jeden bod.",
+      "Vyřeš všechny čtyři kombinace a spočítej různá řešení."
+    ]
+  },
+  {
+    "id": "sb2-ext-04",
+    "type": "numeric",
+    "prompt": "Funkce $f=xy(4-x-y)$ má lokální maximum v bodě $[\\tfrac43,\\tfrac43]$. Jaká je jeho hodnota? (3 desetinná místa)",
+    "answer": 2.37,
+    "tolerance": 0.002,
+    "solution": "Stacionární body $[0,0],[0,4],[4,0],[\\frac43,\\frac43]$. $f_{xx}=-2y,\\ f_{xy}=4-2x-2y,\\ f_{yy}=-2x$. V $[\\frac43,\\frac43]$: $\\begin{pmatrix}-8/3&-4/3\\\\-4/3&-8/3\\end{pmatrix}$, $D=\\frac{64-16}{9}>0,\\ f_{xx}<0$ ⇒ maximum, $f=\\frac43\\cdot\\frac43\\cdot\\frac43=\\frac{64}{27}\\approx2{,}370$.",
+    "hints": [
+      "Dosaď do $f$ souřadnice $x=y=\\frac43$.",
+      "Všimni si, že $4-x-y$ je v tomto bodě rovno $x$."
+    ]
+  },
+  {
+    "id": "sb2-ext-05",
+    "type": "choice",
+    "prompt": "Co je bod $[0,4]$ pro $f=xy(4-x-y)$?",
+    "options": [
+      "sedlový bod (není extrém)",
+      "lokální minimum",
+      "lokální maximum",
+      "bod, kde Hessián nelze spočítat"
+    ],
+    "answer": 0,
+    "solution": "$f_{xx}=-2y=-8,\\ f_{xy}=4-2x-2y=-4,\\ f_{yy}=-2x=0$. $D=(-8)(0)-16=-16<0$ ⇒ sedlo (Hessova matice je indefinitní).",
+    "hints": [
+      "Spočti druhé derivace v bodě $[0,4]$.",
+      "$f_{xx}=-2y,\\ f_{xy}=4-2x-2y,\\ f_{yy}=-2x$ – dosaď $x=0,\\ y=4$.",
+      "Urči znaménko $D=f_{xx}f_{yy}-f_{xy}^2$."
+    ]
+  },
+  {
+    "id": "sb2-ext-06",
+    "type": "choice",
+    "prompt": "Funkce $f=e^{x+y}(x^2+y^2)$ má stacionární body $[0,0]$ a $[-1,-1]$. Jak se chovají?",
+    "options": [
+      "$[0,0]$ je minimum, $[-1,-1]$ není extrém",
+      "$[0,0]$ je minimum, $[-1,-1]$ je maximum",
+      "oba jsou minima",
+      "$[0,0]$ je sedlo, $[-1,-1]$ je minimum"
+    ],
+    "answer": 0,
+    "solution": "$f_{xx}=e^{x+y}(x^2+4x+y^2+2),\\ f_{xy}=e^{x+y}(x^2+2x+2y+y^2),\\ f_{yy}=e^{x+y}(x^2+4y+y^2+2)$. V $[0,0]$: $\\operatorname{diag}(2,2)$ ⇒ minimum ($f=0$). V $[-1,-1]$: $\\begin{pmatrix}0&-2e^{-2}\\\\-2e^{-2}&0\\end{pmatrix}$, $D=-4e^{-4}<0$ ⇒ sedlo.",
+    "hints": [
+      "Spočti Hessián v obou bodech; $e^{x+y}>0$ znaménko nemění, ale pozor na závorky.",
+      "V $[-1,-1]$ vyjde $f_{xx}=f_{yy}=0$.",
+      "Matice s nulovou diagonálou a nenulovou mimodiagonálou má $D<0$."
+    ]
+  },
+  {
+    "id": "sb2-ext-07",
+    "type": "numeric",
+    "prompt": "Funkce $f=4x-y+\\frac1x-\\frac1y$ má čtyři stacionární body. Jaká je hodnota jejího lokálního minima?",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "$f_x=4-\\frac1{x^2}=0\\Rightarrow x=\\pm\\frac12$; $f_y=-1+\\frac1{y^2}=0\\Rightarrow y=\\pm1$. $f_{xx}=\\frac2{x^3},\\ f_{yy}=-\\frac2{y^3},\\ f_{xy}=0$. Minimum potřebuje $f_{xx}>0$ a $f_{yy}>0$ ⇒ $x>0,\\ y<0$: $[\\frac12,-1]$, $f=2+1+2+1=6$.",
+    "hints": [
+      "Nejdřív z $f_x=0$ a $f_y=0$ najdi čtyři kandidáty ($x=\\pm\\ldots$, $y=\\pm\\ldots$).",
+      "Hessián je diagonální: $f_{xx}=2/x^3,\\ f_{yy}=-2/y^3$. Minimum chce oba kladné.",
+      "Zjisti, který znaménkový výběr $x,y$ dává obě druhé derivace kladné, a dosaď."
+    ]
+  },
+  {
+    "id": "sb2-ext-08",
+    "type": "numeric",
+    "prompt": "Funkce $f=4x-y+\\frac1x-\\frac1y$ má jedno lokální maximum. Jaká je jeho hodnota?",
+    "answer": -6,
+    "tolerance": 0.001,
+    "solution": "Stacionární body $[\\pm\\frac12,\\pm1]$, Hessián $\\operatorname{diag}(2/x^3,-2/y^3)$. Maximum: $f_{xx}<0$ a $f_{yy}<0$ ⇒ $x<0,\\ y>0$: $[-\\frac12,1]$, $f=-2-1-2-1=-6$.",
+    "hints": [
+      "Hessián je diagonální – maximum chce oba diagonální prvky záporné.",
+      "$f_{xx}=2/x^3$ je záporné pro $x<0$; $f_{yy}=-2/y^3$ je záporné pro $y>0$."
+    ]
+  },
+  {
+    "id": "sb2-ext-09",
+    "type": "numeric",
+    "prompt": "Funkce $f=(2x^2+3y^2)e^{-x^2-y^2}$ má v bodech $[0,\\pm1]$ lokální maxima. Jaká je jejich hodnota? (3 desetinná místa)",
+    "answer": 1.104,
+    "tolerance": 0.002,
+    "solution": "$f_x=-2xe^{-x^2-y^2}(2x^2+3y^2-2),\\ f_y=-2ye^{-x^2-y^2}(2x^2+3y^2-3)$ ⇒ stacionární body $[0,0],[\\pm1,0],[0,\\pm1]$. V $[0,\\pm1]$: $\\operatorname{diag}(-2/e,-12/e)$ negativně definitní ⇒ maximum, $f=3e^{-1}\\approx1{,}104$. ($[0,0]$ minimum $0$; $[\\pm1,0]$ sedla.)",
+    "hints": [
+      "Soustava $f_x=f_y=0$: exponenciála je kladná, rozlož na případy (kdy $x=0$, kdy $y=0$, kdy závorky nulové).",
+      "Případ $x=0$ a $2x^2+3y^2-3=0$ dává $y=\\pm1$.",
+      "Dosaď $x=0,\\ y=\\pm1$ do $f$."
+    ]
+  },
+  {
+    "id": "sb2-ext-10",
+    "type": "numeric",
+    "prompt": "Kolik stacionárních bodů má $f=(2x^2+3y^2)e^{-x^2-y^2}$?",
+    "answer": 5,
+    "tolerance": 0.001,
+    "solution": "Po zkrácení exponenciály: $x(2x^2+3y^2-2)=0$ a $y(2x^2+3y^2-3)=0$. Případy: $x=y=0$; $x=0,\\ 3y^2=3$ ⇒ $[0,\\pm1]$; $y=0,\\ 2x^2=2$ ⇒ $[\\pm1,0]$; obě závorky současně nelze ($2\\ne3$). Celkem $5$.",
+    "hints": [
+      "Zkrať $e^{-x^2-y^2}>0$ a rozlož každou rovnici na součin.",
+      "Čtyři kombinace „$x=0$ / závorka“ a „$y=0$ / závorka“; poslední (obě závorky) nemá řešení."
+    ]
+  },
+  {
+    "id": "sb2-ext-11",
+    "type": "numeric",
+    "prompt": "Funkce $f=x+\\frac{y^2}{4x}+\\frac{z^2}{y}+\\frac2z$ na $x,y,z>0$ má jediný stacionární bod, který je lokální minimum. Jaká je jeho hodnota?",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "$f_x=1-\\frac{y^2}{4x^2},\\ f_y=\\frac{y}{2x}-\\frac{z^2}{y^2},\\ f_z=\\frac{2z}{y}-\\frac2{z^2}$ ⇒ $y=z^3,\\ 2x=z^3$, $z^9=z^5$ ⇒ $z=1$: $[\\frac12,1,1]$. Hessián $\\begin{pmatrix}4&-2&0\\\\-2&3&-2\\\\0&-2&6\\end{pmatrix}$, minory $4,\\ 8,\\ 32>0$ (Sylvestr) ⇒ minimum. $f=\\frac12+\\frac12+1+2=4$.",
+    "hints": [
+      "Z $f_x=0$ a $f_z=0$ vyjádři $y$ a $x$ pomocí $z$ (všechno kladné).",
+      "Dostaneš $y=z^3,\\ 2x=z^3$; dosazením do $f_y=0$ vyjde rovnice pro $z$ s jediným kladným řešením.",
+      "Dosaď stacionární bod do $f$; typ ověř Sylvestrem."
+    ]
+  },
+  {
+    "id": "sb2-ext-12",
+    "type": "numeric",
+    "prompt": "Kolik stacionárních bodů má $f=x^3+y^2+z^2+12xy+2z$?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$3x^2+12y=0,\\ 2y+12x=0,\\ 2z+2=0$ ⇒ $z=-1,\\ y=-6x$, $3x^2-72x=0$ ⇒ $x=0$ nebo $x=24$: $[0,0,-1],[24,-144,-1]$. Celkem $2$.",
+    "hints": [
+      "Třetí rovnice dá $z$; z druhé vyjádři $y$ pomocí $x$.",
+      "Po dosazení do první rovnice vznikne kvadratická rovnice v $x$."
+    ]
+  },
+  {
+    "id": "sb2-ext-13",
+    "type": "numeric",
+    "prompt": "Funkce $f=x^3+y^2+z^2+12xy+2z$ má v jednom ze stacionárních bodů lokální minimum. Jaká je jeho hodnota?",
+    "answer": -6913,
+    "tolerance": 0.001,
+    "solution": "Stacionární body $[0,0,-1]$ a $[24,-144,-1]$. Hessián $\\begin{pmatrix}6x&12&0\\\\12&2&0\\\\0&0&2\\end{pmatrix}$. V $[0,0,-1]$: minor $D_2=0\\cdot2-144<0$ ⇒ indefinitní (sedlo). V $[24,-144,-1]$: minory $144,\\ 288-144=144,\\ 288>0$ ⇒ minimum. $f=13824+20736+1-41472-2=-6913$.",
+    "hints": [
+      "Najdi oba stacionární body a zjisti, ve kterém je Hessián pozitivně definitní (Sylvestr).",
+      "V bodě s $x=0$ je levý horní blok $\\begin{pmatrix}0&12\\\\12&2\\end{pmatrix}$ s $D<0$.",
+      "Dosaď $[24,-144,-1]$ do $f$ – pozor na znaménka a velká čísla."
+    ]
+  },
+  {
+    "id": "sb2-ext-14",
+    "type": "numeric",
+    "prompt": "Pro $a=2$ najdi hodnotu lokálního maxima funkce $f=xyz(4a-x-y-z)$ na $x,y,z>0$.",
+    "answer": 16,
+    "tolerance": 0.001,
+    "solution": "Po zkrácení $x,y,z>0$: $8-2x-y-z=0,\\ 8-x-2y-z=0,\\ 8-x-y-2z=0$ ⇒ $x=y=z=a=2$. Hessián v $[a,a,a]$ je $-a^2\\begin{pmatrix}2&1&1\\\\1&2&1\\\\1&1&2\\end{pmatrix}$, negativně definitní ⇒ maximum, $f=a^4=16$.",
+    "hints": [
+      "Všechny tři parciální derivace obsahují součin dvou proměnných, který je kladný – zkrať a řeš lineární soustavu.",
+      "Odečtením rovnic zjistíš, že $x=y=z$.",
+      "Dosaď stacionární bod do $f$ (čtvrtá závorka je pak $4a-3a$)."
+    ]
+  },
+  {
+    "id": "sb2-ext-15",
+    "type": "numeric",
+    "prompt": "Najdi největší hodnotu $f=x^2-3y^2-x+18y+4$ na trojúhelníku $0\\le x\\le y\\le4$.",
+    "answer": 40,
+    "tolerance": 0.001,
+    "solution": "Uvnitř: $[\\frac12,3]$, $f=\\frac{123}4\\approx30{,}75$. Hrana $x=0$: $-3y^2+18y+4$ (kandidáti $f(0,3)=31,\\ f(0,0)=4,\\ f(0,4)=28$). Hrana $y=4$: $x^2-x+28$ ($f(\\frac12,4)=\\frac{111}4,\\ f(4,4)=40$). Hrana $y=x$: $-2x^2+17x+4$, stacionární bod $x=\\frac{17}4$ leží mimo, zbývají vrcholy. Maximum $40$ v $[4,4]$, minimum $4$ v $[0,0]$.",
+    "hints": [
+      "Vrcholy trojúhelníku jsou $[0,0],[0,4],[4,4]$; vyšetři vnitřek a tři hrany.",
+      "Na hraně $y=4$ je $f=x^2-x+28$ – konvexní, takže maximum je v krajním bodě.",
+      "Porovnej hodnoty ve vrcholech a v kritických bodech na hranách."
+    ]
+  },
+  {
+    "id": "sb2-ext-16",
+    "type": "numeric",
+    "prompt": "Najdi nejmenší hodnotu $f=x^2+2xy+2y^2-3x-5y$ na trojúhelníku s vrcholy $[0,2],[3,0],[0,-1]$.",
+    "answer": -3.25,
+    "tolerance": 0.001,
+    "solution": "Uvnitř: $f_x=2x+2y-3=0,\\ f_y=2x+4y-5=0$ ⇒ $[\\frac12,1]\\in M$, $f=-\\frac{13}4$. Hrany: $x=0$: $2y^2-5y$ (min $-\\frac{25}8$ v $y=\\frac54$); $AB$: $\\frac59x^2-x-2$ (min $-\\frac{49}{20}$); $BC$: $\\frac{17}9x^2-8x+7$ (min $-\\frac{25}{17}$); vrcholy $-2,0,7$. Minimum $-\\frac{13}4$ v $[\\frac12,1]$, maximum $7$ v $[0,-1]$.",
+    "hints": [
+      "Hessián je pozitivně definitní, takže uvnitř hledáme minimum; ověř, zda stacionární bod leží v trojúhelníku.",
+      "Pro srovnání zkontroluj ještě hrany (po dosazení rovnice přímky vznikne kvadratická funkce jedné proměnné)."
+    ]
+  },
+  {
+    "id": "sb2-ext-17",
+    "type": "numeric",
+    "prompt": "Najdi největší hodnotu $f=x^2+2xy+2y^2-3x-5y$ na trojúhelníku s vrcholy $[0,2],[3,0],[0,-1]$.",
+    "answer": 7,
+    "tolerance": 0.001,
+    "solution": "Kandidáti: vnitřní bod $-\\frac{13}4$, na hranách $-\\frac{25}8,\\ -\\frac{49}{20},\\ -\\frac{25}{17}$, vrcholy $f(0,2)=-2,\\ f(3,0)=0,\\ f(0,-1)=7$. Maximum $7$ v $[0,-1]$.",
+    "hints": [
+      "Hessián je pozitivně definitní, funkce je „miskovitá“ – maximum čekej na hranici, spíš ve vrcholu.",
+      "Spočti $f$ ve třech vrcholech a porovnej."
+    ]
+  },
+  {
+    "id": "sb2-ext-18",
+    "type": "numeric",
+    "prompt": "Najdi největší hodnotu $f=(x-y)^2+x^2$ na čtverci s vrcholy $[2,0],[0,2],[-2,0],[0,-2]$.",
+    "answer": 8,
+    "tolerance": 0.001,
+    "solution": "Uvnitř: $4x-2y=0,\\ -2x+2y=0$ ⇒ $[0,0]$, $f=0$. Strany: $y=2-x$: $g=(2x-2)^2+x^2$ ⇒ kritický $x=\\frac45$, $f=\\frac45$; vrcholy $f(2,0)=8,\\ f(0,2)=4,\\ f(-2,0)=8,\\ f(0,-2)=4$. Maximum $8$ v $[\\pm2,0]$, minimum $0$ v $[0,0]$.",
+    "hints": [
+      "Čtverec má čtyři strany $y=\\pm x\\pm2$; vyšetři vnitřek, strany a vrcholy.",
+      "$f\\ge0$ všude, takže otázka je na maximum – porovnej vrcholy a kritické body na stranách."
+    ]
+  },
+  {
+    "id": "sb2-ext-19",
+    "type": "numeric",
+    "prompt": "Najdi nejmenší hodnotu $f=-x^2-y^2+2y$ na kruhu $x^2+y^2\\le16$.",
+    "answer": -24,
+    "tolerance": 0.001,
+    "solution": "Uvnitř: $[0,1]$, $f=1$ (maximum). Na hranici $x^2=16-y^2$: $f=-16+2y$, $y\\in[-4,4]$ ⇒ nejmenší při $y=-4$: $-24$ v $[0,-4]$ (největší na hranici $-8$ v $[0,4]$). Minimum $-24$, maximum $1$.",
+    "hints": [
+      "Na kružnici $x^2+y^2=16$ dosaď do $f$ a dostaneš funkci jen proměnné $y$.",
+      "Vzniklá funkce je lineární v $y$; extrémy jsou v krajních bodech $y=\\pm4$."
+    ]
+  },
+  {
+    "id": "sb2-ext-20",
+    "type": "numeric",
+    "prompt": "Najdi maximum $f=(2x^2+3y^2)e^{-x^2-y^2}$ na kruhu $x^2+y^2\\le4$. (3 desetinná místa)",
+    "answer": 1.104,
+    "tolerance": 0.002,
+    "solution": "Stacionární body uvnitř: $[0,0]$ ($f=0$), $[0,\\pm1]$ ($f=3e^{-1}$); $[\\pm1,0]$ jsou sedla. Na kružnici $y^2=4-x^2$: $f=(12-x^2)e^{-4}\\le12e^{-4}\\approx0{,}22$. Maximum $3e^{-1}\\approx1{,}104$ v $[0,\\pm1]$ (uvnitř), minimum $0$ v $[0,0]$.",
+    "hints": [
+      "Najdi stacionární body ve vnitřku kruhu a spočti $f$ v nich.",
+      "Na hranici $x^2+y^2=4$ se exponenciála zjednoduší na konstantu $e^{-4}$.",
+      "Porovnej hodnoty z vnitřku a z hranice – maximum nemusí být na hranici."
+    ]
+  },
+  {
+    "id": "sb2-ext-21",
+    "type": "numeric",
+    "prompt": "Najdi největší hodnotu $f=9x^2-36x+16y^2-64y$ na elipse (s vnitřkem) $9x^2+16y^2\\le144$.",
+    "answer": 384,
+    "tolerance": 0.001,
+    "solution": "Vnitřek: $[2,2]$, $f=-100$ (minimum, $f=9(x-2)^2+16(y-2)^2-100$). Hranice: $x=4\\cos t,\\ y=3\\sin t$: $f=144-144\\cos t-192\\sin t$, extrém $144\\pm240$ ⇒ maximum $384$, minimum $-96$ na hranici. Maximum $384$ v $[-\\frac{12}5,-\\frac{12}5]$, minimum $-100$ v $[2,2]$.",
+    "hints": [
+      "Doplň na čtverce: $f=9(x-2)^2+16(y-2)^2-100$. Maximum nastane na hranici, protože je to „miska“.",
+      "Na hranici dosaď $x=4\\cos t,\\ y=3\\sin t$ – vznikne $A+B\\cos t+C\\sin t$.",
+      "Amplituda $\\sqrt{B^2+C^2}$ určuje extrémy na hranici."
+    ]
+  },
+  {
+    "id": "sb2-ext-22",
+    "type": "numeric",
+    "prompt": "Najdi nejmenší hodnotu $f=9x^2-36x+16y^2-64y$ na elipse (s vnitřkem) $9x^2+16y^2\\le144$.",
+    "answer": -100,
+    "tolerance": 0.001,
+    "solution": "$f=9(x-2)^2+16(y-2)^2-100\\ge-100$ a bod $[2,2]$ leží uvnitř ($9\\cdot4+16\\cdot4=100\\le144$) ⇒ minimum $-100$.",
+    "hints": [
+      "Doplň na čtverce v $x$ i v $y$.",
+      "Pak ověř, zda střed čtverců leží v dané množině."
+    ]
+  },
+  {
+    "id": "sb2-ext-23",
+    "type": "numeric",
+    "prompt": "Najdi největší hodnotu $f=x^2+y^2-xy-2$ na množině $x^2+y^2\\le1,\\ y\\ge|x|-1$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "Uvnitř: $[0,0]$, $f=-2$ (min). Hranice: úsečka $y=-x-1$: $3x^2+3x-1$ (extrém $-\\frac74$); úsečka $y=x-1$: $x^2-x-1$ (extrém $-\\frac54$); oblouk $y=\\sqrt{1-x^2}$: $f=-x\\sqrt{1-x^2}-1$, kritické $x=\\pm\\frac1{\\sqrt2}$: hodnoty $-\\frac32$ a $-\\frac12$; vrcholy $-1$. Maximum $-\\frac12$ v $[-\\frac1{\\sqrt2},\\frac1{\\sqrt2}]$, minimum $-2$ v $[0,0]$.",
+    "hints": [
+      "Na jednotkové kružnici je $x^2+y^2=1$, takže $f=-1-xy$.",
+      "Na oblouku je $f=-1-xy$; maximum chce $xy$ co nejzápornější, tj. $x$ a $y$ opačných znamének.",
+      "Dosaď body $[\\mp\\frac1{\\sqrt2},\\pm\\frac1{\\sqrt2}]$ a porovnej s hodnotami na úsečkách."
+    ]
   }
 ]
