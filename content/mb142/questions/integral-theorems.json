@@ -5,7 +5,12 @@
     "prompt": "Funkce $f(x)=4-x^2$ má na $[0,3]$ průměrnou hodnotu $1$. V kterém bodě $x_0\\in[0,3]$ ji nabývá? (na 3 desetinná místa)",
     "answer": 1.732,
     "tolerance": 0.001,
-    "solution": "$4-x_0^2=1\\Rightarrow x_0=\\sqrt3\\approx1{,}732$."
+    "solution": "Průměrná hodnota je $\\frac13\\int_0^3(4-x^2)\\,\\mathrm{d}x=\\frac13(12-9)=1$. Pak $4-x_0^2=1\\Rightarrow x_0=\\sqrt3\\approx1{,}732$ (záporný kořen je mimo interval).",
+    "hints": [
+      "Použij větu o střední hodnotě integrálního počtu: $f(x_0)=\\operatorname{av}(f)$ pro nějaké $x_0$.",
+      "Hledáme $x_0\\in[0,3]$ s $4-x_0^2=1$.",
+      "Vyřeš kvadratickou rovnici a vyber kořen z intervalu $[0,3]$."
+    ]
   },
   {
     "id": "inttheorems-deriv-simple",
@@ -13,7 +18,12 @@
     "prompt": "Nechť $F(x)=\\displaystyle\\int_0^x t^2\\sin t\\,\\mathrm{d}t$. Určete $F'\\!\\left(\\frac{\\pi}{2}\\right)$ (na 3 desetinná místa).",
     "answer": 2.467,
     "tolerance": 0.001,
-    "solution": "Fundamentální vztah: $F'(x)=x^2\\sin x$, tedy $F'(\\frac\\pi2)=\\frac{\\pi^2}{4}\\approx2{,}467$."
+    "solution": "Fundamentální vztah: $F'(x)=x^2\\sin x$, tedy $F'(\\frac\\pi2)=\\frac{\\pi^2}{4}\\approx2{,}467$.",
+    "hints": [
+      "Derivace integrálu s proměnnou horní mezí: fundamentální věta kalkulu.",
+      "Integrand $t^2\\sin t$ je spojitý, takže $F'(x)$ je integrand dosazený za $t=x$.",
+      "Dosaď $x=\\frac\\pi2$ do výsledku, $\\sin\\frac\\pi2=1$."
+    ]
   },
   {
     "id": "inttheorems-two-limits",
@@ -21,15 +31,30 @@
     "prompt": "Nechť $H(x)=\\displaystyle\\int_x^{x^2}\\ln t\\,\\mathrm{d}t$. Určete $H'(e)$ (na 3 desetinná místa).",
     "answer": 9.873,
     "tolerance": 0.002,
-    "solution": "$H'(x)=-\\ln x+\\ln(x^2)\\cdot2x=(4x-1)\\ln x$. Pro $x=e$: $4e-1\\approx9{,}873$."
+    "solution": "$H'(x)=-\\ln x+\\ln(x^2)\\cdot2x=(4x-1)\\ln x$. Pro $x=e$: $4e-1\\approx9{,}873$.",
+    "hints": [
+      "Obě meze závisí na $x$: použij fundamentální větu s řetízkovým pravidlem.",
+      "$H'(x)=f(x^2)\\cdot(x^2)'-f(x)\\cdot x'$ s $f(t)=\\ln t$.",
+      "Zjednoduš pomocí $\\ln(x^2)=2\\ln x$ a dosaď $x=e$, kde $\\ln e=1$."
+    ]
   },
   {
     "id": "inttheorems-lower-limit",
     "type": "choice",
     "prompt": "Pro spojitou $f$ je $\\left(\\displaystyle\\int_x^{c}f(t)\\,\\mathrm{d}t\\right)'=$",
-    "options": ["$-f(x)$", "$f(x)$", "$f(c)-f(x)$", "$0$"],
+    "options": [
+      "$-f(x)$",
+      "$f(x)$",
+      "$f(c)-f(x)$",
+      "$0$"
+    ],
     "answer": 0,
-    "solution": "$\\int_x^c f=-\\int_c^x f$, derivace je $-f(x)$."
+    "solution": "$\\int_x^c f=-\\int_c^x f$, derivace je $-f(x)$.",
+    "hints": [
+      "Proměnná mez je dole, ne nahoře.",
+      "Přehoď meze: $\\int_x^cf=-\\int_c^xf$.",
+      "Na integrál s horní mezí $x$ použij fundamentální větu."
+    ]
   },
   {
     "id": "inttheorems-discontinuous",
@@ -42,7 +67,12 @@
       "$f$ nabývá $0$ v bodě $x=0$"
     ],
     "answer": 0,
-    "solution": "$f$ je integrovatelná (po částech konstantní), $\\operatorname{av}(f)=0$, ale $f$ nabývá jen $\\pm1$. Část (ii) věty potřebuje spojitost."
+    "solution": "$f$ je integrovatelná (po částech konstantní), $\\operatorname{av}(f)=0$, ale $f$ nabývá jen $\\pm1$. Část (ii) věty potřebuje spojitost.",
+    "hints": [
+      "Zkontroluj předpoklady věty o střední hodnotě integrálního počtu.",
+      "Část (ii), že funkce nabývá své průměrné hodnoty, vyžaduje spojitost.",
+      "Zjisti, jakých hodnot funkce nabývá a zda mezi nimi je průměrná hodnota $0$."
+    ]
   },
   {
     "id": "inttheorems-F-continuity",
@@ -55,12 +85,22 @@
       "$F'=f$ všude"
     ],
     "answer": 0,
-    "solution": "$F$ je vždy spojitá (integrál mění plochu spojitě). Rovnost $F'=f$ platí jen v bodech spojitosti $f$."
+    "solution": "$F$ je vždy spojitá (integrál mění plochu spojitě). Rovnost $F'=f$ platí jen v bodech spojitosti $f$.",
+    "hints": [
+      "Uvaž, jak se $F(x)$ změní při malém posunutí $x$.",
+      "Pro ohraničenou $f$ s $\\lvert f\\rvert\\le M$ je $\\lvert F(x)-F(y)\\rvert\\le M\\lvert x-y\\rvert$.",
+      "Rovnost $F'=f$ platí jen v bodech spojitosti $f$; to vyřadí poslední možnost."
+    ]
   },
   {
     "id": "inttheorems-free-G",
     "type": "free",
     "prompt": "Určete derivaci $G(x)=\\displaystyle\\int_{\\sin x}^{1}\\arcsin t\\,\\mathrm{d}t$.",
-    "solution": "Dolní mez $\\sin x$ dává mínus a řetízkové pravidlo:\n\n$G'(x)=-\\arcsin(\\sin x)\\cdot\\cos x=-x\\cos x$ (pro $x\\in[-\\frac\\pi2,\\frac\\pi2]$)."
+    "solution": "Dolní mez $\\sin x$ dává mínus a řetízkové pravidlo:\n\n$G'(x)=-\\arcsin(\\sin x)\\cdot\\cos x=-x\\cos x$ (pro $x\\in[-\\frac\\pi2,\\frac\\pi2]$).",
+    "hints": [
+      "Proměnná mez je dole a je to funkce $\\sin x$: fundamentální věta a řetízkové pravidlo.",
+      "$G(x)=-\\int_1^{\\sin x}\\arcsin t\\,\\mathrm{d}t$, takže $G'(x)=-\\arcsin(\\sin x)\\cdot(\\sin x)'$.",
+      "Pro $x\\in[-\\frac\\pi2,\\frac\\pi2]$ je $\\arcsin(\\sin x)=x$; zjednoduš."
+    ]
   }
 ]

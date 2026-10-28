@@ -5,7 +5,12 @@
     "prompt": "Funkce $f=x^2+y^2-2x+4y$ má jedno lokální minimum. Jaká je jeho hodnota?",
     "answer": -5,
     "tolerance": 0.001,
-    "solution": "$f_x=2x-2=0,\\ f_y=2y+4=0$ ⇒ $[1,-2]$; $f_{xx}=f_{yy}=2$, $D=4>0$ ⇒ minimum, $f(1,-2)=1+4-2-8=-5$."
+    "solution": "$f_x=2x-2=0,\\ f_y=2y+4=0$ ⇒ $[1,-2]$; $f_{xx}=f_{yy}=2$, $D=4>0$ ⇒ minimum, $f(1,-2)=1+4-2-8=-5$.",
+    "hints": [
+      "Najdi stacionární bod z $f_x=f_y=0$ a urči typ pomocí Hessiánu.",
+      "$f_x=2x-2$, $f_y=2y+4$ – bod vyjde přímo.",
+      "Potvrď $D>0,\\ f_{xx}>0$ a dosaď bod do $f$ (nebo doplň na čtverce)."
+    ]
   },
   {
     "id": "mve-saddle",
@@ -18,7 +23,12 @@
       "bod nespojitosti"
     ],
     "answer": 0,
-    "solution": "$f_x=2x,\\ f_y=-2y$ ⇒ stacionární bod $[0,0]$; $f_{xx}=2,\\ f_{yy}=-2,\\ f_{xy}=0$, $D=-4<0$ ⇒ není extrém."
+    "solution": "$f_x=2x,\\ f_y=-2y$ ⇒ stacionární bod $[0,0]$; $f_{xx}=2,\\ f_{yy}=-2,\\ f_{xy}=0$, $D=-4<0$ ⇒ není extrém.",
+    "hints": [
+      "Použij druhý derivační test ve stacionárním bodě.",
+      "$f_{xx}=2,\\ f_{yy}=-2,\\ f_{xy}=0$, spočti $D=f_{xx}f_{yy}-f_{xy}^2$.",
+      "Znaménko $D$ rozhoduje: $D<0$ znamená, že v okolí je $f$ jak větší, tak menší než $f(0,0)$."
+    ]
   },
   {
     "id": "mve-min-cubic",
@@ -26,7 +36,12 @@
     "prompt": "Funkce $f=x^3-3x+y^2$ má právě jedno lokální minimum. Jaká je jeho hodnota?",
     "answer": -2,
     "tolerance": 0.001,
-    "solution": "$f_x=3x^2-3=0,\\ f_y=2y=0$ ⇒ $[1,0],[-1,0]$; $f_{xx}=6x,\\ f_{yy}=2,\\ f_{xy}=0$, $D=12x$. $[1,0]$: $D=12>0,\\ f_{xx}=6>0$ ⇒ min, $f=-2$. $[-1,0]$: $D=-12<0$ ⇒ sedlo."
+    "solution": "$f_x=3x^2-3=0,\\ f_y=2y=0$ ⇒ $[1,0],[-1,0]$; $f_{xx}=6x,\\ f_{yy}=2,\\ f_{xy}=0$, $D=12x$. $[1,0]$: $D=12>0,\\ f_{xx}=6>0$ ⇒ min, $f=-2$. $[-1,0]$: $D=-12<0$ ⇒ sedlo.",
+    "hints": [
+      "Najdi všechny stacionární body a každý klasifikuj Hessiánem.",
+      "$f_x=3x^2-3=0$ dává $x=\\pm1$, $f_y=2y=0$ dává $y=0$.",
+      "$D=f_{xx}f_{yy}-f_{xy}^2=12x$; minimum je v bodě s $D>0$ a $f_{xx}>0$, tam dosaď do $f$."
+    ]
   },
   {
     "id": "mve-d-zero",
@@ -39,7 +54,12 @@
       "extrém neexistuje"
     ],
     "answer": 0,
-    "solution": "Pro $D=0$ věta neříká nic. Např. $x^4+y^4-x^2-2xy-y^2$ v $[0,0]$: po $y=-x$ je $f=2x^4>0$, po $y=0$ je $f<0$ ⇒ není extrém."
+    "solution": "Pro $D=0$ věta neříká nic. Např. $x^4+y^4-x^2-2xy-y^2$ v $[0,0]$: po $y=-x$ je $f=2x^4>0$, po $y=0$ je $f<0$ ⇒ není extrém.",
+    "hints": [
+      "Co říká druhý derivační test, když je determinant nulový?",
+      "Věta pro $D=0$ nedává závěr – příklady s $D=0$ mohou mít minimum, maximum i sedlo.",
+      "Zbývá zkoumat funkci přímo (např. po různých křivkách)."
+    ]
   },
   {
     "id": "mve-global-max",
@@ -47,13 +67,23 @@
     "prompt": "Najdi maximum funkce $f=x^2+y^2-2x-2y$ na čtverci $[0,3]\\times[0,3]$.",
     "answer": 6,
     "tolerance": 0.001,
-    "solution": "Uvnitř jediný stacionární bod $[1,1]$ (minimum, $f=-2$). Max leží v rohu: $f(0,0)=0,\\ f(3,0)=f(0,3)=3,\\ f(3,3)=18-12=6$. Maximum je $6$ v $[3,3]$."
+    "solution": "Uvnitř jediný stacionární bod $[1,1]$ (minimum, $f=-2$). Max leží v rohu: $f(0,0)=0,\\ f(3,0)=f(0,3)=3,\\ f(3,3)=18-12=6$. Maximum je $6$ v $[3,3]$.",
+    "hints": [
+      "Na kompaktní množině max existuje (Weierstrass); hledej ve vnitřku i na hranici.",
+      "Vnitřek: $f_x=2x-2$, $f_y=2y-2$ ⇒ $[1,1]$ je minimum. Maximum tedy bude na hranici.",
+      "Funkce je součtem konvexních členů v $x$ a $y$, max leží v rohu; porovnej hodnoty ve čtyřech rozích."
+    ]
   },
   {
     "id": "mve-free-global",
     "type": "free",
     "prompt": "Najdi globální extrémy $f=xy-x^2-y^2+x+y$ na množině $x\\ge0,\\ y\\ge0,\\ x+y\\le4$.",
-    "solution": "Uvnitř: $[1,1]$, $D=3>0,\\ f_{xx}=-2$ ⇒ max, $f=1$. Hranice: $x=0$: $-y^2+y$ (hodnoty $\\frac14$ v $y=\\frac12$, $0$ a $-12$ v krajích); $y=0$ analogicky; $y=4-x$: $-3x^2+12x-12$ (max $0$ v $[2,2]$, konce $-12$). Maximum $1$ v $[1,1]$, minimum $-12$ v $[0,4]$ a $[4,0]$."
+    "solution": "Uvnitř: $[1,1]$, $D=3>0,\\ f_{xx}=-2$ ⇒ max, $f=1$. Hranice: $x=0$: $-y^2+y$ (hodnoty $\\frac14$ v $y=\\frac12$, $0$ a $-12$ v krajích); $y=0$ analogicky; $y=4-x$: $-3x^2+12x-12$ (max $0$ v $[2,2]$, konce $-12$). Maximum $1$ v $[1,1]$, minimum $-12$ v $[0,4]$ a $[4,0]$.",
+    "hints": [
+      "Kompaktní množina (trojúhelník): extrémy hledej uvnitř a na třech stranách, pak porovnej hodnoty.",
+      "Vnitřek: $f_x=y-2x+1=0,\\ f_y=x-2y+1=0$; na stranách dosaď $x=0$, $y=0$, $y=4-x$ a hledej extrém jedné proměnné včetně krajních bodů.",
+      "Spočti hodnoty ve stacionárním bodě, v kritických bodech na stranách a ve vrcholech $[0,0],[4,0],[0,4]$ a vyber největší a nejmenší."
+    ]
   },
   {
     "id": "mve-quad-min",

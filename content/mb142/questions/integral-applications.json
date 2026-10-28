@@ -5,7 +5,12 @@
     "prompt": "Určete plochu mezi grafy $y=x$ a $y=x^2$ na intervalu $[0,1]$ (na 3 desetinná místa).",
     "answer": 0.167,
     "tolerance": 0.001,
-    "solution": "Na $[0,1]$ je $x\\ge x^2$: $P=\\int_0^1(x-x^2)\\,\\mathrm{d}x=\\frac12-\\frac13=\\frac16\\approx0{,}167$."
+    "solution": "Na $[0,1]$ je $x\\ge x^2$: $P=\\int_0^1(x-x^2)\\,\\mathrm{d}x=\\frac12-\\frac13=\\frac16\\approx0{,}167$.",
+    "hints": [
+      "Plocha mezi grafy je integrál z (horní funkce minus dolní funkce).",
+      "Na $[0,1]$ je $x\\ge x^2$, integrand je $x-x^2$.",
+      "Spočti $\\left[\\frac{x^2}{2}-\\frac{x^3}{3}\\right]_0^1$."
+    ]
   },
   {
     "id": "intapp-area-parabola",
@@ -13,7 +18,12 @@
     "prompt": "Určete plochu mezi grafy $y=1-x^2$ a $y=-3$ (na 3 desetinná místa).",
     "answer": 10.667,
     "tolerance": 0.002,
-    "solution": "Průsečíky $1-x^2=-3\\Rightarrow x=\\pm2$. $P=\\int_{-2}^2(4-x^2)\\,\\mathrm{d}x=16-\\frac{16}{3}=\\frac{32}{3}\\approx10{,}667$."
+    "solution": "Průsečíky $1-x^2=-3\\Rightarrow x=\\pm2$. $P=\\int_{-2}^2(4-x^2)\\,\\mathrm{d}x=16-\\frac{16}{3}=\\frac{32}{3}\\approx10{,}667$.",
+    "hints": [
+      "Nejdřív najdi průsečíky grafů, ty určí meze.",
+      "$1-x^2=-3$ dává $x=\\pm2$; horní je parabola, integrand $(1-x^2)-(-3)=4-x^2$.",
+      "Integrál je symetrický, spočti $\\left[4x-\\frac{x^3}{3}\\right]_{-2}^{2}$."
+    ]
   },
   {
     "id": "intapp-area-sin",
@@ -21,7 +31,12 @@
     "prompt": "Určete obsah plochy mezi grafem $y=\\sin x$ a osou $x$ na intervalu $[0,2\\pi]$.",
     "answer": 4,
     "tolerance": 0.001,
-    "solution": "$\\int_0^{2\\pi}\\sin x\\,\\mathrm{d}x=0$ je orientovaná plocha. Skutečná: $2\\int_0^\\pi\\sin x\\,\\mathrm{d}x=2\\cdot2=4$."
+    "solution": "$\\int_0^{2\\pi}\\sin x\\,\\mathrm{d}x=0$ je orientovaná plocha. Skutečná: $2\\int_0^\\pi\\sin x\\,\\mathrm{d}x=2\\cdot2=4$.",
+    "hints": [
+      "Obsah musí být nezáporný; integrál sám dává orientovanou plochu.",
+      "$\\sin x$ mění znaménko v $\\pi$, takže interval rozděl.",
+      "Použij absolutní hodnotu: $\\int_0^{2\\pi}\\lvert\\sin x\\rvert=2\\int_0^\\pi\\sin x\\,\\mathrm{d}x$."
+    ]
   },
   {
     "id": "intapp-length-graph",
@@ -29,7 +44,12 @@
     "prompt": "Určete délku grafu $f(x)=x^{3/2}$ na $[0,1]$ (na 3 desetinná místa).",
     "answer": 1.44,
     "tolerance": 0.002,
-    "solution": "$f'=\\frac32\\sqrt x$, $d=\\int_0^1\\sqrt{1+\\frac94x}\\,\\mathrm{d}x=\\frac49\\cdot\\frac23\\Big[\\big(1+\\tfrac94x\\big)^{3/2}\\Big]_0^1=\\frac{8}{27}\\left(\\big(\\tfrac{13}{4}\\big)^{3/2}-1\\right)\\approx1{,}440$."
+    "solution": "$f'=\\frac32\\sqrt x$, $d=\\int_0^1\\sqrt{1+\\frac94x}\\,\\mathrm{d}x=\\frac49\\cdot\\frac23\\Big[\\big(1+\\tfrac94x\\big)^{3/2}\\Big]_0^1=\\frac{8}{27}\\left(\\big(\\tfrac{13}{4}\\big)^{3/2}-1\\right)\\approx1{,}440$.",
+    "hints": [
+      "Délka grafu: $d=\\int_a^b\\sqrt{1+f'(x)^2}\\,\\mathrm{d}x$.",
+      "$f'=\\frac32\\sqrt x$, tedy $1+f'^2=1+\\frac94x$.",
+      "Substituce $t=1+\\frac94x$ nebo přímá integrace mocniny $\\left(1+\\frac94x\\right)^{1/2}$; nezapomeň na faktor $\\frac49$."
+    ]
   },
   {
     "id": "intapp-volume-sqrt",
@@ -37,7 +57,12 @@
     "prompt": "Určete objem tělesa vzniklého rotací grafu $f(x)=\\sqrt x$ na $[0,4]$ kolem osy $x$ (na 3 desetinná místa).",
     "answer": 25.133,
     "tolerance": 0.002,
-    "solution": "$V=\\pi\\int_0^4 x\\,\\mathrm{d}x=\\pi\\cdot8=8\\pi\\approx25{,}133$."
+    "solution": "$V=\\pi\\int_0^4 x\\,\\mathrm{d}x=\\pi\\cdot8=8\\pi\\approx25{,}133$.",
+    "hints": [
+      "Objem rotačního tělesa kolem osy $x$: $V=\\pi\\int_a^bf^2(x)\\,\\mathrm{d}x$.",
+      "$f^2(x)=(\\sqrt x)^2=x$ na $[0,4]$.",
+      "Spočti $\\pi\\left[\\frac{x^2}{2}\\right]_0^4$."
+    ]
   },
   {
     "id": "intapp-volume-parabola",
@@ -45,7 +70,12 @@
     "prompt": "Určete objem tělesa vzniklého rotací grafu $f(x)=x^2$ na $[0,1]$ kolem osy $x$ (na 3 desetinná místa).",
     "answer": 0.628,
     "tolerance": 0.001,
-    "solution": "$V=\\pi\\int_0^1x^4\\,\\mathrm{d}x=\\frac\\pi5\\approx0{,}628$."
+    "solution": "$V=\\pi\\int_0^1x^4\\,\\mathrm{d}x=\\frac\\pi5\\approx0{,}628$.",
+    "hints": [
+      "Rotace kolem osy $x$: $V=\\pi\\int f^2$.",
+      "$f^2(x)=x^4$.",
+      "Spočti $\\pi\\int_0^1x^4\\,\\mathrm{d}x$."
+    ]
   },
   {
     "id": "intapp-volume-formula",
@@ -58,19 +88,34 @@
       "$\\displaystyle\\int_a^b\\sqrt{1+f'^2(x)}\\,\\mathrm{d}x$"
     ],
     "answer": 0,
-    "solution": "Proužek je válec s poloměrem $f(x)$ a výškou $\\mathrm{d}x$: objem $\\pi f^2\\,\\mathrm{d}x$. Poslední vzorec je délka grafu."
+    "solution": "Proužek je válec s poloměrem $f(x)$ a výškou $\\mathrm{d}x$: objem $\\pi f^2\\,\\mathrm{d}x$. Poslední vzorec je délka grafu.",
+    "hints": [
+      "Rozlož těleso na tenké kolmé řezy.",
+      "Řez ve vzdálenosti $x$ je kruh o poloměru $f(x)$ a obsahu $\\pi f(x)^2$.",
+      "Objem je integrál plochy řezu; poslední možnost je vzorec pro délku grafu."
+    ]
   },
   {
     "id": "intapp-circumference",
     "type": "free",
     "prompt": "Odvoďte obvod kružnice o poloměru $r$ z parametrizace a vzorce pro délku křivky.",
-    "solution": "$[x,y]=[r\\cos t,r\\sin t]$, $t\\in[0,2\\pi]$; $[x',y']=[-r\\sin t,r\\cos t]$; $\\sqrt{r^2\\sin^2t+r^2\\cos^2t}=r$; $d=\\int_0^{2\\pi}r\\,\\mathrm{d}t=2\\pi r$."
+    "solution": "$[x,y]=[r\\cos t,r\\sin t]$, $t\\in[0,2\\pi]$; $[x',y']=[-r\\sin t,r\\cos t]$; $\\sqrt{r^2\\sin^2t+r^2\\cos^2t}=r$; $d=\\int_0^{2\\pi}r\\,\\mathrm{d}t=2\\pi r$.",
+    "hints": [
+      "Použij vzorec pro délku parametricky zadané křivky $\\int\\sqrt{x'^2+y'^2}\\,\\mathrm{d}t$.",
+      "Parametrizace $[x,y]=[r\\cos t,r\\sin t]$, $t\\in[0,2\\pi]$; zderivuj obě složky.",
+      "Pod odmocninou použij $\\sin^2t+\\cos^2t=1$ a integruj konstantu."
+    ]
   },
   {
     "id": "intapp-sphere-surface",
     "type": "free",
     "prompt": "Pomocí vzorce $S=2\\pi\\int_a^b f\\sqrt{1+f'^2}\\,\\mathrm{d}x$ odvoďte povrch koule o poloměru $r$.",
-    "solution": "$f=\\sqrt{r^2-x^2}$ na $[-r,r]$, $f'=-x/\\sqrt{r^2-x^2}$, $1+f'^2=\\frac{r^2}{r^2-x^2}$, takže $f\\sqrt{1+f'^2}=r$. $S=2\\pi\\int_{-r}^{r}r\\,\\mathrm{d}x=4\\pi r^2$."
+    "solution": "$f=\\sqrt{r^2-x^2}$ na $[-r,r]$, $f'=-x/\\sqrt{r^2-x^2}$, $1+f'^2=\\frac{r^2}{r^2-x^2}$, takže $f\\sqrt{1+f'^2}=r$. $S=2\\pi\\int_{-r}^{r}r\\,\\mathrm{d}x=4\\pi r^2$.",
+    "hints": [
+      "Kouli získáš rotací půlkružnice $f=\\sqrt{r^2-x^2}$ kolem osy $x$.",
+      "Spočti $f'=-\\frac{x}{\\sqrt{r^2-x^2}}$ a $1+f'^2$ převeď na společného jmenovatele.",
+      "Součin $f\\sqrt{1+f'^2}$ se zkrátí na konstantu; integruj ji přes $[-r,r]$."
+    ]
   },
   {
     "id": "intapp-volume-6x",

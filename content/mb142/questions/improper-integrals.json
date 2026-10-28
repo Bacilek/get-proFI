@@ -5,7 +5,12 @@
     "prompt": "Spočtěte $\\displaystyle\\int_1^\\infty\\frac{1}{x^2}\\,\\mathrm{d}x$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "$\\left[-\\frac1x\\right]_1^\\infty=0+1=1$."
+    "solution": "$\\left[-\\frac1x\\right]_1^\\infty=0+1=1$.",
+    "hints": [
+      "Nevlastní integrál 1. druhu: horní mez je $\\infty$, počítáme limitu.",
+      "$\\int_1^b x^{-2}\\,\\mathrm{d}x=\\left[-\\frac1x\\right]_1^b$.",
+      "Pošli $b\\to\\infty$, člen $\\frac1b$ jde k $0$."
+    ]
   },
   {
     "id": "improper-exp",
@@ -13,7 +18,12 @@
     "prompt": "Spočtěte $\\displaystyle\\int_0^\\infty e^{-2x}\\,\\mathrm{d}x$ (na 3 desetinná místa).",
     "answer": 0.5,
     "tolerance": 0.001,
-    "solution": "$\\left[-\\frac12e^{-2x}\\right]_0^\\infty=0+\\frac12=0{,}5$."
+    "solution": "$\\left[-\\frac12e^{-2x}\\right]_0^\\infty=0+\\frac12=0{,}5$.",
+    "hints": [
+      "Nevlastní integrál 1. druhu: nahraď $\\infty$ proměnnou $b$ a spočti limitu.",
+      "Primitivní funkce k $e^{-2x}$ je $-\\frac12e^{-2x}$.",
+      "Dosaď meze $0$ a $b$; $e^{-2b}\\to0$ pro $b\\to\\infty$."
+    ]
   },
   {
     "id": "improper-sqrt-second-kind",
@@ -21,7 +31,12 @@
     "prompt": "Spočtěte $\\displaystyle\\int_0^1\\frac{1}{\\sqrt x}\\,\\mathrm{d}x$.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "Neohraničená u $0$: $\\left[2\\sqrt x\\right]_0^1=2-\\lim_{x\\to0^+}2\\sqrt x=2$."
+    "solution": "Neohraničená u $0$: $\\left[2\\sqrt x\\right]_0^1=2-\\lim_{x\\to0^+}2\\sqrt x=2$.",
+    "hints": [
+      "Integrand je neohraničený v $0$: nevlastní integrál 2. druhu, limita v dolní mezi.",
+      "Primitivní funkce k $x^{-1/2}$ je $2\\sqrt x$.",
+      "Spočti $\\lim_{a\\to0^+}\\left[2\\sqrt x\\right]_a^1$."
+    ]
   },
   {
     "id": "improper-ln",
@@ -29,7 +44,12 @@
     "prompt": "Spočtěte $\\displaystyle\\int_0^1\\ln x\\,\\mathrm{d}x$.",
     "answer": -1,
     "tolerance": 0.001,
-    "solution": "Per partes: primitivní funkce je $x\\ln x-x$. $\\lim_{x\\to0^+}x\\ln x=0$ (l'Hospital na $\\frac{\\ln x}{1/x}$), takže $[x\\ln x-x]_0^1=(0-1)-0=-1$."
+    "solution": "Per partes: primitivní funkce je $x\\ln x-x$. $\\lim_{x\\to0^+}x\\ln x=0$ (l'Hospital na $\\frac{\\ln x}{1/x}$), takže $[x\\ln x-x]_0^1=(0-1)-0=-1$.",
+    "hints": [
+      "Integrand $\\ln x$ je neohraničený u $0$, takže jde o limitu; primitivní funkci hledej per partes.",
+      "$\\int\\ln x\\,\\mathrm{d}x=x\\ln x-x$.",
+      "Dosaď horní mez $1$ a limitu $x\\to0^+$ pro $x\\ln x$, která je $0$ (l'Hospital)."
+    ]
   },
   {
     "id": "improper-xexp",
@@ -37,7 +57,12 @@
     "prompt": "Spočtěte $\\displaystyle\\int_0^\\infty x\\,e^{-x}\\,\\mathrm{d}x$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "Per partes ($u'=e^{-x}$, $v=x$): $[-xe^{-x}]_0^\\infty+\\int_0^\\infty e^{-x}\\,\\mathrm{d}x=0+1=1$, protože $xe^{-x}\\to0$ (l'Hospital)."
+    "solution": "Per partes ($u'=e^{-x}$, $v=x$): $[-xe^{-x}]_0^\\infty+\\int_0^\\infty e^{-x}\\,\\mathrm{d}x=0+1=1$, protože $xe^{-x}\\to0$ (l'Hospital).",
+    "hints": [
+      "Horní mez $\\infty$ a součin polynomu s exponenciálou: per partes s limitou.",
+      "$u'=e^{-x}$, $u=-e^{-x}$, $v=x$.",
+      "Hraniční člen $-xe^{-x}$ jde k $0$ pro $x\\to\\infty$; zbývá $\\int_0^\\infty e^{-x}\\,\\mathrm{d}x$."
+    ]
   },
   {
     "id": "improper-arctan",
@@ -45,7 +70,12 @@
     "prompt": "Spočtěte $\\displaystyle\\int_{-\\infty}^{\\infty}\\frac{1}{1+x^2}\\,\\mathrm{d}x$ (na 3 desetinná místa).",
     "answer": 3.142,
     "tolerance": 0.001,
-    "solution": "$[\\arctan x]_{-\\infty}^{\\infty}=\\frac\\pi2-\\left(-\\frac\\pi2\\right)=\\pi\\approx3{,}142$."
+    "solution": "$[\\arctan x]_{-\\infty}^{\\infty}=\\frac\\pi2-\\left(-\\frac\\pi2\\right)=\\pi\\approx3{,}142$.",
+    "hints": [
+      "Obě meze jsou nevlastní; primitivní funkce je tabulková.",
+      "$\\int\\frac1{1+x^2}\\,\\mathrm{d}x=\\operatorname{arctg}x$.",
+      "Použij limity $\\operatorname{arctg}x\\to\\pm\\frac\\pi2$ pro $x\\to\\pm\\infty$ a odečti."
+    ]
   },
   {
     "id": "improper-subst",
@@ -53,7 +83,12 @@
     "prompt": "Spočtěte $\\displaystyle\\int_0^\\infty\\frac{x}{(x^2+4)^2}\\,\\mathrm{d}x$ (na 3 desetinná místa).",
     "answer": 0.125,
     "tolerance": 0.001,
-    "solution": "$t=x^2$: $\\frac12\\int_0^\\infty\\frac{\\mathrm{d}t}{(t+4)^2}=\\frac12\\cdot\\frac14=\\frac18=0{,}125$ (obecně $\\frac{1}{2a^2}$)."
+    "solution": "$t=x^2$: $\\frac12\\int_0^\\infty\\frac{\\mathrm{d}t}{(t+4)^2}=\\frac12\\cdot\\frac14=\\frac18=0{,}125$ (obecně $\\frac{1}{2a^2}$).",
+    "hints": [
+      "Substituce, která zbaví čitatele $x$: derivace $x^2$ je $2x$.",
+      "$t=x^2$, $\\mathrm{d}t=2x\\,\\mathrm{d}x$, meze $0\\to0$ a $\\infty\\to\\infty$.",
+      "Zbývá $\\frac12\\int_0^\\infty(t+4)^{-2}\\,\\mathrm{d}t=\\frac12\\left[-\\frac1{t+4}\\right]_0^\\infty$."
+    ]
   },
   {
     "id": "improper-p-test",
@@ -66,7 +101,12 @@
       "Oba divergují"
     ],
     "answer": 0,
-    "solution": "Na $[1,\\infty)$ konverguje $\\iff p>1$ ($p=\\frac32$ ano). Na $(0,1]$ konverguje $\\iff p<1$ ($p=\\frac32$ ne)."
+    "solution": "Na $[1,\\infty)$ konverguje $\\iff p>1$ ($p=\\frac32$ ano). Na $(0,1]$ konverguje $\\iff p<1$ ($p=\\frac32$ ne).",
+    "hints": [
+      "Použij kritérium pro $\\int x^{-p}$: chování na $[1,\\infty)$ a na $(0,1]$ je opačné.",
+      "Na $[1,\\infty)$ konverguje právě když $p>1$, na $(0,1]$ právě když $p<1$.",
+      "Zde je $p=\\frac32$; dosaď do obou podmínek."
+    ]
   },
   {
     "id": "improper-1-over-x",
@@ -79,7 +119,12 @@
       "Limita neexistuje (osciluje)"
     ],
     "answer": 0,
-    "solution": "$[2\\sqrt x]_1^b=2\\sqrt b-2\\to\\infty$. Konvergence na $[1,\\infty)$ vyžaduje $p>1$."
+    "solution": "$[2\\sqrt x]_1^b=2\\sqrt b-2\\to\\infty$. Konvergence na $[1,\\infty)$ vyžaduje $p>1$.",
+    "hints": [
+      "Je to nevlastní integrál typu $\\int_1^\\infty x^{-p}$; rozhoduje $p$.",
+      "Zde $p=\\frac12\\le1$; spočti $\\left[2\\sqrt x\\right]_1^b$.",
+      "Podívej se, kam jde $2\\sqrt b-2$ pro $b\\to\\infty$."
+    ]
   },
   {
     "id": "improper-inside-singularity",
@@ -92,6 +137,11 @@
       "Konverguje k $0$ ze symetrie"
     ],
     "answer": 0,
-    "solution": "$\\int_0^1x^{-2}=\\infty$ (viz $p=2\\ge1$), takže integrál diverguje; záporný výsledek z kladné funkce je vždy signál chyby."
+    "solution": "$\\int_0^1x^{-2}=\\infty$ (viz $p=2\\ge1$), takže integrál diverguje; záporný výsledek z kladné funkce je vždy signál chyby.",
+    "hints": [
+      "Newtonův–Leibnizův vzorec nelze použít přes bod, kde je integrand neomezený.",
+      "Singularita je uvnitř, v $0$: rozděl na $\\int_{-1}^0+\\int_0^1$ a posuzuj zvlášť.",
+      "Kladná funkce nemůže mít záporný integrál; zkus $\\int_0^1x^{-2}$ s $p=2\\ge1$."
+    ]
   }
 ]

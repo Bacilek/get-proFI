@@ -5,7 +5,12 @@
     "prompt": "Z čtvercového kartonu o straně $54$ cm vyřízneš v rozích čtverce o straně $x$ a ohneš krabici bez víka. Jaký je maximální objem (v cm³)?",
     "answer": 11664,
     "tolerance": 0.5,
-    "solution": "$V=(54-2x)^2x$ na $[0,27]$, $V'=12(27-x)(9-x)$, $x=9$: $V=36^2\\cdot9=11664$ cm³. V krajích $V=0$."
+    "solution": "$V=(54-2x)^2x$ na $[0,27]$, $V'=12(27-x)(9-x)$, $x=9$: $V=36^2\\cdot9=11664$ cm³. V krajích $V=0$.",
+    "hints": [
+      "Optimalizace: napiš objem jako funkci jedné proměnné $x$ a maximalizuj ho na uzavřeném intervalu.",
+      "Dno má stranu $54-2x$, výška je $x$: $V=(54-2x)^2x$ na $[0,27]$.",
+      "Řeš $V'(x)=0$, vyber bod z $(0,27)$ a dosaď do $V$."
+    ]
   },
   {
     "id": "opt-box-30",
@@ -13,7 +18,12 @@
     "prompt": "Totéž pro čtverec o straně $30$ cm: jaký je maximální objem (v cm³)?",
     "answer": 2000,
     "tolerance": 0.5,
-    "solution": "$V=(30-2x)^2x$ na $[0,15]$, $V'=(30-2x)(30-6x)=0\\Rightarrow x=5$ (nebo $15$). $V(5)=20^2\\cdot5=2000$ cm³."
+    "solution": "$V=(30-2x)^2x$ na $[0,15]$, $V'=(30-2x)(30-6x)=0\\Rightarrow x=5$ (nebo $15$). $V(5)=20^2\\cdot5=2000$ cm³.",
+    "hints": [
+      "Napiš objem jako funkci $x$ a maximalizuj ho na uzavřeném intervalu.",
+      "$V=(30-2x)^2x$ na $[0,15]$.",
+      "$V'=(30-2x)(30-6x)=0$; vyber kořen z $(0,15)$ a dosaď."
+    ]
   },
   {
     "id": "opt-fence",
@@ -21,7 +31,12 @@
     "prompt": "Máš $100$ m plotu na obdélníkový výběh, který přiléhá ke zdi (plot jen na tři strany). Jaká je maximální plocha (m²)?",
     "answer": 1250,
     "tolerance": 0.5,
-    "solution": "Strany $x$ (kolmé na zeď, 2×) a $y=100-2x$ (rovnoběžná). $A=x(100-2x)$ na $[0,50]$, $A'=100-4x=0\\Rightarrow x=25$, $A=25\\cdot50=1250$ m²."
+    "solution": "Strany $x$ (kolmé na zeď, 2×) a $y=100-2x$ (rovnoběžná). $A=x(100-2x)$ na $[0,50]$, $A'=100-4x=0\\Rightarrow x=25$, $A=25\\cdot50=1250$ m².",
+    "hints": [
+      "Vyjádři plochu jako funkci jedné proměnné pomocí vazby na délku plotu.",
+      "Strany kolmé na zeď $x$ (2×), rovnoběžná $y=100-2x$; $A=x(100-2x)$.",
+      "Řeš $A'(x)=0$ na $[0,50]$ a dosaď."
+    ]
   },
   {
     "id": "opt-rect-perimeter",
@@ -29,7 +44,12 @@
     "prompt": "Obdélník má obvod $20$. Jaká je největší možná plocha?",
     "answer": 25,
     "tolerance": 0.001,
-    "solution": "Strany $x$ a $10-x$, $A=x(10-x)$ na $[0,10]$, $A'=10-2x=0\\Rightarrow x=5$, $A=25$ (čtverec)."
+    "solution": "Strany $x$ a $10-x$, $A=x(10-x)$ na $[0,10]$, $A'=10-2x=0\\Rightarrow x=5$, $A=25$ (čtverec).",
+    "hints": [
+      "Z vazby na obvod vyjádři jednu stranu pomocí druhé.",
+      "Strany $x$ a $10-x$, plocha $A=x(10-x)$ na $[0,10]$.",
+      "Řeš $A'(x)=0$ a dosaď."
+    ]
   },
   {
     "id": "opt-can-r",
@@ -37,7 +57,12 @@
     "prompt": "Plechovka tvaru válce o objemu $1$ l má mít co nejmenší povrch. Jaký je optimální poloměr $r$ v cm (3 desetinná místa)?",
     "answer": 5.419,
     "tolerance": 0.002,
-    "solution": "$S=2\\pi r^2+\\frac{2000}r$, $S'=4\\pi r-\\frac{2000}{r^2}=0\\Rightarrow r^3=\\frac{500}\\pi\\approx159{,}15$, $r\\approx5{,}419$ cm. $S''>0$ ⇒ minimum. Výška $h=2r\\approx10{,}84$ cm."
+    "solution": "$S=2\\pi r^2+\\frac{2000}r$, $S'=4\\pi r-\\frac{2000}{r^2}=0\\Rightarrow r^3=\\frac{500}\\pi\\approx159{,}15$, $r\\approx5{,}419$ cm. $S''>0$ ⇒ minimum. Výška $h=2r\\approx10{,}84$ cm.",
+    "hints": [
+      "Minimalizuj povrch válce s pevným objemem $V=1000\\text{ cm}^3$.",
+      "Z $\\pi r^2h=1000$ vyjádři $h$ a dosaď do $S=2\\pi r^2+2\\pi rh$: $S(r)=2\\pi r^2+\\frac{2000}r$.",
+      "Řeš $S'(r)=4\\pi r-\\frac{2000}{r^2}=0$, tedy $r^3=\\frac{500}\\pi$, a odmocni."
+    ]
   },
   {
     "id": "opt-nearest",
@@ -45,7 +70,12 @@
     "prompt": "Najdi $x$-ovou souřadnici bodu paraboly $y=x^2$ nejbližšího k bodu $A=[1,2]$ (3 desetinná místa).",
     "answer": 1.366,
     "tolerance": 0.002,
-    "solution": "$g(x)=(x-1)^2+(x^2-2)^2$, $g'=4x^3-6x-2=2(x+1)(2x^2-2x-1)$. Kořeny $x=-1,\\ \\frac{1\\pm\\sqrt3}2$. Minimum je v $x=\\frac{1+\\sqrt3}2\\approx1{,}366$ ($g(1{,}366)\\approx0{,}15$, kdežto $g(-1)=5$ a $g(-0{,}366)\\approx5{,}35$)."
+    "solution": "$g(x)=(x-1)^2+(x^2-2)^2$, $g'=4x^3-6x-2=2(x+1)(2x^2-2x-1)$. Kořeny $x=-1,\\ \\frac{1\\pm\\sqrt3}2$. Minimum je v $x=\\frac{1+\\sqrt3}2\\approx1{,}366$ ($g(1{,}366)\\approx0{,}15$, kdežto $g(-1)=5$ a $g(-0{,}366)\\approx5{,}35$).",
+    "hints": [
+      "Minimalizuj druhou mocninu vzdálenosti (bez odmocniny).",
+      "$g(x)=(x-1)^2+(x^2-2)^2$.",
+      "$g'=4x^3-6x-2$ rozlož: kořen $x=-1$ a kvadratická $2x^2-2x-1=0$; porovnej $g$ ve všech kořenech."
+    ]
   },
   {
     "id": "opt-parcel-5",
@@ -53,7 +83,12 @@
     "prompt": "Obdélníková parcela $5a\\times b$ se oplotí po obvodu a čtyřmi příčkami délky $b$ (celkem $6b+10a=2400$ m). Jaká je maximální plocha $S=5ab$ (m²)?",
     "answer": 120000,
     "tolerance": 1,
-    "solution": "$S(a)=5a\\cdot\\frac{2400-10a}6$ na $[0,240]$, maximum v $a=120$ ⇒ $b=200$, $S=5\\cdot120\\cdot200=120\\,000$ m²."
+    "solution": "$S(a)=5a\\cdot\\frac{2400-10a}6$ na $[0,240]$, maximum v $a=120$ ⇒ $b=200$, $S=5\\cdot120\\cdot200=120\\,000$ m².",
+    "hints": [
+      "Z vazby $6b+10a=2400$ vyjádři $b$ a dosaď do $S$.",
+      "$S(a)=5a\\cdot\\frac{2400-10a}{6}$ na $[0,240]$.",
+      "Řeš $S'(a)=0$, dopočti $b$ a vypočti $S=5ab$."
+    ]
   },
   {
     "id": "opt-path-fastest",
@@ -61,14 +96,29 @@
     "prompt": "Pěšky po cestě $5$ km/h, potom šikmo přes pole $3$ km/h; $f(x)=\\frac x5+\\frac13\\sqrt{x^2-10x+29}$, $x\\in[0,5]$. Kolik km má smysl jít po cestě, aby cesta trvala nejkratší dobu?",
     "answer": 3.5,
     "tolerance": 0.001,
-    "solution": "$f'=\\frac15+\\frac13\\cdot\\frac{x-5}{\\sqrt{x^2-10x+29}}=0$ ⇒ $x=\\frac72$; $f\\left(\\frac72\\right)=\\frac{23}{15}$ je menší než hodnoty v krajích $\\frac53$ a $\\frac{\\sqrt{29}}3$."
+    "solution": "$f'=\\frac15+\\frac13\\cdot\\frac{x-5}{\\sqrt{x^2-10x+29}}=0$ ⇒ $x=\\frac72$; $f\\left(\\frac72\\right)=\\frac{23}{15}$ je menší než hodnoty v krajích $\\frac53$ a $\\frac{\\sqrt{29}}3$.",
+    "hints": [
+      "Minimalizuj časovou funkci $f$ na $[0,5]$: kandidáti jsou stacionární body a krajní body.",
+      "Spočti $f'=\\frac15+\\frac13\\cdot\\frac{x-5}{\\sqrt{x^2-10x+29}}$.",
+      "Řeš $f'=0$ (umocni na druhou) a porovnej s $f(0)$ a $f(5)$."
+    ]
   },
   {
     "id": "opt-open-interval",
     "type": "choice",
     "prompt": "Hledáš minimum funkce $S(r)$ na $(0,\\infty)$. Proč nelze použít Weierstrassovu větu?",
-    "options": ["interval není uzavřený ani omezený", "$S$ není spojitá", "$S$ nemá derivaci", "extrém na $(0,\\infty)$ nikdy neexistuje"],
+    "options": [
+      "interval není uzavřený ani omezený",
+      "$S$ není spojitá",
+      "$S$ nemá derivaci",
+      "extrém na $(0,\\infty)$ nikdy neexistuje"
+    ],
     "answer": 0,
-    "solution": "Weierstrass vyžaduje spojitost na uzavřeném omezeném intervalu $[a,b]$. Na $(0,\\infty)$ extrém existovat nemusí; existenci i globálnost ověříš např. konvexností ($S''>0$) nebo znaménkem $S'$."
+    "solution": "Weierstrass vyžaduje spojitost na uzavřeném omezeném intervalu $[a,b]$. Na $(0,\\infty)$ extrém existovat nemusí; existenci i globálnost ověříš např. konvexností ($S''>0$) nebo znaménkem $S'$.",
+    "hints": [
+      "Zkontroluj předpoklady Weierstrassovy věty o extrému.",
+      "Věta požaduje spojitost na uzavřeném a omezeném intervalu.",
+      "Je $(0,\\infty)$ takový interval?"
+    ]
   }
 ]

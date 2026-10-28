@@ -5,7 +5,12 @@
     "prompt": "Pomocí Hornerova schématu spočti $f(4)$ pro $f(x)=x^3-6x^2+11x-6$.",
     "answer": 6,
     "tolerance": 0.001,
-    "solution": "Horner s $x_0=4$: $1,\\ -2,\\ 3,\\ 6$. Tedy $f(4)=6$ (zbytek)."
+    "solution": "Horner s $x_0=4$: $1,\\ -2,\\ 3,\\ 6$. Tedy $f(4)=6$ (zbytek).",
+    "hints": [
+      "Hornerovo schéma dosazuje do polynomu a poslední číslo je zbytek po dělení $(x-4)$.",
+      "Zapiš koeficienty $1,\\,-6,\\,11,\\,-6$ a postupně: opiš $1$, pak vždy vynásob $4$ a přičti další koeficient.",
+      "Řádek vyjde $1,\\,-2,\\,3,\\,\\dots$ – poslední krok je $3\\cdot4-6$."
+    ]
   },
   {
     "id": "horner-root-3",
@@ -13,7 +18,12 @@
     "prompt": "Číslo $3$ je kořenem $f(x)=x^3-6x^2+11x-6$. Hornerovo schéma dá $f(x)=(x-3)(x^2+bx+c)$. Kolik je $b+c$?",
     "answer": -1,
     "tolerance": 0.001,
-    "solution": "Horner s $x_0=3$: $1,\\ -3,\\ 2,\\ 0$. Podíl je $x^2-3x+2$, tedy $b=-3,\\ c=2,\\ b+c=-1$."
+    "solution": "Horner s $x_0=3$: $1,\\ -3,\\ 2,\\ 0$. Podíl je $x^2-3x+2$, tedy $b=-3,\\ c=2,\\ b+c=-1$.",
+    "hints": [
+      "Je-li $3$ kořen, Hornerovo schéma s $x_0=3$ dá koeficienty podílu a zbytek $0$.",
+      "Koeficienty $1,\\,-6,\\,11,\\,-6$; první dva členy podílu vyjdou $1$ a $-6+3=-3$.",
+      "Třetí koeficient je $11+3\\cdot(-3)$; podíl je $x^2+bx+c$, takže $b$ a $c$ jen sečti."
+    ]
   },
   {
     "id": "pf-form-mixed",
@@ -26,7 +36,12 @@
       "$\\frac Ax+\\frac B{(x+1)^2}+\\frac C{x+1}+\\frac D{x^2+1}$"
     ],
     "answer": 0,
-    "solution": "Dvojnásobný kořen $-1$ vyžaduje oba zlomky $\\frac B{(x+1)^2}$ a $\\frac C{x+1}$; kvadratický činitel $x^2+1$ s komplexními kořeny má čitatele $Dx+E$."
+    "solution": "Dvojnásobný kořen $-1$ vyžaduje oba zlomky $\\frac B{(x+1)^2}$ a $\\frac C{x+1}$; kvadratický činitel $x^2+1$ s komplexními kořeny má čitatele $Dx+E$.",
+    "hints": [
+      "Pro každý činitel jmenovatele zvlášť zjisti, jaké zlomky do rozkladu patří (násobnost, reducibilita).",
+      "Násobný kořen $(x+1)^2$ potřebuje zlomky pro obě mocniny $1$ a $2$; ireducibilní kvadratický činitel má v čitateli lineární výraz.",
+      "Celkový počet neznámých musí být roven stupni jmenovatele, tj. $5$."
+    ]
   },
   {
     "id": "pf-coef-A",
@@ -34,18 +49,33 @@
     "prompt": "V rozkladu $\\dfrac{1}{(x-1)(x+3)}=\\dfrac A{x-1}+\\dfrac B{x+3}$ urči $A$.",
     "answer": 0.25,
     "tolerance": 0.001,
-    "solution": "$1=A(x+3)+B(x-1)$. Pro $x=1$: $1=4A\\Rightarrow A=\\frac14$ (a pro $x=-3$: $B=-\\frac14$)."
+    "solution": "$1=A(x+3)+B(x-1)$. Pro $x=1$: $1=4A\\Rightarrow A=\\frac14$ (a pro $x=-3$: $B=-\\frac14$).",
+    "hints": [
+      "Rozklad vynásob společným jmenovatelem a porovnej obě strany.",
+      "Dostaneš $1=A(x+3)+B(x-1)$; dosazením vhodného $x$ zmizí jeden člen.",
+      "Dosaď $x=1$ (zruší se $B$) a vyřeš lineární rovnici pro $A$."
+    ]
   },
   {
     "id": "pf-free-simple",
     "type": "free",
     "prompt": "Rozlož na parciální zlomky $\\dfrac{3x+5}{(x+1)(x+2)}$.",
-    "solution": "$3x+5=A(x+2)+B(x+1)$. $x=-1$: $A=2$; $x=-2$: $-1=-B\\Rightarrow B=1$. Výsledek: $\\dfrac{2}{x+1}+\\dfrac{1}{x+2}$."
+    "solution": "$3x+5=A(x+2)+B(x+1)$. $x=-1$: $A=2$; $x=-2$: $-1=-B\\Rightarrow B=1$. Výsledek: $\\dfrac{2}{x+1}+\\dfrac{1}{x+2}$.",
+    "hints": [
+      "Jmenovatel má dva různé reálné kořeny, použij ansatz $\\frac A{x+1}+\\frac B{x+2}$.",
+      "Vynásob jmenovatelem: $3x+5=A(x+2)+B(x+1)$.",
+      "Dosaď $x=-1$ pro $A$ a $x=-2$ pro $B$; výsledek ověř zpětným sečtením zlomků."
+    ]
   },
   {
     "id": "pf-free-double",
     "type": "free",
     "prompt": "Rozlož na parciální zlomky $\\dfrac{x+1}{(x-1)(x-2)^2}$.",
-    "solution": "$\\frac A{x-1}+\\frac B{(x-2)^2}+\\frac C{x-2}$, $x+1=A(x-2)^2+B(x-1)+C(x-1)(x-2)$. $x=1$: $A=2$; $x=2$: $B=3$; $x=0$: $1=4A-B+2C\\Rightarrow C=-2$. Výsledek: $\\frac2{x-1}+\\frac3{(x-2)^2}-\\frac2{x-2}$."
+    "solution": "$\\frac A{x-1}+\\frac B{(x-2)^2}+\\frac C{x-2}$, $x+1=A(x-2)^2+B(x-1)+C(x-1)(x-2)$. $x=1$: $A=2$; $x=2$: $B=3$; $x=0$: $1=4A-B+2C\\Rightarrow C=-2$. Výsledek: $\\frac2{x-1}+\\frac3{(x-2)^2}-\\frac2{x-2}$.",
+    "hints": [
+      "Kořen $2$ je dvojnásobný, takže potřebuješ zlomky s $(x-2)^2$ i $(x-2)$.",
+      "Ansatz $\\frac A{x-1}+\\frac B{(x-2)^2}+\\frac C{x-2}$, po vynásobení $x+1=A(x-2)^2+B(x-1)+C(x-1)(x-2)$.",
+      "$x=1$ dá $A$, $x=2$ dá $B$; $C$ dopočti dosazením třetí hodnoty (např. $x=0$) nebo porovnáním koeficientů u $x^2$."
+    ]
   }
 ]

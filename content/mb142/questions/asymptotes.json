@@ -5,7 +5,12 @@
     "prompt": "Funkce $f(x)=\\dfrac1{x-3}$ má svislou asymptotu $x=x_0$. Urči $x_0$.",
     "answer": 3,
     "tolerance": 0.001,
-    "solution": "$\\lim_{x\\to3^+}\\frac1{x-3}=+\\infty$, $\\lim_{x\\to3^-}=-\\infty$ ⇒ $x=3$."
+    "solution": "$\\lim_{x\\to3^+}\\frac1{x-3}=+\\infty$, $\\lim_{x\\to3^-}=-\\infty$ ⇒ $x=3$.",
+    "hints": [
+      "Svislá asymptota je tam, kde je jednostranná limita nevlastní.",
+      "Kandidát je nula jmenovatele.",
+      "Ověř limity pro $x\\to x_0^\\pm$."
+    ]
   },
   {
     "id": "asy-oblique-b",
@@ -13,7 +18,12 @@
     "prompt": "Funkce $f(x)=\\dfrac{2x^2+3x}{x+1}$ má asymptotu $y=ax+b$ v $+\\infty$. Urči $b$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "$a=\\lim\\frac{2x^2+3x}{x(x+1)}=2$. $b=\\lim\\left[\\frac{2x^2+3x}{x+1}-2x\\right]=\\lim\\frac{x}{x+1}=1$. Asymptota $y=2x+1$."
+    "solution": "$a=\\lim\\frac{2x^2+3x}{x(x+1)}=2$. $b=\\lim\\left[\\frac{2x^2+3x}{x+1}-2x\\right]=\\lim\\frac{x}{x+1}=1$. Asymptota $y=2x+1$.",
+    "hints": [
+      "Šikmá asymptota $y=ax+b$: $a=\\lim\\frac{f(x)}x$, $b=\\lim(f(x)-ax)$.",
+      "Nejdřív spočti $a=\\lim\\frac{2x^2+3x}{x(x+1)}$.",
+      "Pak $b=\\lim\\left[\\frac{2x^2+3x}{x+1}-ax\\right]$; sjednoť na společný zlomek a zkrať."
+    ]
   },
   {
     "id": "asy-sqrt-minus",
@@ -21,7 +31,12 @@
     "prompt": "Funkce $f(x)=\\sqrt{x^2+1}$ má v $-\\infty$ asymptotu $y=a^-x+b^-$. Urči $a^-$.",
     "answer": -1,
     "tolerance": 0.001,
-    "solution": "Pro $x\\to-\\infty$ je $\\sqrt{x^2+1}\\approx|x|=-x$. $a^-=\\lim\\frac{\\sqrt{x^2+1}}{x}=\\lim\\frac{|x|\\sqrt{1+1/x^2}}{x}=-1$, $b^-=0$. Asymptota je $y=-x$ (v $+\\infty$ je $y=x$)."
+    "solution": "Pro $x\\to-\\infty$ je $\\sqrt{x^2+1}\\approx|x|=-x$. $a^-=\\lim\\frac{\\sqrt{x^2+1}}{x}=\\lim\\frac{|x|\\sqrt{1+1/x^2}}{x}=-1$, $b^-=0$. Asymptota je $y=-x$ (v $+\\infty$ je $y=x$).",
+    "hints": [
+      "Šikmá asymptota: $a^-=\\lim_{x\\to-\\infty}\\frac{f(x)}x$.",
+      "Pro $x<0$ je $\\sqrt{x^2}=|x|=-x$.",
+      "Vytkni $|x|$ z odmocniny a dosaď limitu $\\frac1{x^2}\\to0$; pozor na znaménko."
+    ]
   },
   {
     "id": "asy-arctan",
@@ -29,7 +44,12 @@
     "prompt": "Funkce $f(x)=\\operatorname{arctg}x$ má vodorovnou asymptotu $y=b^+$ v $+\\infty$. Urči $b^+$ (4 desetinná místa).",
     "answer": 1.5708,
     "tolerance": 0.001,
-    "solution": "$\\lim_{x\\to\\infty}\\operatorname{arctg}x=\\frac\\pi2\\approx1{,}5708$ ($a=0$). V $-\\infty$ je asymptota $y=-\\frac\\pi2$."
+    "solution": "$\\lim_{x\\to\\infty}\\operatorname{arctg}x=\\frac\\pi2\\approx1{,}5708$ ($a=0$). V $-\\infty$ je asymptota $y=-\\frac\\pi2$.",
+    "hints": [
+      "Vodorovná asymptota v $+\\infty$: $b^+=\\lim_{x\\to\\infty}f(x)$.",
+      "Vzpomeň si na hodnotu, ke které se blíží $\\operatorname{arctg}x$.",
+      "Vyčísli tuto hodnotu na 4 desetinná místa."
+    ]
   },
   {
     "id": "asy-count",
@@ -37,7 +57,12 @@
     "prompt": "Kolik asymptot (svislých i vodorovných/šikmých, každou přímku jednou) má funkce $f(x)=\\dfrac{x^2-1}{x^2-4}$?",
     "answer": 3,
     "tolerance": 0.001,
-    "solution": "Svislé: $x=2$ a $x=-2$ (nuly jmenovatele, čitatel tam nenulový). V $\\pm\\infty$ je $f\\to1$, tedy $y=1$ (obě strany stejná přímka). Celkem 3."
+    "solution": "Svislé: $x=2$ a $x=-2$ (nuly jmenovatele, čitatel tam nenulový). V $\\pm\\infty$ je $f\\to1$, tedy $y=1$ (obě strany stejná přímka). Celkem 3.",
+    "hints": [
+      "Hledej svislé asymptoty (nuly jmenovatele) a asymptoty v $\\pm\\infty$.",
+      "Rozlož jmenovatele $x^2-4$ a ověř, že čitatel tam není nulový.",
+      "Spočti $\\lim_{x\\to\\pm\\infty}f(x)$; pokud je stejná přímka na obou stranách, počítá se jednou."
+    ]
   },
   {
     "id": "asy-ln",
@@ -50,7 +75,12 @@
       "žádnou"
     ],
     "answer": 0,
-    "solution": "$\\lim_{x\\to0^+}\\ln x=-\\infty$ ⇒ $x=0$. V $\\infty$: $a=\\lim\\frac{\\ln x}x=0$, ale $b=\\lim\\ln x=\\infty$ není vlastní ⇒ asymptota v $\\infty$ není."
+    "solution": "$\\lim_{x\\to0^+}\\ln x=-\\infty$ ⇒ $x=0$. V $\\infty$: $a=\\lim\\frac{\\ln x}x=0$, ale $b=\\lim\\ln x=\\infty$ není vlastní ⇒ asymptota v $\\infty$ není.",
+    "hints": [
+      "Zvlášť vyšetři $x\\to0^+$ a $x\\to\\infty$.",
+      "Svislá: $\\lim_{x\\to0^+}\\ln x$. V $\\infty$: $a=\\lim\\frac{\\ln x}{x}$.",
+      "Pro asymptotu v $\\infty$ musí být i $b=\\lim(f-ax)$ konečné; ověř to."
+    ]
   },
   {
     "id": "asy-sin-over-x",
@@ -63,7 +93,12 @@
       "nelze určit"
     ],
     "answer": 0,
-    "solution": "Svislá asymptota vyžaduje alespoň jednu nevlastní jednostrannou limitu; zde jsou obě rovny $1$. Nespojitost (odstranitelná) tedy asymptotu nedává. Vodorovná asymptota je $y=0$ v $\\pm\\infty$."
+    "solution": "Svislá asymptota vyžaduje alespoň jednu nevlastní jednostrannou limitu; zde jsou obě rovny $1$. Nespojitost (odstranitelná) tedy asymptotu nedává. Vodorovná asymptota je $y=0$ v $\\pm\\infty$.",
+    "hints": [
+      "Svislá asymptota vyžaduje nevlastní jednostrannou limitu.",
+      "Spočti $\\lim_{x\\to0^\\pm}\\frac{\\sin x}{x}$.",
+      "Jsou limity konečné? Pak jde o odstranitelnou nespojitost."
+    ]
   },
   {
     "id": "asym-x2p1",

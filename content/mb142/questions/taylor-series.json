@@ -5,7 +5,12 @@
     "prompt": "Urči koeficient u $x^4$ v Maclaurinově řadě funkce $\\cos x$ (desetinné číslo).",
     "answer": 0.041667,
     "tolerance": 0.001,
-    "solution": "$\\cos x=\\sum\\frac{(-1)^nx^{2n}}{(2n)!}$, pro $n=2$: $\\frac{1}{4!}=\\frac1{24}\\approx0{,}0417$."
+    "solution": "$\\cos x=\\sum\\frac{(-1)^nx^{2n}}{(2n)!}$, pro $n=2$: $\\frac{1}{4!}=\\frac1{24}\\approx0{,}0417$.",
+    "hints": [
+      "Použij známou Maclaurinovu řadu $\\cos x=\\sum\\frac{(-1)^nx^{2n}}{(2n)!}$.",
+      "Exponent $4$ odpovídá $2n=4$, tedy $n=2$.",
+      "Dosaď $n=2$ a spočti $\\frac{(-1)^2}{4!}$."
+    ]
   },
   {
     "id": "ts-coef-exp-sq",
@@ -13,31 +18,66 @@
     "prompt": "Urči koeficient u $x^6$ v Maclaurinově řadě funkce $e^{-x^2}$.",
     "answer": -0.166667,
     "tolerance": 0.001,
-    "solution": "$e^{-x^2}=\\sum\\frac{(-1)^nx^{2n}}{n!}$, pro $2n=6$ je $n=3$: $\\frac{(-1)^3}{3!}=-\\frac16\\approx-0{,}1667$."
+    "solution": "$e^{-x^2}=\\sum\\frac{(-1)^nx^{2n}}{n!}$, pro $2n=6$ je $n=3$: $\\frac{(-1)^3}{3!}=-\\frac16\\approx-0{,}1667$.",
+    "hints": [
+      "Dosaď $-x^2$ do řady $e^t=\\sum\\frac{t^n}{n!}$.",
+      "$e^{-x^2}=\\sum\\frac{(-1)^nx^{2n}}{n!}$.",
+      "Pro $x^6$ je $2n=6$, tedy $n=3$; dosaď."
+    ]
   },
   {
     "id": "ts-coef-formula",
     "type": "choice",
     "prompt": "Koeficient $a_n$ u $(x-x_0)^n$ v Taylorově řadě funkce $f$ je:",
-    "options": ["$\\dfrac{f^{(n)}(x_0)}{n!}$", "$f^{(n)}(x_0)$", "$\\dfrac{f^{(n)}(x_0)}{n}$", "$\\dfrac{f^{(n)}(0)}{n!}$"],
+    "options": [
+      "$\\dfrac{f^{(n)}(x_0)}{n!}$",
+      "$f^{(n)}(x_0)$",
+      "$\\dfrac{f^{(n)}(x_0)}{n}$",
+      "$\\dfrac{f^{(n)}(0)}{n!}$"
+    ],
     "answer": 0,
-    "solution": "Z derivování rozvoje $f(x)=\\sum a_n(x-x_0)^n$ plyne $f^{(n)}(x_0)=n!\\,a_n$."
+    "solution": "Z derivování rozvoje $f(x)=\\sum a_n(x-x_0)^n$ plyne $f^{(n)}(x_0)=n!\\,a_n$.",
+    "hints": [
+      "Odvoď z rozvoje $f(x)=\\sum a_n(x-x_0)^n$ derivováním.",
+      "$n$-tá derivace v $x_0$ zůstane jen u členu $a_n(x-x_0)^n$: dává $n!\\,a_n$.",
+      "Vyjádři $a_n$; pozor na derivaci v bodě $x_0$, ne v $0$."
+    ]
   },
   {
     "id": "ts-nonconv",
     "type": "choice",
     "prompt": "Funkce $f(x)=e^{-1/x^2}$, $f(0)=0$, má v $x_0=0$ všechny derivace nulové. Její Maclaurinova řada:",
-    "options": ["je nulová a konverguje k $f$ jen v $x=0$", "konverguje k $f$ na celém $\\mathbb R$", "má poloměr konvergence $R=0$", "nekonverguje nikde"],
+    "options": [
+      "je nulová a konverguje k $f$ jen v $x=0$",
+      "konverguje k $f$ na celém $\\mathbb R$",
+      "má poloměr konvergence $R=0$",
+      "nekonverguje nikde"
+    ],
     "answer": 0,
-    "solution": "Řada je $0+0\\cdot x+\\dots=0$ (konverguje na $\\mathbb R$, $R=\\infty$), ale $f(x)\\neq0$ pro $x\\neq0$. Taylorova řada tedy nemusí konvergovat k $f$."
+    "solution": "Řada je $0+0\\cdot x+\\dots=0$ (konverguje na $\\mathbb R$, $R=\\infty$), ale $f(x)\\neq0$ pro $x\\neq0$. Taylorova řada tedy nemusí konvergovat k $f$.",
+    "hints": [
+      "Všechny koeficienty jsou $\\frac{f^{(n)}(0)}{n!}$.",
+      "Pokud jsou všechny derivace nulové, jaká je celá řada a kde konverguje?",
+      "Porovnej součet řady s hodnotou $f(x)$ pro $x\\ne0$, kde $e^{-1/x^2}>0$."
+    ]
   },
   {
     "id": "ts-xsin",
     "type": "choice",
     "prompt": "Maclaurinova řada funkce $x\\sin x$ je:",
-    "options": ["$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+2}}{(2n+1)!}$", "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{(2n+1)!}$", "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+2}}{(2n+2)!}$", "$\\displaystyle\\sum_{n=0}^\\infty\\frac{x^{2n+2}}{(2n+1)!}$"],
+    "options": [
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+2}}{(2n+1)!}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{(2n+1)!}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+2}}{(2n+2)!}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{x^{2n+2}}{(2n+1)!}$"
+    ],
     "answer": 0,
-    "solution": "$x\\cdot\\sum\\frac{(-1)^nx^{2n+1}}{(2n+1)!}$ zvýší exponent o 1 a jmenovatel zůstane $(2n+1)!$."
+    "solution": "$x\\cdot\\sum\\frac{(-1)^nx^{2n+1}}{(2n+1)!}$ zvýší exponent o 1 a jmenovatel zůstane $(2n+1)!$.",
+    "hints": [
+      "Vynásob řadu pro $\\sin x$ činitelem $x$.",
+      "$\\sin x=\\sum\\frac{(-1)^nx^{2n+1}}{(2n+1)!}$.",
+      "Vynásobení $x$ změní jen exponent; jmenovatel s faktoriálem zůstane."
+    ]
   },
   {
     "id": "ts-limit",
@@ -45,7 +85,12 @@
     "prompt": "Pomocí Maclaurinovy řady spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sin x}{x}$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "$\\frac{\\sin x}{x}=1-\\frac{x^2}{3!}+\\frac{x^4}{5!}-\\dots\\to1$ pro $x\\to0$."
+    "solution": "$\\frac{\\sin x}{x}=1-\\frac{x^2}{3!}+\\frac{x^4}{5!}-\\dots\\to1$ pro $x\\to0$.",
+    "hints": [
+      "Dosaď Maclaurinovu řadu $\\sin x$ a vyděl $x$.",
+      "$\\frac{\\sin x}{x}=1-\\frac{x^2}{3!}+\\frac{x^4}{5!}-\\dots$.",
+      "Pro $x\\to0$ všechny členy s mocninou $x$ vymizí."
+    ]
   },
   {
     "id": "ts-approx-e",
@@ -53,7 +98,12 @@
     "prompt": "Přibliž $e=e^1$ součtem prvních pěti členů řady $\\sum\\frac{x^n}{n!}$ (do $n=4$). Zaokrouhli na 3 desetinná místa.",
     "answer": 2.708,
     "tolerance": 0.002,
-    "solution": "$1+1+\\frac12+\\frac16+\\frac1{24}=\\frac{65}{24}\\approx2{,}7083$."
+    "solution": "$1+1+\\frac12+\\frac16+\\frac1{24}=\\frac{65}{24}\\approx2{,}7083$.",
+    "hints": [
+      "Dosaď $x=1$ do řady $e^x=\\sum\\frac{x^n}{n!}$.",
+      "Sečti členy $\\frac1{0!},\\frac1{1!},\\frac1{2!},\\frac1{3!},\\frac1{4!}$.",
+      "Použij společný jmenovatel $24$ a zaokrouhli."
+    ]
   },
   {
     "id": "ts-integral-sinx-x",
@@ -61,26 +111,51 @@
     "prompt": "Přibliž $\\displaystyle\\int_0^1\\frac{\\sin x}{x}\\,dx$ integrací prvních tří nenulových členů řady $1-\\frac{x^2}{3!}+\\frac{x^4}{5!}$ (3 desetinná místa).",
     "answer": 0.946,
     "tolerance": 0.002,
-    "solution": "$\\int_0^1\\left(1-\\frac{x^2}{6}+\\frac{x^4}{120}\\right)dx=1-\\frac1{18}+\\frac1{600}\\approx1-0{,}05556+0{,}00167=0{,}9461$."
+    "solution": "$\\int_0^1\\left(1-\\frac{x^2}{6}+\\frac{x^4}{120}\\right)dx=1-\\frac1{18}+\\frac1{600}\\approx1-0{,}05556+0{,}00167=0{,}9461$.",
+    "hints": [
+      "Integruj polynom člen po členu.",
+      "$\\int_0^1x^k\\,dx=\\frac1{k+1}$.",
+      "Sečti $1-\\frac{1}{6\\cdot3}+\\frac{1}{120\\cdot5}$."
+    ]
   },
   {
     "id": "ts-center-2",
     "type": "choice",
     "prompt": "Taylorova řada funkce $f(x)=\\frac1x$ se středem $x_0=2$ konverguje na intervalu:",
-    "options": ["$(0,4)$", "$(-2,2)$", "$(1,3)$", "$(0,\\infty)$"],
+    "options": [
+      "$(0,4)$",
+      "$(-2,2)$",
+      "$(1,3)$",
+      "$(0,\\infty)$"
+    ],
     "answer": 0,
-    "solution": "$a_n=\\frac{(-1)^n}{2^{n+1}}$, $\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac12$, tedy $R=2$ a interval je $(2-2,\\,2+2)=(0,4)$. (Krajní body nekonvergují: členy neklesají k $0$.)"
+    "solution": "$a_n=\\frac{(-1)^n}{2^{n+1}}$, $\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac12$, tedy $R=2$ a interval je $(2-2,\\,2+2)=(0,4)$. (Krajní body nekonvergují: členy neklesají k $0$.)",
+    "hints": [
+      "Přepiš $\\frac1x$ jako geometrickou řadu v $(x-2)$: $x=2+(x-2)$.",
+      "$\\frac1x=\\frac1{2}\\cdot\\frac{1}{1+\\frac{x-2}2}$, kvocient $q=-\\frac{x-2}2$.",
+      "Podmínka $|q|<1$ dává $|x-2|<?$; spočti interval."
+    ]
   },
   {
     "id": "ts-exp-neg",
     "type": "free",
     "prompt": "Najdi Maclaurinovu řadu funkce $\\dfrac{1}{1+x^2}$ a uveď, pro která $x$ platí.",
-    "solution": "V $\\frac1{1+t}=\\sum(-1)^nt^n$ ($|t|<1$) dosaď $t=x^2$: $\\frac1{1+x^2}=\\sum_{n=0}^\\infty(-1)^nx^{2n}=1-x^2+x^4-\\dots$ pro $|x|<1$."
+    "solution": "V $\\frac1{1+t}=\\sum(-1)^nt^n$ ($|t|<1$) dosaď $t=x^2$: $\\frac1{1+x^2}=\\sum_{n=0}^\\infty(-1)^nx^{2n}=1-x^2+x^4-\\dots$ pro $|x|<1$.",
+    "hints": [
+      "Použij geometrickou řadu $\\frac1{1+t}$.",
+      "$\\frac1{1+t}=\\sum(-1)^nt^n$ pro $|t|<1$; dosaď $t=x^2$.",
+      "Podmínka $|x^2|<1$ určuje, pro která $x$ rozvoj platí."
+    ]
   },
   {
     "id": "ts-arctan",
     "type": "free",
     "prompt": "Z řady pro $\\frac1{1+x^2}$ odvoď Maclaurinovu řadu funkce $\\operatorname{arctg}x$.",
-    "solution": "Integrací člen po členu: $\\operatorname{arctg}x=\\int_0^x\\frac{dt}{1+t^2}=\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{2n+1}=x-\\frac{x^3}3+\\frac{x^5}5-\\dots$ pro $|x|<1$ (konverguje i v $x=\\pm1$ podle Leibnize)."
+    "solution": "Integrací člen po členu: $\\operatorname{arctg}x=\\int_0^x\\frac{dt}{1+t^2}=\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{2n+1}=x-\\frac{x^3}3+\\frac{x^5}5-\\dots$ pro $|x|<1$ (konverguje i v $x=\\pm1$ podle Leibnize).",
+    "hints": [
+      "Vyjdi z $\\operatorname{arctg}x=\\int_0^x\\frac{dt}{1+t^2}$.",
+      "Dosaď řadu pro $\\frac1{1+t^2}$ a integruj člen po členu.",
+      "Integrál $\\int_0^xt^{2n}dt$ dá $\\frac{x^{2n+1}}{2n+1}$; poznamenej obor platnosti."
+    ]
   }
 ]

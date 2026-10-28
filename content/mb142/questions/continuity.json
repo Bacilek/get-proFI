@@ -5,7 +5,12 @@
     "prompt": "Jakou hodnotu je třeba dodefinovat v bodě $x_0=2$, aby byla funkce $\\dfrac{x^2-4}{x-2}$ spojitá?",
     "answer": 4,
     "tolerance": 0.001,
-    "solution": "$\\lim_{x\\to2}\\frac{x^2-4}{x-2}=\\lim(x+2)=4$, tedy $f(2):=4$."
+    "solution": "$\\lim_{x\\to2}\\frac{x^2-4}{x-2}=\\lim(x+2)=4$, tedy $f(2):=4$.",
+    "hints": [
+      "Spojitost v bodě vyžaduje, aby $f(x_0)$ bylo rovno limitě.",
+      "Zjisti limitu pro $x\\to2$: čitatel rozlož $x^2-4=(x-2)(x+2)$ a zkrať.",
+      "Hodnota $f(2)$ musí být rovna limitě zbylého výrazu pro $x\\to2$."
+    ]
   },
   {
     "id": "cont-param",
@@ -13,7 +18,12 @@
     "prompt": "Pro jaké $a$ je funkce $f(x)=x+1$ pro $x<1$, $f(x)=ax^2$ pro $x\\ge1$ spojitá v $x_0=1$?",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "$\\lim_{x\\to1^-}(x+1)=2$ a $f(1)=a\\cdot1^2=a$, spojitost vyžaduje $a=2$ (zprava je $ax^2$ spojitá, limita $a$)."
+    "solution": "$\\lim_{x\\to1^-}(x+1)=2$ a $f(1)=a\\cdot1^2=a$, spojitost vyžaduje $a=2$ (zprava je $ax^2$ spojitá, limita $a$).",
+    "hints": [
+      "Spojitost v $x_0=1$: levá limita = pravá limita = $f(1)$.",
+      "Spočti $\\lim_{x\\to1^-}(x+1)$ a hodnotu $f(1)=a\\cdot1^2$.",
+      "Porovnej oba výrazy a vyjádři $a$."
+    ]
   },
   {
     "id": "cont-sin3x",
@@ -21,60 +31,130 @@
     "prompt": "Pro jaké $a$ je funkce $f(x)=\\dfrac{\\sin3x}{x}$ pro $x\\ne0$, $f(0)=a$ spojitá v $0$?",
     "answer": 3,
     "tolerance": 0.001,
-    "solution": "$\\lim_{x\\to0}\\frac{\\sin3x}{x}=3\\lim\\frac{\\sin3x}{3x}=3$, tedy $a=3$."
+    "solution": "$\\lim_{x\\to0}\\frac{\\sin3x}{x}=3\\lim\\frac{\\sin3x}{3x}=3$, tedy $a=3$.",
+    "hints": [
+      "Aby byla funkce spojitá, musí $f(0)=a$ být rovno limitě pro $x\\to0$.",
+      "Použij $\\lim_{u\\to0}\\frac{\\sin u}{u}=1$ a rozšiř zlomek: $3\\cdot\\frac{\\sin3x}{3x}$.",
+      "Limita je $3$ krát limita základního tvaru; $a$ položíme rovno této hodnotě."
+    ]
   },
   {
     "id": "cont-type-sgn",
     "type": "choice",
     "prompt": "Jaký typ nespojitosti má $\\operatorname{sgn}x$ v $x_0=0$?",
-    "options": ["skok", "odstranitelná", "2. druhu", "je spojitá"],
+    "options": [
+      "skok",
+      "odstranitelná",
+      "2. druhu",
+      "je spojitá"
+    ],
     "answer": 0,
-    "solution": "Jednostranné limity jsou vlastní ($1$ a $-1$) a různé, takže jde o skok."
+    "solution": "Jednostranné limity jsou vlastní ($1$ a $-1$) a různé, takže jde o skok.",
+    "hints": [
+      "Typ nespojitosti určují jednostranné limity v bodě.",
+      "Spočti $\\lim_{x\\to0^+}\\operatorname{sgn}x$ a $\\lim_{x\\to0^-}\\operatorname{sgn}x$.",
+      "Jsou obě vlastní a různé, nebo nevlastní, nebo stejné? Podle toho vyber typ."
+    ]
   },
   {
     "id": "cont-type-inv-sq",
     "type": "choice",
     "prompt": "Jaký typ nespojitosti má $\\dfrac1{x^2}$ v $x_0=0$?",
-    "options": ["2. druhu (nevlastní limita)", "skok", "odstranitelná", "je spojitá"],
+    "options": [
+      "2. druhu (nevlastní limita)",
+      "skok",
+      "odstranitelná",
+      "je spojitá"
+    ],
     "answer": 0,
-    "solution": "$\\lim_{x\\to0}\\frac1{x^2}=\\infty$ je nevlastní, tedy nespojitost 2. druhu. Odstranitelná vyžaduje vlastní limitu."
+    "solution": "$\\lim_{x\\to0}\\frac1{x^2}=\\infty$ je nevlastní, tedy nespojitost 2. druhu. Odstranitelná vyžaduje vlastní limitu.",
+    "hints": [
+      "Typ nespojitosti určují jednostranné limity v bodě.",
+      "Zjisti, zda je limita $\\frac1{x^2}$ pro $x\\to0$ vlastní.",
+      "Je-li aspoň jedna jednostranná limita nevlastní, jde o nespojitost 2. druhu."
+    ]
   },
   {
     "id": "cont-type-sinx-x",
     "type": "choice",
     "prompt": "Jaký typ nespojitosti má $\\dfrac{\\sin x}{x}$ v $x_0=0$?",
-    "options": ["odstranitelná", "skok", "2. druhu", "je spojitá v $0$"],
+    "options": [
+      "odstranitelná",
+      "skok",
+      "2. druhu",
+      "je spojitá v $0$"
+    ],
     "answer": 0,
-    "solution": "$\\lim_{x\\to0}\\frac{\\sin x}{x}=1$ existuje, ale $f(0)$ není definováno, nespojitost je odstranitelná."
+    "solution": "$\\lim_{x\\to0}\\frac{\\sin x}{x}=1$ existuje, ale $f(0)$ není definováno, nespojitost je odstranitelná.",
+    "hints": [
+      "Zjisti, zda limita v bodě existuje a je vlastní.",
+      "Vzpomeň si na základní limitu $\\lim_{x\\to0}\\frac{\\sin x}{x}$.",
+      "Limita je vlastní, ale funkce v $0$ není definovaná; který typ nespojitosti to je?"
+    ]
   },
   {
     "id": "cont-bolzano",
     "type": "choice",
     "prompt": "Co lze o rovnici $x^3+x-1=0$ říct z Bolzanovy věty na $[0,1]$?",
-    "options": ["má kořen v $(0,1)$, protože $f(0)=-1$, $f(1)=1$", "má právě jeden kořen v $[0,1]$", "nemá kořen v $[0,1]$", "kořen je $x=\\tfrac12$"],
+    "options": [
+      "má kořen v $(0,1)$, protože $f(0)=-1$, $f(1)=1$",
+      "má právě jeden kořen v $[0,1]$",
+      "nemá kořen v $[0,1]$",
+      "kořen je $x=\\tfrac12$"
+    ],
     "answer": 0,
-    "solution": "$f$ je spojitá a $f(0)\\cdot f(1)=-1<0$, tedy kořen existuje. Počet kořenů věta neudává (jednoznačnost by plynula z monotonie)."
+    "solution": "$f$ je spojitá a $f(0)\\cdot f(1)=-1<0$, tedy kořen existuje. Počet kořenů věta neudává (jednoznačnost by plynula z monotonie).",
+    "hints": [
+      "Bolzanova věta: spojitá $f$ na $[a,b]$ s $f(a)f(b)<0$ má kořen v $(a,b)$.",
+      "Spočti $f(0)$ a $f(1)$ pro $f(x)=x^3+x-1$.",
+      "Věta zaručuje existenci kořene, ale ne jeho jednoznačnost ani přesnou hodnotu; vyřaď možnosti, které tvrdí víc."
+    ]
   },
   {
     "id": "cont-weierstrass",
     "type": "choice",
     "prompt": "Která funkce na daném intervalu nenabývá maxima, ačkoli je spojitá?",
-    "options": ["$x$ na $(0,1)$", "$x^2$ na $[0,1]$", "$\\sin x$ na $[0,\\pi]$", "$|x|$ na $[-1,1]$"],
+    "options": [
+      "$x$ na $(0,1)$",
+      "$x^2$ na $[0,1]$",
+      "$\\sin x$ na $[0,\\pi]$",
+      "$|x|$ na $[-1,1]$"
+    ],
     "answer": 0,
-    "solution": "Interval $(0,1)$ není uzavřený, takže Weierstrassova věta neplatí; supremum $1$ se nenabývá. Ostatní jsou na $[a,b]$."
+    "solution": "Interval $(0,1)$ není uzavřený, takže Weierstrassova věta neplatí; supremum $1$ se nenabývá. Ostatní jsou na $[a,b]$.",
+    "hints": [
+      "Weierstrassova věta zaručuje maximum pro spojitou funkci na uzavřeném omezeném intervalu $[a,b]$.",
+      "Hledej možnost s intervalem, který uzavřený není.",
+      "Zvaž, zda se na tomto intervalu supremum funkce nabývá v nějakém bodě."
+    ]
   },
   {
     "id": "cont-two-intervals",
     "type": "choice",
     "prompt": "$f(x)=0$ pro $x<0$, $f(x)=1$ pro $x\\ge0$. Platí:",
-    "options": ["je spojitá na $(-\\infty,0)$ a $[0,\\infty)$, ne na $\\mathbb R$", "je spojitá na $\\mathbb R$", "není spojitá na žádném intervalu", "má v $0$ odstranitelnou nespojitost"],
+    "options": [
+      "je spojitá na $(-\\infty,0)$ a $[0,\\infty)$, ne na $\\mathbb R$",
+      "je spojitá na $\\mathbb R$",
+      "není spojitá na žádném intervalu",
+      "má v $0$ odstranitelnou nespojitost"
+    ],
     "answer": 0,
-    "solution": "V $0$ je skok ($0$ zleva, $1$ zprava), takže na $\\mathbb R$ spojitá není, ale na každém z obou intervalů ano."
+    "solution": "V $0$ je skok ($0$ zleva, $1$ zprava), takže na $\\mathbb R$ spojitá není, ale na každém z obou intervalů ano.",
+    "hints": [
+      "Zjisti chování funkce v bodě $0$, kde se mění předpis.",
+      "Spočti jednostranné limity v $0$ a porovnej je s $f(0)$.",
+      "Na každém z obou intervalů je funkce konstantní, tedy spojitá; rozhodni, co z toho plyne pro celou $\\mathbb R$."
+    ]
   },
   {
     "id": "cont-free-def",
     "type": "free",
     "prompt": "Vyjmenuj tři podmínky spojitosti funkce $f$ v bodě $x_0$ a tři typy bodů nespojitosti.",
-    "solution": "Spojitost: existuje vlastní $\\lim_{x\\to x_0}f(x)$, existuje $f(x_0)$, obojí se rovná. Nespojitost: odstranitelná (limita vlastní, ale $\\ne f(x_0)$ / nedefinováno), skok (vlastní, různé jednostranné limity), 2. druhu (aspoň jedna jednostranná limita nevlastní nebo neexistuje)."
+    "solution": "Spojitost: existuje vlastní $\\lim_{x\\to x_0}f(x)$, existuje $f(x_0)$, obojí se rovná. Nespojitost: odstranitelná (limita vlastní, ale $\\ne f(x_0)$ / nedefinováno), skok (vlastní, různé jednostranné limity), 2. druhu (aspoň jedna jednostranná limita nevlastní nebo neexistuje).",
+    "hints": [
+      "Spojitost v bodě má tři části: limita, hodnota funkce, jejich rovnost.",
+      "Napiš $\\lim_{x\\to x_0}f(x)=f(x_0)$ a rozeber, co musí platit, aby měla obě strany smysl.",
+      "Typy nespojitosti rozliš podle jednostranných limit: vlastní a shodné (jen se liší od $f(x_0)$), vlastní a různé, nevlastní/neexistující."
+    ]
   }
 ]

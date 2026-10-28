@@ -10,7 +10,12 @@
       "$R=e$"
     ],
     "answer": 0,
-    "solution": "$\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac{n!}{(n+1)!}=\\frac1{n+1}\\to0$, tedy $a=0$ a $R=\\infty$."
+    "solution": "$\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac{n!}{(n+1)!}=\\frac1{n+1}\\to0$, tedy $a=0$ a $R=\\infty$.",
+    "hints": [
+      "Poloměr konvergence z koeficientů: $R=\\frac{1}{a}$, $a=\\lim\\left|\\frac{a_{n+1}}{a_n}\\right|$.",
+      "$a_n=\\frac1{n!}$, tedy $\\frac{a_{n+1}}{a_n}=\\frac{n!}{(n+1)!}$.",
+      "Zjisti limitu zlomku a pamatuj na konvenci pro $a=0$."
+    ]
   },
   {
     "id": "ps-radius-factorial",
@@ -23,7 +28,12 @@
       "pro $|x|<e$"
     ],
     "answer": 0,
-    "solution": "$\\left|\\frac{a_{n+1}}{a_n}\\right|=n+1\\to\\infty$, tedy $a=\\infty$ a $R=0$. Řada konverguje jen ve středu $x=0$."
+    "solution": "$\\left|\\frac{a_{n+1}}{a_n}\\right|=n+1\\to\\infty$, tedy $a=\\infty$ a $R=0$. Řada konverguje jen ve středu $x=0$.",
+    "hints": [
+      "Poloměr konvergence přes podíl koeficientů.",
+      "$\\frac{a_{n+1}}{a_n}=\\frac{(n+1)!}{n!}$.",
+      "Limita je nekonečno; co to znamená pro $R$ a kde pak řada konverguje?"
+    ]
   },
   {
     "id": "ps-radius-numeric",
@@ -31,7 +41,12 @@
     "prompt": "Urči poloměr konvergence řady $\\displaystyle\\sum_{n=1}^\\infty\\frac{n}{2^n}x^n$.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "$a_n=\\frac{n}{2^n}$, $\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac{n+1}{2n}\\to\\frac12$, tedy $R=\\frac1{1/2}=2$."
+    "solution": "$a_n=\\frac{n}{2^n}$, $\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac{n+1}{2n}\\to\\frac12$, tedy $R=\\frac1{1/2}=2$.",
+    "hints": [
+      "Použij podílový vzorec pro koeficienty: $R=1/\\lim\\left|\\frac{a_{n+1}}{a_n}\\right|$.",
+      "$a_n=\\frac{n}{2^n}$, spočti $\\frac{n+1}{2^{n+1}}\\cdot\\frac{2^n}{n}$.",
+      "Limita $\\frac{n+1}{2n}$ dá $a$; $R$ je její převrácená hodnota."
+    ]
   },
   {
     "id": "ps-radius-gaps",
@@ -44,7 +59,12 @@
       "$R=\\frac14$"
     ],
     "answer": 0,
-    "solution": "Koeficienty u lichých mocnin jsou $0$, vzorec $\\frac{a_{n+1}}{a_n}$ nelze použít. Podílové kritérium na členy: $\\frac{|x|^{2n+2}/4^{n+1}}{|x|^{2n}/4^n}=\\frac{x^2}{4}<1\\iff|x|<2$, tedy $R=2$."
+    "solution": "Koeficienty u lichých mocnin jsou $0$, vzorec $\\frac{a_{n+1}}{a_n}$ nelze použít. Podílové kritérium na členy: $\\frac{|x|^{2n+2}/4^{n+1}}{|x|^{2n}/4^n}=\\frac{x^2}{4}<1\\iff|x|<2$, tedy $R=2$.",
+    "hints": [
+      "Koeficienty u lichých mocnin jsou nulové, proto vzorec s podílem koeficientů nejde použít přímo.",
+      "Použij podílové kritérium na členy $b_n=\\frac{x^{2n}}{4^n}$.",
+      "Spočti $\\left|\\frac{b_{n+1}}{b_n}\\right|$ a řeš nerovnost $<1$ pro $|x|$."
+    ]
   },
   {
     "id": "ps-interval",
@@ -57,7 +77,12 @@
       "$(-1,5]$"
     ],
     "answer": 0,
-    "solution": "$R=3$, střed $2$, tedy $(-1,5)$. V $x=5$ vyjde $\\sum\\frac1n$ (diverguje), v $x=-1$ vyjde $\\sum\\frac{(-1)^n}n$ (konverguje, Leibniz). Obor je $[-1,5)$."
+    "solution": "$R=3$, střed $2$, tedy $(-1,5)$. V $x=5$ vyjde $\\sum\\frac1n$ (diverguje), v $x=-1$ vyjde $\\sum\\frac{(-1)^n}n$ (konverguje, Leibniz). Obor je $[-1,5)$.",
+    "hints": [
+      "Nejprve najdi poloměr $R$ a střed, pak zvlášť vyšetři oba krajní body.",
+      "Podílové kritérium dá $|x-2|<3$, tedy interval se středem $2$ a krajní body $-1$, $5$.",
+      "Dosaď oba krajní body: v jednom vyjde harmonická, ve druhém střídavá řada."
+    ]
   },
   {
     "id": "ps-sum-nxn",
@@ -65,7 +90,12 @@
     "prompt": "Urči součet $\\displaystyle\\sum_{n=1}^\\infty n\\left(\\frac12\\right)^n$.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "Derivací $\\sum x^n=\\frac1{1-x}$ je $\\sum nx^{n-1}=\\frac1{(1-x)^2}$, tedy $\\sum nx^n=\\frac{x}{(1-x)^2}$. Pro $x=\\frac12$: $\\frac{1/2}{1/4}=2$."
+    "solution": "Derivací $\\sum x^n=\\frac1{1-x}$ je $\\sum nx^{n-1}=\\frac1{(1-x)^2}$, tedy $\\sum nx^n=\\frac{x}{(1-x)^2}$. Pro $x=\\frac12$: $\\frac{1/2}{1/4}=2$.",
+    "hints": [
+      "Odvoď ze známé řady $\\sum x^n=\\frac1{1-x}$ derivováním člen po členu.",
+      "Po derivaci je $\\sum nx^{n-1}=\\frac1{(1-x)^2}$; vynásob $x$.",
+      "Dosaď $x=\\frac12$ (je v intervalu konvergence $|x|<1$)."
+    ]
   },
   {
     "id": "ps-sum-log",
@@ -73,7 +103,12 @@
     "prompt": "Urči součet $\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n\\,3^n}$ (zaokrouhli na 3 desetinná místa).",
     "answer": 0.405,
     "tolerance": 0.001,
-    "solution": "$\\sum_{n=1}^\\infty\\frac{x^n}{n}=-\\ln(1-x)$ (integrace geometrické řady). Pro $x=\\frac13$: $-\\ln\\frac23=\\ln\\frac32\\approx0{,}4055$."
+    "solution": "$\\sum_{n=1}^\\infty\\frac{x^n}{n}=-\\ln(1-x)$ (integrace geometrické řady). Pro $x=\\frac13$: $-\\ln\\frac23=\\ln\\frac32\\approx0{,}4055$.",
+    "hints": [
+      "Připomeň řadu $\\sum\\frac{x^n}{n}$ získanou integrací geometrické řady.",
+      "Platí $\\sum_{n\\ge1}\\frac{x^n}{n}=-\\ln(1-x)$ pro $|x|<1$; zde $x=\\frac13$.",
+      "Dosaď do $-\\ln(1-x)$, zjednoduš a zaokrouhli."
+    ]
   },
   {
     "id": "ps-sum-geometric-center",
@@ -81,13 +116,23 @@
     "prompt": "Pro $x\\in(0,4)$ platí $\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^n}{2^n}(x-2)^n=\\frac{2}{x}$. Kolik je součet pro $x=3$ (zaokrouhli na 3 desetinná místa)?",
     "answer": 0.667,
     "tolerance": 0.001,
-    "solution": "Geometrická řada s $q=-\\frac{x-2}2$, $|q|<1\\iff x\\in(0,4)$; součet $\\frac1{1-q}=\\frac{2}{x}$. Pro $x=3$: $\\frac23\\approx0{,}667$."
+    "solution": "Geometrická řada s $q=-\\frac{x-2}2$, $|q|<1\\iff x\\in(0,4)$; součet $\\frac1{1-q}=\\frac{2}{x}$. Pro $x=3$: $\\frac23\\approx0{,}667$.",
+    "hints": [
+      "Řada je geometrická v proměnné $x-2$ – stačí dosadit hodnotu.",
+      "Pro $x=3$ je $x-2=1$, tedy $q=-\\frac12$.",
+      "Můžeš buď sečíst geometrickou řadu s $q=-\\frac12$, nebo dosadit do vzorce $\\frac2x$."
+    ]
   },
   {
     "id": "ps-arctan",
     "type": "free",
     "prompt": "Odvoď mocninnou řadu pro $\\operatorname{arctg}x$ a pomocí ní sečti $1-\\frac13+\\frac15-\\frac17+\\dots$",
-    "solution": "$\\frac1{1+t^2}=\\sum_{n=0}^\\infty(-1)^nt^{2n}$ pro $|t|<1$. Integrace od $0$ do $x$: $\\operatorname{arctg}x=\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{2n+1}$, $R=1$. V $x=1$ řada konverguje (Leibniz), podle spojitosti zleva (Abel) platí rovnost i tam: $1-\\frac13+\\frac15-\\dots=\\operatorname{arctg}1=\\frac\\pi4$."
+    "solution": "$\\frac1{1+t^2}=\\sum_{n=0}^\\infty(-1)^nt^{2n}$ pro $|t|<1$. Integrace od $0$ do $x$: $\\operatorname{arctg}x=\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{2n+1}$, $R=1$. V $x=1$ řada konverguje (Leibniz), podle spojitosti zleva (Abel) platí rovnost i tam: $1-\\frac13+\\frac15-\\dots=\\operatorname{arctg}1=\\frac\\pi4$.",
+    "hints": [
+      "Vyjdi z geometrické řady pro $\\frac1{1+t^2}$ a integruj člen po členu.",
+      "$\\frac1{1+t^2}=\\sum(-1)^nt^{2n}$ pro $|t|<1$; integruj od $0$ do $x$ a dostaneš řadu pro $\\operatorname{arctg}x$.",
+      "Zkoumej krajní bod $x=1$ (Leibniz) a pomocí spojitosti dosaď $x=1$; zjisti, jakou hodnotu má $\\operatorname{arctg}1$."
+    ]
   },
   {
     "id": "ps-interval-sqrt",

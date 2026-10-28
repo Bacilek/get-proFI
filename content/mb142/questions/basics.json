@@ -5,7 +5,12 @@
     "prompt": "Urči $\\sup A$ pro $A=(0,3)$.",
     "answer": 3,
     "tolerance": 0.001,
-    "solution": "$3$ je nejmenší horní závora; v $A$ ale neleží, takže maximum neexistuje."
+    "solution": "$3$ je nejmenší horní závora; v $A$ ale neleží, takže maximum neexistuje.",
+    "hints": [
+      "Supremum je nejmenší horní závora množiny.",
+      "Horní závory intervalu $(0,3)$ jsou všechna čísla $\\ge$ jeho pravému konci.",
+      "Najdi nejmenší z nich; na tom, že do $A$ nepatří, nezáleží."
+    ]
   },
   {
     "id": "bs-inf-seq",
@@ -13,30 +18,65 @@
     "prompt": "Urči $\\inf A$ pro $A=\\{\\tfrac1n:n=1,2,3,\\dots\\}$.",
     "answer": 0,
     "tolerance": 0.001,
-    "solution": "Všechny členy jsou kladné a libovolně se blíží k $0$, takže $\\inf A=0$. Minimum neexistuje ($0\\notin A$), maximum je $1$."
+    "solution": "Všechny členy jsou kladné a libovolně se blíží k $0$, takže $\\inf A=0$. Minimum neexistuje ($0\\notin A$), maximum je $1$.",
+    "hints": [
+      "Infimum je největší dolní závora; zapiš si první členy $1,\\tfrac12,\\tfrac13,\\dots$",
+      "Všechny členy jsou kladné, tedy $0$ je dolní závora.",
+      "Zkus, zda by mohla být dolní závorou nějaká větší kladná hodnota (členy se k $0$ libovolně blíží)."
+    ]
   },
   {
     "id": "bs-max-exists",
     "type": "choice",
     "prompt": "Která z množin má maximum?",
-    "options": ["$(0,1)$", "$[0,1)$", "$(0,1]$", "$(-\\infty,\\infty)$"],
+    "options": [
+      "$(0,1)$",
+      "$[0,1)$",
+      "$(0,1]$",
+      "$(-\\infty,\\infty)$"
+    ],
     "answer": 2,
-    "solution": "Maximum $1$ má jen $(0,1]$, protože $1$ do ní patří. U $(0,1)$ a $[0,1)$ je $1=\\sup$, ale není prvkem; $\\mathbb R$ není shora omezená."
+    "solution": "Maximum $1$ má jen $(0,1]$, protože $1$ do ní patří. U $(0,1)$ a $[0,1)$ je $1=\\sup$, ale není prvkem; $\\mathbb R$ není shora omezená.",
+    "hints": [
+      "Maximum musí být prvkem množiny a zároveň největším prvkem.",
+      "Ke každé množině zjisti, jaké je její supremum a zda do ní patří.",
+      "Hledáš množinu, jejíž pravý konec je shora omezený a je uzavřený (patří do ní)."
+    ]
   },
   {
     "id": "bs-sup-vs-max",
     "type": "choice",
     "prompt": "Množina $A=\\{1-\\tfrac1n:n\\ge1\\}$. Které tvrzení platí?",
-    "options": ["$\\sup A=1$, maximum neexistuje", "$\\sup A=1$ a $\\max A=1$", "$\\sup A$ neexistuje", "$\\sup A=\\tfrac12$"],
+    "options": [
+      "$\\sup A=1$, maximum neexistuje",
+      "$\\sup A=1$ a $\\max A=1$",
+      "$\\sup A$ neexistuje",
+      "$\\sup A=\\tfrac12$"
+    ],
     "answer": 0,
-    "solution": "Členy $0,\\tfrac12,\\tfrac23,\\dots$ rostou k $1$, ale $1$ nikdy nenabudou: $1-\\tfrac1n<1$. Množina je shora omezená, tedy supremum $1$ existuje, maximum ne."
+    "solution": "Členy $0,\\tfrac12,\\tfrac23,\\dots$ rostou k $1$, ale $1$ nikdy nenabudou: $1-\\tfrac1n<1$. Množina je shora omezená, tedy supremum $1$ existuje, maximum ne.",
+    "hints": [
+      "Zapiš si několik prvních členů $1-\\tfrac1n$ a sleduj, kam rostou.",
+      "Zjisti, zda je množina shora omezená a čemu se členy blíží.",
+      "Ověř, zda nějaké $n$ dá přímo hodnotu supréma, tj. zda supremum leží v množině."
+    ]
   },
   {
     "id": "bs-interval-notation",
     "type": "choice",
     "prompt": "Který zápis je správný?",
-    "options": ["$[2,\\infty)$", "$[2,\\infty]$", "$(2,\\infty]$", "$[\\infty,2)$"],
+    "options": [
+      "$[2,\\infty)$",
+      "$[2,\\infty]$",
+      "$(2,\\infty]$",
+      "$[\\infty,2)$"
+    ],
     "answer": 0,
-    "solution": "$\\infty$ do intervalu nikdy nepatří, proto vždy kulatá závorka u $\\infty$."
+    "solution": "$\\infty$ do intervalu nikdy nepatří, proto vždy kulatá závorka u $\\infty$.",
+    "hints": [
+      "Závorka vyjadřuje, zda krajní bod do intervalu patří.",
+      "$\\infty$ není reálné číslo.",
+      "Hledej zápis, kde je u $\\infty$ kulatá závorka a nekonečno stojí vpravo."
+    ]
   }
 ]

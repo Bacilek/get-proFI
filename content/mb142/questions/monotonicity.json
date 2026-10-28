@@ -5,7 +5,12 @@
     "prompt": "Funkce $f(x)=x^3-3x$ má lokální maximum v $x=-1$. Jaká je hodnota $f(-1)$?",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "$f'=3x^2-3=0\\Rightarrow x=\\pm1$; $f'$ mění znaménko z $+$ na $-$ v $x=-1$ ⇒ maximum. $f(-1)=-1+3=2$."
+    "solution": "$f'=3x^2-3=0\\Rightarrow x=\\pm1$; $f'$ mění znaménko z $+$ na $-$ v $x=-1$ ⇒ maximum. $f(-1)=-1+3=2$.",
+    "hints": [
+      "Lokální extrémy hledej mezi stacionárními body, kde $f'=0$.",
+      "$f'(x)=3x^2-3$; zjisti, jak se mění znaménko $f'$ kolem $x=-1$.",
+      "Dosaď $x=-1$ do $f$."
+    ]
   },
   {
     "id": "mon-global-interval",
@@ -13,7 +18,12 @@
     "prompt": "Urči globální minimum funkce $f(x)=x^3-3x$ na intervalu $[0,2]$.",
     "answer": -2,
     "tolerance": 0.001,
-    "solution": "Stacionární bod v intervalu: $x=1$. $f(0)=0$, $f(1)=-2$, $f(2)=8-6=2$. Minimum je $-2$ (v $x=1$)."
+    "solution": "Stacionární bod v intervalu: $x=1$. $f(0)=0$, $f(1)=-2$, $f(2)=8-6=2$. Minimum je $-2$ (v $x=1$).",
+    "hints": [
+      "Na uzavřeném intervalu se globální extrém nabývá ve stacionárním bodě nebo v krajním bodě.",
+      "$f'=3x^2-3=0$ dá $x=\\pm1$; do $[0,2]$ patří jen jeden z nich.",
+      "Porovnej hodnoty $f$ v $0$, ve stacionárním bodě a v $2$ a vyber nejmenší."
+    ]
   },
   {
     "id": "mon-xexp",
@@ -21,7 +31,12 @@
     "prompt": "Najdi maximální hodnotu funkce $f(x)=xe^{-x}$ na $\\mathbb R$ (3 desetinná místa).",
     "answer": 0.3679,
     "tolerance": 0.001,
-    "solution": "$f'=(1-x)e^{-x}$, stacionární bod $x=1$; $f'>0$ pro $x<1$, $<0$ pro $x>1$ ⇒ max. $f(1)=e^{-1}\\approx0{,}3679$."
+    "solution": "$f'=(1-x)e^{-x}$, stacionární bod $x=1$; $f'>0$ pro $x<1$, $<0$ pro $x>1$ ⇒ max. $f(1)=e^{-1}\\approx0{,}3679$.",
+    "hints": [
+      "Najdi stacionární body ($f'=0$) a urči znaménko $f'$.",
+      "$f'=(1-x)e^{-x}$ (derivace součinu); $e^{-x}>0$.",
+      "Znaménko $f'$ se mění v $x=1$ z $+$ na $-$; dosaď $x=1$ do $f$."
+    ]
   },
   {
     "id": "mon-count-extrema",
@@ -29,28 +44,58 @@
     "prompt": "Kolik lokálních extrémů má funkce $f(x)=x^4-2x^2$?",
     "answer": 3,
     "tolerance": 0.001,
-    "solution": "$f'=4x^3-4x=4x(x-1)(x+1)$. Znaménko $f'$: $-,\\,+,\\,-,\\,+$ na intervalech oddělených $-1,0,1$ – změna v každém, tedy min v $\\pm1$ a max v $0$: 3 extrémy."
+    "solution": "$f'=4x^3-4x=4x(x-1)(x+1)$. Znaménko $f'$: $-,\\,+,\\,-,\\,+$ na intervalech oddělených $-1,0,1$ – změna v každém, tedy min v $\\pm1$ a max v $0$: 3 extrémy.",
+    "hints": [
+      "Lokální extrémy jsou v bodech, kde $f'$ mění znaménko.",
+      "Rozlož $f'=4x^3-4x=4x(x-1)(x+1)$.",
+      "Sestav tabulku znamének $f'$ na intervalech mezi kořeny a spočítej změny."
+    ]
   },
   {
     "id": "mon-cube",
     "type": "choice",
     "prompt": "Funkce $f(x)=x^3$ má $f'(0)=0$. Co platí v bodě $0$?",
-    "options": ["není tam lokální extrém, funkce roste", "lokální minimum", "lokální maximum", "inflexe tam nemůže být"],
+    "options": [
+      "není tam lokální extrém, funkce roste",
+      "lokální minimum",
+      "lokální maximum",
+      "inflexe tam nemůže být"
+    ],
     "answer": 0,
-    "solution": "$f'=3x^2\\ge0$ všude, takže $f'$ nemění znaménko ⇒ žádný extrém, funkce je rostoucí na $\\mathbb R$. ($f''(0)=0$ test podle druhé derivace neřeší.)"
+    "solution": "$f'=3x^2\\ge0$ všude, takže $f'$ nemění znaménko ⇒ žádný extrém, funkce je rostoucí na $\\mathbb R$. ($f''(0)=0$ test podle druhé derivace neřeší.)",
+    "hints": [
+      "$f'(0)=0$ je jen nutná podmínka extrému; rozhoduje změna znaménka $f'$.",
+      "$f'(x)=3x^2$; jaké má znaménko vlevo a vpravo od $0$?",
+      "Pokud $f'$ znaménko nemění, extrém není a funkce je monotónní."
+    ]
   },
   {
     "id": "mon-fourth",
     "type": "choice",
     "prompt": "Pro $f(x)=x^4$ je $f'(0)=f''(0)=f'''(0)=0$ a $f^{(4)}(0)=24$. Co plyne z poznámky o prvním nenulovém řádu derivace?",
-    "options": ["ostré lokální minimum (řád sudý, hodnota kladná)", "ostré lokální maximum", "žádný extrém (řád sudý)", "žádný extrém (řád lichý)"],
+    "options": [
+      "ostré lokální minimum (řád sudý, hodnota kladná)",
+      "ostré lokální maximum",
+      "žádný extrém (řád sudý)",
+      "žádný extrém (řád lichý)"
+    ],
     "answer": 0,
-    "solution": "První nenulová derivace má řád $k=4$ (sudé) a je kladná ⇒ ostré lokální minimum."
+    "solution": "První nenulová derivace má řád $k=4$ (sudé) a je kladná ⇒ ostré lokální minimum.",
+    "hints": [
+      "Pravidlo o prvním nenulovém řádu derivace: rozhoduje parita řádu $k$ a znaménko $f^{(k)}(x_0)$.",
+      "Zde je $k=4$; je to sudé nebo liché číslo?",
+      "Sudé $k$ znamená extrém; kladná hodnota odpovídá minimu, záporná maximu."
+    ]
   },
   {
     "id": "mon-abs",
     "type": "free",
     "prompt": "Má funkce $f(x)=|x|$ lokální extrém v $x=0$? Zdůvodni, i když $f'(0)$ neexistuje.",
-    "solution": "Ano, ostré lokální (i globální) minimum: $f(x)=|x|>0=f(0)$ pro $x\\ne0$. Derivace v $0$ neexistuje, takže jde o kandidáta z druhé skupiny (bod bez derivace); $f'=-1$ vlevo a $+1$ vpravo, znaménko se mění z $-$ na $+$."
+    "solution": "Ano, ostré lokální (i globální) minimum: $f(x)=|x|>0=f(0)$ pro $x\\ne0$. Derivace v $0$ neexistuje, takže jde o kandidáta z druhé skupiny (bod bez derivace); $f'=-1$ vlevo a $+1$ vpravo, znaménko se mění z $-$ na $+$.",
+    "hints": [
+      "Extrém může být i v bodě, kde derivace neexistuje; vyšetři přímo definici.",
+      "Porovnej $|x|$ s $f(0)=0$ pro $x\\ne0$.",
+      "Dodatečně: $f'=-1$ vlevo a $+1$ vpravo od $0$, takže se mění znaménko."
+    ]
   }
 ]

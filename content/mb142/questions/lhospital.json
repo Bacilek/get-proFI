@@ -5,7 +5,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{e^x-1}{x}$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "Typ $\\frac00$. L'Hospital: $\\lim\\frac{e^x}{1}=1$."
+    "solution": "Typ $\\frac00$. L'Hospital: $\\lim\\frac{e^x}{1}=1$.",
+    "hints": [
+      "Zjisti typ limity (dosazením) a zvaž l'Hospitalovo pravidlo.",
+      "Čitatel i jmenovatel jdou k $0$, tedy typ $\\frac00$; derivuj zvlášť čitatele a jmenovatele.",
+      "Spočti limitu podílu derivací $\\frac{(e^x-1)'}{x'}$ pro $x\\to0$."
+    ]
   },
   {
     "id": "lh-cos",
@@ -13,7 +18,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\cos x-1}{x^2}$.",
     "answer": -0.5,
     "tolerance": 0.001,
-    "solution": "Typ $\\frac00$. $\\frac{-\\sin x}{2x}$ je opět $\\frac00$, tedy $\\frac{-\\cos x}{2}\\to-\\frac12$."
+    "solution": "Typ $\\frac00$. $\\frac{-\\sin x}{2x}$ je opět $\\frac00$, tedy $\\frac{-\\cos x}{2}\\to-\\frac12$.",
+    "hints": [
+      "Typ $\\frac00$, použij l'Hospitalovo pravidlo (případně opakovaně).",
+      "Po první derivaci dostaneš $\\frac{-\\sin x}{2x}$, což je opět $\\frac00$.",
+      "Zderivuj ještě jednou a dosaď $x=0$."
+    ]
   },
   {
     "id": "lh-x-sin",
@@ -21,7 +31,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{x-\\sin x}{x^3}$ (3 desetinná místa).",
     "answer": 0.16667,
     "tolerance": 0.001,
-    "solution": "Typ $\\frac00$. Třikrát: $\\frac{1-\\cos x}{3x^2}\\to\\frac{\\sin x}{6x}\\to\\frac{\\cos x}{6}\\to\\frac16\\approx0{,}1667$."
+    "solution": "Typ $\\frac00$. Třikrát: $\\frac{1-\\cos x}{3x^2}\\to\\frac{\\sin x}{6x}\\to\\frac{\\cos x}{6}\\to\\frac16\\approx0{,}1667$.",
+    "hints": [
+      "Typ $\\frac00$; l'Hospital bude potřeba víckrát.",
+      "První krok: $\\frac{1-\\cos x}{3x^2}$, stále $\\frac00$.",
+      "Derivuj dál: $\\frac{\\sin x}{6x}$ a ještě jednou; pak dosaď $x=0$."
+    ]
   },
   {
     "id": "lh-ln-x",
@@ -29,7 +44,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\frac{\\ln x}{x}$.",
     "answer": 0,
     "tolerance": 0.001,
-    "solution": "Typ $\\frac\\infty\\infty$: $\\lim\\frac{1/x}{1}=0$. (Logaritmus roste pomaleji než jakákoli mocnina.)"
+    "solution": "Typ $\\frac\\infty\\infty$: $\\lim\\frac{1/x}{1}=0$. (Logaritmus roste pomaleji než jakákoli mocnina.)",
+    "hints": [
+      "Typ $\\frac\\infty\\infty$, tedy lze použít l'Hospitala.",
+      "Zderivuj čitatele $(\\ln x)'=\\frac1x$ a jmenovatele $x'=1$.",
+      "Spočti $\\lim_{x\\to\\infty}\\frac1x$."
+    ]
   },
   {
     "id": "lh-poly-exp",
@@ -37,7 +57,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\frac{x^2}{e^x}$.",
     "answer": 0,
     "tolerance": 0.001,
-    "solution": "Typ $\\frac\\infty\\infty$: $\\frac{2x}{e^x}$ je opět $\\frac\\infty\\infty$, pak $\\frac{2}{e^x}\\to0$."
+    "solution": "Typ $\\frac\\infty\\infty$: $\\frac{2x}{e^x}$ je opět $\\frac\\infty\\infty$, pak $\\frac{2}{e^x}\\to0$.",
+    "hints": [
+      "Typ $\\frac\\infty\\infty$; l'Hospital lze opakovat, dokud se typ nezmění.",
+      "Po prvním kroku máš $\\frac{2x}{e^x}$, stále $\\frac\\infty\\infty$.",
+      "Použij l'Hospitala ještě jednou, čímž se v čitateli objeví konstanta."
+    ]
   },
   {
     "id": "lh-xlnx",
@@ -45,7 +70,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0^+}x^x$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "$x^x=e^{x\\ln x}$ a $\\lim_{x\\to0^+}x\\ln x=\\lim\\frac{\\ln x}{1/x}=\\lim(-x)=0$. Tedy limita je $e^0=1$."
+    "solution": "$x^x=e^{x\\ln x}$ a $\\lim_{x\\to0^+}x\\ln x=\\lim\\frac{\\ln x}{1/x}=\\lim(-x)=0$. Tedy limita je $e^0=1$.",
+    "hints": [
+      "Typ $0^0$: převeď na $e^{g(x)}$ pomocí $x^x=e^{x\\ln x}$.",
+      "Vyšetři exponent $x\\ln x$ (typ $0\\cdot\\infty$) a přepiš ho na zlomek $\\frac{\\ln x}{1/x}$.",
+      "Na zlomek použij l'Hospitala: $\\frac{1/x}{-1/x^2}$ zjednoduš a spočti limitu; výsledek dosaď do exponenciály."
+    ]
   },
   {
     "id": "lh-e",
@@ -53,7 +83,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\left(1+\\frac1x\\right)^x$ (3 desetinná místa).",
     "answer": 2.71828,
     "tolerance": 0.001,
-    "solution": "Typ $1^\\infty$: $=e^{x\\ln(1+1/x)}$. Exponent $\\frac{\\ln(1+1/x)}{1/x}\\overset{\\text{l'H}}=\\frac{\\frac{1}{1+1/x}\\cdot(-\\frac1{x^2})}{-\\frac1{x^2}}=\\frac1{1+1/x}\\to1$. Limita je $e\\approx2{,}718$."
+    "solution": "Typ $1^\\infty$: $=e^{x\\ln(1+1/x)}$. Exponent $\\frac{\\ln(1+1/x)}{1/x}\\overset{\\text{l'H}}=\\frac{\\frac{1}{1+1/x}\\cdot(-\\frac1{x^2})}{-\\frac1{x^2}}=\\frac1{1+1/x}\\to1$. Limita je $e\\approx2{,}718$.",
+    "hints": [
+      "Typ $1^\\infty$: přepiš $\\left(1+\\frac1x\\right)^x=e^{x\\ln(1+1/x)}$.",
+      "Exponent přepiš na $\\frac{\\ln(1+1/x)}{1/x}$ (typ $\\frac00$) a použij l'Hospitala.",
+      "Po zderivování a zkrácení $-\\frac1{x^2}$ zbude $\\frac1{1+1/x}$; spočti jeho limitu a dosaď do $e^{(\\cdot)}$."
+    ]
   },
   {
     "id": "lh-diff",
@@ -61,7 +96,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac1x-\\frac1{\\sin x}\\right)$.",
     "answer": 0,
     "tolerance": 0.001,
-    "solution": "Typ $\\infty-\\infty$: $\\frac{\\sin x-x}{x\\sin x}$ ($\\frac00$) $\\to\\frac{\\cos x-1}{\\sin x+x\\cos x}$ ($\\frac00$) $\\to\\frac{-\\sin x}{2\\cos x-x\\sin x}\\to\\frac02=0$."
+    "solution": "Typ $\\infty-\\infty$: $\\frac{\\sin x-x}{x\\sin x}$ ($\\frac00$) $\\to\\frac{\\cos x-1}{\\sin x+x\\cos x}$ ($\\frac00$) $\\to\\frac{-\\sin x}{2\\cos x-x\\sin x}\\to\\frac02=0$.",
+    "hints": [
+      "Typ $\\infty-\\infty$: převeď na společný zlomek.",
+      "$\\frac1x-\\frac1{\\sin x}=\\frac{\\sin x-x}{x\\sin x}$, což je typ $\\frac00$.",
+      "Použij l'Hospitala opakovaně (dvakrát) a dosaď $x=0$; ve jmenovateli si dej pozor na součin $x\\sin x$."
+    ]
   },
   {
     "id": "lh-sin-over-x",
@@ -74,7 +114,12 @@
       "l'Hospital lze použít a dá $\\cos x\\to1$"
     ],
     "answer": 0,
-    "solution": "Čitatel je omezený, jmenovatel jde do $\\infty$, tedy typ je $\\frac{\\text{omezená}}{\\infty}=0$. Podíl derivací $\\cos x$ limitu nemá, takže pravidlo nic netvrdí."
+    "solution": "Čitatel je omezený, jmenovatel jde do $\\infty$, tedy typ je $\\frac{\\text{omezená}}{\\infty}=0$. Podíl derivací $\\cos x$ limitu nemá, takže pravidlo nic netvrdí.",
+    "hints": [
+      "Zkontroluj předpoklady l'Hospitalova pravidla: typ $\\frac00$ nebo $\\frac\\infty\\infty$ a existence limity podílu derivací.",
+      "Jde čitatel $\\sin x$ do $\\pm\\infty$ nebo k $0$?",
+      "Zjisti, co dělá podíl derivací $\\frac{\\cos x}{1}$ pro $x\\to\\infty$."
+    ]
   },
   {
     "id": "lh-cotg-ln",

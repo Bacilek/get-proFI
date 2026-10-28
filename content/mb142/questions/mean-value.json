@@ -5,7 +5,12 @@
     "prompt": "Pro $f(x)=x^2$ na $[1,3]$ najdi bod $c$ z Lagrangeovy věty.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "Sklon sečny: $\\frac{f(3)-f(1)}{3-1}=\\frac{9-1}2=4$. $f'(c)=2c=4$, tedy $c=2$."
+    "solution": "Sklon sečny: $\\frac{f(3)-f(1)}{3-1}=\\frac{9-1}2=4$. $f'(c)=2c=4$, tedy $c=2$.",
+    "hints": [
+      "Lagrangeova věta: existuje $c$ s $f'(c)=\\frac{f(b)-f(a)}{b-a}$.",
+      "Spočti sklon sečny pro $a=1$, $b=3$.",
+      "Řeš rovnici $f'(c)=2c=$ (sklon sečny) a ověř, že $c\\in(1,3)$."
+    ]
   },
   {
     "id": "mv-lagrange-cube",
@@ -13,7 +18,12 @@
     "prompt": "Pro $f(x)=x^3$ na $[0,2]$ najdi bod $c\\in(0,2)$ z Lagrangeovy věty (3 desetinná místa).",
     "answer": 1.1547,
     "tolerance": 0.001,
-    "solution": "Sklon sečny: $\\frac{8-0}{2}=4$. $3c^2=4$, $c=\\frac2{\\sqrt3}\\approx1{,}1547$ (druhý kořen $-1{,}15$ neleží v intervalu)."
+    "solution": "Sklon sečny: $\\frac{8-0}{2}=4$. $3c^2=4$, $c=\\frac2{\\sqrt3}\\approx1{,}1547$ (druhý kořen $-1{,}15$ neleží v intervalu).",
+    "hints": [
+      "Lagrangeova věta: $f'(c)=\\frac{f(b)-f(a)}{b-a}$ pro nějaké $c\\in(a,b)$.",
+      "Sklon sečny na $[0,2]$ je $\\frac{f(2)-f(0)}2$ a $f'(x)=3x^2$.",
+      "Řeš $3c^2=$ (sklon sečny); z dvou kořenů vyber ten z intervalu $(0,2)$."
+    ]
   },
   {
     "id": "mv-rolle",
@@ -21,15 +31,30 @@
     "prompt": "Funkce $f(x)=x^2-4x+3$ splňuje na $[1,3]$ předpoklady Rolleovy věty ($f(1)=f(3)=0$). Najdi $c$ s $f'(c)=0$.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "$f'(x)=2x-4=0\\Rightarrow c=2\\in(1,3)$."
+    "solution": "$f'(x)=2x-4=0\\Rightarrow c=2\\in(1,3)$.",
+    "hints": [
+      "Rolleova věta: při $f(a)=f(b)$ existuje $c$ s $f'(c)=0$.",
+      "Zderivuj $f(x)=x^2-4x+3$.",
+      "Řeš $f'(c)=0$ a ověř, že $c$ leží v $(1,3)$."
+    ]
   },
   {
     "id": "mv-rolle-fail",
     "type": "choice",
     "prompt": "Proč nelze Rolleovu větu použít na $f(x)=|x|$ na $[-1,1]$ (přestože $f(-1)=f(1)$)?",
-    "options": ["$f$ nemá derivaci v bodě $0\\in(-1,1)$", "$f$ není spojitá na $[-1,1]$", "$f$ není omezená", "$f(-1)\\ne f(1)$"],
+    "options": [
+      "$f$ nemá derivaci v bodě $0\\in(-1,1)$",
+      "$f$ není spojitá na $[-1,1]$",
+      "$f$ není omezená",
+      "$f(-1)\\ne f(1)$"
+    ],
     "answer": 0,
-    "solution": "$|x|$ je spojitá a $f(-1)=f(1)=1$, ale v $0$ derivace neexistuje, takže není splněn předpoklad diferencovatelnosti na $(-1,1)$. Závěr také neplatí: $f'(x)=\\pm1\\ne0$."
+    "solution": "$|x|$ je spojitá a $f(-1)=f(1)=1$, ale v $0$ derivace neexistuje, takže není splněn předpoklad diferencovatelnosti na $(-1,1)$. Závěr také neplatí: $f'(x)=\\pm1\\ne0$.",
+    "hints": [
+      "Rolleova věta má tři předpoklady: spojitost na $[a,b]$, derivaci na $(a,b)$ a $f(a)=f(b)$.",
+      "Ověř je pro $|x|$ jeden po druhém; $f(-1)=f(1)$ je zadáno.",
+      "Zkus, zda existuje derivace v bodě $0$, který leží uvnitř intervalu."
+    ]
   },
   {
     "id": "mv-same-derivative",
@@ -37,12 +62,22 @@
     "prompt": "Funkce $f$ má na $\\mathbb R$ derivaci $f'(x)=2x$ a $f(0)=1$. Čemu se rovná $f(3)$?",
     "answer": 10,
     "tolerance": 0.001,
-    "solution": "Funkce $f$ a $x^2$ mají stejnou derivaci, tedy $f(x)=x^2+c$. Z $f(0)=1$ je $c=1$ a $f(3)=9+1=10$."
+    "solution": "Funkce $f$ a $x^2$ mají stejnou derivaci, tedy $f(x)=x^2+c$. Z $f(0)=1$ je $c=1$ a $f(3)=9+1=10$.",
+    "hints": [
+      "Funkce se stejnou derivací na intervalu se liší jen o konstantu (důsledek Lagrangeovy věty).",
+      "Najdi funkci s derivací $2x$ a zapiš $f(x)=\\ldots+c$.",
+      "Z podmínky $f(0)=1$ urči konstantu $c$ a pak dosaď $x=3$."
+    ]
   },
   {
     "id": "mv-sin-bound",
     "type": "free",
     "prompt": "Dokaž pomocí Lagrangeovy věty, že $|\\sin a-\\sin b|\\le|a-b|$ pro všechna $a,b\\in\\mathbb R$.",
-    "solution": "Pro $a\\ne b$ je $\\sin$ spojitá a diferencovatelná na $[a,b]$, tedy existuje $c$ mezi $a$ a $b$ s $\\frac{\\sin a-\\sin b}{a-b}=\\cos c$. Protože $|\\cos c|\\le1$, platí $|\\sin a-\\sin b|=|\\cos c|\\,|a-b|\\le|a-b|$. Pro $a=b$ platí rovnost triviálně."
+    "solution": "Pro $a\\ne b$ je $\\sin$ spojitá a diferencovatelná na $[a,b]$, tedy existuje $c$ mezi $a$ a $b$ s $\\frac{\\sin a-\\sin b}{a-b}=\\cos c$. Protože $|\\cos c|\\le1$, platí $|\\sin a-\\sin b|=|\\cos c|\\,|a-b|\\le|a-b|$. Pro $a=b$ platí rovnost triviálně.",
+    "hints": [
+      "Použij Lagrangeovu větu na funkci $\\sin$ na intervalu mezi $a$ a $b$.",
+      "Pro $a\\ne b$ dostaneš $\\frac{\\sin a-\\sin b}{a-b}=\\cos c$ pro nějaké $c$ mezi $a$ a $b$.",
+      "Odhadni $|\\cos c|\\le1$, vynásob $|a-b|$ a nezapomeň zvlášť na případ $a=b$."
+    ]
   }
 ]

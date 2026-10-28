@@ -5,7 +5,12 @@
     "prompt": "Pro $f(x)=x^2$ na $[0,1]$ a dělení na $n=4$ stejné díly určete dolní součet $s(D,f)$.",
     "answer": 0.21875,
     "tolerance": 0.001,
-    "solution": "$f$ roste, takže $m_k=f(x_{k-1})$. $s=\\frac14\\left(0+\\frac1{16}+\\frac4{16}+\\frac9{16}\\right)=\\frac{14}{64}=0{,}21875$. (Horní součet je $\\frac{30}{64}$, integrál $\\frac13$ leží mezi.)"
+    "solution": "$f$ roste, takže $m_k=f(x_{k-1})$. $s=\\frac14\\left(0+\\frac1{16}+\\frac4{16}+\\frac9{16}\\right)=\\frac{14}{64}=0{,}21875$. (Horní součet je $\\frac{30}{64}$, integrál $\\frac13$ leží mezi.)",
+    "hints": [
+      "Dolní součet bere na každém podintervalu infimum $m_k$ funkce.",
+      "$f(x)=x^2$ na $[0,1]$ roste, takže $m_k=f(x_{k-1})$; dělicí body jsou $0,\\frac14,\\frac12,\\frac34,1$.",
+      "Sečti $m_k\\cdot\\Delta x$ s $\\Delta x=\\frac14$, tedy $\\frac14\\left(0+\\frac1{16}+\\frac4{16}+\\frac9{16}\\right)$."
+    ]
   },
   {
     "id": "riemann-sgn",
@@ -13,7 +18,12 @@
     "prompt": "Určete $\\displaystyle\\int_{-2}^{3}\\operatorname{sgn}x\\,\\mathrm{d}x$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "Plocha $3\\cdot1$ nad osou minus plocha $2\\cdot1$ pod osou: $3-2=1$."
+    "solution": "Plocha $3\\cdot1$ nad osou minus plocha $2\\cdot1$ pod osou: $3-2=1$.",
+    "hints": [
+      "Integrál je orientovaná plocha; funkce je po částech konstantní.",
+      "Rozděl interval v bodě $0$: na $[-2,0)$ je $\\operatorname{sgn}x=-1$, na $(0,3]$ je $1$.",
+      "Sečti obdélníky: $(-1)\\cdot2+1\\cdot3$."
+    ]
   },
   {
     "id": "riemann-linear",
@@ -21,7 +31,12 @@
     "prompt": "Víte, že $\\int_0^1x^2\\,\\mathrm{d}x=\\frac13$. Určete $\\displaystyle\\int_0^1(x^2+x)\\,\\mathrm{d}x$ (na 3 desetinná místa).",
     "answer": 0.8333,
     "tolerance": 0.001,
-    "solution": "Linearita: $\\frac13+\\int_0^1x\\,\\mathrm{d}x=\\frac13+\\frac12=\\frac56$."
+    "solution": "Linearita: $\\frac13+\\int_0^1x\\,\\mathrm{d}x=\\frac13+\\frac12=\\frac56$.",
+    "hints": [
+      "Využij linearitu integrálu.",
+      "$\\int_0^1(x^2+x)=\\int_0^1x^2+\\int_0^1x$ a první člen znáš.",
+      "$\\int_0^1x\\,\\mathrm{d}x$ je obsah trojúhelníku s odvěsnami $1$ a $1$."
+    ]
   },
   {
     "id": "riemann-swap",
@@ -29,7 +44,12 @@
     "prompt": "Určete $\\displaystyle\\int_4^2x\\,\\mathrm{d}x$.",
     "answer": -6,
     "tolerance": 0.001,
-    "solution": "$\\int_2^4x\\,\\mathrm{d}x=\\frac{16}{2}-\\frac42=6$; při prohození mezí se změní znaménko, tedy $-6$."
+    "solution": "$\\int_2^4x\\,\\mathrm{d}x=\\frac{16}{2}-\\frac42=6$; při prohození mezí se změní znaménko, tedy $-6$.",
+    "hints": [
+      "Při prohození mezí integrál mění znaménko.",
+      "$\\int_4^2=-\\int_2^4$.",
+      "Spočti $\\int_2^4x\\,\\mathrm{d}x=\\left[\\frac{x^2}{2}\\right]_2^4$ a změň znaménko."
+    ]
   },
   {
     "id": "riemann-dirichlet",
@@ -42,14 +62,29 @@
       "Má nekonečný integrál"
     ],
     "answer": 0,
-    "solution": "Každý podinterval obsahuje racionální i iracionální čísla, takže $m_k=0$, $M_k=1$. Dolní integrál je $0$, horní $b-a$."
+    "solution": "Každý podinterval obsahuje racionální i iracionální čísla, takže $m_k=0$, $M_k=1$. Dolní integrál je $0$, horní $b-a$.",
+    "hints": [
+      "Integrovatelnost ověřujeme porovnáním dolního a horního integrálu.",
+      "V každém podintervalu leží racionální i iracionální čísla, takže infimum a supremum jsou nejmenší a největší hodnota funkce.",
+      "Pro každé dělení je tedy $s(D,\\chi)=0$ a $S(D,\\chi)=b-a$; zamysli se, zda se rovnají."
+    ]
   },
   {
     "id": "riemann-odd",
     "type": "choice",
     "prompt": "$\\displaystyle\\int_{-1}^{1}x^3\\,\\mathrm{d}x=$",
-    "options": ["$0$", "$\\frac12$", "$2$", "$-1$"],
+    "options": [
+      "$0$",
+      "$\\frac12$",
+      "$2$",
+      "$-1$"
+    ],
     "answer": 0,
-    "solution": "Plocha nad osou ($x>0$) je stejná jako pod osou ($x<0$), takže se odečtou."
+    "solution": "Funkce $x^3$ je lichá a interval je symetrický. Přes Newtonův–Leibnizův vzorec: $\\left[\\frac{x^4}{4}\\right]_{-1}^{1}=\\frac14-\\frac14=0$. Plocha nad osou ($x>0$) je stejná jako pod osou ($x<0$), takže se odečtou.",
+    "hints": [
+      "Funkce $x^3$ je lichá a interval je symetrický kolem $0$.",
+      "Plocha pod grafem pro $x<0$ je záporná a stejně velká jako plocha pro $x>0$.",
+      "Nebo spočti $\\left[\\frac{x^4}{4}\\right]_{-1}^{1}$ a porovnej hodnoty v krajních bodech."
+    ]
   }
 ]

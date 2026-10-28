@@ -5,7 +5,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to3}\\frac{x^2-9}{x-3}$.",
     "answer": 6,
     "tolerance": 0.001,
-    "solution": "Typ $\\frac00$: $\\frac{(x-3)(x+3)}{x-3}=x+3\\to6$."
+    "solution": "Typ $\\frac00$: $\\frac{(x-3)(x+3)}{x-3}=x+3\\to6$.",
+    "hints": [
+      "Dosazením vyjde neurčitý výraz $\\frac00$, je třeba krátit.",
+      "Rozlož čitatel podle vzorce $a^2-b^2=(a-b)(a+b)$.",
+      "Zkrať $(x-3)$ a do zbytku dosaď $x=3$."
+    ]
   },
   {
     "id": "lim-sin5x",
@@ -13,7 +18,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sin 5x}{x}$.",
     "answer": 5,
     "tolerance": 0.001,
-    "solution": "$\\frac{\\sin5x}{x}=5\\cdot\\frac{\\sin5x}{5x}\\to5\\cdot1=5$."
+    "solution": "$\\frac{\\sin5x}{x}=5\\cdot\\frac{\\sin5x}{5x}\\to5\\cdot1=5$.",
+    "hints": [
+      "Použij základní limitu $\\lim_{u\\to0}\\frac{\\sin u}{u}=1$.",
+      "Vynásob a vyděl pětkou, aby se v argumentu sinu a ve jmenovateli objevilo totéž: $5\\cdot\\frac{\\sin 5x}{5x}$.",
+      "Pro $x\\to0$ je i $5x\\to0$, tedy zlomek má limitu $1$; zbývá vynásobit konstantou."
+    ]
   },
   {
     "id": "lim-exp3x",
@@ -21,7 +31,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{e^{3x}-1}{x}$.",
     "answer": 3,
     "tolerance": 0.001,
-    "solution": "$\\frac{e^{3x}-1}{x}=3\\cdot\\frac{e^{3x}-1}{3x}\\to3\\cdot1=3$ (nebo $a^x-1\\over x$ s $a=e^3$: $\\ln a=3$)."
+    "solution": "$\\frac{e^{3x}-1}{x}=3\\cdot\\frac{e^{3x}-1}{3x}\\to3\\cdot1=3$ (nebo $a^x-1\\over x$ s $a=e^3$: $\\ln a=3$).",
+    "hints": [
+      "Použij základní limitu $\\lim_{u\\to0}\\frac{e^u-1}{u}=1$.",
+      "Uprav na tvar $3\\cdot\\frac{e^{3x}-1}{3x}$.",
+      "Substituce $u=3x\\to0$ dá limitu zlomku $1$; zbývá konstanta před ním."
+    ]
   },
   {
     "id": "lim-ln4x",
@@ -29,7 +44,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\ln(1+4x)}{x}$.",
     "answer": 4,
     "tolerance": 0.001,
-    "solution": "$\\frac{\\ln(1+4x)}{x}=4\\cdot\\frac{\\ln(1+4x)}{4x}\\to4\\cdot1=4$."
+    "solution": "$\\frac{\\ln(1+4x)}{x}=4\\cdot\\frac{\\ln(1+4x)}{4x}\\to4\\cdot1=4$.",
+    "hints": [
+      "Použij základní limitu $\\lim_{u\\to0}\\frac{\\ln(1+u)}{u}=1$.",
+      "Rozšiř čtyřkou, aby ve jmenovateli stálo totéž co v argumentu logaritmu: $4\\cdot\\frac{\\ln(1+4x)}{4x}$.",
+      "Substituce $u=4x\\to0$; limita zlomku je $1$ a konstanta zůstává před ním."
+    ]
   },
   {
     "id": "lim-1mcos-x2",
@@ -37,7 +57,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos x}{x^2}$ (desetinné číslo).",
     "answer": 0.5,
     "tolerance": 0.001,
-    "solution": "Rozšíření $1+\\cos x$: $\\frac{1-\\cos^2x}{x^2(1+\\cos x)}=\\bigl(\\frac{\\sin x}{x}\\bigr)^2\\cdot\\frac1{1+\\cos x}\\to1\\cdot\\frac12=0{,}5$."
+    "solution": "Rozšíření $1+\\cos x$: $\\frac{1-\\cos^2x}{x^2(1+\\cos x)}=\\bigl(\\frac{\\sin x}{x}\\bigr)^2\\cdot\\frac1{1+\\cos x}\\to1\\cdot\\frac12=0{,}5$.",
+    "hints": [
+      "Dosazením je $\\frac00$; využij $1-\\cos^2x=\\sin^2x$.",
+      "Rozšiř zlomek výrazem $1+\\cos x$.",
+      "Rozděl na $\\bigl(\\frac{\\sin x}{x}\\bigr)^2\\cdot\\frac1{1+\\cos x}$ a dosaď limity jednotlivých činitelů."
+    ]
   },
   {
     "id": "lim-euler",
@@ -45,7 +70,12 @@
     "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\Bigl(1+\\frac2x\\Bigr)^x$ (zaokrouhli na 3 desetinná místa).",
     "answer": 7.389,
     "tolerance": 0.002,
-    "solution": "Podle vzorce $\\lim(1+\\frac ax)^x=e^a$ s $a=2$ je limita $e^2\\approx7{,}389$."
+    "solution": "Podle vzorce $\\lim(1+\\frac ax)^x=e^a$ s $a=2$ je limita $e^2\\approx7{,}389$.",
+    "hints": [
+      "Jde o typ $1^\\infty$; použij vzorec $\\lim_{x\\to\\infty}\\bigl(1+\\frac ax\\bigr)^x=e^a$.",
+      "Z tvaru $\\bigl(1+\\frac2x\\bigr)^x$ přečti parametr $a$.",
+      "Limita je $e$ umocněné na tento parametr; zbývá vyčíslit a zaokrouhlit na 3 desetinná místa."
+    ]
   },
   {
     "id": "lim-delta",
@@ -53,7 +83,12 @@
     "prompt": "Při důkazu $\\lim_{x\\to3}(3x+1)=10$ z definice zvolíme $\\delta=\\varepsilon/3$. Jak velké $\\delta$ stačí pro $\\varepsilon=0{,}6$?",
     "answer": 0.2,
     "tolerance": 0.001,
-    "solution": "$|3x+1-10|=3|x-3|<\\varepsilon\\iff|x-3|<\\varepsilon/3$, tedy $\\delta=0{,}6/3=0{,}2$ (stačí i menší)."
+    "solution": "$|3x+1-10|=3|x-3|<\\varepsilon\\iff|x-3|<\\varepsilon/3$, tedy $\\delta=0{,}6/3=0{,}2$ (stačí i menší).",
+    "hints": [
+      "Úlohou je najít $\\delta$, aby z $|x-3|<\\delta$ plynulo $|f(x)-10|<\\varepsilon$.",
+      "Uprav $|3x+1-10|=3|x-3|$.",
+      "Požadavek $3|x-3|<\\varepsilon$ dává $|x-3|<\\varepsilon/3$; dosaď $\\varepsilon=0{,}6$."
+    ]
   },
   {
     "id": "lim-value-irrelevant",
@@ -66,7 +101,12 @@
       "$\\infty$"
     ],
     "answer": 0,
-    "solution": "Limita nezávisí na hodnotě $f(2)$. Pro $x\\ne2$ je $f(x)=x+2\\to4$."
+    "solution": "Limita nezávisí na hodnotě $f(2)$. Pro $x\\ne2$ je $f(x)=x+2\\to4$.",
+    "hints": [
+      "Limita v bodě nezávisí na hodnotě funkce v tomto bodě.",
+      "Pro $x\\ne2$ zlomek uprav: $x^2-4=(x-2)(x+2)$.",
+      "Po zkrácení zbude jednoduchý výraz; dosaď do něj $x=2$ a hodnotu $f(2)=7$ ignoruj."
+    ]
   },
   {
     "id": "lim-sgn",
@@ -79,7 +119,12 @@
       "funkce osciluje"
     ],
     "answer": 0,
-    "solution": "$\\lim_{x\\to0^+}\\operatorname{sgn}x=1$, $\\lim_{x\\to0^-}\\operatorname{sgn}x=-1$. Limita existuje, jen když jsou si jednostranné limity rovny. Hodnota $\\operatorname{sgn}0=0$ s tím nesouvisí."
+    "solution": "$\\lim_{x\\to0^+}\\operatorname{sgn}x=1$, $\\lim_{x\\to0^-}\\operatorname{sgn}x=-1$. Limita existuje, jen když jsou si jednostranné limity rovny. Hodnota $\\operatorname{sgn}0=0$ s tím nesouvisí.",
+    "hints": [
+      "Limita existuje, jen když existují obě jednostranné limity a jsou stejné.",
+      "Spočti $\\operatorname{sgn}x$ pro $x>0$ a pro $x<0$.",
+      "Porovnej obě jednostranné limity; hodnota $\\operatorname{sgn}0$ je pro limitu irelevantní."
+    ]
   },
   {
     "id": "lim-three",
@@ -92,7 +137,12 @@
       "$\\infty$"
     ],
     "answer": 0,
-    "solution": "$-|x|\\le x\\sin\\frac1x\\le|x|$ a $|x|\\to0$, takže podle věty o třech limitách je limita $0$. (Samotné $\\sin\\frac1x$ limitu v $0$ nemá.)"
+    "solution": "$-|x|\\le x\\sin\\frac1x\\le|x|$ a $|x|\\to0$, takže podle věty o třech limitách je limita $0$. (Samotné $\\sin\\frac1x$ limitu v $0$ nemá.)",
+    "hints": [
+      "Člen $\\sin\\frac1x$ je omezený, použij větu o třech limitách (sevření).",
+      "Platí $-1\\le\\sin\\frac1x\\le1$; vynásob $|x|$.",
+      "Odhadni $|x\\sin\\frac1x|\\le|x|$ a sleduj, kam míří dolní i horní mez pro $x\\to0$."
+    ]
   },
   {
     "id": "lim-one-sided-inf",
@@ -105,13 +155,23 @@
       "$1$ a $-1$"
     ],
     "answer": 0,
-    "solution": "Pro $x>1$ je jmenovatel malé kladné číslo ($\\to+\\infty$), pro $x<1$ malé záporné ($\\to-\\infty$). Jednostranné limity jsou různé, tedy $\\lim_{x\\to1}$ neexistuje."
+    "solution": "Pro $x>1$ je jmenovatel malé kladné číslo ($\\to+\\infty$), pro $x<1$ malé záporné ($\\to-\\infty$). Jednostranné limity jsou různé, tedy $\\lim_{x\\to1}$ neexistuje.",
+    "hints": [
+      "Sleduj znaménko jmenovatele $x-1$ vlevo a vpravo od $1$.",
+      "Pro $x\\to1^+$ je $x-1$ malé kladné, pro $x\\to1^-$ malé záporné.",
+      "Určí se tak znaménko nevlastních jednostranných limit; porovnej je, zda se shodují."
+    ]
   },
   {
     "id": "lim-free-def",
     "type": "free",
     "prompt": "Napiš definici $\\lim_{x\\to x_0}f(x)=L$ pomocí $\\varepsilon$ a $\\delta$ a řekni, proč v ní stojí $0<|x-x_0|$.",
-    "solution": "$\\forall\\varepsilon>0\\ \\exists\\delta>0\\ \\forall x:\\ 0<|x-x_0|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$. Podmínka $0<|x-x_0|$ (tj. $x\\ne x_0$) znamená, že limita nezávisí na hodnotě $f(x_0)$ (ani na tom, zda existuje)."
+    "solution": "$\\forall\\varepsilon>0\\ \\exists\\delta>0\\ \\forall x:\\ 0<|x-x_0|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$. Podmínka $0<|x-x_0|$ (tj. $x\\ne x_0$) znamená, že limita nezávisí na hodnotě $f(x_0)$ (ani na tom, zda existuje).",
+    "hints": [
+      "Definice má tvar $\\forall\\varepsilon\\ \\exists\\delta\\ \\forall x$ s implikací.",
+      "Zapiš: pro každé $\\varepsilon>0$ existuje $\\delta>0$ tak, že z $0<|x-x_0|<\\delta$ plyne $|f(x)-L|<\\varepsilon$.",
+      "Nerovnost $0<|x-x_0|$ vylučuje bod $x_0$ samotný; zamysli se, co by to znamenalo pro $f(x_0)$."
+    ]
   },
   {
     "id": "limits-sin3x-tg2x",

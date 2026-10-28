@@ -10,7 +10,12 @@
       "$\\cos x-x\\sin x+C$"
     ],
     "answer": 0,
-    "solution": "Per partes: $u'=\\cos x$, $v=x$ dává $x\\sin x-\\int\\sin x\\,\\mathrm{d}x=x\\sin x+\\cos x$."
+    "solution": "Per partes: $u'=\\cos x$, $v=x$ dává $x\\sin x-\\int\\sin x\\,\\mathrm{d}x=x\\sin x+\\cos x$.",
+    "hints": [
+      "Součin polynomu a goniometrické funkce: metoda per partes.",
+      "Zvol $u'=\\cos x$ (tedy $u=\\sin x$) a $v=x$, aby se derivací $v$ zjednodušilo.",
+      "Zbývá $\\int\\sin x\\,\\mathrm{d}x$; dej pozor na znaménko a výsledek zderivuj pro kontrolu."
+    ]
   },
   {
     "id": "intmethods-subst-choice",
@@ -23,7 +28,12 @@
       "$-\\frac{2}{(x^2+1)^3}+C$"
     ],
     "answer": 0,
-    "solution": "$t=x^2+1$, $\\mathrm{d}t=2x\\,\\mathrm{d}x$: $\\int t^{-2}\\mathrm{d}t=-\\frac1t$."
+    "solution": "$t=x^2+1$, $\\mathrm{d}t=2x\\,\\mathrm{d}x$: $\\int t^{-2}\\mathrm{d}t=-\\frac1t$.",
+    "hints": [
+      "Čitatel $2x$ je derivace výrazu ve jmenovateli; hodí se substituce.",
+      "Polož $t=x^2+1$, $\\mathrm{d}t=2x\\,\\mathrm{d}x$.",
+      "Integrál se změní na $\\int t^{-2}\\,\\mathrm{d}t$; integruj mocninu a vrať $t$."
+    ]
   },
   {
     "id": "intmethods-lnx",
@@ -31,7 +41,12 @@
     "prompt": "Nechť $F'(x)=\\ln x$ na $(0,\\infty)$ a $F(1)=0$. Určete $F(e)$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "Per partes: $F(x)=x\\ln x-x+C$. Z $F(1)=-1+C=0$ je $C=1$. $F(e)=e-e+1=1$."
+    "solution": "Per partes: $F(x)=x\\ln x-x+C$. Z $F(1)=-1+C=0$ je $C=1$. $F(e)=e-e+1=1$.",
+    "hints": [
+      "Nejdřív najdi primitivní funkci k $\\ln x$; ta se hledá per partes.",
+      "Napiš $\\ln x=1\\cdot\\ln x$ a zvol $u'=1$, $v=\\ln x$; dostaneš $x\\ln x-\\int1\\,\\mathrm{d}x$.",
+      "Konstantu $C$ urči z $F(1)=0$ a pak dosaď $x=e$."
+    ]
   },
   {
     "id": "intmethods-exp-sin",
@@ -44,19 +59,34 @@
       "$e^x(\\sin x-\\cos x)+C$"
     ],
     "answer": 0,
-    "solution": "Dvakrát per partes se vrátí $I$: $I=e^x(\\sin x-\\cos x)-I$, tedy $2I=e^x(\\sin x-\\cos x)$."
+    "solution": "Dvakrát per partes se vrátí $I$: $I=e^x(\\sin x-\\cos x)-I$, tedy $2I=e^x(\\sin x-\\cos x)$.",
+    "hints": [
+      "Součin $e^x$ a $\\sin x$: opakované per partes, po kterém se původní integrál vrátí.",
+      "Označ $I=\\int e^x\\sin x\\,\\mathrm{d}x$ a per partes proveď dvakrát, vždy s $u'=e^x$.",
+      "Dostaneš rovnici $I=e^x(\\sin x-\\cos x)-I$; vyřeš ji pro $I$."
+    ]
   },
   {
     "id": "intmethods-free-xlnx",
     "type": "free",
     "prompt": "Spočtěte $\\displaystyle\\int x\\ln x\\,\\mathrm{d}x$.",
-    "solution": "Per partes: $u'=x$, $u=\\frac{x^2}{2}$, $v=\\ln x$, $v'=\\frac1x$.\n\n$\\frac{x^2}{2}\\ln x-\\int\\frac{x}{2}\\mathrm{d}x=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C$."
+    "solution": "Per partes: $u'=x$, $u=\\frac{x^2}{2}$, $v=\\ln x$, $v'=\\frac1x$.\n\n$\\frac{x^2}{2}\\ln x-\\int\\frac{x}{2}\\mathrm{d}x=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C$.",
+    "hints": [
+      "Součin mocniny a logaritmu: per partes, derivovat budeme logaritmus.",
+      "Zvol $u'=x$ (tedy $u=\\frac{x^2}{2}$) a $v=\\ln x$.",
+      "Zbývající integrál $\\int\\frac{x^2}{2}\\cdot\\frac1x\\,\\mathrm{d}x=\\int\\frac x2\\,\\mathrm{d}x$ je triviální."
+    ]
   },
   {
     "id": "intmethods-free-x2cos",
     "type": "free",
     "prompt": "Spočtěte $\\displaystyle\\int x^2\\cos x^3\\,\\mathrm{d}x$.",
-    "solution": "Substituce $t=x^3$, $\\mathrm{d}t=3x^2\\mathrm{d}x$: $\\frac13\\int\\cos t\\,\\mathrm{d}t=\\frac13\\sin x^3+C$."
+    "solution": "Substituce $t=x^3$, $\\mathrm{d}t=3x^2\\mathrm{d}x$: $\\frac13\\int\\cos t\\,\\mathrm{d}t=\\frac13\\sin x^3+C$.",
+    "hints": [
+      "Uvnitř kosinu je $x^3$ a mimo ní jeho derivace až na konstantu; substituce.",
+      "Polož $t=x^3$, pak $\\mathrm{d}t=3x^2\\,\\mathrm{d}x$, tj. $x^2\\,\\mathrm{d}x=\\frac13\\mathrm{d}t$.",
+      "Integruj $\\frac13\\int\\cos t\\,\\mathrm{d}t$ a vrať $t=x^3$."
+    ]
   },
   {
     "id": "im-x3x",

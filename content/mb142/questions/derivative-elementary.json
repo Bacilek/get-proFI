@@ -5,7 +5,12 @@
     "prompt": "Urči $(\\operatorname{arctg}x)'$ v bodě $x=1$.",
     "answer": 0.5,
     "tolerance": 0.001,
-    "solution": "$\\frac1{1+x^2}=\\frac12$."
+    "solution": "$\\frac1{1+x^2}=\\frac12$.",
+    "hints": [
+      "Použij vzorec pro derivaci $\\operatorname{arctg}$.",
+      "$(\\operatorname{arctg}x)'=\\frac1{1+x^2}$.",
+      "Dosaď $x=1$."
+    ]
   },
   {
     "id": "de-arcsin",
@@ -13,7 +18,12 @@
     "prompt": "Urči $(\\arcsin x)'$ v bodě $x=\\frac12$ (3 desetinná místa).",
     "answer": 1.1547,
     "tolerance": 0.002,
-    "solution": "$\\frac1{\\sqrt{1-1/4}}=\\frac1{\\sqrt{3}/2}=\\frac2{\\sqrt3}\\approx1{,}1547$."
+    "solution": "$\\frac1{\\sqrt{1-1/4}}=\\frac1{\\sqrt{3}/2}=\\frac2{\\sqrt3}\\approx1{,}1547$.",
+    "hints": [
+      "Použij vzorec pro derivaci $\\arcsin$ na $(-1,1)$.",
+      "$(\\arcsin x)'=\\frac1{\\sqrt{1-x^2}}$.",
+      "Dosaď $x=\\frac12$, tj. $1-x^2=\\frac34$, a vyčíslit."
+    ]
   },
   {
     "id": "de-tg",
@@ -21,7 +31,12 @@
     "prompt": "Urči $(\\operatorname{tg}x)'$ v bodě $x=\\frac\\pi4$.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "$\\frac1{\\cos^2(\\pi/4)}=\\frac1{1/2}=2$."
+    "solution": "$\\frac1{\\cos^2(\\pi/4)}=\\frac1{1/2}=2$.",
+    "hints": [
+      "Použij vzorec pro derivaci tangens.",
+      "$(\\operatorname{tg}x)'=\\frac1{\\cos^2x}$.",
+      "Dosaď $x=\\frac\\pi4$ a použij $\\cos\\frac\\pi4=\\frac{\\sqrt2}2$."
+    ]
   },
   {
     "id": "de-2x",
@@ -29,7 +44,12 @@
     "prompt": "Urči derivaci funkce $2^x$ v bodě $x=0$ (4 desetinná místa).",
     "answer": 0.6931,
     "tolerance": 0.001,
-    "solution": "$(2^x)'=2^x\\ln2$, v $0$ je $\\ln2\\approx0{,}6931$."
+    "solution": "$(2^x)'=2^x\\ln2$, v $0$ je $\\ln2\\approx0{,}6931$.",
+    "hints": [
+      "Exponenciála o obecném základu: $a^x=e^{x\\ln a}$.",
+      "$(a^x)'=a^x\\ln a$.",
+      "Dosaď $a=2$, $x=0$ a vyčíslit $\\ln2$."
+    ]
   },
   {
     "id": "de-xex",
@@ -37,7 +57,12 @@
     "prompt": "Urči derivaci funkce $x e^x$ v bodě $x=1$ (3 desetinná místa).",
     "answer": 5.4366,
     "tolerance": 0.002,
-    "solution": "$(1+x)e^x$ v $x=1$: $2e\\approx5{,}4366$."
+    "solution": "$(1+x)e^x$ v $x=1$: $2e\\approx5{,}4366$.",
+    "hints": [
+      "Součin dvou funkcí: $(uv)'=u'v+uv'$.",
+      "$u=x$, $v=e^x$, tedy $u'=1$, $v'=e^x$; zapiš a vytkni $e^x$.",
+      "Dosaď $x=1$ a vyčíslit pomocí $e\\approx2{,}71828$."
+    ]
   },
   {
     "id": "de-x2lnx",
@@ -45,7 +70,12 @@
     "prompt": "Urči derivaci $x^2\\ln x$ v bodě $x=e$ (3 desetinná místa).",
     "answer": 8.1548,
     "tolerance": 0.002,
-    "solution": "$2x\\ln x+x^2\\cdot\\frac1x=2x\\ln x+x$. Pro $x=e$: $2e+e=3e\\approx8{,}1548$."
+    "solution": "$2x\\ln x+x^2\\cdot\\frac1x=2x\\ln x+x$. Pro $x=e$: $2e+e=3e\\approx8{,}1548$.",
+    "hints": [
+      "Součin $x^2\\cdot\\ln x$ derivuj podle pravidla pro součin.",
+      "$(x^2)'=2x$, $(\\ln x)'=\\frac1x$; druhý člen se zjednoduší.",
+      "Dosaď $x=e$, použij $\\ln e=1$ a vyčíslit."
+    ]
   },
   {
     "id": "de-esin",
@@ -53,7 +83,12 @@
     "prompt": "Urči derivaci funkce $e^{\\sin x}$ v bodě $x=0$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "$e^{\\sin x}\\cos x$, v $0$: $e^0\\cdot1=1$."
+    "solution": "$e^{\\sin x}\\cos x$, v $0$: $e^0\\cdot1=1$.",
+    "hints": [
+      "Složená funkce: vnější $e^u$, vnitřní $u=\\sin x$.",
+      "$(e^u)'=e^u u'$, kde $u'=\\cos x$.",
+      "Dosaď $x=0$ ($\\sin0=0$, $\\cos0=1$)."
+    ]
   },
   {
     "id": "de-xx",
@@ -61,7 +96,12 @@
     "prompt": "Urči derivaci funkce $x^x$ v bodě $x=e$ (1 desetinné místo).",
     "answer": 30.3,
     "tolerance": 0.1,
-    "solution": "$(x^x)'=x^x(\\ln x+1)$, v $x=e$: $e^e\\cdot2\\approx15{,}154\\cdot2\\approx30{,}3$."
+    "solution": "$(x^x)'=x^x(\\ln x+1)$, v $x=e$: $e^e\\cdot2\\approx15{,}154\\cdot2\\approx30{,}3$.",
+    "hints": [
+      "Proměnná je v základu i exponentu; přepiš $x^x=e^{x\\ln x}$ (nebo použij logaritmickou derivaci).",
+      "Derivuj jako složenou funkci: $e^{x\\ln x}\\cdot(x\\ln x)'$, kde $(x\\ln x)'=\\ln x+1$.",
+      "Dosaď $x=e$: $\\ln e=1$; zbývá vyčíslit $e^e$ a vynásobit."
+    ]
   },
   {
     "id": "de-third-inv",
@@ -69,28 +109,58 @@
     "prompt": "Urči $f'''(1)$ pro $f(x)=\\frac1x$.",
     "answer": -6,
     "tolerance": 0.001,
-    "solution": "$f'=-x^{-2}$, $f''=2x^{-3}$, $f'''=-6x^{-4}$; $f'''(1)=-6$."
+    "solution": "$f'=-x^{-2}$, $f''=2x^{-3}$, $f'''=-6x^{-4}$; $f'''(1)=-6$.",
+    "hints": [
+      "Derivuj třikrát; zapiš $\\frac1x=x^{-1}$.",
+      "Použij opakovaně $(x^r)'=rx^{r-1}$ a hlídej znaménka.",
+      "Po třetí derivaci dosaď $x=1$, takže se mocnina zruší a zbude jen koeficient."
+    ]
   },
   {
     "id": "de-cotg",
     "type": "choice",
     "prompt": "Derivace funkce $\\operatorname{cotg}x$ je:",
-    "options": ["$-\\dfrac1{\\sin^2x}$", "$\\dfrac1{\\sin^2x}$", "$-\\dfrac1{\\cos^2x}$", "$-\\dfrac1{\\sin x}$"],
+    "options": [
+      "$-\\dfrac1{\\sin^2x}$",
+      "$\\dfrac1{\\sin^2x}$",
+      "$-\\dfrac1{\\cos^2x}$",
+      "$-\\dfrac1{\\sin x}$"
+    ],
     "answer": 0,
-    "solution": "$\\left(\\frac{\\cos}{\\sin}\\right)'=\\frac{-\\sin^2x-\\cos^2x}{\\sin^2x}=-\\frac1{\\sin^2x}$."
+    "solution": "$\\left(\\frac{\\cos}{\\sin}\\right)'=\\frac{-\\sin^2x-\\cos^2x}{\\sin^2x}=-\\frac1{\\sin^2x}$.",
+    "hints": [
+      "Zapiš $\\operatorname{cotg}x=\\frac{\\cos x}{\\sin x}$ a použij pravidlo pro podíl.",
+      "Čitatel: $-\\sin x\\cdot\\sin x-\\cos x\\cdot\\cos x$.",
+      "Užij $\\sin^2x+\\cos^2x=1$ a porovnej znaménko i jmenovatel s nabídkou."
+    ]
   },
   {
     "id": "de-xpi",
     "type": "choice",
     "prompt": "Derivace funkce $x^\\pi$ ($x>0$) je:",
-    "options": ["$\\pi x^{\\pi-1}$", "$x^\\pi\\ln\\pi$", "$\\pi^x\\ln\\pi$", "$x^{\\pi-1}$"],
+    "options": [
+      "$\\pi x^{\\pi-1}$",
+      "$x^\\pi\\ln\\pi$",
+      "$\\pi^x\\ln\\pi$",
+      "$x^{\\pi-1}$"
+    ],
     "answer": 0,
-    "solution": "Mocninné pravidlo $(x^r)'=rx^{r-1}$ platí pro libovolné reálné $r$ (důsledek $x^r=e^{r\\ln x}$). $x^\\pi\\ln\\pi$ by byla chybně „exponenciální“ varianta."
+    "solution": "Mocninné pravidlo $(x^r)'=rx^{r-1}$ platí pro libovolné reálné $r$ (důsledek $x^r=e^{r\\ln x}$). $x^\\pi\\ln\\pi$ by byla chybně „exponenciální“ varianta.",
+    "hints": [
+      "Rozlišuj, zda je proměnná v základu, nebo v exponentu.",
+      "Zde je $x$ v základu a $\\pi$ je konstanta, takže jde o mocninnou funkci.",
+      "Použij $(x^r)'=rx^{r-1}$ s $r=\\pi$."
+    ]
   },
   {
     "id": "de-xx-free",
     "type": "free",
     "prompt": "Najdi derivaci funkce $f(x)=x^{\\sin x}$ pro $x>0$.",
-    "solution": "$x^{\\sin x}=e^{\\sin x\\ln x}$, tedy $f'(x)=x^{\\sin x}\\Big(\\cos x\\ln x+\\frac{\\sin x}x\\Big)$."
+    "solution": "$x^{\\sin x}=e^{\\sin x\\ln x}$, tedy $f'(x)=x^{\\sin x}\\Big(\\cos x\\ln x+\\frac{\\sin x}x\\Big)$.",
+    "hints": [
+      "Proměnná je v základu i exponentu; použij přepis $a^b=e^{b\\ln a}$.",
+      "Napiš $x^{\\sin x}=e^{\\sin x\\ln x}$ a derivuj jako složenou funkci.",
+      "Vnitřní funkci $\\sin x\\ln x$ derivuj součinem a na konci vrať $e^{\\sin x\\ln x}=x^{\\sin x}$."
+    ]
   }
 ]

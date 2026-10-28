@@ -30,4 +30,4 @@ V JSON dvojitě escapovat zpětná lomítka (`\sqrt`). Hvězdy: 90 % správně =
 
 ## Nápovědy a řešení u otázek
 - `solution` = postup krok za krokem (ne jen výsledek); zobrazí se po odpovědi nebo po „Give up, show solution" (počítá se jako chyba).
-- `hints` (volitelné pole stringů, 2–3 kusy, od nejmlhavější): uživatel je odkrývá po jedné tlačítkem Hint / Next hint před odpovědí. Zatím mají hints jen otázky přidané ze zápočtovek (viz `content/mb142/README.md`); ostatní se doplňují po lekcích.
+- `hints` (volitelné pole stringů, 2–3 kusy, od nejmlhavější): uživatel je odkrývá po jedné tlačítkem Hint / Next hint před odpovědí. Všechny otázky MB142 je mají; u nových otázek je vždy doplnit.

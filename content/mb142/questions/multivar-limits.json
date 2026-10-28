@@ -5,7 +5,11 @@
     "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[1,2]}(x^2+y^3)$.",
     "answer": 9,
     "tolerance": 0.001,
-    "solution": "Funkce je spojitá (polynom): $1+8=9$."
+    "solution": "Funkce je spojitá (polynom): $1+8=9$.",
+    "hints": [
+      "Polynom je spojitý v celém $\\mathbb R^2$.",
+      "U spojité funkce stačí dosadit bod $[1,2]$."
+    ]
   },
   {
     "id": "mvl-sinc",
@@ -13,7 +17,11 @@
     "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{\\sin(x^2+y^2)}{x^2+y^2}$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "Substituce $t=x^2+y^2\\to0^+$ (věta o limitě složené funkce): $\\lim_{t\\to0}\\frac{\\sin t}{t}=1$."
+    "solution": "Substituce $t=x^2+y^2\\to0^+$ (věta o limitě složené funkce): $\\lim_{t\\to0}\\frac{\\sin t}{t}=1$.",
+    "hints": [
+      "Výraz závisí jen na $t=x^2+y^2$, převeď limitu na jednorozměrnou.",
+      "Pro $[x,y]\\to[0,0]$ platí $t\\to0^+$, takže jde o známou limitu $\\frac{\\sin t}{t}$."
+    ]
   },
   {
     "id": "mvl-polar",
@@ -21,7 +29,12 @@
     "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^3+y^3}{x^2+y^2}$.",
     "answer": 0,
     "tolerance": 0.001,
-    "solution": "Polární souřadnice: $r(\\cos^3\\varphi+\\sin^3\\varphi)\\to0$ (omezená funkce krát $r\\to0$)."
+    "solution": "Polární souřadnice: $r(\\cos^3\\varphi+\\sin^3\\varphi)\\to0$ (omezená funkce krát $r\\to0$).",
+    "hints": [
+      "Zkus polární souřadnice $x=r\\cos\\varphi,\\ y=r\\sin\\varphi$, $r\\to0^+$.",
+      "Čitatel je $r^3(\\dots)$, jmenovatel $r^2$, po zkrácení zbude $r\\cdot(\\cos^3\\varphi+\\sin^3\\varphi)$.",
+      "Závorka je omezená a $r\\to0$ – použij pravidlo „omezená krát nulová\"."
+    ]
   },
   {
     "id": "mvl-xy-dne",
@@ -34,7 +47,12 @@
       "je $\\infty$"
     ],
     "answer": 0,
-    "solution": "Pro $y=kx$ je $\\frac{kx^2}{x^2(1+k^2)}=\\frac k{1+k^2}$ — pro různá $k$ různé hodnoty, takže limita neexistuje."
+    "solution": "Pro $y=kx$ je $\\frac{kx^2}{x^2(1+k^2)}=\\frac k{1+k^2}$ — pro různá $k$ různé hodnoty, takže limita neexistuje.",
+    "hints": [
+      "Zkus několik cest do počátku (přímky $y=kx$); pokud se hodnoty liší, limita neexistuje.",
+      "Dosaď $y=kx$ a zkrať $x^2$.",
+      "Výsledek závisí na $k$ – porovnej např. $k=0$ a $k=1$."
+    ]
   },
   {
     "id": "mvl-lines-not-enough",
@@ -47,7 +65,12 @@
       "funkce je spojitá v počátku"
     ],
     "answer": 0,
-    "solution": "Přímky nestačí k důkazu existence. Po parabole $y=kx^2$ je $f=\\frac{kx^4}{x^4(1+k^2)}=\\frac k{1+k^2}\\ne0$, takže limita neexistuje."
+    "solution": "Přímky nestačí k důkazu existence. Po parabole $y=kx^2$ je $f=\\frac{kx^4}{x^4(1+k^2)}=\\frac k{1+k^2}\\ne0$, takže limita neexistuje.",
+    "hints": [
+      "Shoda limit po přímkách ještě nedokazuje existenci limity.",
+      "Zkus jinou křivku, která ladí se strukturou výrazu: $y=kx^2$.",
+      "Dosazením vyjde konstanta závislá na $k$; je-li pro nějaké $k$ nenulová, limita neexistuje."
+    ]
   },
   {
     "id": "mvl-weierstrass",
@@ -60,7 +83,12 @@
       "$\\mathbb R^2$"
     ],
     "answer": 0,
-    "solution": "Potřebujeme množinu uzavřenou a omezenou (kompaktní): uzavřený kruh. Otevřený kruh není uzavřený, kvadrant a $\\mathbb R^2$ nejsou omezené."
+    "solution": "Potřebujeme množinu uzavřenou a omezenou (kompaktní): uzavřený kruh. Otevřený kruh není uzavřený, kvadrant a $\\mathbb R^2$ nejsou omezené.",
+    "hints": [
+      "Weierstrassova věta vyžaduje kompaktní množinu v $\\mathbb R^2$.",
+      "Kompaktní = uzavřená a omezená; u každé možnosti ověř obě vlastnosti.",
+      "Hledej množinu, která obsahuje svou hranici a nejde do nekonečna."
+    ]
   },
   {
     "id": "mvl-2xy-y2",

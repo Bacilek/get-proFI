@@ -5,7 +5,12 @@
     "prompt": "Urči $f'(2)$ pro $f(x)=x^3$.",
     "answer": 12,
     "tolerance": 0.001,
-    "solution": "$(x^3)'=3x_0^2$, tedy $f'(2)=3\\cdot4=12$. Z definice: $\\frac{x^3-8}{x-2}=x^2+2x+4\\to12$."
+    "solution": "$(x^3)'=3x_0^2$, tedy $f'(2)=3\\cdot4=12$. Z definice: $\\frac{x^3-8}{x-2}=x^2+2x+4\\to12$.",
+    "hints": [
+      "Derivace v bodě je limita podílu diferencí $\\frac{f(x)-f(x_0)}{x-x_0}$, nebo použij pravidlo pro mocninu.",
+      "Pro $f(x)=x^3$ je $f'(x)=3x^2$.",
+      "Dosaď $x_0=2$ do tohoto výrazu."
+    ]
   },
   {
     "id": "dd-slope-inv",
@@ -13,31 +18,66 @@
     "prompt": "Urči směrnici tečny ke grafu $f(x)=\\frac1x$ v bodě $x_0=2$.",
     "answer": -0.25,
     "tolerance": 0.001,
-    "solution": "$f'(x_0)=-\\frac1{x_0^2}$, tedy $f'(2)=-\\frac14$."
+    "solution": "$f'(x_0)=-\\frac1{x_0^2}$, tedy $f'(2)=-\\frac14$.",
+    "hints": [
+      "Směrnice tečny v bodě je hodnota derivace v tomto bodě.",
+      "Derivace $\\frac1x=x^{-1}$ je $-x^{-2}$.",
+      "Dosaď $x_0=2$."
+    ]
   },
   {
     "id": "dd-abs",
     "type": "choice",
     "prompt": "Funkce $f(x)=|x|$ v bodě $x_0=0$:",
-    "options": ["je spojitá, ale $f'(0)$ neexistuje ($f'_+(0)=1$, $f'_-(0)=-1$)", "má $f'(0)=0$", "je nespojitá", "má $f'(0)=1$"],
+    "options": [
+      "je spojitá, ale $f'(0)$ neexistuje ($f'_+(0)=1$, $f'_-(0)=-1$)",
+      "má $f'(0)=0$",
+      "je nespojitá",
+      "má $f'(0)=1$"
+    ],
     "answer": 0,
-    "solution": "Jednostranné derivace jsou $1$ a $-1$, takže se nerovnají a derivace neexistuje. Funkce je přitom spojitá."
+    "solution": "Jednostranné derivace jsou $1$ a $-1$, takže se nerovnají a derivace neexistuje. Funkce je přitom spojitá.",
+    "hints": [
+      "Derivace existuje, jen když se rovnají obě jednostranné derivace.",
+      "Spočti $\\lim_{x\\to0^\\pm}\\frac{|x|-0}{x-0}$ zvlášť pro kladné a záporné $x$.",
+      "Porovnej oba výsledky a odpověz, co plyne pro derivaci; spojitost $|x|$ v $0$ ověř zvlášť."
+    ]
   },
   {
     "id": "dd-cont-conv",
     "type": "choice",
     "prompt": "Který vztah platí pro funkci $f$ a bod $x_0$?",
-    "options": ["Existuje-li vlastní $f'(x_0)$, je $f$ v $x_0$ spojitá.", "Je-li $f$ v $x_0$ spojitá, existuje $f'(x_0)$.", "Funkce je diferencovatelná $\\iff$ je spojitá.", "Z existence $f'(x_0)$ plyne spojitost $f'$ v $x_0$."],
+    "options": [
+      "Existuje-li vlastní $f'(x_0)$, je $f$ v $x_0$ spojitá.",
+      "Je-li $f$ v $x_0$ spojitá, existuje $f'(x_0)$.",
+      "Funkce je diferencovatelná $\\iff$ je spojitá.",
+      "Z existence $f'(x_0)$ plyne spojitost $f'$ v $x_0$."
+    ],
     "answer": 0,
-    "solution": "Implikace jen jedním směrem (důkaz: $f(x)-f(x_0)=\\frac{f(x)-f(x_0)}{x-x_0}(x-x_0)\\to f'(x_0)\\cdot0=0$). Protipříklad opačného směru je $|x|$."
+    "solution": "Implikace jen jedním směrem (důkaz: $f(x)-f(x_0)=\\frac{f(x)-f(x_0)}{x-x_0}(x-x_0)\\to f'(x_0)\\cdot0=0$). Protipříklad opačného směru je $|x|$.",
+    "hints": [
+      "Spojitost a diferencovatelnost: jedna implikace platí, druhá ne.",
+      "Vzpomeň na $|x|$ v $0$: je spojitá, ale nemá derivaci.",
+      "Důkaz: $f(x)-f(x_0)=\\frac{f(x)-f(x_0)}{x-x_0}(x-x_0)$, kam míří pravá strana pro $x\\to x_0$?"
+    ]
   },
   {
     "id": "dd-cbrt",
     "type": "choice",
     "prompt": "Pro $f(x)=\\sqrt[3]{x}$ v bodě $x_0=0$ platí:",
-    "options": ["$f'(0)=+\\infty$ (svislá tečna), funkce je spojitá", "$f'(0)=0$", "$f'(0)$ neexistuje, protože $f$ je nespojitá", "$f'(0)=1$"],
+    "options": [
+      "$f'(0)=+\\infty$ (svislá tečna), funkce je spojitá",
+      "$f'(0)=0$",
+      "$f'(0)$ neexistuje, protože $f$ je nespojitá",
+      "$f'(0)=1$"
+    ],
     "answer": 0,
-    "solution": "$\\lim_{x\\to0}\\frac{\\sqrt[3]x}{x}=\\lim\\frac1{\\sqrt[3]{x^2}}=\\frac1{+0}=+\\infty$. Tečna je osa $y$."
+    "solution": "$\\lim_{x\\to0}\\frac{\\sqrt[3]x}{x}=\\lim\\frac1{\\sqrt[3]{x^2}}=\\frac1{+0}=+\\infty$. Tečna je osa $y$.",
+    "hints": [
+      "Sestav podíl diferencí v $0$: $\\frac{\\sqrt[3]x-0}{x-0}$.",
+      "Uprav $\\frac{\\sqrt[3]x}{x}=\\frac1{\\sqrt[3]{x^2}}$.",
+      "Jmenovatel je kladný a jde k nule, urči, kam jde zlomek; $\\sqrt[3]x$ je spojitá."
+    ]
   },
   {
     "id": "dd-tangent-x4",
@@ -45,7 +85,12 @@
     "prompt": "Tečna ke grafu $f(x)=x^4$ v bodě $x_0=1$ protíná osu $y$ v bodě $[0,\\,q]$. Urči $q$.",
     "answer": -3,
     "tolerance": 0.001,
-    "solution": "$f'(1)=4$, $f(1)=1$: $y-1=4(x-1)$, tj. $y=4x-3$. Pro $x=0$ je $q=-3$."
+    "solution": "$f'(1)=4$, $f(1)=1$: $y-1=4(x-1)$, tj. $y=4x-3$. Pro $x=0$ je $q=-3$.",
+    "hints": [
+      "Tečna v bodě: $y-f(x_0)=f'(x_0)(x-x_0)$.",
+      "Spočti $f(1)$ a $f'(1)$ pomocí $f'(x)=4x^3$.",
+      "Napiš rovnici tečny a dosaď $x=0$, tím dostaneš $q$."
+    ]
   },
   {
     "id": "dd-normal-x4",
@@ -53,7 +98,12 @@
     "prompt": "Normála ke grafu $f(x)=x^4$ v bodě $x_0=1$ protíná osu $y$ v bodě $[0,\\,q]$. Urči $q$.",
     "answer": 1.25,
     "tolerance": 0.001,
-    "solution": "Směrnice normály $=-\\frac1{f'(1)}=-\\frac14$: $y-1=-\\frac14(x-1)$, tj. $y=-\\frac14x+\\frac54$. Pro $x=0$ je $q=\\frac54=1{,}25$."
+    "solution": "Směrnice normály $=-\\frac1{f'(1)}=-\\frac14$: $y-1=-\\frac14(x-1)$, tj. $y=-\\frac14x+\\frac54$. Pro $x=0$ je $q=\\frac54=1{,}25$.",
+    "hints": [
+      "Normála je kolmice na tečnu, její směrnice je $-1/f'(x_0)$.",
+      "Spočti $f'(1)=4\\cdot1^3$ a z toho směrnici normály; $f(1)=1$.",
+      "Napiš $y-f(1)=k(x-1)$ s touto směrnicí $k$ a dosaď $x=0$."
+    ]
   },
   {
     "id": "dd-velocity",
@@ -61,18 +111,33 @@
     "prompt": "Poloha bodu na přímce je $s(t)=t^3-2t$. Urči rychlost v čase $t=2$.",
     "answer": 10,
     "tolerance": 0.001,
-    "solution": "$v(t)=s'(t)=3t^2-2$, tedy $v(2)=12-2=10$."
+    "solution": "$v(t)=s'(t)=3t^2-2$, tedy $v(2)=12-2=10$.",
+    "hints": [
+      "Okamžitá rychlost je derivace polohy podle času.",
+      "Zderivuj $s(t)=t^3-2t$ po členech.",
+      "Dosaď $t=2$ do $s'(t)$."
+    ]
   },
   {
     "id": "dd-def-x2",
     "type": "free",
     "prompt": "Odvoď z definice derivaci funkce $f(x)=x^2$ v bodě $x_0$.",
-    "solution": "$f'(x_0)=\\lim_{x\\to x_0}\\frac{x^2-x_0^2}{x-x_0}=\\lim\\frac{(x-x_0)(x+x_0)}{x-x_0}=\\lim(x+x_0)=2x_0$."
+    "solution": "$f'(x_0)=\\lim_{x\\to x_0}\\frac{x^2-x_0^2}{x-x_0}=\\lim\\frac{(x-x_0)(x+x_0)}{x-x_0}=\\lim(x+x_0)=2x_0$.",
+    "hints": [
+      "Vyjdi z definice $f'(x_0)=\\lim_{x\\to x_0}\\frac{f(x)-f(x_0)}{x-x_0}$.",
+      "Dosaď $f(x)=x^2$ a rozlož čitatel: $x^2-x_0^2=(x-x_0)(x+x_0)$.",
+      "Zkrať $(x-x_0)$ a proveď limitu $x\\to x_0$ ve zbylém výrazu."
+    ]
   },
   {
     "id": "dd-def-sqrt",
     "type": "free",
     "prompt": "Z definice odvoď $(\\sqrt x)'$ pro $x_0>0$ a vysvětli, co se děje v $x_0=0$.",
-    "solution": "$\\lim_{x\\to x_0}\\frac{\\sqrt x-\\sqrt{x_0}}{x-x_0}\\cdot\\frac{\\sqrt x+\\sqrt{x_0}}{\\sqrt x+\\sqrt{x_0}}=\\lim\\frac1{\\sqrt x+\\sqrt{x_0}}=\\frac1{2\\sqrt{x_0}}$. V $0$ je jen pravostranná derivace $\\lim_{x\\to0+}\\frac1{\\sqrt x}=+\\infty$ (svislá tečna, krajní bod oboru)."
+    "solution": "$\\lim_{x\\to x_0}\\frac{\\sqrt x-\\sqrt{x_0}}{x-x_0}\\cdot\\frac{\\sqrt x+\\sqrt{x_0}}{\\sqrt x+\\sqrt{x_0}}=\\lim\\frac1{\\sqrt x+\\sqrt{x_0}}=\\frac1{2\\sqrt{x_0}}$. V $0$ je jen pravostranná derivace $\\lim_{x\\to0+}\\frac1{\\sqrt x}=+\\infty$ (svislá tečna, krajní bod oboru).",
+    "hints": [
+      "Použij definici derivace a rozšiř zlomek výrazem $\\sqrt x+\\sqrt{x_0}$ (konjugovaný výraz).",
+      "Čitatel se stane $x-x_0$, který se zkrátí se jmenovatelem.",
+      "Limitu zbylého zlomku spočti pro $x_0>0$; pro $x_0=0$ počítej pouze pravostrannou limitu (funkce je definovaná jen pro $x\\ge0$)."
+    ]
   }
 ]

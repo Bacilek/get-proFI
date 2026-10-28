@@ -3,9 +3,19 @@
     "id": "antiderivative-ln-abs",
     "type": "choice",
     "prompt": "Která funkce je primitivní k $\\frac{1}{x}$ na $(-\\infty,0)$ i na $(0,\\infty)$?",
-    "options": ["$\\ln x$", "$\\ln\\lvert x\\rvert$", "$-\\frac{1}{x^2}$", "$\\frac{1}{x^2}$"],
+    "options": [
+      "$\\ln x$",
+      "$\\ln\\lvert x\\rvert$",
+      "$-\\frac{1}{x^2}$",
+      "$\\frac{1}{x^2}$"
+    ],
     "answer": 1,
-    "solution": "$(\\ln\\lvert x\\rvert)'=\\frac1x$ pro $x>0$ i $x<0$ (pro $x<0$: $\\frac{1}{-x}\\cdot(-1)=\\frac1x$). $\\ln x$ je definovaný jen pro $x>0$."
+    "solution": "$(\\ln\\lvert x\\rvert)'=\\frac1x$ pro $x>0$ i $x<0$ (pro $x<0$: $\\frac{1}{-x}\\cdot(-1)=\\frac1x$). $\\ln x$ je definovaný jen pro $x>0$.",
+    "hints": [
+      "Primitivní funkce $F$ musí splňovat $F'=\\frac1x$ na celém definičním oboru funkce $\\frac1x$, tedy i pro záporná $x$.",
+      "Zkus zderivovat $\\ln x$ a $\\ln\\lvert x\\rvert$; všimni si, kde je která funkce definovaná.",
+      "Pro $x<0$ je $\\ln\\lvert x\\rvert=\\ln(-x)$, derivace přes řetízkové pravidlo je $\\frac1{-x}\\cdot(-1)$."
+    ]
   },
   {
     "id": "antiderivative-f1",
@@ -13,26 +23,51 @@
     "prompt": "Nechť $F'(x)=3x^2+2x$ a $F(0)=5$. Určete $F(1)$.",
     "answer": 7,
     "tolerance": 0.001,
-    "solution": "$F(x)=x^3+x^2+C$, $F(0)=C=5$, tedy $F(1)=1+1+5=7$."
+    "solution": "$F(x)=x^3+x^2+C$, $F(0)=C=5$, tedy $F(1)=1+1+5=7$.",
+    "hints": [
+      "Z derivace $F'$ najdi $F$ integrací; konstanta se určí z podmínky.",
+      "$F(x)=\\int(3x^2+2x)\\,\\mathrm{d}x=x^3+x^2+C$.",
+      "Dosazením $x=0$ do $F(0)=5$ urči $C$ a pak dosaď $x=1$."
+    ]
   },
   {
     "id": "antiderivative-arctg",
     "type": "choice",
     "prompt": "$\\displaystyle\\int\\frac{1}{x^2+9}\\,\\mathrm{d}x=$",
-    "options": ["$\\arctan x+C$", "$\\frac13\\operatorname{arctg}\\frac{x}{3}+C$", "$3\\operatorname{arctg}\\frac{x}{3}+C$", "$\\ln(x^2+9)+C$"],
+    "options": [
+      "$\\arctan x+C$",
+      "$\\frac13\\operatorname{arctg}\\frac{x}{3}+C$",
+      "$3\\operatorname{arctg}\\frac{x}{3}+C$",
+      "$\\ln(x^2+9)+C$"
+    ],
     "answer": 1,
-    "solution": "Vzorec $\\int\\frac{1}{a^2+x^2}\\mathrm{d}x=\\frac1a\\operatorname{arctg}\\frac xa$ pro $a=3$. Zderivuj: $\\frac13\\cdot\\frac{1}{1+x^2/9}\\cdot\\frac13=\\frac{1}{9+x^2}$."
+    "solution": "Vzorec $\\int\\frac{1}{a^2+x^2}\\mathrm{d}x=\\frac1a\\operatorname{arctg}\\frac xa$ pro $a=3$. Zderivuj: $\\frac13\\cdot\\frac{1}{1+x^2/9}\\cdot\\frac13=\\frac{1}{9+x^2}$.",
+    "hints": [
+      "Jmenovatel je $x^2+a^2$, což je typický vzorec pro arkus tangens.",
+      "Použij $\\int\\frac{1}{a^2+x^2}\\,\\mathrm{d}x=\\frac1a\\operatorname{arctg}\\frac xa$; zde $a^2=9$.",
+      "Pro kontrolu zderivuj kandidáta: vnitřní derivace $\\frac13$ musí dát správný předfaktor."
+    ]
   },
   {
     "id": "antiderivative-free-sum",
     "type": "free",
     "prompt": "Spočtěte $\\displaystyle\\int\\left(2^x-\\frac{2}{x}\\right)\\mathrm{d}x$.",
-    "solution": "$\\frac{2^x}{\\ln 2}-2\\ln\\lvert x\\rvert+C$."
+    "solution": "Integrujeme člen po členu: $\\int2^x\\,\\mathrm{d}x=\\frac{2^x}{\\ln2}$ a $\\int\\frac2x\\,\\mathrm{d}x=2\\ln\\lvert x\\rvert$.\n\nVýsledek: $\\frac{2^x}{\\ln 2}-2\\ln\\lvert x\\rvert+C$.",
+    "hints": [
+      "Integruj člen po členu (linearita) pomocí tabulkových vzorců.",
+      "$\\int a^x\\,\\mathrm{d}x=\\frac{a^x}{\\ln a}$ pro $a>0$, $a\\neq1$ a $\\int\\frac1x\\,\\mathrm{d}x=\\ln\\lvert x\\rvert$.",
+      "Konstantu $2$ vytkni před integrál a nezapomeň na $+C$."
+    ]
   },
   {
     "id": "antiderivative-free-sqrt",
     "type": "free",
     "prompt": "Spočtěte $\\displaystyle\\int\\left(\\sqrt{x}+\\frac{3}{x^2}\\right)\\mathrm{d}x$.",
-    "solution": "$\\int x^{1/2}\\mathrm{d}x=\\frac23x^{3/2}$, $\\int 3x^{-2}\\mathrm{d}x=-\\frac3x$. Výsledek: $\\frac23x\\sqrt{x}-\\frac3x+C$."
+    "solution": "$\\int x^{1/2}\\mathrm{d}x=\\frac23x^{3/2}$, $\\int 3x^{-2}\\mathrm{d}x=-\\frac3x$. Výsledek: $\\frac23x\\sqrt{x}-\\frac3x+C$.",
+    "hints": [
+      "Přepiš odmocninu a zlomek na mocniny $x^{\\alpha}$ a použij mocninný vzorec.",
+      "$\\sqrt x=x^{1/2}$ a $\\frac3{x^2}=3x^{-2}$.",
+      "$\\int x^\\alpha\\,\\mathrm{d}x=\\frac{x^{\\alpha+1}}{\\alpha+1}$ pro $\\alpha\\ne-1$; použij pro $\\alpha=\\frac12$ a $\\alpha=-2$."
+    ]
   }
 ]

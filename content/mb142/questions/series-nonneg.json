@@ -5,7 +5,12 @@
     "prompt": "Pro řadu $\\displaystyle\\sum_{n=1}^\\infty\\frac{n!}{n^n}$ určete limitu podílu $\\displaystyle q=\\lim\\frac{a_{n+1}}{a_n}$ (na 3 desetinná místa).",
     "answer": 0.368,
     "tolerance": 0.001,
-    "solution": "$\\frac{a_{n+1}}{a_n}=\\frac{n^n}{(n+1)^n}=\\frac{1}{(1+1/n)^n}\\to\\frac1e\\approx0{,}368<1$, řada konverguje."
+    "solution": "$\\frac{a_{n+1}}{a_n}=\\frac{n^n}{(n+1)^n}=\\frac{1}{(1+1/n)^n}\\to\\frac1e\\approx0{,}368<1$, řada konverguje.",
+    "hints": [
+      "Dosaď do podílu $\\frac{a_{n+1}}{a_n}$ a zkrať faktoriály.",
+      "$\\frac{(n+1)!}{(n+1)^{n+1}}\\cdot\\frac{n^n}{n!}=\\frac{n^n}{(n+1)^n}$.",
+      "Přepiš jako $\\left(\\frac{n}{n+1}\\right)^n=\\frac{1}{(1+1/n)^n}$ a použij známou limitu s $e$."
+    ]
   },
   {
     "id": "nonneg-root-limit",
@@ -13,7 +18,12 @@
     "prompt": "Pro řadu $\\displaystyle\\sum_{n=1}^\\infty\\left(\\frac{n}{2n+1}\\right)^n$ určete $\\displaystyle q=\\lim\\sqrt[n]{a_n}$ (na 3 desetinná místa).",
     "answer": 0.5,
     "tolerance": 0.001,
-    "solution": "$\\sqrt[n]{a_n}=\\frac{n}{2n+1}\\to\\frac12<1$, řada konverguje."
+    "solution": "$\\sqrt[n]{a_n}=\\frac{n}{2n+1}\\to\\frac12<1$, řada konverguje.",
+    "hints": [
+      "Člen je $n$-tá mocnina, takže se hodí odmocninové kritérium.",
+      "$\\sqrt[n]{a_n}=\\frac{n}{2n+1}$.",
+      "Spočti limitu zlomku (vyděl čitatele i jmenovatele $n$)."
+    ]
   },
   {
     "id": "nonneg-root-n-over-n2",
@@ -21,7 +31,12 @@
     "prompt": "Pro řadu $\\displaystyle\\sum_{n=1}^\\infty\\frac{2^n}{n^2}$ určete $\\displaystyle q=\\lim\\sqrt[n]{a_n}$.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "$\\sqrt[n]{a_n}=\\frac{2}{(\\sqrt[n]{n})^2}\\to\\frac{2}{1}=2>1$, řada diverguje k $\\infty$ (také $a_n\\not\\to0$)."
+    "solution": "$\\sqrt[n]{a_n}=\\frac{2}{(\\sqrt[n]{n})^2}\\to\\frac{2}{1}=2>1$, řada diverguje k $\\infty$ (také $a_n\\not\\to0$).",
+    "hints": [
+      "Použij odmocninové kritérium: $\\sqrt[n]{a_n}$.",
+      "$\\sqrt[n]{\\frac{2^n}{n^2}}=\\frac{2}{(\\sqrt[n]{n})^2}$.",
+      "Využij $\\sqrt[n]{n}\\to1$ a dosaď."
+    ]
   },
   {
     "id": "nonneg-ratio-factorial",
@@ -34,7 +49,12 @@
       "Limita neexistuje"
     ],
     "answer": 0,
-    "solution": "$\\frac{a_{n+1}}{a_n}=\\frac{5^{n+1}\\,n!}{(n+1)!\\,5^n}=\\frac{5}{n+1}\\to0$."
+    "solution": "$\\frac{a_{n+1}}{a_n}=\\frac{5^{n+1}\\,n!}{(n+1)!\\,5^n}=\\frac{5}{n+1}\\to0$.",
+    "hints": [
+      "Faktoriál ve jmenovateli napovídá podílové kritérium.",
+      "Spočítej $\\frac{a_{n+1}}{a_n}=\\frac{5^{n+1}}{(n+1)!}\\cdot\\frac{n!}{5^n}$.",
+      "Po zkrácení zbyde zlomek s $n+1$ ve jmenovateli; urči jeho limitu a porovnej s $1$."
+    ]
   },
   {
     "id": "nonneg-ratio-exp-over-power",
@@ -47,7 +67,12 @@
       "nelze rozhodnout, $q=1$"
     ],
     "answer": 0,
-    "solution": "$\\frac{a_{n+1}}{a_n}=3\\frac{n^2}{(n+1)^2}\\to3>1$."
+    "solution": "$\\frac{a_{n+1}}{a_n}=3\\frac{n^2}{(n+1)^2}\\to3>1$.",
+    "hints": [
+      "Exponenciála děleno mocnina: zkus podílové kritérium (nebo $a_n\\to?$).",
+      "$\\frac{a_{n+1}}{a_n}=3\\cdot\\frac{n^2}{(n+1)^2}$.",
+      "Limita $\\frac{n^2}{(n+1)^2}$ je $1$; vynásob $3$ a porovnej s $1$."
+    ]
   },
   {
     "id": "nonneg-p-series",
@@ -60,7 +85,12 @@
       "$\\displaystyle\\sum_{n=1}^\\infty\\frac{n}{n+1}$"
     ],
     "answer": 0,
-    "solution": "$\\frac1{n\\sqrt n}=\\frac1{n^{3/2}}$, $p=\\frac32>1$. $\\frac1{\\sqrt n}$ má $p=\\frac12$, $\\frac1n$ má $p=1$ a $\\frac{n}{n+1}\\to1\\neq0$: všechny divergují."
+    "solution": "$\\frac1{n\\sqrt n}=\\frac1{n^{3/2}}$, $p=\\frac32>1$. $\\frac1{\\sqrt n}$ má $p=\\frac12$, $\\frac1n$ má $p=1$ a $\\frac{n}{n+1}\\to1\\neq0$: všechny divergují.",
+    "hints": [
+      "Použij srovnání s $p$-řadou $\\sum\\frac1{n^p}$, která konverguje právě pro $p>1$.",
+      "Přepiš každý člen jako mocninu $n^{-p}$ (např. $\\sqrt n=n^{1/2}$) a zjisti $p$.",
+      "Pozor na řadu, jejíž členy nekonvergují k $0$ – ta diverguje z nutné podmínky."
+    ]
   },
   {
     "id": "nonneg-comparison",
@@ -73,7 +103,12 @@
       "podílové kritérium dává $q<1$"
     ],
     "answer": 0,
-    "solution": "Majoranta je konvergentní $\\sum\\frac{1}{n^2}$ ($p=2$). Podílové dává $q=1$, $\\sum\\frac1n$ diverguje."
+    "solution": "Majoranta je konvergentní $\\sum\\frac{1}{n^2}$ ($p=2$). Podílové dává $q=1$, $\\sum\\frac1n$ diverguje.",
+    "hints": [
+      "Srovnávací kritérium: potřebuješ konvergentní majorantu (větší členy).",
+      "Odhadni $n^2+1\\ge n^2$, tedy $\\frac1{n^2+1}$ je menší než co?",
+      "Zkontroluj směr nerovnosti a že srovnávaná $p$-řada konverguje."
+    ]
   },
   {
     "id": "nonneg-integral",
@@ -86,7 +121,12 @@
       "Podílové kritérium dává $q<1$"
     ],
     "answer": 0,
-    "solution": "$f(x)=\\frac1{x\\ln x}$ je kladná a klesající, substituce $t=\\ln x$ dává $\\ln\\ln x\\to\\infty$. Nerovnost $\\le\\frac1n$ nevede k závěru (divergentní majoranta)."
+    "solution": "$f(x)=\\frac1{x\\ln x}$ je kladná a klesající, substituce $t=\\ln x$ dává $\\ln\\ln x\\to\\infty$. Nerovnost $\\le\\frac1n$ nevede k závěru (divergentní majoranta).",
+    "hints": [
+      "Člen je $f(n)$ kladné klesající funkce, takže jde použít integrální kritérium.",
+      "Spočítej $\\int_2^\\infty\\frac{dx}{x\\ln x}$ substitucí $t=\\ln x$.",
+      "Primitivní funkce je $\\ln|t|$; podívej se, zda má pro $t\\to\\infty$ konečnou limitu."
+    ]
   },
   {
     "id": "nonneg-undecidable",
@@ -99,7 +139,12 @@
       "Řada osciluje"
     ],
     "answer": 0,
-    "solution": "Pro $q=1$ je kritérium nerozhodnutelné; použij srovnání nebo integrální kritérium."
+    "solution": "Pro $q=1$ je kritérium nerozhodnutelné; použij srovnání nebo integrální kritérium.",
+    "hints": [
+      "Zamysli se, co kritérium říká pro $q<1$, $q>1$ a co pro $q=1$.",
+      "Spočti podíl $\\frac{a_{n+1}}{a_n}$ pro $\\frac1n$ a pro $\\frac1{n^2}$.",
+      "Obě řady mají limitu podílu $1$, ale různé chování – co z toho plyne?"
+    ]
   },
   {
     "id": "nonneg-root-arcsin",

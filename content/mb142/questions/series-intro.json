@@ -5,7 +5,12 @@
     "prompt": "Určete součet $\\displaystyle\\sum_{n=0}^\\infty\\left(\\frac23\\right)^n$.",
     "answer": 3,
     "tolerance": 0.001,
-    "solution": "$a=1$, $q=\\frac23$: $\\frac{1}{1-\\frac23}=3$."
+    "solution": "$a=1$, $q=\\frac23$: $\\frac{1}{1-\\frac23}=3$.",
+    "hints": [
+      "Jde o geometrickou řadu $\\sum q^n$ s kvocientem $q$.",
+      "Pro $|q|<1$ platí $\\sum_{n=0}^\\infty aq^n=\\frac{a}{1-q}$; zde $q=\\frac23$, $a=1$.",
+      "Dosaď do $\\frac{1}{1-q}$ a zjednoduš složený zlomek."
+    ]
   },
   {
     "id": "seriesintro-geom-alt",
@@ -13,7 +18,12 @@
     "prompt": "Určete součet $\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^n}{3^n}$ (na 3 desetinná místa).",
     "answer": 0.75,
     "tolerance": 0.001,
-    "solution": "$q=-\\frac13$, $a=1$: $\\frac{1}{1+\\frac13}=\\frac34=0{,}75$."
+    "solution": "$q=-\\frac13$, $a=1$: $\\frac{1}{1+\\frac13}=\\frac34=0{,}75$.",
+    "hints": [
+      "Přepiš řadu jako geometrickou: $\\frac{(-1)^n}{3^n}=\\left(-\\frac13\\right)^n$.",
+      "Kvocient je záporný, $|q|<1$, takže vzorec $\\frac{a}{1-q}$ platí.",
+      "Spočítej $\\frac{1}{1-q}=\\frac{1}{1+\\frac13}$."
+    ]
   },
   {
     "id": "seriesintro-geom-shifted",
@@ -21,7 +31,12 @@
     "prompt": "Určete součet $\\displaystyle\\sum_{n=2}^\\infty 3\\left(\\frac14\\right)^n$ (na 3 desetinná místa).",
     "answer": 0.25,
     "tolerance": 0.001,
-    "solution": "První člen (pro $n=2$) je $\\frac{3}{16}$, $q=\\frac14$: $\\frac{3/16}{3/4}=\\frac14$. Nebo: celá řada od $0$ dává $4$, odečti $3+\\frac34=\\frac{15}{4}$: $\\frac14$."
+    "solution": "První člen (pro $n=2$) je $\\frac{3}{16}$, $q=\\frac14$: $\\frac{3/16}{3/4}=\\frac14$. Nebo: celá řada od $0$ dává $4$, odečti $3+\\frac34=\\frac{15}{4}$: $\\frac14$.",
+    "hints": [
+      "Geometrická řada, ale začíná od $n=2$, ne od $0$.",
+      "Použij $\\frac{\\text{první člen}}{1-q}$ s prvním členem pro $n=2$, nebo sečti řadu od $0$ a odečti členy $n=0,1$.",
+      "První člen je $3\\cdot\\frac1{16}$, $q=\\frac14$; dosaď do $\\frac{a_2}{1-q}$."
+    ]
   },
   {
     "id": "seriesintro-sum-of-geoms",
@@ -29,7 +44,12 @@
     "prompt": "Určete součet $\\displaystyle\\sum_{n=0}^\\infty\\frac{3^n-1}{6^n}$ (na 3 desetinná místa).",
     "answer": 0.8,
     "tolerance": 0.001,
-    "solution": "$\\sum(\\frac12)^n-\\sum(\\frac16)^n=2-\\frac65=\\frac45=0{,}8$ (obě řady konvergují, smíme rozdělit)."
+    "solution": "$\\sum(\\frac12)^n-\\sum(\\frac16)^n=2-\\frac65=\\frac45=0{,}8$ (obě řady konvergují, smíme rozdělit).",
+    "hints": [
+      "Rozděl zlomek na dva: $\\frac{3^n-1}{6^n}=\\frac{3^n}{6^n}-\\frac1{6^n}$.",
+      "Vzniknou dvě geometrické řady s $q=\\frac12$ a $q=\\frac16$; obě konvergují, takže je smíme sčítat zvlášť.",
+      "Sečti každou vzorcem $\\frac1{1-q}$ a odečti výsledky."
+    ]
   },
   {
     "id": "seriesintro-telescope",
@@ -37,7 +57,12 @@
     "prompt": "Určete součet $\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n(n+1)}$.",
     "answer": 1,
     "tolerance": 0.001,
-    "solution": "$\\frac1{n(n+1)}=\\frac1n-\\frac1{n+1}$, $s_n=1-\\frac1{n+1}\\to1$."
+    "solution": "$\\frac1{n(n+1)}=\\frac1n-\\frac1{n+1}$, $s_n=1-\\frac1{n+1}\\to1$.",
+    "hints": [
+      "Teleskopická řada: rozlož člen na parciální zlomky.",
+      "$\\frac1{n(n+1)}=\\frac1n-\\frac1{n+1}$.",
+      "Částečný součet $s_n$ se téměř vše vykrátí, zbyde $1-\\frac1{n+1}$; urči limitu pro $n\\to\\infty$."
+    ]
   },
   {
     "id": "seriesintro-ball",
@@ -45,7 +70,12 @@
     "prompt": "Míček spustíme z výšky $3$ m. Po každém dopadu se odrazí do poloviny předchozí výšky. Jakou celkovou dráhu urazí při nekonečně mnoha odrazech (v metrech)?",
     "answer": 9,
     "tolerance": 0.001,
-    "solution": "$s=a\\frac{1+q}{1-q}=3\\cdot\\frac{1.5}{0.5}=9$. Dolů $3+\\frac32+\\dots=6$, nahoru $\\frac32+\\frac34+\\dots=3$."
+    "solution": "$s=a\\frac{1+q}{1-q}=3\\cdot\\frac{1.5}{0.5}=9$. Dolů $3+\\frac32+\\dots=6$, nahoru $\\frac32+\\frac34+\\dots=3$.",
+    "hints": [
+      "Dráha = první pád + součet všech dvojic (nahoru a zase dolů); jde o geometrické řady s $q=\\frac12$.",
+      "Dolů: $3+\\frac32+\\frac34+\\dots$, nahoru: $\\frac32+\\frac34+\\dots$ (po prvním dopadu).",
+      "Obě řady sečti vzorcem $\\frac{a}{1-q}$ a výsledky sečti."
+    ]
   },
   {
     "id": "seriesintro-necessary",
@@ -58,7 +88,12 @@
       "$\\displaystyle\\sum_{n=0}^\\infty\\left(\\frac12\\right)^n$"
     ],
     "answer": 0,
-    "solution": "$\\frac{n}{2n+1}\\to\\frac12\\neq0$. U ostatních je $a_n\\to0$ (harmonická řada ale diverguje z jiného důvodu)."
+    "solution": "$\\frac{n}{2n+1}\\to\\frac12\\neq0$. U ostatních je $a_n\\to0$ (harmonická řada ale diverguje z jiného důvodu).",
+    "hints": [
+      "Nutná podmínka konvergence: pokud $\\sum a_n$ konverguje, pak $a_n\\to0$.",
+      "Pro každou možnost spočítej $\\lim a_n$; hledáš tu, kde limita není $0$.",
+      "Pozor na řady, u kterých je $a_n\\to0$, ale přesto divergují – ty podmínka neodhalí."
+    ]
   },
   {
     "id": "seriesintro-harmonic",
@@ -71,7 +106,12 @@
       "Ne, protipříklad je geometrická řada s $q=\\frac12$"
     ],
     "answer": 0,
-    "solution": "Podmínka $a_n\\to0$ je jen nutná. $\\sum\\frac1n=\\infty$, i když $\\frac1n\\to0$. Geometrická řada s $q=\\frac12$ konverguje."
+    "solution": "Podmínka $a_n\\to0$ je jen nutná. $\\sum\\frac1n=\\infty$, i když $\\frac1n\\to0$. Geometrická řada s $q=\\frac12$ konverguje.",
+    "hints": [
+      "Zamysli se, zda je $a_n\\to0$ jen nutná, nebo i postačující podmínka.",
+      "Vzpomeň si na řadu s $a_n=\\frac1n\\to0$ a její chování.",
+      "Najdi možnost, která uvádí správný protipříklad (řadu, která opravdu diverguje)."
+    ]
   },
   {
     "id": "seriesintro-oscillate",
@@ -84,7 +124,12 @@
       "diverguje k $\\infty$"
     ],
     "answer": 0,
-    "solution": "Geometrická řada s $q=-1$, $s_n\\in\\{1,0\\}$ střídavě, limita neexistuje."
+    "solution": "Geometrická řada s $q=-1$, $s_n\\in\\{1,0\\}$ střídavě, limita neexistuje.",
+    "hints": [
+      "Je to geometrická řada s $q=-1$; vzorec $\\frac{1}{1-q}$ pro $|q|\\ge1$ neplatí.",
+      "Vypiš několik částečných součtů $s_0,s_1,s_2,s_3,\\dots$.",
+      "Pokud posloupnost $s_n$ nemá limitu, řada nekonverguje ani nediverguje k $\\pm\\infty$."
+    ]
   },
   {
     "id": "seriesintro-telescope-n3",

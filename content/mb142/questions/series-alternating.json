@@ -10,7 +10,12 @@
       "osciluje"
     ],
     "answer": 0,
-    "solution": "$\\frac1n$ klesá k $0$, tedy konverguje (Leibniz). $\\sum\\frac1n=\\infty$, proto konvergence není absolutní."
+    "solution": "$\\frac1n$ klesá k $0$, tedy konverguje (Leibniz). $\\sum\\frac1n=\\infty$, proto konvergence není absolutní.",
+    "hints": [
+      "Střídavá řada – zkus Leibnizovo kritérium.",
+      "Ověř, že $\\frac1n$ klesá a jde k $0$; pak konverguje.",
+      "Pak zkoumej absolutní hodnoty: $\\sum\\frac1n$ je harmonická řada – konverguje, či ne?"
+    ]
   },
   {
     "id": "alt-absolute-n2",
@@ -23,7 +28,12 @@
       "osciluje"
     ],
     "answer": 0,
-    "solution": "$\\sum\\frac{1}{n^2}$ konverguje ($p=2$), tedy řada konverguje absolutně."
+    "solution": "$\\sum\\frac{1}{n^2}$ konverguje ($p=2$), tedy řada konverguje absolutně.",
+    "hints": [
+      "Rozliš absolutní a relativní konvergenci: zkoumej řadu absolutních hodnot.",
+      "$\\sum\\left|\\frac{(-1)^{n-1}}{n^2}\\right|=\\sum\\frac1{n^2}$.",
+      "Použij $p$-kritérium pro $p=2$."
+    ]
   },
   {
     "id": "alt-relative-sqrt",
@@ -36,7 +46,12 @@
       "osciluje"
     ],
     "answer": 0,
-    "solution": "Leibniz: $\\frac1{\\sqrt n}\\searrow0$, konverguje. $\\sum\\frac1{\\sqrt n}$ má $p=\\frac12\\le1$ a diverguje, takže konvergence je relativní."
+    "solution": "Leibniz: $\\frac1{\\sqrt n}\\searrow0$, konverguje. $\\sum\\frac1{\\sqrt n}$ má $p=\\frac12\\le1$ a diverguje, takže konvergence je relativní.",
+    "hints": [
+      "Dvě otázky: konverguje řada (Leibniz) a konverguje i s absolutními hodnotami?",
+      "Leibniz: $\\frac1{\\sqrt n}$ klesá k $0$. Absolutní hodnoty: $\\sum\\frac1{n^{1/2}}$.",
+      "Porovnej $p=\\frac12$ s hranicí $1$ a rozhodni mezi absolutní a relativní konvergencí."
+    ]
   },
   {
     "id": "alt-necessary",
@@ -49,7 +64,12 @@
       "konverguje k $0$"
     ],
     "answer": 0,
-    "solution": "Leibniz vyžaduje $a_n\\to0$; zde $a_n=\\frac{n}{n+1}\\to1$, nutná podmínka není splněna."
+    "solution": "Leibniz vyžaduje $a_n\\to0$; zde $a_n=\\frac{n}{n+1}\\to1$, nutná podmínka není splněna.",
+    "hints": [
+      "Než zkusíš Leibnize, ověř nutnou podmínku $a_n\\to0$.",
+      "Spočti $\\lim\\frac{n}{n+1}$.",
+      "Pokud členy nejdou k $0$, řada konvergovat nemůže (ani se střídavými znaménky)."
+    ]
   },
   {
     "id": "alt-error-bound",
@@ -57,7 +77,12 @@
     "prompt": "Řadu $\\displaystyle\\sum_{n=0}^\\infty\\left(-\\frac12\\right)^n$ nahradíme částečným součtem $s_4=1-\\frac12+\\frac14-\\frac18+\\frac1{16}$. Jaký je horní odhad chyby $|A-s_4|$ z Leibnizova kritéria (na 3 desetinná místa)?",
     "answer": 0.031,
     "tolerance": 0.001,
-    "solution": "Chyba je nejvýše první nezahrnutý člen $a_5=\\frac{1}{32}\\approx0{,}031$."
+    "solution": "Chyba je nejvýše první nezahrnutý člen $a_5=\\frac{1}{32}\\approx0{,}031$.",
+    "hints": [
+      "Pro střídavou řadu s Leibnizovými předpoklady platí: chyba je menší než absolutní hodnota prvního vynechaného členu.",
+      "$s_4$ obsahuje členy do $n=4$, první vynechaný je $n=5$.",
+      "Spočti $\\left(\\frac12\\right)^5$ a zaokrouhli."
+    ]
   },
   {
     "id": "alt-terms-needed",
@@ -65,7 +90,12 @@
     "prompt": "Kolik prvních členů řady $\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^{n-1}}{n}$ stačí sečíst, aby chyba byla **menší než** $0{,}01$? (nejmenší takové $n$ v $s_n$)",
     "answer": 100,
     "tolerance": 0.001,
-    "solution": "Chyba $\\le a_{n+1}=\\frac1{n+1}<0{,}01\\iff n+1>100\\iff n\\ge100$."
+    "solution": "Chyba $\\le a_{n+1}=\\frac1{n+1}<0{,}01\\iff n+1>100\\iff n\\ge100$.",
+    "hints": [
+      "Odhad chyby: $|A-s_n|\\le a_{n+1}$.",
+      "Požaduj $\\frac1{n+1}<0{,}01$.",
+      "Vyřeš nerovnost pro celé $n$ – dej pozor, zda je ostrá."
+    ]
   },
   {
     "id": "alt-geom-sum",
@@ -73,7 +103,12 @@
     "prompt": "Určete součet $\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^n}{2^n}$ (na 3 desetinná místa).",
     "answer": 0.667,
     "tolerance": 0.001,
-    "solution": "Geometrická řada $a=1$, $q=-\\frac12$: $\\frac{1}{1+\\frac12}=\\frac23\\approx0{,}667$. Konverguje absolutně."
+    "solution": "Geometrická řada $a=1$, $q=-\\frac12$: $\\frac{1}{1+\\frac12}=\\frac23\\approx0{,}667$. Konverguje absolutně.",
+    "hints": [
+      "Je to geometrická řada: $\\frac{(-1)^n}{2^n}=\\left(-\\frac12\\right)^n$.",
+      "$|q|=\\frac12<1$, použij $\\frac{a}{1-q}$ s $a=1$.",
+      "Dosaď $q=-\\frac12$ a zaokrouhli."
+    ]
   },
   {
     "id": "alt-rearrange",
@@ -86,7 +121,12 @@
       "Žádnou, součet se nikdy nezmění"
     ],
     "answer": 0,
-    "solution": "Přerovnání může změnit součet jen u relativně konvergentních řad (dokonce lze dosáhnout libovolného čísla, $\\pm\\infty$ nebo oscilace). Absolutně konvergentní řady mají součet nezávislý na pořadí."
+    "solution": "Přerovnání může změnit součet jen u relativně konvergentních řad (dokonce lze dosáhnout libovolného čísla, $\\pm\\infty$ nebo oscilace). Absolutně konvergentní řady mají součet nezávislý na pořadí.",
+    "hints": [
+      "Riemannova věta: přerovnání mění součet jen u řad, které nejsou absolutně konvergentní.",
+      "Rozhodni u každé možnosti, zda konverguje absolutně nebo relativně.",
+      "Hledej relativně konvergentní řadu."
+    ]
   },
   {
     "id": "alt-product",
@@ -99,6 +139,11 @@
       "Ano, pokud je alespoň jedna absolutně konvergentní"
     ],
     "answer": 0,
-    "solution": "Obě řady konvergují podle Leibnize, ale řada součinů je harmonická a diverguje."
+    "solution": "Obě řady konvergují podle Leibnize, ale řada součinů je harmonická a diverguje.",
+    "hints": [
+      "Zkus hledat protipříklad: konvergentní řady, jejichž součin členů diverguje.",
+      "Vezmi střídavou řadu s členy $\\frac{(-1)^{n-1}}{\\sqrt n}$ (Leibniz) a $a_n=b_n$.",
+      "Spočti $a_nb_n$ a posuď výslednou řadu."
+    ]
   }
 ]

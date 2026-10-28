@@ -5,7 +5,12 @@
     "prompt": "Najdi $x$-ovou souřadnici inflexního bodu funkce $f(x)=x^3-6x^2+9x$.",
     "answer": 2,
     "tolerance": 0.001,
-    "solution": "$f''=6x-12=0\\Rightarrow x=2$. $f''$ mění znaménko z $-$ na $+$ ⇒ inflexe."
+    "solution": "$f''=6x-12=0\\Rightarrow x=2$. $f''$ mění znaménko z $-$ na $+$ ⇒ inflexe.",
+    "hints": [
+      "Inflexe hledej tam, kde $f''=0$ a $f''$ mění znaménko.",
+      "$f'=3x^2-12x+9$, $f''=6x-12$.",
+      "Řeš $f''=0$ a ověř změnu znaménka."
+    ]
   },
   {
     "id": "cvx-inflect-gauss",
@@ -13,7 +18,12 @@
     "prompt": "Funkce $f(x)=e^{-x^2}$ má inflexe v $x=\\pm a$, $a>0$. Urči $a$ (4 desetinná místa).",
     "answer": 0.7071,
     "tolerance": 0.001,
-    "solution": "$f'=-2xe^{-x^2}$, $f''=(4x^2-2)e^{-x^2}=0\\Rightarrow x^2=\\frac12$, $a=\\frac1{\\sqrt2}\\approx0{,}7071$. $f''$ mění znaménko, takže jde o inflexe."
+    "solution": "$f'=-2xe^{-x^2}$, $f''=(4x^2-2)e^{-x^2}=0\\Rightarrow x^2=\\frac12$, $a=\\frac1{\\sqrt2}\\approx0{,}7071$. $f''$ mění znaménko, takže jde o inflexe.",
+    "hints": [
+      "Inflexe: nuly $f''$ se změnou znaménka.",
+      "$f'=-2xe^{-x^2}$, pak zderivuj znovu jako součin.",
+      "$f''=(4x^2-2)e^{-x^2}$; řeš $4x^2-2=0$ (exponenciála je kladná)."
+    ]
   },
   {
     "id": "cvx-inflect-y",
@@ -21,7 +31,12 @@
     "prompt": "Funkce $f(x)=x^4-6x^2$ má inflexi v $x=1$ a $x=-1$. Jakou hodnotu má $f(1)$?",
     "answer": -5,
     "tolerance": 0.001,
-    "solution": "$f''=12x^2-12=0\\Rightarrow x=\\pm1$; $f''$ mění znaménko ($+,-,+$). $f(1)=1-6=-5$."
+    "solution": "$f''=12x^2-12=0\\Rightarrow x=\\pm1$; $f''$ mění znaménko ($+,-,+$). $f(1)=1-6=-5$.",
+    "hints": [
+      "Najdi inflexní body z $f''=0$, pak dosaď do $f$.",
+      "$f''=12x^2-12$, nuly jsou $\\pm1$.",
+      "Dosaď $x=1$ do $f(x)=x^4-6x^2$."
+    ]
   },
   {
     "id": "cvx-x4",
@@ -34,7 +49,12 @@
       "ne, protože $f$ není spojitá"
     ],
     "answer": 0,
-    "solution": "Nulová druhá derivace je jen nutná podmínka. $f''$ je po obou stranách nuly kladná, takže $f$ je konvexní na celém $\\mathbb R$ a inflexe tam není."
+    "solution": "Nulová druhá derivace je jen nutná podmínka. $f''$ je po obou stranách nuly kladná, takže $f$ je konvexní na celém $\\mathbb R$ a inflexe tam není.",
+    "hints": [
+      "$f''(x_0)=0$ je jen nutná podmínka inflexe; rozhoduje změna znaménka $f''$.",
+      "$f''(x)=12x^2$; jaké má znaménko vlevo a vpravo od $0$?",
+      "Pokud $f''\\ge0$ po obou stranách, je funkce konvexní a inflexe není."
+    ]
   },
   {
     "id": "cvx-ln",
@@ -47,7 +67,12 @@
       "ani jedno, má inflexi"
     ],
     "answer": 0,
-    "solution": "$f'=\\frac1x$ klesá, $f''=-\\frac1{x^2}<0$ ⇒ konkávní (tečny leží nad grafem, proto $\\ln x\\le x-1$)."
+    "solution": "$f'=\\frac1x$ klesá, $f''=-\\frac1{x^2}<0$ ⇒ konkávní (tečny leží nad grafem, proto $\\ln x\\le x-1$).",
+    "hints": [
+      "Konvexnost určuje znaménko $f''$: $f''>0$ konvexní, $f''<0$ konkávní.",
+      "$f'=\\frac1x$, spočti $f''$.",
+      "Rozhodni o znaménku $f''$ na $(0,\\infty)$."
+    ]
   },
   {
     "id": "cvx-tangents",
@@ -60,13 +85,23 @@
       "tečny existují jen v extrémech"
     ],
     "answer": 0,
-    "solution": "Konvexní ($f'$ neklesá, tvar $\\cup$) ⇒ tečny leží pod grafem. U konkávní funkce leží nad grafem."
+    "solution": "Konvexní ($f'$ neklesá, tvar $\\cup$) ⇒ tečny leží pod grafem. U konkávní funkce leží nad grafem.",
+    "hints": [
+      "Konvexní funkce má tvar $\\cup$.",
+      "Představ si $x^2$ a její tečnu v libovolném bodě.",
+      "Rozhodni, zda tečna leží pod, nebo nad grafem."
+    ]
   },
   {
     "id": "cvx-free",
     "type": "free",
     "prompt": "Pro $f(x)=x+\\sin x$ na $[0,4\\pi]$ urči monotonii, extrémy, konvexnost a inflexe.",
-    "solution": "$f'=1+\\cos x\\ge0$, rovnost jen v izolovaných bodech $\\pi,3\\pi$ ⇒ $f$ je rostoucí na $[0,4\\pi]$, žádné lokální extrémy. $f''=-\\sin x$: $f''>0$ na $(\\pi,2\\pi)$ a $(3\\pi,4\\pi)$ (konvexní), $f''<0$ na $(0,\\pi)$ a $(2\\pi,3\\pi)$ (konkávní). Inflexe v $x=\\pi,2\\pi,3\\pi$."
+    "solution": "$f'=1+\\cos x\\ge0$, rovnost jen v izolovaných bodech $\\pi,3\\pi$ ⇒ $f$ je rostoucí na $[0,4\\pi]$, žádné lokální extrémy. $f''=-\\sin x$: $f''>0$ na $(\\pi,2\\pi)$ a $(3\\pi,4\\pi)$ (konvexní), $f''<0$ na $(0,\\pi)$ a $(2\\pi,3\\pi)$ (konkávní). Inflexe v $x=\\pi,2\\pi,3\\pi$.",
+    "hints": [
+      "Vyšetři znaménko $f'$ (monotonie, extrémy) a $f''$ (konvexnost, inflexe).",
+      "$f'=1+\\cos x$, $f''=-\\sin x$; najdi jejich nuly na $[0,4\\pi]$.",
+      "Zjisti, zda $f'$ mění znaménko (je nezáporná?) a kde $f''$ mění znaménko; pak vyjmenuj inflexe."
+    ]
   },
   {
     "id": "conv-x2p1-over-x2m1",
