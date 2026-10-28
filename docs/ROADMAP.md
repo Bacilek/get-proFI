@@ -18,4 +18,4 @@
 7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), pak PB006, PB016, VB001, PV028
 
 ## Aktuální stav
-Fáze 0–4 hotové (34 testů). Další: fáze 5 (mezery + SRS + drill generátory), pak obsah MB142 (zhušťování slidů do lekcí).
+Fáze 0–4 hotové + UI polish (dark mode, charty, readiness; 36 testů). Další: fáze 5 (mezery + SRS + drill generátory), pak obsah MB142 (zhušťování slidů do lekcí).
