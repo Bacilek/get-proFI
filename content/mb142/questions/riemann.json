@@ -110,5 +110,117 @@
       "Supremum je v tom krajním bodě dílku, který je dál od $0$.",
       "Sečti hodnoty suprema na jedné polovině, vynásob dvěma (symetrie) a šířkou dílku."
     ]
+  },
+  {
+    "id": "pk-rm-S10",
+    "type": "numeric",
+    "prompt": "Pro $f(x)=|x|$ na $[-1,1]$ a dělení $D_n$ ($2n$ stejných dílků) je $S(D_n,f)=\\frac{n+1}n$. Kolik je $S(D_{10},f)$?",
+    "answer": 1.1,
+    "tolerance": 0.001,
+    "solution": "$S=\\frac{11}{10}=1{,}1$ (a $s=\\frac{9}{10}$; obě $\\to1=\\int_{-1}^1|x|dx$).",
+    "hints": [
+      "Dosaď $n=10$.",
+      "$\\frac{n+1}{n}$.",
+      "Horní součet je větší než $1$."
+    ]
+  },
+  {
+    "id": "pk-rm-int",
+    "type": "choice",
+    "prompt": "Je funkce $|x|$ na $[-1,1]$ riemannovsky integrovatelná, je-li $s(D_n)=\\frac{n-1}n$, $S(D_n)=\\frac{n+1}n$?",
+    "options": [
+      "ano, integrál je $1$",
+      "ne, horní a dolní součty se liší",
+      "ano, integrál je $0$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "Pro nulovou posloupnost dělení se $s\\to1$ a $S\\to1$, tedy dolní a horní integrál se rovnají a $\\int_{-1}^1|x|\\,dx=1$.",
+    "hints": [
+      "Spočti limity $s$ a $S$.",
+      "Rovnají se?",
+      "Hodnota společné limity je integrál."
+    ]
+  },
+  {
+    "id": "pk-rm-abs",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{-2}^2|x-1|\\,dx$ (geometricky).",
+    "answer": 5,
+    "tolerance": 0.001,
+    "solution": "Dva trojúhelníky: na $[-2,1]$ základna $3$, výška $3$: $4{,}5$; na $[1,2]$ základna $1$, výška $1$: $0{,}5$. Celkem $5$.",
+    "hints": [
+      "Nakresli graf $|x-1|$.",
+      "Rozděl v $x=1$.",
+      "Plocha trojúhelníku $=\\frac12zv$."
+    ]
+  },
+  {
+    "id": "pk-rm-tg",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{-0{,}1}^{0{,}1}\\operatorname{tg}x\\,dx$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$\\operatorname{tg}$ je lichá, interval je symetrický ⇒ $0$.",
+    "hints": [
+      "Posuď paritu $\\operatorname{tg}x$.",
+      "Lichá funkce na $[-a,a]$.",
+      "Plochy se vyruší."
+    ]
+  },
+  {
+    "id": "pk-rm-limsum",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{n\\to\\infty}\\frac{\\sqrt{1+\\frac1n}+\\sqrt{1+\\frac2n}+\\dots+\\sqrt{1+1}}n$ (4 des.).",
+    "answer": 1.2189514164974602,
+    "tolerance": 0.0005,
+    "solution": "Je to Riemannův součet pro $\\int_0^1\\sqrt{1+x}\\,dx=\\frac23\\left[(1+x)^{3/2}\\right]_0^1=\\frac23(2\\sqrt2-1)\\approx1{,}2190$.",
+    "hints": [
+      "Rozpoznej Riemannův součet s dělením $\\frac kn$ a krokem $\\frac1n$.",
+      "Funkce $\\sqrt{1+x}$ na $[0,1]$.",
+      "Spočti integrál."
+    ]
+  },
+  {
+    "id": "pk-rm-mean",
+    "type": "numeric",
+    "prompt": "Střední hodnota funkce $f(x)=\\sqrt x$ na $[0,100]$ (4 des.):",
+    "answer": 6.666666666666667,
+    "tolerance": 0.0005,
+    "solution": "$\\frac1{100}\\int_0^{100}\\sqrt x\\,dx=\\frac1{100}\\cdot\\frac23\\cdot1000=\\frac{20}3\\approx6{,}6667$.",
+    "hints": [
+      "Střední hodnota = integrál ÷ délka intervalu.",
+      "$\\int\\sqrt x=\\frac23x^{3/2}$.",
+      "$100^{3/2}=1000$."
+    ]
+  },
+  {
+    "id": "pk-rm-order",
+    "type": "choice",
+    "prompt": "Seřaď $A=\\int_0^{\\pi/2}\\sin^{10}x\\,dx$, $B=\\int_0^\\pi\\sin^2x\\,dx$, $C=\\int_{-2}^2-x^32^x\\,dx$ a $D=\\int_{2\\pi}^{10}\\frac{x^2+2}{x^6+4}dx+\\int_\\pi^{2\\pi}\\dots+\\int_{10}^\\pi\\dots$.",
+    "options": [
+      "$C<D=0<A<B$",
+      "$D=0<C<A<B$",
+      "$A<B<C<D$",
+      "$C<A<D<B$"
+    ],
+    "answer": 0,
+    "solution": "$D=0$ (součet integrálů přes cyklus $2\\pi\\to10\\to\\pi\\to2\\pi$ vychází jako integrál od $2\\pi$ do $2\\pi$). $C<0$: $-x^32^x$ je záporné pro $x>0$ a víc vážené, takže převáží (integrand $-x^3(2^x-2^{-x})<0$ po sloučení $\\pm x$). $A\\approx0{,}49$, $B=\\frac\\pi2\\approx1{,}57$.",
+    "hints": [
+      "Zjisti, kdy je integrál nulový (součet po uzavřené smyčce).",
+      "Znaménko $C$: slož $x$ a $-x$.",
+      "$A<B$ protože $\\sin^{10}<\\sin^2$ a interval je poloviční."
+    ]
+  },
+  {
+    "id": "pk-rm-bounds",
+    "type": "free",
+    "prompt": "Dokaž $\\dfrac{\\sqrt2}{20}\\le\\displaystyle\\int_0^1\\frac{x^9}{\\sqrt{1+x}}\\,dx\\le\\frac1{10}$.",
+    "solution": "Na $[0,1]$ je $1\\le\\sqrt{1+x}\\le\\sqrt2$, tedy $\\frac{x^9}{\\sqrt2}\\le\\frac{x^9}{\\sqrt{1+x}}\\le x^9$. Integrací (monotonie integrálu): $\\frac1{\\sqrt2}\\cdot\\frac1{10}\\le I\\le\\frac1{10}$, a $\\frac1{10\\sqrt2}=\\frac{\\sqrt2}{20}$.",
+    "hints": [
+      "Odhadni jmenovatel zdola a shora na $[0,1]$.",
+      "$\\int_0^1x^9=\\frac1{10}$.",
+      "Použij monotonii integrálu."
+    ]
   }
 ]

@@ -78,5 +78,165 @@
       "$\\infty$ není reálné číslo.",
       "Hledej zápis, kde je u $\\infty$ kulatá závorka a nekonečno stojí vpravo."
     ]
+  },
+  {
+    "id": "pk-sup-a",
+    "type": "numeric",
+    "prompt": "Urči $\\sup A$ pro $A=(-3,0]\\cup(1,\\pi)\\cup\\{4,5,6\\}$.",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "Největší prvek množiny je $6$ (izolované body), tedy $\\sup A=\\max A=6$. ($\\inf A=-3$ se nenabývá.)",
+    "hints": [
+      "Hledej největší prvek množiny.",
+      "Intervaly sahají nejvýše k $\\pi\\approx3{,}14$.",
+      "Izolované body $4,5,6$."
+    ]
+  },
+  {
+    "id": "pk-sup-b",
+    "type": "numeric",
+    "prompt": "Urči $\\sup B$ pro $B=\\left\\{\\frac{(-1)^n}{n^2};\\ n\\in\\mathbb N\\right\\}$ (desetinné číslo).",
+    "answer": 0.25,
+    "tolerance": 0.001,
+    "solution": "Kladné členy jsou pro sudé $n$: $\\frac14,\\frac1{16},\\dots$; největší je $\\frac14$ ($n=2$). Záporný člen $-1$ ($n=1$) je $\\inf B=-1$.",
+    "hints": [
+      "Vypiš první členy: $-1,\\frac14,-\\frac19,\\frac1{16},\\dots$.",
+      "Supremum bere největší kladný člen.",
+      "Ten je pro $n=2$."
+    ]
+  },
+  {
+    "id": "pk-inf-b",
+    "type": "numeric",
+    "prompt": "Urči $\\inf B$ pro $B=\\left\\{\\frac{(-1)^n}{n^2};\\ n\\in\\mathbb N\\right\\}$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "Nejmenší člen je $n=1$: $-1$.",
+    "hints": [
+      "Záporné členy jsou pro liché $n$.",
+      "Absolutní hodnota $\\frac1{n^2}$ klesá.",
+      "Největší záporný je pro $n=1$."
+    ]
+  },
+  {
+    "id": "pk-sup-c",
+    "type": "numeric",
+    "prompt": "Urči $\\sup C$ pro $C=(-9,9)\\cap\\mathbb Q$.",
+    "answer": 9,
+    "tolerance": 0.001,
+    "solution": "Racionální čísla jsou v $\\mathbb R$ hustá, takže se k $9$ lze libovolně přiblížit, ale $9$ nepatří do $C$ (supremum se nenabývá).",
+    "hints": [
+      "Horní mez intervalu je $9$.",
+      "Racionální čísla se k $9$ libovolně blíží.",
+      "$\\sup$ nemusí patřit do množiny."
+    ]
+  },
+  {
+    "id": "pk-dom-f",
+    "type": "choice",
+    "prompt": "Maximální definiční obor $f(x)=\\dfrac{\\ln x}{x-5}$ je:",
+    "options": [
+      "$(0,5)\\cup(5,\\infty)$",
+      "$(0,\\infty)$",
+      "$\\mathbb R\\setminus\\{5\\}$",
+      "$[1,\\infty)\\setminus\\{5\\}$"
+    ],
+    "answer": 0,
+    "solution": "$\\ln x$ vyžaduje $x>0$, jmenovatel $x\\ne5$.",
+    "hints": [
+      "Logaritmus: $x>0$.",
+      "Jmenovatel nesmí být $0$.",
+      "Spojení podmínek."
+    ]
+  },
+  {
+    "id": "pk-dom-h",
+    "type": "choice",
+    "prompt": "Maximální definiční obor $h(x)=\\arcsin(1-x)+\\ln(\\ln x)$ je:",
+    "options": [
+      "$(1,2]$",
+      "$[0,2]$",
+      "$(1,\\infty)$",
+      "$(0,2]$"
+    ],
+    "answer": 0,
+    "solution": "$\\arcsin$: $|1-x|\\le1\\Rightarrow x\\in[0,2]$. $\\ln(\\ln x)$: $\\ln x>0\\Rightarrow x>1$. Průnik $(1,2]$.",
+    "hints": [
+      "Definiční obor $\\arcsin u$ je $[-1,1]$.",
+      "Vnitřní logaritmus musí být kladný.",
+      "Udělej průnik $[0,2]$ a $(1,\\infty)$."
+    ]
+  },
+  {
+    "id": "pk-even-cos4",
+    "type": "choice",
+    "prompt": "Která funkce je (na maximálním definičním oboru) **sudá**?",
+    "options": [
+      "$\\dfrac{\\cos x}{x^3}$",
+      "$\\dfrac{\\cos x}{x^4}$",
+      "$\\sinh x$",
+      "$\\ln\\dfrac{1+x}{1-x}$"
+    ],
+    "answer": 1,
+    "solution": "$\\frac{\\cos(-x)}{(-x)^4}=\\frac{\\cos x}{x^4}$. Ostatní jsou liché: $\\frac{\\cos x}{x^3}$, $\\sinh x$, $\\ln\\frac{1+x}{1-x}$ (při $x\\to-x$ se zlomek převrátí).",
+    "hints": [
+      "Dosaď $-x$ místo $x$.",
+      "$\\cos$ je sudý, $x^3$ lichá, $x^4$ sudá.",
+      "Sudá: $f(-x)=f(x)$."
+    ]
+  },
+  {
+    "id": "pk-even-cosh",
+    "type": "choice",
+    "prompt": "Funkce $\\cosh x$ je:",
+    "options": [
+      "sudá",
+      "lichá",
+      "ani sudá, ani lichá",
+      "periodická"
+    ],
+    "answer": 0,
+    "solution": "$\\cosh(-x)=\\frac{e^{-x}+e^{x}}2=\\cosh x$.",
+    "hints": [
+      "Dosaď $-x$.",
+      "Součet $e^x+e^{-x}$ je symetrický.",
+      "Sudá."
+    ]
+  },
+  {
+    "id": "pk-period-tg",
+    "type": "choice",
+    "prompt": "Primitivní perioda funkce $\\operatorname{tg}(3x)+2\\sin(6x)$ je:",
+    "options": [
+      "$\\pi/3$",
+      "$2\\pi/3$",
+      "$\\pi$",
+      "$2\\pi$"
+    ],
+    "answer": 0,
+    "solution": "$\\operatorname{tg}3x$ má periodu $\\frac\\pi3$, $\\sin6x$ má periodu $\\frac{2\\pi}6=\\frac\\pi3$ ⇒ součet má primitivní periodu $\\frac\\pi3$.",
+    "hints": [
+      "Perioda $\\operatorname{tg}(ax)$ je $\\frac\\pi a$.",
+      "Perioda $\\sin(ax)$ je $\\frac{2\\pi}a$.",
+      "Obě vyjdou stejně."
+    ]
+  },
+  {
+    "id": "pk-odd-which",
+    "type": "choice",
+    "prompt": "Která z funkcí je (na maximálním definičním oboru) **lichá**?",
+    "options": [
+      "$\\dfrac{\\cos x}{x^3}+1$",
+      "$\\sin x+\\operatorname{tg}\\dfrac x2$",
+      "$\\cosh x$",
+      "$\\dfrac{\\cos x}{x^4}$"
+    ],
+    "answer": 1,
+    "solution": "$\\sin(-x)+\\operatorname{tg}(-\\frac x2)=-\\left(\\sin x+\\operatorname{tg}\\frac x2\\right)$. Přičtení konstanty $1$ lichost ničí; $\\cosh$ a $\\frac{\\cos x}{x^4}$ jsou sudé.",
+    "hints": [
+      "Lichá: $f(-x)=-f(x)$.",
+      "Součet lichých funkcí je lichý.",
+      "$\\sin$ i $\\operatorname{tg}$ jsou liché."
+    ]
   }
 ]

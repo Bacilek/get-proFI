@@ -162,5 +162,59 @@
       "Napiš $x^{\\sin x}=e^{\\sin x\\ln x}$ a derivuj jako složenou funkci.",
       "Vnitřní funkci $\\sin x\\ln x$ derivuj součinem a na konci vrať $e^{\\sin x\\ln x}=x^{\\sin x}$."
     ]
+  },
+  {
+    "id": "pk-sinh-deriv",
+    "type": "choice",
+    "prompt": "Derivace hyperbolického sinu $\\sinh x=\\frac{e^x-e^{-x}}2$ je:",
+    "options": [
+      "$\\cosh x$",
+      "$-\\cosh x$",
+      "$\\sinh x$",
+      "$\\frac1{\\cosh^2x}$"
+    ],
+    "answer": 0,
+    "solution": "$\\left(\\frac{e^x-e^{-x}}2\\right)'=\\frac{e^x+e^{-x}}2=\\cosh x$.",
+    "hints": [
+      "Zderivuj $e^x$ a $e^{-x}$ zvlášť.",
+      "$(e^{-x})'=-e^{-x}$.",
+      "Výsledek je definice $\\cosh x$."
+    ]
+  },
+  {
+    "id": "pk-tgh-deriv",
+    "type": "choice",
+    "prompt": "Derivace $\\operatorname{tgh}x=\\frac{\\sinh x}{\\cosh x}$ je:",
+    "options": [
+      "$\\dfrac1{\\cosh^2x}$",
+      "$\\dfrac1{\\sinh^2x}$",
+      "$-\\dfrac1{\\cosh^2x}$",
+      "$1+\\operatorname{tgh}^2x$"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{\\cosh^2x-\\sinh^2x}{\\cosh^2x}=\\frac1{\\cosh^2x}$ (podílové pravidlo, $\\cosh^2-\\sinh^2=1$).",
+    "hints": [
+      "Podílové pravidlo s $(\\sinh)'=\\cosh$ a $(\\cosh)'=\\sinh$.",
+      "V čitateli vznikne $\\cosh^2x-\\sinh^2x$.",
+      "Ta se rovná $1$."
+    ]
+  },
+  {
+    "id": "pk-argsinh",
+    "type": "choice",
+    "prompt": "Derivace $\\operatorname{argsinh}x$ (inverze k $\\sinh$) je:",
+    "options": [
+      "$\\dfrac1{\\sqrt{1+x^2}}$",
+      "$\\dfrac1{\\sqrt{x^2-1}}$",
+      "$\\dfrac1{1+x^2}$",
+      "$\\cosh x$"
+    ],
+    "answer": 0,
+    "solution": "Pro $y=\\operatorname{argsinh}x$ je $y'=\\frac1{\\cosh y}$ a $\\cosh y=\\sqrt{1+\\sinh^2y}=\\sqrt{1+x^2}$.",
+    "hints": [
+      "Derivace inverzní funkce: $y'=\\frac1{(\\sinh)'(y)}$.",
+      "$(\\sinh)'=\\cosh$.",
+      "Z $\\cosh^2-\\sinh^2=1$ vyjádři $\\cosh y$ pomocí $x=\\sinh y$."
+    ]
   }
 ]

@@ -197,5 +197,167 @@
       "Vnitřek se ve jmenovateli opakuje: zkus substituci $t=\\ln(x+5)$.",
       "Po substituci vyjde $\\int\\frac{dt}{t}$ – konverguje to?"
     ]
+  },
+  {
+    "id": "pk-sn-a",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=0}^\\infty\\frac1{(n+1)3^n}$:",
+    "options": [
+      "konverguje (srovnání s $\\sum3^{-n}$)",
+      "diverguje",
+      "konverguje jen podmíněně",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$0<\\frac1{(n+1)3^n}\\le\\left(\\frac13\\right)^n$, geometrická řada konverguje.",
+    "hints": [
+      "Odhadni shora geometrickou řadou.",
+      "$\\frac1{n+1}\\le1$.",
+      "$q=\\frac13$."
+    ]
+  },
+  {
+    "id": "pk-sn-b",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{n^2+1}{n^3}$:",
+    "options": [
+      "diverguje (limitní srovnání s $\\sum\\frac1n$)",
+      "konverguje",
+      "konverguje k $1$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{n^2+1}{n^3}\\Big/\\frac1n\\to1>0$ a $\\sum\\frac1n$ diverguje.",
+    "hints": [
+      "Pro velká $n$ je člen $\\approx\\frac1n$.",
+      "Limitní srovnávací kritérium.",
+      "Harmonická řada diverguje."
+    ]
+  },
+  {
+    "id": "pk-sn-c",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac1{n-\\ln n}$:",
+    "options": [
+      "diverguje ($\\frac1{n-\\ln n}\\ge\\frac1n$)",
+      "konverguje",
+      "konverguje k $1$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$n-\\ln n\\le n$ ⇒ $\\frac1{n-\\ln n}\\ge\\frac1n$, a $\\sum\\frac1n$ diverguje.",
+    "hints": [
+      "$\\ln n>0$ pro $n\\ge2$.",
+      "Odhadni jmenovatel shora.",
+      "Minoranta $\\frac1n$ diverguje."
+    ]
+  },
+  {
+    "id": "pk-sn-int",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac1{(n+1)\\ln^2(n+1)}$ (integrální kritérium):",
+    "options": [
+      "konverguje",
+      "diverguje",
+      "konverguje k $\\ln2$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$\\int_2^\\infty\\frac{dx}{x\\ln^2x}=\\left[-\\frac1{\\ln x}\\right]_2^\\infty=\\frac1{\\ln2}<\\infty$.",
+    "hints": [
+      "Funkce $\\frac1{x\\ln^2x}$ je kladná a klesající.",
+      "Spočti $\\int\\frac{dx}{x\\ln^2x}$.",
+      "Integrál konverguje."
+    ]
+  },
+  {
+    "id": "pk-sn-ratio-a",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=0}^\\infty\\frac{2^n(n+1)^3}{3^n}$ (podílové kritérium):",
+    "options": [
+      "konverguje ($\\frac{a_{n+1}}{a_n}\\to\\frac23<1$)",
+      "diverguje",
+      "konverguje k $\\frac23$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{a_{n+1}}{a_n}=\\frac23\\left(\\frac{n+2}{n+1}\\right)^3\\to\\frac23<1$.",
+    "hints": [
+      "Spočti podíl $\\frac{a_{n+1}}{a_n}$.",
+      "$\\left(\\frac{n+2}{n+1}\\right)^3\\to1$.",
+      "Limita $<1$."
+    ]
+  },
+  {
+    "id": "pk-sn-ratio-b",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{6^n}{n!}$ (podílové kritérium):",
+    "options": [
+      "konverguje ($\\frac{6}{n+1}\\to0<1$)",
+      "diverguje",
+      "konverguje jen pro $|x|<1$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{a_{n+1}}{a_n}=\\frac6{n+1}\\to0<1$. (Je to řada pro $e^6$.)",
+    "hints": [
+      "$\\frac{6^{n+1}/(n+1)!}{6^n/n!}$.",
+      "Zbude $\\frac{6}{n+1}$.",
+      "Limita $0$."
+    ]
+  },
+  {
+    "id": "pk-sn-ratio-c",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{n^n}{n^2\\,n!}$ (podílové kritérium):",
+    "options": [
+      "diverguje ($\\frac{a_{n+1}}{a_n}\\to e>1$)",
+      "konverguje",
+      "konverguje k $e$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{a_{n+1}}{a_n}=\\left(1+\\frac1n\\right)^n\\cdot\\frac{n^2}{(n+1)^2}\\to e\\cdot1>1$.",
+    "hints": [
+      "$\\frac{(n+1)^{n+1}}{n^n(n+1)}=\\left(\\frac{n+1}n\\right)^n$.",
+      "Faktor $\\frac{n^2}{(n+1)^2}\\to1$.",
+      "Limita $e$."
+    ]
+  },
+  {
+    "id": "pk-sn-root-a",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac1{\\ln^n(n+1)}$ (odmocninové kritérium):",
+    "options": [
+      "konverguje ($\\sqrt[n]{a_n}=\\frac1{\\ln(n+1)}\\to0$)",
+      "diverguje",
+      "konverguje k $0$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$\\sqrt[n]{a_n}=\\frac1{\\ln(n+1)}\\to0<1$.",
+    "hints": [
+      "Spočti $n$-tou odmocninu členu.",
+      "$\\ln(n+1)\\to\\infty$.",
+      "Limita $0<1$."
+    ]
+  },
+  {
+    "id": "pk-sn-root-b",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{\\left(\\frac{n+1}n\\right)^{n^2}}{n^33^n}$ (odmocninové kritérium):",
+    "options": [
+      "konverguje ($\\sqrt[n]{a_n}\\to\\frac e3<1$)",
+      "diverguje",
+      "konverguje k $\\frac e3$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$\\sqrt[n]{a_n}=\\frac{\\left(1+\\frac1n\\right)^n}{n^{3/n}\\cdot3}\\to\\frac{e}{3\\cdot1}=\\frac e3\\approx0{,}906<1$.",
+    "hints": [
+      "$(\\cdot)^{n^2}$ po $n$-té odmocnině dá $(\\cdot)^n$.",
+      "$n^{3/n}\\to1$.",
+      "$\\frac e3<1$."
+    ]
   }
 ]

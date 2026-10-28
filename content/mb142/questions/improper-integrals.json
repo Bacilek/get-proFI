@@ -143,5 +143,217 @@
       "Singularita je uvnitř, v $0$: rozděl na $\\int_{-1}^0+\\int_0^1$ a posuzuj zvlášť.",
       "Kladná funkce nemůže mít záporný integrál; zkus $\\int_0^1x^{-2}$ s $p=2\\ge1$."
     ]
+  },
+  {
+    "id": "pk-ii-atan",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^{\\infty}\\frac{dx}{1+x^2}$ (4 des.).",
+    "answer": 1.5707963267948966,
+    "tolerance": 0.0005,
+    "solution": "$\\lim_{b\\to\\infty}\\operatorname{arctg}b-\\operatorname{arctg}0=\\frac\\pi2\\approx1{,}5708$.",
+    "hints": [
+      "Primitivní funkce $\\operatorname{arctg}x$.",
+      "Limita v $\\infty$ je $\\frac\\pi2$.",
+      "Dolní mez dá $0$."
+    ]
+  },
+  {
+    "id": "pk-ii-atan2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{-\\infty}^{\\infty}\\frac{dx}{1+x^2}$ (4 des.).",
+    "answer": 3.141592653589793,
+    "tolerance": 0.0005,
+    "solution": "$\\frac\\pi2-\\left(-\\frac\\pi2\\right)=\\pi\\approx3{,}1416$.",
+    "hints": [
+      "Rozděl v $0$ nebo použij $[\\operatorname{arctg}x]$.",
+      "Limity $\\pm\\frac\\pi2$.",
+      "Rozdíl."
+    ]
+  },
+  {
+    "id": "pk-ii-1x",
+    "type": "choice",
+    "prompt": "Integrál $\\displaystyle\\int_0^{\\infty}\\frac{dx}x$:",
+    "options": [
+      "konverguje k $0$",
+      "konverguje k $1$",
+      "diverguje (v $0$ i v $\\infty$)",
+      "konverguje k $\\ln2$"
+    ],
+    "answer": 2,
+    "solution": "$\\int_0^1\\frac{dx}x=\\infty$ i $\\int_1^\\infty\\frac{dx}x=\\infty$.",
+    "hints": [
+      "Zkus meze zvlášť: $0$ až $1$ a $1$ až $\\infty$.",
+      "$\\ln x$ nemá konečné limity v $0^+$ ani $\\infty$.",
+      "Divergence."
+    ]
+  },
+  {
+    "id": "pk-ii-xe",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{-\\infty}^0xe^{-x^2}dx$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "Primitivní $-\\frac12e^{-x^2}$: $-\\frac12-\\lim_{a\\to-\\infty}\\left(-\\frac12e^{-a^2}\\right)=-\\frac12$.",
+    "hints": [
+      "Subst. $t=-x^2$ nebo uhodni primitivní funkci.",
+      "$(e^{-x^2})'=-2xe^{-x^2}$.",
+      "Limita v $-\\infty$ je $0$."
+    ]
+  },
+  {
+    "id": "pk-ii-exp-inv",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^\\infty\\frac{e^{-1/x}}{x^2}dx$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Subst. $t=\\frac1x$, $dt=-\\frac{dx}{x^2}$: $\\int_0^\\infty e^{-t}dt=1$.",
+    "hints": [
+      "$t=\\frac1x$.",
+      "Meze se prohodí ($0\\to\\infty$, $\\infty\\to0$).",
+      "$\\int_0^\\infty e^{-t}dt=1$."
+    ]
+  },
+  {
+    "id": "pk-ii-sqrt",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^4\\frac{2x^2+\\sqrt x}x\\,dx$.",
+    "answer": 20,
+    "tolerance": 0.001,
+    "solution": "$\\frac{2x^2+\\sqrt x}x=2x+x^{-1/2}$ (nevlastní v $0$, ale konverguje): $[x^2+2\\sqrt x]_0^4=16+4=20$.",
+    "hints": [
+      "Rozděl zlomek na dva.",
+      "$\\int x^{-1/2}=2\\sqrt x$.",
+      "Dosaď meze $0$ a $4$."
+    ]
+  },
+  {
+    "id": "pk-ii-cos",
+    "type": "choice",
+    "prompt": "Integrál $\\displaystyle\\int_0^{3\\pi/2}\\frac{\\cos x}{1+\\sin x}dx$:",
+    "options": [
+      "diverguje ($-\\infty$), singularita v $\\frac{3\\pi}2$",
+      "konverguje k $0$",
+      "konverguje k $\\ln2$",
+      "konverguje k $-1$"
+    ],
+    "answer": 0,
+    "solution": "V $x=\\frac{3\\pi}2$ je $\\sin x=-1$, jmenovatel $0$. $[\\ln(1+\\sin x)]$ jde k $\\ln0^+=-\\infty$.",
+    "hints": [
+      "Najdi bod, kde je jmenovatel nulový.",
+      "Primitivní funkce $\\ln(1+\\sin x)$.",
+      "Limita $\\ln$ u nuly."
+    ]
+  },
+  {
+    "id": "pk-ii-ln",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{-1}^1\\ln|x|\\,dx$.",
+    "answer": -2,
+    "tolerance": 0.001,
+    "solution": "Sudá funkce, $2\\int_0^1\\ln x\\,dx=2[x\\ln x-x]_0^1=2(-1)=-2$.",
+    "hints": [
+      "Využij sudost.",
+      "$\\int\\ln x=x\\ln x-x$.",
+      "$x\\ln x\\to0$ v $0^+$."
+    ]
+  },
+  {
+    "id": "pk-ii-alpha1",
+    "type": "choice",
+    "prompt": "Pro která $\\alpha$ konverguje $\\displaystyle\\int_1^\\infty\\frac{dx}{x^\\alpha}$?",
+    "options": [
+      "$\\alpha>1$",
+      "$\\alpha<1$",
+      "$\\alpha\\ge1$",
+      "pro všechna $\\alpha$"
+    ],
+    "answer": 0,
+    "solution": "$\\int_1^\\infty x^{-\\alpha}=\\frac1{\\alpha-1}$ pro $\\alpha>1$; pro $\\alpha\\le1$ diverguje.",
+    "hints": [
+      "Spočti $\\int_1^b x^{-\\alpha}dx$.",
+      "Pro $\\alpha=1$ vyjde $\\ln b$.",
+      "Konečná limita jen když exponent $1-\\alpha<0$."
+    ]
+  },
+  {
+    "id": "pk-ii-alpha2",
+    "type": "choice",
+    "prompt": "Pro která $\\alpha$ konverguje $\\displaystyle\\int_0^1\\frac{dx}{x^\\alpha}$?",
+    "options": [
+      "$\\alpha<1$",
+      "$\\alpha>1$",
+      "$\\alpha\\le1$",
+      "pro žádné"
+    ],
+    "answer": 0,
+    "solution": "$\\int_0^1x^{-\\alpha}dx=\\frac1{1-\\alpha}$ pro $\\alpha<1$.",
+    "hints": [
+      "Singularita je v $0$.",
+      "Pro $\\alpha=1$ vyjde $-\\ln\\varepsilon\\to\\infty$.",
+      "Konvergence jen pro $\\alpha<1$."
+    ]
+  },
+  {
+    "id": "pk-ii-atansqrt",
+    "type": "choice",
+    "prompt": "Integrál $\\displaystyle\\int_1^\\infty\\frac{\\operatorname{arctg}x}{\\sqrt x}dx$:",
+    "options": [
+      "diverguje (srovnání s $\\int x^{-1/2}$, $\\operatorname{arctg}x\\ge\\frac\\pi4$)",
+      "konverguje",
+      "konverguje k $\\frac\\pi2$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "Pro $x\\ge1$ je $\\operatorname{arctg}x\\ge\\frac\\pi4$, takže $\\frac{\\operatorname{arctg}x}{\\sqrt x}\\ge\\frac\\pi4x^{-1/2}$, a $\\int_1^\\infty x^{-1/2}$ diverguje.",
+    "hints": [
+      "Odhadni $\\operatorname{arctg}x$ zdola.",
+      "Srovnávací kritérium s $x^{-1/2}$.",
+      "$\\alpha=\\frac12\\le1$."
+    ]
+  },
+  {
+    "id": "pk-ii-atan32",
+    "type": "choice",
+    "prompt": "Integrál $\\displaystyle\\int_1^\\infty\\frac{\\operatorname{arctg}x}{x\\sqrt x}dx$:",
+    "options": [
+      "konverguje (srovnání s $\\frac\\pi2x^{-3/2}$)",
+      "diverguje",
+      "diverguje k $\\infty$ jako $\\ln$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$\\operatorname{arctg}x\\le\\frac\\pi2$, tedy $0\\le f\\le\\frac\\pi2x^{-3/2}$ a $\\int_1^\\infty x^{-3/2}$ konverguje ($\\alpha=\\frac32>1$).",
+    "hints": [
+      "Odhadni $\\operatorname{arctg}x$ shora.",
+      "Srovnání s $x^{-3/2}$.",
+      "$\\alpha=\\frac32>1$."
+    ]
+  },
+  {
+    "id": "pk-ii-area",
+    "type": "numeric",
+    "prompt": "Obsah neomezené oblasti pod $f(x)=\\dfrac1{x^2+x-2}$ na $[2,\\infty)$ (4 des.).",
+    "answer": 0.46209812037329684,
+    "tolerance": 0.0005,
+    "solution": "$\\frac1{(x+2)(x-1)}=\\frac13\\left(\\frac1{x-1}-\\frac1{x+2}\\right)$, $\\int_2^\\infty=\\frac13\\left[\\ln\\frac{x-1}{x+2}\\right]_2^\\infty=0-\\frac13\\ln\\frac14=\\frac23\\ln2\\approx0{,}4621$.",
+    "hints": [
+      "Rozklad na parciální zlomky.",
+      "Limita $\\ln\\frac{x-1}{x+2}\\to0$.",
+      "Dolní mez: $\\ln\\frac14$."
+    ]
+  },
+  {
+    "id": "pk-ii-area2",
+    "type": "numeric",
+    "prompt": "Obsah obrazce vymezeného $x=0$, $x=1$, $x=4$, osou $x$ a grafem $\\dfrac1{\\sqrt[3]{x-1}}$ (4 des.).",
+    "answer": 4.620125734577856,
+    "tolerance": 0.001,
+    "solution": "Singularita v $x=1$. Část $[0,1]$: $\\left|\\int_0^1(x-1)^{-1/3}\\right|=\\frac32$; část $[1,4]$: $\\frac32\\cdot3^{2/3}=\\frac32\\sqrt[3]9$. Celkem $\\frac32(1+\\sqrt[3]9)\\approx4{,}6201$.",
+    "hints": [
+      "Primitivní funkce $\\frac32(x-1)^{2/3}$.",
+      "Pod osou $x$ je část $x<1$ (funkce záporná) – obsah bere absolutní hodnotu.",
+      "Sečti obě části."
+    ]
   }
 ]

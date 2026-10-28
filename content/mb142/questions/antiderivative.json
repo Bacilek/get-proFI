@@ -87,5 +87,77 @@
       "V jednom případě je čitatel derivací jmenovatele, v druhém její opačná hodnota.",
       "Zkontroluj znaménka derivováním kandidáta."
     ]
+  },
+  {
+    "id": "pk-ad-cotg2",
+    "type": "choice",
+    "prompt": "Primitivní funkce k $\\operatorname{cotg}^2x$ na $(0,\\pi)$ je:",
+    "options": [
+      "$-\\operatorname{cotg}x-x$",
+      "$\\operatorname{cotg}x-x$",
+      "$-\\operatorname{cotg}x+x$",
+      "$\\operatorname{tg}x-x$"
+    ],
+    "answer": 0,
+    "solution": "$\\operatorname{cotg}^2x=\\frac1{\\sin^2x}-1$, $\\int=-\\operatorname{cotg}x-x$.",
+    "hints": [
+      "Použij $\\operatorname{cotg}^2x=\\frac1{\\sin^2x}-1$.",
+      "$\\int\\frac{dx}{\\sin^2x}=-\\operatorname{cotg}x$.",
+      "Odečti $\\int1=x$."
+    ]
+  },
+  {
+    "id": "pk-ad-sc",
+    "type": "choice",
+    "prompt": "Primitivní funkce k $\\dfrac1{\\sin^2x\\cos^2x}$ na $(0,\\frac\\pi2)$ je:",
+    "options": [
+      "$\\operatorname{tg}x-\\operatorname{cotg}x$",
+      "$\\operatorname{tg}x+\\operatorname{cotg}x$",
+      "$\\ln|\\sin x\\cos x|$",
+      "$-\\dfrac1{\\sin x\\cos x}$"
+    ],
+    "answer": 0,
+    "solution": "$1=\\sin^2x+\\cos^2x$: $\\frac1{\\sin^2x\\cos^2x}=\\frac1{\\cos^2x}+\\frac1{\\sin^2x}$ ⇒ $\\operatorname{tg}x-\\operatorname{cotg}x$.",
+    "hints": [
+      "Rozepiš čitatel $1=\\sin^2x+\\cos^2x$.",
+      "Rozděl na dva zlomky.",
+      "$\\int\\frac{dx}{\\cos^2x}=\\operatorname{tg}x$."
+    ]
+  },
+  {
+    "id": "pk-ad-exp",
+    "type": "choice",
+    "prompt": "Primitivní funkce k $(2^x+3^x)^2$ je:",
+    "options": [
+      "$\\dfrac{4^x}{\\ln4}+\\dfrac{2\\cdot6^x}{\\ln6}+\\dfrac{9^x}{\\ln9}$",
+      "$\\dfrac{(2^x+3^x)^3}{3}$",
+      "$\\dfrac{4^x}{\\ln4}+\\dfrac{9^x}{\\ln9}$",
+      "$\\dfrac{2^x}{\\ln2}+\\dfrac{3^x}{\\ln3}$"
+    ],
+    "answer": 0,
+    "solution": "Roznásobení: $4^x+2\\cdot6^x+9^x$ a $\\int a^x=\\frac{a^x}{\\ln a}$.",
+    "hints": [
+      "Nejprve umocni na druhou.",
+      "$2^x3^x=6^x$.",
+      "$\\int a^xdx=\\frac{a^x}{\\ln a}$."
+    ]
+  },
+  {
+    "id": "pk-ad-cos-1sin",
+    "type": "choice",
+    "prompt": "Primitivní funkce k $\\dfrac{\\cos x}{1+\\sin x}$ na $\\left(-\\frac\\pi2,\\frac{3\\pi}2\\right)$ je:",
+    "options": [
+      "$\\ln(1+\\sin x)$",
+      "$\\dfrac{1}{1+\\sin x}$",
+      "$\\arctan(\\sin x)$",
+      "$-\\ln(1+\\sin x)$"
+    ],
+    "answer": 0,
+    "solution": "Čitatel je derivace jmenovatele: $\\int\\frac{f'}{f}=\\ln|f|$; zde $1+\\sin x>0$ na daném intervalu.",
+    "hints": [
+      "Je čitatel derivací jmenovatele?",
+      "$(1+\\sin x)'=\\cos x$.",
+      "$\\int\\frac{f'}f=\\ln|f|$."
+    ]
   }
 ]

@@ -94,5 +94,36 @@
       "Vnější funkce je $u^3$, vnitřní $y(x)$.",
       "Derivace složené funkce: derivace vnější v bodě $y$ krát $y'$."
     ]
+  },
+  {
+    "id": "pk-imp-spiral",
+    "type": "choice",
+    "prompt": "Pro funkci $y(x)$ zadanou $\\ln\\sqrt{x^2+y^2}=\\operatorname{arctg}\\frac yx$ je $y'$ rovno:",
+    "options": [
+      "$\\dfrac{x+y}{x-y}$",
+      "$\\dfrac{x-y}{x+y}$",
+      "$\\dfrac yx$",
+      "$\\dfrac{x}{y}$"
+    ],
+    "answer": 0,
+    "solution": "Derivujeme $\\frac12\\ln(x^2+y^2)=\\operatorname{arctg}\\frac yx$: $\\frac{x+yy'}{x^2+y^2}=\\frac{xy'-y}{x^2+y^2}$ ⇒ $x+yy'=xy'-y$ ⇒ $y'(x-y)=x+y$.",
+    "hints": [
+      "Zderivuj obě strany podle $x$ ($y=y(x)$).",
+      "Pravá strana: $\\frac{1}{1+y^2/x^2}\\cdot\\frac{xy'-y}{x^2}$.",
+      "Společný jmenovatel $x^2+y^2$ se zkrátí."
+    ]
+  },
+  {
+    "id": "pk-imp-tangent",
+    "type": "numeric",
+    "prompt": "Pro křivku $x^3+y^2-x^2y+xy-2y+3x-19=0$ spočítej směrnici tečny $y'$ v bodě $[2,5]$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$F_x=3x^2-2xy+y+3=12-20+5+3=0$, $F_y=2y-x^2+x-2=10-4+2-2=6$, $y'=-\\frac{F_x}{F_y}=0$ ⇒ tečna $y=5$, normála $x=2$.",
+    "hints": [
+      "$y'=-F_x/F_y$.",
+      "Ověř nejprve, že bod leží na křivce.",
+      "Dosaď $x=2$, $y=5$."
+    ]
   }
 ]

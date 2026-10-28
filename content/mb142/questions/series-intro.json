@@ -167,5 +167,238 @@
       "Dostaneš $(\\frac12)^n$ a $3\\cdot(\\frac13)^n$ – dvě geometrické řady od $n=1$.",
       "Geometrická řada od $n=1$: $\\sum q^n=\\frac{q}{1-q}$."
     ]
+  },
+  {
+    "id": "pk-si-geo",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=0}^\\infty5\\cdot3^{-n}$.",
+    "answer": 7.5,
+    "tolerance": 0.001,
+    "solution": "Geometrická řada $a=5$, $q=\\frac13$: $\\frac{5}{1-1/3}=\\frac{15}2$.",
+    "hints": [
+      "$\\frac a{1-q}$.",
+      "$q=\\frac13$.",
+      "$\\frac5{2/3}$."
+    ]
+  },
+  {
+    "id": "pk-si-geo2",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=1}^\\infty\\left(\\frac3{4^{2n-1}}+\\frac2{4^{2n}}\\right)$ (4 des.).",
+    "answer": 0.9333333333333333,
+    "tolerance": 0.0005,
+    "solution": "$\\frac3{4^{2n-1}}=\\frac{12}{16^n}$, $\\frac2{4^{2n}}=\\frac2{16^n}$: $\\sum\\frac{14}{16^n}=14\\cdot\\frac{1/16}{1-1/16}=\\frac{14}{15}\\approx0{,}9333$.",
+    "hints": [
+      "Přepiš na mocniny $16^n$.",
+      "$\\sum_{n\\ge1}q^n=\\frac q{1-q}$.",
+      "$q=\\frac1{16}$."
+    ]
+  },
+  {
+    "id": "pk-si-tele",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=1}^\\infty\\left(\\sqrt n-2\\sqrt{n+1}+\\sqrt{n+2}\\right)$ (4 des.).",
+    "answer": -0.41421356237309515,
+    "tolerance": 0.0005,
+    "solution": "Dvojitý teleskop: $(\\sqrt{n+2}-\\sqrt{n+1})-(\\sqrt{n+1}-\\sqrt n)$; součet $=\\lim(\\sqrt{N+2}-\\sqrt{N+1})-(\\sqrt2-\\sqrt1)=0-\\sqrt2+1\\approx-0{,}4142$.",
+    "hints": [
+      "Seskup do dvou rozdílů.",
+      "Označ $d_n=\\sqrt{n+1}-\\sqrt n$.",
+      "Částečný součet $=d_{N+1}-d_1$."
+    ]
+  },
+  {
+    "id": "pk-si-n3",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=1}^\\infty\\frac n{3^n}$.",
+    "answer": 0.75,
+    "tolerance": 0.001,
+    "solution": "Z $\\sum nq^n=\\frac q{(1-q)^2}$ pro $q=\\frac13$: $\\frac{1/3}{4/9}=\\frac34$.",
+    "hints": [
+      "Vzorec $\\sum_{n\\ge1}nq^n=\\frac{q}{(1-q)^2}$.",
+      "$q=\\frac13$.",
+      "$\\frac{1/3}{(2/3)^2}$."
+    ]
+  },
+  {
+    "id": "pk-si-n13",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=0}^\\infty\\frac{n+1}{3^n}$.",
+    "answer": 2.25,
+    "tolerance": 0.001,
+    "solution": "$\\sum(n+1)q^n=\\frac1{(1-q)^2}=\\frac1{(2/3)^2}=\\frac94$.",
+    "hints": [
+      "$\\sum_{n\\ge0}(n+1)q^n=\\frac1{(1-q)^2}$.",
+      "$q=\\frac13$.",
+      "$\\frac94$."
+    ]
+  },
+  {
+    "id": "pk-si-n21",
+    "type": "numeric",
+    "prompt": "Sečti $\\displaystyle\\sum_{n=2}^\\infty\\frac1{n^2-1}$.",
+    "answer": 0.75,
+    "tolerance": 0.001,
+    "solution": "$\\frac1{n^2-1}=\\frac12\\left(\\frac1{n-1}-\\frac1{n+1}\\right)$, teleskop: $\\frac12\\left(1+\\frac12\\right)=\\frac34$.",
+    "hints": [
+      "Parciální zlomky.",
+      "Zbude $\\frac1{n-1}$ pro $n=2,3$ a $-\\frac1{n+1}$ pro nekonečno.",
+      "$\\frac12(1+\\frac12)$."
+    ]
+  },
+  {
+    "id": "pk-si-harm",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac1n$:",
+    "options": [
+      "diverguje k $+\\infty$",
+      "konverguje k $\\ln2$",
+      "konverguje k $\\frac{\\pi^2}6$",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "Harmonická řada diverguje (člen jde k $0$, ale nutná podmínka není postačující).",
+    "hints": [
+      "Zná se jako harmonická řada.",
+      "Srovnání s $\\int\\frac{dx}x$.",
+      "Nutná podmínka $a_n\\to0$ nestačí."
+    ]
+  },
+  {
+    "id": "pk-si-riem",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{n\\to\\infty}\\left(\\frac1{n^2}+\\frac2{n^2}+\\dots+\\frac{n-1}{n^2}\\right)$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "Součet $=\\frac{(n-1)n/2}{n^2}=\\frac{n-1}{2n}\\to\\frac12$.",
+    "hints": [
+      "$1+2+\\dots+(n-1)=\\frac{n(n-1)}2$.",
+      "Vyděl $n^2$.",
+      "Limita $\\frac{n-1}{2n}$."
+    ]
+  },
+  {
+    "id": "pk-si-squares",
+    "type": "numeric",
+    "prompt": "Do čtverce o straně $a=1$ vepíšeme čtverec spojením středů stran, a tak dále. Kolik je součet obsahů všech čtverců?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "Obsahy: $1,\\frac12,\\frac14,\\dots$ ⇒ $\\frac1{1-1/2}=2$ (obecně $2a^2$).",
+    "hints": [
+      "Obsah se vždy zmenší na polovinu.",
+      "Geometrická řada $q=\\frac12$.",
+      "$\\frac1{1-q}$."
+    ]
+  },
+  {
+    "id": "pk-si-squares-p",
+    "type": "numeric",
+    "prompt": "Při stejné konstrukci ($a=1$): kolik je součet obvodů všech čtverců (4 des.)?",
+    "answer": 13.65685424949238,
+    "tolerance": 0.001,
+    "solution": "Strany $1,\\frac1{\\sqrt2},\\dots$, obvody $4,\\frac4{\\sqrt2},\\dots$, $q=\\frac1{\\sqrt2}$: $\\frac4{1-1/\\sqrt2}=4(2+\\sqrt2)\\approx13{,}6569$.",
+    "hints": [
+      "Strana se zmenší $\\sqrt2$krát.",
+      "Geometrická řada s $q=\\frac1{\\sqrt2}$.",
+      "$\\frac{4}{1-\\frac{1}{\\sqrt2}}$."
+    ]
+  },
+  {
+    "id": "pk-si-sierp",
+    "type": "numeric",
+    "prompt": "Sierpińského koberec: jednotkový čtverec rozdělíme na devět shodných čtverců, prostřední odstraníme, a postup opakujeme s každým zbylým. Jaký je obsah po nekonečně krocích?",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Po $n$ krocích zbývá $\\left(\\frac89\\right)^n\\to0$.",
+    "hints": [
+      "Po jednom kroku zbývá $\\frac89$ plochy.",
+      "Každý krok násobí plochu $\\frac89$.",
+      "$\\left(\\frac89\\right)^n\\to0$."
+    ]
+  },
+  {
+    "id": "pk-si-halfdisc",
+    "type": "numeric",
+    "prompt": "V $n$-tém řádku je $2^n$ půlkruhů o poloměru $2^{-n}$ ($n\\ge1$). Jaký je celkový obsah všech půlkruhů (4 des.)?",
+    "answer": 1.5707963267948966,
+    "tolerance": 0.0005,
+    "solution": "Řádek $n$: $2^n\\cdot\\frac{\\pi}2\\cdot4^{-n}=\\frac\\pi2\\cdot2^{-n}$. $\\sum_{n\\ge1}2^{-n}=1$ ⇒ $\\frac\\pi2\\approx1{,}5708$.",
+    "hints": [
+      "Obsah půlkruhu je $\\frac12\\pi r^2$.",
+      "Součet přes řádek: $2^n\\cdot\\frac\\pi2\\cdot4^{-n}$.",
+      "Geometrická řada s $q=\\frac12$."
+    ]
+  },
+  {
+    "id": "pk-si-nec1",
+    "type": "choice",
+    "prompt": "Která řada nekonverguje, protože **není splněna nutná podmínka** $a_n\\to0$?",
+    "options": [
+      "$\\displaystyle\\sum_{n=0}^\\infty\\operatorname{arctg}(n^2+n+1)$",
+      "$\\displaystyle\\sum\\frac1{n^2}$",
+      "$\\displaystyle\\sum\\frac1{n!}$",
+      "$\\displaystyle\\sum\\frac1{n\\sqrt n}$"
+    ],
+    "answer": 0,
+    "solution": "$\\operatorname{arctg}(n^2+n+1)\\to\\frac\\pi2\\ne0$.",
+    "hints": [
+      "Spočítej limitu členu.",
+      "$\\operatorname{arctg}(+\\infty)$.",
+      "Ostatní členy jdou k $0$."
+    ]
+  },
+  {
+    "id": "pk-si-nec2",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=2}^\\infty\\frac1{\\sqrt[n]{\\ln n}}$:",
+    "options": [
+      "diverguje, protože $a_n\\to1\\ne0$",
+      "konverguje, protože $a_n\\to0$",
+      "konverguje k $1$",
+      "diverguje, protože $a_n\\to\\infty$"
+    ],
+    "answer": 0,
+    "solution": "$(\\ln n)^{1/n}=e^{\\frac{\\ln\\ln n}n}\\to1$, tedy $a_n\\to1$.",
+    "hints": [
+      "Přepiš $(\\ln n)^{1/n}=e^{\\frac{\\ln\\ln n}{n}}$.",
+      "Exponent jde k $0$.",
+      "Člen tedy jde k $1$."
+    ]
+  },
+  {
+    "id": "pk-si-ln",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\ln\\dfrac{n+1}n$:",
+    "options": [
+      "diverguje (teleskop: $S_N=\\ln(N+1)\\to\\infty$)",
+      "konverguje k $\\ln2$",
+      "konverguje k $0$",
+      "konverguje k $1$"
+    ],
+    "answer": 0,
+    "solution": "$\\ln\\frac{n+1}n=\\ln(n+1)-\\ln n$, $S_N=\\ln(N+1)\\to\\infty$. (Člen jde k $0$, ale řada přesto diverguje.)",
+    "hints": [
+      "Rozepiš $\\ln\\frac{n+1}n$ jako rozdíl logaritmů.",
+      "Teleskop.",
+      "$S_N=\\ln(N+1)$."
+    ]
+  },
+  {
+    "id": "pk-si-comp-sq",
+    "type": "choice",
+    "prompt": "Platí $\\displaystyle\\sum_{n=1}^\\infty\\frac1{n^2}$ vs. $\\displaystyle\\sum_{n=0}^\\infty\\frac1{2^n}$:",
+    "options": [
+      "$\\dfrac{\\pi^2}6<2$",
+      "$\\dfrac{\\pi^2}6>2$",
+      "obě jsou rovny $2$",
+      "první diverguje"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{\\pi^2}6\\approx1{,}645<2=\\sum2^{-n}$.",
+    "hints": [
+      "$\\sum_{n\\ge1}\\frac1{n^2}=\\frac{\\pi^2}6$.",
+      "$\\sum_{n\\ge0}2^{-n}=2$.",
+      "$\\pi^2\\approx9{,}87$."
+    ]
   }
 ]

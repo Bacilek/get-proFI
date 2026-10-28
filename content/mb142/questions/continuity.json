@@ -192,5 +192,131 @@
       "Čitatel se blíží konstantě $2$, jmenovatel nule.",
       "Je jednostranná limita konečná?"
     ]
+  },
+  {
+    "id": "pk-cont-R",
+    "type": "choice",
+    "prompt": "Funkce $R(x)=x$ pro $x\\in\\{\\frac1n;n\\in\\mathbb N\\}$ a $R(x)=0$ jinak je v bodě $x_0=0$:",
+    "options": [
+      "spojitá",
+      "nespojitá",
+      "spojitá jen zleva",
+      "spojitá jen zprava"
+    ],
+    "answer": 0,
+    "solution": "$|R(x)|\\le|x|\\to0$ a $R(0)=0$ ⇒ spojitá (sevření).",
+    "hints": [
+      "$R(0)=0$.",
+      "Platí $0\\le|R(x)|\\le|x|$.",
+      "Věta o sevření."
+    ]
+  },
+  {
+    "id": "pk-cont-root",
+    "type": "choice",
+    "prompt": "Má polynom $x^{37}+5x^{21}-4x^9+5x^4-2x-3$ kořen v intervalu $(-1,1)$?",
+    "options": [
+      "ano (např. v $(0,1)$ podle Bolzana)",
+      "ne",
+      "jen v $(-1,0)$",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$f(0)=-3<0$, $f(1)=1+5-4+5-2-3=2>0$, spojitá ⇒ kořen v $(0,1)$ (Bolzano).",
+    "hints": [
+      "Spočítej $f(0)$ a $f(1)$.",
+      "Hledáš změnu znaménka.",
+      "Bolzano: spojitá funkce nabývá nulu mezi hodnotami různých znamének."
+    ]
+  },
+  {
+    "id": "pk-cont-disc-a",
+    "type": "choice",
+    "prompt": "Nespojitost funkce $\\operatorname{arctg}\\dfrac{x-1}{x^2}$ v $x_0=0$ je:",
+    "options": [
+      "odstranitelná",
+      "1. druhu (skok)",
+      "2. druhu",
+      "žádná – je spojitá"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{x-1}{x^2}\\to-\\infty$ z obou stran, $\\operatorname{arctg}\\to-\\frac\\pi2$, limita existuje konečná, ale funkce v $0$ není definovaná ⇒ odstranitelná.",
+    "hints": [
+      "Spočítej oba jednostranné limity vnitřku.",
+      "$\\lim\\operatorname{arctg}(-\\infty)=-\\frac\\pi2$.",
+      "Limita existuje, hodnota ne."
+    ]
+  },
+  {
+    "id": "pk-cont-disc-b",
+    "type": "choice",
+    "prompt": "Nespojitost funkce $\\dfrac{\\ln(1+x)}{|x|}$ v $x_0=0$ je:",
+    "options": [
+      "odstranitelná",
+      "1. druhu (skok $-1\\to1$)",
+      "2. druhu",
+      "žádná"
+    ],
+    "answer": 1,
+    "solution": "Zprava $\\frac{\\ln(1+x)}x\\to1$, zleva $\\frac{\\ln(1+x)}{-x}\\to-1$ ⇒ konečné různé jednostranné limity (skok).",
+    "hints": [
+      "Zvlášť $x\\to0^+$ a $x\\to0^-$.",
+      "$|x|=x$ vpravo, $-x$ vlevo.",
+      "Použij $\\frac{\\ln(1+x)}x\\to1$."
+    ]
+  },
+  {
+    "id": "pk-cont-disc-c",
+    "type": "choice",
+    "prompt": "Nespojitost funkce $\\dfrac{e^{1/x}+1}{e^{1/x}-1}$ v $x_0=0$ je:",
+    "options": [
+      "odstranitelná",
+      "1. druhu (skok $1\\to-1$)",
+      "2. druhu",
+      "žádná"
+    ],
+    "answer": 1,
+    "solution": "Zprava $e^{1/x}\\to\\infty$: limita $1$. Zleva $e^{1/x}\\to0$: $\\frac{1}{-1}=-1$. Konečné různé jednostranné limity ⇒ 1. druh.",
+    "hints": [
+      "$x\\to0^+$: $e^{1/x}\\to\\infty$.",
+      "$x\\to0^-$: $e^{1/x}\\to0$.",
+      "Obě limity konečné a různé."
+    ]
+  },
+  {
+    "id": "pk-cont-disc-d",
+    "type": "choice",
+    "prompt": "Nespojitost funkce $\\dfrac{\\cos x}{x}$ v $x_0=0$ je:",
+    "options": [
+      "odstranitelná",
+      "1. druhu",
+      "2. druhu (jednostranné limity $\\pm\\infty$)",
+      "žádná"
+    ],
+    "answer": 2,
+    "solution": "$\\cos x\\to1$, $\\frac1x\\to\\pm\\infty$ ⇒ nevlastní jednostranné limity ⇒ 2. druh.",
+    "hints": [
+      "Zkoumej jednostranné limity.",
+      "Nevlastní limita = 2. druh.",
+      "Čitatel $\\to1$."
+    ]
+  },
+  {
+    "id": "pk-cont-sides",
+    "type": "choice",
+    "prompt": "Funkce $f=1$ pro $0\\le x<1$, $f(1)=2$, $f=1$ pro $1<x<2$ je v $x=1$:",
+    "options": [
+      "spojitá",
+      "spojitá zleva i zprava",
+      "není spojitá ani zleva, ani zprava",
+      "spojitá jen zleva"
+    ],
+    "answer": 2,
+    "solution": "Obě jednostranné limity jsou $1$, ale $f(1)=2\\ne1$ ⇒ není spojitá z žádné strany (odstranitelná nespojitost).",
+    "hints": [
+      "Spočítej limity zleva a zprava.",
+      "Porovnej s $f(1)=2$.",
+      "Spojitost zleva/zprava vyžaduje rovnost s $f(1)$."
+    ]
   }
 ]

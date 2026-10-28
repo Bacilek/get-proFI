@@ -133,5 +133,83 @@
       "$o(x)=4x+2\\sqrt{r^2-x^2}$ na $[0,r]$; najdi nulu derivace.",
       "Z $o'=0$ vyjde $\\sqrt{r^2-x^2}=\\frac x2$; dosaď zpět a porovnej s krajními hodnotami."
     ]
+  },
+  {
+    "id": "pk-opt-abs-max",
+    "type": "numeric",
+    "prompt": "Absolutní maximum $p(x)=x^3-3x+2$ na $[-3,2]$:",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "Stacionární body $x=\\pm1$; hodnoty: $p(-3)=-16$, $p(-1)=4$, $p(1)=0$, $p(2)=4$. Max $=4$ (v $x=-1$ i $x=2$), min $=-16$.",
+    "hints": [
+      "Najdi $p'(x)=3x^2-3=0$.",
+      "Porovnej hodnoty v stacionárních bodech a v krajích.",
+      "Krajní body $-3$ a $2$."
+    ]
+  },
+  {
+    "id": "pk-opt-abs-min",
+    "type": "numeric",
+    "prompt": "Absolutní minimum $p(x)=x^3-3x+2$ na $[-3,2]$:",
+    "answer": -16,
+    "tolerance": 0.001,
+    "solution": "$p(-3)=-27+9+2=-16$ je nejmenší z hodnot $-16,4,0,4$.",
+    "hints": [
+      "Stacionární body $\\pm1$.",
+      "Spočti $p$ ve všech kandidátech.",
+      "Nejmenší hodnota je v $x=-3$."
+    ]
+  },
+  {
+    "id": "pk-opt-profit",
+    "type": "numeric",
+    "prompt": "Výnos $v(x)=9x$, náklady $n(x)=x^3-6x^2+15x$, $x\\in[0,10]$ (tisíce výrobků). Při jakém $x$ je zisk $v-n$ největší (4 des.)?",
+    "answer": 3.414213562373095,
+    "tolerance": 0.001,
+    "solution": "Zisk $z=-x^3+6x^2-6x$, $z'=-3x^2+12x-6=0\\Rightarrow x^2-4x+2=0\\Rightarrow x=2\\pm\\sqrt2$. Lokální maximum je v $x=2+\\sqrt2\\approx3{,}414$ (tj. ≈ 3414 výrobků); $z(10)<0$ a $z(0)=0$.",
+    "hints": [
+      "Zisk $=$ výnos − náklady.",
+      "Polož $z'=0$ a vyřeš kvadratickou rovnici.",
+      "Porovnej s krajními body $0$ a $10$."
+    ]
+  },
+  {
+    "id": "pk-opt-split",
+    "type": "numeric",
+    "prompt": "Číslo $28$ rozlož na dva nezáporné sčítance $a+b$ tak, aby $a^2+b^3$ bylo minimální. Kolik je $b$?",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "$g(b)=(28-b)^2+b^3$, $g'=-2(28-b)+3b^2=3b^2+2b-56=0\\Rightarrow b=4$ (druhý kořen je záporný). $a=24$.",
+    "hints": [
+      "Dosaď $a=28-b$.",
+      "Derivuj a polož rovno nule.",
+      "Řeš $3b^2+2b-56=0$."
+    ]
+  },
+  {
+    "id": "pk-opt-halfdisc",
+    "type": "numeric",
+    "prompt": "Do půlkruhu o poloměru $r=1$ je vepsán obdélník (jedna strana na průměru) s největším obvodem. Kolik je tento obvod (4 des.)?",
+    "answer": 4.47213595499958,
+    "tolerance": 0.001,
+    "solution": "Strany $2x$ a $\\sqrt{1-x^2}$, $o=4x+2\\sqrt{1-x^2}$, $o'=4-\\frac{2x}{\\sqrt{1-x^2}}=0\\Rightarrow x=\\frac2{\\sqrt5}$; $o=2\\sqrt5\\,r\\approx4{,}4721$.",
+    "hints": [
+      "Parametrizuj obdélník polovinou základny $x$.",
+      "Výška je $\\sqrt{r^2-x^2}$.",
+      "Polož derivaci obvodu rovnu nule."
+    ]
+  },
+  {
+    "id": "pk-opt-cone",
+    "type": "numeric",
+    "prompt": "Nejobjemnější kužel vepsaný do koule o poloměru $R=3$: kolik je jeho výška $v$? (Obecně $v=\\frac43R$.)",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "$V=\\frac\\pi3r^2v$ s $r^2=v(2R-v)$: $V=\\frac\\pi3v^2(2R-v)$, $V'=0\\Rightarrow v=\\frac{4R}3=4$, $r=\\frac{2\\sqrt2}3R=2\\sqrt2\\approx2{,}83$.",
+    "hints": [
+      "Z pravoúhlého trojúhelníku: $r^2=v(2R-v)$.",
+      "Dosaď do $V=\\frac13\\pi r^2v$.",
+      "Derivuj podle $v$."
+    ]
   }
 ]

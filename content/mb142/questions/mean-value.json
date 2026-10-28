@@ -79,5 +79,34 @@
       "Pro $a\\ne b$ dostaneš $\\frac{\\sin a-\\sin b}{a-b}=\\cos c$ pro nějaké $c$ mezi $a$ a $b$.",
       "Odhadni $|\\cos c|\\le1$, vynásob $|a-b|$ a nezapomeň zvlášť na případ $a=b$."
     ]
+  },
+  {
+    "id": "pk-rolle-poly",
+    "type": "choice",
+    "prompt": "Má polynom $x(x-4)^5$ alespoň v jednom bodě intervalu $(0,4)$ tečnu rovnoběžnou s osou $x$?",
+    "options": [
+      "ano, podle Rolleovy věty",
+      "ne",
+      "jen v krajních bodech",
+      "nelze rozhodnout"
+    ],
+    "answer": 0,
+    "solution": "$f(0)=f(4)=0$, $f$ je spojitá a diferencovatelná ⇒ existuje $c\\in(0,4)$ s $f'(c)=0$ (Rolle).",
+    "hints": [
+      "Spočti hodnoty v krajních bodech.",
+      "Rovnoběžná tečna = $f'(c)=0$.",
+      "Rolleova věta."
+    ]
+  },
+  {
+    "id": "pk-ln-ineq",
+    "type": "free",
+    "prompt": "Dokaž, že $\\dfrac x{1+x}<\\ln(1+x)<x$ pro $x>0$.",
+    "solution": "Lagrangeova věta pro $f(t)=\\ln(1+t)$ na $[0,x]$: existuje $c\\in(0,x)$ s $\\ln(1+x)-\\ln1=\\frac{x}{1+c}$. Protože $0<c<x$, je $\\frac x{1+x}<\\frac x{1+c}<x$, tedy $\\frac x{1+x}<\\ln(1+x)<x$.",
+    "hints": [
+      "Použij Lagrangeovu větu na $\\ln(1+t)$, $t\\in[0,x]$.",
+      "Derivace $\\frac1{1+t}$.",
+      "Odhadni $\\frac x{1+c}$ pro $0<c<x$."
+    ]
   }
 ]

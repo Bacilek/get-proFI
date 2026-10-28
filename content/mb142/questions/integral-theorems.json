@@ -102,5 +102,23 @@
       "$G(x)=-\\int_1^{\\sin x}\\arcsin t\\,\\mathrm{d}t$, takže $G'(x)=-\\arcsin(\\sin x)\\cdot(\\sin x)'$.",
       "Pro $x\\in[-\\frac\\pi2,\\frac\\pi2]$ je $\\arcsin(\\sin x)=x$; zjednoduš."
     ]
+  },
+  {
+    "id": "pk-it-ftc",
+    "type": "choice",
+    "prompt": "Pro $x\\in(-1,1)$ je $\\left(\\displaystyle\\int_x^0t^5\\ln(t+1)\\,dt\\right)'$ rovno:",
+    "options": [
+      "$-x^5\\ln(x+1)$",
+      "$x^5\\ln(x+1)$",
+      "$0$",
+      "$\\dfrac{x^6}{6}\\ln(x+1)$"
+    ],
+    "answer": 0,
+    "solution": "Proměnná je v dolní mezi: $\\int_x^0=-\\int_0^x$, derivace je $-x^5\\ln(x+1)$.",
+    "hints": [
+      "Převrať meze, aby proměnná byla nahoře.",
+      "Věta o derivaci integrálu podle horní meze.",
+      "Změna meze přidává mínus."
+    ]
   }
 ]

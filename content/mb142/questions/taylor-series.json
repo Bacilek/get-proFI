@@ -157,5 +157,173 @@
       "Dosaď řadu pro $\\frac1{1+t^2}$ a integruj člen po členu.",
       "Integrál $\\int_0^xt^{2n}dt$ dá $\\frac{x^{2n+1}}{2n+1}$; poznamenej obor platnosti."
     ]
+  },
+  {
+    "id": "pk-ts-exp1",
+    "type": "choice",
+    "prompt": "Rozvoj $e^x$ v mocninách $(x-1)$ je:",
+    "options": [
+      "$e\\displaystyle\\sum_{n=0}^\\infty\\frac{(x-1)^n}{n!}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(x-1)^n}{n!}$",
+      "$e\\displaystyle\\sum_{n=0}^\\infty\\frac{x^n}{n!}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{e(x-1)^n}{n}$"
+    ],
+    "answer": 0,
+    "solution": "$e^x=e\\cdot e^{x-1}=e\\sum\\frac{(x-1)^n}{n!}$ (všechny derivace v $1$ jsou rovny $e$).",
+    "hints": [
+      "Napiš $e^x=e\\cdot e^{x-1}$.",
+      "Substituce $t=x-1$.",
+      "Řada $e^t$."
+    ]
+  },
+  {
+    "id": "pk-ts-2x",
+    "type": "choice",
+    "prompt": "Maclaurinův rozvoj $2^x$ je:",
+    "options": [
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{\\ln^n2}{n!}x^n$",
+      "$\\displaystyle\\sum\\frac{2^n}{n!}x^n$",
+      "$\\displaystyle\\sum\\frac{x^n}{2\\,n!}$",
+      "$\\displaystyle\\sum\\frac{\\ln2}{n!}x^n$"
+    ],
+    "answer": 0,
+    "solution": "$2^x=e^{x\\ln2}=\\sum\\frac{(x\\ln2)^n}{n!}$.",
+    "hints": [
+      "$2^x=e^{x\\ln2}$.",
+      "Dosaď $t=x\\ln2$ do $e^t$.",
+      "$(x\\ln2)^n=\\ln^n2\\,x^n$."
+    ]
+  },
+  {
+    "id": "pk-ts-lnratio",
+    "type": "choice",
+    "prompt": "Maclaurinův rozvoj $\\ln\\dfrac{1+x}{1-x}$ pro $|x|<1$ je:",
+    "options": [
+      "$2\\displaystyle\\sum_{n=1}^\\infty\\frac{x^{2n-1}}{2n-1}$",
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{x^n}{n}$",
+      "$2\\displaystyle\\sum_{n=1}^\\infty\\frac{x^{2n}}{2n}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty x^{2n}$"
+    ],
+    "answer": 0,
+    "solution": "$\\ln(1+x)-\\ln(1-x)$: sudé mocniny se odečtou, liché zdvojnásobí.",
+    "hints": [
+      "Rozděl na $\\ln(1+x)-\\ln(1-x)$.",
+      "$\\ln(1-x)=-\\sum\\frac{x^n}n$.",
+      "Sudé členy se zruší."
+    ]
+  },
+  {
+    "id": "pk-ts-geo5",
+    "type": "choice",
+    "prompt": "Rozvoj $\\dfrac1{5+2x}$ pro $|x|<\\frac52$ je:",
+    "options": [
+      "$\\dfrac15\\displaystyle\\sum_{n=0}^\\infty\\left(-\\dfrac25\\right)^nx^n$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\left(-\\dfrac25\\right)^nx^n$",
+      "$\\dfrac15\\displaystyle\\sum\\left(\\dfrac25\\right)^nx^n$",
+      "$\\dfrac15\\displaystyle\\sum_{n=0}^\\infty(-2x)^n$"
+    ],
+    "answer": 0,
+    "solution": "$\\frac1{5(1+\\frac{2x}5)}=\\frac15\\sum\\left(-\\frac{2x}5\\right)^n$, konverguje pro $\\left|\\frac{2x}5\\right|<1$.",
+    "hints": [
+      "Vytkni $5$ ze jmenovatele.",
+      "Geometrická řada s $q=-\\frac{2x}5$.",
+      "Podmínka $|q|<1$."
+    ]
+  },
+  {
+    "id": "pk-ts-1x2",
+    "type": "choice",
+    "prompt": "Rozvoj $\\dfrac1{(1+x)^2}$ pro $|x|<1$ je:",
+    "options": [
+      "$\\displaystyle\\sum_{n=1}^\\infty(-1)^{n+1}nx^{n-1}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty(-1)^nx^{2n}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty(n+1)x^n$",
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^nx^n}n$"
+    ],
+    "answer": 0,
+    "solution": "$\\frac1{(1+x)^2}=-\\left(\\frac1{1+x}\\right)'=-\\sum(-1)^nnx^{n-1}=\\sum(-1)^{n+1}nx^{n-1}$.",
+    "hints": [
+      "Je to $-(\\frac1{1+x})'$.",
+      "Derivuj geometrickou řadu člen po členu.",
+      "Pozor na znaménko."
+    ]
+  },
+  {
+    "id": "pk-ts-sin2-c4",
+    "type": "numeric",
+    "prompt": "Rozvoj $\\sin^2x=\\sum_{n\\ge1}\\frac{(-1)^{n+1}2^{2n-1}}{(2n)!}x^{2n}$. Kolik je koeficient u $x^4$ (4 des.)?",
+    "answer": -0.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "$n=2$: $\\frac{(-1)^3\\cdot2^3}{4!}=-\\frac8{24}=-\\frac13$. ($\\sin^2x=\\frac{1-\\cos2x}2$.)",
+    "hints": [
+      "Dosaď $n=2$.",
+      "$2^{3}=8$, $4!=24$.",
+      "$-\\frac{8}{24}$."
+    ]
+  },
+  {
+    "id": "pk-ts-poly4",
+    "type": "numeric",
+    "prompt": "Taylorův polynom 4. stupně v $x_0=0$ funkce $\\cos x-2\\sin x-\\ln(1+x)$ je $1-3x+\\frac7{24}x^4$. Kolik je koeficient u $x^4$ (4 des.)?",
+    "answer": 0.2916666666666667,
+    "tolerance": 0.0005,
+    "solution": "$\\cos x$: $\\frac1{24}$, $-\\ln(1+x)$: $+\\frac14$, $-2\\sin x$ nemá $x^4$. $\\frac1{24}+\\frac6{24}=\\frac7{24}\\approx0{,}2917$. Členy $x^2,x^3$ se vyruší, graf leží nad tečnou $y=1-3x$.",
+    "hints": [
+      "Rozviň $\\cos x$, $\\sin x$, $\\ln(1+x)$ do čtvrtého řádu.",
+      "Koeficienty u $x^4$: $\\frac1{24}$, $0$, $+\\frac14$.",
+      "Sečti."
+    ]
+  },
+  {
+    "id": "pk-ts-xe",
+    "type": "numeric",
+    "prompt": "Řada $\\displaystyle\\sum_{n=0}^\\infty\\frac{x^{3n+1}}{2^nn!}$ má součet $x\\,e^{x^3/2}$. Kolik je pro $x=1$ (4 des.)?",
+    "answer": 1.6487212707001282,
+    "tolerance": 0.0005,
+    "solution": "$x\\sum\\frac{(x^3/2)^n}{n!}=xe^{x^3/2}$; $x=1$: $e^{1/2}\\approx1{,}6487$.",
+    "hints": [
+      "Vytkni $x$.",
+      "Zbylé $\\frac{(x^3/2)^n}{n!}$ je řada $e^t$.",
+      "Dosaď $x=1$."
+    ]
+  },
+  {
+    "id": "pk-ts-int",
+    "type": "numeric",
+    "prompt": "Maclaurinova řada $f(x)=\\int_0^xu\\cos u^2\\,du$ je $\\sum_{n\\ge0}\\frac{(-1)^n}{(2n)!(4n+2)}x^{4n+2}$. Kolik je $f(1)=\\frac12\\sin1$ (4 des.)?",
+    "answer": 0.42073549240394825,
+    "tolerance": 0.0005,
+    "solution": "$\\int_0^1u\\cos u^2du=\\frac12\\sin u^2\\Big|_0^1=\\frac12\\sin1\\approx0{,}4207$ (řada: $\\frac12-\\frac1{12}\\cdot\\ldots$ konverguje k téže hodnotě).",
+    "hints": [
+      "Subst. $t=u^2$.",
+      "$\\frac12\\int\\cos t\\,dt$.",
+      "$\\frac12\\sin1$."
+    ]
+  },
+  {
+    "id": "pk-ts-cos10",
+    "type": "numeric",
+    "prompt": "Přibližně spočítej $\\cos10^\\circ$ ze tří členů $1-\\frac{x^2}{2!}+\\frac{x^4}{4!}$ s $x=\\frac\\pi{18}$ (6 des.; chyba $<10^{-5}$).",
+    "answer": 0.9848077922491802,
+    "tolerance": 0.00001,
+    "solution": "$x\\approx0{,}174533$, $\\frac{x^2}2\\approx0{,}015231$, $\\frac{x^4}{24}\\approx0{,}0000387$ ⇒ $0{,}984808$. Zbytek $\\le\\frac{x^6}{6!}\\approx4\\cdot10^{-8}$.",
+    "hints": [
+      "$10^\\circ=\\frac\\pi{18}$ rad.",
+      "Alternující řada ⇒ chyba $<$ první vynechaný člen.",
+      "Spočti $x^2$ a $x^4$."
+    ]
+  },
+  {
+    "id": "pk-ts-int2",
+    "type": "numeric",
+    "prompt": "Přibližně spočítej $\\displaystyle\\int_0^{1/2}\\frac{dx}{x^4+1}$ jako $\\frac12-\\frac1{5\\cdot2^5}$ (4 des.; chyba $<10^{-3}$).",
+    "answer": 0.49375,
+    "tolerance": 0.0005,
+    "solution": "$\\frac1{1+x^4}=1-x^4+\\dots$, $\\int_0^{1/2}=\\frac12-\\frac{(1/2)^5}5=\\frac12-\\frac1{160}=0{,}49375$. Další člen $\\frac{(1/2)^9}{9}\\approx2\\cdot10^{-4}<10^{-3}$.",
+    "hints": [
+      "Rozviň $\\frac1{1+x^4}$ geometrickou řadou.",
+      "Integruj člen po členu.",
+      "Odhadni první vynechaný člen."
+    ]
   }
 ]

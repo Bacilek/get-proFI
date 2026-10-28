@@ -168,5 +168,147 @@
       "Vyjde $R=3$; zbývá prozkoumat $x=\\pm3$ zvlášť.",
       "V $x=3$ je to $\\sum\\frac1{n-3}$ (harmonická), v $x=-3$ je alternující → Leibniz."
     ]
+  },
+  {
+    "id": "pk-ps-a",
+    "type": "choice",
+    "prompt": "Interval konvergence $\\displaystyle\\sum_{n=0}^\\infty\\frac{x^n}{(n+1)8^n}$ je:",
+    "options": [
+      "$[-8,8)$",
+      "$(-8,8)$",
+      "$[-8,8]$",
+      "$(-8,8]$"
+    ],
+    "answer": 0,
+    "solution": "$R=8$. V $x=8$: $\\sum\\frac1{n+1}$ diverguje; v $x=-8$: $\\sum\\frac{(-1)^n}{n+1}$ konverguje.",
+    "hints": [
+      "Poloměr: $\\lim\\frac{a_n}{a_{n+1}}=8$.",
+      "Zkontroluj oba krajní body.",
+      "Harmonická vs. alternující."
+    ]
+  },
+  {
+    "id": "pk-ps-R0",
+    "type": "numeric",
+    "prompt": "Poloměr konvergence řady $\\sum_{n=1}^\\infty(4n)^n(x-5)^n$ je:",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$\\sqrt[n]{|a_n|}=4n\\to\\infty$ ⇒ $R=0$ (řada konverguje jen v $x=5$).",
+    "hints": [
+      "Odmocninové kritérium.",
+      "$\\sqrt[n]{(4n)^n}=4n$.",
+      "$R=\\frac1{\\infty}$."
+    ]
+  },
+  {
+    "id": "pk-ps-c",
+    "type": "choice",
+    "prompt": "Interval konvergence $\\displaystyle\\sum_{n=1}^\\infty\\frac{(x+3)^n}{n^2}$ je:",
+    "options": [
+      "$[-4,-2]$",
+      "$(-4,-2)$",
+      "$[-4,-2)$",
+      "$(-3,3)$"
+    ],
+    "answer": 0,
+    "solution": "$R=1$, střed $-3$. V krajních bodech $\\sum\\frac{(\\pm1)^n}{n^2}$ konverguje absolutně.",
+    "hints": [
+      "Střed $-3$, poloměr $1$.",
+      "Krajní body $-4$ a $-2$.",
+      "$\\sum\\frac1{n^2}$ konverguje."
+    ]
+  },
+  {
+    "id": "pk-ps-d",
+    "type": "choice",
+    "prompt": "Interval konvergence $\\displaystyle\\sum_{n=1}^\\infty(-1)^{n+1}\\frac{\\sqrt{n^3+n}\\,3^n}{\\sqrt{n^4+2n^3+1}\\,\\pi^n}(x-2)^n$ je:",
+    "options": [
+      "$\\left(2-\\frac\\pi3,\\,2+\\frac\\pi3\\right]$",
+      "$\\left[2-\\frac\\pi3,\\,2+\\frac\\pi3\\right]$",
+      "$\\left(2-\\frac\\pi3,\\,2+\\frac\\pi3\\right)$",
+      "$\\left[2-\\frac\\pi3,\\,2+\\frac\\pi3\\right)$"
+    ],
+    "answer": 0,
+    "solution": "$R=\\frac\\pi3$. V $x=2+\\frac\\pi3$ vyjde alternující řada s členem $\\sim\\frac1{\\sqrt n}$ (konverguje podle Leibnize); v $x=2-\\frac\\pi3$ řada $\\sim\\sum n^{-1/2}$ diverguje.",
+    "hints": [
+      "Koeficient $\\sim\\frac{n^{3/2}3^n}{n^2\\pi^n}=\\frac{3^n}{\\sqrt n\\,\\pi^n}$.",
+      "Poloměr $\\frac\\pi3$.",
+      "Krajní body: Leibniz vs. $p$-test."
+    ]
+  },
+  {
+    "id": "pk-ps-e",
+    "type": "choice",
+    "prompt": "Interval konvergence $\\displaystyle\\sum_{n=1}^\\infty\\left(1+\\frac1n\\right)^n(x-2)^n$ je:",
+    "options": [
+      "$(1,3)$",
+      "$[1,3]$",
+      "$[1,3)$",
+      "$(1,3]$"
+    ],
+    "answer": 0,
+    "solution": "$\\sqrt[n]{|a_n|}\\to1$, $R=1$. V krajních bodech členy $\\left(1+\\frac1n\\right)^n\\to e\\ne0$ ⇒ divergence.",
+    "hints": [
+      "Odmocninové kritérium.",
+      "$(1+\\frac1n)^n\\to e$.",
+      "V krajních bodech nejde člen k $0$."
+    ]
+  },
+  {
+    "id": "pk-ps-f",
+    "type": "choice",
+    "prompt": "Interval konvergence $\\displaystyle\\sum_{n=0}^\\infty\\frac{(x+1)^{2n}}{4^n}$ je:",
+    "options": [
+      "$(-3,1)$",
+      "$[-3,1]$",
+      "$(-2,2)$",
+      "$(-1,1)$"
+    ],
+    "answer": 0,
+    "solution": "Geometrická řada s $q=\\frac{(x+1)^2}4$, $|q|<1\\Leftrightarrow|x+1|<2$; v krajních bodech $q=1$ diverguje.",
+    "hints": [
+      "Je to geometrická řada s $q=\\frac{(x+1)^2}{4}$.",
+      "$|x+1|<2$.",
+      "Krajní body $-3,1$."
+    ]
+  },
+  {
+    "id": "pk-ps-sum-a",
+    "type": "numeric",
+    "prompt": "Součet $\\displaystyle\\sum_{n=1}^\\infty\\frac{x^{2n-1}}{2n-1}$ pro $|x|<1$ je $\\frac12\\ln\\frac{1+x}{1-x}$. Kolik je pro $x=\\frac12$ (4 des.)?",
+    "answer": 0.5493061443340548,
+    "tolerance": 0.0005,
+    "solution": "$\\frac12\\ln\\frac{1{,}5}{0{,}5}=\\frac12\\ln3\\approx0{,}5493$. (Derivací člen po členu vznikne $\\sum x^{2n-2}=\\frac1{1-x^2}$.)",
+    "hints": [
+      "Derivuj řadu: geometrická řada v $x^2$.",
+      "Integruj $\\frac1{1-x^2}$.",
+      "Dosaď $x=\\frac12$."
+    ]
+  },
+  {
+    "id": "pk-ps-sum-b",
+    "type": "numeric",
+    "prompt": "Součet $\\displaystyle\\sum_{n=1}^\\infty n^2x^{n-1}$ pro $|x|<1$ je $\\frac{1+x}{(1-x)^3}$. Kolik je pro $x=\\frac12$?",
+    "answer": 12,
+    "tolerance": 0.001,
+    "solution": "$\\frac{1{,}5}{0{,}125}=12$. (Odvození: derivací $\\sum nx^n=\\frac x{(1-x)^2}$.)",
+    "hints": [
+      "Dosaď $x=\\frac12$.",
+      "$(1-x)^3=\\frac18$.",
+      "$\\frac{3/2}{1/8}$."
+    ]
+  },
+  {
+    "id": "pk-ps-sum-111",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\sum_{n=1}^\\infty\\frac{2n-1}{(-2)^{n-1}}$ pomocí součtu mocninné řady $\\sum_{n\\ge0}(-1)^n(2n+1)x^{2n}$ pro vhodné $x$ (4 des.).",
+    "answer": 0.2222222222222222,
+    "tolerance": 0.0005,
+    "solution": "Řada $\\sum_{n\\ge1}(2n-1)q^{n-1}=\\frac{1+q}{(1-q)^2}$ s $q=-\\frac12$: $\\frac{1/2}{9/4}=\\frac29\\approx0{,}2222$. (V zadání: $x^2=\\frac12$, $x=\\frac1{\\sqrt2}$.)",
+    "hints": [
+      "Přepiš na $\\sum(2n-1)q^{n-1}$ s $q=-\\frac12$.",
+      "Součet $\\frac{1+q}{(1-q)^2}$ (derivace geometrické řady).",
+      "$1+q=\\frac12$, $(1-q)^2=\\frac94$."
+    ]
   }
 ]

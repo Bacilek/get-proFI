@@ -184,5 +184,31 @@
       "$x^3=x\\cdot(x^2-1)+x$.",
       "Zbylý zlomek $\\frac{x}{(x-1)(x+1)}$ rozlož; pro $A$ dosaď $x=1$ do $\\frac{x}{x+1}$."
     ]
+  },
+  {
+    "id": "pk-hpf-mult",
+    "type": "numeric",
+    "prompt": "Polynom $x^4-7x^3+9x^2+27x-54=(x+2)(x-3)^k$. Jaké je $k$ (násobnost kořene $3$)?",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "Hornerovým schématem se $x=3$ vydělí třikrát (kořen násobnosti $3$) a zbývá $(x+2)$.",
+    "hints": [
+      "Dosaď $x=3$ – je kořen?",
+      "Vyděl Hornerem a zkoušej $3$ opakovaně.",
+      "Součet stupňů: $1+k=4$."
+    ]
+  },
+  {
+    "id": "pk-hpf-A",
+    "type": "numeric",
+    "prompt": "V rozkladu $\\dfrac{4x^2+13x-2}{x^3+3x^2-4x-12}=\\dfrac{A}{x-2}+\\dfrac{B}{x+2}+\\dfrac{C}{x+3}$ spočti $A$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "Jmenovatel $=(x-2)(x+2)(x+3)$. Zakrývací metoda v $x=2$: $A=\\frac{4\\cdot4+26-2}{(2+2)(2+3)}=\\frac{40}{20}=2$. ($B=3$, $C=-1$.)",
+    "hints": [
+      "Rozlož jmenovatel: kořeny $2,-2,-3$.",
+      "Vynásob $(x-2)$ a dosaď $x=2$.",
+      "Čitatel v $2$: $16+26-2=40$."
+    ]
   }
 ]

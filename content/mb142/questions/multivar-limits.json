@@ -375,5 +375,114 @@
       "Hledej nuly jmenovatele.",
       "Vyjádři $y$ z rovnice $x^2-3y=0$."
     ]
+  },
+  {
+    "id": "pk-ml-sqrt2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[1,1]}\\frac{x+y}{\\sqrt{x^2+y^2}}$ (4 des.).",
+    "answer": 1.4142135623730951,
+    "tolerance": 0.001,
+    "solution": "Funkce je v $[1,1]$ spojitá: $\\frac2{\\sqrt2}=\\sqrt2\\approx1{,}4142$.",
+    "hints": [
+      "Je jmenovatel v bodě nenulový?",
+      "Spojitá funkce – dosaď.",
+      "$\\frac{2}{\\sqrt2}$."
+    ]
+  },
+  {
+    "id": "pk-ml-dne",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^2}{x^2+4y^2}$?",
+    "options": [
+      "$0$",
+      "$1$",
+      "$\\frac14$",
+      "neexistuje"
+    ],
+    "answer": 3,
+    "solution": "Podél $y=0$: $1$. Podél $x=0$: $0$. Různé hodnoty ⇒ limita neexistuje.",
+    "hints": [
+      "Zkus dvě různé cesty k počátku.",
+      "$y=0$ a $x=0$.",
+      "Porovnej hodnoty."
+    ]
+  },
+  {
+    "id": "pk-ml-bounded",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[0,0]}x^2y\\cos\\frac1{x^2-y^2}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$\\left|x^2y\\cos\\dots\\right|\\le x^2|y|\\to0$ (omezená funkce krát nulová).",
+    "hints": [
+      "Kosinus je omezený.",
+      "Odhadni $|\\cdot|\\le x^2|y|$.",
+      "Věta o sevření."
+    ]
+  },
+  {
+    "id": "pk-ml-sin",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{\\sin(x^4y+xy^3)}{x^4y+xy^3}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Substituce $u=x^4y+xy^3\\to0$, $\\frac{\\sin u}u\\to1$.",
+    "hints": [
+      "Argument sinu a jmenovatel jsou stejné.",
+      "$u\\to0$ pro $[x,y]\\to[0,0]$.",
+      "Základní limita $\\frac{\\sin u}u$."
+    ]
+  },
+  {
+    "id": "pk-ml-xy",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[0,2]}\\frac{\\sin(xy)}x$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\sin(xy)}{xy}\\cdot y\\to1\\cdot2=2$.",
+    "hints": [
+      "Rozšiř $y$: $\\frac{\\sin(xy)}{xy}\\cdot y$.",
+      "$xy\\to0$.",
+      "$y\\to2$."
+    ]
+  },
+  {
+    "id": "pk-ml-sqrt-xy",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{\\sqrt{x^2y^2+1}-1}{x^2+y^2}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Rozšíříme: $\\frac{x^2y^2}{(x^2+y^2)(\\sqrt{x^2y^2+1}+1)}$; $\\frac{x^2y^2}{x^2+y^2}\\le\\frac{x^2+y^2}{4}\\to0$.",
+    "hints": [
+      "Rozšiř sdruženým výrazem.",
+      "Odhadni $x^2y^2\\le\\frac{(x^2+y^2)^2}{4}$.",
+      "Zbytek $\\to0$."
+    ]
+  },
+  {
+    "id": "pk-ml-xy1",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[1,1]}\\frac{xy-1}{1-x^2y^2}$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "$\\frac{xy-1}{(1-xy)(1+xy)}=-\\frac1{1+xy}\\to-\\frac12$.",
+    "hints": [
+      "Rozlož $1-x^2y^2=(1-xy)(1+xy)$.",
+      "Pozor na znaménko $xy-1=-(1-xy)$.",
+      "Dosaď $xy=1$."
+    ]
+  },
+  {
+    "id": "pk-ml-e",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{[x,y]\\to[\\infty,1]}\\left(1+\\frac1x\\right)^{\\frac{x^2}{x+y}}$ (4 des.).",
+    "answer": 2.718281828459045,
+    "tolerance": 0.001,
+    "solution": "Exponent: $\\frac{x^2}{x+y}=x\\cdot\\frac{x}{x+y}$ a $\\frac x{x+y}\\to1$, takže $\\left(1+\\frac1x\\right)^{x}\\to e$.",
+    "hints": [
+      "Přepiš exponent jako $x\\cdot\\frac{x}{x+y}$.",
+      "$\\frac{x}{x+y}\\to1$.",
+      "Použij $(1+\\frac1x)^x\\to e$."
+    ]
   }
 ]

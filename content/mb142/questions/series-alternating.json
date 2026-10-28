@@ -145,5 +145,193 @@
       "Vezmi střídavou řadu s členy $\\frac{(-1)^{n-1}}{\\sqrt n}$ (Leibniz) a $a_n=b_n$.",
       "Spočti $a_nb_n$ a posuď výslednou řadu."
     ]
+  },
+  {
+    "id": "pk-sa-a",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty(-1)^n\\frac{n^2+3n-1}{(3n-2)^2}$:",
+    "options": [
+      "nekonverguje (člen $\\to\\frac19\\ne0$)",
+      "konverguje podle Leibnize",
+      "konverguje absolutně",
+      "konverguje k $\\frac19$"
+    ],
+    "answer": 0,
+    "solution": "$|a_n|\\to\\frac19$, nutná podmínka $a_n\\to0$ není splněna.",
+    "hints": [
+      "Spočti limitu absolutní hodnoty členu.",
+      "$\\frac{n^2}{9n^2}$.",
+      "Leibniz vyžaduje $|a_n|\\to0$."
+    ]
+  },
+  {
+    "id": "pk-sa-c",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty(-1)^{n+1}\\operatorname{arctg}\\frac2{\\sqrt{3n}}$:",
+    "options": [
+      "konverguje (Leibniz: $\\operatorname{arctg}\\frac2{\\sqrt{3n}}$ klesá k $0$)",
+      "diverguje",
+      "konverguje absolutně",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "Posloupnost $\\operatorname{arctg}\\frac{2}{\\sqrt{3n}}$ je klesající a jde k $0$ ⇒ konverguje (podmíněně, neboť $\\sim\\frac1{\\sqrt n}$).",
+    "hints": [
+      "Je $|a_n|$ klesající?",
+      "Limita $|a_n|$ je $0$.",
+      "Leibnizovo kritérium."
+    ]
+  },
+  {
+    "id": "pk-sa-err",
+    "type": "numeric",
+    "prompt": "Alternující řada $\\sum_{n=0}^\\infty(-1)^n\\frac1{\\sqrt n+100}$. Odhadni horní mez chyby aproximace částečným součtem $s_{9999}$ (první vynechaný člen $n=10000$).",
+    "answer": 0.005,
+    "tolerance": 0.00001,
+    "solution": "Chyba je menší než absolutní hodnota prvního vynechaného členu: $\\frac1{\\sqrt{10000}+100}=\\frac1{200}=0{,}005$.",
+    "hints": [
+      "Pro Leibnizovu řadu $|S-s_N|<|a_{N+1}|$.",
+      "První vynechaný člen: $n=10000$.",
+      "$\\sqrt{10000}=100$."
+    ]
+  },
+  {
+    "id": "pk-sa-abs-a",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty(-1)^n\\left(\\frac{2n-1}{3n+2}\\right)^n$:",
+    "options": [
+      "konverguje absolutně (odmocninové kritérium: $\\frac23<1$)",
+      "konverguje neabsolutně",
+      "diverguje",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "$\\sqrt[n]{|a_n|}=\\frac{2n-1}{3n+2}\\to\\frac23<1$.",
+    "hints": [
+      "Odmocninové kritérium na $|a_n|$.",
+      "$\\frac{2n}{3n}$.",
+      "Limita $<1$."
+    ]
+  },
+  {
+    "id": "pk-sa-osc",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty(-2)^{n^2}$:",
+    "options": [
+      "osciluje (členy jdou v absolutní hodnotě do $\\infty$ se střídavým znaménkem)",
+      "konverguje absolutně",
+      "konverguje neabsolutně",
+      "diverguje k $+\\infty$"
+    ],
+    "answer": 0,
+    "solution": "$(-2)^{n^2}$: $|a_n|=2^{n^2}\\to\\infty$; znaménko je $(-1)^{n^2}=(-1)^n$, součty střídavě rostou do $\\pm\\infty$ ⇒ osciluje.",
+    "hints": [
+      "Spočti $|a_n|$.",
+      "Znaménko $(-1)^{n^2}=(-1)^n$.",
+      "Částečné součty nemají limitu."
+    ]
+  },
+  {
+    "id": "pk-sa-abs-c",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty(-1)^n\\ln\\left(1+\\frac1{n^2}\\right)$:",
+    "options": [
+      "konverguje absolutně ($\\ln(1+\\frac1{n^2})\\sim\\frac1{n^2}$)",
+      "konverguje neabsolutně",
+      "diverguje",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "$\\ln\\left(1+\\frac1{n^2}\\right)\\sim\\frac1{n^2}$, $\\sum\\frac1{n^2}$ konverguje.",
+    "hints": [
+      "$\\ln(1+u)\\sim u$.",
+      "Limitní srovnání s $\\sum\\frac1{n^2}$.",
+      "Absolutní konvergence."
+    ]
+  },
+  {
+    "id": "pk-sa-rel",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{\\cos\\pi n}{\\sqrt[3]{n^2}}$:",
+    "options": [
+      "konverguje relativně (neabsolutně)",
+      "konverguje absolutně",
+      "diverguje",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "$\\cos\\pi n=(-1)^n$, $\\sum\\frac{(-1)^n}{n^{2/3}}$ konverguje (Leibniz), ale $\\sum n^{-2/3}$ diverguje ($\\frac23\\le1$).",
+    "hints": [
+      "$\\cos\\pi n=(-1)^n$.",
+      "Leibniz: $n^{-2/3}$ klesá k $0$.",
+      "Absolutně: $p=\\frac23\\le1$."
+    ]
+  },
+  {
+    "id": "pk-sa-sin",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{\\sin n}{n^2}$:",
+    "options": [
+      "konverguje absolutně",
+      "konverguje jen neabsolutně",
+      "diverguje",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "$\\left|\\frac{\\sin n}{n^2}\\right|\\le\\frac1{n^2}$.",
+    "hints": [
+      "Odhadni $|\\sin n|\\le1$.",
+      "$\\sum\\frac1{n^2}$ konverguje.",
+      "Srovnávací kritérium."
+    ]
+  },
+  {
+    "id": "pk-sa-binom",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty(-1)^{2n-1}\\frac{(2n)!}{(n!)^2}$:",
+    "options": [
+      "diverguje k $-\\infty$",
+      "konverguje",
+      "osciluje",
+      "diverguje k $+\\infty$"
+    ],
+    "answer": 0,
+    "solution": "$(-1)^{2n-1}=-1$ a $\\binom{2n}{n}\\to\\infty$ ⇒ členy $\\to-\\infty$, součet diverguje k $-\\infty$.",
+    "hints": [
+      "Zjednoduš znaménko $(-1)^{2n-1}$.",
+      "$\\frac{(2n)!}{(n!)^2}=\\binom{2n}n$.",
+      "Roste do nekonečna."
+    ]
+  },
+  {
+    "id": "pk-sa-alpha",
+    "type": "choice",
+    "prompt": "Pro která $\\alpha\\in\\mathbb R$ konverguje absolutně $\\displaystyle\\sum_{n=120}^\\infty(-1)^n\\frac{e^{\\alpha n}}n$?",
+    "options": [
+      "$\\alpha<0$",
+      "$\\alpha\\le0$",
+      "$\\alpha>0$",
+      "pro všechna $\\alpha$"
+    ],
+    "answer": 0,
+    "solution": "Pro $\\alpha=0$ je to harmonická řada (diverguje absolutně), pro $\\alpha>0$ členy rostou, pro $\\alpha<0$ je $e^{\\alpha n}$ geometricky klesající.",
+    "hints": [
+      "Zkoumej $\\sum\\frac{e^{\\alpha n}}{n}$.",
+      "Případ $\\alpha=0$.",
+      "Případ $\\alpha<0$: $q=e^\\alpha<1$."
+    ]
+  },
+  {
+    "id": "pk-sa-rearr",
+    "type": "numeric",
+    "prompt": "Je-li $s=1-\\frac12+\\frac13-\\frac14+\\dots=\\ln2$, a řadu přerovnáme na $(1+\\frac13-\\frac12)+(\\frac15+\\frac17-\\frac14)+\\dots$, vyjde součet $\\frac32s$. Kolik to je číselně (4 des.)?",
+    "answer": 1.0397207708399179,
+    "tolerance": 0.0005,
+    "solution": "$\\frac32\\ln2\\approx1{,}0397$ (řada je jen neabsolutně konvergentní, přerovnáním lze změnit součet).",
+    "hints": [
+      "$s=\\ln2\\approx0{,}6931$.",
+      "Součet po přerovnání je $\\frac32s$.",
+      "Vynásob $1{,}5$."
+    ]
   }
 ]

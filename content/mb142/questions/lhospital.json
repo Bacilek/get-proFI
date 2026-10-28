@@ -306,5 +306,132 @@
       "Přepiš jako $\\frac{\\ln\\operatorname{tg}x}{\\operatorname{cotg}2x}$ a použij L'Hospital.",
       "$\\frac{1}{\\operatorname{tg}x\\cos^2x}=\\frac1{\\sin x\\cos x}$ a $\\sin2x=2\\sin x\\cos x$."
     ]
+  },
+  {
+    "id": "pk-lh-cos",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to1}\\frac{\\ln x}{\\cos\\frac\\pi2x}$ (4 des.).",
+    "answer": -0.6366197723675814,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac00$. L’Hospital: $\\frac{1/x}{-\\frac\\pi2\\sin\\frac\\pi2x}\\to\\frac1{-\\pi/2}=-\\frac2\\pi\\approx-0{,}6366$.",
+    "hints": [
+      "Ověř, že čitatel i jmenovatel jdou k $0$.",
+      "Zderivuj zvlášť.",
+      "Dosaď $x=1$."
+    ]
+  },
+  {
+    "id": "pk-lh-cotg",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0^+}\\frac{\\ln x}{\\operatorname{cotg}x}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac{-\\infty}{\\infty}$. L’H: $\\frac{1/x}{-1/\\sin^2x}=-\\frac{\\sin^2x}x\\to0$.",
+    "hints": [
+      "Typ $\\frac\\infty\\infty$.",
+      "$(\\operatorname{cotg}x)'=-\\frac1{\\sin^2x}$.",
+      "Zjednoduš $-\\frac{\\sin^2x}{x}$."
+    ]
+  },
+  {
+    "id": "pk-lh-diff",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to1^+}\\left(\\frac x{x-1}-\\frac1{\\ln x}\\right)$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "Společný jmenovatel: $\\frac{x\\ln x-(x-1)}{(x-1)\\ln x}$ typ $\\frac00$. L’H: $\\frac{\\ln x}{\\ln x+\\frac{x-1}x}$ opět $\\frac00$; znovu: $\\frac{1/x}{\\frac1x+\\frac1{x^2}}\\to\\frac12$.",
+    "hints": [
+      "Typ $\\infty-\\infty$ – sjednoť zlomky.",
+      "Pak l’Hospital (dvakrát).",
+      "Po druhé derivaci dosaď $x=1$."
+    ]
+  },
+  {
+    "id": "pk-lh-prod",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to1^+}\\ln x\\,\\ln(x-1)$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Typ $0\\cdot\\infty$: s $\\ln x\\sim x-1$ je $\\ln x\\ln(x-1)\\sim(x-1)\\ln(x-1)\\to0$.",
+    "hints": [
+      "Převeď součin na podíl.",
+      "Použij $\\ln x\\sim x-1$ pro $x\\to1$.",
+      "Pak $(x-1)\\ln(x-1)\\to0$."
+    ]
+  },
+  {
+    "id": "pk-lh-cotg-pow",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0^+}(\\operatorname{cotg}x)^{1/\\ln x}$ (4 des.).",
+    "answer": 0.36787944117144233,
+    "tolerance": 0.0005,
+    "solution": "Typ $\\infty^0$: $\\ln=\\frac{\\ln\\operatorname{cotg}x}{\\ln x}$, typ $\\frac\\infty\\infty$. L’H: $\\frac{-\\frac1{\\sin x\\cos x}}{1/x}=-\\frac{x}{\\sin x\\cos x}\\to-1$. Limita je $e^{-1}\\approx0{,}3679$.",
+    "hints": [
+      "Zlogaritmuj: $\\frac{\\ln(\\operatorname{cotg}x)}{\\ln x}$.",
+      "L’Hospital: $(\\ln\\operatorname{cotg}x)'=-\\frac1{\\sin x\\cos x}$.",
+      "Výsledek $e^{\\text{limita logaritmu}}$."
+    ]
+  },
+  {
+    "id": "pk-lh-sinx-pow",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac{\\sin x}x\\right)^{1/x^2}$ (4 des.).",
+    "answer": 0.846481724890614,
+    "tolerance": 0.0005,
+    "solution": "Typ $1^\\infty$: $\\frac{\\ln(\\sin x/x)}{x^2}$, typ $\\frac00$; $\\frac{\\sin x}x=1-\\frac{x^2}6+\\dots$, $\\ln\\left(1-\\frac{x^2}6\\right)\\sim-\\frac{x^2}6$ ⇒ exponent $\\to-\\frac16$, limita $e^{-1/6}\\approx0{,}8465$.",
+    "hints": [
+      "Zlogaritmuj a hledej limitu $\\frac{\\ln(\\sin x/x)}{x^2}$.",
+      "$\\frac{\\sin x}x=1-\\frac{x^2}6+\\dots$.",
+      "$\\ln(1+u)\\sim u$."
+    ]
+  },
+  {
+    "id": "pk-lh-xe1x",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\lim_{x\\to0^+}x\\,e^{1/x}$?",
+    "options": [
+      "$0$",
+      "$1$",
+      "$+\\infty$",
+      "neexistuje"
+    ],
+    "answer": 2,
+    "solution": "Pro $t=\\frac1x\\to\\infty$: $\\frac{e^t}t\\to+\\infty$ (exponenciála roste rychleji).",
+    "hints": [
+      "Substituce $t=\\frac1x$.",
+      "Dostaneš $\\frac{e^t}{t}$.",
+      "Exponenciála převáží."
+    ]
+  },
+  {
+    "id": "pk-lh-flat",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{e^{-1/x^2}}{x^{100}}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Pro $t=\\frac1{x^2}\\to\\infty$: $\\frac{e^{-t}}{t^{-50}}=\\frac{t^{50}}{e^t}\\to0$. Funkce $e^{-1/x^2}$ je extrémně plochá v nule.",
+    "hints": [
+      "Substituce $t=\\frac1{x^2}$.",
+      "$x^{100}=t^{-50}$.",
+      "Exponenciála vítězí nad mocninou."
+    ]
+  },
+  {
+    "id": "pk-lh-notapplicable",
+    "type": "choice",
+    "prompt": "Při výpočtu $\\displaystyle\\lim_{x\\to+\\infty}\\frac{x}{x+\\ln x\\sin x}$ l’Hospitalovo pravidlo:",
+    "options": [
+      "dá limitu $1$ okamžitě",
+      "nelze použít – limita podílu derivací neexistuje; limitu určíme úpravou (vydělit $x$) a je $1$",
+      "dá limitu $0$",
+      "dá limitu $\\infty$"
+    ],
+    "answer": 1,
+    "solution": "Derivace vedou na $\\frac{1}{1+\\frac{\\sin x}x+\\ln x\\cos x}$, jehož limita neexistuje (osciluje). L’H tedy nelze použít. Úpravou: $\\frac1{1+\\frac{\\ln x}{x}\\sin x}\\to1$, protože $\\frac{\\ln x}x\\to0$ a $\\sin x$ je omezený.",
+    "hints": [
+      "Zkus zderivovat čitatel i jmenovatel.",
+      "Existuje limita podílu derivací?",
+      "Vyděl čitatel i jmenovatel $x$."
+    ]
   }
 ]

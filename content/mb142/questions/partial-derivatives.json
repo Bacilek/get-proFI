@@ -325,5 +325,83 @@
       "$f_x=\\frac{-y}{x^2+y^2},\\ f_y=\\frac{x}{x^2+y^2}$.",
       "Dosaď $x-1=1,\\ y-1=-1$ do rovnice roviny."
     ]
+  },
+  {
+    "id": "pk-pd-xy-fxy",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=x^y$ spočti $f_{xy}(e,1)$, kde $f_{xy}=x^{y-1}+yx^{y-1}\\ln x$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$f_{xy}(e,1)=e^0+1\\cdot e^0\\cdot\\ln e=1+1=2$.",
+    "hints": [
+      "Dosaď $x=e$, $y=1$.",
+      "$x^{y-1}=e^0=1$.",
+      "$\\ln e=1$."
+    ]
+  },
+  {
+    "id": "pk-pd-xy-fyy",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=x^y$ je $f_{yy}=x^y\\ln^2x$. Kolik je $f_{yy}(e,2)$ (4 des.)?",
+    "answer": 7.3890560989306495,
+    "tolerance": 0.001,
+    "solution": "$e^2\\cdot1=e^2\\approx7{,}3891$.",
+    "hints": [
+      "$f_y=x^y\\ln x$ (derivace exponenciály).",
+      "$f_{yy}=x^y\\ln^2x$.",
+      "Dosaď $x=e$, $y=2$."
+    ]
+  },
+  {
+    "id": "pk-pd-xy-fxx",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=x^y$ spočti $f_{xx}(2,3)$.",
+    "answer": 12,
+    "tolerance": 0.001,
+    "solution": "$f_{xx}=y(y-1)x^{y-2}=3\\cdot2\\cdot2^1=12$.",
+    "hints": [
+      "$f_x=yx^{y-1}$.",
+      "$f_{xx}=y(y-1)x^{y-2}$.",
+      "Dosaď $y=3$, $x=2$."
+    ]
+  },
+  {
+    "id": "pk-pd-plane",
+    "type": "numeric",
+    "prompt": "Tečná rovina ke grafu $f(x,y)=\\operatorname{arctg}\\frac yx$ v bodě $[1,-1,f(1,-1)]$ je $x+y-2z=\\frac\\pi2$. Kolik je $z$ roviny v bodě $[1{,}1;\\,-0{,}9]$ (4 des.)?",
+    "answer": -0.6853981633974483,
+    "tolerance": 0.0005,
+    "solution": "$f_x=-\\frac y{x^2+y^2}=\\frac12$, $f_y=\\frac{x}{x^2+y^2}=\\frac12$, $f(1,-1)=-\\frac\\pi4$. $z=-\\frac\\pi4+\\frac{0{,}1}2+\\frac{0{,}1}2=-\\frac\\pi4+0{,}1\\approx-0{,}6854$.",
+    "hints": [
+      "$z=f(a)+f_x\\,dx+f_y\\,dy$.",
+      "$dx=0{,}1$, $dy=0{,}1$.",
+      "$f(1,-1)=\\operatorname{arctg}(-1)$."
+    ]
+  },
+  {
+    "id": "pk-pd-diff-a",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $e^{0{,}05^3-0{,}02}$ (3 des.).",
+    "answer": 0.98,
+    "tolerance": 0.002,
+    "solution": "$f=e^{x^3-y}$ v $[0,0]$: $f=1$, $f_x=3x^2e^{\\dots}=0$, $f_y=-1$. $f\\approx1+0\\cdot0{,}05-0{,}02=0{,}98$.",
+    "hints": [
+      "Vezmi bod $[0,0]$ a přírůstky $0{,}05,0{,}02$.",
+      "$f_x=3x^2e^{x^3-y}=0$ v $0$.",
+      "$f_y=-e^{x^3-y}=-1$."
+    ]
+  },
+  {
+    "id": "pk-pd-diff-b",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $\\operatorname{arctg}\\dfrac{1{,}02}{0{,}95}$ (4 des.).",
+    "answer": 0.8203981633974483,
+    "tolerance": 0.002,
+    "solution": "$f(x,y)=\\operatorname{arctg}\\frac yx$ v $[1,1]$: $f_x=-\\frac12$, $f_y=\\frac12$; $dx=-0{,}05$, $dy=0{,}02$ ⇒ $\\frac\\pi4+0{,}025+0{,}01=\\frac\\pi4+0{,}035\\approx0{,}8204$.",
+    "hints": [
+      "Bod $[1,1]$, $f(1,1)=\\frac\\pi4$.",
+      "$f_x=-\\frac y{x^2+y^2}$, $f_y=\\frac x{x^2+y^2}$.",
+      "Přírůstky $-0{,}05$ a $+0{,}02$."
+    ]
   }
 ]

@@ -148,5 +148,70 @@
       "Zvol $u=3x-1$ (zderivuje se na konstantu), $v'=\\sin2x$, tedy $v=-\\frac12\\cos2x$.",
       "Dosaď meze do $[uv]_0^\\pi$; zbylý integrál $\\int_0^\\pi\\cos2x\\,dx$ je 0."
     ]
+  },
+  {
+    "id": "pk-di-sin",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^\\pi\\sin x\\,dx$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$[-\\cos x]_0^\\pi=1+1=2$.",
+    "hints": [
+      "Primitivní funkce $-\\cos x$.",
+      "$-\\cos\\pi+\\cos0$.",
+      "$1+1$."
+    ]
+  },
+  {
+    "id": "pk-di-cos1sin",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{-\\pi/4}^{3\\pi/4}\\frac{\\cos x}{1+\\sin x}dx$ (4 des.).",
+    "answer": 1.7627471740390859,
+    "tolerance": 0.001,
+    "solution": "$[\\ln(1+\\sin x)]=\\ln\\left(1+\\frac{\\sqrt2}2\\right)-\\ln\\left(1-\\frac{\\sqrt2}2\\right)=\\ln(3+2\\sqrt2)=2\\ln(1+\\sqrt2)\\approx1{,}7627$.",
+    "hints": [
+      "Primitivní funkce $\\ln(1+\\sin x)$.",
+      "$\\sin\\frac{3\\pi}4=\\frac{\\sqrt2}2$, $\\sin\\left(-\\frac\\pi4\\right)=-\\frac{\\sqrt2}2$.",
+      "$\\frac{2+\\sqrt2}{2-\\sqrt2}=3+2\\sqrt2=(1+\\sqrt2)^2$."
+    ]
+  },
+  {
+    "id": "pk-di-abs-ln",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{1/e}^e|\\ln x|\\,dx$ (4 des.).",
+    "answer": 1.2642411176571153,
+    "tolerance": 0.0005,
+    "solution": "Rozděl v $x=1$: $-\\int_{1/e}^1\\ln x+\\int_1^e\\ln x$. Primitivní funkce $x\\ln x-x$: $\\int_1^e=1$, $\\int_{1/e}^1=-1+\\frac2e$... celkem $2-\\frac2e\\approx1{,}2642$.",
+    "hints": [
+      "Pod osou $\\ln x<0$ pro $x<1$.",
+      "$\\int\\ln x=x\\ln x-x$.",
+      "Sečti obě části v absolutní hodnotě."
+    ]
+  },
+  {
+    "id": "pk-di-sub1",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_1^{e^8}\\frac{dx}{x\\sqrt{\\ln x+1}}$.",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "Subst. $t=\\ln x+1$: $\\int_1^9t^{-1/2}dt=2\\sqrt t\\Big|_1^9=2(3-1)=4$.",
+    "hints": [
+      "$t=\\ln x+1$, $dt=\\frac{dx}x$.",
+      "Meze $t$: $1$ a $9$.",
+      "$\\int t^{-1/2}dt=2\\sqrt t$."
+    ]
+  },
+  {
+    "id": "pk-di-xex",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^{\\ln2}xe^{-x}\\,dx$ (4 des.).",
+    "answer": 0.15342640972002736,
+    "tolerance": 0.0005,
+    "solution": "Per partes: $-xe^{-x}-e^{-x}$. $\\left(-\\frac{\\ln2}2-\\frac12\\right)-(-1)=\\frac{1-\\ln2}2\\approx0{,}1534$.",
+    "hints": [
+      "$u=x$, $v'=e^{-x}$.",
+      "Primitivní funkce $-(x+1)e^{-x}$.",
+      "Dosaď $e^{-\\ln2}=\\frac12$."
+    ]
   }
 ]

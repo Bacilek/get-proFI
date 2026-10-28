@@ -118,5 +118,67 @@
       "Ansatz $\\frac Ax+\\frac{Bx+C}{x^2+1}$; $A$ najdeš dosazením $x=0$.",
       "$\\int\\frac{2x}{x^2+1}\\,dx=\\ln(x^2+1)$ a $\\int\\frac2{x^2+1}\\,dx=2\\operatorname{arctg}x$."
     ]
+  },
+  {
+    "id": "pk-ri-lin",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac3{x-2}dx$ je:",
+    "options": [
+      "$3\\ln|x-2|+C$",
+      "$\\dfrac3{(x-2)^2}+C$",
+      "$-\\dfrac3{(x-2)^2}+C$",
+      "$\\ln|x-2|^3$ pouze pro $x>2$"
+    ],
+    "answer": 0,
+    "solution": "$\\int\\frac{dx}{x-a}=\\ln|x-a|$.",
+    "hints": [
+      "Základní vzorec $\\int\\frac{dx}x=\\ln|x|$.",
+      "Konstanta $3$ se vytkne.",
+      "Absolutní hodnota u logaritmu."
+    ]
+  },
+  {
+    "id": "pk-ri-pole3",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int-\\frac2{(x-2)^3}dx$ je:",
+    "options": [
+      "$\\dfrac1{(x-2)^2}+C$",
+      "$-\\dfrac1{(x-2)^2}+C$",
+      "$\\dfrac2{(x-2)^2}+C$",
+      "$-2\\ln|x-2|+C$"
+    ],
+    "answer": 0,
+    "solution": "$\\int(x-2)^{-3}=-\\frac12(x-2)^{-2}$, krát $-2$ dá $(x-2)^{-2}$.",
+    "hints": [
+      "$\\int t^{-3}dt=-\\frac{t^{-2}}2$.",
+      "Vynásob $-2$.",
+      "Výsledek $\\frac1{(x-2)^2}$."
+    ]
+  },
+  {
+    "id": "pk-ri-quad",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_{-2}^{0}\\frac{3x+5}{x^2+4x+8}dx$ (4 des.). (Primitivní: $\\frac32\\ln(x^2+4x+8)-\\frac12\\operatorname{arctg}\\frac{x+2}2$.)",
+    "answer": 0.6470216891411937,
+    "tolerance": 0.001,
+    "solution": "$F(0)-F(-2)=\\left(\\frac32\\ln8-\\frac12\\operatorname{arctg}1\\right)-\\left(\\frac32\\ln4-0\\right)=\\frac32\\ln2-\\frac\\pi8\\approx0{,}6470$.",
+    "hints": [
+      "Dosaď meze do primitivní funkce.",
+      "$x^2+4x+8$: v $0$ je $8$, v $-2$ je $4$.",
+      "$\\operatorname{arctg}1=\\frac\\pi4$."
+    ]
+  },
+  {
+    "id": "pk-ri-cube",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1\\frac{dx}{x^3+1}$ (4 des.). (Primitivní: $\\frac16\\ln\\frac{(x+1)^2}{x^2-x+1}+\\frac{\\sqrt3}3\\operatorname{arctg}\\frac{2x-1}{\\sqrt3}$.)",
+    "answer": 0.8356488,
+    "tolerance": 0.001,
+    "solution": "Rozklad $x^3+1=(x+1)(x^2-x+1)$. $F(1)-F(0)=\\left(\\frac16\\ln4+\\frac{\\sqrt3}3\\cdot\\frac\\pi6\\right)-\\left(0-\\frac{\\sqrt3}3\\cdot\\frac\\pi6\\right)=\\frac13\\ln2+\\frac{\\pi\\sqrt3}9\\approx0{,}8356$.",
+    "hints": [
+      "Dosaď meze do primitivní funkce.",
+      "$\\operatorname{arctg}\\frac1{\\sqrt3}=\\frac\\pi6$.",
+      "Sečti $\\frac{1}{6}\\ln4$ a dva příspěvky arctg."
+    ]
   }
 ]

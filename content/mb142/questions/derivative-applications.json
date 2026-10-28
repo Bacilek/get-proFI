@@ -345,5 +345,83 @@
       "Vztah $D^2=x^2+3^2$ zderivuj podle času; vodorovnou vzdálenost $x$ spočti pro $D=5$.",
       "Vodorovná vzdálenost se zmenšuje součtem rychlostí vrtulníku a auta (jedou proti sobě)."
     ]
+  },
+  {
+    "id": "pk-mean-vel",
+    "type": "numeric",
+    "prompt": "Dráha vrhu je $s=80t-5t^2$ (m). Střední rychlost na intervalu $t\\in[1,3]$ je:",
+    "answer": 60,
+    "tolerance": 0.001,
+    "solution": "$\\frac{s(3)-s(1)}{2}=\\frac{(240-45)-(80-5)}2=\\frac{195-75}2=60$ m/s (a okamžik, kdy $v=s'=80-10t=60$, je $t_0=2$ s).",
+    "hints": [
+      "Střední rychlost = přírůstek dráhy ÷ čas.",
+      "$s(3)=195$, $s(1)=75$.",
+      "Rozdíl $120$ ÷ $2$ s."
+    ]
+  },
+  {
+    "id": "pk-mean-vel-t",
+    "type": "numeric",
+    "prompt": "V předchozí úloze ($s=80t-5t^2$) kdy (v sekundách) je okamžitá rychlost rovna střední rychlosti $60$ m/s?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$v=s'=80-10t=60\\Rightarrow t_0=2$ s (Lagrangeova věta).",
+    "hints": [
+      "Okamžitá rychlost je derivace $s'(t)$.",
+      "Řeš $80-10t=60$.",
+      "Leží uvnitř $[1,3]$."
+    ]
+  },
+  {
+    "id": "pk-motion-v0",
+    "type": "numeric",
+    "prompt": "Dráha $s(t)=-(t-3)^2+16$ ($t\\in[0,7]$). Počáteční rychlost $v(0)=s'(0)$ (m/s):",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "$s'=-2(t-3)$, $v(0)=6$.",
+    "hints": [
+      "$v=s'$.",
+      "Derivace $-(t-3)^2$ je $-2(t-3)$.",
+      "Dosaď $t=0$."
+    ]
+  },
+  {
+    "id": "pk-motion-a4",
+    "type": "numeric",
+    "prompt": "Pro $s(t)=-(t-3)^2+16$ spočítej zrychlení $a(4)=s''(4)$.",
+    "answer": -2,
+    "tolerance": 0.001,
+    "solution": "$s''=-2$ (konstantní), $a(4)=-2$ m/s².",
+    "hints": [
+      "Zrychlení je druhá derivace.",
+      "$s'=-2(t-3)$.",
+      "$s''=-2$."
+    ]
+  },
+  {
+    "id": "pk-motion-return",
+    "type": "numeric",
+    "prompt": "Pro $s(t)=-(t-3)^2+16$ kdy se těleso vrátí do počáteční polohy $s(0)=7$ (po $t=0$)?",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "$-(t-3)^2+16=7\\Rightarrow(t-3)^2=9\\Rightarrow t=0$ nebo $t=6$ s.",
+    "hints": [
+      "Počáteční poloha $s(0)=-9+16=7$.",
+      "Řeš $s(t)=7$.",
+      "Kořeny $t=0$ a $t=6$."
+    ]
+  },
+  {
+    "id": "pk-angle-ln",
+    "type": "numeric",
+    "prompt": "Pod jakým úhlem (ve stupních) protíná graf $\\ln x$ osu $x$ (v $x=1$)?",
+    "answer": 45,
+    "tolerance": 0.001,
+    "solution": "$\\tan\\alpha=(\\ln x)'|_{x=1}=1\\Rightarrow\\alpha=\\frac\\pi4=45^\\circ$.",
+    "hints": [
+      "Průsečík s osou $x$: $\\ln x=0\\Rightarrow x=1$.",
+      "Směrnice tečny $=\\frac1x=1$.",
+      "$\\arctan1$."
+    ]
   }
 ]

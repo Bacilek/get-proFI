@@ -154,5 +154,57 @@
       "$\\operatorname{tg}x=\\frac{\\sin x}{\\cos x}=-\\frac{(\\cos x)'}{\\cos x}$.",
       "Primitivní funkce je $-\\ln|\\cos x|$; dosaď $\\cos\\frac\\pi4=\\frac{\\sqrt2}2$."
     ]
+  },
+  {
+    "id": "pk-ia-cycloid",
+    "type": "numeric",
+    "prompt": "Délka jedné větve cykloidy $x=r(t-\\sin t)$, $y=r(1-\\cos t)$, $t\\in[0,2\\pi]$ pro $r=1$:",
+    "answer": 8,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^{2\\pi}\\sqrt{x'^2+y'^2}\\,dt=\\int_0^{2\\pi}2\\sin\\frac t2\\,dt=8$ (obecně $8r$).",
+    "hints": [
+      "$x'=1-\\cos t$, $y'=\\sin t$.",
+      "$x'^2+y'^2=2-2\\cos t=4\\sin^2\\frac t2$.",
+      "$\\int_0^{2\\pi}2\\sin\\frac t2dt=8$."
+    ]
+  },
+  {
+    "id": "pk-ia-lncos",
+    "type": "numeric",
+    "prompt": "Délka grafu $f(x)=\\ln\\cos x$ na $[0,\\pi/6]$ (4 des.). (Obecně $\\frac12\\ln\\frac{1+\\sin a}{1-\\sin a}$.)",
+    "answer": 0.5493061443340548,
+    "tolerance": 0.0005,
+    "solution": "$\\sqrt{1+\\tan^2x}=\\frac1{\\cos x}$, $\\int_0^a\\frac{dx}{\\cos x}=\\frac12\\ln\\frac{1+\\sin a}{1-\\sin a}$. Pro $a=\\frac\\pi6$: $\\frac12\\ln\\frac{1{,}5}{0{,}5}=\\frac12\\ln3\\approx0{,}5493$.",
+    "hints": [
+      "$f'=-\\tan x$.",
+      "$1+f'^2=\\frac1{\\cos^2x}$.",
+      "$\\sin\\frac\\pi6=\\frac12$."
+    ]
+  },
+  {
+    "id": "pk-ia-frustum",
+    "type": "numeric",
+    "prompt": "Objem komolého kužele $V=\\frac13\\pi v(r_1^2+r_1r_2+r_2^2)$ pro $r_1=1$, $r_2=2$, $v=3$ (4 des.).",
+    "answer": 21.991148575128552,
+    "tolerance": 0.001,
+    "solution": "$\\frac13\\pi\\cdot3\\cdot(1+2+4)=7\\pi\\approx21{,}9911$.",
+    "hints": [
+      "Dosaď do vzorce.",
+      "$1+2+4=7$.",
+      "$\\frac13\\cdot3=1$."
+    ]
+  },
+  {
+    "id": "pk-ia-paraboloid",
+    "type": "numeric",
+    "prompt": "Objem tělesa mezi $z=\\frac{x^2}4+\\frac{y^2}4$ a rovinou $z=1$ (4 des.).",
+    "answer": 6.283185307179586,
+    "tolerance": 0.001,
+    "solution": "Řez ve výšce $z$ je kruh $x^2+y^2\\le4z$ o ploše $4\\pi z$: $\\int_0^14\\pi z\\,dz=2\\pi\\approx6{,}2832$.",
+    "hints": [
+      "Řez rovinou $z=\\text{konst}$ je kruh.",
+      "Poloměr$^2=4z$.",
+      "$\\int_0^14\\pi z\\,dz$."
+    ]
   }
 ]

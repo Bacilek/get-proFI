@@ -176,5 +176,240 @@
       "Výraz $(t-1)\\sqrt t$ roznásob na mocniny $t$.",
       "Integruj mocniny: $\\int t^a\\,dt=\\frac{t^{a+1}}{a+1}$."
     ]
+  },
+  {
+    "id": "pk-im-arctg",
+    "type": "numeric",
+    "prompt": "Spočti $F(1)$ pro $F(x)=x\\operatorname{arctg}x-\\frac12\\ln(1+x^2)$ (to je $\\int\\operatorname{arctg}x\\,dx$ per partes s $C=0$), 4 des.",
+    "answer": 0.43882457311747564,
+    "tolerance": 0.0005,
+    "solution": "Per partes: $u=\\operatorname{arctg}x$, $v'=1$: $x\\operatorname{arctg}x-\\int\\frac x{1+x^2}dx$. $F(1)=\\frac\\pi4-\\frac12\\ln2\\approx0{,}4388$.",
+    "hints": [
+      "Zvol $u=\\operatorname{arctg}x$, $v'=1$.",
+      "$\\int\\frac{x}{1+x^2}=\\frac12\\ln(1+x^2)$.",
+      "Dosaď $x=1$."
+    ]
+  },
+  {
+    "id": "pk-im-lnx",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{\\ln x}{x}\\,dx$ $(x>0)$ je:",
+    "options": [
+      "$\\dfrac{\\ln^2x}2+C$",
+      "$\\ln^2x+C$",
+      "$\\dfrac1x+C$",
+      "$\\ln(\\ln x)+C$"
+    ],
+    "answer": 0,
+    "solution": "Substituce $t=\\ln x$, $dt=\\frac{dx}x$: $\\int t\\,dt=\\frac{t^2}2$.",
+    "hints": [
+      "Zaveď $t=\\ln x$.",
+      "$dt=\\frac{dx}{x}$.",
+      "$\\int t\\,dt$."
+    ]
+  },
+  {
+    "id": "pk-im-x2ex",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\int_0^1x^2e^x\\,dx$ (4 des.). (Primitivní funkce $e^x(x^2-2x+2)$.)",
+    "answer": 0.7182818284590451,
+    "tolerance": 0.0005,
+    "solution": "Dvakrát per partes: $\\int x^2e^x=e^x(x^2-2x+2)$. $[\\dots]_0^1=e\\cdot1-2=e-2\\approx0{,}7183$.",
+    "hints": [
+      "Per partes s $u=x^2$, $v'=e^x$, pak znovu.",
+      "Primitivní funkce $e^x(x^2-2x+2)$.",
+      "Dosaď $1$ a $0$."
+    ]
+  },
+  {
+    "id": "pk-im-lin",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int(2x+5)^{10}dx$ je:",
+    "options": [
+      "$\\dfrac{(2x+5)^{11}}{22}+C$",
+      "$\\dfrac{(2x+5)^{11}}{11}+C$",
+      "$20(2x+5)^9+C$",
+      "$\\dfrac{(2x+5)^{11}}{2}+C$"
+    ],
+    "answer": 0,
+    "solution": "Substituce $t=2x+5$, $dx=\\frac{dt}2$: $\\frac12\\cdot\\frac{t^{11}}{11}$.",
+    "hints": [
+      "Zaveď $t=2x+5$.",
+      "$dx=\\frac{dt}{2}$.",
+      "$\\frac12\\int t^{10}dt$."
+    ]
+  },
+  {
+    "id": "pk-im-lnsq",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{dx}{x\\ln^2x}$ $(x>0)$ je:",
+    "options": [
+      "$-\\dfrac1{\\ln x}+C$",
+      "$\\dfrac1{\\ln x}+C$",
+      "$\\ln^2x+C$",
+      "$\\ln|\\ln x|+C$"
+    ],
+    "answer": 0,
+    "solution": "Subst. $t=\\ln x$: $\\int t^{-2}dt=-\\frac1t$.",
+    "hints": [
+      "$t=\\ln x$, $dt=\\frac{dx}x$.",
+      "Zbude $\\int\\frac{dt}{t^2}$.",
+      "Primitivní funkce $-\\frac1t$."
+    ]
+  },
+  {
+    "id": "pk-im-arcsin",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int15\\frac{\\arcsin^2x}{\\sqrt{1-x^2}}dx$ je:",
+    "options": [
+      "$5\\arcsin^3x+C$",
+      "$15\\arcsin^3x+C$",
+      "$\\frac53\\arcsin^3x+C$",
+      "$5\\arcsin^2x+C$"
+    ],
+    "answer": 0,
+    "solution": "Subst. $t=\\arcsin x$, $dt=\\frac{dx}{\\sqrt{1-x^2}}$: $15\\int t^2dt=5t^3$.",
+    "hints": [
+      "$t=\\arcsin x$.",
+      "$dt=\\frac{dx}{\\sqrt{1-x^2}}$.",
+      "$15\\cdot\\frac{t^3}3$."
+    ]
+  },
+  {
+    "id": "pk-im-arctgsqrt",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{\\operatorname{arctg}\\sqrt x}{\\sqrt x(1+x)}dx$ $(x>0)$ je:",
+    "options": [
+      "$\\operatorname{arctg}^2\\sqrt x+C$",
+      "$\\frac12\\operatorname{arctg}^2\\sqrt x+C$",
+      "$\\operatorname{arctg}\\sqrt x+C$",
+      "$\\ln(1+x)+C$"
+    ],
+    "answer": 0,
+    "solution": "Subst. $t=\\operatorname{arctg}\\sqrt x$: $dt=\\frac{1}{1+x}\\cdot\\frac{dx}{2\\sqrt x}$ ⇒ $\\frac{dx}{\\sqrt x(1+x)}=2\\,dt$, integrál $2\\int t\\,dt=t^2$.",
+    "hints": [
+      "Zvol $t=\\operatorname{arctg}\\sqrt x$.",
+      "Spočti $dt=\\frac{dx}{2\\sqrt x(1+x)}$.",
+      "Zbude $2\\int t\\,dt$."
+    ]
+  },
+  {
+    "id": "pk-im-ex3",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{e^x}{e^{2x}+3}dx$ je:",
+    "options": [
+      "$\\dfrac{\\sqrt3}3\\operatorname{arctg}\\dfrac{e^x}{\\sqrt3}+C$",
+      "$\\ln(e^{2x}+3)+C$",
+      "$\\operatorname{arctg}(e^x)+C$",
+      "$\\dfrac13\\operatorname{arctg}(e^x)+C$"
+    ],
+    "answer": 0,
+    "solution": "Subst. $t=e^x$: $\\int\\frac{dt}{t^2+3}=\\frac1{\\sqrt3}\\operatorname{arctg}\\frac t{\\sqrt3}$.",
+    "hints": [
+      "$t=e^x$, $dt=e^xdx$.",
+      "$\\int\\frac{dt}{t^2+a^2}$ s $a=\\sqrt3$.",
+      "$\\frac1a\\operatorname{arctg}\\frac ta$."
+    ]
+  },
+  {
+    "id": "pk-im-sinsqrt",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^{\\pi^2}\\sin\\sqrt x\\,dx$ (4 des.). (Primitivní funkce: $2\\sin\\sqrt x-2\\sqrt x\\cos\\sqrt x$.)",
+    "answer": 6.283185307179586,
+    "tolerance": 0.001,
+    "solution": "Subst. $x=t^2$, $dx=2t\\,dt$, per partes: $\\int2t\\sin t=2\\sin t-2t\\cos t$. Od $0$ do $\\pi$: $0-2\\pi\\cos\\pi=2\\pi\\approx6{,}2832$.",
+    "hints": [
+      "Subst. $t=\\sqrt x$, meze $0$ až $\\pi$.",
+      "$\\int2t\\sin t\\,dt$ per partes.",
+      "V horní mezi $\\cos\\pi=-1$."
+    ]
+  },
+  {
+    "id": "pk-im-xlnx",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1x\\ln x\\,dx$.",
+    "answer": -0.25,
+    "tolerance": 0.001,
+    "solution": "Per partes: $\\frac{x^2}2\\ln x-\\frac{x^2}4$, v $1$ dá $-\\frac14$, v $0$ limita $0$.",
+    "hints": [
+      "$u=\\ln x$, $v'=x$.",
+      "Primitivní funkce $\\frac{x^2}2\\ln x-\\frac{x^2}4$.",
+      "$x^2\\ln x\\to0$ pro $x\\to0^+$."
+    ]
+  },
+  {
+    "id": "pk-im-x1x4",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1\\frac x{1+x^4}dx$ (4 des.).",
+    "answer": 0.39269908169872414,
+    "tolerance": 0.0005,
+    "solution": "Subst. $t=x^2$, $dt=2x\\,dx$: $\\frac12\\operatorname{arctg}x^2\\Big|_0^1=\\frac\\pi8\\approx0{,}3927$.",
+    "hints": [
+      "$t=x^2$.",
+      "$\\frac12\\int\\frac{dt}{1+t^2}$.",
+      "Meze $0$ až $1$."
+    ]
+  },
+  {
+    "id": "pk-im-trig-34",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^{\\pi/2}\\sin^3x\\cos^4x\\,dx$ (4 des.).",
+    "answer": 0.05714285714285714,
+    "tolerance": 0.0005,
+    "solution": "$\\sin^3x=\\sin x(1-\\cos^2x)$, $t=\\cos x$: $\\int_0^1(t^4-t^6)dt=\\frac15-\\frac17=\\frac2{35}\\approx0{,}0571$.",
+    "hints": [
+      "Odděl jeden $\\sin x$.",
+      "$\\sin^2x=1-\\cos^2x$, subst. $t=\\cos x$.",
+      "Meze $t$: $1$ až $0$ (znaménko!)."
+    ]
+  },
+  {
+    "id": "pk-im-cos2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^{\\pi/2}\\cos^2x\\,dx$ (4 des.).",
+    "answer": 0.7853981633974483,
+    "tolerance": 0.0005,
+    "solution": "$\\cos^2x=\\frac{1+\\cos2x}2$, primitivní funkce $\\frac x2+\\frac{\\sin2x}4$; hodnota $\\frac\\pi4\\approx0{,}7854$.",
+    "hints": [
+      "Použij $\\cos^2x=\\frac{1+\\cos2x}{2}$.",
+      "$\\int\\cos2x=\\frac{\\sin2x}2$.",
+      "$\\sin\\pi=0$."
+    ]
+  },
+  {
+    "id": "pk-im-1cos2",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{1+\\cos^2x}{1+\\cos2x}dx$ na $(0,\\frac\\pi2)$ je:",
+    "options": [
+      "$\\dfrac{\\operatorname{tg}x}2+\\dfrac x2+C$",
+      "$\\operatorname{tg}x+x+C$",
+      "$\\dfrac{x}{2}+\\dfrac{\\sin2x}4+C$",
+      "$\\ln|\\cos x|+C$"
+    ],
+    "answer": 0,
+    "solution": "$1+\\cos2x=2\\cos^2x$: $\\frac{1+\\cos^2x}{2\\cos^2x}=\\frac1{2\\cos^2x}+\\frac12$.",
+    "hints": [
+      "$1+\\cos2x=2\\cos^2x$.",
+      "Rozděl zlomek na dva.",
+      "$\\int\\frac{dx}{\\cos^2x}=\\operatorname{tg}x$."
+    ]
+  },
+  {
+    "id": "pk-im-cosec",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{dx}{\\sin x}$ na $(0,\\pi)$ je:",
+    "options": [
+      "$\\ln\\left|\\operatorname{tg}\\dfrac x2\\right|+C$",
+      "$-\\ln|\\cos x|+C$",
+      "$\\ln|\\sin x|+C$",
+      "$\\operatorname{cotg}x+C$"
+    ],
+    "answer": 0,
+    "solution": "Univerzální substituce $t=\\operatorname{tg}\\frac x2$: $\\sin x=\\frac{2t}{1+t^2}$, $dx=\\frac{2dt}{1+t^2}$ ⇒ $\\int\\frac{dt}t=\\ln|t|$.",
+    "hints": [
+      "Univerzální goniometrická substituce.",
+      "$\\sin x=\\frac{2t}{1+t^2}$.",
+      "Zbyde $\\int\\frac{dt}t$."
+    ]
   }
 ]

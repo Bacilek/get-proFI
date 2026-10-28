@@ -101,5 +101,31 @@
       "$f'(25)=\\frac1{2\\cdot5}$.",
       "Přírůstek je $x-x_0=3$."
     ]
+  },
+  {
+    "id": "pk-diff-arctg",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $\\operatorname{arctg}1{,}02$ (4 des.).",
+    "answer": 0.7953981633974483,
+    "tolerance": 0.0005,
+    "solution": "$f(x)=\\operatorname{arctg}x$, $f'(1)=\\frac12$. $f(1{,}02)\\approx\\frac\\pi4+\\frac12\\cdot0{,}02=\\frac\\pi4+0{,}01\\approx0{,}7954$.",
+    "hints": [
+      "$f(x_0+h)\\approx f(x_0)+f'(x_0)h$ s $x_0=1$, $h=0{,}02$.",
+      "$f'(x)=\\frac1{1+x^2}$.",
+      "$f'(1)=\\frac12$."
+    ]
+  },
+  {
+    "id": "pk-diff-cbrt",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $\\sqrt[3]{70}$ (4 des.).",
+    "answer": 4.125,
+    "tolerance": 0.005,
+    "solution": "$f(x)=\\sqrt[3]x$, $x_0=64$, $h=6$: $f'(64)=\\frac1{3\\cdot16}=\\frac1{48}$ ⇒ $4+\\frac6{48}=4{,}125$ (přesně $\\approx4{,}1213$).",
+    "hints": [
+      "Zvol blízké číslo s třetí odmocninou: $64=4^3$.",
+      "$f'(x)=\\frac13x^{-2/3}$.",
+      "$f(64)+f'(64)\\cdot6$."
+    ]
   }
 ]

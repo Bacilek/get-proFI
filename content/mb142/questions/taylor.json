@@ -174,5 +174,44 @@
       "$(\\operatorname{arccotg}x)'=-\\frac1{1+x^2}$; derivace počítej po řadě.",
       "Pro třetí derivaci potřebuješ pravidlo pro podíl nebo součin s $(1+x^2)^{-2}$."
     ]
+  },
+  {
+    "id": "pk-tay-ln-c3",
+    "type": "numeric",
+    "prompt": "Taylorův polynom funkce $\\ln(x^2)$ se středem $1$: kolik je koeficient u $(x-1)^3$ (4 des.)?",
+    "answer": 0.6666666666666666,
+    "tolerance": 0.0005,
+    "solution": "$\\ln x^2=2\\ln x=2\\left[(x-1)-\\frac{(x-1)^2}2+\\frac{(x-1)^3}3-\\frac{(x-1)^4}4\\right]$, koeficient u $(x-1)^3$ je $\\frac23$.",
+    "hints": [
+      "$\\ln x^2=2\\ln x$ pro $x>0$.",
+      "Rozviň $\\ln x$ v bodě $1$: $f^{(n)}(1)=(-1)^{n-1}(n-1)!$.",
+      "Koeficient $\\frac{2f^{(3)}(1)}{3!}=\\frac{2\\cdot2}{6}$."
+    ]
+  },
+  {
+    "id": "pk-tay-sin1deg",
+    "type": "numeric",
+    "prompt": "Přibližně spočítej $\\sin\\frac\\pi{180}$ jako $x-\\frac{x^3}{3!}$ s $x=\\frac\\pi{180}$ (10 des. – chyba menší než $10^{-8}$).",
+    "answer": 0.017452406423787595,
+    "tolerance": 1e-8,
+    "solution": "Zbytek je řádu $\\frac{x^5}{5!}\\approx1{,}3\\cdot10^{-11}<10^{-8}$, takže stačí dva členy: $\\approx0{,}0174524064$.",
+    "hints": [
+      "Odhadni zbytek $\\frac{x^5}{5!}$.",
+      "$x=\\frac{\\pi}{180}\\approx0{,}017453$.",
+      "Stačí $x-\\frac{x^3}6$."
+    ]
+  },
+  {
+    "id": "pk-tay-lim",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sin x-x}{x^3}$ (4 des.).",
+    "answer": -0.16666666666666666,
+    "tolerance": 0.0005,
+    "solution": "$\\sin x=x-\\frac{x^3}6+\\dots$ ⇒ $\\frac{\\sin x-x}{x^3}\\to-\\frac16$ (nebo třikrát l’Hospital).",
+    "hints": [
+      "Rozviň $\\sin x$ do třetího řádu.",
+      "$\\sin x-x=-\\frac{x^3}6+O(x^5)$.",
+      "Vyděl $x^3$."
+    ]
   }
 ]
