@@ -31,7 +31,7 @@ export default function Settings() {
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">Settings</h1>
       <p className="text-sm text-muted">
-        Progress lives only in this browser. Export a backup regularly.
+        Progress is mirrored automatically into userdata/backup.json by the local server. Manual export/import is only for moving data elsewhere.
       </p>
       <div className="flex flex-wrap items-center gap-3">
         <button className="rounded bg-accent px-3 py-1.5 text-white" onClick={onExport}>

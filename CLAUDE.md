@@ -26,3 +26,6 @@ Osobní studijní appka (lokální web, React 19 + TS + Vite, Tailwind, Dexie/In
 
 ## Chybějící informace ("vykřičník")
 Cokoli, co musí doplnit uživatel (data písemek/zkoušek, pravidla bodování, nové soubory z ISu...), se eviduje v `course.json` → `openItems` a milníky bez `date` (viz `src/core/missing.ts`). Appka je ukazuje s varováním u předmětu i na dashboardu. Při práci na kurzu uživatele aktivně upozorni, které položky stále chybí, a po doplnění je odstraň.
+
+## Uživatelská data
+Pokrok (body, hvězdy, skipy, výsledky) se automaticky zrcadlí do `userdata/backup.json` přes `/api/backup` v lokálním serveru (`vite.userdata.ts`, `src/core/autosync.ts`; funguje v `npm run dev` i `launch.bat`). Soubor je zdroj pravdy a commituje se. Při práci na kurzu se můžeš podívat do něj, abys věděl, co uživatel vyplnil.
