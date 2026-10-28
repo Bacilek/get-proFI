@@ -13,9 +13,9 @@
 2. [x] Shell: routing (HashRouter), dashboard (milníky, odpočty, bodové hranice, varování o chybějících info), stránka kurzu (zatím seznam lekcí), Settings se zálohou
 3. [x] Skill tree/roadmapa (vrstvy podle prerekvizit, zamčené = přerušovaně, aktuální týden zvýrazněn, boss readiness; hvězdy zatím ručně)
 4. [x] Lesson renderer (MD + KaTeX), cvičení (numeric/choice/free), hvězdy z cvičení, self-rating tématu; ukázková lekce `differential` (z vlastních znalostí, překontrolovat proti slidům)
-5. [ ] Mezery + spaced repetition + math drill generátory
+5. [x] Mezery + spaced repetition + math drill generátory (stránka /review: due otázky (SM-2), nejslabší témata, drill; generátory v `src/core/drill.ts` pro derivace, určitý integrál, parciální derivace, geometrickou řadu)
 6. [ ] Achievementy
 7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), pak PB006, PB016, VB001, PV028
 
 ## Aktuální stav
-Fáze 0–4 hotové + UI polish (dark mode, charty, readiness; 36 testů). Další: fáze 5 (mezery + SRS + drill generátory), pak obsah MB142 (zhušťování slidů do lekcí).
+Fáze 0–5 hotové (41 testů). Další: fáze 6 (achievementy), pak obsah MB142 (zhušťování slidů do lekcí; tím přibudou otázky do SRS). Drill generátory jsou zatím jen pro MB142 témata.

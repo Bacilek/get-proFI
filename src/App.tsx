@@ -4,6 +4,7 @@ import { courseSlug, courses } from './content'
 import CourseView from './pages/CourseView'
 import Dashboard from './pages/Dashboard'
 import LessonPage from './pages/LessonPage'
+import Review from './pages/Review'
 import Settings from './pages/Settings'
 
 function ThemeToggle() {
@@ -44,6 +45,9 @@ export default function App() {
               </Link>
             ))}
             <span className="ml-auto flex items-center gap-3">
+              <Link to="/review" className="text-muted hover:text-fg">
+                Review
+              </Link>
               <Link to="/settings" className="text-muted hover:text-fg">
                 Settings
               </Link>
@@ -56,6 +60,7 @@ export default function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/c/:slug" element={<CourseView />} />
             <Route path="/c/:slug/l/:lessonId" element={<LessonPage />} />
+            <Route path="/review" element={<Review />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<p>Not found.</p>} />
           </Routes>

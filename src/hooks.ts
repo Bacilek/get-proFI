@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { courseSlug } from './content'
 import { db } from './core/db'
+import { isDue, newReview, review } from './core/srs'
 import type { Attempt, Course, LessonProgress, MilestoneResult, TopicRating } from './core/types'
 
 /** Milestone results of one course keyed by the *local* milestone id. */
@@ -32,7 +33,7 @@ export function setTopicRating(topic: string, rating: TopicRating['rating']): Pr
   return db.ratings.put({ topic, rating, at: Date.now() })
 }
 
-/** Records one answered question and, once a practice round is finished, raises (never lowers) the lesson stars. */
+/** Records one answered question. */
 export function recordAttempt(a: Omit<Attempt, 'id' | 'at'>): Promise<unknown> {
   return db.attempts.add({ ...a, at: Date.now() })
 }
@@ -49,4 +50,19 @@ export function useAttempts(): Attempt[] {
 export function useRatings(): ReadonlyMap<string, TopicRating> {
   const rows = useLiveQuery(() => db.ratings.toArray(), [])
   return new Map((rows ?? []).map((r) => [r.topic, r]))
+}
+
+/** Records an attempt and schedules the question for spaced repetition (a miss resets it, a hit advances it). */
+export async function recordAnswer(a: Omit<Attempt, 'id' | 'at'>): Promise<void> {
+  await recordAttempt(a)
+  const now = Date.now()
+  const state = (await db.reviews.get(a.questionId)) ?? newReview(a.questionId, now)
+  await db.reviews.put(review(state, a.correct ? 'good' : 'again', now))
+}
+
+/** Question ids (`<course>:<id>`) whose review is due, oldest first. */
+/** Undefined while loading. */
+export function useDueReviews(now: number): string[] | undefined {
+  const rows = useLiveQuery(() => db.reviews.where('due').belowOrEqual(now).sortBy('due'), [now])
+  return rows?.filter((r) => isDue(r, now)).map((r) => r.questionId)
 }

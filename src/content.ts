@@ -30,3 +30,20 @@ export async function loadLesson(c: Pick<Course, 'code'>, id: string): Promise<s
 export async function loadQuestions(c: Pick<Course, 'code'>, id: string): Promise<Question[]> {
   return (await questionFiles[questionPath(c, id)]?.()) ?? []
 }
+
+export interface IndexedQuestion {
+  question: Question
+  /** Global lesson id the question belongs to, e.g. `mb142:differential`. */
+  lessonId: string
+}
+
+/** All authored questions keyed by `<course>:<questionId>` (the key used in attempts and reviews). */
+export async function loadQuestionIndex(): Promise<Map<string, IndexedQuestion>> {
+  const index = new Map<string, IndexedQuestion>()
+  for (const [path, load] of Object.entries(questionFiles)) {
+    const m = /content\/([^/]+)\/questions\/([^/]+)\.json$/.exec(path)
+    if (!m) continue
+    for (const question of await load()) index.set(`${m[1]}:${question.id}`, { question, lessonId: `${m[1]}:${m[2]}` })
+  }
+  return index
+}
