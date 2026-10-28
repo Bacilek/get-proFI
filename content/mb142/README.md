@@ -23,7 +23,8 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 - `integral-applications`: pdf s. 98–105 (tisk. 95–102: plocha mezi grafy, délka křivky/grafu, objem a plášť rotačního tělesa; těžiště jen zmíněno ve slidech).
 - `improper-integrals`: pdf s. 106–111 (tisk. 103–108, týden 8: 1. a 2. druh, příklady 133–139; p-test není ve slidech explicitně, doplněn).
 - `series-intro`: pdf s. 112–117 (tisk. 109–114, týden 8: částečné součty, geometrická řada, teleskop, nutná podmínka, pravidla).
-- `series-nonneg`: pdf s. 118–123 (tisk. 115–120, týden 8–9: srovnávací, integrální, podílové, odmocninové kritérium, p-řada). Další: `series-alternating` od pdf s. 124 (tisk. 121: Leibniz, odhad chyby, absolutní/relativní konvergence).
+- `series-nonneg`: pdf s. 118–123 (tisk. 115–120, týden 8–9: srovnávací, integrální, podílové, odmocninové kritérium, p-řada).
+- `series-alternating`: pdf s. 124–132 (tisk. 121–129, týden 9: Leibniz, odhad chyby, absolutní/relativní konvergence, přerovnání, součin řad). Další: `power-series` od pdf s. 132 (tisk. 129: poloměr konvergence).
 
 ## Otevřené položky (chybí od uživatele)
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).

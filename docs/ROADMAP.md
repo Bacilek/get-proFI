@@ -18,4 +18,4 @@
 7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), pak PB006, PB016, VB001, PV028
 
 ## Aktuální stav
-Fáze 0–6 hotové (43 testů). MB142: hotové lekce differential, antiderivative, integration-methods, rational-integration, riemann, integral-theorems, definite-integral-methods, integral-applications, improper-integrals, series-intro, series-nonneg. Další: series-alternating (pdf s. 124+), pak další řady; potom starší témata. Obsah MB142 (zhušťování slidů do lekcí; tím přibudou otázky do SRS). Drill generátory jsou zatím jen pro MB142 témata.
+Fáze 0–6 hotové (43 testů). MB142: hotové lekce differential, antiderivative, integration-methods, rational-integration, riemann, integral-theorems, definite-integral-methods, integral-applications, improper-integrals, series-intro, series-nonneg, series-alternating. Další: power-series (pdf s. 132+), pak další řady; potom starší témata. Obsah MB142 (zhušťování slidů do lekcí; tím přibudou otázky do SRS). Drill generátory jsou zatím jen pro MB142 témata.

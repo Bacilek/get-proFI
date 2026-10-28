@@ -1,0 +1,104 @@
+[
+  {
+    "id": "alt-leibniz-harmonic",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^{n-1}}{n}$:",
+    "options": [
+      "konverguje relativně",
+      "konverguje absolutně",
+      "diverguje",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "$\\frac1n$ klesá k $0$, tedy konverguje (Leibniz). $\\sum\\frac1n=\\infty$, proto konvergence není absolutní."
+  },
+  {
+    "id": "alt-absolute-n2",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^{n-1}}{n^2}$:",
+    "options": [
+      "konverguje absolutně",
+      "konverguje jen relativně",
+      "diverguje",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "$\\sum\\frac{1}{n^2}$ konverguje ($p=2$), tedy řada konverguje absolutně."
+  },
+  {
+    "id": "alt-relative-sqrt",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^{n}}{\\sqrt n}$:",
+    "options": [
+      "konverguje relativně",
+      "konverguje absolutně",
+      "diverguje, protože $\\frac1{\\sqrt n}$ nemá konečný součet",
+      "osciluje"
+    ],
+    "answer": 0,
+    "solution": "Leibniz: $\\frac1{\\sqrt n}\\searrow0$, konverguje. $\\sum\\frac1{\\sqrt n}$ má $p=\\frac12\\le1$ a diverguje, takže konvergence je relativní."
+  },
+  {
+    "id": "alt-necessary",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty(-1)^n\\frac{n}{n+1}$:",
+    "options": [
+      "diverguje (osciluje), protože $a_n\\to1\\neq0$",
+      "konverguje podle Leibnize",
+      "konverguje absolutně",
+      "konverguje k $0$"
+    ],
+    "answer": 0,
+    "solution": "Leibniz vyžaduje $a_n\\to0$; zde $a_n=\\frac{n}{n+1}\\to1$, nutná podmínka není splněna."
+  },
+  {
+    "id": "alt-error-bound",
+    "type": "numeric",
+    "prompt": "Řadu $\\displaystyle\\sum_{n=0}^\\infty\\left(-\\frac12\\right)^n$ nahradíme částečným součtem $s_4=1-\\frac12+\\frac14-\\frac18+\\frac1{16}$. Jaký je horní odhad chyby $|A-s_4|$ z Leibnizova kritéria (na 3 desetinná místa)?",
+    "answer": 0.031,
+    "tolerance": 0.001,
+    "solution": "Chyba je nejvýše první nezahrnutý člen $a_5=\\frac{1}{32}\\approx0{,}031$."
+  },
+  {
+    "id": "alt-terms-needed",
+    "type": "numeric",
+    "prompt": "Kolik prvních členů řady $\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^{n-1}}{n}$ stačí sečíst, aby chyba byla **menší než** $0{,}01$? (nejmenší takové $n$ v $s_n$)",
+    "answer": 100,
+    "tolerance": 0.001,
+    "solution": "Chyba $\\le a_{n+1}=\\frac1{n+1}<0{,}01\\iff n+1>100\\iff n\\ge100$."
+  },
+  {
+    "id": "alt-geom-sum",
+    "type": "numeric",
+    "prompt": "Určete součet $\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^n}{2^n}$ (na 3 desetinná místa).",
+    "answer": 0.667,
+    "tolerance": 0.001,
+    "solution": "Geometrická řada $a=1$, $q=-\\frac12$: $\\frac{1}{1+\\frac12}=\\frac23\\approx0{,}667$. Konverguje absolutně."
+  },
+  {
+    "id": "alt-rearrange",
+    "type": "choice",
+    "prompt": "Kterou řadu lze přerovnat tak, aby měla jiný součet?",
+    "options": [
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^{n-1}}{n}$ (relativně konvergentní)",
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{(-1)^{n-1}}{n^2}$ (absolutně konvergentní)",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{1}{2^n}$",
+      "Žádnou, součet se nikdy nezmění"
+    ],
+    "answer": 0,
+    "solution": "Přerovnání může změnit součet jen u relativně konvergentních řad (dokonce lze dosáhnout libovolného čísla, $\\pm\\infty$ nebo oscilace). Absolutně konvergentní řady mají součet nezávislý na pořadí."
+  },
+  {
+    "id": "alt-product",
+    "type": "choice",
+    "prompt": "Konvergují $\\sum a_n$ i $\\sum b_n$. Plyne z toho, že konverguje $\\sum a_nb_n$?",
+    "options": [
+      "Ne: pro $a_n=b_n=\\frac{(-1)^{n-1}}{\\sqrt n}$ je $\\sum a_nb_n=\\sum\\frac1n=\\infty$",
+      "Ano, součin konvergentních řad konverguje",
+      "Ano, ale jen pro kladné členy",
+      "Ano, pokud je alespoň jedna absolutně konvergentní"
+    ],
+    "answer": 0,
+    "solution": "Obě řady konvergují podle Leibnize, ale řada součinů je harmonická a diverguje."
+  }
+]
