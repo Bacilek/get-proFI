@@ -71,7 +71,11 @@
     "id": "fb-finite-forall-exists",
     "type": "choice",
     "prompt": "Doména $D=\\{1,2,3\\}$, $I(P)=\\{(1,2),(1,3),(2,3)\\}$ (relace „menší než“). Jak je to s formulí $\\forall x\\,\\exists y\\,P(x,y)$?",
-    "options": ["pravdivá", "nepravdivá (pro $x=3$ neexistuje $y$)", "nelze rozhodnout"],
+    "options": [
+      "pravdivá",
+      "nepravdivá (pro $x=3$ neexistuje $y$)",
+      "nelze rozhodnout"
+    ],
     "answer": 1,
     "solution": "Pro $x=3$ není žádné $y$ s $(3,y)\\in I(P)$ ⇒ nepravdivá.",
     "hints": [
@@ -83,7 +87,11 @@
     "id": "fb-finite-exists-forall",
     "type": "choice",
     "prompt": "Stejná interpretace ($D=\\{1,2,3\\}$, $P=\\{(1,2),(1,3),(2,3)\\}$). Je pravdivá formule $\\exists x\\,\\forall y\\,(x=y\\vee P(x,y))$?",
-    "options": ["ano, pro $x=1$", "ne", "ano, pro $x=3$"],
+    "options": [
+      "ano, pro $x=1$",
+      "ne",
+      "ano, pro $x=3$"
+    ],
     "answer": 0,
     "solution": "Pro $x=1$: $y=1$ (rovnost), $y=2$ ($P(1,2)$), $y=3$ ($P(1,3)$) – splněno. Pro $x=3$ by to nešlo.",
     "hints": [
@@ -126,6 +134,91 @@
     "hints": [
       "Co musí interpretace přiřadit každému druhu symbolu?",
       "Valuace se týká jen proměnných."
+    ]
+  },
+  {
+    "id": "ro-fol-basics-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Která formule vyjadřuje „každý student čte nějakou knihu“?",
+    "options": [
+      "$\\forall x\\,\\exists y\\,(\\mathit{Student}(x)\\land\\mathit{Kniha}(y)\\land\\mathit{Čte}(x,y))$",
+      "$\\exists y\\,\\forall x\\,(\\mathit{Student}(x)\\Rightarrow\\mathit{Čte}(x,y))$",
+      "$\\forall x\\,\\forall y\\,(\\mathit{Student}(x)\\land\\mathit{Kniha}(y)\\Rightarrow\\mathit{Čte}(x,y))$",
+      "$\\forall x\\,(\\mathit{Student}(x)\\Rightarrow\\exists y\\,(\\mathit{Kniha}(y)\\land\\mathit{Čte}(x,y)))$"
+    ],
+    "answer": 3,
+    "solution": "Obecné tvrzení se vyjadřuje implikací, existenční konjunkcí. Druhá formule tvrdí, že všechno je student i kniha, třetí že existuje jedna kniha pro všechny, čtvrtá že každý čte každou knihu.",
+    "hints": [
+      "Po $\\forall$ obvykle následuje implikace."
+    ]
+  },
+  {
+    "id": "ro-fol-basics-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Které formalizuje „někteří ptáci neumí létat“?",
+    "options": [
+      "$\\exists x\\,(\\mathit{Pták}(x)\\Rightarrow\\lnot\\mathit{Létá}(x))$",
+      "$\\forall x\\,(\\mathit{Pták}(x)\\Rightarrow\\lnot\\mathit{Létá}(x))$",
+      "$\\exists x\\,(\\mathit{Pták}(x)\\land\\lnot\\mathit{Létá}(x))$",
+      "$\\lnot\\exists x\\,(\\mathit{Pták}(x)\\land\\mathit{Létá}(x))$"
+    ],
+    "answer": 2,
+    "solution": "Po $\\exists$ patří konjunkce. Implikace s $\\exists$ je splněna už nepták (předpoklad nepravdivý).",
+    "hints": [
+      "Po $\\exists$ konjunkce."
+    ]
+  },
+  {
+    "id": "ro-fol-basics-3",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Negace formule $\\forall x\\,P(x)$ je ekvivalentní…",
+    "options": [
+      "$\\forall x\\,\\lnot P(x)$",
+      "$\\exists x\\,\\lnot P(x)$",
+      "$\\lnot\\exists x\\,P(x)$",
+      "$\\exists x\\,P(x)$"
+    ],
+    "answer": 1,
+    "solution": "Neplatí-li to pro všechny, existuje protipříklad.",
+    "hints": [
+      "Hledáš protipříklad."
+    ]
+  },
+  {
+    "id": "ro-fol-basics-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Co platí o formulích $\\exists x\\,\\forall y\\,L(x,y)$ a $\\forall y\\,\\exists x\\,L(x,y)$?",
+    "options": [
+      "z první plyne druhá, opačně ne",
+      "jsou ekvivalentní",
+      "z druhé plyne první, opačně ne",
+      "jsou nezávislé a nic z nich neplyne"
+    ],
+    "answer": 0,
+    "solution": "První říká „existuje jeden $x$ pro všechna $y$“, druhá „ke každému $y$ nějaký $x$, který se může lišit“. Druhá je slabší.",
+    "hints": [
+      "Záleží na pořadí kvantifikátorů."
+    ]
+  },
+  {
+    "id": "ro-fol-basics-5",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Doména má 2 prvky $\\{a,b\\}$. Kolik je možných interpretací jednoho unárního predikátu $P$?",
+    "options": [
+      "2",
+      "8",
+      "4",
+      "16"
+    ],
+    "answer": 2,
+    "solution": "Pro každý z 2 prvků rozhodneme, zda $P$ platí: $2^2=4$.",
+    "hints": [
+      "Každý prvek má dvě možnosti."
     ]
   }
 ]

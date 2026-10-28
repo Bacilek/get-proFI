@@ -67,3 +67,27 @@ body { background: var(--bg); color: var(--fg); font-family: system-ui, -apple-s
 .prose-lesson th, .prose-lesson td { border: 1px solid var(--line-strong); padding: 0.2rem 0.6rem; }
 .prose-lesson code { background: var(--line); padding: 0 0.25rem; border-radius: 3px; }
 .prose-lesson .katex-display { overflow-x: auto; overflow-y: hidden; }
+
+/* --- long-form lesson text: cards per section, boxed formulas --- */
+.lesson-rich { font-size: 0.97rem; line-height: 1.7; }
+.lesson-rich .sec { margin: 1.1rem 0; padding: 0.35rem 1.15rem 0.7rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.lesson-rich .sec > h2 { margin: 0.7rem 0 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+.lesson-rich .sec-intro { border-left: 4px solid var(--accent); }
+.lesson-rich .sec-formula { border-left: 4px solid var(--accent); background: color-mix(in srgb, var(--accent) 4%, var(--surface)); }
+.lesson-rich .sec-example { border-left: 4px solid var(--ok); }
+.lesson-rich .sec-example > h2 { color: var(--ok); }
+.lesson-rich .sec-warn { border-left: 4px solid var(--star); background: var(--warn-bg); }
+.lesson-rich .sec-warn > h2 { color: var(--warn); }
+.lesson-rich .sec-warn blockquote { border: 0; background: none; padding: 0; margin: 0; }
+.lesson-rich .sec-practice { border-style: dashed; }
+.lesson-rich p { margin: 0.6rem 0; }
+.lesson-rich li { margin: 0.25rem 0; }
+.lesson-rich p.term { padding: 0.5rem 0.8rem; margin: 0.65rem 0; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.lesson-rich p.term > strong:first-child { color: var(--accent); }
+.lesson-rich .katex-display { margin: 0.8rem 0; padding: 0.7rem 1rem; border: 1px solid var(--line-strong); border-radius: 10px; background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.lesson-rich .katex-display > .katex { font-size: 1.12em; }
+.lesson-rich blockquote { border-left: 3px solid var(--star); }
+.lesson-rich table { border-radius: 8px; overflow: hidden; }
+.lesson-rich th { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.lesson-rich pre { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; overflow-x: auto; margin: 0.7rem 0; }
+.lesson-rich pre code { background: none; padding: 0; }

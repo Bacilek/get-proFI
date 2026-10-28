@@ -85,5 +85,90 @@
       "Exponenciála je kladná.",
       "Blízko 0 ≠ rovno 0."
     ]
+  },
+  {
+    "id": "ro-neural-nets-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Dopředné šíření v neuronové síti znamená…",
+    "options": [
+      "úpravu vah proti gradientu",
+      "výpočet po vrstvách od vstupu k výstupu",
+      "náhodný výběr neuronů",
+      "zpětný průchod chyby"
+    ],
+    "answer": 1,
+    "solution": "Zpětné šíření chyby je naopak učící krok.",
+    "hints": [
+      "Směr: vstup → výstup."
+    ]
+  },
+  {
+    "id": "ro-neural-nets-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Součet výstupů funkce softmax je…",
+    "options": [
+      "1",
+      "0",
+      "počet tříd",
+      "záleží na vstupu"
+    ],
+    "answer": 0,
+    "solution": "Softmax vytváří rozdělení pravděpodobností (kladná čísla se součtem 1).",
+    "hints": [
+      "Jde o pravděpodobnosti."
+    ]
+  },
+  {
+    "id": "ro-neural-nets-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Proč musí mít aktivační funkce skrytých vrstev nelinearitu?",
+    "options": [
+      "jinak by celá síť byla jedinou lineární funkcí",
+      "jinak by nešla derivovat",
+      "jinak by neměla práh",
+      "jinak by byl výstup vždy 0"
+    ],
+    "answer": 0,
+    "solution": "Složení lineárních zobrazení je opět lineární zobrazení.",
+    "hints": [
+      "Co dá kompozice dvou lineárních funkcí?"
+    ]
+  },
+  {
+    "id": "ro-neural-nets-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Gradientní sestup upravuje váhy…",
+    "options": [
+      "ve směru gradientu chyby",
+      "náhodně",
+      "podle znaménka vstupu",
+      "proti směru gradientu chyby"
+    ],
+    "answer": 3,
+    "solution": "Gradient ukazuje směr nejrychlejšího růstu chyby, proto jdeme opačně: $w\\leftarrow w-\\eta\\nabla E$.",
+    "hints": [
+      "Chceme chybu snížit."
+    ]
+  },
+  {
+    "id": "ro-neural-nets-5",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Kolik je $\\sigma(0)$ pro sigmoidu $\\sigma(x)=\\frac1{1+e^{-x}}$?",
+    "options": [
+      "0",
+      "1",
+      "0,5",
+      "není definováno"
+    ],
+    "answer": 2,
+    "solution": "$\\sigma(0)=\\frac1{1+1}=0{,}5$.",
+    "hints": [
+      "Dosaď $e^0=1$."
+    ]
   }
 ]

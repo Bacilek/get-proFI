@@ -38,7 +38,8 @@ export function upcoming(
   results: ReadonlyMap<string, MilestoneResult>,
   now: Date,
 ): Milestone[] {
-  const open = milestones.filter((m) => !results.has(m.id))
+  const isOpen = (m: Milestone) => !results.has(m.id) || (m.cumulative && (daysUntil(m, now) ?? -1) >= 0)
+  const open = milestones.filter(isOpen)
   const dated = open
     .filter((m) => m.date && daysUntil(m, now)! >= 0)
     .sort((a, b) => a.date!.localeCompare(b.date!))

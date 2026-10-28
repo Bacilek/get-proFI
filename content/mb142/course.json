@@ -636,7 +636,11 @@
         "diff",
         "multivar"
       ],
-      "info": "Zápočtová písemka, max 12 b. Alespoň 8 b dává bonus +5 b ke zkoušce (pak stačí 15/40). Délka: TBD."
+      "info": [
+        "Zápočtová písemka, max 12 b.",
+        "Alespoň 8 b dává bonus +5 b ke zkoušce (pak stačí 15/40).",
+        "Délka: TBD."
+      ]
     },
     {
       "id": "midterm2",
@@ -648,7 +652,10 @@
         "integral",
         "series"
       ],
-      "info": "Zápočtová písemka, max 12 b. Datum a délka: TBD."
+      "info": [
+        "Zápočtová písemka, max 12 b.",
+        "Datum a délka: TBD."
+      ]
     },
     {
       "id": "exam",
@@ -663,7 +670,11 @@
         "integral",
         "series"
       ],
-      "info": "Písemná, 120 min, max 40 b. K úspěchu 15 b (s bonusem z vnitra), jinak 20 b. Celkem alespoň 20 b pro E."
+      "info": [
+        "Písemná, 120 min, max 40 b.",
+        "K úspěchu 15 b (s bonusem z vnitra), jinak 20 b.",
+        "Celkem alespoň 20 b pro E."
+      ]
     }
   ],
   "openItems": [],

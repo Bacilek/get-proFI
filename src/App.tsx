@@ -6,6 +6,7 @@ import CourseView from './pages/CourseView'
 import Dashboard from './pages/Dashboard'
 import LessonPage from './pages/LessonPage'
 import Review from './pages/Review'
+import Ropot from './pages/Ropot'
 import Settings from './pages/Settings'
 
 function ThemeToggle() {
@@ -64,6 +65,7 @@ export default function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/c/:slug" element={<CourseView />} />
             <Route path="/c/:slug/l/:lessonId" element={<LessonPage />} />
+            <Route path="/c/:slug/ropot" element={<Ropot />} />
             <Route path="/review" element={<Review />} />
             <Route path="/achievements" element={<Achievements />} />
             <Route path="/settings"element={<Settings />} />

@@ -72,7 +72,12 @@
     "id": "he-bstar-meaning",
     "type": "choice",
     "prompt": "Heuristika je tím **lepší**, čím je její efektivní faktor větvení $b^*$…",
-    "options": ["větší", "blíž k 1", "blíž k $b$ (skutečnému faktoru větvení)", "blíž k 0"],
+    "options": [
+      "větší",
+      "blíž k 1",
+      "blíž k $b$ (skutečnému faktoru větvení)",
+      "blíž k 0"
+    ],
     "answer": 1,
     "solution": "$b^*=1$ znamená, že A* jde přímo po optimální cestě bez zbytečných uzlů (ideální heuristika $h=h^*$). Velké $b^*$ se blíží slepému prohledávání.",
     "hints": [
@@ -100,6 +105,57 @@
     "hints": [
       "Má relaxovaný problém víc, nebo míň řešení než původní?",
       "Minimum přes větší množinu je menší nebo stejné."
+    ]
+  },
+  {
+    "id": "ro-heuristics-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Heuristika $h$ je **přípustná**, pokud…",
+    "options": [
+      "$h(n)\\ge h^*(n)$ pro všechny uzly",
+      "$h(n)=0$ pouze v cílových uzlech",
+      "je nejvýše tak velká jako $g(n)$",
+      "nikdy nepřeceňuje skutečnou cenu do cíle: $h(n)\\le h^*(n)$"
+    ],
+    "answer": 3,
+    "solution": "Přípustná heuristika je optimistická. Zaručuje optimalitu A* na stromu.",
+    "hints": [
+      "Optimistická = nepřeceňuje."
+    ]
+  },
+  {
+    "id": "ro-heuristics-2",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Heuristika $h$ je **konzistentní**, pokud pro každý uzel $n$ a následníka $n'$ po akci s cenou $c$ platí…",
+    "options": [
+      "$h(n)\\ge c(n,a,n')+h(n')$",
+      "$h(n)=c(n,a,n')+h(n')$",
+      "$h(n)\\le h^*(n)$",
+      "$h(n)\\le c(n,a,n')+h(n')$"
+    ],
+    "answer": 3,
+    "solution": "Konzistence = trojúhelníková nerovnost; každá konzistentní heuristika je přípustná, naopak ne. Poslední možnost je definice přípustnosti.",
+    "hints": [
+      "Je to trojúhelníková nerovnost."
+    ]
+  },
+  {
+    "id": "ro-heuristics-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Jsou $h_1,h_2$ přípustné a platí $h_2(n)\\ge h_1(n)$ pro všechny $n$ ($h_2$ dominuje). Co z toho plyne pro A*?",
+    "options": [
+      "A* s $h_2$ expanduje alespoň tolik uzlů jako s $h_1$",
+      "A* s $h_2$ nemusí být optimální",
+      "A* s $h_2$ expanduje nejvýše tolik uzlů jako A* s $h_1$",
+      "oba expandují stejně mnoho uzlů"
+    ],
+    "answer": 2,
+    "solution": "Vyšší přípustná heuristika je informovanější a tím pádem prořezává víc. Například Manhattanská vzdálenost dominuje počtu dlaždic mimo místo.",
+    "hints": [
+      "Která heuristika je bližší skutečné ceně?"
     ]
   }
 ]

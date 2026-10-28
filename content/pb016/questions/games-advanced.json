@@ -125,12 +125,68 @@
     "id": "ga-game-types",
     "type": "choice",
     "prompt": "Která z her patří do kategorie „s náhodou a nepřesnými znalostmi“?",
-    "options": ["šachy", "backgammon", "poker", "Go"],
+    "options": [
+      "šachy",
+      "backgammon",
+      "poker",
+      "Go"
+    ],
     "answer": 2,
     "solution": "Poker (stejně jako bridž a scrabble) má náhodu i nepřesnou znalost (skryté karty). Šachy a Go jsou deterministické s perfektní informací, backgammon je s náhodou, ale s perfektní informací.",
     "hints": [
       "Hráč zde nevidí soupeřovy karty.",
       "Backgammon sice kostky používá, ale všechny stavy jsou vidět."
+    ]
+  },
+  {
+    "id": "ro-games-advanced-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Proč se používá ohodnocovací (evaluační) funkce?",
+    "options": [
+      "aby se zrychlil start hry",
+      "protože nelze prohledat strom hry až do koncových stavů, odhaduje hodnotu stavu v dané hloubce",
+      "aby se nahradila alfa-beta",
+      "aby se určilo, kdo táhne první"
+    ],
+    "answer": 1,
+    "solution": "Při omezené hloubce odhadujeme užitek nekoncových stavů.",
+    "hints": [
+      "Strom hry bývá obrovský."
+    ]
+  },
+  {
+    "id": "ro-games-advanced-2",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "V expectiminimaxu je hodnota uzlu náhody…",
+    "options": [
+      "maximum hodnot následníků",
+      "minimum hodnot následníků",
+      "součet hodnot následníků",
+      "vážený průměr (očekávaná hodnota) hodnot následníků"
+    ],
+    "answer": 3,
+    "solution": "Uzel náhody (kostka) se vyhodnotí jako očekávaná hodnota podle pravděpodobností výsledků.",
+    "hints": [
+      "Váhy jsou pravděpodobnosti výsledků náhodné události."
+    ]
+  },
+  {
+    "id": "ro-games-advanced-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Které čtyři fáze má jedna iterace Monte Carlo Tree Search (MCTS)?",
+    "options": [
+      "inicializace, mutace, křížení, selekce",
+      "selekce, expanze, simulace (rollout), zpětné šíření",
+      "prořezávání, řazení, expanze, ohodnocení",
+      "selekce, ohodnocení, zahození, zastavení"
+    ],
+    "answer": 1,
+    "solution": "MCTS: sestup stromem, přidání uzlu, náhodná simulace do konce, aktualizace statistik na cestě zpět.",
+    "hints": [
+      "Simulace se nahrazuje evaluační funkcí."
     ]
   }
 ]

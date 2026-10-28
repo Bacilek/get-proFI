@@ -3,7 +3,10 @@
     "id": "pl-eval-1",
     "type": "choice",
     "prompt": "Formule $\\varphi=(p\\vee q)\\Rightarrow(\\neg p\\wedge q)$, interpretace $I(p)=1$, $I(q)=1$. Jaká je hodnota $I(\\varphi)$?",
-    "options": ["1 (pravda)", "0 (nepravda)"],
+    "options": [
+      "1 (pravda)",
+      "0 (nepravda)"
+    ],
     "answer": 1,
     "solution": "$p\\vee q=1$; $\\neg p\\wedge q=0\\wedge1=0$. Implikace $1\\Rightarrow0$ je nepravdivá ⇒ $I(\\varphi)=0$.",
     "hints": [
@@ -27,7 +30,12 @@
     "id": "pl-classify-taut",
     "type": "choice",
     "prompt": "Formule $p\\Rightarrow(\\neg p\\Rightarrow q)$ je…",
-    "options": ["tautologie", "kontradikce", "splnitelná, ale ne tautologie", "nelze rozhodnout"],
+    "options": [
+      "tautologie",
+      "kontradikce",
+      "splnitelná, ale ne tautologie",
+      "nelze rozhodnout"
+    ],
     "answer": 0,
     "solution": "Pro $p=0$ je implikace pravdivá (nepravdivá premisa). Pro $p=1$ je $\\neg p=0$, tedy $\\neg p\\Rightarrow q$ pravdivé a celá implikace pravdivá. Pravdivá ve všech 4 interpretacích ⇒ tautologie.",
     "hints": [
@@ -39,7 +47,11 @@
     "id": "pl-classify-sat",
     "type": "choice",
     "prompt": "Formule $(p\\vee q)\\wedge(\\neg p\\vee r)$ je…",
-    "options": ["tautologie", "kontradikce", "splnitelná, ale není tautologie"],
+    "options": [
+      "tautologie",
+      "kontradikce",
+      "splnitelná, ale není tautologie"
+    ],
     "answer": 2,
     "solution": "Např. $p=1,r=1$ ji splňuje (modelů je 4 z 8). Naopak $p=0,q=0$ dává první závorku nepravdivou. Splnitelná, ne tautologie.",
     "hints": [
@@ -80,7 +92,12 @@
     "id": "pl-entail-modus-tollens",
     "type": "choice",
     "prompt": "Z $\\{p\\Rightarrow q,\\ \\neg q\\}$ vyplývá…",
-    "options": ["$p$", "$\\neg p$", "$q$", "nic"],
+    "options": [
+      "$p$",
+      "$\\neg p$",
+      "$q$",
+      "nic"
+    ],
     "answer": 1,
     "solution": "Modus tollens: jediný model množiny je $p=0,q=0$, v něm je $\\neg p$ pravdivé. (Ekvivalentně kontrapozice $\\neg q\\Rightarrow\\neg p$.)",
     "hints": [
@@ -147,6 +164,142 @@
     "hints": [
       "Všechny formule z prázdné množiny jsou pravdivé triviálně.",
       "Všech interpretací = tautologie."
+    ]
+  },
+  {
+    "id": "ro-propositional-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Formule je **tautologie**, pokud je…",
+    "options": [
+      "pravdivá při každé interpretaci",
+      "pravdivá aspoň při jedné interpretaci",
+      "nepravdivá při každé interpretaci",
+      "složená jen z konjunkcí"
+    ],
+    "answer": 0,
+    "solution": "Tautologie je vždy pravdivá, splnitelná je pravdivá aspoň jednou, nesplnitelná nikdy.",
+    "hints": [
+      "Projdi všechny řádky pravdivostní tabulky."
+    ]
+  },
+  {
+    "id": "ro-propositional-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Ekvivalentem $p\\Rightarrow q$ je…",
+    "options": [
+      "$p\\lor\\lnot q$",
+      "$\\lnot p\\land q$",
+      "$p\\land\\lnot q$",
+      "$\\lnot p\\lor q$"
+    ],
+    "answer": 3,
+    "solution": "Implikace je nepravdivá jen pro $p=1,q=0$, což platí právě pro $\\lnot(\\lnot p\\lor q)$.",
+    "hints": [
+      "Kdy je implikace nepravdivá?"
+    ]
+  },
+  {
+    "id": "ro-propositional-3",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Jakou hodnotu má $p\\Rightarrow q$, je-li $p$ nepravdivé?",
+    "options": [
+      "nepravda",
+      "záleží na $q$",
+      "pravda",
+      "není definována"
+    ],
+    "answer": 2,
+    "solution": "Z nepravdy vyplývá cokoli (implikace s nepravdivým předpokladem je pravdivá).",
+    "hints": [
+      "Implikace je nepravdivá jen v jednom případě."
+    ]
+  },
+  {
+    "id": "ro-propositional-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Pravidlo $\\{p\\Rightarrow q,\\;p\\}\\models q$ se jmenuje…",
+    "options": [
+      "modus ponens",
+      "modus tollens",
+      "hypotetický sylogismus",
+      "rezoluce o dvou literálech"
+    ],
+    "answer": 0,
+    "solution": "Modus ponens: z implikace a jejího předpokladu odvodíme důsledek. Modus tollens používá negovaný důsledek.",
+    "hints": [
+      "Předpoklad je potvrzen."
+    ]
+  },
+  {
+    "id": "ro-propositional-5",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Která formule je ekvivalentní $\\lnot(p\\land q)$?",
+    "options": [
+      "$\\lnot p\\land\\lnot q$",
+      "$p\\lor q$",
+      "$\\lnot p\\lor q$",
+      "$\\lnot p\\lor\\lnot q$"
+    ],
+    "answer": 3,
+    "solution": "De Morganův zákon: negace konjunkce je disjunkce negací.",
+    "hints": [
+      "Jde o De Morgana."
+    ]
+  },
+  {
+    "id": "ro-propositional-6",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "$T\\models\\varphi$ platí právě tehdy, když…",
+    "options": [
+      "$T\\cup\\{\\varphi\\}$ je nesplnitelná",
+      "$\\varphi$ je tautologie",
+      "$T\\cup\\{\\lnot\\varphi\\}$ je nesplnitelná",
+      "$T$ je tautologie"
+    ],
+    "answer": 2,
+    "solution": "Důkaz sporem: pokud teorie spolu s negací závěru nemá model, závěr vyplývá.",
+    "hints": [
+      "Z toho vychází rezoluční vyvrácení."
+    ]
+  },
+  {
+    "id": "ro-propositional-7",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Kontrapozice implikace $p\\Rightarrow q$ je…",
+    "options": [
+      "$q\\Rightarrow p$",
+      "$\\lnot q\\Rightarrow\\lnot p$",
+      "$\\lnot p\\Rightarrow\\lnot q$",
+      "$p\\Rightarrow\\lnot q$"
+    ],
+    "answer": 1,
+    "solution": "Kontrapozice je ekvivalentní původní implikaci; obrácená a inverzní implikace ne.",
+    "hints": [
+      "Prohoď a znegaj obě strany."
+    ]
+  },
+  {
+    "id": "ro-propositional-8",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Kolik různých booleovských funkcí dvou proměnných existuje?",
+    "options": [
+      "16",
+      "4",
+      "8",
+      "32"
+    ],
+    "answer": 0,
+    "solution": "Pravdivostní tabulka má 4 řádky, každý může mít výstup 0 nebo 1: $2^4=16$.",
+    "hints": [
+      "Kolik je řádků tabulky?"
     ]
   }
 ]

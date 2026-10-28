@@ -20,7 +20,12 @@
     "id": "rf-simultaneous",
     "type": "choice",
     "prompt": "Pro $S=\\{P(x),Q(y)\\}$ a $\\Phi=\\{x/y,\\ y/x\\}$ je $S\\Phi=$",
-    "options": ["$\\{P(y),Q(x)\\}$", "$\\{P(x),Q(x)\\}$", "$\\{P(y),Q(y)\\}$", "$\\{P(x),Q(y)\\}$"],
+    "options": [
+      "$\\{P(y),Q(x)\\}$",
+      "$\\{P(x),Q(x)\\}$",
+      "$\\{P(y),Q(y)\\}$",
+      "$\\{P(x),Q(y)\\}$"
+    ],
     "answer": 0,
     "solution": "Substituce se aplikuje **současně**: $x\\to y$ a $y\\to x$ zároveň, výsledek $\\{P(y),Q(x)\\}$ (je to přejmenování).",
     "hints": [
@@ -100,7 +105,12 @@
     "id": "rf-resolvent-1",
     "type": "choice",
     "prompt": "Rezolventou klauzulí $\\{P(x),\\neg Q(x)\\}$ a $\\{Q(c)\\}$ je…",
-    "options": ["$\\{P(c)\\}$ s unifikátorem $\\{x/c\\}$", "$\\{P(x)\\}$", "$\\square$", "neexistuje"],
+    "options": [
+      "$\\{P(c)\\}$ s unifikátorem $\\{x/c\\}$",
+      "$\\{P(x)\\}$",
+      "$\\square$",
+      "neexistuje"
+    ],
     "answer": 0,
     "solution": "Rezolvuje se na $Q$: $\\neg Q(x)$ a $Q(c)$ se unifikují $\\{x/c\\}$; zbyde $P(x)\\{x/c\\}=P(c)$.",
     "hints": [
@@ -143,6 +153,23 @@
     "hints": [
       "Negace závěru zavádí novou konstantu $b$.",
       "Rezolvuj na $S$ a $L$."
+    ]
+  },
+  {
+    "id": "ro-resolution-fol-1",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Nejobecnější unifikátor atomů $P(x,f(y))$ a $P(a,f(b))$ je…",
+    "options": [
+      "$\\{x/a,\\;y/b\\}$",
+      "$\\{x/b,\\;y/a\\}$",
+      "$\\{x/f(y)\\}$",
+      "neexistuje"
+    ],
+    "answer": 0,
+    "solution": "Argumenty se porovnávají po složkách: $x\\leftrightarrow a$, $f(y)\\leftrightarrow f(b)$, tedy $y\\leftrightarrow b$.",
+    "hints": [
+      "Postupuj po složkách."
     ]
   }
 ]

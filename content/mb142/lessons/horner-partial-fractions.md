@@ -20,7 +20,7 @@ $$\frac{A_1}{(x-\alpha)^k}+\frac{A_2}{(x-\alpha)^{k-1}}+\dots+\frac{A_k}{x-\alph
 - dvojice komplexních kořenů násobnosti $k$ (činitel $(x^2+px+q)^k$, diskriminant $<0$):
 $$\frac{B_1x+C_1}{(x^2+px+q)^k}+\dots+\frac{B_kx+C_k}{x^2+px+q}$$
 
-Koeficienty: převod na společného jmenovatele a porovnání čitatelů — buď **dosazením kořenů** jmenovatele, nebo porovnáním koeficientů u mocnin (soustava rovnic); lze kombinovat.
+Koeficienty: převod na společného jmenovatele a porovnání čitatelů, buď **dosazením kořenů** jmenovatele, nebo porovnáním koeficientů u mocnin (soustava rovnic); lze kombinovat.
 
 ## Mini příklad
 
@@ -44,7 +44,7 @@ $x=1$: $A=2$. $x=2$: $B=3$. $x=0$: $1=4A-B+2C=5+2C\Rightarrow C=-2$.
 > - Racionální kořeny celočíselného polynomu hledej mezi děliteli absolutního členu (u normovaného polynomu).
 > - Při násobném kořeni zahrň **všechny** mocniny $1,\dots,k$; u kvadratického činitele čitatel $Bx+C$, ne konstantu.
 > - Je-li $\deg P\ge\deg Q$, nejdřív **vyděl** (Horner pro dělení $(x-x_0)$ se hodí).
-> - Dosazení kořenů neurčí všechny koeficienty vždy — zbytek doplň jinou „pěknou“ hodnotou $x$ nebo porovnáním koeficientů.
+> - Dosazení kořenů neurčí všechny koeficienty vždy, zbytek doplň jinou „pěknou“ hodnotou $x$ nebo porovnáním koeficientů.
 
 ## Praxe
 

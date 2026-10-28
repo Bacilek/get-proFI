@@ -32,7 +32,7 @@ $\mathrm df=\frac35(-0{,}02)+\frac45(0{,}05)=0{,}028$ ⇒ $\approx5{,}028$.
 > - **Existence parciálních derivací neznamená spojitost.** Např. $f=1$ na osách a $0$ jinde má $f_x(0,0)=f_y(0,0)=0$, ale není spojitá v počátku.
 > - Pro diferencovatelnost stačí **spojité** parciální derivace (ne naopak).
 > - Smíšené derivace zaměňuj jen při spojitosti (Schwarz).
-> - Při derivování podle $x$ zacházej s $y$ jako s konstantou — a naopak; pozor na součin a složenou funkci.
+> - Při derivování podle $x$ zacházej s $y$ jako s konstantou, a naopak; pozor na součin a složenou funkci.
 > - V bodě, kde derivace nejsou spojité (např. přechod přes počátek), počítej z **definice** (limita podílu).
 
 ## Praxe

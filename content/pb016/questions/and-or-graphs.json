@@ -121,5 +121,39 @@
       "Co musíš udělat vždy dohromady (AND)?",
       "Co jsou alternativy (OR)?"
     ]
+  },
+  {
+    "id": "ro-and-or-graphs-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "AND uzel v AND/OR grafu znamená…",
+    "options": [
+      "stačí vyřešit libovolný podproblém",
+      "problém nemá řešení",
+      "problém se rozpadá na podproblémy, které musí být vyřešeny všechny",
+      "uzel je cílový"
+    ],
+    "answer": 2,
+    "solution": "AND = dekompozice (všechny části), OR = alternativy (stačí jedna).",
+    "hints": [
+      "Dekompozice problému."
+    ]
+  },
+  {
+    "id": "ro-and-or-graphs-2",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Čím je v AND/OR grafu **řešení**?",
+    "options": [
+      "podgraf obsahující kořen, z každého OR uzlu jednoho potomka a z každého AND uzlu všechny potomky, končící v cílových uzlech",
+      "nejkratší cesta z kořene do libovolného listu",
+      "podgraf obsahující všechny uzly",
+      "množina všech OR uzlů"
+    ],
+    "answer": 0,
+    "solution": "Řešení je strom (podgraf), ne cesta: AND větví, OR vybírá.",
+    "hints": [
+      "Co se děje v AND uzlu a co v OR uzlu?"
+    ]
   }
 ]

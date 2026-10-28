@@ -130,5 +130,22 @@
       "Každé pravidlo je jednosměrná implikace.",
       "Jak zapsat „právě tehdy“?"
     ]
+  },
+  {
+    "id": "ro-fol-forms-1",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Skolemizací formule $\\forall x\\,\\exists y\\,P(x,y)$ dostaneme…",
+    "options": [
+      "$P(c,f)$",
+      "$\\exists y\\,P(x,y)$",
+      "$\\forall x\\,P(x,c)$",
+      "$\\forall x\\,P(x,f(x))$"
+    ],
+    "answer": 3,
+    "solution": "$\\exists y$ je v rozsahu $\\forall x$, takže $y$ nahradíme Skolemovou funkcí proměnné $x$. Konstanta by byla jen pro existenci bez předchozího $\\forall$.",
+    "hints": [
+      "Může existující $y$ záviset na $x$?"
+    ]
   }
 ]

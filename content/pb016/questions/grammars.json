@@ -66,5 +66,73 @@
       "Rozepisuj vždy nejlevější neterminál.",
       "NP → Adj NP → … Noun."
     ]
+  },
+  {
+    "id": "ro-grammars-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Pravidla bezkontextové gramatiky mají tvar…",
+    "options": [
+      "$\\alpha A\\beta\\to\\gamma$",
+      "$A\\to a$ nebo $A\\to aB$",
+      "$\\alpha\\to\\beta$ pro libovolné řetězce",
+      "$A\\to\\alpha$ (vlevo jediný neterminál)"
+    ],
+    "answer": 3,
+    "solution": "Bezkontextovost: levá strana je jediný neterminál, nezávisle na kontextu.",
+    "hints": [
+      "Vlevo je jeden symbol."
+    ]
+  },
+  {
+    "id": "ro-grammars-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Derivační strom věty ukazuje…",
+    "options": [
+      "jen počet slov věty",
+      "význam věty",
+      "jak byla věta odvozena z gramatiky (syntaktickou strukturu)",
+      "pravděpodobnost věty"
+    ],
+    "answer": 2,
+    "solution": "Strom zachycuje použitá pravidla a strukturu frází.",
+    "hints": [
+      "Kořenem je startovní symbol."
+    ]
+  },
+  {
+    "id": "ro-grammars-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Gramatika je **víceznačná**, pokud…",
+    "options": [
+      "generuje nekonečný jazyk",
+      "existuje věta, která má více různých derivačních stromů",
+      "obsahuje rekurzivní pravidla",
+      "některý neterminál nelze odvodit"
+    ],
+    "answer": 1,
+    "solution": "Víceznačnost = více různých syntaktických analýz téže věty.",
+    "hints": [
+      "Jedna věta, víc stromů."
+    ]
+  },
+  {
+    "id": "ro-grammars-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Jaký jazyk generuje gramatika $S\\to aSb\\mid ab$?",
+    "options": [
+      "$\\{a^nb^n\\mid n\\ge1\\}$",
+      "$\\{a^nb^m\\mid n,m\\ge1\\}$",
+      "$\\{(ab)^n\\mid n\\ge1\\}$",
+      "$\\{a^nb^{2n}\\mid n\\ge1\\}$"
+    ],
+    "answer": 0,
+    "solution": "Každé použití prvního pravidla přidá jedno $a$ vlevo a jedno $b$ vpravo, takže jich je stejně.",
+    "hints": [
+      "Vypiš pár odvozených slov."
+    ]
   }
 ]

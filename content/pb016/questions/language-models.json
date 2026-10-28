@@ -80,5 +80,73 @@
       "Perplexita je převrácená normalizovaná pravděpodobnost.",
       "Menší = lepší."
     ]
+  },
+  {
+    "id": "ro-language-models-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "N-gramový model aproximuje pravděpodobnost slova pomocí…",
+    "options": [
+      "celé předchozí věty",
+      "posledních $n-1$ slov",
+      "všech slov v korpusu",
+      "následujících slov"
+    ],
+    "answer": 1,
+    "solution": "Markovovo zjednodušení: kontext se omezí na posledních $n-1$ slov.",
+    "hints": [
+      "Bigram má jednoslovný kontext."
+    ]
+  },
+  {
+    "id": "ro-language-models-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Nižší perplexita jazykového modelu na testovacích datech znamená…",
+    "options": [
+      "lepší model",
+      "horší model",
+      "delší text",
+      "více parametrů"
+    ],
+    "answer": 0,
+    "solution": "Nižší perplexita = vyšší pravděpodobnost testovacích dat (normalizovaná délkou).",
+    "hints": [
+      "Ideální model by měl perplexitu 1."
+    ]
+  },
+  {
+    "id": "ro-language-models-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Greedy generování textu z jazykového modelu vybírá další slovo jako…",
+    "options": [
+      "náhodné podle rozdělení",
+      "nejkratší slovo",
+      "nejméně pravděpodobné",
+      "nejpravděpodobnější podle podmíněné pravděpodobnosti (deterministicky)"
+    ],
+    "answer": 3,
+    "solution": "$w_i=\\arg\\max_wP(w\\mid w_1,\\dots,w_{i-1})$. Nemusí dát nejpravděpodobnější větu jako celek.",
+    "hints": [
+      "Bere maximum."
+    ]
+  },
+  {
+    "id": "ro-language-models-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Jakou pravděpodobnost dostane v odhadu z korpusu bez vyhlazování bigram, který se v korpusu nevyskytl?",
+    "options": [
+      "velmi malou kladnou",
+      "1",
+      "0",
+      "stejnou jako unigram"
+    ],
+    "answer": 2,
+    "solution": "$C(w_{n-1}w_n)=0$, takže odhad je 0 (a součin pravděpodobností věty také). Proto se používá vyhlazování.",
+    "hints": [
+      "Čitatel odhadu je nula."
+    ]
   }
 ]

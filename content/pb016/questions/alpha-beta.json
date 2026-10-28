@@ -95,5 +95,56 @@
       "Porovnej exponenty.",
       "$m'/2=m$."
     ]
+  },
+  {
+    "id": "ro-alpha-beta-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Mění alfa-beta prořezávání výslednou minimaxovou hodnotu kořene?",
+    "options": [
+      "Ano, vrací nepřesnou aproximaci",
+      "Ano, ale jen při velkém větvení",
+      "Ne, vrací stejnou hodnotu, jen prohledá méně uzlů",
+      "Ano, vrací vždy hodnotu 0"
+    ],
+    "answer": 2,
+    "solution": "Alfa-beta zahodí jen větve, které nemohou ovlivnit výsledek.",
+    "hints": [
+      "Je to optimalizace, ne heuristika."
+    ]
+  },
+  {
+    "id": "ro-alpha-beta-2",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Při ideálním pořadí tahů alfa-beta prohledá přibližně…",
+    "options": [
+      "$O(b^{m/2})$ uzlů, tedy dvojnásobnou hloubku než minimax",
+      "$O(b^m)$ uzlů",
+      "$O(bm)$ uzlů",
+      "$O(2^m)$ uzlů vždy"
+    ],
+    "answer": 0,
+    "solution": "Nejlepší seřazení tahů zdvojnásobí dosažitelnou hloubku při stejném rozpočtu.",
+    "hints": [
+      "Exponent se zmenší na polovinu."
+    ]
+  },
+  {
+    "id": "ro-alpha-beta-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Kořen MAX má dvě MIN větve s listy zleva doprava: větev 1: $3,5$; větev 2: $2,9$. Kolik listů prohlédne alfa-beta?",
+    "options": [
+      "4",
+      "2",
+      "3",
+      "1"
+    ],
+    "answer": 2,
+    "solution": "Po větvi 1 je $\\alpha=3$. Ve větvi 2 je první list $2\\le\\alpha$, takže zbytek (9) se odřízne: prohlédnuty $3,5,2$.",
+    "hints": [
+      "Po první větvi je $\\alpha$ její minimum."
+    ]
   }
 ]

@@ -28,7 +28,7 @@ $\exists x\forall y\,\text{ráda}(x,y)$ = existuje osoba, která má ráda *vše
 
 ## Mini příklad
 
-Sokrates: $\forall x\,(\text{čl}(x)\Rightarrow\text{sm}(x))\wedge\text{čl}(\text{So})\ \models\ \text{sm}(\text{So})$ — ve výrokové logice nevyjádřitelné.
+Sokrates: $\forall x\,(\text{čl}(x)\Rightarrow\text{sm}(x))\wedge\text{čl}(\text{So})\ \models\ \text{sm}(\text{So})$, ve výrokové logice nevyjádřitelné.
 
 „Každý na FI MU je inteligentní“: $\forall x\,(\text{Na}(x,\text{FI})\Rightarrow\text{intel}(x))$.
 „Někdo na MFF UK je inteligentní“: $\exists x\,(\text{Na}(x,\text{MFF})\wedge\text{intel}(x))$.

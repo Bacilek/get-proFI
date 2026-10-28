@@ -20,11 +20,18 @@ export interface Milestone {
   minPoints?: number
   /** Exams and midterms are shown as "boss" nodes on the roadmap. */
   boss?: boolean
-  /** Extra details shown in a tooltip on hover (duration, rules, ...). */
-  info?: string
+  /** Start time (HH:MM), shown next to the date. */
+  time?: string
+  /** Extra details shown as bullets in a tooltip on hover (duration, rules, ...). */
+  info?: string | string[]
+  /** Points accumulate over the semester: stays upcoming (and editable) after a partial result is entered. */
+  cumulative?: boolean
   /** Module ids whose lessons this milestone tests (used for readiness on the roadmap). */
   coversModules?: string[]
 }
+
+/** Kinds of course material the user uploads into `sources/<CODE>/` (folders Lectures, Seminars, ROPOTs, Syllabus). */
+export type MaterialKind = 'lecture' | 'seminar' | 'ropot' | 'syllabus'
 
 export interface LessonMeta {
   id: GlobalId
@@ -64,6 +71,12 @@ export interface Course {
   exam?: ExamRule
   modules: Module[]
   milestones: Milestone[]
+  /**
+   * Material kinds this course uses (a kind is absent when its folder was deleted) mapped to the
+   * earliest semester week whose material is not processed yet. The app asks for those weeks that
+   * have already started, unless the user skipped them.
+   */
+  materials?: Partial<Record<MaterialKind, number>>
   /** Information the user still has to provide (shown as a warning on the course). */
   openItems?: { id: string; text: string }[]
   /** Known results, seeded into the database once (user can edit them later). */
@@ -108,5 +121,11 @@ export interface ReviewState {
 export interface MilestoneResult {
   milestoneId: string
   points: number
+  at: number
+}
+
+/** The user said there is no material of this kind for this week; id = `<course>:<kind>:<week>`. */
+export interface MaterialSkip {
+  id: string
   at: number
 }

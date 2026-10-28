@@ -24,11 +24,11 @@ $f=x^4+y^4-x^2-2xy-y^2$: stacionární body $[0,0],[1,1],[-1,-1]$; $D(\pm1,\pm1)
 
 ## Pozor
 
-> - Nejdřív **všechny** stacionární body (soustava $f_x=f_y=0$ — pozor na ztracená řešení při krácení).
-> - $D>0$ ještě neříká min/max — rozhoduje znaménko $f_{xx}$ (nebo $f_{yy}$).
+> - Nejdřív **všechny** stacionární body (soustava $f_x=f_y=0$, pozor na ztracená řešení při krácení).
+> - $D>0$ ještě neříká min/max, rozhoduje znaménko $f_{xx}$ (nebo $f_{yy}$).
 > - $D=0$: **nic neplyne**; hledej body, kde $f$ nabývá hodnot nad i pod $f(x_0,y_0)$.
 > - Globální extrém na omezené uzavřené množině: **nezapomeň hranici a rohy**; porovnávej funkční hodnoty.
-> - Extrém bez parciálních derivací existuje (např. $\sqrt{x^2+y^2}$ v počátku, nebo nespojitá funkce) — Fermat jen pro body, kde derivace existují.
+> - Extrém bez parciálních derivací existuje (např. $\sqrt{x^2+y^2}$ v počátku, nebo nespojitá funkce), Fermat jen pro body, kde derivace existují.
 
 ## Praxe
 

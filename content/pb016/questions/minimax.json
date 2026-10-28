@@ -122,5 +122,39 @@
       "Dvě vzájemně rekurzivní funkce.",
       "Neutrální počáteční hodnoty −2 / 2."
     ]
+  },
+  {
+    "id": "ro-minimax-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Minimax předpokládá, že soupeř…",
+    "options": [
+      "hraje optimálně (minimalizuje naši hodnotu)",
+      "hraje náhodně",
+      "vždy hraje první možný tah",
+      "zná naše budoucí tahy dopředu a mění je"
+    ],
+    "answer": 0,
+    "solution": "Minimax počítá nejlepší výsledek při nejhorším možném chování soupeře.",
+    "hints": [
+      "MAX maximalizuje, MIN minimalizuje."
+    ]
+  },
+  {
+    "id": "ro-minimax-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Hra s nulovým součtem znamená, že…",
+    "options": [
+      "hráči mohou spolupracovat",
+      "nikdo nemůže vyhrát",
+      "výsledek závisí na náhodě",
+      "zisk jednoho hráče je ztrátou druhého"
+    ],
+    "answer": 3,
+    "solution": "Součet užitků hráčů je konstantní, takže jejich zájmy jsou přesně opačné.",
+    "hints": [
+      "Souvisí to s hodnotou jedné funkce pro oba hráče."
+    ]
   }
 ]

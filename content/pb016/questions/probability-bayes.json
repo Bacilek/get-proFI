@@ -83,5 +83,73 @@
       "Graf bez cyklů.",
       "Tabulky podmíněných pravděpodobností."
     ]
+  },
+  {
+    "id": "ro-probability-bayes-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Bayesova věta říká…",
+    "options": [
+      "$P(A\\mid B)=P(A)\\,P(B)$",
+      "$P(A\\mid B)=\\dfrac{P(A)}{P(B\\mid A)}$",
+      "$P(A\\mid B)=P(B\\mid A)$",
+      "$P(A\\mid B)=\\dfrac{P(B\\mid A)\\,P(A)}{P(B)}$"
+    ],
+    "answer": 3,
+    "solution": "Bayesova věta převádí $P(B\\mid A)$ na $P(A\\mid B)$ pomocí apriorních pravděpodobností.",
+    "hints": [
+      "Zaměň roli podmínky a jevu."
+    ]
+  },
+  {
+    "id": "ro-probability-bayes-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Jevy $A,B$ jsou nezávislé, právě když…",
+    "options": [
+      "$P(A\\land B)=0$",
+      "$P(A)=P(B)$",
+      "$P(A\\land B)=P(A)\\,P(B)$",
+      "$P(A\\lor B)=1$"
+    ],
+    "answer": 2,
+    "solution": "Informace o jednom jevu nemění pravděpodobnost druhého.",
+    "hints": [
+      "Součin pravděpodobností."
+    ]
+  },
+  {
+    "id": "ro-probability-bayes-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Nemoc má prevalenci $P(A)=0{,}01$. Test je pozitivní s pravděpodobností $0{,}9$ u nemocného a $0{,}1$ u zdravého. Jaká je $P(A\\mid\\text{pozitivní})$?",
+    "options": [
+      "0,9",
+      "asi 0,083",
+      "0,009",
+      "asi 0,5"
+    ],
+    "answer": 1,
+    "solution": "$P(+)=0{,}9\\cdot0{,}01+0{,}1\\cdot0{,}99=0{,}108$, $P(A\\mid +)=0{,}009/0{,}108\\approx0{,}083$. Nízká prevalence způsobí mnoho falešně pozitivních.",
+    "hints": [
+      "Nejdřív spočítej $P(+)$ rozkladem na nemocné a zdravé."
+    ]
+  },
+  {
+    "id": "ro-probability-bayes-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Kolik nezávislých čísel potřebuje úplné společné rozdělení $n$ binárních proměnných (bez předpokladů nezávislosti)?",
+    "options": [
+      "$2^n-1$",
+      "$2n$",
+      "$n^2$",
+      "$2^n$"
+    ],
+    "answer": 0,
+    "solution": "$2^n$ kombinací, součet pravděpodobností je 1, proto jedna hodnota plyne z ostatních.",
+    "hints": [
+      "Kolik je kombinací hodnot?"
+    ]
   }
 ]

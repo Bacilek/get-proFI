@@ -36,7 +36,12 @@
     "id": "ai-four-views",
     "type": "choice",
     "prompt": "Přístup „systém, který se chová jako člověk“ odpovídá…",
-    "options": ["kognitivní vědě", "Turingovu testu", "logice (zákony myšlení)", "inteligentnímu agentovi"],
+    "options": [
+      "kognitivní vědě",
+      "Turingovu testu",
+      "logice (zákony myšlení)",
+      "inteligentnímu agentovi"
+    ],
     "answer": 1,
     "solution": "Chovat se jako člověk = Turingův test; myslet jako člověk = kognitivní věda; myslet rozumně = logika; chovat se rozumně = inteligentní agent.",
     "hints": [
@@ -84,6 +89,94 @@
     "hints": [
       "Soutěž běžela skoro třicet let.",
       "Roční cena za nejlepšího se vyplácela, ale hlavní ceny ne."
+    ]
+  },
+  {
+    "id": "ro-ai-intro-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Co je podstatou Turingova testu?",
+    "options": [
+      "Počítač porazí mistra světa v šachu",
+      "Tazatel v textové konverzaci nedokáže rozlišit, zda komunikuje s člověkem, nebo se strojem",
+      "Počítač řeší NP-úplné problémy v polynomiálním čase",
+      "Počítač dosáhne vysokého skóre v testu IQ"
+    ],
+    "answer": 1,
+    "solution": "Turingův test je behaviorální: stroj je „inteligentní“, pokud ho tazatel v konverzaci nerozliší od člověka.",
+    "hints": [
+      "Jde o napodobení lidského chování v rozhovoru.",
+      "Nezáleží na tom, jak stroj uvnitř funguje."
+    ]
+  },
+  {
+    "id": "ro-ai-intro-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Racionální agent vybírá akci tak, aby…",
+    "options": [
+      "maximalizoval očekávanou hodnotu míry výkonnosti vzhledem k dosavadním pozorováním",
+      "vždy zvolil nejrychlejší akci",
+      "napodoboval lidské chování",
+      "nikdy neudělal chybu"
+    ],
+    "answer": 0,
+    "solution": "Racionalita se měří očekávaným výkonem podle znalostí agenta, ne skutečným výsledkem a ne podobností člověku.",
+    "hints": [
+      "Racionální ≠ vševědoucí.",
+      "Důležitá je míra výkonnosti (performance measure)."
+    ]
+  },
+  {
+    "id": "ro-ai-intro-3",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Prostředí je **deterministické**, pokud…",
+    "options": [
+      "agent vidí celý stav prostředí",
+      "se prostředí nemění, zatímco agent přemýšlí",
+      "v prostředí působí jen jeden agent",
+      "další stav je plně určen aktuálním stavem a akcí agenta"
+    ],
+    "answer": 3,
+    "solution": "Determinismus se týká přechodu mezi stavy. Plná pozorovatelnost, statičnost a počet agentů jsou jiné vlastnosti prostředí.",
+    "hints": [
+      "Ptáme se, zda je výsledek akce jednoznačný."
+    ]
+  },
+  {
+    "id": "ro-ai-intro-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Agent bezpečně přešel ulici podle pozorování, ale z nebe spadla součástka letadla a zranila ho. Byl agent iracionální?",
+    "options": [
+      "Ano, měl počítat se všemi možnostmi",
+      "Ne, racionalita maximalizuje očekávaný, ne skutečný výsledek",
+      "Ano, protože utrpěl újmu",
+      "Nelze rozhodnout bez znalosti prostředí"
+    ],
+    "answer": 1,
+    "solution": "Racionální agent není vševědoucí. Rozhoduje se podle toho, co věděl, a maximalizuje očekávaný výkon.",
+    "hints": [
+      "Rozlišuj racionalitu a vševědoucnost.",
+      "Agent nemohl součástku předvídat."
+    ]
+  },
+  {
+    "id": "ro-ai-intro-5",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Které prostředí je správně klasifikováno? Šachy s hodinami jsou…",
+    "options": [
+      "částečně pozorovatelné, stochastické",
+      "spojité, jednoagentní",
+      "plně pozorovatelné, diskrétní, vícenásobní agenti (soupeř)",
+      "nepozorovatelné, náhodné"
+    ],
+    "answer": 2,
+    "solution": "V šachu vidíme celou šachovnici, tahy jsou diskrétní a hraje proti nám soupeř.",
+    "hints": [
+      "Co o šachovnici skrýváme? Nic."
     ]
   }
 ]

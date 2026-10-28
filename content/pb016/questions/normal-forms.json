@@ -108,5 +108,22 @@
       "Eliminuj implikace, použij de Morgana a distributivitu.",
       "Konec: $\\neg B\\vee B\\equiv\\text{true}$."
     ]
+  },
+  {
+    "id": "ro-normal-forms-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Konjunktivní normální forma (CNF) je…",
+    "options": [
+      "disjunkce konjunkcí literálů",
+      "konjunkce disjunkcí literálů",
+      "konjunkce implikací",
+      "disjunkce ekvivalencí"
+    ],
+    "answer": 1,
+    "solution": "CNF = $(\\ell\\lor\\ell)\\land(\\ell\\lor\\ell)\\dots$; základ pro rezoluci.",
+    "hints": [
+      "AND z OR klauzulí."
+    ]
   }
 ]

@@ -154,4 +154,13 @@ describe('milestones', () => {
     const results = new Map([['done', { milestoneId: 'done', points: 1, at: 0 }]])
     expect(upcoming(list, results, now).map((x) => x.id)).toEqual(['soon', 'late', 'tbd'])
   })
+
+  test('upcoming: a cumulative milestone stays upcoming with a partial result until its date', () => {
+    const list = [{ ...m('quiz', '2026-12-14'), cumulative: true }, { ...m('old', '2026-10-01'), cumulative: true }]
+    const results = new Map([
+      ['quiz', { milestoneId: 'quiz', points: 5, at: 0 }],
+      ['old', { milestoneId: 'old', points: 5, at: 0 }],
+    ])
+    expect(upcoming(list, results, now).map((x) => x.id)).toEqual(['quiz'])
+  })
 })

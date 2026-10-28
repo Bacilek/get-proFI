@@ -19,7 +19,12 @@
     "id": "is-greedy-pick",
     "type": "choice",
     "prompt": "Graf: $A\\to B$ (cena 2), $A\\to C$ (4), $A\\to D$ (5), $B\\to E$ (11), $C\\to E$ (8), $D\\to E$ (8). Heuristika: $h(A)=10$, $h(B)=9$, $h(C)=8$, $h(D)=7$, $h(E)=0$. Hladové heuristické hledání (greedy best-first) právě expandovalo $A$. Který uzel expanduje jako následující?",
-    "options": ["B", "C", "D", "E"],
+    "options": [
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
     "answer": 2,
     "solution": "Greedy řadí jen podle $h$: $h(B)=9$, $h(C)=8$, $h(D)=7$. Nejmenší je $D$ (7). (Ceny cest $g$ ignoruje.)",
     "hints": [
@@ -31,7 +36,11 @@
     "id": "is-astar-pick",
     "type": "choice",
     "prompt": "Stejný graf (A→B 2, A→C 4, A→D 5; B→E 11, C→E 8, D→E 8; $h$: A 10, B 9, C 8, D 7, E 0). Který uzel expanduje **A\\*** jako první po $A$?",
-    "options": ["B", "C", "D"],
+    "options": [
+      "B",
+      "C",
+      "D"
+    ],
     "answer": 0,
     "solution": "$f(B)=2+9=11$, $f(C)=4+8=12$, $f(D)=5+7=12$. Nejmenší je $B$. (Greedy by vybral $D$.)",
     "hints": [
@@ -67,7 +76,12 @@
     "id": "is-romania-astar-order",
     "type": "choice",
     "prompt": "A\\* z Aradu do Bukurešti. Po expanzi Aradu jsou ve frontě Sibiu ($f=140+253=393$), Timisoara ($118+329=447$) a Zerind ($75+374=449$). Sibiu má následníky Fagaras (cena 99, $h=176$) a Rimnicu Vilcea (80, $h=193$). Která hodnota $f$ patří Rimnicu Vilcea?",
-    "options": ["413", "417", "449", "193"],
+    "options": [
+      "413",
+      "417",
+      "449",
+      "193"
+    ],
     "answer": 0,
     "solution": "$g(\\text{Rimnicu})=140+80=220$, $f=220+193=413$. (Fagaras: $g=239$, $f=239+176=415$.)",
     "hints": [
@@ -134,6 +148,40 @@
     "hints": [
       "Podívej se na příklad s Rumunskem: 450 vs. 418.",
       "Prioritní fronta zaručuje, že vybraný uzel má nejmenší $f$."
+    ]
+  },
+  {
+    "id": "ro-informed-search-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "A* s heuristikou $h(n)=0$ pro všechny uzly se chová jako…",
+    "options": [
+      "BFS pro libovolné ceny",
+      "DFS",
+      "uniform-cost search (Dijkstrův algoritmus)",
+      "greedy best-first"
+    ],
+    "answer": 2,
+    "solution": "Pak je $f=g$, tedy se expanduje uzel s nejmenší dosavadní cenou: UCS.",
+    "hints": [
+      "Dosaď do $f=g+h$."
+    ]
+  },
+  {
+    "id": "ro-informed-search-2",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Greedy best-first search ve stromové verzi (bez kontroly cyklů) je…",
+    "options": [
+      "neúplný i neoptimální",
+      "úplný, ale neoptimální",
+      "optimální, ale neúplný",
+      "úplný i optimální"
+    ],
+    "answer": 0,
+    "solution": "Greedy sleduje jen $h$, může se zacyklit i vybrat dražší cestu.",
+    "hints": [
+      "Řídí se jen odhadem do cíle, ne cenou dosavadní cesty."
     ]
   }
 ]

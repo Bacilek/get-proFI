@@ -115,5 +115,57 @@
       "Kolik polí je volných?",
       "$16-3$."
     ]
+  },
+  {
+    "id": "ro-problem-formulation-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Co **není** součástí formulace problému prohledávání stavového prostoru?",
+    "options": [
+      "počáteční stav",
+      "cílový test",
+      "heuristická funkce $h$",
+      "cena cesty"
+    ],
+    "answer": 2,
+    "solution": "Formulace: počáteční stav, akce/přechodový model, cílový test, cena cesty. Heuristika je až pomůcka pro informované algoritmy.",
+    "hints": [
+      "Zkus vyjmenovat, co o problému víme dřív, než vybereme algoritmus."
+    ]
+  },
+  {
+    "id": "ro-problem-formulation-2",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Kolik je možných rozmístění 4 dam na šachovnici $4\\times4$, pokud každé pole nese nejvýše jednu dámu (bez dalších omezení)?",
+    "options": [
+      "1820",
+      "256",
+      "65536",
+      "24"
+    ],
+    "answer": 0,
+    "solution": "Vybíráme 4 pole ze 16: $\\binom{16}{4}=\\frac{16\\cdot15\\cdot14\\cdot13}{24}=1820$.",
+    "hints": [
+      "Dámy jsou nerozlišitelné.",
+      "Je to kombinační číslo."
+    ]
+  },
+  {
+    "id": "ro-problem-formulation-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Formulace 4 dam: v každém sloupci je právě jedna dáma a stav určuje řádek dámy v každém ze 4 sloupců. Kolik stavů má tento prostor?",
+    "options": [
+      "24",
+      "1820",
+      "16",
+      "256"
+    ],
+    "answer": 3,
+    "solution": "Každý ze 4 sloupců má 4 možné řádky: $4^4=256$. (Permutace, tj. i různé řádky, by dalo $4!=24$.)",
+    "hints": [
+      "Každý sloupec vybírá řádek nezávisle."
+    ]
   }
 ]

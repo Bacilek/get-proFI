@@ -6,7 +6,7 @@
   "modules": [
     {
       "id": "intro",
-      "title": "1. Úvod do UI, řešení problémů (př. 1)",
+      "title": "1. Úvod do UI, řešení problémů",
       "lessons": [
         {
           "id": "pb016:ai-intro",
@@ -32,7 +32,7 @@
     },
     {
       "id": "search",
-      "title": "2. Prohledávání stavového prostoru (př. 2)",
+      "title": "2. Prohledávání stavového prostoru",
       "lessons": [
         {
           "id": "pb016:uninformed-search",
@@ -82,7 +82,7 @@
     },
     {
       "id": "decomp",
-      "title": "3. Dekompozice a omezující podmínky (př. 3)",
+      "title": "3. Dekompozice a omezující podmínky",
       "lessons": [
         {
           "id": "pb016:and-or-graphs",
@@ -110,7 +110,7 @@
     },
     {
       "id": "games",
-      "title": "4. Hry a herní strategie (př. 4)",
+      "title": "4. Hry a herní strategie",
       "lessons": [
         {
           "id": "pb016:minimax",
@@ -149,7 +149,7 @@
     },
     {
       "id": "logic",
-      "title": "5. Logický agent, výroková logika (př. 5)",
+      "title": "5. Logický agent, výroková logika",
       "lessons": [
         {
           "id": "pb016:logic-agent",
@@ -186,7 +186,7 @@
     },
     {
       "id": "fol",
-      "title": "6. Predikátová logika 1. řádu (př. 6)",
+      "title": "6. Predikátová logika 1. řádu",
       "lessons": [
         {
           "id": "pb016:fol-basics",
@@ -226,7 +226,7 @@
     },
     {
       "id": "inference",
-      "title": "7. Inference a rezoluce (př. 7, zatím jen ze sbírky)",
+      "title": "7. Inference a rezoluce (zatím jen ze sbírky)",
       "lessons": [
         {
           "id": "pb016:resolution",
@@ -255,7 +255,7 @@
     },
     {
       "id": "knowledge",
-      "title": "8. Reprezentace a vyvozování znalostí (př. 8, zatím jen ze sbírky)",
+      "title": "8. Reprezentace a vyvozování znalostí (zatím jen ze sbírky)",
       "lessons": [
         {
           "id": "pb016:knowledge-repr",
@@ -283,7 +283,7 @@
     },
     {
       "id": "nlp",
-      "title": "9. Zpracování přirozeného jazyka (př. 9, zatím jen ze sbírky)",
+      "title": "9. Zpracování přirozeného jazyka (zatím jen ze sbírky)",
       "lessons": [
         {
           "id": "pb016:grammars",
@@ -300,7 +300,7 @@
     },
     {
       "id": "ml",
-      "title": "10–11. Učení, neuronové sítě (př. 10–11, zatím jen ze sbírky)",
+      "title": "10–11. Učení, neuronové sítě (zatím jen ze sbírky)",
       "lessons": [
         {
           "id": "pb016:decision-trees",
@@ -337,7 +337,7 @@
     },
     {
       "id": "gen",
-      "title": "12. Generativní modely (př. 12, zatím jen ze sbírky)",
+      "title": "12. Generativní modely (zatím jen ze sbírky)",
       "lessons": [
         {
           "id": "pb016:language-models",
@@ -361,7 +361,14 @@
       "date": "2026-12-14",
       "maxPoints": 24,
       "minPoints": 10,
-      "info": "Na začátku každého cvičení 6 min v ISu, 4 otázky (+0,5 / −0,25). Potřeba ≥ 10 b ze 24 k připuštění ke zkoušce. Odpovědník je z tématu předchozí přednášky. Max 3 neomluvené absence."
+      "info": [
+        "Na začátku každého cvičení, 6 min v ISu, 4 otázky",
+        "Za správnou +0,5 b, za špatnou −0,25 b, max 2 b na odpovědník",
+        "Odpovědník je z tématu předchozí přednášky",
+        "Nutná podmínka ke zkoušce: alespoň 10 b z 24",
+        "Max 3 neomluvené absence"
+      ],
+      "cumulative": true
     },
     {
       "id": "midterm",
@@ -376,7 +383,15 @@
         "games",
         "logic"
       ],
-      "info": "V týdnu po 7. přednášce, jediný termín pro všechny (pravděpodobně úterý). Max 20 b. Rozsah přednášky 1–5. Délka, minimum: TBD."
+      "info": [
+        "Úterý 3. 11. 2026 ve 20:00, 2 hodiny",
+        "Max 20 b",
+        "Rozsah: přednášky 1 až 5 (úvod, prohledávání, dekompozice a CSP, hry, logický agent a výroková logika)",
+        "Jediný termín pro všechny",
+        "Minimum bodů: zatím neznámé"
+      ],
+      "date": "2026-11-03",
+      "time": "20:00"
     },
     {
       "id": "exam",
@@ -397,13 +412,18 @@
         "ml",
         "gen"
       ],
-      "info": "Max 60 b, dva řádné a jeden opravný termín. Celkem max 104 b (24 + 20 + 60): A > 95, E > 63. Podmínka: ≥ 10 b z odpovědníků."
+      "info": [
+        "Max 60 b",
+        "Dva řádné termíny a jeden opravný",
+        "Celkem max 104 b (24 + 20 + 60): A nad 95 b, E nad 63 b",
+        "Podmínka k připuštění: alespoň 10 b z odpovědníků"
+      ]
     }
   ],
   "openItems": [
     {
-      "id": "midterm-date",
-      "text": "Přesné datum, čas, délka a minimum průběžné písemky (týden po 7. přednášce, pravděpodobně úterý) – dopsat do milníku midterm."
+      "id": "midterm-details",
+      "text": "Minimum bodů z průběžné písemky (pokud existuje) a případné upřesnění rozsahu."
     },
     {
       "id": "exam-dates",
@@ -411,15 +431,19 @@
     },
     {
       "id": "lectures-7-12",
-      "text": "Slidy přednášek 7–12 (rezoluce, reprezentace znalostí, NLP, strojové učení, hluboké učení, generativní modely) – lekce př. 7–12 jsou zatím sepsané jen ze sbírky (kap. 7–12), bez slidů a bez etiky AI, předzpracování dat, hlubokého učení/CNN, transformerů; po nahrání slidů do sources/PB016/Lectures/slides doplnit a zkontrolovat."
-    },
+      "text": "Lekce př. 7 až 12 jsou zatím sepsané jen ze sbírky (kap. 7 až 12). Po nahrání slidů je zkontrolovat a doplnit o etiku AI, předzpracování dat, hluboké učení/CNN a transformery."
+    }
+  ],
+  "materials": {
+    "lecture": 7,
+    "syllabus": 6,
+    "seminar": 6,
+    "ropot": 4
+  },
+  "initialResults": [
     {
-      "id": "seminars",
-      "text": "Materiály z cvičení: PDF zadání logiky (týdny 6–8) a notebooky týdnů 6+ (Syllabus); složka Seminars je prázdná."
-    },
-    {
-      "id": "ropots-rest",
-      "text": "Odpovědníky (ROPOTs) z cvičení 5+ (hry, logika...) – zatím jen 01–03 zpracované; výsledky sbírat do složky ROPOTs."
+      "milestoneId": "minitests",
+      "points": 5.25
     }
   ]
 }

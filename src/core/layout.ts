@@ -1,8 +1,8 @@
 import { isDone } from './prereq'
 import type { GlobalId, LessonMeta, LessonProgress, Milestone, Module } from './types'
 
-export const NODE_W = 190
-export const NODE_H = 54
+export const NODE_W = 200
+export const NODE_H = 62
 export const GAP_X = 56
 export const GAP_Y = 16
 

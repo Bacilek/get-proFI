@@ -8,13 +8,13 @@ import { missingInfo } from '../core/missing'
 import type { Course } from '../core/types'
 import { ExamStatus } from '../features/course/ExamStatus'
 import { MilestoneRow } from '../features/course/Milestones'
-import { useCourseResults, useLessonProgress } from '../hooks'
+import { useCourseResults, useLessonProgress, useSkips } from '../hooks'
 
 function CourseCard({ course, now }: { course: Course; now: Date }) {
   const results = useCourseResults(course)
   const stats = courseStats(course.modules, useLessonProgress())
   const next = upcoming(course.milestones, results, now).slice(0, 3)
-  const missing = missingInfo(course).length
+  const missing = missingInfo(course, useSkips(), now).length
   return (
     <section className="rounded-xl border border-line bg-surface p-4 shadow-sm">
       <div className="flex items-baseline justify-between gap-2">
@@ -41,7 +41,7 @@ function CourseCard({ course, now }: { course: Course; now: Date }) {
       </div>
       <ul className="mt-2 divide-y divide-line">
         {next.map((m) => (
-          <MilestoneRow key={m.id} milestone={m} now={now} />
+          <MilestoneRow key={m.id} course={course} milestone={m} result={results.get(m.id)} now={now} />
         ))}
       </ul>
       <div className="mt-2">

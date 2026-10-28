@@ -159,5 +159,107 @@
       "Proměnné s doménou barev, pak binární omezení „různé“.",
       "Pro sousedy použij smyčku nad dvojicemi."
     ]
+  },
+  {
+    "id": "ro-csp-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "CSP (problém s omezujícími podmínkami) je zadán…",
+    "options": [
+      "proměnnými, jejich doménami a omezeními",
+      "počátečním stavem, cílem a akcemi",
+      "pouze množinou klauzulí",
+      "maticí sousednosti grafu"
+    ],
+    "answer": 0,
+    "solution": "CSP: množina proměnných, domény hodnot, omezení mezi proměnnými. Řešením je ohodnocení splňující všechna omezení.",
+    "hints": [
+      "Co je třeba rozhodnout? Hodnoty proměnných."
+    ]
+  },
+  {
+    "id": "ro-csp-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Hrana $(X,Y)$ je **hranově konzistentní**, pokud…",
+    "options": [
+      "obě domény mají stejnou velikost",
+      "existuje alespoň jedno řešení celého CSP",
+      "je domény $X$ i $Y$ jednoprvkové",
+      "pro každou hodnotu z domény $X$ existuje hodnota z domény $Y$ splňující omezení"
+    ],
+    "answer": 3,
+    "solution": "Hranová konzistence kontroluje podporu jednotlivých hodnot; hodnoty bez podpory se z domény odstraní.",
+    "hints": [
+      "Každá hodnota musí mít „partnera“."
+    ]
+  },
+  {
+    "id": "ro-csp-3",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Heuristika MRV (minimum remaining values) při zpětném prohledávání CSP vybírá…",
+    "options": [
+      "proměnnou s největší doménou",
+      "proměnnou s nejmenší zbývající doménou",
+      "hodnotu, která vyřadí nejvíc hodnot ostatním",
+      "náhodnou proměnnou"
+    ],
+    "answer": 1,
+    "solution": "Nejvíce omezená proměnná se zkouší první, takže slepé větve se najdou brzy.",
+    "hints": [
+      "Nejtěžší proměnná je ta, která má nejméně možností."
+    ]
+  },
+  {
+    "id": "ro-csp-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Kolik řešení má CSP: $X,Y\\in\\{1,2,3\\}$, $X<Y$?",
+    "options": [
+      "6",
+      "9",
+      "2",
+      "3"
+    ],
+    "answer": 3,
+    "solution": "Dvojice: $(1,2),(1,3),(2,3)$.",
+    "hints": [
+      "Vypiš všechny dvojice."
+    ]
+  },
+  {
+    "id": "ro-csp-5",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Kolik řešení má CSP: $X,Y,Z\\in\\{1,2,3\\}$, všechny hodnoty různé (alldifferent)?",
+    "options": [
+      "3",
+      "27",
+      "6",
+      "9"
+    ],
+    "answer": 2,
+    "solution": "Jde o permutace tří hodnot: $3!=6$.",
+    "hints": [
+      "Je to počet permutací."
+    ]
+  },
+  {
+    "id": "ro-csp-6",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Domény $D_X=D_Y=\\{1,2,3\\}$, omezení $X<Y$. Jaké domény zbydou po zajištění hranové konzistence v obou směrech?",
+    "options": [
+      "$D_X=\\{1,2,3\\}$, $D_Y=\\{1,2,3\\}$",
+      "$D_X=\\{1,2\\}$, $D_Y=\\{2,3\\}$",
+      "$D_X=\\{1\\}$, $D_Y=\\{3\\}$",
+      "$D_X=\\{2,3\\}$, $D_Y=\\{1,2\\}$"
+    ],
+    "answer": 1,
+    "solution": "Hodnota $X=3$ nemá podporu (žádné $Y>3$), hodnota $Y=1$ také ne.",
+    "hints": [
+      "Pro každou hodnotu $X$ hledej větší $Y$."
+    ]
   }
 ]

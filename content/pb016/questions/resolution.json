@@ -74,7 +74,12 @@
     "id": "re-sld-step",
     "type": "choice",
     "prompt": "SLD rezolventou cíle $[\\neg s,\\neg u]$ a pravidla $[s]$ (fakt) je…",
-    "options": ["$[\\neg u]$", "$[\\neg s]$", "$\\square$", "$[s,\\neg u]$"],
+    "options": [
+      "$[\\neg u]$",
+      "$[\\neg s]$",
+      "$\\square$",
+      "$[s,\\neg u]$"
+    ],
     "answer": 0,
     "solution": "SLD rezoluce vybírá první literál cíle ($\\neg s$) a rezolvuje s klauzulí, jejíž hlava je $s$. Fakt $[s]$ nemá negativní literály, takže zbyde zbytek cíle: $[\\neg u]$.",
     "hints": [
@@ -113,7 +118,12 @@
     "id": "re-chaining-complexity",
     "type": "choice",
     "prompt": "Dopředné i zpětné řetězení v Hornově bázi znalostí mají časovou složitost…",
-    "options": ["lineární v délce báze znalostí", "exponenciální", "kvadratickou", "nerozhodnutelnou"],
+    "options": [
+      "lineární v délce báze znalostí",
+      "exponenciální",
+      "kvadratickou",
+      "nerozhodnutelnou"
+    ],
     "answer": 0,
     "solution": "Každý symbol se odvodí nejvýše jednou a každé pravidlo se zpracuje jen při snížení počtu premis – časově lineární vůči velikosti KB. Prolog vychází ze zpětného řetězení (SLD).",
     "hints": [
@@ -125,12 +135,102 @@
     "id": "re-sld-completeness",
     "type": "choice",
     "prompt": "SLD rezoluce je úplná pro…",
-    "options": ["libovolné množiny klauzulí", "Hornovy klauzule", "jen fakta", "jen množiny bez cílů"],
+    "options": [
+      "libovolné množiny klauzulí",
+      "Hornovy klauzule",
+      "jen fakta",
+      "jen množiny bez cílů"
+    ],
     "answer": 1,
     "solution": "SLD (lineární rezoluce na uspořádaných klauzulích s výběrovým pravidlem) stačí pro Hornovy klauzule; pro obecné klauzule se používá obecná rezoluce.",
     "hints": [
       "Prolog pracuje jen s fakty a pravidly.",
       "Obecný případ potřebuje obecnou rezoluci."
+    ]
+  },
+  {
+    "id": "ro-resolution-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Jaká je rezolventa klauzulí $\\{p,q\\}$ a $\\{\\lnot p,r\\}$?",
+    "options": [
+      "$\\{p,\\lnot p\\}$",
+      "$\\{q,r\\}$",
+      "$\\{p,q,r\\}$",
+      "$\\square$ (prázdná klauzule)"
+    ],
+    "answer": 1,
+    "solution": "Rezoluce na literálu $p$: odstraní $p$ a $\\lnot p$ a spojí zbytky.",
+    "hints": [
+      "Který literál se vyruší?"
+    ]
+  },
+  {
+    "id": "ro-resolution-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Rezoluční vyvrácení ukazuje $T\\models\\varphi$ tím, že…",
+    "options": [
+      "z $T\\cup\\{\\lnot\\varphi\\}$ odvodí prázdnou klauzuli $\\square$",
+      "z $T$ odvodí $\\varphi$ rezolucí",
+      "z $T\\cup\\{\\varphi\\}$ odvodí $\\square$",
+      "ukáže, že $T$ je tautologie"
+    ],
+    "answer": 0,
+    "solution": "Odvození $\\square$ znamená spor: $T$ a negace závěru nemohou platit zároveň.",
+    "hints": [
+      "Přidáváme negaci závěru."
+    ]
+  },
+  {
+    "id": "ro-resolution-3",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Dotaz `?- s, r.` v Prologu přidá jako cíl klauzuli…",
+    "options": [
+      "$[s,r]$",
+      "$[s,\\lnot r]$",
+      "$[\\lnot s,r]$",
+      "$[\\lnot s,\\lnot r]$"
+    ],
+    "answer": 3,
+    "solution": "Dotaz je negace závěru, tedy klauzule jen z negativních literálů (cíl).",
+    "hints": [
+      "Cíl obsahuje jen negativní literály."
+    ]
+  },
+  {
+    "id": "ro-resolution-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Hornova klauzule je klauzule, která má…",
+    "options": [
+      "právě jeden pozitivní a právě jeden negativní literál",
+      "nejvýše jeden negativní literál",
+      "nejvýše jeden pozitivní literál",
+      "jen pozitivní literály"
+    ],
+    "answer": 2,
+    "solution": "Fakt: jeden pozitivní; pravidlo: jeden pozitivní a negativní předpoklady; cíl: jen negativní.",
+    "hints": [
+      "Fakt, pravidlo a cíl jsou všechny Hornovy klauzule."
+    ]
+  },
+  {
+    "id": "ro-resolution-5",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Z klauzulí $\\{p,q\\}$ a $\\{\\lnot p,\\lnot q\\}$ odvodíme rezolucí na **obou** literálech najednou $\\square$. Proč je to chyba?",
+    "options": [
+      "prázdnou klauzuli nelze nikdy odvodit",
+      "rezoluce se provádí na jednom literálu; obě klauzule jsou společně splnitelné ($p=0,q=1$)",
+      "rezoluce funguje jen s Hornovými klauzulemi",
+      "klauzule jsou ve špatném pořadí"
+    ],
+    "answer": 1,
+    "solution": "Správně se odvodí $\\{q,\\lnot q\\}$ nebo $\\{p,\\lnot p\\}$, což jsou tautologie. Rezoluce na dvou literálech by nebyla korektní.",
+    "hints": [
+      "Zkus najít interpretaci splňující obě klauzule."
     ]
   }
 ]

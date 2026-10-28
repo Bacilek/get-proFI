@@ -61,5 +61,39 @@
       "Zkus práh mezi 1 a 2.",
       "Nakresli čtyři body do roviny."
     ]
+  },
+  {
+    "id": "ro-perceptron-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Perceptron rozděluje vstupní prostor…",
+    "options": [
+      "libovolnou křivkou",
+      "shluky",
+      "lineárně (nadrovinou)",
+      "jen podle jedné souřadnice"
+    ],
+    "answer": 2,
+    "solution": "Rovnice $\\vec w\\cdot\\tilde x=0$ určuje nadrovinu.",
+    "hints": [
+      "Je to lineární klasifikátor."
+    ]
+  },
+  {
+    "id": "ro-perceptron-2",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Proč jeden perceptron nedokáže naučit funkci XOR?",
+    "options": [
+      "XOR má příliš mnoho vstupů",
+      "perceptron nepodporuje binární vstupy",
+      "XOR je nedeterministická",
+      "XOR není lineárně separabilní"
+    ],
+    "answer": 3,
+    "solution": "Žádná přímka neodděluje $\\{(0,1),(1,0)\\}$ od $\\{(0,0),(1,1)\\}$. Potřebujeme vícevrstvou síť.",
+    "hints": [
+      "Nakresli čtyři body do roviny."
+    ]
   }
 ]

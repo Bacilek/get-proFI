@@ -11,15 +11,17 @@ export interface Backup {
   ratings: unknown[]
   reviews: unknown[]
   results: unknown[]
+  skips?: unknown[]
 }
 
 export async function exportBackup(db: ProfiDB, now = new Date()): Promise<Backup> {
-  const [lessons, attempts, ratings, reviews, results] = await Promise.all([
+  const [lessons, attempts, ratings, reviews, results, skips] = await Promise.all([
     db.lessons.toArray(),
     db.attempts.toArray(),
     db.ratings.toArray(),
     db.reviews.toArray(),
     db.results.toArray(),
+    db.skips.toArray(),
   ])
   return {
     app: 'get-profi',
@@ -30,6 +32,7 @@ export async function exportBackup(db: ProfiDB, now = new Date()): Promise<Backu
     ratings,
     reviews,
     results,
+    skips,
   }
 }
 
@@ -47,12 +50,13 @@ function isBackup(x: unknown): x is Backup {
 export async function importBackup(db: ProfiDB, data: unknown): Promise<void> {
   if (!isBackup(data)) throw new Error('Not a get-proFI backup file')
   if (data.version > BACKUP_VERSION) throw new Error(`Backup version ${data.version} is newer than supported`)
-  await db.transaction('rw', [db.lessons, db.attempts, db.ratings, db.reviews, db.results], async () => {
-    await Promise.all([db.lessons.clear(), db.attempts.clear(), db.ratings.clear(), db.reviews.clear(), db.results.clear()])
+  await db.transaction('rw', [db.lessons, db.attempts, db.ratings, db.reviews, db.results, db.skips], async () => {
+    await Promise.all([db.lessons.clear(), db.attempts.clear(), db.ratings.clear(), db.reviews.clear(), db.results.clear(), db.skips.clear()])
     await db.lessons.bulkAdd(data.lessons as never[])
     await db.attempts.bulkAdd(data.attempts as never[])
     await db.ratings.bulkAdd(data.ratings as never[])
     await db.reviews.bulkAdd(data.reviews as never[])
     await db.results.bulkAdd(data.results as never[])
+    await db.skips.bulkAdd((Array.isArray(data.skips) ? data.skips : []) as never[])
   })
 }

@@ -59,7 +59,7 @@ function LessonBody({
 
       {loaded === null && <p className="text-muted">Loading…</p>}
       {loaded && loaded.md === null && <p className="rounded border border-dashed border-line p-3 text-muted">Content for this lesson is not written yet.</p>}
-      {loaded?.md && <Markdown>{loaded.md}</Markdown>}
+      {loaded?.md && <Markdown lesson>{loaded.md}</Markdown>}
 
       <section className="flex flex-wrap items-center gap-2 text-sm">
         <span>How well do you know this topic?</span>

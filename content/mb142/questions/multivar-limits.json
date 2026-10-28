@@ -47,7 +47,7 @@
       "je $\\infty$"
     ],
     "answer": 0,
-    "solution": "Pro $y=kx$ je $\\frac{kx^2}{x^2(1+k^2)}=\\frac k{1+k^2}$ — pro různá $k$ různé hodnoty, takže limita neexistuje.",
+    "solution": "Pro $y=kx$ je $\\frac{kx^2}{x^2(1+k^2)}=\\frac k{1+k^2}$, pro různá $k$ různé hodnoty, takže limita neexistuje.",
     "hints": [
       "Zkus několik cest do počátku (přímky $y=kx$); pokud se hodnoty liší, limita neexistuje.",
       "Dosaď $y=kx$ a zkrať $x^2$.",

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Bar } from '../../components/Charts'
 import { courseSlug, hasLesson, localId } from '../../content'
 import { layoutRoadmap, NODE_H, NODE_W, readiness } from '../../core/layout'
@@ -14,12 +14,11 @@ const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(3 - n)
 export function Roadmap({
   course,
   progress,
-  week,
 }: {
   course: Course
   progress: ReadonlyMap<string, LessonProgress>
-  week: number
 }) {
+  const navigate = useNavigate()
   const layout = layoutRoadmap(course.modules)
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const colorOf = new Map(course.modules.map((m, i) => [m.id, MODULE_COLORS[i % MODULE_COLORS.length]]))
@@ -29,7 +28,7 @@ export function Roadmap({
 
   return (
     <div className="space-y-3">
-      <div className="overflow-x-auto rounded-md border border-line bg-surface p-4">
+      <div className="overflow-x-auto rounded-xl border border-line bg-surface p-4">
         <div className="relative" style={{ width: layout.width, height: layout.height }}>
           <svg className="absolute inset-0" width={layout.width} height={layout.height} aria-hidden>
             {layout.edges.map((e) => {
@@ -59,32 +58,39 @@ export function Roadmap({
               <button
                 key={n.lesson.id}
                 onClick={() => setSelectedId(n.lesson.id)}
-                title={st.status === 'locked' ? `Needs: ${st.missing.map((m) => titles.get(m) ?? m).join(', ')}` : undefined}
+                onDoubleClick={() => navigate(`/c/${courseSlug(course)}/l/${localId(n.lesson.id)}`)}
+                title={
+                  st.status === 'locked'
+                    ? `Needs: ${st.missing.map((m) => titles.get(m) ?? m).join(', ')} (double-click to open anyway)`
+                    : 'Double-click to open'
+                }
                 className={[
-                  'absolute rounded-md border px-2 py-1 text-left text-xs leading-tight',
+                  'absolute flex flex-col justify-between rounded-lg border px-2.5 py-1.5 text-left text-xs leading-tight shadow-sm transition hover:-translate-y-px hover:shadow-md',
                   st.status === 'done' ? 'border-ok bg-ok-bg' : '',
                   st.status === 'available' ? 'border-line-strong bg-surface' : '',
-                  st.status === 'locked' ? 'border-dashed border-line bg-bg text-faint' : '',
-                  n.lesson.week === week ? 'ring-2 ring-star' : '',
-                  selectedId === n.lesson.id ? 'outline outline-2 outline-accent' : '',
+                  st.status === 'locked' ? 'border-dashed border-line-strong bg-bg text-muted' : '',
+                  selectedId === n.lesson.id ? 'outline outline-2 outline-offset-1 outline-accent' : '',
                 ].join(' ')}
                 style={{
                   left: n.x,
                   top: n.y,
                   width: NODE_W,
                   height: NODE_H,
-                  borderLeft: `4px solid ${colorOf.get(n.moduleId)}`,
+                  borderLeft: `5px solid ${colorOf.get(n.moduleId)}`,
                 }}
               >
-                <span className="line-clamp-2 font-medium">{n.lesson.title}</span>
-                <span className="text-star">{stars(s)}</span>
-                <span className="float-right text-faint">w{n.lesson.week}</span>
+                <span className="line-clamp-2 text-[12.5px] font-medium">{n.lesson.title}</span>
+                <span className="flex items-center justify-between">
+                  <span className="text-star">{stars(s)}</span>
+                  {st.status === 'done' && <span className="font-semibold text-ok">✓</span>}
+                  {st.status === 'locked' && <span className="text-faint">needs {st.missing.length}</span>}
+                </span>
               </button>
             )
           })}
         </div>
       </div>
-      <p className="text-xs text-muted">Amber ring = taught this week. Dashed = prerequisites not done yet (you can still open it).</p>
+      <Legend course={course} colorOf={colorOf} />
       {selected && <LessonPanel course={course} lesson={selected} progress={progress} titles={titles} />}
       <Readiness course={course} progress={progress} />
     </div>
@@ -105,9 +111,8 @@ function LessonPanel({
   const st = lessonState(lesson, progress)
   const current = progress.get(lesson.id)?.stars ?? 0
   return (
-    <section className="rounded-md border border-line bg-surface p-3 text-sm">
+    <section className="rounded-xl border border-line bg-surface p-4 text-sm">
       <h3 className="font-semibold">{lesson.title}</h3>
-      <p className="text-muted">Week {lesson.week}</p>
       <Link className="mt-1 inline-block underline" to={`/c/${courseSlug(course)}/l/${localId(lesson.id)}`}>
         {hasLesson(course, localId(lesson.id)) ? 'Open lesson →' : 'Open lesson (content not written yet) →'}
       </Link>
@@ -151,5 +156,33 @@ function Readiness({ course, progress }: { course: Course; progress: ReadonlyMap
         })}
       </div>
     </section>
+  )
+}
+
+function Legend({ course, colorOf }: { course: Course; colorOf: ReadonlyMap<string, string> }) {
+  const state = (cls: string, label: string) => (
+    <span className="flex items-center gap-1.5">
+      <span className={`inline-block h-3.5 w-5 rounded border ${cls}`} />
+      {label}
+    </span>
+  )
+  return (
+    <div className="space-y-2 rounded-xl border border-line bg-surface p-3 text-xs text-muted">
+      <div className="flex flex-wrap gap-x-5 gap-y-1">
+        {state('border-ok bg-ok-bg', 'done (at least 1 star)')}
+        {state('border-line-strong bg-surface', 'available')}
+        {state('border-dashed border-line-strong bg-bg', 'earlier lessons not done yet (you can still open it)')}
+      </div>
+      <div className="flex flex-wrap gap-x-4 gap-y-1">
+        <span>Left stripe = module:</span>
+        {course.modules.map((m) => (
+          <span key={m.id} className="flex items-center gap-1.5">
+            <span className="inline-block h-3 w-1.5 rounded-sm" style={{ background: colorOf.get(m.id) }} />
+            {m.title}
+          </span>
+        ))}
+      </div>
+      <p>Click a cell for details, double-click to open the lesson.</p>
+    </div>
   )
 }

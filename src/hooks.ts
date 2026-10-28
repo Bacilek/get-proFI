@@ -1,5 +1,5 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { courseSlug } from './content'
+import { courseSlug, resultId } from './content'
 import { db } from './core/db'
 import { isDue, newReview, review } from './core/srs'
 import type { Attempt, Course, LessonProgress, MilestoneResult, TopicRating } from './core/types'
@@ -65,4 +65,20 @@ export async function recordAnswer(a: Omit<Attempt, 'id' | 'at'>): Promise<void>
 export function useDueReviews(now: number): string[] | undefined {
   const rows = useLiveQuery(() => db.reviews.where('due').belowOrEqual(now).sortBy('due'), [now])
   return rows?.filter((r) => isDue(r, now)).map((r) => r.questionId)
+}
+
+/** Keys (see `skipKey`) of weekly materials the user declared as not existing. */
+export function useSkips(): ReadonlySet<string> {
+  const rows = useLiveQuery(() => db.skips.toArray(), [])
+  return new Set((rows ?? []).map((r) => r.id))
+}
+
+export function skipMaterial(key: string): Promise<unknown> {
+  return db.skips.put({ id: key, at: Date.now() })
+}
+
+/** Sets (or, with `null`, clears) the points of a milestone of `course`. */
+export function setMilestonePoints(course: Course, milestoneId: string, points: number | null): Promise<unknown> {
+  const id = resultId(course, milestoneId)
+  return points === null ? db.results.delete(id) : db.results.put({ milestoneId: id, points, at: Date.now() })
 }

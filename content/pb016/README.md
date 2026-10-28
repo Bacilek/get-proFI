@@ -4,7 +4,7 @@ Přednášející A. Horák (Po 14:00–15:50, záznamy v ISu), cvičení Po 8:0
 
 ## Hodnocení (zdroj: slidy 1, notebook w01, `fungovani predmetu.txt`)
 - **Odpovědníky** na každém cvičení: 12 × max 2 b = 24 b, 4 otázky abc(d), +0,5 správně / −0,25 špatně, 6 min v ISu. Z tématu **předchozí přednášky** a z vyznačených definic ve sbírce. **≥ 10 b nutné k připuštění ke zkoušce.** Max 3 neomluvené absence, bez podpůrných materiálů (jinak −2 b).
-- **Průběžná písemka** max 20 b, týden po 7. přednášce, jediný termín (uživatel: pravděpodobně úterý, tj. nejspíš 3. 11. 2026 – ověřit). Rozsah přednášky 1–5 (A + výroková logika), minimum neznámé.
+- **Průběžná písemka** max 20 b, **úterý 3. 11. 2026 v 20:00, 2 hodiny** (zadal uživatel), jediný termín. Rozsah přednášky 1–5 (A + výroková logika), minimum neznámé.
 - **Závěrečná písemka** max 60 b, 2 řádné + 1 opravný termín.
 - Součet max 104 b: **A > 95, E > 63** (zk). Extra body ve cvičení max 1/cvičení (oprava chyby v materiálech, elegantní řešení).
 - Bloky: A (př./cv. 1–4: řešení problémů, kódové cvičení), B (5–7: logika, tužka a papír, zadání v PDF), C (8–12: znalosti, NLP, ML, hluboké učení, generativní modely – kódové).
@@ -30,7 +30,9 @@ Dnes (28. 10.) je týden 7; slidy jsou jen uui01–06. Lekce př. 7–12 vznikly
 
 ## Co je hotové
 - Kurz `pb016`: 26 lekcí (př. 1–6 podle slidů; **př. 7–12 jen ze sbírky, rozpracováno – po nahrání slidů zkontrolovat a doplnit**), 209 otázek (všechny s hints; číselné odpovědi a pořadí algoritmů ověřeny skriptem: A*/greedy na Rumunsku, Dijkstra, alfa-beta, počty obarvení/řešení CSP, SEND+MORE, pravdivostní tabulky, 8-puzzle h1/h2).
-- Milníky: odpovědníky (14. 12. = poslední cvičení), průběžná písemka (bez data), závěrečná (bez data). Modul `fol` (př. 6) není v rozsahu průběžné písemky.
+- Milníky: odpovědníky (14. 12. = poslední cvičení; kumulativní, zadáno 5,25 b), průběžná písemka (3. 11. 20:00), závěrečná (bez data).
+- ROPOT trainer: 76 ručních otázek `ro-<lekce>-<n>` (easy/hard, přednášky 1–12) + 9 generátorů (`src/core/ropotGen.ts`: posunovačka h1/h2, další uzel greedy/UCS/A*, pořadí DFS/BFS, obarvení cesty/cyklu, minimax a alfa-beta, pravdivostní tabulky, entropie, perceptron, bigram/perplexita).
+- `materials` v course.json: lecture 7, syllabus 6, seminar 6, ropot 4 (nejstarší týdny bez zpracovaného materiálu; seminar od 6, protože cvičení 1–5 byla v Syllabus notebookech). Modul `fol` (př. 6) není v rozsahu průběžné písemky.
 - ROPOT 01–03 (viz níže) zapracovány do otázek (`ai-optimization-which`, `ai-turing-players`, `pf-sort-configs`, `pf-queens-n3`, `pf-4queens-actions`, `is-astar-f`, `is-greedy-pick`, `us-properties`, `ao-tictactoe-leaves`, `ao-solutions-rn`, `csp-count-zero`, `csp-queens-model`).
 - Výsledky odpovědníků (uživatel, z ROPOTs): 01 = 2,0 b (4/4), 02 = 1,25 b (3 správně, 1 špatně: greedy → správně D, uživatel zvolil B), 03 = 2,0 b (4/4) ⇒ **5,25 b z 6**. Zadat do appky ručně (milník `minitests` neseedován schválně – po zadání by zmizel z „upcoming“).
 
@@ -45,8 +47,7 @@ Dnes (28. 10.) je týden 7; slidy jsou jen uui01–06. Lekce př. 7–12 vznikly
 - Grafy ve sbírce jsou v PDF jen obrázky; příklady s grafy se rekonstruují (viz `informed-search`, `dijkstra` – vlastní grafy, výsledky ověřeny).
 
 ## Otevřené položky (viz course.json → openItems)
-- Datum/délka/minimum průběžné písemky; termíny zkoušky.
+- Minimum průběžné písemky; termíny zkoušky.
 - Slidy přednášek 7–12 (inference/rezoluce, reprezentace znalostí, NLP, strojové učení, hluboké učení, generativní modely).
-- Materiály ze cvičení (PDF logiky, notebooky w06+), složka `Seminars` je prázdná.
-- Odpovědníky ROPOTs z cvičení 5+; zadání výsledků do appky.
+- Materiály po týdnech řeší pole `materials` (viz výše), ne openItems. ROPOTs od 04 dál: složka `ROPOTs` je prázdná, po nahrání převést na `choice` otázky.
 - Připomínat každý týden: nové soubory v ISu (slidy dalších přednášek, notebooky, ROPOTs).

@@ -162,5 +162,73 @@
       "Dvě datové struktury: zásobník a fronta.",
       "Co se odebírá – poslední, nebo první prvek?"
     ]
+  },
+  {
+    "id": "ro-uninformed-search-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Jakou datovou strukturu pro okraj (frontier) používá prohledávání **do šířky** (BFS)?",
+    "options": [
+      "zásobník (LIFO)",
+      "frontu (FIFO)",
+      "prioritní frontu podle $h$",
+      "hašovací tabulku"
+    ],
+    "answer": 1,
+    "solution": "BFS expanduje uzly po úrovních, tedy nejstarší uzel první: FIFO. DFS používá zásobník.",
+    "hints": [
+      "Který uzel byl do okraje vložen nejdřív?"
+    ]
+  },
+  {
+    "id": "ro-uninformed-search-2",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Která dvojice algoritmů je (na grafu s konečným větvením a kladnými cenami) úplná a optimální?",
+    "options": [
+      "Uniform-cost search a A* s přípustnou heuristikou",
+      "DFS a greedy",
+      "Greedy a DFS s omezením hloubky",
+      "BFS pro libovolné ceny hran a DFS"
+    ],
+    "answer": 0,
+    "solution": "UCS a A* (přípustná $h$) najdou nejlevnější řešení. DFS a greedy optimální nejsou.",
+    "hints": [
+      "Optimální řešení = nejmenší cena cesty."
+    ]
+  },
+  {
+    "id": "ro-uninformed-search-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Jaká je časová a paměťová složitost BFS při větvení $b$ a hloubce nejmělčího řešení $d$?",
+    "options": [
+      "čas $O(b^d)$, paměť $O(bd)$",
+      "čas i paměť $O(b^d)$",
+      "čas i paměť $O(bd)$",
+      "čas $O(bd)$, paměť $O(b^d)$"
+    ],
+    "answer": 1,
+    "solution": "BFS drží v paměti celou nejmenší dosud nenavštívenou úroveň, proto je paměť stejně exponenciální jako čas. Paměť $O(bd)$ platí pro DFS.",
+    "hints": [
+      "Který algoritmus je kvůli paměti často nepoužitelný?"
+    ]
+  },
+  {
+    "id": "ro-uninformed-search-4",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Iterativní prohlubování (IDS) kombinuje…",
+    "options": [
+      "rychlost greedy a optimalitu A*",
+      "úplnost a optimalitu BFS (jednotkové kroky) s pamětí $O(bd)$ jako DFS",
+      "heuristiku a zpětné sledování",
+      "DFS bez omezení a BFS s prioritní frontou"
+    ],
+    "answer": 1,
+    "solution": "IDS opakuje DFS s rostoucím limitem hloubky; opakovaná práce je malá, protože poslední úroveň je největší.",
+    "hints": [
+      "Co by chtěl člověk z DFS a co z BFS?"
+    ]
   }
 ]

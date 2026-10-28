@@ -80,5 +80,56 @@
       "Dva případy.",
       "Čistá množina nebo došly atributy."
     ]
+  },
+  {
+    "id": "ro-decision-trees-1",
+    "type": "choice",
+    "difficulty": "easy",
+    "prompt": "Rozhodovací strom v uzlu volí atribut s největším…",
+    "options": [
+      "počtem hodnot",
+      "počtem příkladů",
+      "pořadím v datech",
+      "informačním ziskem"
+    ],
+    "answer": 3,
+    "solution": "Informační zisk = pokles entropie po rozdělení podle atributu.",
+    "hints": [
+      "Chceme co nejčistší podmnožiny."
+    ]
+  },
+  {
+    "id": "ro-decision-trees-2",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Informační zisk atributu je…",
+    "options": [
+      "entropie po rozdělení",
+      "počet hodnot atributu",
+      "entropie před rozdělením minus vážená entropie podmnožin po rozdělení",
+      "rozdíl počtu kladných a záporných příkladů"
+    ],
+    "answer": 2,
+    "solution": "Čím čistší podmnožiny, tím větší zisk.",
+    "hints": [
+      "Porovnáváš entropii před a po."
+    ]
+  },
+  {
+    "id": "ro-decision-trees-3",
+    "type": "choice",
+    "difficulty": "hard",
+    "prompt": "Přeučení (overfitting) znamená, že model…",
+    "options": [
+      "je příliš jednoduchý",
+      "sedí na trénovací data, ale špatně zobecňuje na nová",
+      "má vysokou chybu na trénovacích datech",
+      "používá příliš málo atributů"
+    ],
+    "answer": 1,
+    "solution": "Příliš složitý model si zapamatuje šum. Řešením je prořezávání nebo větší data.",
+    "hints": [
+      "Co dělá model na nových datech?"
+    ]
   }
 ]

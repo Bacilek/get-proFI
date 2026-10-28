@@ -11,6 +11,8 @@ interface QuestionBase {
   solution: string
   /** Optional progressive hints, vaguest first; the user reveals them one by one before answering. */
   hints?: string[]
+  /** Used by the ROPOT trainer to offer easier or harder rounds; untagged = in between. */
+  difficulty?: 'easy' | 'hard'
 }
 
 export interface NumericQuestion extends QuestionBase {
