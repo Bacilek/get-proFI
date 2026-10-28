@@ -15,6 +15,14 @@ Binární: $E(p)=-p\log_2p-(1-p)\log_2(1-p)$. Čistý dataset (jedna třída): $
 $$\text{Gain}(A)=E\!\left(\tfrac{p}{p+n},\tfrac{n}{p+n}\right)-\sum_{i=1}^k\frac{p_i+n_i}{p+n}\,E\!\left(\tfrac{p_i}{p_i+n_i},\tfrac{n_i}{p_i+n_i}\right).$$
 **Učení stromu:** rekurzivně od kořene: vyber atribut s max. ziskem, rozděl příklady podle hodnot, pokračuj. **List**, když příklady v uzlu mají jednu třídu (label = třída), nebo když už byly otestovány všechny atributy (label = převládající třída; strom pak nemusí být konzistentní).
 
+**Úvod do strojového učení (sbírka kap. 10):** systém se z dat učí, aby zlepšil svou výkonnost; klíčová je **generalizace** (použít naučené na dosud neviděná data). Podle způsobu učení: **s učitelem** (známe očekávané výstupy), **bez učitele** (hledá vzory bez výstupů) a **zpětnovazebné** (reinforcement learning, odměna a trest za akce). Podle úlohy: **klasifikace** (přiřadit jednu z konečně mnoha tříd, např. slunečno/polojasno/deštivo), **regrese** (modelovat spojitou veličinu, např. teplotu) a **shlukování** (rozdělit data do skupin podobných příkladů; typicky učení bez učitele). Sbírka se věnuje učení s učitelem, hlavně klasifikaci.
+
+**Rozhodovací strom jako klasifikátor (sbírka 10.1):** vnitřní uzly testují atribut (hrany = jeho hodnoty), listy určují třídu. Klasifikace sleduje cestu od kořene podle hodnot atributů příkladu. Strom je **konzistentní** s datasetem, když správně klasifikuje všechny jeho příklady.
+- Atribut, který strom nikde netestuje (např. Teplota), na výsledek **nemá vliv**, strom lze použít i pro příklady s dalšími atributy.
+- Strom lze „opravit“ pro jeden příklad přidáním rozhodovacího uzlu do příslušné větve (ostatní příklady zůstanou klasifikovány stejně).
+- **Žádný konzistentní strom neexistuje**, jsou-li v datasetu dva stejné příklady s různou třídou.
+- Konzistentních stromů bývá více, hledáme co **nejmenší** (proto výběr atributu podle informačního zisku).
+
 ## Mini příklad
 
 Dataset (7 příkladů, Tenis: ANO×4, NE×3). $E=-\tfrac47\log_2\tfrac47-\tfrac37\log_2\tfrac37\approx0{,}985$.

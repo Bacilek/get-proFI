@@ -14,6 +14,10 @@ Jazyk $L(G)$ = množina vět tvořených terminály, odvoditelných z $S$. Odvoz
 $$\text{pokrytí}=\frac{|L\cap L(G)|}{|L|},\qquad \text{přesnost}=\frac{|L\cap L(G)|}{|L(G)|}.$$
 Pokrytí = podíl vět jazyka, které gramatika vygeneruje. Přesnost = podíl vygenerovaných vět, které do jazyka patří. Cíl: obojí co nejvyšší.
 
+**Předzpracování textu (sbírka 9.1):** surová data (např. HTML webová stránka s anotacemi) je nutné **očistit** (odstranit značky a nadbytečné údaje, např. jména postav u replik), **segmentovat** (rozdělit na věty), **tokenizovat** (na slova bez interpunkce) a **normalizovat** (např. „Ale“, „ALE“ a „ale“ se započítají jako „ale“, ideálně i převod na základní tvar). Z toho se staví **slovník frekvencí** slov a seznam $n$ nejčastějších slov.
+
+**Syntaktická analýza (sbírka 9.3):** gramatika popisující jazyk slouží k analýze, jejímž výsledkem je **syntaktický strom** struktury věty (podklad pro další zpracování). Knihovna NLTK přiděluje slovům značky nesoucí i **tvar slovesa** (základní, minulý čas `VBD`, příčestí minulé `VBN`, gerundium `VBG`, 3. osoba `VBZ`), takže lze gramatikou rozpoznat slovesný čas: *present simple* (`I speak`: VBP/VBZ), *present continuous* (`You are speaking`: am/is/are + VBG), *present perfect* (`He has spoken`: have/has + VBN), *past simple* (`We spoke`: VBD), *past continuous* (`They were speaking`: was/were + VBG), *past perfect* (`I had spoken`: had + VBN). Značky podle Penn Treebank, sbírka u úlohy řešení neuvádí.
+
 ## Mini příklad
 
 $S\to NP\,VP$, $NP\to Noun\mid Adj\,NP$, $VP\to Verb$; Noun → dítě | člověk | kapsa; Adj → starý | cestující | nové; Verb → píše | sedí | mluví.

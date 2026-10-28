@@ -151,5 +151,64 @@
     "hints": [
       "Kolik je kombinací hodnot?"
     ]
+  },
+  {
+    "id": "pb-table-marginal",
+    "type": "numeric",
+    "prompt": "Složené rozdělení Počasí (slunečno/déšť/sníh) × Zácpy × Zpoždění má při zácpách hodnoty: slunečno 0,15 (zpoždění) a 0,05 (bez), déšť 0,15 a 0,02, sníh 0,07 a 0,01. Čemu se rovná $P(\\text{zácpy})$?",
+    "answer": 0.45,
+    "tolerance": 1e-9,
+    "solution": "Sečteš všechny atomické události se zácpami: $0{,}15+0{,}05+0{,}15+0{,}02+0{,}07+0{,}01=0{,}45$.",
+    "hints": [
+      "Marginalizuj přes počasí a zpoždění."
+    ]
+  },
+  {
+    "id": "pb-table-cond",
+    "type": "numeric",
+    "prompt": "V téže tabulce platí pro déšť: zácpy&zpoždění 0,15, ¬zácpy&zpoždění 0,05, zácpy&¬zpoždění 0,02, ¬zácpy&¬zpoždění 0,08. Čemu se (zaokrouhleně) rovná $P(\\text{zácpy}\\mid\\text{déšť})$?",
+    "answer": 0.57,
+    "tolerance": 0.01,
+    "solution": "$P(\\text{déšť})=0{,}15+0{,}05+0{,}02+0{,}08=0{,}30$ a $P(\\text{zácpy},\\text{déšť})=0{,}17$, takže $0{,}17/0{,}30\\approx0{,}57$.",
+    "hints": [
+      "Podmíněná = společná / podmínka."
+    ]
+  },
+  {
+    "id": "pb-bayes-heat",
+    "type": "numeric",
+    "prompt": "Slunečno má pravděpodobnost 0,3, horko 0,1 a při horku je slunečno s pravděpodobností 0,9. Jaká je pravděpodobnost horka, pokud svítí slunce?",
+    "answer": 0.3,
+    "tolerance": 1e-9,
+    "solution": "Bayes: $P(h\\mid s)=\\dfrac{P(s\\mid h)P(h)}{P(s)}=\\dfrac{0{,}9\\cdot0{,}1}{0{,}3}=0{,}3$.",
+    "hints": [
+      "Použij $P(s\\mid h)$ a obrať podmínku."
+    ]
+  },
+  {
+    "id": "pb-valid-p",
+    "type": "choice",
+    "prompt": "Které přiřazení je pravděpodobnost nad $\\Omega=\\{\\text{rub},\\text{líc}\\}$ (hodnoty pro $\\emptyset$, $\\{\\text{rub}\\}$, $\\{\\text{líc}\\}$, $\\Omega$)?",
+    "options": [
+      "$0;\\ 0;\\ 1;\\ 1$",
+      "$0{,}3;\\ 0{,}3;\\ 0{,}7;\\ 1$",
+      "$0;\\ 0{,}2;\\ 0{,}7;\\ 1$",
+      "$0;\\ -0{,}2;\\ 1{,}2;\\ 1$"
+    ],
+    "answer": 0,
+    "solution": "První je cinknutá mince. Druhá má $P(\\emptyset)=0{,}3\\neq0$ (aditivita porušena), třetí má $0{,}2+0{,}7\\neq1$, čtvrtá záporné hodnoty.",
+    "hints": [
+      "Musí platit $P(\\emptyset)=0$ a $P(A)+P(\\bar A)=1$."
+    ]
+  },
+  {
+    "id": "pb-joint-size",
+    "type": "numeric",
+    "prompt": "Kolik hodnot má složené rozdělení pravděpodobnosti proměnné Počasí (3 hodnoty) a dvou booleovských proměnných?",
+    "answer": 12,
+    "solution": "Počet kombinací: $3\\cdot2\\cdot2=12$.",
+    "hints": [
+      "Vynásob počty hodnot."
+    ]
   }
 ]

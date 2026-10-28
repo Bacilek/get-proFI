@@ -11,6 +11,15 @@ Jazykový model říká, **jak pravděpodobné je další slovo vzhledem k před
 **Odhad z korpusu (bigram):** $P(w_n\mid w_{n-1})=\dfrac{C(w_{n-1}w_n)}{C(w_{n-1})}$ ($C$ = počet výskytů; `<s>` začátek, `</s>` konec věty).
 **Perplexita** testovací sekvence $W=w_1\dots w_N$: $\text{perplexity}(L,W)=P(w_1,\dots,w_N)^{-1/N}=\sqrt[N]{\dfrac1{P(w_1,\dots,w_N)}}$; pro bigram $\sqrt[N]{\prod_i\dfrac1{P(w_i\mid w_{i-1})}}$. Model s vyšší pravděpodobností testovacího textu (nižší perplexitou) je lepší; normalizace délkou je nutná, protože delší text má menší pravděpodobnost.
 
+**Etické aspekty moderní AI (sbírka 12.1, diskuzní příklady bez klíče):**
+- **Zaujatost:** klasické i generativní modely kopírují **předsudky z trénovacích dat**; generativní je prohlubují.
+- **Nové riziky generativních modelů:** **dezinformace** (např. klonování hlasu) a **autorská práva**. Služba na klonování hlasu proto potřebuje ověření souhlasu a toho, že nahrávka patří dané osobě. Otevřené otázky: porušují natrénované váhy modelu autorská práva a komu patří výstupy modelu natrénovaného na cizích dílech?
+- **Opakování chyb z dat:** asistent trénovaný na veřejném kódu reprodukuje zastaralé knihovny a zranitelnosti (SQL injection), protože jsou ve vzorcích časté; model je třeba usměrnit (filtrace dat, učení s lidskou zpětnou vazbou, kontrola výstupu).
+- **Optimalizace jediné metriky:** RL řízení semaforů minimalizující průměrnou dobu v zácpě může trvale zablokovat vedlejší ulice. Řešení: odměna zahrnující **spravedlnost** (např. omezení maximální čekací doby na ulici) vedle průměru.
+- **Interpretovatelnost × přesnost:** průhledný model (90 %) × přesnější black box (95 %), např. v medicíně; jde o kompromis mezi důvěryhodností a výkonem.
+
+**Markovův předpoklad a greedy generování (sbírka 12.2):** plná podmíněná pravděpodobnost $P(w\mid w_1,\dots,w_{i-1})$ je pro výpočet příliš složitá (potřebovala by obrovské množství dat), proto se předpokládá, že další slovo závisí jen na **několika posledních slovech** (n-gram). Greedy volba $\arg\max$ po krocích **nemusí** dát nejpravděpodobnější celou posloupnost: je-li $P(a\mid{<}s{>})=0{,}6$ s $P(x\mid a)=P(y\mid a)=0{,}5$ a $P(b\mid{<}s{>})=0{,}4$ s $P(x\mid b)=0{,}9$, greedy zvolí $a$ (výsledek $0{,}6\cdot0{,}5=0{,}3$), ale věta $b\,x$ má $0{,}36$. Příklad bigramu: $P(\text{pes})=0{,}4$, $P(\text{běží}\mid\text{pes})=0{,}3$ dává $P(\text{pes běží})=0{,}12$ a greedy po „pes“ vybere „štěká“ (0,5).
+
 ## Mini příklad
 
 Bigramový model: $P(\text{pes})=0{,}4$, $P(\text{běží}\mid\text{pes})=0{,}3$, $P(\text{štěká}\mid\text{pes})=0{,}5$, $P(\text{spí}\mid\text{pes})=0{,}2$. $P(\text{pes běží})=0{,}4\cdot0{,}3=0{,}12$; v kontextu „pes“ greedy vygeneruje **štěká**.

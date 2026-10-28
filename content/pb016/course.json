@@ -287,7 +287,7 @@
       "lessons": [
         {
           "id": "pb016:grammars",
-          "title": "Bezkontextové gramatiky, pokrytí a přesnost",
+          "title": "Předzpracování textu, gramatiky, syntaktická analýza",
           "week": 9,
           "prerequisites": [
             "pb016:ai-intro"
@@ -304,7 +304,7 @@
       "lessons": [
         {
           "id": "pb016:decision-trees",
-          "title": "Rozhodovací stromy, entropie, informační zisk",
+          "title": "Úvod do strojového učení, rozhodovací stromy, entropie",
           "week": 10,
           "prerequisites": [
             "pb016:probability-bayes"
@@ -315,7 +315,7 @@
         },
         {
           "id": "pb016:perceptron",
-          "title": "Perceptron a lineární klasifikace",
+          "title": "Perceptron, perceptronový algoritmus, lineární regrese",
           "week": 10,
           "prerequisites": [],
           "topics": [
@@ -341,7 +341,7 @@
       "lessons": [
         {
           "id": "pb016:language-models",
-          "title": "Jazykové modely, n-gramy, perplexita",
+          "title": "Jazykové modely, n-gramy, perplexita, etika AI",
           "week": 12,
           "prerequisites": [
             "pb016:probability-bayes"

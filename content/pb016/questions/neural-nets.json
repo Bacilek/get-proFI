@@ -170,5 +170,41 @@
     "hints": [
       "Dosaď $e^0=1$."
     ]
+  },
+  {
+    "id": "nn-threshold-fn",
+    "type": "numeric",
+    "prompt": "Prahová funkce $P(x)=1$ pro $x\\ge0$, jinak 0. Funkce $f(x)=P(x)+P(1-x)-1$. Čemu se rovná $f(0{,}5)+f(2)+f(-1)$?",
+    "answer": 1,
+    "solution": "$f(0{,}5)=1+1-1=1$, $f(2)=1+0-1=0$, $f(-1)=0+1-1=0$. Funkce je 1 na $[0,1]$ a jinde 0, součet 1.",
+    "hints": [
+      "Spočítej každý člen zvlášť."
+    ]
+  },
+  {
+    "id": "nn-chain-rule",
+    "type": "numeric",
+    "prompt": "Síť $x_1\\to n_1\\to n_2$ s $E=\\tfrac12(a_2-y_{exp})^2$, lineárními jednotkami ($g^{\\prime}=1$), $w_2=3$, $x_1=2$, $a_2-y_{exp}=-0{,}5$. Čemu se rovná $\\partial E/\\partial w_1$?",
+    "answer": -3,
+    "solution": "$\\partial E/\\partial w_1=\\dfrac{\\partial E}{\\partial a_2}\\,g_2^{\\prime}\\,w_2\\,g_1^{\\prime}\\,x_1=(-0{,}5)\\cdot1\\cdot3\\cdot1\\cdot2=-3$. Záporná derivace znamená, že zvýšením $w_1$ chyba klesne.",
+    "hints": [
+      "$\\partial E/\\partial a_2=a_2-y_{exp}$."
+    ]
+  },
+  {
+    "id": "nn-softmax-est",
+    "type": "choice",
+    "prompt": "S aproximací $e\\approx3$ odhadni $\\text{softmax}(1,3,2)$.",
+    "options": [
+      "přibližně $(0{,}1;\\,0{,}75;\\,0{,}25)$",
+      "$(\\tfrac13,\\tfrac13,\\tfrac13)$",
+      "$(0;\\,1;\\,0)$",
+      "$(0{,}5;\\,0{,}3;\\,0{,}2)$"
+    ],
+    "answer": 0,
+    "solution": "Poměr $e^1:e^3:e^2\\approx3:27:9=1:9:3$, zaokrouhlená normalizace dá zhruba $(0{,}1;0{,}75;0{,}25)$. Přesně $(0{,}090;0{,}665;0{,}245)$.",
+    "hints": [
+      "Spočítej poměr mocnin $e$."
+    ]
   }
 ]

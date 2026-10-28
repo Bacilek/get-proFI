@@ -15,6 +15,14 @@ Když o světě víme jen neúplně, používáme **pravděpodobnost**: číslo 
 
 **Bayesovská síť:** acyklický orientovaný graf; uzly = náhodné proměnné; hrana $A\to B$: $A$ je **rodič** (přímý vliv na) $B$; u každého uzlu tabulka $P(X_i\mid\text{Parents}(X_i))$. Konstrukce: uzly se přidávají postupně, pro nový uzel se hledá **minimální** množina rodičů z dosavadních uzlů s $P(X_i\mid\text{Parents})=P(X_i\mid X_1,\dots,X_{i-1})$. Pořadí je libovolné, ale **příčiny před následky** dávají kompaktnější síť. Společné rozdělení: $P(X_1,\dots,X_n)=\prod_iP(X_i\mid\text{Parents}(X_i))$.
 
+**Doplňky ze sbírky (8.3):**
+- **Nejistota:** vedle pravděpodobnosti se používají **nemonotónní logiky** (výchozí výroky platí, dokud nejsou vyvráceny).
+- **Kdy je $P$ pravděpodobnost:** musí splňovat $P(\Omega)=1$, aditivitu pro disjunktní jevy a hodnoty v $[0,1]$. Z toho plyne $P(\emptyset)=0$ a $P(\Omega\setminus A)=1-P(A)$. Funkce na $\Omega=\{\text{rub},\text{líc}\}$ je neplatná, když $P(\{\text{rub}\})+P(\{\text{líc}\})\neq1$, má zápornou hodnotu, nebo $P(\emptyset)\neq0$. Platná je i degenerovaná $\{\text{rub}\mapsto0,\text{líc}\mapsto1\}$ (cinknutá mince).
+- **Náhodná proměnná** přiřazuje výsledkům čísla, např. při 4 hodech mincí: „v každém hodu líc“ (booleovská) a „počet líců“ ($\{0,\dots,4\}$); $P(X=a)=P(\{\omega\mid X(\omega)=a\})$. **Rozdíl:** $P(\text{prší})$ je číslo, $P(\text{Prší})$ je celé rozdělení (pro 0,3: hodnota 0,3 pro „prší“, 0,7 pro „neprší“).
+- **Počet hodnot složeného rozdělení:** pro $n$ booleovských proměnných $2^n$ (dvě proměnné: 4); pro proměnnou s $k$ hodnotami a $m$ booleovských $k\cdot2^m$. Slouží k výpočtu libovolné pravděpodobnosti jako **součtu** pravděpodobností atomických událostí splňujících podmínku.
+- **Podmíněné rozdělení z tabulky:** omez se na řádky splňující podmínku a **normalizuj** jejich součtem. Např. $P(\text{zácpy}\mid\text{déšť})=\dfrac{0{,}15+0{,}02}{0{,}15+0{,}05+0{,}02+0{,}08}\approx0{,}57$.
+- **Slunečno/horko:** $P(s)=0{,}3$, $P(h)=0{,}1$, $P(s\mid h)=0{,}9$: $P(s\wedge h)=0{,}9\cdot0{,}1=0{,}09$; $P(s\wedge\neg h)=0{,}3-0{,}09=0{,}21$; $P(h\mid s)=\dfrac{0{,}9\cdot0{,}1}{0{,}3}=0{,}3$.
+
 ## Mini příklad
 
 Nemoc má prevalenci 1 %, test je pozitivní u 90 % nemocných a u 5 % zdravých. $P(\text{nemoc}\mid+)=\dfrac{0{,}9\cdot0{,}01}{0{,}9\cdot0{,}01+0{,}05\cdot0{,}99}=\dfrac{0{,}009}{0{,}0585}\approx0{,}154$ – i po pozitivním testu je pravděpodobnost jen ≈ 15 %.

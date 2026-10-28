@@ -51,3 +51,28 @@ Dnes (28. 10.) je týden 7; slidy jsou jen uui01–06. Lekce př. 7–12 vznikly
 - Slidy přednášek 7–12 (inference/rezoluce, reprezentace znalostí, NLP, strojové učení, hluboké učení, generativní modely).
 - Materiály po týdnech řeší pole `materials` (viz výše), ne openItems. ROPOTs od 04 dál: složka `ROPOTs` je prázdná, po nahrání převést na `choice` otázky.
 - Připomínat každý týden: nové soubory v ISu (slidy dalších přednášek, notebooky, ROPOTs).
+
+## Audit lekcí proti sbírce (28. 10. 2026)
+Sbírka (kap. 1–12 včetně klíče) byla znovu projita proti lekcím. Slidy uui01–06 jsou smazané a nově je nešlo ověřit, proto je tento seznam jediná stopa po tom, co je pokryto.
+
+| kap. sbírky | lekce | stav |
+|---|---|---|
+| 1.1 Turing, diskuzní příklady 1.1.x | ai-intro | doplněno (čínský pokoj, Turingův seznam, Evans, racionalita, prostředí); příklady 1.1.1–1.1.4 jsou diskuzní, bez klíče |
+| 1.2 Řešení problémů (1.2.1–1.2.3) | problem-formulation | doplněno (sudoku, přiřazení, batoh, 3 v řadě, optimalizační ano/ne); 1.2.4–1.2.5 jsou implementace (cvičení) |
+| 2.1–2.2 | problem-formulation, uninformed-search | doplněno (n dam jako graf, posunovačka d≤31, piškvorky) |
+| 2.3 Neinformované | uninformed-search | doplněno (binární cesta 2k/2k+1, limit DLS, DFS×BFS) |
+| 2.4 Heuristické | informed-search, heuristics, dijkstra | doplněno (best-first speciální případy, tree×graph search, greedy skáče, součet/max heuristik, věž/král/jezdec) |
+| 3.1 AND/OR | and-or-graphs | doplněno (integrál, listy jako AND/OR, bipartitní tvar, Hanoj) |
+| 3.2 CSP | csp | doplněno (typová inference, kouzelný/latinský čtverec, algebrogram, zebra, figury, stavový graf) |
+| 4.1–4.3 Hry | minimax, alpha-beta, games-advanced | doplněno (co jde modelovat, složitost, minimax ⊇ AND/OR, worst case, transformace listů, uzly náhody) |
+| 5 Výroková logika, NF, spojky | propositional, normal-forms, logic-agent | doplněno (syntax, vyplývání, monotónie, počty formulí/spojek, {¬,⇒}, ÚKNF triky) |
+| 6 PL1 | fol-basics, fol-forms | doplněno (jazyk, volné/vázané, hodnota termu, pořadí kvantifikátorů, tautologie); Skolem a PNF už byly |
+| 7 Rezoluce, SLD, unifikace, Prolog | resolution, resolution-fol | bylo kompletní (lekce vznikly ze sbírky) |
+| 8.1–8.2 Ontologie, sém. sítě, rámce | knowledge-repr | beze změny (nekontrolováno do hloubky) |
+| 8.3–8.4 Pravděpodobnost, Bayes | probability-bayes | doplněno (axiomy, tabulka složeného rozdělení, podmíněné z tabulky); 8.4 bez změny |
+| 9.1, 9.3 Předzpracování, syntaktická analýza | grammars | doplněno (9.3.1 sbírka řešení neuvádí, značky Penn Treebank jsou z mé znalosti) |
+| 10 ML úvod, 10.1–10.5 | decision-trees, perceptron | doplněno (typy učení, konzistentní strom, perceptronový algoritmus, lineární regrese) |
+| 11 Neuronové sítě | neural-nets | doplněno (funkce z P/ReLU, řetězové pravidlo, online algoritmus, softmax odhadem); CNN ve sbírce není |
+| 12.1 Etika, 12.2–12.3 | language-models | doplněno (etika jako diskuzní příklady bez klíče, Markov, greedy není optimum) |
+
+Zbývá: porovnat se slidy 7–12 (zatím nejsou), příklady 8.1.x–8.2.x (ontologie, sémantické sítě) a 8.4.x projít stejně podrobně jako ostatní kapitoly, číslované příklady kap. 1–6 lze dál převádět na další otázky.

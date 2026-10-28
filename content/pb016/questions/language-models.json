@@ -148,5 +148,90 @@
     "hints": [
       "Čitatel odhadu je nula."
     ]
+  },
+  {
+    "id": "eth-reward",
+    "type": "choice",
+    "prompt": "RL agent řídí semafory a minimalizuje průměrnou dobu v zácpě. Vyjde strategie, která trvale blokuje vedlejší ulice. Jak upravit odměnu?",
+    "options": [
+      "Přidat do odměny spravedlnost, např. penalizaci maximální čekací doby na kterékoli ulici.",
+      "Zvýšit učicí konstantu.",
+      "Přidat další hlavní silnice.",
+      "Odstranit odměnu a nechat ji náhodnou."
+    ],
+    "answer": 0,
+    "solution": "Problém je v optimalizaci jediné metriky (průměr). Metrika, která zahrnuje i nejhůře postiženou ulici, zabrání zanedbání menšin při minimální ztrátě efektivity.",
+    "hints": [
+      "Průměr skrývá extrémy."
+    ]
+  },
+  {
+    "id": "eth-risks",
+    "type": "multi",
+    "prompt": "Které problémy podle sbírky souvisejí s generativními modely? Označ všechny.",
+    "options": [
+      "kopírování zaujatosti z trénovacích dat",
+      "vytváření dezinformací",
+      "zásahy do autorských práv",
+      "garantovaná správnost každého výstupu",
+      "plná průhlednost interního fungování"
+    ],
+    "answers": [
+      0,
+      1,
+      2
+    ],
+    "solution": "Model opakuje předsudky dat, snadno vytváří věrohodné dezinformace a otevírá otázky autorských práv. Správnost ani průhlednost nikdo negarantuje.",
+    "hints": [
+      "Které body jsou rizika a které by byly výhody?"
+    ]
+  },
+  {
+    "id": "eth-blackbox",
+    "type": "choice",
+    "prompt": "V nemocnici vybíráš mezi průhledným modelem s 90 % úspěšností a black boxem s 95 %. Co je správný závěr podle diskuze ve sbírce?",
+    "options": [
+      "Jde o etický kompromis mezi přesností a ověřitelností, jednoznačně správná odpověď neexistuje.",
+      "Vždy black box, protože je přesnější.",
+      "Vždy průhledný model, přesnost nehraje roli.",
+      "Obě varianty jsou neetické."
+    ],
+    "answer": 0,
+    "solution": "Příklad je diskuzní: transparentnost umožňuje ověřit a obhájit rozhodnutí, vyšší přesnost zachrání víc pacientů. Rozhodnutí závisí na kontextu a rizicích.",
+    "hints": [
+      "Co je v nemocnici důležitější: přesnost, nebo schopnost ověřit?"
+    ]
+  },
+  {
+    "id": "lm-greedy-not-max",
+    "type": "choice",
+    "prompt": "Je $P(a\\mid{<}s{>})=0{,}6$, $P(x\\mid a)=0{,}5$, $P(y\\mid a)=0{,}5$, $P(b\\mid{<}s{>})=0{,}4$, $P(x\\mid b)=0{,}9$. Co udělá greedy generování a je to nejpravděpodobnější věta?",
+    "options": [
+      "Zvolí $a\\,x$ (0,3), ale $b\\,x$ (0,36) je pravděpodobnější.",
+      "Zvolí $b\\,x$, které je nejpravděpodobnější.",
+      "Zvolí $a\\,x$, které je nejpravděpodobnější.",
+      "Zvolí $a\\,y$."
+    ],
+    "answer": 0,
+    "solution": "Greedy bere v každém kroku nejpravděpodobnější slovo: $a$ (0,6), pak $x$ nebo $y$ (0,5), celkem 0,3. Věta $b\\,x$ má $0{,}4\\cdot0{,}9=0{,}36$.",
+    "hints": [
+      "Spočítej obě celé věty."
+    ]
+  },
+  {
+    "id": "lm-markov",
+    "type": "choice",
+    "prompt": "Proč se u jazykových modelů používá Markovův předpoklad (n-gramy)?",
+    "options": [
+      "Plná podmíněná pravděpodobnost na celém kontextu by vyžadovala obrovské množství dat a výpočtů.",
+      "Protože slova na sobě skutečně nezávisí.",
+      "Aby model vždy našel nejpravděpodobnější větu.",
+      "Aby se zabránilo zaujatosti dat."
+    ],
+    "answer": 0,
+    "solution": "N-gram omezí kontext na $n-1$ posledních slov, takže pravděpodobnosti jdou odhadnout z rozumně velkého korpusu. Předpoklad je zjednodušení, slova nezávislá nejsou.",
+    "hints": [
+      "Kolik různých kontextů existuje u dlouhých vět?"
+    ]
   }
 ]

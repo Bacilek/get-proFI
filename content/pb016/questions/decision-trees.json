@@ -131,5 +131,69 @@
     "hints": [
       "Co dělá model na nových datech?"
     ]
+  },
+  {
+    "id": "ml-task-types",
+    "type": "choice",
+    "prompt": "Která úloha je **regrese**?",
+    "options": [
+      "odhad zítřejší teploty ze snímků radaru",
+      "rozhodnutí, zda e-mail je spam",
+      "rozdělení zákazníků do skupin bez předem daných tříd",
+      "výběr nejlepší akce robota podle odměn"
+    ],
+    "answer": 0,
+    "solution": "Regrese predikuje spojitou veličinu (teplotu). Spam je klasifikace, rozdělení do skupin shlukování (bez učitele), akce podle odměn zpětnovazebné učení.",
+    "hints": [
+      "Výstup je spojité číslo, nebo třída?"
+    ]
+  },
+  {
+    "id": "ml-supervised",
+    "type": "choice",
+    "prompt": "Které učení je **s učitelem**?",
+    "options": [
+      "Známe pro trénovací příklady očekávané výstupy.",
+      "Model hledá vzory bez jakýchkoli výstupů.",
+      "Agent dostává odměnu nebo trest za akce.",
+      "Model se učí jen na datech bez značek."
+    ],
+    "answer": 0,
+    "solution": "S učitelem = označená data (vstup i očekávaný výstup). Bez učitele hledá vzory, zpětnovazebné učení využívá odměnu/trest.",
+    "hints": [
+      "Co je „učitel“?"
+    ]
+  },
+  {
+    "id": "dt-no-consistent",
+    "type": "choice",
+    "prompt": "Dataset obsahuje dva příklady se stejnými hodnotami všech atributů, ale s různou třídou. Existuje strom konzistentní s datasetem?",
+    "options": [
+      "Ne, žádný strom nemůže oba příklady klasifikovat správně.",
+      "Ano, stačí dostatečně hluboký strom.",
+      "Ano, stačí přidat další atribut.",
+      "Jen pokud je strom binární."
+    ],
+    "answer": 0,
+    "solution": "Strom přiřadí stejnému vstupu vždy stejnou třídu, takže jeden z obou příkladů klasifikuje špatně.",
+    "hints": [
+      "Strom je funkce z atributů na třídu."
+    ]
+  },
+  {
+    "id": "dt-extra-attribute",
+    "type": "choice",
+    "prompt": "Strom testuje jen Vlhkost, Počasí a Větrno. Můžeš ho použít na příklady s dalším atributem Teplota?",
+    "options": [
+      "Ano, výsledek na Teplotě nezávisí.",
+      "Ne, atribut Teplota chybí ve stromu.",
+      "Ano, ale musí se přidat kořen.",
+      "Jen pokud je Teplota binární."
+    ],
+    "answer": 0,
+    "solution": "Strom se rozhoduje jen podle atributů, které testuje; ostatní ignoruje.",
+    "hints": [
+      "Co strom při klasifikaci čte?"
+    ]
   }
 ]

@@ -134,5 +134,37 @@
     "hints": [
       "Vypiš pár odvozených slov."
     ]
+  },
+  {
+    "id": "gr-tense",
+    "type": "choice",
+    "prompt": "Která posloupnost značek NLTK odpovídá **present perfect** („He has spoken“)?",
+    "options": [
+      "have/has + příčestí minulé (VBN)",
+      "am/is/are + gerundium (VBG)",
+      "was/were + gerundium (VBG)",
+      "had + příčestí minulé (VBN)"
+    ],
+    "answer": 0,
+    "solution": "Present perfect = have/has + VBN. Present continuous = am/is/are + VBG, past continuous = was/were + VBG, past perfect = had + VBN.",
+    "hints": [
+      "Rozliš pomocné sloveso a tvar plnovýznamového."
+    ]
+  },
+  {
+    "id": "gr-normalize",
+    "type": "choice",
+    "prompt": "Při tvorbě frekvenčního slovníku se „Ale“, „ALE“ a „ale“ mají započítat pod jednu položku. Který krok předzpracování to zajišťuje?",
+    "options": [
+      "normalizace (např. převod na malá písmena / základní tvar)",
+      "segmentace na věty",
+      "odstranění HTML značek",
+      "tokenizace"
+    ],
+    "answer": 0,
+    "solution": "Normalizace sjednocuje různé podoby téhož slova. Segmentace dělí na věty, tokenizace na slova, očištění odstraňuje značky.",
+    "hints": [
+      "Který krok řeší velikost písmen?"
+    ]
   }
 ]

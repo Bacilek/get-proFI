@@ -95,5 +95,97 @@
     "hints": [
       "Nakresli čtyři body do roviny."
     ]
+  },
+  {
+    "id": "pc-algo-step",
+    "type": "choice",
+    "prompt": "Perceptron $\\vec w=\\langle0,1,-1\\rangle$ ($w_0=0$), příklad $\\vec x=\\langle-1,0\\rangle$ má mít třídu 1, $\\alpha=1$. Jaké budou váhy po jednom kroku perceptronového algoritmu?",
+    "options": [
+      "$\\langle1,0,-1\\rangle$",
+      "$\\langle-1,2,-1\\rangle$",
+      "$\\langle0,1,-1\\rangle$ (beze změny)",
+      "$\\langle1,2,-1\\rangle$"
+    ],
+    "answer": 0,
+    "solution": "$\\tilde x=\\langle1,-1,0\\rangle$, $\\vec w\\cdot\\tilde x=-1<0\\Rightarrow$ výstup 0, má být 1, takže $\\vec w\\leftarrow\\vec w+\\alpha\\tilde x=\\langle1,0,-1\\rangle$.",
+    "hints": [
+      "Spočítej výstup perceptronu a porovnej s požadovanou třídou.",
+      "Chybný výstup 0 při požadavku 1: váhy se přičtou."
+    ]
+  },
+  {
+    "id": "pc-algo-final-w0",
+    "type": "numeric",
+    "prompt": "Trénovací množina $D=\\{(\\langle3,-1\\rangle,1),(\\langle2,1\\rangle,1),(\\langle0,3\\rangle,0)\\}$, $\\vec w^{(0)}=\\langle0,-2,1\\rangle$, $\\alpha=1$. Algoritmus doběhne k váhám $\\langle w_0,w_1,w_2\\rangle$. Čemu se rovná $w_0$?",
+    "answer": 1,
+    "solution": "Kroky: $\\vec w^{(1)}=\\langle1,1,0\\rangle$ (1. příklad chybně), 2. v pořádku, $\\vec w^{(3)}=\\langle0,1,-3\\rangle$ (3. příklad chybně), 1. v pořádku, $\\vec w^{(5)}=\\langle1,3,-2\\rangle$ (2. příklad chybně). Pak už vše konzistentní, takže $w_0=1$.",
+    "hints": [
+      "Při každé chybě přičítej nebo odčítej $\\tilde x=\\langle1,x_1,x_2\\rangle$."
+    ]
+  },
+  {
+    "id": "pc-converge",
+    "type": "choice",
+    "prompt": "Perceptronový algoritmus běží na datech, která nejsou lineárně separovatelná (např. ekvivalence dvou bitů). Co se stane?",
+    "options": [
+      "Nezkonverguje, váhy cyklí.",
+      "Zkonverguje k nejlepší možné přímce.",
+      "Skončí hned po prvním průchodu.",
+      "Zkonverguje, jen pomaleji."
+    ],
+    "answer": 0,
+    "solution": "Algoritmus je zaručeně konzistentní jen pro lineárně separovatelná data. Jinak vždy zbude chybně klasifikovaný příklad a váhy se mění pořád dokola.",
+    "hints": [
+      "Může existovat nadrovina, která správně oddělí všechny příklady?"
+    ]
+  },
+  {
+    "id": "pc-separable",
+    "type": "choice",
+    "prompt": "Který klasifikátor jde implementovat jedním perceptronem? (vstupy $x_1,x_2$ z $\\{1..5\\}$)",
+    "options": [
+      "1, pokud $x_1+x_2\\ge8$",
+      "1, pokud $x_1=x_2$",
+      "XOR bitů",
+      "1, pokud je aspoň jeden vstup roven 2 (vstupy z $\\{0,1,2\\}$)"
+    ],
+    "answer": 0,
+    "solution": "Součet je lineární funkce, např. $\\vec w=\\langle-8,1,1\\rangle$. Rovnost a XOR ani „aspoň jedno rovno 2“ lineárně separovat nelze (střed dvou bodů třídy 1 leží ve třídě 0).",
+    "hints": [
+      "Dá se třídy oddělit přímkou?"
+    ]
+  },
+  {
+    "id": "lr-error",
+    "type": "numeric",
+    "prompt": "Lineární model $R(x)=9{,}2+0{,}8x$ a data $D=\\{(43,41),(44,45),(45,49),(46,47),(47,44)\\}$. Jaká je kvadratická chyba $E=\\tfrac12\\sum(R(x_k)-f_k)^2$?",
+    "answer": 15.2,
+    "tolerance": 0.000001,
+    "solution": "Čtverce chyb: $(9{,}2+34{,}4-41)^2=6{,}76$; $0{,}36$; $14{,}44$; $1$; $7{,}84$. Součet $30{,}4$, polovina $15{,}2$.",
+    "hints": [
+      "Spočítej $R(x_k)$ pro každý příklad."
+    ]
+  },
+  {
+    "id": "lr-predict",
+    "type": "numeric",
+    "prompt": "S modelem $R(x)=9{,}2+0{,}8x$: jaká je predikce pro $x=40$?",
+    "answer": 41.2,
+    "tolerance": 0.000001,
+    "solution": "$9{,}2+0{,}8\\cdot40=41{,}2$.",
+    "hints": [
+      "Dosaď do modelu."
+    ]
+  },
+  {
+    "id": "lr-error2",
+    "type": "numeric",
+    "prompt": "Dataset $D=\\{(\\langle3,5\\rangle,13),(\\langle6,8\\rangle,22)\\}$ a model s váhami $\\vec w=\\langle3,1,2\\rangle$ ($w_0=3$). Čemu se rovná $E=\\tfrac12\\sum(R(\\vec x_k)-f_k)^2$?",
+    "answer": 9,
+    "tolerance": 0.000001,
+    "solution": "Predikce: $3+3+10=16$ (chyba 3) a $3+6+16=25$ (chyba 3). $E=\\tfrac12(9+9)=9$. Změna $w_0=0$ dá $E=0$.",
+    "hints": [
+      "Spočítej oba rozdíly."
+    ]
   }
 ]
