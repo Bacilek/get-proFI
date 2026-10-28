@@ -1,0 +1,104 @@
+[
+  {
+    "id": "nonneg-ratio-limit",
+    "type": "numeric",
+    "prompt": "Pro řadu $\\displaystyle\\sum_{n=1}^\\infty\\frac{n!}{n^n}$ určete limitu podílu $\\displaystyle q=\\lim\\frac{a_{n+1}}{a_n}$ (na 3 desetinná místa).",
+    "answer": 0.368,
+    "tolerance": 0.001,
+    "solution": "$\\frac{a_{n+1}}{a_n}=\\frac{n^n}{(n+1)^n}=\\frac{1}{(1+1/n)^n}\\to\\frac1e\\approx0{,}368<1$, řada konverguje."
+  },
+  {
+    "id": "nonneg-root-limit",
+    "type": "numeric",
+    "prompt": "Pro řadu $\\displaystyle\\sum_{n=1}^\\infty\\left(\\frac{n}{2n+1}\\right)^n$ určete $\\displaystyle q=\\lim\\sqrt[n]{a_n}$ (na 3 desetinná místa).",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "$\\sqrt[n]{a_n}=\\frac{n}{2n+1}\\to\\frac12<1$, řada konverguje."
+  },
+  {
+    "id": "nonneg-root-n-over-n2",
+    "type": "numeric",
+    "prompt": "Pro řadu $\\displaystyle\\sum_{n=1}^\\infty\\frac{2^n}{n^2}$ určete $\\displaystyle q=\\lim\\sqrt[n]{a_n}$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$\\sqrt[n]{a_n}=\\frac{2}{(\\sqrt[n]{n})^2}\\to\\frac{2}{1}=2>1$, řada diverguje k $\\infty$ (také $a_n\\not\\to0$)."
+  },
+  {
+    "id": "nonneg-ratio-factorial",
+    "type": "choice",
+    "prompt": "Co dá podílové kritérium pro $\\displaystyle\\sum_{n=0}^\\infty\\frac{5^n}{n!}$?",
+    "options": [
+      "$q=\\lim\\frac{5}{n+1}=0<1$, konverguje",
+      "$q=5>1$, diverguje",
+      "$q=1$, nelze rozhodnout",
+      "Limita neexistuje"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{a_{n+1}}{a_n}=\\frac{5^{n+1}\\,n!}{(n+1)!\\,5^n}=\\frac{5}{n+1}\\to0$."
+  },
+  {
+    "id": "nonneg-ratio-exp-over-power",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{3^n}{n^2}$:",
+    "options": [
+      "diverguje: podíl $\\to3>1$ (také $a_n\\to\\infty$)",
+      "konverguje, protože $\\frac1{n^2}$ konverguje",
+      "konverguje: podíl $\\to\\frac13$",
+      "nelze rozhodnout, $q=1$"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{a_{n+1}}{a_n}=3\\frac{n^2}{(n+1)^2}\\to3>1$."
+  },
+  {
+    "id": "nonneg-p-series",
+    "type": "choice",
+    "prompt": "Která z řad konverguje?",
+    "options": [
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n\\sqrt n}$",
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{\\sqrt n}$",
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n}$",
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{n}{n+1}$"
+    ],
+    "answer": 0,
+    "solution": "$\\frac1{n\\sqrt n}=\\frac1{n^{3/2}}$, $p=\\frac32>1$. $\\frac1{\\sqrt n}$ má $p=\\frac12$, $\\frac1n$ má $p=1$ a $\\frac{n}{n+1}\\to1\\neq0$: všechny divergují."
+  },
+  {
+    "id": "nonneg-comparison",
+    "type": "choice",
+    "prompt": "Proč konverguje $\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n^2+1}$?",
+    "options": [
+      "$\\frac{1}{n^2+1}\\le\\frac{1}{n^2}$ a $\\sum\\frac1{n^2}$ konverguje",
+      "$\\frac{1}{n^2+1}\\ge\\frac{1}{n^2}$ a $\\sum\\frac1{n^2}$ konverguje",
+      "$\\frac{1}{n^2+1}\\le\\frac{1}{n}$ a $\\sum\\frac1n$ konverguje",
+      "podílové kritérium dává $q<1$"
+    ],
+    "answer": 0,
+    "solution": "Majoranta je konvergentní $\\sum\\frac{1}{n^2}$ ($p=2$). Podílové dává $q=1$, $\\sum\\frac1n$ diverguje."
+  },
+  {
+    "id": "nonneg-integral",
+    "type": "choice",
+    "prompt": "Řadu $\\displaystyle\\sum_{n=2}^\\infty\\frac{1}{n\\ln n}$ posuďte integrálním kritériem. Jaký je závěr?",
+    "options": [
+      "Diverguje: $\\int_2^\\infty\\frac{\\mathrm{d}x}{x\\ln x}=[\\ln\\ln x]_2^\\infty=\\infty$",
+      "Konverguje: $\\int_2^\\infty\\frac{\\mathrm{d}x}{x\\ln x}$ konverguje",
+      "Konverguje, protože $\\frac1{n\\ln n}\\le\\frac1n$",
+      "Podílové kritérium dává $q<1$"
+    ],
+    "answer": 0,
+    "solution": "$f(x)=\\frac1{x\\ln x}$ je kladná a klesající, substituce $t=\\ln x$ dává $\\ln\\ln x\\to\\infty$. Nerovnost $\\le\\frac1n$ nevede k závěru (divergentní majoranta)."
+  },
+  {
+    "id": "nonneg-undecidable",
+    "type": "choice",
+    "prompt": "U řady $\\sum a_n$ vyšlo $\\lim\\frac{a_{n+1}}{a_n}=1$. Co z toho plyne?",
+    "options": [
+      "Nic: může konvergovat ($\\sum\\frac1{n^2}$) i divergovat ($\\sum\\frac1n$)",
+      "Řada konverguje",
+      "Řada diverguje",
+      "Řada osciluje"
+    ],
+    "answer": 0,
+    "solution": "Pro $q=1$ je kritérium nerozhodnutelné; použij srovnání nebo integrální kritérium."
+  }
+]
