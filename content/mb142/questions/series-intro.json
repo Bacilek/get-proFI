@@ -1,0 +1,89 @@
+[
+  {
+    "id": "seriesintro-geom-2over3",
+    "type": "numeric",
+    "prompt": "Určete součet $\\displaystyle\\sum_{n=0}^\\infty\\left(\\frac23\\right)^n$.",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "$a=1$, $q=\\frac23$: $\\frac{1}{1-\\frac23}=3$."
+  },
+  {
+    "id": "seriesintro-geom-alt",
+    "type": "numeric",
+    "prompt": "Určete součet $\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^n}{3^n}$ (na 3 desetinná místa).",
+    "answer": 0.75,
+    "tolerance": 0.001,
+    "solution": "$q=-\\frac13$, $a=1$: $\\frac{1}{1+\\frac13}=\\frac34=0{,}75$."
+  },
+  {
+    "id": "seriesintro-geom-shifted",
+    "type": "numeric",
+    "prompt": "Určete součet $\\displaystyle\\sum_{n=2}^\\infty 3\\left(\\frac14\\right)^n$ (na 3 desetinná místa).",
+    "answer": 0.25,
+    "tolerance": 0.001,
+    "solution": "První člen (pro $n=2$) je $\\frac{3}{16}$, $q=\\frac14$: $\\frac{3/16}{3/4}=\\frac14$. Nebo: celá řada od $0$ dává $4$, odečti $3+\\frac34=\\frac{15}{4}$: $\\frac14$."
+  },
+  {
+    "id": "seriesintro-sum-of-geoms",
+    "type": "numeric",
+    "prompt": "Určete součet $\\displaystyle\\sum_{n=0}^\\infty\\frac{3^n-1}{6^n}$ (na 3 desetinná místa).",
+    "answer": 0.8,
+    "tolerance": 0.001,
+    "solution": "$\\sum(\\frac12)^n-\\sum(\\frac16)^n=2-\\frac65=\\frac45=0{,}8$ (obě řady konvergují, smíme rozdělit)."
+  },
+  {
+    "id": "seriesintro-telescope",
+    "type": "numeric",
+    "prompt": "Určete součet $\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n(n+1)}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$\\frac1{n(n+1)}=\\frac1n-\\frac1{n+1}$, $s_n=1-\\frac1{n+1}\\to1$."
+  },
+  {
+    "id": "seriesintro-ball",
+    "type": "numeric",
+    "prompt": "Míček spustíme z výšky $3$ m. Po každém dopadu se odrazí do poloviny předchozí výšky. Jakou celkovou dráhu urazí při nekonečně mnoha odrazech (v metrech)?",
+    "answer": 9,
+    "tolerance": 0.001,
+    "solution": "$s=a\\frac{1+q}{1-q}=3\\cdot\\frac{1.5}{0.5}=9$. Dolů $3+\\frac32+\\dots=6$, nahoru $\\frac32+\\frac34+\\dots=3$."
+  },
+  {
+    "id": "seriesintro-necessary",
+    "type": "choice",
+    "prompt": "Která řada diverguje podle nutné podmínky konvergence ($\\lim a_n\\neq0$)?",
+    "options": [
+      "$\\displaystyle\\sum_{n=0}^\\infty\\frac{n}{2n+1}$",
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac1n$",
+      "$\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n^2}$",
+      "$\\displaystyle\\sum_{n=0}^\\infty\\left(\\frac12\\right)^n$"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{n}{2n+1}\\to\\frac12\\neq0$. U ostatních je $a_n\\to0$ (harmonická řada ale diverguje z jiného důvodu)."
+  },
+  {
+    "id": "seriesintro-harmonic",
+    "type": "choice",
+    "prompt": "Je pravda, že pokud $\\lim_{n\\to\\infty}a_n=0$, pak $\\sum a_n$ konverguje?",
+    "options": [
+      "Ne, protipříklad je harmonická řada $\\sum\\frac1n$",
+      "Ano, je to ekvivalence",
+      "Ano, ale jen pro kladné členy",
+      "Ne, protipříklad je geometrická řada s $q=\\frac12$"
+    ],
+    "answer": 0,
+    "solution": "Podmínka $a_n\\to0$ je jen nutná. $\\sum\\frac1n=\\infty$, i když $\\frac1n\\to0$. Geometrická řada s $q=\\frac12$ konverguje."
+  },
+  {
+    "id": "seriesintro-oscillate",
+    "type": "choice",
+    "prompt": "Řada $1-1+1-1+\\cdots=\\displaystyle\\sum_{n=0}^\\infty(-1)^n$",
+    "options": [
+      "osciluje (částečné součty $1,0,1,0,\\dots$)",
+      "konverguje k $0$",
+      "konverguje k $\\frac12$",
+      "diverguje k $\\infty$"
+    ],
+    "answer": 0,
+    "solution": "Geometrická řada s $q=-1$, $s_n\\in\\{1,0\\}$ střídavě, limita neexistuje."
+  }
+]

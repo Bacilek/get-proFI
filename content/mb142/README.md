@@ -21,7 +21,8 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 - `integral-theorems`: pdf s. 90–96 (tisk. 87–93, týden 7). Zdroj zatím nemazat (zbytek slidů se zpracovává).
 - `definite-integral-methods`: pdf s. 96–97 (tisk. 93–94: Newton–Leibniz, per partes, substituce; týden 7).
 - `integral-applications`: pdf s. 98–105 (tisk. 95–102: plocha mezi grafy, délka křivky/grafu, objem a plášť rotačního tělesa; těžiště jen zmíněno ve slidech).
-- `improper-integrals`: pdf s. 106–111 (tisk. 103–108, týden 8: 1. a 2. druh, příklady 133–139; p-test není ve slidech explicitně, doplněn). Další: kap. 3 řady od pdf s. 112 (tisk. 109, `series-intro`).
+- `improper-integrals`: pdf s. 106–111 (tisk. 103–108, týden 8: 1. a 2. druh, příklady 133–139; p-test není ve slidech explicitně, doplněn).
+- `series-intro`: pdf s. 112–117 (tisk. 109–114, týden 8: částečné součty, geometrická řada, teleskop, nutná podmínka, pravidla). Další: `series-nonneg` od pdf s. 118 (tisk. 115: srovnávací, integrální, podílové, odmocninové kritérium).
 
 ## Otevřené položky (chybí od uživatele)
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).
