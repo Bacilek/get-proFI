@@ -9,7 +9,7 @@
 
 ## Fáze
 0. [x] Scaffold (Vite/React/TS, Tailwind, Vitest), struktura složek
-1. [ ] Datový model + Dexie + export/import + testy (`src/core`)
+1. [x] Datový model + Dexie + export/import + testy (`src/core`: types, prereq, progress, srs, milestones, db, backup)
 2. [ ] Shell: routing, dashboard (milníky, odpočty, bodové hranice)
 3. [ ] Skill tree/roadmapa + zamykání prerekvizit
 4. [ ] Lesson renderer (MD + KaTeX + diagramy) + cvičení + hvězdy
@@ -18,4 +18,4 @@
 7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), pak PB006, PB016, VB001, PV028
 
 ## Aktuální stav
-Fáze 0 hotová. MB142: podklady přečteny (struktura, formát zkoušky), čeká se na fázi 1 a tvorbu obsahu.
+Fáze 0–1 hotové (core logika + persistence + testy, 21 testů). Další: fáze 2 (shell + dashboard). MB142: podklady přečteny (struktura, formát zkoušky), obsah se tvoří po fázi 4.

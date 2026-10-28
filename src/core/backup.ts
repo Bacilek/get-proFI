@@ -1,0 +1,58 @@
+import type { ProfiDB } from './db'
+
+export const BACKUP_VERSION = 1
+
+export interface Backup {
+  app: 'get-profi'
+  version: number
+  exportedAt: string
+  lessons: unknown[]
+  attempts: unknown[]
+  ratings: unknown[]
+  reviews: unknown[]
+  results: unknown[]
+}
+
+export async function exportBackup(db: ProfiDB, now = new Date()): Promise<Backup> {
+  const [lessons, attempts, ratings, reviews, results] = await Promise.all([
+    db.lessons.toArray(),
+    db.attempts.toArray(),
+    db.ratings.toArray(),
+    db.reviews.toArray(),
+    db.results.toArray(),
+  ])
+  return {
+    app: 'get-profi',
+    version: BACKUP_VERSION,
+    exportedAt: now.toISOString(),
+    lessons,
+    attempts,
+    ratings,
+    reviews,
+    results,
+  }
+}
+
+function isBackup(x: unknown): x is Backup {
+  if (typeof x !== 'object' || x === null) return false
+  const b = x as Record<string, unknown>
+  return (
+    b.app === 'get-profi' &&
+    typeof b.version === 'number' &&
+    ['lessons', 'attempts', 'ratings', 'reviews', 'results'].every((k) => Array.isArray(b[k]))
+  )
+}
+
+/** Replaces ALL progress in the database with the backup contents (atomic). */
+export async function importBackup(db: ProfiDB, data: unknown): Promise<void> {
+  if (!isBackup(data)) throw new Error('Not a get-proFI backup file')
+  if (data.version > BACKUP_VERSION) throw new Error(`Backup version ${data.version} is newer than supported`)
+  await db.transaction('rw', [db.lessons, db.attempts, db.ratings, db.reviews, db.results], async () => {
+    await Promise.all([db.lessons.clear(), db.attempts.clear(), db.ratings.clear(), db.reviews.clear(), db.results.clear()])
+    await db.lessons.bulkAdd(data.lessons as never[])
+    await db.attempts.bulkAdd(data.attempts as never[])
+    await db.ratings.bulkAdd(data.ratings as never[])
+    await db.reviews.bulkAdd(data.reviews as never[])
+    await db.results.bulkAdd(data.results as never[])
+  })
+}
