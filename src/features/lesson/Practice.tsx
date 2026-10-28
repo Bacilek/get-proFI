@@ -24,17 +24,17 @@ export function Practice({
   const [choice, setChoice] = useState<number | null>(null)
   const [freeShown, setFreeShown] = useState(false)
 
-  if (questions.length === 0) return <p className="text-sm text-slate-500">No practice questions yet.</p>
+  if (questions.length === 0) return <p className="text-sm text-muted">No practice questions yet.</p>
 
   if (index >= questions.length) {
     const stars = starsFromScore(correctCount, questions.length)
     return (
-      <section className="rounded-md border border-slate-200 bg-white p-3 text-sm">
+      <section className="rounded-md border border-line bg-surface p-3 text-sm">
         <p>
           Result: <strong>{correctCount} / {questions.length}</strong> – {'★'.repeat(stars) || 'no stars yet'}
         </p>
         <button
-          className="mt-2 rounded border border-slate-300 px-3 py-1"
+          className="mt-2 rounded border border-line px-3 py-1"
           onClick={() => {
             setIndex(0)
             setCorrectCount(0)
@@ -74,8 +74,8 @@ export function Practice({
   }
 
   return (
-    <section className="space-y-3 rounded-md border border-slate-200 bg-white p-3 text-sm">
-      <p className="text-slate-500">Question {index + 1} / {questions.length}</p>
+    <section className="space-y-3 rounded-md border border-line bg-surface p-3 text-sm">
+      <p className="text-muted">Question {index + 1} / {questions.length}</p>
       <Markdown>{q.prompt}</Markdown>
 
       {revealed === null && q.type === 'numeric' && (
@@ -88,11 +88,11 @@ export function Practice({
         >
           <input
             aria-label="Answer"
-            className="rounded border border-slate-300 px-2 py-1"
+            className="rounded border border-line px-2 py-1"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <button className="rounded bg-slate-800 px-3 py-1 text-white">Check</button>
+          <button className="rounded bg-accent px-3 py-1 text-white">Check</button>
         </form>
       )}
 
@@ -106,7 +106,7 @@ export function Practice({
           ))}
           <button
             disabled={choice === null}
-            className="rounded bg-slate-800 px-3 py-1 text-white disabled:opacity-40"
+            className="rounded bg-accent px-3 py-1 text-white disabled:opacity-40"
             onClick={() => void answer(choice === q.answer)}
           >
             Check
@@ -115,7 +115,7 @@ export function Practice({
       )}
 
       {revealed === null && q.type === 'free' && !freeShown && (
-        <button className="rounded bg-slate-800 px-3 py-1 text-white" onClick={() => setFreeShown(true)}>
+        <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => setFreeShown(true)}>
           Show solution
         </button>
       )}
@@ -123,19 +123,19 @@ export function Practice({
         <div className="space-y-2">
           <Markdown>{q.solution}</Markdown>
           <div className="flex gap-2">
-            <button className="rounded border border-green-600 px-3 py-1" onClick={() => void answer(true)}>I had it</button>
-            <button className="rounded border border-red-500 px-3 py-1" onClick={() => void answer(false)}>I missed it</button>
+            <button className="rounded border border-ok px-3 py-1" onClick={() => void answer(true)}>I had it</button>
+            <button className="rounded border border-bad px-3 py-1" onClick={() => void answer(false)}>I missed it</button>
           </div>
         </div>
       )}
 
       {revealed !== null && (
         <div className="space-y-2">
-          <p className={revealed ? 'font-medium text-green-700' : 'font-medium text-red-600'}>
+          <p className={revealed ? 'font-medium text-ok' : 'font-medium text-bad'}>
             {revealed ? 'Correct' : 'Not quite'}
           </p>
           {q.type !== 'free' && <Markdown>{q.solution}</Markdown>}
-          <button className="rounded bg-slate-800 px-3 py-1 text-white" onClick={() => void next()}>
+          <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => void next()}>
             {index + 1 >= questions.length ? 'Finish' : 'Next'}
           </button>
         </div>

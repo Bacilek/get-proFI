@@ -10,7 +10,7 @@ export function ExamStatus({ course, results }: { course: Course; results: Reado
     <p className="text-sm">
       Exam: need <strong>{needed}</strong> / {rule.maxPoints} points
       {bonus && rule.bonusPoints ? (
-        <span className="text-green-700"> (bonus +{rule.bonusPoints} b earned, requirement lowered from {rule.requiredPoints})</span>
+        <span className="text-ok"> (bonus +{rule.bonusPoints} b earned, requirement lowered from {rule.requiredPoints})</span>
       ) : null}
     </p>
   )

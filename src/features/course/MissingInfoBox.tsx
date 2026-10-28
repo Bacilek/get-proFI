@@ -5,7 +5,7 @@ export function MissingInfoBox({ course }: { course: Course }) {
   const items = missingInfo(course)
   if (items.length === 0) return null
   return (
-    <div role="alert" className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+    <div role="alert" className="rounded-md border border-warn bg-warn-bg p-3 text-sm text-warn">
       <p className="font-medium">! Missing info – tell Claude when you know it</p>
       <ul className="mt-1 list-disc pl-5">
         {items.map((i) => (

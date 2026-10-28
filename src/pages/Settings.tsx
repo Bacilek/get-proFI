@@ -30,14 +30,14 @@ export default function Settings() {
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold">Settings</h1>
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted">
         Progress lives only in this browser. Export a backup regularly.
       </p>
       <div className="flex flex-wrap items-center gap-3">
-        <button className="rounded bg-slate-800 px-3 py-1.5 text-white" onClick={onExport}>
+        <button className="rounded bg-accent px-3 py-1.5 text-white" onClick={onExport}>
           Export backup
         </button>
-        <label className="cursor-pointer rounded border border-slate-300 px-3 py-1.5">
+        <label className="cursor-pointer rounded border border-line px-3 py-1.5">
           Import backup
           <input type="file" accept="application/json" className="hidden" onChange={(e) => onImport(e.target.files?.[0])} />
         </label>

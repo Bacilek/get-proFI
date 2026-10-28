@@ -44,21 +44,21 @@ function LessonBody({
 
   return (
     <article className="space-y-4">
-      <Link to={`/c/${courseSlug(course)}`} className="text-sm text-slate-500 hover:underline">← {course.code} roadmap</Link>
+      <Link to={`/c/${courseSlug(course)}`} className="text-sm text-muted hover:underline">← {course.code} roadmap</Link>
       <header>
         <h1 className="text-2xl font-semibold">{lesson.title}</h1>
-        <p className="text-sm text-slate-500">
-          Week {lesson.week} · <span className="text-amber-500">{'★'.repeat(stars)}{'☆'.repeat(3 - stars)}</span>
+        <p className="text-sm text-muted">
+          Week {lesson.week} · <span className="text-star">{'★'.repeat(stars)}{'☆'.repeat(3 - stars)}</span>
         </p>
         {state.status === 'locked' && (
-          <p className="mt-1 text-sm text-amber-800">
+          <p className="mt-1 text-sm text-warn">
             Prerequisites not done yet: {state.missing.join(', ')}
           </p>
         )}
       </header>
 
-      {loaded === null && <p className="text-slate-500">Loading…</p>}
-      {loaded && loaded.md === null && <p className="rounded border border-dashed border-slate-300 p-3 text-slate-500">Content for this lesson is not written yet.</p>}
+      {loaded === null && <p className="text-muted">Loading…</p>}
+      {loaded && loaded.md === null && <p className="rounded border border-dashed border-line p-3 text-muted">Content for this lesson is not written yet.</p>}
       {loaded?.md && <Markdown>{loaded.md}</Markdown>}
 
       <section className="flex flex-wrap items-center gap-2 text-sm">
@@ -68,7 +68,7 @@ function LessonBody({
             key={n}
             onClick={() => setTopicRating(topic, n)}
             aria-pressed={rating?.rating === n}
-            className={`h-7 w-7 rounded border ${rating?.rating === n ? 'border-slate-900 bg-slate-900 text-white' : 'border-slate-300'}`}
+            className={`h-7 w-7 rounded border ${rating?.rating === n ? 'border-accent bg-accent text-white' : 'border-line'}`}
           >
             {n}
           </button>
