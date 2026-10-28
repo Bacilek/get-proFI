@@ -1,4 +1,4 @@
-import { missingInfo, pendingMaterials, skipKey } from './missing'
+import { missingInfo, partKey, pendingMaterials, pendingParts, skipKey } from './missing'
 
 const base = { code: 'XX1', semesterStart: '2026-09-14' }
 const week7 = new Date(2026, 9, 28)
@@ -39,4 +39,13 @@ test('skipping a week moves to the next one, skipping all current weeks hides th
 
 test('a kind without an entry (deleted folder) is never requested', () => {
   expect(pendingMaterials({ ...base, materials: {} }, new Set(), week7)).toEqual([])
+})
+
+test('parts: past deadline without entered points is reminded, entered or future ones are not', () => {
+  const course = {
+    ...base,
+    milestones: [{ id: 'hw', title: 'HW', type: 'assignment' as const, date: '2026-12-01', parts: { count: 3, max: 3, label: 'Homework', deadlines: ['2026-10-06', '2026-10-20', '2026-11-03'] } }],
+  }
+  expect(pendingParts(course, new Set(), week7).map((r) => r.id)).toEqual(['part:hw:1', 'part:hw:2'])
+  expect(pendingParts(course, new Set([partKey(base, 'hw', 1)]), week7).map((r) => r.id)).toEqual(['part:hw:2'])
 })

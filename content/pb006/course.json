@@ -57,7 +57,7 @@
         "DÚ2: 2 úlohy po 1,5 b, deadline 3. 11. 2026, 23:59 (odevzdávárny du02a a du02b zvlášť)",
         "Termíny DÚ3 až DÚ6 zatím neznámé"
       ],
-      "parts": { "count": 6, "max": 3, "label": "Homework" }
+      "parts": { "count": 6, "max": 3, "label": "Homework", "deadlines": ["2026-10-06", "2026-11-03", null, null, null, null] }
     },
     {
       "id": "exam",
@@ -74,8 +74,7 @@
     }
   ],
   "openItems": [
-    { "id": "exam-info", "text": "Doplnit datum zkoušky, bodování a hranice úspěšnosti (teorie + praktická část)." },
-    { "id": "hw-dates", "text": "Doplnit termíny DÚ3 až DÚ6 (zatím nejsou zveřejněné) a body za již opravené úkoly (DÚ1, DÚ2)." }
+    { "id": "exam-info", "text": "Doplnit datum zkoušky, bodování a hranice úspěšnosti (teorie + praktická část)." }
   ],
   "materials": {
     "lecture": 6

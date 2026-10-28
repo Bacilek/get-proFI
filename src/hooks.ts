@@ -1,7 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { courseSlug, resultId } from './content'
 import { db } from './core/db'
-import { skipKey } from './core/missing'
+import { partKey, skipKey } from './core/missing'
 import { setPart } from './core/parts'
 import { isDue, newReview, review } from './core/srs'
 import type { Attempt, Course, LessonProgress, MilestoneResult, TopicRating } from './core/types'
@@ -102,12 +102,14 @@ export function setMilestonePoints(course: Course, milestoneId: string, points: 
  */
 export function useHandledMaterials(course: Course): ReadonlySet<string> {
   const skips = useSkips()
-  const milestone = course.milestones.find((m) => m.parts)
-  const key = milestone ? resultId(course, milestone.id) : ''
-  const rows = useLiveQuery(() => (key ? db.parts.where('id').startsWith(`${key}:`).toArray() : []), [key])
+  const withParts = course.milestones.filter((m) => m.parts)
+  const prefix = `${courseSlug(course)}:`
+  const rows = useLiveQuery(() => (withParts.length ? db.parts.where('id').startsWith(prefix).toArray() : []), [prefix, withParts.length])
   const out = new Set(skips)
-  if (course.materials?.ropot !== undefined) {
-    for (const r of rows ?? []) out.add(skipKey(course, 'ropot', Number(r.id.slice(key.length + 1))))
+  for (const r of rows ?? []) {
+    const [, milestoneId, n] = r.id.split(':')
+    out.add(partKey(course, milestoneId, Number(n)))
+    if (course.materials?.ropot !== undefined && milestoneId === withParts[0].id) out.add(skipKey(course, 'ropot', Number(n)))
   }
   return out
 }

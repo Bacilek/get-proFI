@@ -48,6 +48,50 @@ function DueReviews({ now }: { now: number }) {
   )
 }
 
+const TYPE_LABELS = { all: 'All types', choice: 'ABCD', fill: 'Fill in code', code: 'Write code', free: 'Explain', numeric: 'Numeric' } as const
+
+/** Random questions from the authored banks (any course), optionally limited to one question type. */
+function QuestionDrill() {
+  const [index, setIndex] = useState<Map<string, IndexedQuestion> | null>(null)
+  const [courseCode, setCourseCode] = useState(courses.find((c) => c.code === 'PB006')?.code ?? courses[0].code)
+  const [type, setType] = useState<keyof typeof TYPE_LABELS>('all')
+  const [seed, setSeed] = useState(() => Date.now() % 100_000)
+  useEffect(() => {
+    void loadQuestionIndex().then(setIndex)
+  }, [])
+  const pool = [...(index?.entries() ?? [])].filter(
+    ([id, { question }]) => id.startsWith(`${courseCode.toLowerCase()}:`) && (type === 'all' || question.type === type),
+  )
+  const pick = pool.length ? pool[Math.floor(hashSeed(seed) * pool.length)] : undefined
+  return (
+    <div className="space-y-2 rounded-md border border-line bg-surface p-3 text-sm">
+      <div className="flex gap-2">
+        <select aria-label="Drill course" className="rounded border border-line bg-surface px-2 py-1" value={courseCode} onChange={(e) => { setCourseCode(e.target.value); setSeed((n) => n + 1) }}>
+          {courses.map((c) => <option key={c.code} value={c.code}>{c.code}</option>)}
+        </select>
+        <select aria-label="Question type" className="rounded border border-line bg-surface px-2 py-1" value={type} onChange={(e) => { setType(e.target.value as keyof typeof TYPE_LABELS); setSeed((n) => n + 1) }}>
+          {Object.entries(TYPE_LABELS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
+        </select>
+      </div>
+      {!index ? <p className="text-muted">Loading…</p> : !pick ? <p className="text-muted">No questions of this kind yet.</p> : (
+        <QuestionCard
+          key={`${pick[0]}-${seed}`}
+          q={pick[1].question}
+          nextLabel="Next question"
+          onAnswer={(correct) => recordAnswer({ questionId: pick[0], topic: pick[1].question.topic ?? pick[1].lessonId, lessonId: pick[1].lessonId, correct })}
+          onNext={() => setSeed((n) => n + 1)}
+        />
+      )}
+    </div>
+  )
+}
+
+/** Deterministic pseudo-random number in [0, 1) so rendering stays pure. */
+const hashSeed = (n: number) => {
+  const x = Math.sin((n + 1) * 12.9898) * 43758.5453
+  return x - Math.floor(x)
+}
+
 function Drill() {
   const [topic, setTopic] = useState(generators[0].topic)
   const [seed, setSeed] = useState(() => Date.now() % 1_000_000)
@@ -107,7 +151,8 @@ export default function Review() {
       <h1 className="text-2xl font-semibold">Review</h1>
       <section><h2 className="mb-2 text-lg font-semibold">Due questions</h2><DueReviews now={now} /></section>
       <section><h2 className="mb-2 text-lg font-semibold">Weakest topics</h2><Gaps /></section>
-      <section><h2 className="mb-2 text-lg font-semibold">Drill</h2><Drill /></section>
+      <section><h2 className="mb-2 text-lg font-semibold">Question drill</h2><QuestionDrill /></section>
+      <section><h2 className="mb-2 text-lg font-semibold">Math drill (MB142)</h2><Drill /></section>
     </div>
   )
 }

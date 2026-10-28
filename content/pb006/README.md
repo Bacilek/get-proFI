@@ -11,7 +11,7 @@ Jen přednášky (st 14:00-15:50, A318, 14. 9. - 16. 12. 2026, doc. Obdržálek)
 - `fill`: kód s mezerami `___` (`code`, `blanks`), auto-check.
 - `code`: napiš si kód vedle, odhal referenční řešení, odškrtni `checklist`.
 - Debug/Understand: `choice` "najdi chybu" a `free` "vysvětli proč".
-Kód se nespouští (v prohlížeči není C# runtime). Zadání `code` jsou varianty, ne řešení aktivních DÚ.
+Termíny DÚ jsou v `course.json` (`parts.deadlines`); po termínu bez zadaných bodů appka připomene, že body chybí. Kód se nespouští (v prohlížeči není C# runtime). Zadání `code` jsou varianty, ne řešení aktivních DÚ.
 
 ## Zdroje (`sources/PB006/`)
 `Lectures/is_export/01-05` (slidy), `Lectures/sbirka.pdf` (sbírka, 9 kapitol), `Lectures/code/` (ukázky), `Tasks/`, `course.txt`. Složky `Seminars`, `ROPOTs`, `Syllabus` předmět nepoužívá (nevytvářet).

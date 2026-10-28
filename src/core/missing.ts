@@ -15,6 +15,10 @@ const LABEL: Record<MaterialKind, string> = {
   syllabus: 'Syllabus',
 }
 
+/** Key in the handled set marking that points of part `n` of a milestone were entered. */
+export const partKey = (course: Pick<Course, 'code'>, milestoneId: string, n: number) =>
+  `part:${course.code.toLowerCase()}:${milestoneId}:${n}`
+
 export const skipKey = (course: Pick<Course, 'code'>, kind: MaterialKind, week: number) =>
   `${course.code.toLowerCase()}:${kind}:${week}`
 
@@ -43,6 +47,23 @@ export function pendingMaterials(
   return out
 }
 
+/** Parts (e.g. homework) whose deadline has passed but whose points are not entered yet. */
+export function pendingParts(
+  course: Pick<Course, 'code' | 'milestones'>,
+  handled: ReadonlySet<string>,
+  now: Date,
+): MissingInfo[] {
+  const out: MissingInfo[] = []
+  for (const m of course.milestones) {
+    m.parts?.deadlines?.forEach((d, i) => {
+      if (!d || new Date(d + 'T23:59:59') >= now) return
+      if (handled.has(partKey(course, m.id, i + 1))) return
+      out.push({ id: `part:${m.id}:${i + 1}`, text: `Points for ${m.parts!.label} ${i + 1} (deadline ${d}) are not entered` })
+    })
+  }
+  return out
+}
+
 /**
  * Things the user still has to tell us for a course: missing weekly materials, explicit
  * `openItems` plus every milestone without a date ("TBD").
@@ -55,5 +76,5 @@ export function missingInfo(
   const tbd = course.milestones
     .filter((m) => !m.date)
     .map((m) => ({ id: `date:${m.id}`, text: `Date of "${m.title}" is not known yet` }))
-  return [...pendingMaterials(course, skipped, now), ...(course.openItems ?? []), ...tbd]
+  return [...pendingMaterials(course, skipped, now), ...pendingParts(course, skipped, now), ...(course.openItems ?? []), ...tbd]
 }

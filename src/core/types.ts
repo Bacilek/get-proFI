@@ -27,7 +27,7 @@ export interface Milestone {
   /** Points accumulate over the semester: stays upcoming (and editable) after a partial result is entered. */
   cumulative?: boolean
   /** Result is the sum of equal weekly parts (e.g. 12 quizzes of 2 b), editable one by one. */
-  parts?: { count: number; max: number; label: string }
+  parts?: { count: number; max: number; label: string; /** ISO deadline per part (index 0 = part 1); null/missing = not known. Past deadline without points = reminder. */ deadlines?: (string | null)[] }
   /** Module ids whose lessons this milestone tests (used for readiness on the roadmap). */
   coversModules?: string[]
 }
