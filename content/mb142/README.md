@@ -16,7 +16,8 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 
 ## Zpracováno
 - `differential` (z vlastních znalostí, překontrolovat proti slidům).
-- `antiderivative`, `integration-methods`, `rational-integration`: prednasky_MB142.pdf, pdf s. 71–81 (tisk. 68–78, týden 6). Zdroj zatím nemazat (zbytek slidů se zpracovává).
+- `antiderivative`, `integration-methods`, `rational-integration`: prednasky_MB142.pdf, pdf s. 71–81 (tisk. 68–78, týden 6).
+- `riemann`: pdf s. 82–89 (tisk. 79–86, týden 7). Zdroj zatím nemazat (zbytek slidů se zpracovává).
 
 ## Otevřené položky (chybí od uživatele)
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).

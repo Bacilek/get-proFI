@@ -1,0 +1,55 @@
+[
+  {
+    "id": "riemann-lower-sum",
+    "type": "numeric",
+    "prompt": "Pro $f(x)=x^2$ na $[0,1]$ a dělení na $n=4$ stejné díly určete dolní součet $s(D,f)$.",
+    "answer": 0.21875,
+    "tolerance": 0.001,
+    "solution": "$f$ roste, takže $m_k=f(x_{k-1})$. $s=\\frac14\\left(0+\\frac1{16}+\\frac4{16}+\\frac9{16}\\right)=\\frac{14}{64}=0{,}21875$. (Horní součet je $\\frac{30}{64}$, integrál $\\frac13$ leží mezi.)"
+  },
+  {
+    "id": "riemann-sgn",
+    "type": "numeric",
+    "prompt": "Určete $\\displaystyle\\int_{-2}^{3}\\operatorname{sgn}x\\,\\mathrm{d}x$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Plocha $3\\cdot1$ nad osou minus plocha $2\\cdot1$ pod osou: $3-2=1$."
+  },
+  {
+    "id": "riemann-linear",
+    "type": "numeric",
+    "prompt": "Víte, že $\\int_0^1x^2\\,\\mathrm{d}x=\\frac13$. Určete $\\displaystyle\\int_0^1(x^2+x)\\,\\mathrm{d}x$ (na 3 desetinná místa).",
+    "answer": 0.8333,
+    "tolerance": 0.001,
+    "solution": "Linearita: $\\frac13+\\int_0^1x\\,\\mathrm{d}x=\\frac13+\\frac12=\\frac56$."
+  },
+  {
+    "id": "riemann-swap",
+    "type": "numeric",
+    "prompt": "Určete $\\displaystyle\\int_4^2x\\,\\mathrm{d}x$.",
+    "answer": -6,
+    "tolerance": 0.001,
+    "solution": "$\\int_2^4x\\,\\mathrm{d}x=\\frac{16}{2}-\\frac42=6$; při prohození mezí se změní znaménko, tedy $-6$."
+  },
+  {
+    "id": "riemann-dirichlet",
+    "type": "choice",
+    "prompt": "Proč Dirichletova funkce $\\chi$ ($1$ na $\\mathbb{Q}$, $0$ na iracionálních číslech) není integrovatelná na $[a,b]$?",
+    "options": [
+      "Je nespojitá ve všech bodech, ale to samo nevadí; důvod je $s(D,\\chi)=0$ a $S(D,\\chi)=b-a$, takže dolní a horní integrál se liší",
+      "Není ohraničená",
+      "Není monotónní, a proto",
+      "Má nekonečný integrál"
+    ],
+    "answer": 0,
+    "solution": "Každý podinterval obsahuje racionální i iracionální čísla, takže $m_k=0$, $M_k=1$. Dolní integrál je $0$, horní $b-a$."
+  },
+  {
+    "id": "riemann-odd",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int_{-1}^{1}x^3\\,\\mathrm{d}x=$",
+    "options": ["$0$", "$\\frac12$", "$2$", "$-1$"],
+    "answer": 0,
+    "solution": "Plocha nad osou ($x>0$) je stejná jako pod osou ($x<0$), takže se odečtou."
+  }
+]
