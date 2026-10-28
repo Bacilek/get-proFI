@@ -16,3 +16,8 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 
 ## Zpracováno
 (zatím nic)
+
+## Otevřené položky (chybí od uživatele)
+- Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).
+- Termíny zkoušky.
+- Ověřit přesná pravidla bonusu (+5 b) a vztah k 2. písemce.

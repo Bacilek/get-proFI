@@ -18,4 +18,4 @@
 7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), pak PB006, PB016, VB001, PV028
 
 ## Aktuální stav
-Fáze 0–1 hotové (core logika + persistence + testy, 21 testů). Další: fáze 2 (shell + dashboard). MB142: podklady přečteny (struktura, formát zkoušky), obsah se tvoří po fázi 4.
+Fáze 0–1 hotové (core: types, prereq, progress, srs, milestones, missing, db, backup; 23 testů). Další: fáze 2 (shell + dashboard, včetně panelu chybějících informací). MB142: obsah se tvoří po fázi 4.

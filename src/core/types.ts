@@ -58,6 +58,8 @@ export interface Course {
   exam?: ExamRule
   modules: Module[]
   milestones: Milestone[]
+  /** Information the user still has to provide (shown as a warning on the course). */
+  openItems?: { id: string; text: string }[]
 }
 
 // --- user progress (stored in IndexedDB) ---

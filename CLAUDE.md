@@ -14,3 +14,6 @@ Osobní studijní appka (lokální web, React 19 + TS + Vite, Tailwind, Dexie/In
 - Text z PDF: `pdftotext -enc UTF-8 -layout` (diakritika ze slidů vychází jako kombinující znaky, např. `ˇc`); skeny bez textové vrstvy číst jako obrázky (Read na PDF s `pages`).
 - Uživatel studuje u svých materiálů průběžně; každý týden přibývají soubory v ISu → při práci na kurzu se zeptat/připomenout, zda jsou nové.
 - Po větších krocích navrhnout uživateli `/clear` (kontext je uložen v docs/ a CLAUDE.md).
+
+## Chybějící informace ("vykřičník")
+Cokoli, co musí doplnit uživatel (data písemek/zkoušek, pravidla bodování, nové soubory z ISu...), se eviduje v `course.json` → `openItems` a milníky bez `date` (viz `src/core/missing.ts`). Appka je ukazuje s varováním u předmětu i na dashboardu. Při práci na kurzu uživatele aktivně upozorni, které položky stále chybí, a po doplnění je odstraň.
