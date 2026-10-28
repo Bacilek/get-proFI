@@ -75,8 +75,7 @@
   ],
   "openItems": [
     { "id": "exam-info", "text": "Doplnit datum zkoušky, bodování a hranice úspěšnosti (teorie + praktická část)." },
-    { "id": "hw-dates", "text": "Doplnit termíny DÚ3 až DÚ6 a body za již opravené úkoly (DÚ1, DÚ2)." },
-    { "id": "recordings", "text": "Doplnit odkazy na záznamy přednášek (zakomponovat do lekcí)." }
+    { "id": "hw-dates", "text": "Doplnit termíny DÚ3 až DÚ6 (zatím nejsou zveřejněné) a body za již opravené úkoly (DÚ1, DÚ2)." }
   ],
   "materials": {
     "lecture": 6

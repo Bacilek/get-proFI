@@ -129,6 +129,7 @@ export function Roadmap({
                 <span className="line-clamp-2 pr-8 text-[12.5px] font-medium">{n.lesson.title}</span>
                 <span className="flex items-center justify-between">
                   <span className="text-star">{stars(s)}</span>
+                  {n.lesson.week !== undefined && <span className="text-faint">W{n.lesson.week}</span>}
                   {st.status === 'done' && <span className="font-semibold text-ok">✓</span>}
                   {st.status === 'locked' && <span className="text-faint">needs {st.missing.length}</span>}
                 </span>
@@ -160,6 +161,7 @@ function LessonPanel({
   return (
     <section className="rounded-xl border border-line bg-surface p-4 text-sm">
       <h3 className="font-semibold">{lesson.title}</h3>
+      {lesson.week !== undefined && <p className="text-muted">Lecture week {lesson.week}</p>}
       <Link className="mt-1 inline-block underline" to={`/c/${courseSlug(course)}/l/${localId(lesson.id)}`}>
         {hasLesson(course, localId(lesson.id)) ? 'Open lesson →' : 'Open lesson (content not written yet) →'}
       </Link>
@@ -263,6 +265,7 @@ function Legend({
         <>
           <span>Click a cell for details</span>
           <span>Double-click to open the lesson</span>
+          <span>W = lecture week of the topic</span>
         </>,
       )}
     </section>

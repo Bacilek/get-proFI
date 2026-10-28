@@ -1,6 +1,6 @@
 # PB006 Principles of Programming Languages and OOP (podzim 2026)
 
-Jen přednášky (st 14:00-15:50, A318, 14. 9. - 16. 12. 2026, doc. Obdržálek), zkouška `zk`, 2 kredity. Jazyk programování: C# (+ Python). Přednášky mají záznamy (odkazy chybí, viz `openItems`).
+Jen přednášky (st 14:00-15:50, A318, 14. 9. - 16. 12. 2026, doc. Obdržálek), zkouška `zk`, 2 kredity. Jazyk programování: C# (+ Python). Přednášky mají záznamy (odkazy jsou v ISu, v appce nejsou potřeba).
 
 ## Podmínky
 - 6 domácích úkolů po max 3 b (18 b), k připuštění ke zkoušce min 12 b. DÚ1: 3×1 b (deadline 6. 10.), DÚ2: 2×1,5 b (deadline 3. 11., odevzdávárny `du02a`, `du02b`). Další nepravidelně. Zadání v `sources/PB006/Tasks/<NN>/` (složky 01-12, týdenní).
@@ -23,4 +23,4 @@ Kód se nespouští (v prohlížeči není C# runtime). Zadání `code` jsou var
 - Podmínky: ze slidů 01 doplněno 50 % z každé části zkoušky, DÚ min 2/3 (12 b), body nad limit se přičítají ke zkoušce.
 
 ## Dále
-Přednášky 06+ (ADT, OOP, výjimky...) z ISu, kód z `Lectures/code/` (`Stack.cs`, `Device*.cs`, `Interfaces.cs`, `Expression*.cs`, `GStack.cs`, Python stack/BinTree) patří k pozdějším tématům, využít v lekcích OOP. Recordings: doplnit odkazy.
+Přednášky 06+ (ADT, OOP, výjimky...) z ISu, kód z `Lectures/code/` (`Stack.cs`, `Device*.cs`, `Interfaces.cs`, `Expression*.cs`, `GStack.cs`, Python stack/BinTree) patří k pozdějším tématům, využít v lekcích OOP.
