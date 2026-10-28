@@ -389,8 +389,12 @@
         "logic"
       ],
       "info": [
-        "Úterý 3. 11. 2026 ve 20:00, 2 hodiny",
-        "Max 20 b",
+        "Úterý 3. 11. 2026 ve 20:00 (čas na vypracování 40 minut)",
+        "Max 20 b: 7 příkladů, 6× správně 3 b a 1× 2 b; vždy jediná správná odpověď",
+        "Špatná nebo nejasná odpověď −0,5 b, žádná odpověď 0 b",
+        "Odpovědi se přepisují do odpovědního listu (hodnotí se jen on); chybu v listu neškrtat, opravit dole; po více než 3 chybách výměna listu",
+        "Přinést jen psací potřeby a ISIC: žádné vlastní papíry, mobily ani kalkulačky (výpočty jen základní, na požádání extra listy)",
+        "Záhlaví (jméno, UČO, kód zadání) vyplnit na zadání i na odpovědním listu",
         "Rozsah: přednášky 1 až 5 (úvod, prohledávání, dekompozice a CSP, hry, logický agent a výroková logika)",
         "Jediný termín pro všechny",
         "Minimum bodů: zatím neznámé"

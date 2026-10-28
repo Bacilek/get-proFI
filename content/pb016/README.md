@@ -4,7 +4,7 @@ Přednášející A. Horák (Po 14:00–15:50, záznamy v ISu), cvičení Po 8:0
 
 ## Hodnocení (zdroj: slidy 1, notebook w01, `fungovani predmetu.txt`)
 - **Odpovědníky** na každém cvičení: 12 × max 2 b = 24 b, 4 otázky abc(d), +0,5 správně / −0,25 špatně, 6 min v ISu. Z tématu **předchozí přednášky** a z vyznačených definic ve sbírce. **≥ 10 b nutné k připuštění ke zkoušce.** Max 3 neomluvené absence, bez podpůrných materiálů (jinak −2 b).
-- **Průběžná písemka** max 20 b, **úterý 3. 11. 2026 v 20:00, 2 hodiny** (zadal uživatel), jediný termín. Rozsah přednášky 1–5 (A + výroková logika), minimum neznámé.
+- **Průběžná písemka** max 20 b, **úterý 3. 11. 2026 v 20:00** (zadal uživatel), jediný termín. Pokyny z ISu: 40 min, 7 příkladů (6× 3 b, 1× 2 b), jediná správná odpověď, špatná/nejasná −0,5 b, bez odpovědi 0 b; odpovědní list (hodnotí se jen on), jen psací potřeby + ISIC, bez kalkulačky/mobilu (základní výpočty, extra listy na požádání). Rozsah přednášky 1–5 (A + výroková logika), minimum neznámé.
 - **Závěrečná písemka** max 60 b, 2 řádné + 1 opravný termín.
 - Součet max 104 b: **A > 95, E > 63** (zk). Extra body ve cvičení max 1/cvičení (oprava chyby v materiálech, elegantní řešení).
 - Bloky: A (př./cv. 1–4: řešení problémů, kódové cvičení), B (5–7: logika, tužka a papír, zadání v PDF), C (8–12: znalosti, NLP, ML, hluboké učení, generativní modely – kódové).
