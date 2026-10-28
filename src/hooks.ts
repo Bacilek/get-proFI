@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { courseSlug, resultId } from './content'
 import { db } from './core/db'
+import { setPart } from './core/parts'
 import { isDue, newReview, review } from './core/srs'
 import type { Attempt, Course, LessonProgress, MilestoneResult, TopicRating } from './core/types'
 
@@ -75,6 +76,17 @@ export function useSkips(): ReadonlySet<string> {
 
 export function skipMaterial(key: string): Promise<unknown> {
   return db.skips.put({ id: key, at: Date.now() })
+}
+
+/** Weekly parts of a milestone keyed by part number (1-based). */
+export function useParts(course: Course, milestoneId: string): ReadonlyMap<number, number> {
+  const key = resultId(course, milestoneId)
+  const rows = useLiveQuery(() => db.parts.where('id').startsWith(`${key}:`).toArray(), [key])
+  return new Map((rows ?? []).map((r) => [Number(r.id.slice(key.length + 1)), r.points]))
+}
+
+export function setMilestonePart(course: Course, milestoneId: string, n: number, points: number | null): Promise<unknown> {
+  return setPart(db, resultId(course, milestoneId), n, points)
 }
 
 /** Sets (or, with `null`, clears) the points of a milestone of `course`. */

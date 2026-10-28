@@ -34,7 +34,7 @@ Dnes (28. 10.) je týden 7; slidy jsou jen uui01–06. Lekce př. 7–12 vznikly
 - ROPOT trainer: 76 ručních otázek `ro-<lekce>-<n>` (easy/hard, přednášky 1–12) + 9 generátorů (`src/core/ropotGen.ts`: posunovačka h1/h2, další uzel greedy/UCS/A*, pořadí DFS/BFS, obarvení cesty/cyklu, minimax a alfa-beta, pravdivostní tabulky, entropie, perceptron, bigram/perplexita).
 - `materials` v course.json: lecture 7, syllabus 6, seminar 6, ropot 4 (nejstarší týdny bez zpracovaného materiálu; seminar od 6, protože cvičení 1–5 byla v Syllabus notebookech). Modul `fol` (př. 6) není v rozsahu průběžné písemky.
 - ROPOT 01–03 (viz níže) zapracovány do otázek (`ai-optimization-which`, `ai-turing-players`, `pf-sort-configs`, `pf-queens-n3`, `pf-4queens-actions`, `is-astar-f`, `is-greedy-pick`, `us-properties`, `ao-tictactoe-leaves`, `ao-solutions-rn`, `csp-count-zero`, `csp-queens-model`).
-- Výsledky odpovědníků (uživatel, z ROPOTs): 01 = 2,0 b (4/4), 02 = 1,25 b (3 správně, 1 špatně: greedy → správně D, uživatel zvolil B), 03 = 2,0 b (4/4) ⇒ **5,25 b z 6**. Zadat do appky ručně (milník `minitests` neseedován schválně – po zadání by zmizel z „upcoming“).
+- Výsledky odpovědníků (uživatel, z ROPOTs): 01 = 2,0 b (4/4), 02 = 1,25 b (3 správně, 1 špatně: greedy → správně D, uživatel zvolil B), 03 = 2,0 b (4/4) ⇒ **5,25 b z 6**. Seedováno přes `initialParts` (2; 1,25; 2), v appce lze body po týdnech upravit tlačítkem „by week“ u milníku odpovědníků.
 
 ## Zpracované zdroje (sources/PB016, smazáno po zpracování)
 - Slidy uui01–uui06 (+ handouty) a Dijkstra_a_A_star_VM_2026 (24. 3. 2026, V. Míč): zpracováno do lekcí 1–6.

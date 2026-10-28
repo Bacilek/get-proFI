@@ -26,6 +26,8 @@ export interface Milestone {
   info?: string | string[]
   /** Points accumulate over the semester: stays upcoming (and editable) after a partial result is entered. */
   cumulative?: boolean
+  /** Result is the sum of equal weekly parts (e.g. 12 quizzes of 2 b), editable one by one. */
+  parts?: { count: number; max: number; label: string }
   /** Module ids whose lessons this milestone tests (used for readiness on the roadmap). */
   coversModules?: string[]
 }
@@ -81,6 +83,8 @@ export interface Course {
   openItems?: { id: string; text: string }[]
   /** Known results, seeded into the database once (user can edit them later). */
   initialResults?: { milestoneId: string; points: number }[]
+  /** Known weekly parts (index 0 = part 1) of a milestone with `parts`, seeded once like `initialResults`. */
+  initialParts?: { milestoneId: string; values: number[] }[]
 }
 
 // --- user progress (stored in IndexedDB) ---
@@ -90,6 +94,12 @@ export interface LessonProgress {
   /** 0 = untouched, 1-3 = how well the practice went. */
   stars: 0 | 1 | 2 | 3
   updatedAt: number
+}
+
+/** One weekly part of a milestone; id is `<course>:<milestone>:<n>`. */
+export interface MilestonePart {
+  id: string
+  points: number
 }
 
 export interface Attempt {

@@ -368,7 +368,12 @@
         "Nutná podmínka ke zkoušce: alespoň 10 b z 24",
         "Max 3 neomluvené absence"
       ],
-      "cumulative": true
+      "cumulative": true,
+      "parts": {
+        "count": 12,
+        "max": 2,
+        "label": "Exercise"
+      }
     },
     {
       "id": "midterm",
@@ -440,10 +445,14 @@
     "seminar": 6,
     "ropot": 4
   },
-  "initialResults": [
+  "initialParts": [
     {
       "milestoneId": "minitests",
-      "points": 5.25
+      "values": [
+        2,
+        1.25,
+        2
+      ]
     }
   ]
 }

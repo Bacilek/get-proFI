@@ -22,5 +22,7 @@ Osobní studijní appka (lokální web, React 19 + TS + Vite, Tailwind, Dexie/In
 - **Materiály po týdnech:** `course.json` → `materials` = {lecture|seminar|ropot|syllabus: nejstarší týden semestru, jehož materiál ještě není zpracovaný}. Appka zobrazí „Lecture 07“ apod. s tlačítkem Skip (týden bez materiálu, uloženo v IndexedDB). Po zpracování nových souborů pointer posunout; klíč smazané složky z `materials` odebrat. Týdny napříč předměty nejsou synchronní, proto se nesleduje „aktuální týden“ v roadmapě.
 - **ROPOT trainer** (`/c/<kód>/ropot`, zobrazí se, když má kurz `materials.ropot`): kola po 4 otázkách, 6 min, +0,5/−0,25. Zdroj otázek: `choice` otázky v `questions/*.json` s volitelným `difficulty: easy|hard` (přednáška = `week` lekce) + generátory v `src/core/ropotGen.ts`. Nové ROPOTy od uživatele převést na `choice` otázky a doplnit i podobné.
 
+- **Týdenní body:** milník s `parts: {count,max,label}` (PB016 odpovědníky) se rozklikne tlačítkem „by week“ a body se zadávají po týdnech (tabulka `parts` v IndexedDB, součet se zapisuje do `results`). Známé hodnoty: `course.json` → `initialParts`. U dalších předmětů s týdenními body (úkoly aj.) použít stejný mechanismus.
+
 ## Chybějící informace ("vykřičník")
 Cokoli, co musí doplnit uživatel (data písemek/zkoušek, pravidla bodování, nové soubory z ISu...), se eviduje v `course.json` → `openItems` a milníky bez `date` (viz `src/core/missing.ts`). Appka je ukazuje s varováním u předmětu i na dashboardu. Při práci na kurzu uživatele aktivně upozorni, které položky stále chybí, a po doplnění je odstraň.

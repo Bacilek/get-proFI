@@ -3,7 +3,7 @@ import { Bar } from '../../components/Charts'
 import { daysUntil } from '../../core/milestones'
 import { parseNumber } from '../../core/questions'
 import type { Course, Milestone, MilestoneResult } from '../../core/types'
-import { setMilestonePoints } from '../../hooks'
+import { setMilestonePart, setMilestonePoints, useParts } from '../../hooks'
 
 /** `2026-10-20` -> `20. 10.` */
 function shortDate(iso: string): string {
@@ -87,6 +87,61 @@ function PointsEditor({
   )
 }
 
+function PartsGrid({ course, milestone }: { course: Course; milestone: Milestone }) {
+  const parts = useParts(course, milestone.id)
+  const { count, max, label } = milestone.parts!
+  return (
+    <div className="mt-2 grid grid-cols-3 gap-2 rounded-lg border border-line bg-bg p-3 sm:grid-cols-4 md:grid-cols-6">
+      {Array.from({ length: count }, (_, i) => i + 1).map((n) => (
+        <PartInput key={n} course={course} milestone={milestone} n={n} label={`${label} ${n}`} max={max} value={parts.get(n)} />
+      ))}
+    </div>
+  )
+}
+
+function PartInput({
+  course,
+  milestone,
+  n,
+  label,
+  max,
+  value,
+}: {
+  course: Course
+  milestone: Milestone
+  n: number
+  label: string
+  max: number
+  value: number | undefined
+}) {
+  const [text, setText] = useState<string | null>(null)
+  const shown = text ?? (value === undefined ? '' : fmt(value))
+  const parsed = parseNumber(shown)
+  const valid = shown.trim() === '' || (parsed !== null && parsed >= 0 && parsed <= max)
+  async function commit() {
+    if (text === null) return
+    if (valid) await setMilestonePart(course, milestone.id, n, shown.trim() === '' ? null : parsed)
+    setText(null)
+  }
+  return (
+    <label className="flex flex-col gap-0.5 text-xs text-muted">
+      {label}
+      <span className="flex items-center gap-1">
+        <input
+          inputMode="decimal"
+          value={shown}
+          placeholder="–"
+          onChange={(e) => setText(e.target.value)}
+          onBlur={commit}
+          onKeyDown={(e) => (e.key === 'Enter' ? e.currentTarget.blur() : e.key === 'Escape' ? setText(null) : undefined)}
+          className={`w-14 rounded border bg-surface px-1.5 py-0.5 text-right tabular-nums text-fg ${valid ? 'border-line-strong' : 'border-bad'}`}
+        />
+        <span>/ {max}</span>
+      </span>
+    </label>
+  )
+}
+
 export function MilestoneRow({
   course,
   milestone,
@@ -99,6 +154,7 @@ export function MilestoneRow({
   now: Date
 }) {
   const [editing, setEditing] = useState(false)
+  const [showParts, setShowParts] = useState(false)
   const days = daysUntil(milestone, now)
   const { minPoints, maxPoints } = milestone
   const passed = result && minPoints !== undefined ? result.points >= minPoints : undefined
@@ -132,7 +188,16 @@ export function MilestoneRow({
               ) : (
                 <span className={urgent ? 'font-medium text-warn' : 'text-muted'}>{countdown(days)}</span>
               )}
-              {maxPoints !== undefined && (
+              {milestone.parts ? (
+                <button
+                  onClick={() => setShowParts((v) => !v)}
+                  aria-expanded={showParts}
+                  className="rounded border border-line px-1.5 py-0.5 text-xs text-muted hover:text-fg"
+                  title="Points per exercise"
+                >
+                  {showParts ? 'hide' : 'by week'}
+                </button>
+              ) : maxPoints !== undefined && (
                 <button
                   onClick={() => setEditing(true)}
                   className="rounded border border-line px-1.5 py-0.5 text-xs text-muted hover:text-fg"
@@ -161,6 +226,7 @@ export function MilestoneRow({
           </span>
         </div>
       )}
+      {showParts && milestone.parts && <PartsGrid course={course} milestone={milestone} />}
     </li>
   )
 }

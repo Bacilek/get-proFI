@@ -3,6 +3,7 @@ import type {
   Attempt,
   LessonProgress,
   MaterialSkip,
+  MilestonePart,
   MilestoneResult,
   ReviewState,
   TopicRating,
@@ -15,6 +16,7 @@ export class ProfiDB extends Dexie {
   reviews!: EntityTable<ReviewState, 'questionId'>
   results!: EntityTable<MilestoneResult, 'milestoneId'>
   skips!: EntityTable<MaterialSkip, 'id'>
+  parts!: EntityTable<MilestonePart, 'id'>
 
   constructor(name = 'get-profi') {
     super(name)
@@ -26,6 +28,7 @@ export class ProfiDB extends Dexie {
       results: 'milestoneId',
     })
     this.version(2).stores({ skips: 'id' })
+    this.version(3).stores({ parts: 'id' })
   }
 }
 
