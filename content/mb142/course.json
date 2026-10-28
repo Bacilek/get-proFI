@@ -465,12 +465,7 @@
       "info": "Písemná, 120 min, max 40 b. K úspěchu 15 b (s bonusem z vnitra), jinak 20 b. Celkem alespoň 20 b pro E."
     }
   ],
-  "openItems": [
-    {
-      "id": "bonus-rules",
-      "text": "Ověřit přesná pravidla bonusu (+5 b) a vztah k 2. písemce"
-    }
-  ],
+  "openItems": [],
   "initialResults": [
     {
       "milestoneId": "midterm1",

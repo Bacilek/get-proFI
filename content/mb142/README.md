@@ -19,9 +19,10 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 - `antiderivative`, `integration-methods`, `rational-integration`: prednasky_MB142.pdf, pdf s. 71–81 (tisk. 68–78, týden 6).
 - `riemann`: pdf s. 82–89 (tisk. 79–86, týden 7).
 - `integral-theorems`: pdf s. 90–96 (tisk. 87–93, týden 7). Zdroj zatím nemazat (zbytek slidů se zpracovává).
-- `definite-integral-methods`: pdf s. 96–97 (tisk. 93–94: Newton–Leibniz, per partes, substituce; týden 7). Další: aplikace od pdf s. 98 (tisk. 95: plocha mezi grafy, délka křivky, objem rotačního tělesa).
+- `definite-integral-methods`: pdf s. 96–97 (tisk. 93–94: Newton–Leibniz, per partes, substituce; týden 7).
+- `integral-applications`: pdf s. 98–105 (tisk. 95–102: plocha mezi grafy, délka křivky/grafu, objem a plášť rotačního tělesa; těžiště jen zmíněno ve slidech). Další: nevlastní integrály od pdf s. 106 (tisk. 103).
 
 ## Otevřené položky (chybí od uživatele)
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).
 - Termíny zkoušky.
-- Ověřit přesná pravidla bonusu (+5 b) a vztah k 2. písemce.
+(Pravidlo bonusu potvrzeno uživatelem 2026-10-28: ≥ 8 b z 1. vnitra => na zkoušku stačí 15 b místo 20.)

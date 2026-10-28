@@ -1,0 +1,75 @@
+[
+  {
+    "id": "intapp-area-between",
+    "type": "numeric",
+    "prompt": "Určete plochu mezi grafy $y=x$ a $y=x^2$ na intervalu $[0,1]$ (na 3 desetinná místa).",
+    "answer": 0.167,
+    "tolerance": 0.001,
+    "solution": "Na $[0,1]$ je $x\\ge x^2$: $P=\\int_0^1(x-x^2)\\,\\mathrm{d}x=\\frac12-\\frac13=\\frac16\\approx0{,}167$."
+  },
+  {
+    "id": "intapp-area-parabola",
+    "type": "numeric",
+    "prompt": "Určete plochu mezi grafy $y=1-x^2$ a $y=-3$ (na 3 desetinná místa).",
+    "answer": 10.667,
+    "tolerance": 0.002,
+    "solution": "Průsečíky $1-x^2=-3\\Rightarrow x=\\pm2$. $P=\\int_{-2}^2(4-x^2)\\,\\mathrm{d}x=16-\\frac{16}{3}=\\frac{32}{3}\\approx10{,}667$."
+  },
+  {
+    "id": "intapp-area-sin",
+    "type": "numeric",
+    "prompt": "Určete obsah plochy mezi grafem $y=\\sin x$ a osou $x$ na intervalu $[0,2\\pi]$.",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^{2\\pi}\\sin x\\,\\mathrm{d}x=0$ je orientovaná plocha. Skutečná: $2\\int_0^\\pi\\sin x\\,\\mathrm{d}x=2\\cdot2=4$."
+  },
+  {
+    "id": "intapp-length-graph",
+    "type": "numeric",
+    "prompt": "Určete délku grafu $f(x)=x^{3/2}$ na $[0,1]$ (na 3 desetinná místa).",
+    "answer": 1.44,
+    "tolerance": 0.002,
+    "solution": "$f'=\\frac32\\sqrt x$, $d=\\int_0^1\\sqrt{1+\\frac94x}\\,\\mathrm{d}x=\\frac49\\cdot\\frac23\\Big[\\big(1+\\tfrac94x\\big)^{3/2}\\Big]_0^1=\\frac{8}{27}\\left(\\big(\\tfrac{13}{4}\\big)^{3/2}-1\\right)\\approx1{,}440$."
+  },
+  {
+    "id": "intapp-volume-sqrt",
+    "type": "numeric",
+    "prompt": "Určete objem tělesa vzniklého rotací grafu $f(x)=\\sqrt x$ na $[0,4]$ kolem osy $x$ (na 3 desetinná místa).",
+    "answer": 25.133,
+    "tolerance": 0.002,
+    "solution": "$V=\\pi\\int_0^4 x\\,\\mathrm{d}x=\\pi\\cdot8=8\\pi\\approx25{,}133$."
+  },
+  {
+    "id": "intapp-volume-parabola",
+    "type": "numeric",
+    "prompt": "Určete objem tělesa vzniklého rotací grafu $f(x)=x^2$ na $[0,1]$ kolem osy $x$ (na 3 desetinná místa).",
+    "answer": 0.628,
+    "tolerance": 0.001,
+    "solution": "$V=\\pi\\int_0^1x^4\\,\\mathrm{d}x=\\frac\\pi5\\approx0{,}628$."
+  },
+  {
+    "id": "intapp-volume-formula",
+    "type": "choice",
+    "prompt": "Který vzorec dává objem tělesa vzniklého rotací $f\\ge0$ na $[a,b]$ kolem osy $x$?",
+    "options": [
+      "$\\pi\\displaystyle\\int_a^b f^2(x)\\,\\mathrm{d}x$",
+      "$\\pi\\left(\\displaystyle\\int_a^b f(x)\\,\\mathrm{d}x\\right)^2$",
+      "$2\\pi\\displaystyle\\int_a^b f(x)\\,\\mathrm{d}x$",
+      "$\\displaystyle\\int_a^b\\sqrt{1+f'^2(x)}\\,\\mathrm{d}x$"
+    ],
+    "answer": 0,
+    "solution": "Proužek je válec s poloměrem $f(x)$ a výškou $\\mathrm{d}x$: objem $\\pi f^2\\,\\mathrm{d}x$. Poslední vzorec je délka grafu."
+  },
+  {
+    "id": "intapp-circumference",
+    "type": "free",
+    "prompt": "Odvoďte obvod kružnice o poloměru $r$ z parametrizace a vzorce pro délku křivky.",
+    "solution": "$[x,y]=[r\\cos t,r\\sin t]$, $t\\in[0,2\\pi]$; $[x',y']=[-r\\sin t,r\\cos t]$; $\\sqrt{r^2\\sin^2t+r^2\\cos^2t}=r$; $d=\\int_0^{2\\pi}r\\,\\mathrm{d}t=2\\pi r$."
+  },
+  {
+    "id": "intapp-sphere-surface",
+    "type": "free",
+    "prompt": "Pomocí vzorce $S=2\\pi\\int_a^b f\\sqrt{1+f'^2}\\,\\mathrm{d}x$ odvoďte povrch koule o poloměru $r$.",
+    "solution": "$f=\\sqrt{r^2-x^2}$ na $[-r,r]$, $f'=-x/\\sqrt{r^2-x^2}$, $1+f'^2=\\frac{r^2}{r^2-x^2}$, takže $f\\sqrt{1+f'^2}=r$. $S=2\\pi\\int_{-r}^{r}r\\,\\mathrm{d}x=4\\pi r^2$."
+  }
+]
