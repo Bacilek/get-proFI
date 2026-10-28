@@ -1,9 +1,9 @@
 import { missingInfo } from '../../core/missing'
 import type { Course } from '../../core/types'
-import { skipMaterial, useSkips } from '../../hooks'
+import { skipMaterial, useHandledMaterials } from '../../hooks'
 
 export function MissingInfoBox({ course, now }: { course: Course; now: Date }) {
-  const skips = useSkips()
+  const skips = useHandledMaterials(course)
   const items = missingInfo(course, skips, now)
   if (items.length === 0) return null
   const materials = items.filter((i) => i.skip)

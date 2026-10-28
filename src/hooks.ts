@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { courseSlug, resultId } from './content'
 import { db } from './core/db'
+import { skipKey } from './core/missing'
 import { setPart } from './core/parts'
 import { isDue, newReview, review } from './core/srs'
 import type { Attempt, Course, LessonProgress, MilestoneResult, TopicRating } from './core/types'
@@ -93,4 +94,20 @@ export function setMilestonePart(course: Course, milestoneId: string, n: number,
 export function setMilestonePoints(course: Course, milestoneId: string, points: number | null): Promise<unknown> {
   const id = resultId(course, milestoneId)
   return points === null ? db.results.delete(id) : db.results.put({ milestoneId: id, points, at: Date.now() })
+}
+
+/**
+ * Skipped materials plus ROPOT weeks whose points were entered by hand (part N of the milestone
+ * with weekly parts = ROPOT of week N), so the notice moves on to the next unfilled week.
+ */
+export function useHandledMaterials(course: Course): ReadonlySet<string> {
+  const skips = useSkips()
+  const milestone = course.milestones.find((m) => m.parts)
+  const key = milestone ? resultId(course, milestone.id) : ''
+  const rows = useLiveQuery(() => (key ? db.parts.where('id').startsWith(`${key}:`).toArray() : []), [key])
+  const out = new Set(skips)
+  if (course.materials?.ropot !== undefined) {
+    for (const r of rows ?? []) out.add(skipKey(course, 'ropot', Number(r.id.slice(key.length + 1))))
+  }
+  return out
 }

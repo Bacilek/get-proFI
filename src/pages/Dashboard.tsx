@@ -8,13 +8,13 @@ import { missingInfo } from '../core/missing'
 import type { Course } from '../core/types'
 import { ExamStatus } from '../features/course/ExamStatus'
 import { MilestoneRow } from '../features/course/Milestones'
-import { useCourseResults, useLessonProgress, useSkips } from '../hooks'
+import { useCourseResults, useHandledMaterials, useLessonProgress } from '../hooks'
 
 function CourseCard({ course, now }: { course: Course; now: Date }) {
   const results = useCourseResults(course)
   const stats = courseStats(course.modules, useLessonProgress())
   const next = upcoming(course.milestones, results, now).slice(0, 3)
-  const missing = missingInfo(course, useSkips(), now).length
+  const missing = missingInfo(course, useHandledMaterials(course), now).length
   return (
     <section className="rounded-xl border border-line bg-surface p-4 shadow-sm">
       <div className="flex items-baseline justify-between gap-2">
