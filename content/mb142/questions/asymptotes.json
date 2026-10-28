@@ -43,7 +43,12 @@
     "id": "asy-ln",
     "type": "choice",
     "prompt": "Jaké asymptoty má $f(x)=\\ln x$ na $(0,\\infty)$?",
-    "options": ["jen svislou $x=0$", "svislou $x=0$ a vodorovnou $y=0$", "jen šikmou $y=x$", "žádnou"],
+    "options": [
+      "jen svislou $x=0$",
+      "svislou $x=0$ a vodorovnou $y=0$",
+      "jen šikmou $y=x$",
+      "žádnou"
+    ],
     "answer": 0,
     "solution": "$\\lim_{x\\to0^+}\\ln x=-\\infty$ ⇒ $x=0$. V $\\infty$: $a=\\lim\\frac{\\ln x}x=0$, ale $b=\\lim\\ln x=\\infty$ není vlastní ⇒ asymptota v $\\infty$ není."
   },
@@ -51,8 +56,26 @@
     "id": "asy-sin-over-x",
     "type": "choice",
     "prompt": "Funkce $f(x)=\\dfrac{\\sin x}{x}$ je nespojitá v $x=0$. Má tam svislou asymptotu?",
-    "options": ["ne, $\\lim_{x\\to0}\\frac{\\sin x}{x}=1$ je vlastní", "ano, $x=0$", "ano, ale jen zprava", "nelze určit"],
+    "options": [
+      "ne, $\\lim_{x\\to0}\\frac{\\sin x}{x}=1$ je vlastní",
+      "ano, $x=0$",
+      "ano, ale jen zprava",
+      "nelze určit"
+    ],
     "answer": 0,
     "solution": "Svislá asymptota vyžaduje alespoň jednu nevlastní jednostrannou limitu; zde jsou obě rovny $1$. Nespojitost (odstranitelná) tedy asymptotu nedává. Vodorovná asymptota je $y=0$ v $\\pm\\infty$."
+  },
+  {
+    "id": "asym-x2p1",
+    "type": "choice",
+    "prompt": "Asymptoty funkce $f(x)=\\frac{x^2+1}{x^2-1}$:",
+    "options": [
+      "$x=-1$, $x=1$, $y=1$",
+      "jen $x=1$ a $y=1$",
+      "$x=\\pm1$ a $y=x$",
+      "jen $y=1$"
+    ],
+    "answer": 0,
+    "solution": "Svislé v bodech nespojitosti $\\pm1$ (limity $\\pm\\infty$), vodorovná $\\lim_{x\\to\\pm\\infty}f=1$."
   }
 ]

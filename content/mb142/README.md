@@ -37,3 +37,7 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).
 - Termíny zkoušky.
 (Pravidlo bonusu potvrzeno uživatelem 2026-10-28: ≥ 8 b z 1. vnitra => na zkoušku stačí 15 b místo 20.)
+
+## Zpracováno ze zápočtovek
+- 2025/2_zapoctova_pisemna_prace (zadání A, 5. 12. 2025): př. 2–6 převedeny na otázky (`defint-parts-sin2x`, `intapp-area-tg`, `seriesintro-sum-3n-2n`, `nonneg-integral-lnlog`, `ps-interval-shifted`). Zbývá: ukázkové zápočtovky 2025, `Ukazkova_pisemka_mb142.pdf`, sbírka příkladů, zápočtovky skupiny 09.
+- `ukázkové zápočtovky` (vzorová písemka I a II, 2025), `Ukazkova_pisemka_mb142.pdf` (ukázková zkouška), `cvicna_zapoctova_pisomka__2_.pdf` (sk. 09, vč. výsledků) a `1. zápočtová písemka` (sk. 09): převedeno na ~45 otázek do lekcí limits, lhospital, multivar-limits, taylor, convexity, asymptotes, partial-derivatives, integration-methods, rational-integration, definite-integral-methods, integral-applications, series-*, power-series, derivative-applications, curve-sketching, differential, multivar-extrema (id s příponou dle zdroje v textu řešení). Vynecháno: př. 2 (vrtulník, související změny), 3 (obdélník v půlkruhu), 4 (e^{0,053-0,02}, nejasné zadání), 5 (Riemann s dělením) ze ukázkové zkoušky – jsou nad rámec generátorů; lze doplnit jako `free`. Zbývá: sbírka příkladů, Priklady_k_prednaskam, zápočtovky skupiny 09 (zapoctove_testy je jen 1 stránka), teorie_a_priklady_cv1–5.

@@ -3,7 +3,12 @@
     "id": "ps-radius-exp",
     "type": "choice",
     "prompt": "Poloměr konvergence řady $\\displaystyle\\sum_{n=0}^\\infty\\frac{x^n}{n!}$ je:",
-    "options": ["$R=\\infty$", "$R=1$", "$R=0$", "$R=e$"],
+    "options": [
+      "$R=\\infty$",
+      "$R=1$",
+      "$R=0$",
+      "$R=e$"
+    ],
     "answer": 0,
     "solution": "$\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac{n!}{(n+1)!}=\\frac1{n+1}\\to0$, tedy $a=0$ a $R=\\infty$."
   },
@@ -11,7 +16,12 @@
     "id": "ps-radius-factorial",
     "type": "choice",
     "prompt": "Řada $\\displaystyle\\sum_{n=0}^\\infty n!\\,x^n$ konverguje:",
-    "options": ["jen pro $x=0$", "pro $|x|<1$", "pro všechna $x\\in\\mathbb R$", "pro $|x|<e$"],
+    "options": [
+      "jen pro $x=0$",
+      "pro $|x|<1$",
+      "pro všechna $x\\in\\mathbb R$",
+      "pro $|x|<e$"
+    ],
     "answer": 0,
     "solution": "$\\left|\\frac{a_{n+1}}{a_n}\\right|=n+1\\to\\infty$, tedy $a=\\infty$ a $R=0$. Řada konverguje jen ve středu $x=0$."
   },
@@ -27,7 +37,12 @@
     "id": "ps-radius-gaps",
     "type": "choice",
     "prompt": "Poloměr konvergence řady $\\displaystyle\\sum_{n=0}^\\infty\\frac{x^{2n}}{4^n}$ je:",
-    "options": ["$R=2$", "$R=4$", "$R=\\frac12$", "$R=\\frac14$"],
+    "options": [
+      "$R=2$",
+      "$R=4$",
+      "$R=\\frac12$",
+      "$R=\\frac14$"
+    ],
     "answer": 0,
     "solution": "Koeficienty u lichých mocnin jsou $0$, vzorec $\\frac{a_{n+1}}{a_n}$ nelze použít. Podílové kritérium na členy: $\\frac{|x|^{2n+2}/4^{n+1}}{|x|^{2n}/4^n}=\\frac{x^2}{4}<1\\iff|x|<2$, tedy $R=2$."
   },
@@ -35,7 +50,12 @@
     "id": "ps-interval",
     "type": "choice",
     "prompt": "Obor konvergence řady $\\displaystyle\\sum_{n=1}^\\infty\\frac{(x-2)^n}{n\\,3^n}$ je:",
-    "options": ["$[-1,5)$", "$(-1,5)$", "$[-1,5]$", "$(-1,5]$"],
+    "options": [
+      "$[-1,5)$",
+      "$(-1,5)$",
+      "$[-1,5]$",
+      "$(-1,5]$"
+    ],
     "answer": 0,
     "solution": "$R=3$, střed $2$, tedy $(-1,5)$. V $x=5$ vyjde $\\sum\\frac1n$ (diverguje), v $x=-1$ vyjde $\\sum\\frac{(-1)^n}n$ (konverguje, Leibniz). Obor je $[-1,5)$."
   },
@@ -68,5 +88,31 @@
     "type": "free",
     "prompt": "Odvoď mocninnou řadu pro $\\operatorname{arctg}x$ a pomocí ní sečti $1-\\frac13+\\frac15-\\frac17+\\dots$",
     "solution": "$\\frac1{1+t^2}=\\sum_{n=0}^\\infty(-1)^nt^{2n}$ pro $|t|<1$. Integrace od $0$ do $x$: $\\operatorname{arctg}x=\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{2n+1}$, $R=1$. V $x=1$ řada konverguje (Leibniz), podle spojitosti zleva (Abel) platí rovnost i tam: $1-\\frac13+\\frac15-\\dots=\\operatorname{arctg}1=\\frac\\pi4$."
+  },
+  {
+    "id": "ps-interval-sqrt",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=2}^\\infty\\frac{(-1)^{n+1}(x-2)^n}{\\sqrt{n^2-1}}$ má:",
+    "options": [
+      "$R=1$, $I=(1,3]$",
+      "$R=1$, $I=[1,3]$",
+      "$R=1$, $I=[1,3)$",
+      "$R=2$, $I=(0,4)$"
+    ],
+    "answer": 0,
+    "solution": "$R=1$. V $x=1$: $-\\sum\\frac1{\\sqrt{n^2-1}}$ diverguje (srovnání s $\\sum\\frac1n$); v $x=3$: Leibniz konverguje."
+  },
+  {
+    "id": "ps-interval-shifted",
+    "type": "choice",
+    "prompt": "Určete interval konvergence řady $\\displaystyle\\sum_{n=4}^\\infty\\frac{1}{(n-3)3^n}x^n$.",
+    "options": [
+      "$(-3,3)$",
+      "$[-3,3)$",
+      "$(-3,3]$",
+      "$[-3,3]$"
+    ],
+    "answer": 1,
+    "solution": "$R=3$. V $x=3$ vychází $\\sum\\frac1{n-3}$ (harmonická, diverguje); v $x=-3$ vychází $\\sum\\frac{(-1)^n}{n-3}$ (Leibniz, konverguje). Interval $[-3,3)$ (zápočtovka 2025, př. 6)."
   }
 ]

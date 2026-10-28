@@ -100,5 +100,44 @@
     ],
     "answer": 0,
     "solution": "Pro $q=1$ je kritérium nerozhodnutelné; použij srovnání nebo integrální kritérium."
+  },
+  {
+    "id": "nonneg-root-arcsin",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty 3^n\\arcsin^n\\frac1n$:",
+    "options": [
+      "konverguje (odmocninové kritérium, $q=0$)",
+      "diverguje, protože $q=3$",
+      "konverguje podle integrálního kritéria",
+      "nelze rozhodnout ($q=1$)"
+    ],
+    "answer": 0,
+    "solution": "$\\sqrt[n]{a_n}=3\\arcsin\\frac1n\\to0<1$."
+  },
+  {
+    "id": "nonneg-root-limsup",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=1}^\\infty\\frac{(-3)^n}{(6+(-1)^n)^n}$:",
+    "options": [
+      "konverguje (odmocninové kritérium, $\\limsup=\\frac35$)",
+      "diverguje, protože $|a_n|$ nekonverguje k 0",
+      "diverguje, protože $\\limsup=\\frac37+\\frac35>1$",
+      "je alternující, použijeme Leibniz"
+    ],
+    "answer": 0,
+    "solution": "$\\sqrt[n]{|a_n|}=\\frac3{6\\pm1}\\in\\{\\frac37,\\frac35\\}$, $\\limsup=\\frac35<1$ → konverguje absolutně (ukázková zkouška; podílové kritérium by selhalo)."
+  },
+  {
+    "id": "nonneg-integral-lnlog",
+    "type": "choice",
+    "prompt": "Řada $\\displaystyle\\sum_{n=2}^\\infty\\frac{1}{(n+5)\\ln(n+5)}$ – co dá integrální kritérium?",
+    "options": [
+      "$\\int_2^\\infty\\frac{dx}{(x+5)\\ln(x+5)}=\\infty$, řada diverguje",
+      "$\\int_2^\\infty\\frac{dx}{(x+5)\\ln(x+5)}$ konverguje, řada konverguje",
+      "Podílové kritérium dá $q<1$, řada konverguje",
+      "Řada konverguje, protože $a_n\\to0$"
+    ],
+    "answer": 0,
+    "solution": "$f(x)=\\frac1{(x+5)\\ln(x+5)}$ je kladná a klesající. Substitucí $t=\\ln(x+5)$: $\\int\\frac{dt}{t}=[\\ln t]_{\\ln7}^{\\infty}=\\infty$. Integrál diverguje, tedy i řada (zápočtovka 2025, př. 5). $a_n\\to0$ konvergenci nezaručuje."
   }
 ]

@@ -78,5 +78,21 @@
     "type": "free",
     "prompt": "Odvoďte obsah kruhu o poloměru $r$ jako $2\\int_{-r}^{r}\\sqrt{r^2-x^2}\\,\\mathrm{d}x$ pomocí substituce.",
     "solution": "$x=r\\sin t$, $\\mathrm{d}x=r\\cos t\\,\\mathrm{d}t$, meze $-r\\to-\\frac\\pi2$, $r\\to\\frac\\pi2$, $\\sqrt{r^2-r^2\\sin^2t}=r\\cos t$ (kladné na $[-\\frac\\pi2,\\frac\\pi2]$). Pak $P=2r^2\\int_{-\\pi/2}^{\\pi/2}\\cos^2t\\,\\mathrm{d}t=2r^2\\left[\\frac t2+\\frac{\\sin2t}{4}\\right]_{-\\pi/2}^{\\pi/2}=2r^2\\cdot\\frac\\pi2=\\pi r^2$."
+  },
+  {
+    "id": "defint-sin-sqrt",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\int_0^\\pi\\frac{\\sin x}{\\sqrt{2+\\cos x}}\\,dx$ (na 3 desetinná místa)",
+    "answer": 1.464,
+    "tolerance": 0.002,
+    "solution": "$t=2+\\cos x$, meze $3\\to1$: $\\int_1^3t^{-1/2}dt=2(\\sqrt3-1)\\approx1{,}464$."
+  },
+  {
+    "id": "defint-parts-sin2x",
+    "type": "numeric",
+    "prompt": "Vypočtěte $\\displaystyle\\int_0^\\pi(3x-1)\\sin(2x)\\,dx$ (na 3 desetinná místa).",
+    "answer": -4.712,
+    "tolerance": 0.002,
+    "solution": "Per partes, $u=3x-1$, $v'=\\sin2x$: $\\left[-(3x-1)\\frac{\\cos2x}{2}\\right]_0^\\pi+\\frac32\\int_0^\\pi\\cos2x\\,dx=-\\frac{3\\pi-1}{2}-\\frac12+0=-\\frac{3\\pi}2\\approx-4{,}712$ (zápočtovka 2025, př. 2)."
   }
 ]

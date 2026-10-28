@@ -54,5 +54,18 @@
     "type": "free",
     "prompt": "Najdi globální extrémy $f=xy-x^2-y^2+x+y$ na množině $x\\ge0,\\ y\\ge0,\\ x+y\\le4$.",
     "solution": "Uvnitř: $[1,1]$, $D=3>0,\\ f_{xx}=-2$ ⇒ max, $f=1$. Hranice: $x=0$: $-y^2+y$ (hodnoty $\\frac14$ v $y=\\frac12$, $0$ a $-12$ v krajích); $y=0$ analogicky; $y=4-x$: $-3x^2+12x-12$ (max $0$ v $[2,2]$, konce $-12$). Maximum $1$ v $[1,1]$, minimum $-12$ v $[0,4]$ a $[4,0]$."
+  },
+  {
+    "id": "mve-quad-min",
+    "type": "choice",
+    "prompt": "$f(x,y)=x^2+y^2-4x+2y+5$ má:",
+    "options": [
+      "lokální minimum v $[2,-1]$ s hodnotou 0",
+      "lokální maximum v $[2,-1]$",
+      "sedlo v $[2,-1]$",
+      "lokální minimum v $[-2,1]$"
+    ],
+    "answer": 0,
+    "solution": "$f_x=2x-4$, $f_y=2y+2$ → $[2,-1]$; Hessián $\\operatorname{diag}(2,2)$ je pozitivně definitní; $f=(x-2)^2+(y+1)^2$."
   }
 ]

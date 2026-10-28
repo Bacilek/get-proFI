@@ -71,5 +71,29 @@
     "type": "free",
     "prompt": "Pomocí vzorce $S=2\\pi\\int_a^b f\\sqrt{1+f'^2}\\,\\mathrm{d}x$ odvoďte povrch koule o poloměru $r$.",
     "solution": "$f=\\sqrt{r^2-x^2}$ na $[-r,r]$, $f'=-x/\\sqrt{r^2-x^2}$, $1+f'^2=\\frac{r^2}{r^2-x^2}$, takže $f\\sqrt{1+f'^2}=r$. $S=2\\pi\\int_{-r}^{r}r\\,\\mathrm{d}x=4\\pi r^2$."
+  },
+  {
+    "id": "intapp-volume-6x",
+    "type": "numeric",
+    "prompt": "Objem tělesa vzniklého rotací oblouku $xy=6$, $1\\le x\\le6$, kolem osy $x$, dělený $\\pi$.",
+    "answer": 30,
+    "tolerance": 0.001,
+    "solution": "$V=\\pi\\int_1^6\\frac{36}{x^2}dx=36\\pi\\left(1-\\frac16\\right)=30\\pi$."
+  },
+  {
+    "id": "intapp-circle-parabola",
+    "type": "numeric",
+    "prompt": "Kruh $x^2+y^2\\le8$ je rozdělen parabolou $y^2=2x$. Jaký je poměr menší části k větší (na 3 desetinná místa)?",
+    "answer": 0.435,
+    "tolerance": 0.002,
+    "solution": "Průsečíky $[2,\\pm2]$. Menší část $2\\int_0^2\\left(\\sqrt{8-y^2}-\\frac{y^2}2\\right)dy=2\\pi+\\frac43$, větší $6\\pi-\\frac43$. Poměr $\\frac{3\\pi+2}{9\\pi-2}\\approx0{,}435$."
+  },
+  {
+    "id": "intapp-area-tg",
+    "type": "numeric",
+    "prompt": "Obsah plochy ohraničené přímkami $x=\\pi/4$, $y=0$ a grafem $y=\\operatorname{tg}x$ (na 3 desetinná místa).",
+    "answer": 0.347,
+    "tolerance": 0.001,
+    "solution": "$S=\\int_0^{\\pi/4}\\operatorname{tg}x\\,dx=[-\\ln|\\cos x|]_0^{\\pi/4}=-\\ln\\frac{\\sqrt2}{2}=\\frac{\\ln2}{2}\\approx0{,}347$ (zápočtovka 2025, př. 3)."
   }
 ]

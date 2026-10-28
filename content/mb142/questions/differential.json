@@ -19,7 +19,11 @@
     "id": "differential-choice-x0",
     "type": "choice",
     "prompt": "Chceme odhadnout $\\sqrt{50}$ diferenciálem. Které $x_0$ zvolíš?",
-    "options": ["$x_0 = 49$", "$x_0 = 25$", "$x_0 = 0$"],
+    "options": [
+      "$x_0 = 49$",
+      "$x_0 = 25$",
+      "$x_0 = 0$"
+    ],
     "answer": 0,
     "solution": "$x_0$ má být blízko $50$ a $\\sqrt{x_0}$ umíme přesně: $\\sqrt{49}=7$."
   },
@@ -28,5 +32,21 @@
     "type": "free",
     "prompt": "Pomocí diferenciálu aproximuj $\\cos(61^\\circ)$. Nezapomeň na radiány.",
     "solution": "$f=\\cos$, $x_0=\\frac{\\pi}{3}$ ($60^\\circ$), $h=\\frac{\\pi}{180}$, $f'(x_0)=-\\sin\\frac{\\pi}{3}=-\\frac{\\sqrt3}{2}$.\n\n$\\cos 61^\\circ\\approx\\frac12-\\frac{\\sqrt3}{2}\\cdot\\frac{\\pi}{180}\\approx 0{,}4849$"
+  },
+  {
+    "id": "diff-cos61",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximujte $\\cos61^\\circ$ (na 4 desetinná místa).",
+    "answer": 0.4848,
+    "tolerance": 0.0003,
+    "solution": "$f=\\cos x$ v $\\frac\\pi3$: $\\frac12-\\frac{\\sqrt3}2\\cdot\\frac\\pi{180}\\approx0{,}4849$."
+  },
+  {
+    "id": "diff-arctan105",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximujte $\\operatorname{arctg}1{,}05$ (na 3 desetinná místa).",
+    "answer": 0.81,
+    "tolerance": 0.001,
+    "solution": "$\\frac\\pi4+\\frac12\\cdot0{,}05=0{,}7854+0{,}025\\approx0{,}810$."
   }
 ]

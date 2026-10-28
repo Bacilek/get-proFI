@@ -49,5 +49,13 @@
     "type": "free",
     "prompt": "Spočti $f_x$ a $f_y$ pro $f(x,y)=\\mathrm e^{x}y^2\\sin(xy)$.",
     "solution": "$f_x=y^2\\mathrm e^x(\\sin xy+y\\cos xy)$, $f_y=\\mathrm e^x y(2\\sin xy+xy\\cos xy)$ (součin a složená funkce, druhá proměnná je konstanta)."
+  },
+  {
+    "id": "pd-tangent-plane-fy",
+    "type": "numeric",
+    "prompt": "Tečná rovina ke grafu $f(x,y)=\\frac{x\\cos y-y\\cos x}{1+\\sin x+\\sin y}$ v bodě $[0,0,f(0,0)]$. Určete $f_y(0,0)$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$f_y(0,0)=-1$, $f_x(0,0)=1$, $f(0,0)=0$ → $z=x-y$ (vzorová písemka I)."
   }
 ]

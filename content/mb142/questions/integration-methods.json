@@ -3,7 +3,12 @@
     "id": "intmethods-xcos",
     "type": "choice",
     "prompt": "$\\displaystyle\\int x\\cos x\\,\\mathrm{d}x=$",
-    "options": ["$x\\sin x+\\cos x+C$", "$x\\sin x-\\cos x+C$", "$\\frac{x^2}{2}\\sin x+C$", "$\\cos x-x\\sin x+C$"],
+    "options": [
+      "$x\\sin x+\\cos x+C$",
+      "$x\\sin x-\\cos x+C$",
+      "$\\frac{x^2}{2}\\sin x+C$",
+      "$\\cos x-x\\sin x+C$"
+    ],
     "answer": 0,
     "solution": "Per partes: $u'=\\cos x$, $v=x$ dává $x\\sin x-\\int\\sin x\\,\\mathrm{d}x=x\\sin x+\\cos x$."
   },
@@ -11,7 +16,12 @@
     "id": "intmethods-subst-choice",
     "type": "choice",
     "prompt": "$\\displaystyle\\int\\frac{2x}{(x^2+1)^2}\\,\\mathrm{d}x=$",
-    "options": ["$-\\frac{1}{x^2+1}+C$", "$\\frac{1}{x^2+1}+C$", "$\\ln(x^2+1)^2+C$", "$-\\frac{2}{(x^2+1)^3}+C$"],
+    "options": [
+      "$-\\frac{1}{x^2+1}+C$",
+      "$\\frac{1}{x^2+1}+C$",
+      "$\\ln(x^2+1)^2+C$",
+      "$-\\frac{2}{(x^2+1)^3}+C$"
+    ],
     "answer": 0,
     "solution": "$t=x^2+1$, $\\mathrm{d}t=2x\\,\\mathrm{d}x$: $\\int t^{-2}\\mathrm{d}t=-\\frac1t$."
   },
@@ -27,7 +37,12 @@
     "id": "intmethods-exp-sin",
     "type": "choice",
     "prompt": "$\\displaystyle\\int e^x\\sin x\\,\\mathrm{d}x=$",
-    "options": ["$\\frac12e^x(\\sin x-\\cos x)+C$", "$\\frac12e^x(\\sin x+\\cos x)+C$", "$e^x\\cos x+C$", "$e^x(\\sin x-\\cos x)+C$"],
+    "options": [
+      "$\\frac12e^x(\\sin x-\\cos x)+C$",
+      "$\\frac12e^x(\\sin x+\\cos x)+C$",
+      "$e^x\\cos x+C$",
+      "$e^x(\\sin x-\\cos x)+C$"
+    ],
     "answer": 0,
     "solution": "Dvakrát per partes se vrátí $I$: $I=e^x(\\sin x-\\cos x)-I$, tedy $2I=e^x(\\sin x-\\cos x)$."
   },
@@ -42,5 +57,18 @@
     "type": "free",
     "prompt": "Spočtěte $\\displaystyle\\int x^2\\cos x^3\\,\\mathrm{d}x$.",
     "solution": "Substituce $t=x^3$, $\\mathrm{d}t=3x^2\\mathrm{d}x$: $\\frac13\\int\\cos t\\,\\mathrm{d}t=\\frac13\\sin x^3+C$."
+  },
+  {
+    "id": "im-x3x",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int x\\cdot3^x\\,dx=$",
+    "options": [
+      "$\\frac{3^x}{\\ln3}\\left(x-\\frac1{\\ln3}\\right)+C$",
+      "$\\frac{3^x x^2}{2\\ln3}+C$",
+      "$3^x(x-1)+C$",
+      "$\\frac{3^x}{\\ln 3}(x+1)+C$"
+    ],
+    "answer": 0,
+    "solution": "Per partes $u=x$, $v'=3^x$: $x\\frac{3^x}{\\ln3}-\\frac1{\\ln3}\\int3^x dx=\\frac{3^x}{\\ln3}\\left(x-\\frac1{\\ln3}\\right)+C$."
   }
 ]

@@ -67,8 +67,26 @@
     "id": "lh-sin-over-x",
     "type": "choice",
     "prompt": "Platí $\\displaystyle\\lim_{x\\to\\infty}\\frac{\\sin x}{x}=0$. Proč nelze použít l'Hospitala?",
-    "options": ["nejde o typ $\\frac00$ ani $\\frac\\infty\\infty$ (čitatel je omezený) a $\\lim\\cos x$ neexistuje", "protože $\\sin x$ nemá derivaci", "protože limita neexistuje", "l'Hospital lze použít a dá $\\cos x\\to1$"],
+    "options": [
+      "nejde o typ $\\frac00$ ani $\\frac\\infty\\infty$ (čitatel je omezený) a $\\lim\\cos x$ neexistuje",
+      "protože $\\sin x$ nemá derivaci",
+      "protože limita neexistuje",
+      "l'Hospital lze použít a dá $\\cos x\\to1$"
+    ],
     "answer": 0,
     "solution": "Čitatel je omezený, jmenovatel jde do $\\infty$, tedy typ je $\\frac{\\text{omezená}}{\\infty}=0$. Podíl derivací $\\cos x$ limitu nemá, takže pravidlo nic netvrdí."
+  },
+  {
+    "id": "lh-cotg-ln",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\lim_{x\\to0^+}(\\operatorname{cotg}x)\\ln x$",
+    "options": [
+      "$-\\infty$",
+      "$0$",
+      "$-1$",
+      "$+\\infty$"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{\\ln x}{\\operatorname{tg}x}$ – čitatel $\\to-\\infty$, jmenovatel $\\to0^+$, tedy $-\\infty$ (nejde o neurčitý výraz; ukázková zkouška)."
   }
 ]

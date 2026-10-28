@@ -27,7 +27,12 @@
     "id": "cvx-x4",
     "type": "choice",
     "prompt": "Pro $f(x)=x^4$ je $f''(0)=0$. Má $f$ v bodě $0$ inflexi?",
-    "options": ["ne, $f''=12x^2\\ge0$ nemění znaménko (konvexní na $\\mathbb R$)", "ano, protože $f''(0)=0$", "ano, protože $f'(0)=0$", "ne, protože $f$ není spojitá"],
+    "options": [
+      "ne, $f''=12x^2\\ge0$ nemění znaménko (konvexní na $\\mathbb R$)",
+      "ano, protože $f''(0)=0$",
+      "ano, protože $f'(0)=0$",
+      "ne, protože $f$ není spojitá"
+    ],
     "answer": 0,
     "solution": "Nulová druhá derivace je jen nutná podmínka. $f''$ je po obou stranách nuly kladná, takže $f$ je konvexní na celém $\\mathbb R$ a inflexe tam není."
   },
@@ -35,7 +40,12 @@
     "id": "cvx-ln",
     "type": "choice",
     "prompt": "Je funkce $f(x)=\\ln x$ na $(0,\\infty)$ konvexní, nebo konkávní?",
-    "options": ["konkávní ($f''=-\\frac1{x^2}<0$)", "konvexní ($f''=\\frac1{x^2}>0$)", "konvexní i konkávní", "ani jedno, má inflexi"],
+    "options": [
+      "konkávní ($f''=-\\frac1{x^2}<0$)",
+      "konvexní ($f''=\\frac1{x^2}>0$)",
+      "konvexní i konkávní",
+      "ani jedno, má inflexi"
+    ],
     "answer": 0,
     "solution": "$f'=\\frac1x$ klesá, $f''=-\\frac1{x^2}<0$ ⇒ konkávní (tečny leží nad grafem, proto $\\ln x\\le x-1$)."
   },
@@ -43,7 +53,12 @@
     "id": "cvx-tangents",
     "type": "choice",
     "prompt": "Funkce $f$ je na intervalu $I$ konvexní. Jak leží tečny vzhledem k grafu?",
-    "options": ["pod grafem", "nad grafem", "protínají graf", "tečny existují jen v extrémech"],
+    "options": [
+      "pod grafem",
+      "nad grafem",
+      "protínají graf",
+      "tečny existují jen v extrémech"
+    ],
     "answer": 0,
     "solution": "Konvexní ($f'$ neklesá, tvar $\\cup$) ⇒ tečny leží pod grafem. U konkávní funkce leží nad grafem."
   },
@@ -52,5 +67,18 @@
     "type": "free",
     "prompt": "Pro $f(x)=x+\\sin x$ na $[0,4\\pi]$ urči monotonii, extrémy, konvexnost a inflexe.",
     "solution": "$f'=1+\\cos x\\ge0$, rovnost jen v izolovaných bodech $\\pi,3\\pi$ ⇒ $f$ je rostoucí na $[0,4\\pi]$, žádné lokální extrémy. $f''=-\\sin x$: $f''>0$ na $(\\pi,2\\pi)$ a $(3\\pi,4\\pi)$ (konvexní), $f''<0$ na $(0,\\pi)$ a $(2\\pi,3\\pi)$ (konkávní). Inflexe v $x=\\pi,2\\pi,3\\pi$."
+  },
+  {
+    "id": "conv-x2p1-over-x2m1",
+    "type": "choice",
+    "prompt": "Funkce $f(x)=\\frac{x^2+1}{x^2-1}$ má $f''=\\frac{4(3x^2+1)}{(x^2-1)^3}$. Kde je konkávní?",
+    "options": [
+      "na $(-1,1)$",
+      "na $(-\\infty,-1)$ a $(1,\\infty)$",
+      "na $\\mathbb R\\setminus\\{\\pm1\\}$",
+      "nikde"
+    ],
+    "answer": 0,
+    "solution": "Znaménko určuje jen $(x^2-1)^3$: záporné na $(-1,1)$ → konkávní; konvexní na $(-\\infty,-1)$ a $(1,\\infty)$ (vzorová písemka I)."
   }
 ]

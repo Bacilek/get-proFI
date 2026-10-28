@@ -59,7 +59,12 @@
     "id": "lim-value-irrelevant",
     "type": "choice",
     "prompt": "Funkce $f(x)=\\dfrac{x^2-4}{x-2}$ pro $x\\ne2$ a $f(2)=7$. Čemu se rovná $\\lim_{x\\to2}f(x)$?",
-    "options": ["$4$", "$7$", "neexistuje", "$\\infty$"],
+    "options": [
+      "$4$",
+      "$7$",
+      "neexistuje",
+      "$\\infty$"
+    ],
     "answer": 0,
     "solution": "Limita nezávisí na hodnotě $f(2)$. Pro $x\\ne2$ je $f(x)=x+2\\to4$."
   },
@@ -67,7 +72,12 @@
     "id": "lim-sgn",
     "type": "choice",
     "prompt": "Proč neexistuje $\\lim_{x\\to0}\\operatorname{sgn}x$?",
-    "options": ["jednostranné limity jsou různé ($1$ a $-1$)", "funkce není v $0$ definovaná", "funkce není omezená", "funkce osciluje"],
+    "options": [
+      "jednostranné limity jsou různé ($1$ a $-1$)",
+      "funkce není v $0$ definovaná",
+      "funkce není omezená",
+      "funkce osciluje"
+    ],
     "answer": 0,
     "solution": "$\\lim_{x\\to0^+}\\operatorname{sgn}x=1$, $\\lim_{x\\to0^-}\\operatorname{sgn}x=-1$. Limita existuje, jen když jsou si jednostranné limity rovny. Hodnota $\\operatorname{sgn}0=0$ s tím nesouvisí."
   },
@@ -75,7 +85,12 @@
     "id": "lim-three",
     "type": "choice",
     "prompt": "Čemu se rovná $\\displaystyle\\lim_{x\\to0}x\\sin\\frac1x$?",
-    "options": ["$0$", "$1$", "neexistuje (osciluje)", "$\\infty$"],
+    "options": [
+      "$0$",
+      "$1$",
+      "neexistuje (osciluje)",
+      "$\\infty$"
+    ],
     "answer": 0,
     "solution": "$-|x|\\le x\\sin\\frac1x\\le|x|$ a $|x|\\to0$, takže podle věty o třech limitách je limita $0$. (Samotné $\\sin\\frac1x$ limitu v $0$ nemá.)"
   },
@@ -83,7 +98,12 @@
     "id": "lim-one-sided-inf",
     "type": "choice",
     "prompt": "Jak se chová $\\dfrac1{x-1}$ pro $x\\to1^+$ a $x\\to1^-$?",
-    "options": ["$+\\infty$ a $-\\infty$, limita neexistuje", "$+\\infty$ v obou případech", "$0$ v obou případech", "$1$ a $-1$"],
+    "options": [
+      "$+\\infty$ a $-\\infty$, limita neexistuje",
+      "$+\\infty$ v obou případech",
+      "$0$ v obou případech",
+      "$1$ a $-1$"
+    ],
     "answer": 0,
     "solution": "Pro $x>1$ je jmenovatel malé kladné číslo ($\\to+\\infty$), pro $x<1$ malé záporné ($\\to-\\infty$). Jednostranné limity jsou různé, tedy $\\lim_{x\\to1}$ neexistuje."
   },
@@ -92,5 +112,77 @@
     "type": "free",
     "prompt": "Napiš definici $\\lim_{x\\to x_0}f(x)=L$ pomocí $\\varepsilon$ a $\\delta$ a řekni, proč v ní stojí $0<|x-x_0|$.",
     "solution": "$\\forall\\varepsilon>0\\ \\exists\\delta>0\\ \\forall x:\\ 0<|x-x_0|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$. Podmínka $0<|x-x_0|$ (tj. $x\\ne x_0$) znamená, že limita nezávisí na hodnotě $f(x_0)$ (ani na tom, zda existuje)."
+  },
+  {
+    "id": "limits-sin3x-tg2x",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sin 3x}{\\operatorname{tg}2x}$",
+    "answer": 1.5,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\sin3x}{3x}\\cdot\\frac{2x}{\\sin2x}\\cdot\\frac32\\cos2x\\to\\frac32$ (vzorová písemka I)."
+  },
+  {
+    "id": "limits-sqrt-quad",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{4+3x+x^2}-2}{x+x^2}$",
+    "answer": 0.75,
+    "tolerance": 0.001,
+    "solution": "Rozšíříme $\\sqrt{\\cdot}+2$: čitatel $3x+x^2=x(3+x)$, jmenovatel $x(1+x)(\\sqrt{\\cdot}+2)$ → $\\frac{3}{1\\cdot4}=\\frac34$."
+  },
+  {
+    "id": "limits-sin5x-cos2x",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sin(5x)\\cos(2x)}{3x}$ (na 3 desetinná místa)",
+    "answer": 1.667,
+    "tolerance": 0.001,
+    "solution": "$\\frac53\\cdot\\frac{\\sin5x}{5x}\\cos2x\\to\\frac53\\approx1{,}667$ (1. písemka, skupina 09)."
+  },
+  {
+    "id": "limits-sqrt4-x",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{x+4}-2}{x}$",
+    "answer": 0.25,
+    "tolerance": 0.001,
+    "solution": "Rozšíření: $\\frac{x}{x(\\sqrt{x+4}+2)}\\to\\frac14$ (nebo derivace $\\sqrt{x+4}$ v 0)."
+  },
+  {
+    "id": "limits-ex-x-1",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{e^x-x-1}{x^2}$",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "l'Hospital dvakrát: $\\frac{e^x-1}{2x}\\to\\frac{e^x}{2}\\to\\frac12$ (nebo Taylor $e^x=1+x+\\frac{x^2}{2}+\\dots$)."
+  },
+  {
+    "id": "limits-cos-sin-cos2x",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to\\pi/4}\\frac{\\cos x-\\sin x}{\\cos 2x}$ (na 3 desetinná místa)",
+    "answer": 0.707,
+    "tolerance": 0.001,
+    "solution": "$\\cos2x=(\\cos x-\\sin x)(\\cos x+\\sin x)$, limita $\\frac1{\\cos x+\\sin x}=\\frac1{\\sqrt2}\\approx0{,}707$ (ukázková zkouška)."
+  },
+  {
+    "id": "limits-sin4x-tan3x",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sin(4x)\\tan(3x)}{x^2}$",
+    "answer": 12,
+    "tolerance": 0.001,
+    "solution": "$4\\cdot3\\cdot\\frac{\\sin4x}{4x}\\cdot\\frac{\\tan3x}{3x}\\to12$."
+  },
+  {
+    "id": "limits-sqrt-minus-x",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+6x-1}-x\\right)$",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "Rozšíření: $\\frac{6x-1}{\\sqrt{x^2+6x-1}+x}\\to\\frac{6}{2}=3$."
+  },
+  {
+    "id": "limits-x2lnx",
+    "type": "numeric",
+    "prompt": "$\\displaystyle\\lim_{x\\to0^+}x^2\\ln x$",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\ln x}{x^{-2}}$, l'Hospital: $\\frac{1/x}{-2x^{-3}}=-\\frac{x^2}{2}\\to0$."
   }
 ]

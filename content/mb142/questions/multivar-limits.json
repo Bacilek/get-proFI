@@ -61,5 +61,31 @@
     ],
     "answer": 0,
     "solution": "Potřebujeme množinu uzavřenou a omezenou (kompaktní): uzavřený kruh. Otevřený kruh není uzavřený, kvadrant a $\\mathbb R^2$ nejsou omezené."
+  },
+  {
+    "id": "mvl-2xy-y2",
+    "type": "choice",
+    "prompt": "Limita $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{2xy+y^2}{x^2+5y^2}$",
+    "options": [
+      "neexistuje (závisí na směru)",
+      "je 0",
+      "je 1/5",
+      "je 2"
+    ],
+    "answer": 0,
+    "solution": "Polárně $\\frac{\\sin2\\varphi+\\sin^2\\varphi}{\\cos^2\\varphi+5\\sin^2\\varphi}$ závisí na $\\varphi$ (např. $y=0$: 0; $x=0$: $\\frac15$)."
+  },
+  {
+    "id": "mvl-x2-4y2",
+    "type": "choice",
+    "prompt": "Limita $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^2}{x^2+4y^2}$",
+    "options": [
+      "neexistuje",
+      "je 0",
+      "je 1",
+      "je 1/4"
+    ],
+    "answer": 0,
+    "solution": "Po ose $x$ ($y=0$) dává 1, po ose $y$ ($x=0$) dává 0."
   }
 ]
