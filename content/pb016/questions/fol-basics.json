@@ -121,7 +121,7 @@
     "type": "multi",
     "prompt": "Které **dvě** věci umí PL1, ale výroková logika ne (příklad Wumpusovy jeskyně)? Označ obě.",
     "options": [
-      "použít spojky $wedge$, $\u000bee$, $\neg$, $Rightarrow$",
+      "použít spojky $\\wedge$, $\\vee$, $\\neg$, $\\Rightarrow$",
       "říct jednou formulí „Jámy způsobují vánek v sousedních místnostech“ pro celou mapu",
       "vyjádřit, že v místnosti [1,2] je vánek",
       "kvantifikovat („pro všechny“, „existuje“) a mluvit o objektech, relacích a funkcích",

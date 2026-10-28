@@ -50,48 +50,84 @@
     ]
   },
   {
-    "id": "ai-agent-props",
-    "type": "multi",
-    "prompt": "Které z těchto vlastností má **inteligentní agent** podle přednášky? Označ všech pět správných.",
+    "id": "ai-agent-script",
+    "type": "choice",
+    "prompt": "Skript spuštěný ručně jednou převede soubor CSV na JSON a skončí. Proč o něm **nemluvíme** jako o inteligentním agentovi?",
     "options": [
-      "jedná za nějakým účelem",
-      "je vševědoucí a nikdy nedělá chyby",
-      "jedná samostatně",
-      "vždy nalezne optimální řešení",
-      "jedná na základě vstupů ze svého prostředí",
-      "vyžaduje schválení člověka při každé akci",
-      "pracuje delší dobu",
-      "funguje jen v plně pozorovatelném prostředí",
-      "adaptuje se na změny",
-      "musí vypadat jako člověk"
+      "Pracuje s CSV, a ne s textem v přirozeném jazyce.",
+      "Nejedná za žádným účelem.",
+      "Nepracuje delší dobu v prostředí, do kterého by vstupovaly změny, takže se nemá čemu adaptovat.",
+      "Nemá žádné vstupy."
     ],
-    "answers": [
-      0,
-      2,
-      4,
-      6,
-      8
-    ],
-    "solution": "Inteligentní agent: (1) jedná za nějakým účelem, (2) jedná samostatně, (3) jedná na základě vstupů ze svého prostředí, (4) pracuje delší dobu, (5) adaptuje se na změny.",
+    "answer": 2,
+    "solution": "Účel (převod) i vstup (CSV) skript má. Chybí mu to, co dělá agenta: běží jednorázově, nesleduje prostředí delší dobu a nemá se čemu adaptovat.",
     "hints": [
-      "Začni otázkou „proč“ agent jedná.",
-      "Vlastnosti se týkají účelu, samostatnosti, vstupů, času a změn."
+      "Zkus projít pět vlastností agenta a hledej tu, kterou skript nesplňuje.",
+      "Skončí hned po jednom průchodu."
     ]
   },
   {
-    "id": "ai-optimization-which",
+    "id": "ai-agent-vacuum",
     "type": "choice",
-    "prompt": "Který z následujících problémů **není** optimalizační problém (dle definice ve sbírce)?",
+    "prompt": "Robotický vysavač mapuje byt, uklízí a když mu někdo postaví do cesty novou židli, objede ji a upraví trasu. Kterou vlastnost inteligentního agenta ilustruje **právě objetí nové židle**?",
     "options": [
-      "plánování rozmístění prodejen řetězce za účelem maximalizace zisku",
-      "hledání nejkratší cesty z vlaku na zastávku šaliny",
-      "hledání platného řešení sudoku"
+      "jedná za nějakým účelem",
+      "jedná samostatně",
+      "adaptuje se na změny prostředí",
+      "pracuje delší dobu"
     ],
     "answer": 2,
-    "solution": "Optimalizační problém hledá konfiguraci *nejlepší* podle kritéria. U sudoku stačí *jakékoliv* platné řešení (nejsou „lepší“ a „horší“), proto optimalizační není. Zisk a délka cesty jsou kritéria, která se maximalizují/minimalizují.",
+    "solution": "Nová překážka je změna prostředí a vysavač na ni reaguje úpravou chování, tedy adaptace. Účel („uklidit“), samostatnost a dlouhodobý běh jsou jiné rysy téhož systému.",
     "hints": [
-      "Ptej se: existuje u řešení nějaké „lepší“ a „horší“?",
-      "Dvě možnosti mají číselné kritérium."
+      "Co se změnilo oproti původní mapě?"
+    ]
+  },
+  {
+    "id": "ai-turing-result",
+    "type": "choice",
+    "prompt": "V Turingově testu rozhodčí po hodině chatu tipuje, který z dvou partnerů je stroj, a trefuje se jen v polovině případů (jako při hodu mincí). Co to znamená?",
+    "options": [
+      "Stroj uspěl: rozhodčí ho nedokáže spolehlivě rozeznat od člověka.",
+      "Stroj neuspěl: rozhodčí ho nedokázal odhalit.",
+      "Test je neplatný, protože rozhodčí musí vždy tipovat správně.",
+      "Stroj prokázal, že rozumí, protože porazil rozhodčího."
+    ],
+    "answer": 0,
+    "solution": "Úspěch = rozhodčí stroj spolehlivě nerozezná. Tip na úrovni náhody je přesně to. Test ale nic neříká o „porozumění“ (viz čínský pokoj).",
+    "hints": [
+      "Co znamená „spolehlivě rozeznat“?"
+    ]
+  },
+  {
+    "id": "ai-chinese-room",
+    "type": "choice",
+    "prompt": "Argument čínského pokoje je vyvrácen. Co z toho plyne?",
+    "options": [
+      "Vhodně naprogramovaný počítač musí mít mentální stavy.",
+      "Nic jistého: vyvrácení argumentu neznamená, že počítače mentální stavy mají.",
+      "Turingův test je tím prokázán jako neplatný.",
+      "Počítače mají vědomí, jen ho neumí vyjádřit."
+    ],
+    "answer": 1,
+    "solution": "Argument je jen jedním důvodem k pochybnostem. Jeho vyvrácení ruší tento důvod, ale pozitivní tvrzení o mentálních stavech počítačů nedokazuje.",
+    "hints": [
+      "Vyvrátit jeden argument není totéž jako dokázat opačné tvrzení."
+    ]
+  },
+  {
+    "id": "ai-rational-vs-omniscient",
+    "type": "choice",
+    "prompt": "Rozlišuj racionálního a vševědoucího agenta. Který agent je racionální?",
+    "options": [
+      "Ten, který nikdy neselže.",
+      "Ten, který zvolí akci s nejlepším očekávaným výkonem podle toho, co ví, i když se pak stane něco nepředvídatelného.",
+      "Ten, který vždy zvolí nejrychlejší akci.",
+      "Ten, který nejlépe napodobuje člověka."
+    ],
+    "answer": 1,
+    "solution": "Racionalita se měří očekávaným výkonem při dosavadních pozorováních, ne skutečným výsledkem. Vševědoucí agent by znal výsledek akce předem, to nejde.",
+    "hints": [
+      "Očekávaný, ne skutečný výsledek."
     ]
   },
   {

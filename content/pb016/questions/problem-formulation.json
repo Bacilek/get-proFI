@@ -103,7 +103,7 @@
   {
     "id": "pf-4queens-actions",
     "type": "choice",
-    "prompt": "Uvažte problém 4 dam: počáteční stav je prázdná hrací plocha $4\times4$, přechodová akce spočívá v umístění dámy na volné místo na ploše, cílová podmínka vyžaduje, aby byly na ploše 4 dámy tak, aby se neohrožovaly. Kolik různých přechodových akcí (v jednom kroku) lze provést ze stavu, kde jsou umístěny právě 3 dámy?",
+    "prompt": "Uvažte problém 4 dam: počáteční stav je prázdná hrací plocha $4\\times4$, přechodová akce spočívá v umístění dámy na volné místo na ploše, cílová podmínka vyžaduje, aby byly na ploše 4 dámy tak, aby se neohrožovaly. Kolik různých přechodových akcí (v jednom kroku) lze provést ze stavu, kde jsou umístěny právě 3 dámy?",
     "options": [
       "13",
       "1",
@@ -166,6 +166,120 @@
     "solution": "Každý ze 4 sloupců má 4 možné řádky: $4^4=256$. (Permutace, tj. i různé řádky, by dalo $4!=24$.)",
     "hints": [
       "Každý sloupec vybírá řádek nezávisle."
+    ]
+  },
+  {
+    "id": "ai-optimization-which",
+    "type": "choice",
+    "prompt": "Který z následujících problémů **není** optimalizační problém (dle definice ve sbírce)?",
+    "options": [
+      "plánování rozmístění prodejen řetězce za účelem maximalizace zisku",
+      "hledání nejkratší cesty z vlaku na zastávku šaliny",
+      "hledání platného řešení sudoku"
+    ],
+    "answer": 2,
+    "solution": "Optimalizační problém hledá konfiguraci *nejlepší* podle kritéria. U sudoku stačí *jakékoliv* platné řešení (nejsou „lepší“ a „horší“), proto optimalizační není. Zisk a délka cesty jsou kritéria, která se maximalizují/minimalizují.",
+    "hints": [
+      "Ptej se: existuje u řešení nějaké „lepší“ a „horší“?",
+      "Dvě možnosti mají číselné kritérium."
+    ]
+  },
+  {
+    "id": "pf-sudoku-count",
+    "type": "numeric",
+    "prompt": "Sudoku $4\\times4$ (hodnoty 1 až 4) má zadáno $k=6$ políček. Kolik konfigurací musí naivní prohledávání projít, pokud doplňuje všechna zbývající políčka libovolnými hodnotami?",
+    "answer": 1048576,
+    "solution": "Zbývá $n^2-k=16-6=10$ políček, každé z $n=4$ hodnot: $4^{10}=1\\,048\\,576$.",
+    "hints": [
+      "Kolik políček zbývá doplnit?",
+      "Každé políčko má $n$ možností."
+    ]
+  },
+  {
+    "id": "pf-assignment-reduce",
+    "type": "numeric",
+    "prompt": "Problém přiřazení: 5 úkolů, 5 pracovníků, konfigurace = pole $A$, kde $A[i]$ je úkol pracovníka $i$. Kolik konfigurací zůstane, když zakážeš, aby jeden úkol dostalo víc pracovníků?",
+    "answer": 120,
+    "solution": "Bez omezení $5^5=3125$. Bez opakování úkolů je pole permutací 5 čísel: $5!=120$. Tím navíc zmizí nepřípustné konfigurace, takže se nemusí kontrolovat přípustnost.",
+    "hints": [
+      "Bez opakování hodnot v poli…",
+      "Permutace $n$ prvků."
+    ]
+  },
+  {
+    "id": "pf-knapsack-reps",
+    "type": "choice",
+    "prompt": "Problém batohu s 10 položkami. Reprezentace A: množina vybraných položek. Reprezentace B: pole 10 booleanů. Kolik konfigurací má každá?",
+    "options": [
+      "A: 1024, B: 1024 (jde o tytéž konfigurace)",
+      "A: 10!, B: 1024",
+      "A: 1024, B: 100",
+      "A: 55, B: 1024"
+    ],
+    "answer": 0,
+    "solution": "Podmnožin 10prvkové množiny je $2^{10}=1024$. Pole booleanů má také $2^{10}$ hodnot a mezi oběma zápisy se snadno převádí, proto jsou ekvivalentní ($\\sum_i\\binom{10}{i}=2^{10}$).",
+    "hints": [
+      "Každou položku buď vezmeš, nebo ne."
+    ]
+  },
+  {
+    "id": "pf-no3-naive",
+    "type": "numeric",
+    "prompt": "Problém „žádné tři v řadě“ na mřížce $3\\times3$: kolik různých rozmístění bodů (včetně nevyhovujících) existuje, pokud každé pole buď bod nese, nebo ne?",
+    "answer": 512,
+    "solution": "9 polí, každé 2 možnosti: $2^9=512$.",
+    "hints": [
+      "Každé pole: bod ano/ne."
+    ]
+  },
+  {
+    "id": "pf-no3-rows",
+    "type": "numeric",
+    "prompt": "Vylepši reprezentaci „žádné tři v řadě“ na $3\\times3$: v platném řešení jsou na řádku nejvýše 2 body, takže řádek uložíš jako 0, 1 nebo 2 souřadnice. Kolik konfigurací tak zůstane?",
+    "answer": 343,
+    "solution": "Na řádek: $1+3+\\binom32=7$ možností ($=\\frac{n^2+n+2}{2}=\\frac{14}{2}$). Tři řádky: $7^3=343$ (místo 512, a žádné platné řešení se neztratilo).",
+    "hints": [
+      "Kolik je způsobů, jak obsadit řádek 0, 1 nebo 2 body ze 3 polí?"
+    ]
+  },
+  {
+    "id": "pf-classify-opt",
+    "type": "multi",
+    "prompt": "Které z těchto problémů jsou **optimalizační**? Označ všechny.",
+    "options": [
+      "problém $n$ dam",
+      "sudoku",
+      "problém přiřazení (minimální celková cena)",
+      "„žádné tři v řadě“ (co nejvíc bodů)",
+      "batoh (max. hodnota při omezené váze)",
+      "rozvrh bez časových kolizí (stačí jakýkoli)",
+      "nejlevnější let z Brna do Lisabonu"
+    ],
+    "answers": [
+      2,
+      3,
+      4,
+      6
+    ],
+    "solution": "Optimalizační je to, kde se hledá nejlepší konfigurace podle kritéria: min. cena (přiřazení, let), max. počet bodů, max. hodnota batohu. $n$ dam, sudoku a rozvrh bez kolizí hledají jen *platné* řešení.",
+    "hints": [
+      "U každého hledej číselné kritérium, které se minimalizuje či maximalizuje."
+    ]
+  },
+  {
+    "id": "pf-queens-graph",
+    "type": "choice",
+    "prompt": "Problém $n$ dam formulovaný jako prohledávání: počátek = prázdná šachovnice, akce = přidej dámu. Kdy vede v přechodovém grafu hrana ze stavu $s$ do stavu $t$?",
+    "options": [
+      "Když $t$ vznikne ze $s$ přidáním jedné dámy.",
+      "Když mají $s$ i $t$ stejný počet dam.",
+      "Když se v $t$ žádné dvě dámy neohrožují.",
+      "Když $t$ vznikne ze $s$ přesunutím jedné dámy."
+    ],
+    "answer": 0,
+    "solution": "Akce je přidání jedné dámy (cena 1), takže $t$ má o dámu víc a ostatní stojí stejně. Ohrožování se kontroluje jen v cílové podmínce.",
+    "hints": [
+      "Co je jediná přechodová akce?"
     ]
   }
 ]

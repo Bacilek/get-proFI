@@ -17,6 +17,13 @@ Ke složení je potřeba: **zpracování přirozeného jazyka** (NLP), **repreze
 
 **Inteligentní agent** – systém, který jedná *za nějakým účelem*, *samostatně*, na základě *vstupů z prostředí*, *delší dobu* a *adaptuje se* na změny.
 
+**Racionální agent a prostředí.** Agent je **racionální**, když volí akci maximalizující *očekávanou* míru výkonnosti (performance measure) vzhledem k dosavadním pozorováním. Racionální neznamená vševědoucí ani neomylný: špatný výsledek způsobený nepředvídatelnou okolností racionalitu nevyvrací. Prostředí se popisuje vlastnostmi: *plně × částečně pozorovatelné*, *deterministické × stochastické* (následující stav je plně určen stavem a akcí), *statické × dynamické*, *diskrétní × spojité*, *jeden × více agentů* (soupeř = další agent).
+
+**Diskuzní pojmy ze sbírky (1.1):**
+- **Argument čínského pokoje** (Searle): člověk bez znalosti čínštiny podle knihy pravidel skládá symboly a navenek odpovídá jako rodilý mluvčí, přesto nerozumí. Tvrdí, že správné chování ještě neznamená „mysl“ či porozumění. Vyvrácení argumentu ale automaticky *neznamená*, že vhodně naprogramované počítače mentální stavy mají.
+- **Turingův seznam „stroj nikdy nebude…“** (humor, učit se ze zkušenosti, dělat chyby, zamilovat se, vychutnat si jahody se šlehačkou…): učení, chyby i používání správných slov už stroje zvládají, problematické jsou body vyžadující *vědomé mentální stavy*.
+- **Evansův program** řeší geometrické analogie. I kdyby v IQ testu dosáhl 200, nebyl by inteligentnější než člověk: IQ test měří úzký výsek schopností a program řeší jen úlohu, pro kterou byl navržen.
+
 **Co UI zahrnuje (EU AI Act, příloha I):** strojové učení (učení s/bez učitele, posilované, hluboké), logické a znalostní přístupy (reprezentace znalostí, expertní systémy, symbolické odvozování), statistické přístupy, Bayes, **prohledávání a optimalizace**.
 
 **Struktura předmětu:** A) řešení problémů (přednášky 1–4: prohledávání, dekompozice/CSP, hry), B) logika (5–8: výrokovka, PL1, inference, reprezentace znalostí), C) aplikace (9–12: NLP, učení a rozhodovací stromy/neurony, hluboké učení, generativní modely).

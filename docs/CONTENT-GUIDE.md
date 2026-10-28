@@ -32,3 +32,9 @@ V JSON dvojitě escapovat zpětná lomítka (`\sqrt`). Hvězdy: 90 % správně =
 ## Nápovědy a řešení u otázek
 - `solution` = postup krok za krokem (ne jen výsledek); zobrazí se po odpovědi nebo po „Give up, show solution" (počítá se jako chyba).
 - `hints` (volitelné pole stringů, 2–3 kusy, od nejmlhavější): uživatel je odkrývá po jedné tlačítkem Hint / Next hint před odpovědí. Všechny otázky MB142 je mají; u nových otázek je vždy doplnit.
+
+## Lekce × otázky (pravidla od uživatele)
+- **Otázka nesmí jen opakovat odrážku z lekce.** Uživatel si dělá výpisky z lekce i z otázek, takže doslovný duplikát je jen zátěž. Otázka má *aplikovat* znalost (scénář, výpočet s novými čísly, klasifikace nových příkladů, „co z toho plyne“). Čisté vyjmenování je přípustné jen u skutečných ROPOT/písemkových otázek a pak jako `multi` (zaškrtávání).
+- **Otázka patří do souboru lekce, jejíž látku testuje** (ne podle toho, kde se zrovna hodí). Pojem použitý v otázce (např. optimalizační problém, racionalita) **musí být vysvětlen v lekci**.
+- **Při zpracování zdroje projít všechny použitelné znalosti** včetně číslovaných příkladů sbírky a jejich klíče (typy úloh, vzorce, klasifikace), ne jen kapitolový úvod. Odpovědi z diskuzních příkladů bez klíče shrnout stručně a označit jako diskuzní.
+- JSON s LaTeXem generovat ze souboru (Write), ne přes heredoc v shellu: dvojitá lomítka (`\times`) se tam kazí na řídicí znaky. Po zápisu otázek zkontrolovat, že v textech nejsou tabulátory a pod.

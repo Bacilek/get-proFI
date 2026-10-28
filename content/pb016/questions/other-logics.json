@@ -107,7 +107,7 @@
       "význam výroku závisí na kontextu, stejně jako v přirozeném jazyce",
       "umí částečné, disjunktivní a negované informace",
       "umí jednou formulí vyjádřit „pro každé pole platí…“",
-      "je kompoziční (význam $P_1wedge P_2$ plyne z významu $P_1$ a $P_2$)",
+      "je kompoziční (význam $P_1\\wedge P_2$ plyne z významu $P_1$ a $P_2$)",
       "má velmi omezenou expresivitu (výrok se musí vypsat pro každé pole zvlášť)",
       "neumí vyjádřit negaci informace"
     ],
