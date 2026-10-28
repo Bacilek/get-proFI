@@ -41,3 +41,12 @@ export async function raiseStars(lessonId: string, stars: LessonProgress['stars'
   const current = (await db.lessons.get(lessonId))?.stars ?? 0
   if (stars > current) await setLessonStars(lessonId, stars)
 }
+
+export function useAttempts(): Attempt[] {
+  return useLiveQuery(() => db.attempts.toArray(), []) ?? []
+}
+
+export function useRatings(): ReadonlyMap<string, TopicRating> {
+  const rows = useLiveQuery(() => db.ratings.toArray(), [])
+  return new Map((rows ?? []).map((r) => [r.topic, r]))
+}

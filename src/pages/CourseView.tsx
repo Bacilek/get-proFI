@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { getCourse } from '../content'
 import { semesterWeek } from '../core/milestones'
 import { ExamStatus } from '../features/course/ExamStatus'
+import { Overview } from '../features/course/Overview'
 import { MilestoneRow } from '../features/course/Milestones'
 import { MissingInfoBox } from '../features/course/MissingInfoBox'
 import { Roadmap } from '../features/course/Roadmap'
@@ -24,14 +25,15 @@ function CourseBody({ course }: { course: NonNullable<ReturnType<typeof getCours
     <div className="space-y-5">
       <header>
         <h1 className="text-2xl font-semibold">
-          {course.code} <span className="font-normal text-slate-600">{course.title}</span>
+          {course.code} <span className="font-normal text-muted">{course.title}</span>
         </h1>
-        <p className="text-sm text-slate-500">{course.semester} · week {week}</p>
+        <p className="text-sm text-muted">{course.semester} · week {week}</p>
       </header>
       <MissingInfoBox course={course} />
+      <Overview course={course} progress={progress} />
       <section>
         <h2 className="mb-1 font-semibold">Milestones</h2>
-        <ul className="divide-y divide-slate-100 rounded-md border border-slate-200 bg-white px-3">
+        <ul className="divide-y divide-line rounded-md border border-line bg-surface px-3">
           {course.milestones.map((m) => (
             <MilestoneRow key={m.id} milestone={m} result={results.get(m.id)} now={now} />
           ))}

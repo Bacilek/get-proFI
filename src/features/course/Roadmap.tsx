@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Bar } from '../../components/Charts'
 import { courseSlug, hasLesson, localId } from '../../content'
 import { layoutRoadmap, NODE_H, NODE_W, readiness } from '../../core/layout'
 import { lessonState } from '../../core/prereq'
@@ -28,7 +29,7 @@ export function Roadmap({
 
   return (
     <div className="space-y-3">
-      <div className="overflow-x-auto rounded-md border border-slate-200 bg-white p-4">
+      <div className="overflow-x-auto rounded-md border border-line bg-surface p-4">
         <div className="relative" style={{ width: layout.width, height: layout.height }}>
           <svg className="absolute inset-0" width={layout.width} height={layout.height} aria-hidden>
             {layout.edges.map((e) => {
@@ -45,7 +46,7 @@ export function Roadmap({
                   key={`${e.from}>${e.to}`}
                   d={`M${x1},${y1} C${mid},${y1} ${mid},${y2} ${x2},${y2}`}
                   fill="none"
-                  stroke={active ? '#0f172a' : '#cbd5e1'}
+                  stroke={active ? 'var(--fg)' : 'var(--line-strong)'}
                   strokeWidth={active ? 2 : 1}
                 />
               )
@@ -61,11 +62,11 @@ export function Roadmap({
                 title={st.status === 'locked' ? `Needs: ${st.missing.map((m) => titles.get(m) ?? m).join(', ')}` : undefined}
                 className={[
                   'absolute rounded-md border px-2 py-1 text-left text-xs leading-tight',
-                  st.status === 'done' ? 'border-green-600 bg-green-50' : '',
-                  st.status === 'available' ? 'border-slate-400 bg-white' : '',
-                  st.status === 'locked' ? 'border-dashed border-slate-300 bg-slate-50 text-slate-400' : '',
-                  n.lesson.week === week ? 'ring-2 ring-amber-400' : '',
-                  selectedId === n.lesson.id ? 'outline outline-2 outline-slate-900' : '',
+                  st.status === 'done' ? 'border-ok bg-ok-bg' : '',
+                  st.status === 'available' ? 'border-line-strong bg-surface' : '',
+                  st.status === 'locked' ? 'border-dashed border-line bg-bg text-faint' : '',
+                  n.lesson.week === week ? 'ring-2 ring-star' : '',
+                  selectedId === n.lesson.id ? 'outline outline-2 outline-accent' : '',
                 ].join(' ')}
                 style={{
                   left: n.x,
@@ -76,16 +77,16 @@ export function Roadmap({
                 }}
               >
                 <span className="line-clamp-2 font-medium">{n.lesson.title}</span>
-                <span className="text-amber-500">{stars(s)}</span>
-                <span className="float-right text-slate-400">w{n.lesson.week}</span>
+                <span className="text-star">{stars(s)}</span>
+                <span className="float-right text-faint">w{n.lesson.week}</span>
               </button>
             )
           })}
         </div>
       </div>
-      <p className="text-xs text-slate-500">Amber ring = taught this week. Dashed = prerequisites not done yet (you can still open it).</p>
+      <p className="text-xs text-muted">Amber ring = taught this week. Dashed = prerequisites not done yet (you can still open it).</p>
       {selected && <LessonPanel course={course} lesson={selected} progress={progress} titles={titles} />}
-      <Bosses course={course} progress={progress} />
+      <Readiness course={course} progress={progress} />
     </div>
   )
 }
@@ -104,14 +105,14 @@ function LessonPanel({
   const st = lessonState(lesson, progress)
   const current = progress.get(lesson.id)?.stars ?? 0
   return (
-    <section className="rounded-md border border-slate-200 bg-white p-3 text-sm">
+    <section className="rounded-md border border-line bg-surface p-3 text-sm">
       <h3 className="font-semibold">{lesson.title}</h3>
-      <p className="text-slate-500">Week {lesson.week}</p>
+      <p className="text-muted">Week {lesson.week}</p>
       <Link className="mt-1 inline-block underline" to={`/c/${courseSlug(course)}/l/${localId(lesson.id)}`}>
         {hasLesson(course, localId(lesson.id)) ? 'Open lesson →' : 'Open lesson (content not written yet) →'}
       </Link>
       {st.status === 'locked' && (
-        <p className="mt-1 text-amber-800">Do first: {st.missing.map((m) => titles.get(m) ?? m).join(', ')}</p>
+        <p className="mt-1 text-warn">Do first: {st.missing.map((m) => titles.get(m) ?? m).join(', ')}</p>
       )}
       <div className="mt-2 flex items-center gap-2">
         <span>Mastery:</span>
@@ -120,7 +121,7 @@ function LessonPanel({
             key={n}
             onClick={() => setLessonStars(lesson.id, n)}
             aria-pressed={current === n}
-            className={`rounded border px-2 py-0.5 ${current === n ? 'border-slate-900 bg-slate-900 text-white' : 'border-slate-300'}`}
+            className={`rounded border px-2 py-0.5 ${current === n ? 'border-accent bg-accent text-white' : 'border-line'}`}
           >
             {n === 0 ? 'not yet' : stars(n)}
           </button>
@@ -130,23 +131,25 @@ function LessonPanel({
   )
 }
 
-function Bosses({ course, progress }: { course: Course; progress: ReadonlyMap<string, LessonProgress> }) {
-  const bosses = course.milestones.filter((m) => m.boss)
+function Readiness({ course, progress }: { course: Course; progress: ReadonlyMap<string, LessonProgress> }) {
+  const items = course.milestones.filter((m) => m.coversModules)
   return (
-    <section className="space-y-1">
-      <h3 className="font-semibold">Boss readiness</h3>
-      {bosses.map((m) => {
-        const r = readiness(m, course.modules, progress)
-        return (
-          <div key={m.id} className="flex items-center gap-3 text-sm">
-            <span className="w-72 truncate">⚔ {m.title}</span>
-            <div className="h-2 w-48 rounded bg-slate-200">
-              <div className="h-2 rounded bg-green-600" style={{ width: `${(r ?? 0) * 100}%` }} />
+    <section className="rounded-xl border border-line bg-surface p-4">
+      <h3 className="mb-2 text-sm font-semibold text-muted">Readiness</h3>
+      <div className="space-y-2.5">
+        {items.map((m) => {
+          const r = readiness(m, course.modules, progress)
+          return (
+            <div key={m.id}>
+              <div className="mb-1 flex justify-between text-sm">
+                <span className="truncate pr-2">{m.title}</span>
+                <span className="tabular-nums text-muted">{r === null ? '–' : `${Math.round(r * 100)} %`}</span>
+              </div>
+              <Bar value={r} />
             </div>
-            <span className="tabular-nums text-slate-600">{r === null ? '–' : `${Math.round(r * 100)} %`}</span>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </section>
   )
 }
