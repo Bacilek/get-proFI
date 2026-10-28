@@ -25,7 +25,8 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 - `series-intro`: pdf s. 112–117 (tisk. 109–114, týden 8: částečné součty, geometrická řada, teleskop, nutná podmínka, pravidla).
 - `series-nonneg`: pdf s. 118–123 (tisk. 115–120, týden 8–9: srovnávací, integrální, podílové, odmocninové kritérium, p-řada).
 - `series-alternating`: pdf s. 124–132 (tisk. 121–129, týden 9: Leibniz, odhad chyby, absolutní/relativní konvergence, přerovnání, součin řad).
-- `power-series`: pdf s. 132–144 (tisk. 129–141, týden 9: poloměr konvergence, spojitost, derivace/integrace člen po členu, příklady 166–180). Další: `taylor-series` od pdf s. 144 (tisk. 141: Taylorovy/Maclaurinovy řady, př. 181+).
+- `power-series`: pdf s. 132–144 (tisk. 129–141, týden 9: poloměr konvergence, spojitost, derivace/integrace člen po členu, příklady 166–180).
+- `taylor-series`: pdf s. 144–148 (tisk. 141–145, týden 10: Taylorova/Maclaurinova řada, konvergence k f, rozvoje elementárních funkcí, aplikace; př. 181–187; Eulerův součet 1/n² a Wallis jen zmíněno). Konec kap. 3. Další: starší témata (limity, derivace, Taylorův polynom `mb142:taylor`) – kap. 4+ jen pracovní verze.
 
 ## Otevřené položky (chybí od uživatele)
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).

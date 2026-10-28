@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ts-coef-cos",
+    "type": "numeric",
+    "prompt": "Urči koeficient u $x^4$ v Maclaurinově řadě funkce $\\cos x$ (desetinné číslo).",
+    "answer": 0.041667,
+    "tolerance": 0.001,
+    "solution": "$\\cos x=\\sum\\frac{(-1)^nx^{2n}}{(2n)!}$, pro $n=2$: $\\frac{1}{4!}=\\frac1{24}\\approx0{,}0417$."
+  },
+  {
+    "id": "ts-coef-exp-sq",
+    "type": "numeric",
+    "prompt": "Urči koeficient u $x^6$ v Maclaurinově řadě funkce $e^{-x^2}$.",
+    "answer": -0.166667,
+    "tolerance": 0.001,
+    "solution": "$e^{-x^2}=\\sum\\frac{(-1)^nx^{2n}}{n!}$, pro $2n=6$ je $n=3$: $\\frac{(-1)^3}{3!}=-\\frac16\\approx-0{,}1667$."
+  },
+  {
+    "id": "ts-coef-formula",
+    "type": "choice",
+    "prompt": "Koeficient $a_n$ u $(x-x_0)^n$ v Taylorově řadě funkce $f$ je:",
+    "options": ["$\\dfrac{f^{(n)}(x_0)}{n!}$", "$f^{(n)}(x_0)$", "$\\dfrac{f^{(n)}(x_0)}{n}$", "$\\dfrac{f^{(n)}(0)}{n!}$"],
+    "answer": 0,
+    "solution": "Z derivování rozvoje $f(x)=\\sum a_n(x-x_0)^n$ plyne $f^{(n)}(x_0)=n!\\,a_n$."
+  },
+  {
+    "id": "ts-nonconv",
+    "type": "choice",
+    "prompt": "Funkce $f(x)=e^{-1/x^2}$, $f(0)=0$, má v $x_0=0$ všechny derivace nulové. Její Maclaurinova řada:",
+    "options": ["je nulová a konverguje k $f$ jen v $x=0$", "konverguje k $f$ na celém $\\mathbb R$", "má poloměr konvergence $R=0$", "nekonverguje nikde"],
+    "answer": 0,
+    "solution": "Řada je $0+0\\cdot x+\\dots=0$ (konverguje na $\\mathbb R$, $R=\\infty$), ale $f(x)\\neq0$ pro $x\\neq0$. Taylorova řada tedy nemusí konvergovat k $f$."
+  },
+  {
+    "id": "ts-xsin",
+    "type": "choice",
+    "prompt": "Maclaurinova řada funkce $x\\sin x$ je:",
+    "options": ["$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+2}}{(2n+1)!}$", "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{(2n+1)!}$", "$\\displaystyle\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+2}}{(2n+2)!}$", "$\\displaystyle\\sum_{n=0}^\\infty\\frac{x^{2n+2}}{(2n+1)!}$"],
+    "answer": 0,
+    "solution": "$x\\cdot\\sum\\frac{(-1)^nx^{2n+1}}{(2n+1)!}$ zvýší exponent o 1 a jmenovatel zůstane $(2n+1)!$."
+  },
+  {
+    "id": "ts-limit",
+    "type": "numeric",
+    "prompt": "Pomocí Maclaurinovy řady spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\sin x}{x}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\sin x}{x}=1-\\frac{x^2}{3!}+\\frac{x^4}{5!}-\\dots\\to1$ pro $x\\to0$."
+  },
+  {
+    "id": "ts-approx-e",
+    "type": "numeric",
+    "prompt": "Přibliž $e=e^1$ součtem prvních pěti členů řady $\\sum\\frac{x^n}{n!}$ (do $n=4$). Zaokrouhli na 3 desetinná místa.",
+    "answer": 2.708,
+    "tolerance": 0.002,
+    "solution": "$1+1+\\frac12+\\frac16+\\frac1{24}=\\frac{65}{24}\\approx2{,}7083$."
+  },
+  {
+    "id": "ts-integral-sinx-x",
+    "type": "numeric",
+    "prompt": "Přibliž $\\displaystyle\\int_0^1\\frac{\\sin x}{x}\\,dx$ integrací prvních tří nenulových členů řady $1-\\frac{x^2}{3!}+\\frac{x^4}{5!}$ (3 desetinná místa).",
+    "answer": 0.946,
+    "tolerance": 0.002,
+    "solution": "$\\int_0^1\\left(1-\\frac{x^2}{6}+\\frac{x^4}{120}\\right)dx=1-\\frac1{18}+\\frac1{600}\\approx1-0{,}05556+0{,}00167=0{,}9461$."
+  },
+  {
+    "id": "ts-center-2",
+    "type": "choice",
+    "prompt": "Taylorova řada funkce $f(x)=\\frac1x$ se středem $x_0=2$ konverguje na intervalu:",
+    "options": ["$(0,4)$", "$(-2,2)$", "$(1,3)$", "$(0,\\infty)$"],
+    "answer": 0,
+    "solution": "$a_n=\\frac{(-1)^n}{2^{n+1}}$, $\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac12$, tedy $R=2$ a interval je $(2-2,\\,2+2)=(0,4)$. (Krajní body nekonvergují: členy neklesají k $0$.)"
+  },
+  {
+    "id": "ts-exp-neg",
+    "type": "free",
+    "prompt": "Najdi Maclaurinovu řadu funkce $\\dfrac{1}{1+x^2}$ a uveď, pro která $x$ platí.",
+    "solution": "V $\\frac1{1+t}=\\sum(-1)^nt^n$ ($|t|<1$) dosaď $t=x^2$: $\\frac1{1+x^2}=\\sum_{n=0}^\\infty(-1)^nx^{2n}=1-x^2+x^4-\\dots$ pro $|x|<1$."
+  },
+  {
+    "id": "ts-arctan",
+    "type": "free",
+    "prompt": "Z řady pro $\\frac1{1+x^2}$ odvoď Maclaurinovu řadu funkce $\\operatorname{arctg}x$.",
+    "solution": "Integrací člen po členu: $\\operatorname{arctg}x=\\int_0^x\\frac{dt}{1+t^2}=\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{2n+1}=x-\\frac{x^3}3+\\frac{x^5}5-\\dots$ pro $|x|<1$ (konverguje i v $x=\\pm1$ podle Leibnize)."
+  }
+]
