@@ -1,0 +1,58 @@
+[
+  {
+    "id": "mve-min-value",
+    "type": "numeric",
+    "prompt": "Funkce $f=x^2+y^2-2x+4y$ má jedno lokální minimum. Jaká je jeho hodnota?",
+    "answer": -5,
+    "tolerance": 0.001,
+    "solution": "$f_x=2x-2=0,\\ f_y=2y+4=0$ ⇒ $[1,-2]$; $f_{xx}=f_{yy}=2$, $D=4>0$ ⇒ minimum, $f(1,-2)=1+4-2-8=-5$."
+  },
+  {
+    "id": "mve-saddle",
+    "type": "choice",
+    "prompt": "Co je $[0,0]$ pro $f=x^2-y^2$?",
+    "options": [
+      "sedlový bod (není extrém)",
+      "lokální minimum",
+      "lokální maximum",
+      "bod nespojitosti"
+    ],
+    "answer": 0,
+    "solution": "$f_x=2x,\\ f_y=-2y$ ⇒ stacionární bod $[0,0]$; $f_{xx}=2,\\ f_{yy}=-2,\\ f_{xy}=0$, $D=-4<0$ ⇒ není extrém."
+  },
+  {
+    "id": "mve-min-cubic",
+    "type": "numeric",
+    "prompt": "Funkce $f=x^3-3x+y^2$ má právě jedno lokální minimum. Jaká je jeho hodnota?",
+    "answer": -2,
+    "tolerance": 0.001,
+    "solution": "$f_x=3x^2-3=0,\\ f_y=2y=0$ ⇒ $[1,0],[-1,0]$; $f_{xx}=6x,\\ f_{yy}=2,\\ f_{xy}=0$, $D=12x$. $[1,0]$: $D=12>0,\\ f_{xx}=6>0$ ⇒ min, $f=-2$. $[-1,0]$: $D=-12<0$ ⇒ sedlo."
+  },
+  {
+    "id": "mve-d-zero",
+    "type": "choice",
+    "prompt": "Ve stacionárním bodě vyšlo $D=f_{xx}f_{yy}-f_{xy}^2=0$. Co z toho plyne?",
+    "options": [
+      "kritérium nerozhodne – zkoumej chování funkce v okolí",
+      "je to sedlový bod",
+      "je to lokální minimum",
+      "extrém neexistuje"
+    ],
+    "answer": 0,
+    "solution": "Pro $D=0$ věta neříká nic. Např. $x^4+y^4-x^2-2xy-y^2$ v $[0,0]$: po $y=-x$ je $f=2x^4>0$, po $y=0$ je $f<0$ ⇒ není extrém."
+  },
+  {
+    "id": "mve-global-max",
+    "type": "numeric",
+    "prompt": "Najdi maximum funkce $f=x^2+y^2-2x-2y$ na čtverci $[0,3]\\times[0,3]$.",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "Uvnitř jediný stacionární bod $[1,1]$ (minimum, $f=-2$). Max leží v rohu: $f(0,0)=0,\\ f(3,0)=f(0,3)=3,\\ f(3,3)=18-12=6$. Maximum je $6$ v $[3,3]$."
+  },
+  {
+    "id": "mve-free-global",
+    "type": "free",
+    "prompt": "Najdi globální extrémy $f=xy-x^2-y^2+x+y$ na množině $x\\ge0,\\ y\\ge0,\\ x+y\\le4$.",
+    "solution": "Uvnitř: $[1,1]$, $D=3>0,\\ f_{xx}=-2$ ⇒ max, $f=1$. Hranice: $x=0$: $-y^2+y$ (hodnoty $\\frac14$ v $y=\\frac12$, $0$ a $-12$ v krajích); $y=0$ analogicky; $y=4-x$: $-3x^2+12x-12$ (max $0$ v $[2,2]$, konce $-12$). Maximum $1$ v $[1,1]$, minimum $-12$ v $[0,4]$ a $[4,0]$."
+  }
+]

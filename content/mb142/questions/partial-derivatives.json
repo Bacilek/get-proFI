@@ -1,0 +1,53 @@
+[
+  {
+    "id": "pd-fy-value",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=x^2y+y^3$ spočti $f_y(1,2)$.",
+    "answer": 13,
+    "tolerance": 0.001,
+    "solution": "$f_y=x^2+3y^2$, tedy $f_y(1,2)=1+12=13$."
+  },
+  {
+    "id": "pd-fxy-value",
+    "type": "numeric",
+    "prompt": "Pro $f(x,y)=x^2y^3$ spočti $f_{xy}(1,2)$.",
+    "answer": 24,
+    "tolerance": 0.001,
+    "solution": "$f_x=2xy^3$, $f_{xy}=6xy^2$, tedy $f_{xy}(1,2)=6\\cdot1\\cdot4=24$ (shoduje se s $f_{yx}$ – Schwarz)."
+  },
+  {
+    "id": "pd-tangent-const",
+    "type": "numeric",
+    "prompt": "Tečná rovina ke grafu $f=x^2+y^2$ v bodě $[1,2,5]$ má rovnici $z=ax+by+c$. Kolik je $c$?",
+    "answer": -5,
+    "tolerance": 0.001,
+    "solution": "$f_x=2x=2,\\ f_y=2y=4$: $z-5=2(x-1)+4(y-2)$, tj. $z=2x+4y-5$, $c=-5$."
+  },
+  {
+    "id": "pd-approx",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu přibližně vyčísli $\\sqrt{2{,}98^2+4{,}05^2}$ (3 desetinná místa).",
+    "answer": 5.028,
+    "tolerance": 0.002,
+    "solution": "$f=\\sqrt{x^2+y^2}$ v $[3,4]$: $f=5,\\ f_x=\\frac35,\\ f_y=\\frac45$; $\\mathrm df=\\frac35(-0{,}02)+\\frac45(0{,}05)=0{,}028$ ⇒ $\\approx5{,}028$."
+  },
+  {
+    "id": "pd-implications",
+    "type": "choice",
+    "prompt": "Která implikace platí obecně pro funkci dvou proměnných v bodě?",
+    "options": [
+      "spojité $f_x,f_y$ ⇒ diferencovatelná ⇒ spojitá",
+      "existence $f_x,f_y$ ⇒ spojitá",
+      "spojitá ⇒ existují $f_x,f_y$",
+      "existence $f_x,f_y$ ⇒ diferencovatelná"
+    ],
+    "answer": 0,
+    "solution": "Existence parciálních derivací nezaručí ani spojitost (např. $f=1$ na osách, $0$ jinde). Spojité parciální derivace ⇒ diferencovatelnost ⇒ spojitost."
+  },
+  {
+    "id": "pd-free-derivs",
+    "type": "free",
+    "prompt": "Spočti $f_x$ a $f_y$ pro $f(x,y)=\\mathrm e^{x}y^2\\sin(xy)$.",
+    "solution": "$f_x=y^2\\mathrm e^x(\\sin xy+y\\cos xy)$, $f_y=\\mathrm e^x y(2\\sin xy+xy\\cos xy)$ (součin a složená funkce, druhá proměnná je konstanta)."
+  }
+]

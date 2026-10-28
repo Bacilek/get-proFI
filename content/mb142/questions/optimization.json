@@ -48,6 +48,22 @@
     "solution": "$g(x)=(x-1)^2+(x^2-2)^2$, $g'=4x^3-6x-2=2(x+1)(2x^2-2x-1)$. Kořeny $x=-1,\\ \\frac{1\\pm\\sqrt3}2$. Minimum je v $x=\\frac{1+\\sqrt3}2\\approx1{,}366$ ($g(1{,}366)\\approx0{,}15$, kdežto $g(-1)=5$ a $g(-0{,}366)\\approx5{,}35$)."
   },
   {
+    "id": "opt-parcel-5",
+    "type": "numeric",
+    "prompt": "Obdélníková parcela $5a\\times b$ se oplotí po obvodu a čtyřmi příčkami délky $b$ (celkem $6b+10a=2400$ m). Jaká je maximální plocha $S=5ab$ (m²)?",
+    "answer": 120000,
+    "tolerance": 1,
+    "solution": "$S(a)=5a\\cdot\\frac{2400-10a}6$ na $[0,240]$, maximum v $a=120$ ⇒ $b=200$, $S=5\\cdot120\\cdot200=120\\,000$ m²."
+  },
+  {
+    "id": "opt-path-fastest",
+    "type": "numeric",
+    "prompt": "Pěšky po cestě $5$ km/h, potom šikmo přes pole $3$ km/h; $f(x)=\\frac x5+\\frac13\\sqrt{x^2-10x+29}$, $x\\in[0,5]$. Kolik km má smysl jít po cestě, aby cesta trvala nejkratší dobu?",
+    "answer": 3.5,
+    "tolerance": 0.001,
+    "solution": "$f'=\\frac15+\\frac13\\cdot\\frac{x-5}{\\sqrt{x^2-10x+29}}=0$ ⇒ $x=\\frac72$; $f\\left(\\frac72\\right)=\\frac{23}{15}$ je menší než hodnoty v krajích $\\frac53$ a $\\frac{\\sqrt{29}}3$."
+  },
+  {
     "id": "opt-open-interval",
     "type": "choice",
     "prompt": "Hledáš minimum funkce $S(r)$ na $(0,\\infty)$. Proč nelze použít Weierstrassovu větu?",

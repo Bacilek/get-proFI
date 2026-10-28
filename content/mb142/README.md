@@ -30,6 +30,8 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 - `taylor-series`: pdf s. 144–148 (tisk. 141–145, týden 10: Taylorova/Maclaurinova řada, konvergence k f, rozvoje elementárních funkcí, aplikace; př. 181–187; Eulerův součet 1/n² a Wallis jen zmíněno). Konec kap. 3. Další: kap. 2 (funkce více proměnných, pdf s. 57+); kap. 4+ jen pracovní verze.
 - `mean-value`, `lhospital`, `implicit`, `taylor`, `monotonicity`, `convexity`, `asymptotes`, `curve-sketching`, `optimization`: pdf s. 33–56 (tisk. 30–53, týden 2–4: Rolle/Lagrange, l'Hospital, implicitní derivace, Taylorův polynom + zbytek, monotonie/extrémy, konvexnost/inflexe, asymptoty, průběh funkce, optimalizace př. 73–75; důkazy zhuštěny). Konec kap. 1. `differential` (pdf s. 37–38) zatím z vlastních znalostí, obsahově sedí se slidy (př. 53–55).
 - `derivative-def`, `derivative-rules`, `derivative-elementary`, `derivative-applications`: pdf s. 17–35 (tisk. 14–32, týden 2: definice, tečna/normála, jednostranné derivace, pravidla, inverzní funkce, tabulka, slovní úlohy př. 45–47; důkazy zhuštěny, `f^g` doplněno).
+- `optimization` doplněno o př. 76–78 (pdf s. 57–58).
+- `horner-partial-fractions`, `multivar-limits`, `partial-derivatives`, `multivar-extrema`: pdf s. 58–70 (tisk. 55–67, týden 5: Horner, rozklad na parciální zlomky př. 79–81; limity a spojitost více proměnných př. 82–84, Weierstrass/Bolzano; parciální derivace, Schwarz, diferenciál, tečná rovina př. 85–89; lokální extrémy D-test, Hessova matice + Sylvestr, absolutní extrémy př. 90–93). Konec kap. 2. Důkazy zhuštěny.
 
 ## Otevřené položky (chybí od uživatele)
 - Datum 2. zápočtové písemky (integrální počet + řady) – ve slidech/materiálech není (ověřeno 2026-10-28).

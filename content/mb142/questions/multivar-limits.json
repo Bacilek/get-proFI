@@ -1,0 +1,65 @@
+[
+  {
+    "id": "mvl-direct",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[1,2]}(x^2+y^3)$.",
+    "answer": 9,
+    "tolerance": 0.001,
+    "solution": "Funkce je spojitá (polynom): $1+8=9$."
+  },
+  {
+    "id": "mvl-sinc",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{\\sin(x^2+y^2)}{x^2+y^2}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Substituce $t=x^2+y^2\\to0^+$ (věta o limitě složené funkce): $\\lim_{t\\to0}\\frac{\\sin t}{t}=1$."
+  },
+  {
+    "id": "mvl-polar",
+    "type": "numeric",
+    "prompt": "Spočti $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{x^3+y^3}{x^2+y^2}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Polární souřadnice: $r(\\cos^3\\varphi+\\sin^3\\varphi)\\to0$ (omezená funkce krát $r\\to0$)."
+  },
+  {
+    "id": "mvl-xy-dne",
+    "type": "choice",
+    "prompt": "Co platí pro $\\displaystyle\\lim_{[x,y]\\to[0,0]}\\frac{xy}{x^2+y^2}$?",
+    "options": [
+      "neexistuje – po $y=kx$ vyjde $\\frac k{1+k^2}$, závisí na $k$",
+      "existuje a je $0$",
+      "existuje a je $\\frac12$",
+      "je $\\infty$"
+    ],
+    "answer": 0,
+    "solution": "Pro $y=kx$ je $\\frac{kx^2}{x^2(1+k^2)}=\\frac k{1+k^2}$ — pro různá $k$ různé hodnoty, takže limita neexistuje."
+  },
+  {
+    "id": "mvl-lines-not-enough",
+    "type": "choice",
+    "prompt": "Pro $f=\\frac{x^2y}{x^4+y^2}$ vyjde po každé přímce $y=kx$ limita $0$. Co z toho plyne?",
+    "options": [
+      "nic – musíme zkusit i jiné křivky; po $y=kx^2$ vyjde $\\frac k{1+k^2}$, takže limita neexistuje",
+      "limita existuje a je $0$",
+      "limita je $\\infty$",
+      "funkce je spojitá v počátku"
+    ],
+    "answer": 0,
+    "solution": "Přímky nestačí k důkazu existence. Po parabole $y=kx^2$ je $f=\\frac{kx^4}{x^4(1+k^2)}=\\frac k{1+k^2}\\ne0$, takže limita neexistuje."
+  },
+  {
+    "id": "mvl-weierstrass",
+    "type": "choice",
+    "prompt": "Která množina splňuje předpoklady Weierstrassovy věty pro spojitou $f:M\\to\\mathbb R$?",
+    "options": [
+      "$\\{[x,y]:\\ x^2+y^2\\le1\\}$",
+      "$\\{[x,y]:\\ x^2+y^2<1\\}$",
+      "$\\{[x,y]:\\ x\\ge0,\\ y\\ge0\\}$",
+      "$\\mathbb R^2$"
+    ],
+    "answer": 0,
+    "solution": "Potřebujeme množinu uzavřenou a omezenou (kompaktní): uzavřený kruh. Otevřený kruh není uzavřený, kvadrant a $\\mathbb R^2$ nejsou omezené."
+  }
+]

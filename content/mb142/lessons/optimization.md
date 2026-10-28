@@ -19,6 +19,12 @@ Slovní úlohy „co nejvíc / co nejméně“ se převedou na hledání globál
 
 **Nejbližší bod paraboly $y=x^2$ k $A=[1,2]$:** minimalizujeme čtverec vzdálenosti $g(x)=(x-1)^2+(x^2-2)^2$; $g'=4x^3-6x-2=2(x+1)(2x^2-2x-1)$, kořeny $-1,\frac{1\pm\sqrt3}2$; z geometrie je hledané $x_A=\frac{1+\sqrt3}2\approx1{,}366$.
 
+**Parcela rozdělená na 5 částí** ($5a\times b$, celkem $2400$ m plotu): vazba $6b+10a=2400$, maximalizuj $S=5ab=5a\cdot\frac{2400-10a}6$ na $[0,240]$ ⇒ $a=120$, $b=200$ m, $S=120\,000$ m².
+
+**Obdélník vepsaný do trojúhelníku** (základna $z$, výška $v$): $f(x)=x\left(v-\frac{2v}zx\right)$ na $\left[0,\frac z2\right]$, $f'=v-\frac{4v}zx=0\Rightarrow x=\frac z4$; strany $\frac z2,\frac v2$, největší obsah $S=\frac{vz}4$.
+
+**Nejrychlejší cesta** (př. 76: po cestě $5$ km/h, pak šikmo $3$ km/h): $f(x)=\frac x5+\frac13\sqrt{x^2-10x+29}$ na $[0,5]$, jediný stacionární bod $x=\frac72$, $f\left(\frac72\right)=\frac{23}{15}<f(5)=\frac53<f(0)=\frac{\sqrt{29}}3$ ⇒ po cestě $3{,}5$ km.
+
 ## Pozor
 
 > - Minimalizuj **čtverec vzdálenosti** místo vzdálenosti – odmocnina zbytečně komplikuje derivaci a extrém je ve stejném bodě.
