@@ -1,24 +1,81 @@
 {
   "code": "PB006",
-  "title": "PB006 (název doplnit)",
+  "title": "Principles of Programming Languages and OOP",
   "semester": "podzim 2026",
   "semesterStart": "2026-09-14",
-  "modules": [],
-  "milestones": [],
-  "openItems": [
+  "modules": [
     {
-      "id": "course-info",
-      "text": "Doplnit do sources/PB006/course.txt podmínky a fungování předmětu (hodnocení, body, termíny) a katalog; pak z toho založit milníky, moduly a lekce."
+      "id": "intro",
+      "title": "1. Úvod",
+      "lessons": [
+        { "id": "pb006:intro", "title": "Paradigmata, překlad a interpretace, kritéria jazyků", "week": 1, "prerequisites": [], "topics": ["pb006:intro"] }
+      ]
     },
     {
-      "id": "course-title",
-      "text": "Doplnit název předmětu a potvrdit začátek semestru (semesterStart je zatím odhad 14. 9. 2026)."
+      "id": "names",
+      "title": "2. Jména, vazby, rozsahy platnosti",
+      "lessons": [
+        { "id": "pb006:names", "title": "Jména, vazby, aliasing, statický a dynamický rozsah", "week": 2, "prerequisites": ["pb006:intro"], "topics": ["pb006:names"] }
+      ]
+    },
+    {
+      "id": "types",
+      "title": "3. Datové typy",
+      "lessons": [
+        { "id": "pb006:types", "title": "Typy, typová ekvivalence, konverze, odvozování typů", "week": 3, "prerequisites": ["pb006:names"], "topics": ["pb006:types"] }
+      ]
+    },
+    {
+      "id": "control",
+      "title": "4. Tok řízení",
+      "lessons": [
+        { "id": "pb006:control", "title": "Výrazy, priorita a asociativita, příkazy, iterátory", "week": 4, "prerequisites": ["pb006:types"], "topics": ["pb006:control"] }
+      ]
+    },
+    {
+      "id": "subroutines",
+      "title": "5. Podprogramy",
+      "lessons": [
+        { "id": "pb006:subroutines", "title": "Parametry a jejich předávání, generické funkce, koprogramy", "week": 5, "prerequisites": ["pb006:control"], "topics": ["pb006:subroutines"] }
+      ]
     }
   ],
+  "milestones": [
+    {
+      "id": "homework",
+      "title": "Domácí úkoly (6× max 3 b)",
+      "type": "assignment",
+      "maxPoints": 18,
+      "minPoints": 12,
+      "cumulative": true,
+      "info": [
+        "6 domácích úkolů během semestru, nepravidelně, max 3 b za úkol (18 b celkem)",
+        "Nutná podmínka k připuštění ke zkoušce: alespoň 12 b",
+        "Odevzdává se do odevzdávárny v ISu, řešení v C#",
+        "DÚ1: 3 úlohy po 1 b, deadline 6. 10. 2026, 23:59",
+        "DÚ2: 2 úlohy po 1,5 b, deadline 3. 11. 2026, 23:59 (odevzdávárny du02a a du02b zvlášť)",
+        "Termíny DÚ3 až DÚ6 zatím neznámé"
+      ],
+      "parts": { "count": 6, "max": 3, "label": "Homework" }
+    },
+    {
+      "id": "exam",
+      "title": "Zkouška",
+      "type": "exam",
+      "boss": true,
+      "coversModules": ["intro", "names", "types", "control", "subroutines"],
+      "info": [
+        "Dvě části: teoretická (písemně) a praktická (programování na počítači)",
+        "Datum, bodování a hranice zatím neznámé"
+      ]
+    }
+  ],
+  "openItems": [
+    { "id": "exam-info", "text": "Doplnit datum zkoušky, bodování a hranice úspěšnosti (teorie + praktická část)." },
+    { "id": "hw-dates", "text": "Doplnit termíny DÚ3 až DÚ6 a body za již opravené úkoly (DÚ1, DÚ2)." },
+    { "id": "recordings", "text": "Doplnit odkazy na záznamy přednášek (zakomponovat do lekcí)." }
+  ],
   "materials": {
-    "lecture": 1,
-    "seminar": 1,
-    "ropot": 1,
-    "syllabus": 1
+    "lecture": 6
   }
 }

@@ -34,7 +34,24 @@ export interface FreeQuestion extends QuestionBase {
   type: 'free'
 }
 
-export type Question = NumericQuestion | ChoiceQuestion | FreeQuestion
+/** Code with blanks (`___`); each blank accepts any of its listed answers (whitespace-insensitive). */
+export interface FillQuestion extends QuestionBase {
+  type: 'fill'
+  code: string
+  /** One list of accepted answers per `___` in `code`, in order. */
+  blanks: string[][]
+}
+
+/** The user writes code on the side, reveals `solution` (reference code) and ticks the checklist items their code satisfies. */
+export interface CodeQuestion extends QuestionBase {
+  type: 'code'
+  /** Optional skeleton prefilled into the editor. */
+  starter?: string
+  /** Properties a correct solution must have (edge cases, idioms, complexity). */
+  checklist: string[]
+}
+
+export type Question = NumericQuestion | ChoiceQuestion | FreeQuestion | FillQuestion | CodeQuestion
 
 /** Parses numbers typed by a Czech user: accepts decimal comma, spaces and a few fraction forms ("1/2"). */
 export function parseNumber(input: string): number | null {
@@ -46,6 +63,16 @@ export function parseNumber(input: string): number | null {
     return d === 0 ? null : Number(frac[1]) / d
   }
   return /^-?\d+(?:\.\d+)?(?:e-?\d+)?$/i.test(s) ? Number(s) : null
+}
+
+const normCode = (s: string) => s.replace(/\s+/g, '').toLowerCase()
+
+/** Splits fill-in code into text parts around its `___` blanks (n blanks -> n + 1 parts). */
+export const fillParts = (code: string) => code.split('___')
+
+/** Per-blank correctness; a missing input counts as wrong. */
+export function checkFill(q: FillQuestion, inputs: string[]): boolean[] {
+  return q.blanks.map((accepted, i) => accepted.some((a) => normCode(a) === normCode(inputs[i] ?? '')))
 }
 
 export function checkNumeric(q: NumericQuestion, input: string): boolean {

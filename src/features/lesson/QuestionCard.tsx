@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Markdown } from '../../components/Markdown'
-import { checkNumeric, type Question } from '../../core/questions'
+import { checkFill, checkNumeric, fillParts, type Question } from '../../core/questions'
 
 /** One question with its answer UI; call sites should `key` it by question id. */
 export function QuestionCard({
@@ -19,7 +19,11 @@ export function QuestionCard({
   const [choice, setChoice] = useState<number | null>(null)
   const [freeShown, setFreeShown] = useState(false)
   const [hintsShown, setHintsShown] = useState(0)
+  const [fillInputs, setFillInputs] = useState<string[]>([])
+  const [codeText, setCodeText] = useState(q.type === 'code' ? (q.starter ?? '') : '')
+  const [ticked, setTicked] = useState<boolean[]>([])
   const hints = q.hints ?? []
+  const selfGraded = q.type === 'free' || q.type === 'code'
 
   async function answer(correct: boolean) {
     setRevealed(correct)
@@ -77,7 +81,45 @@ export function QuestionCard({
         </div>
       )}
 
-      {revealed === null && q.type === 'free' && !freeShown && (
+      {revealed === null && q.type === 'fill' && (
+        <form
+          className="space-y-2"
+          onSubmit={(e) => {
+            e.preventDefault()
+            void answer(checkFill(q, fillInputs).every(Boolean))
+          }}
+        >
+          <pre className="overflow-x-auto rounded border border-line bg-surface/50 p-2 font-mono text-sm leading-7">
+            {fillParts(q.code).map((part, i, all) => (
+              <span key={i}>
+                {part}
+                {i < all.length - 1 && (
+                  <input
+                    aria-label={`Blank ${i + 1}`}
+                    className="mx-1 w-32 rounded border border-line bg-bg px-1 font-mono"
+                    value={fillInputs[i] ?? ''}
+                    onChange={(e) => setFillInputs(all.slice(0, -1).map((_, j) => (j === i ? e.target.value : (fillInputs[j] ?? ''))))}
+                  />
+                )}
+              </span>
+            ))}
+          </pre>
+          <button className="rounded bg-accent px-3 py-1 text-white">Check</button>
+        </form>
+      )}
+
+      {revealed === null && q.type === 'code' && !freeShown && (
+        <textarea
+          aria-label="Your code"
+          rows={10}
+          spellCheck={false}
+          className="w-full rounded border border-line bg-surface/50 p-2 font-mono text-sm"
+          value={codeText}
+          onChange={(e) => setCodeText(e.target.value)}
+        />
+      )}
+
+      {revealed === null && selfGraded && !freeShown && (
         <div className="flex gap-3">
         {hintsShown < hints.length && (
           <button className="rounded border border-line px-3 py-1" onClick={() => setHintsShown(hintsShown + 1)}>
@@ -87,6 +129,21 @@ export function QuestionCard({
         <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => setFreeShown(true)}>
           Show solution
         </button>
+        </div>
+      )}
+      {revealed === null && q.type === 'code' && freeShown && (
+        <div className="space-y-2">
+          <Markdown>{q.solution}</Markdown>
+          <p className="text-sm text-muted">Tick what your code satisfies:</p>
+          {q.checklist.map((item, i) => (
+            <label key={i} className="flex items-center gap-2">
+              <input type="checkbox" checked={ticked[i] ?? false} onChange={(e) => setTicked(q.checklist.map((_, j) => (j === i ? e.target.checked : (ticked[j] ?? false))))} />
+              <Markdown>{item}</Markdown>
+            </label>
+          ))}
+          <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => void answer(q.checklist.every((_, i) => ticked[i]))}>
+            Done
+          </button>
         </div>
       )}
       {revealed === null && q.type === 'free' && freeShown && (
@@ -99,7 +156,7 @@ export function QuestionCard({
         </div>
       )}
 
-      {revealed === null && q.type !== 'free' && (
+      {revealed === null && !selfGraded && (
         <div className="flex gap-3 text-sm text-muted">
           {hintsShown < hints.length && (
             <button className="underline" onClick={() => setHintsShown(hintsShown + 1)}>
@@ -117,7 +174,7 @@ export function QuestionCard({
           <p className={revealed ? 'font-medium text-ok' : 'font-medium text-bad'}>
             {revealed ? 'Correct' : 'Not quite'}
           </p>
-          {q.type !== 'free' && <Markdown>{q.solution}</Markdown>}
+          {!selfGraded && <Markdown>{q.solution}</Markdown>}
           <button className="rounded bg-accent px-3 py-1 text-white" onClick={() => void onNext()}>
             {nextLabel}
           </button>

@@ -1,4 +1,12 @@
-import { checkNumeric, parseNumber, type NumericQuestion } from './questions'
+import { checkFill, checkNumeric, fillParts, parseNumber, type FillQuestion, type NumericQuestion } from './questions'
+
+test('checkFill ignores whitespace and case, accepts alternatives, flags missing blanks', () => {
+  const q = { id: 'q', type: 'fill', prompt: '', solution: '', code: 'public ___ void F() { ___ }', blanks: [['virtual', 'abstract'], ['return;']] } as FillQuestion
+  expect(fillParts(q.code)).toHaveLength(3)
+  expect(checkFill(q, [' Virtual ', 'return ;'])).toEqual([true, true])
+  expect(checkFill(q, ['abstract'])).toEqual([true, false])
+  expect(checkFill(q, ['override', 'x'])).toEqual([false, false])
+})
 
 test('parseNumber handles comma, spaces, fractions and junk', () => {
   expect(parseNumber('1,05')).toBe(1.05)
