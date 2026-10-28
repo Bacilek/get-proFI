@@ -15,7 +15,17 @@ import { lessonState } from '../../core/prereq'
 import type { Course, LessonMeta, LessonProgress } from '../../core/types'
 import { setLessonStars } from '../../hooks'
 
-const MODULE_COLORS = ['#2563eb', '#9333ea', '#ea580c', '#0d9488', '#be123c']
+const MODULE_COLORS = ['#3b82f6', '#a855f7', '#f97316', '#14b8a6', '#f43f5e', '#eab308']
+
+/** Badge colors by label: I, II = midterms, E = exam. */
+const BADGE_COLORS: Record<string, string> = { I: '#3b82f6', II: '#a855f7', III: '#14b8a6', E: '#f43f5e' }
+const badgeColor = (label: string) => BADGE_COLORS[label] ?? '#64748b'
+const badgeStyle = (label: string) => ({
+  background: `color-mix(in srgb, ${badgeColor(label)} 22%, transparent)`,
+  color: badgeColor(label),
+})
+
+const tint = (color: string | undefined, pct: number) => `color-mix(in srgb, ${color} ${pct}%, var(--surface))`
 
 const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(3 - n)
 
@@ -88,9 +98,9 @@ export function Roadmap({
                 }
                 className={[
                   'absolute flex flex-col justify-between rounded-xl border px-3 py-2 text-left text-xs leading-tight shadow-sm transition duration-150 hover:-translate-y-0.5 hover:shadow-lg',
-                  st.status === 'done' ? 'border-ok bg-ok-bg' : '',
-                  st.status === 'available' ? 'border-line-strong bg-surface' : '',
-                  st.status === 'locked' ? 'border-dashed border-line-strong bg-bg text-muted' : '',
+                  st.status === 'done' ? 'border-ok' : '',
+                  st.status === 'available' ? 'border-line-strong' : '',
+                  st.status === 'locked' ? 'border-dashed border-line-strong text-muted' : '',
                   selectedId === n.lesson.id ? 'outline outline-2 outline-offset-1 outline-accent' : '',
                 ].join(' ')}
                 style={{
@@ -99,6 +109,7 @@ export function Roadmap({
                   width: NODE_W,
                   height: NODE_H,
                   borderLeft: `5px solid ${colorOf.get(n.moduleId)}`,
+                  background: tint(colorOf.get(n.moduleId), st.status === 'locked' ? 4 : st.status === 'done' ? 20 : 11),
                 }}
               >
                 {corner.length > 0 && (
@@ -107,7 +118,8 @@ export function Roadmap({
                       <span
                         key={b.milestoneId}
                         title={b.title}
-                        className="rounded-full bg-fg/10 px-1.5 text-[10px] font-bold leading-4 tracking-wide text-muted"
+                        className="rounded-full px-1.5 text-[10px] font-bold leading-4 tracking-wide"
+                        style={badgeStyle(b.label)}
                       >
                         {b.label}
                       </span>
@@ -220,8 +232,8 @@ function Legend({
       {group(
         'Status',
         <>
-          {state('border-ok bg-ok-bg', 'Done (at least 1 star)')}
-          {state('border-line-strong bg-surface', 'Available')}
+          {state('border-ok bg-ok-bg', 'Done (at least 1 star, stronger tint)')}
+          {state('border-line-strong bg-surface', 'Available (tinted by module)')}
           {state('border-dashed border-line-strong bg-bg', 'Earlier lessons missing')}
         </>,
       )}
@@ -239,7 +251,7 @@ function Legend({
           'Needed for (top right)',
           badges.map((b) => (
             <span key={b.milestoneId} className="flex items-center gap-2">
-              <span className="w-7 rounded-full bg-fg/10 px-1.5 text-center text-[10px] font-bold leading-4 text-muted">
+              <span className="w-7 rounded-full px-1.5 text-center text-[10px] font-bold leading-4" style={badgeStyle(b.label)}>
                 {b.label}
               </span>
               {b.title}
