@@ -1,0 +1,56 @@
+[
+  {
+    "id": "cs-max",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\dfrac{x}{1+x^2}$ má lokální maximum. Jaká je jeho hodnota?",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "$f'=\\frac{(1+x^2)-2x^2}{(1+x^2)^2}=\\frac{1-x^2}{(1+x^2)^2}$, nuly $\\pm1$; $f'$ mění znaménko z $+$ na $-$ v $x=1$ ⇒ max, $f(1)=\\frac12$."
+  },
+  {
+    "id": "cs-inflections",
+    "type": "numeric",
+    "prompt": "Kolik inflexních bodů má funkce $f(x)=\\dfrac{x}{1+x^2}$? (Nápověda: $f''=\\dfrac{2x(x^2-3)}{(1+x^2)^3}$.)",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "Nuly $f''$: $x=0,\\pm\\sqrt3$. Znaménko $f''$ se v každé mění (jednoduché kořeny), tedy tři inflexe."
+  },
+  {
+    "id": "cs-asym",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\dfrac{x}{1+x^2}$ má v $\\pm\\infty$ vodorovnou asymptotu $y=b$. Urči $b$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$\\lim_{x\\to\\pm\\infty}\\frac{x}{1+x^2}=0$ (stupeň čitatele < stupeň jmenovatele)."
+  },
+  {
+    "id": "cs-min-lnx",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\dfrac1x+\\ln x$ na $(0,\\infty)$ má minimum. Jaká je jeho hodnota?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$f'=-\\frac1{x^2}+\\frac1x=\\frac{x-1}{x^2}$; $f'<0$ na $(0,1)$, $>0$ na $(1,\\infty)$ ⇒ minimum v $x=1$, $f(1)=1+0=1$."
+  },
+  {
+    "id": "cs-inflection-lnx",
+    "type": "numeric",
+    "prompt": "Najdi inflexní bod funkce $f(x)=\\dfrac1x+\\ln x$ ($x$-ová souřadnice).",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$f''=\\frac2{x^3}-\\frac1{x^2}=\\frac{2-x}{x^3}$; $f''>0$ na $(0,2)$, $<0$ na $(2,\\infty)$ ⇒ inflexe v $x=2$."
+  },
+  {
+    "id": "cs-order",
+    "type": "choice",
+    "prompt": "Čím začíná vyšetřování průběhu funkce?",
+    "options": ["definičním oborem, spojitostí a průsečíky s osami", "druhou derivací", "hledáním asymptot", "výpočtem integrálu"],
+    "answer": 0,
+    "solution": "Bez definičního oboru nevíš, kde funkci vyšetřuješ ani kde jsou body nespojitosti (kandidáti na svislé asymptoty). Potom limity v krajích, $f'$, $f''$, asymptoty a tabulka hodnot."
+  },
+  {
+    "id": "cs-free",
+    "type": "free",
+    "prompt": "Vyšetři celkový průběh funkce $f(x)=x e^{-x}$ (definiční obor, extrémy, inflexe, asymptoty) a načrtni graf.",
+    "solution": "$D=\\mathbb R$. $f'=(1-x)e^{-x}$ ⇒ roste na $(-\\infty,1]$, klesá na $[1,\\infty)$, max $f(1)=\\frac1e$. $f''=(x-2)e^{-x}$ ⇒ konkávní na $(-\\infty,2]$, konvexní na $[2,\\infty)$, inflexe v $x=2$ ($f=\\frac2{e^2}$). Limity: $x\\to\\infty$: $xe^{-x}\\to0$ (l'Hospital) ⇒ $y=0$ vodorovná asymptota v $+\\infty$; $x\\to-\\infty$: $f\\to-\\infty$, $a=\\lim e^{-x}=\\infty$ ⇒ asymptota v $-\\infty$ není. Graf prochází počátkem, nejdřív strmě roste, vrchol $(1,\\frac1e)$, pak klesá k ose $x$."
+  }
+]

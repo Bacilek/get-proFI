@@ -27,7 +27,8 @@ lectures/ (slidy 199 s., příklady, sbírka, problémy, ukázková zkouškovka,
 - `series-nonneg`: pdf s. 118–123 (tisk. 115–120, týden 8–9: srovnávací, integrální, podílové, odmocninové kritérium, p-řada).
 - `series-alternating`: pdf s. 124–132 (tisk. 121–129, týden 9: Leibniz, odhad chyby, absolutní/relativní konvergence, přerovnání, součin řad).
 - `power-series`: pdf s. 132–144 (tisk. 129–141, týden 9: poloměr konvergence, spojitost, derivace/integrace člen po členu, příklady 166–180).
-- `taylor-series`: pdf s. 144–148 (tisk. 141–145, týden 10: Taylorova/Maclaurinova řada, konvergence k f, rozvoje elementárních funkcí, aplikace; př. 181–187; Eulerův součet 1/n² a Wallis jen zmíněno). Konec kap. 3. Další: věty o střední hodnotě, L'Hospital, implicitní derivace (pdf s. 34–37), pak Taylorův polynom `mb142:taylor` – kap. 4+ jen pracovní verze.
+- `taylor-series`: pdf s. 144–148 (tisk. 141–145, týden 10: Taylorova/Maclaurinova řada, konvergence k f, rozvoje elementárních funkcí, aplikace; př. 181–187; Eulerův součet 1/n² a Wallis jen zmíněno). Konec kap. 3. Další: kap. 2 (funkce více proměnných, pdf s. 57+); kap. 4+ jen pracovní verze.
+- `mean-value`, `lhospital`, `implicit`, `taylor`, `monotonicity`, `convexity`, `asymptotes`, `curve-sketching`, `optimization`: pdf s. 33–56 (tisk. 30–53, týden 2–4: Rolle/Lagrange, l'Hospital, implicitní derivace, Taylorův polynom + zbytek, monotonie/extrémy, konvexnost/inflexe, asymptoty, průběh funkce, optimalizace př. 73–75; důkazy zhuštěny). Konec kap. 1. `differential` (pdf s. 37–38) zatím z vlastních znalostí, obsahově sedí se slidy (př. 53–55).
 - `derivative-def`, `derivative-rules`, `derivative-elementary`, `derivative-applications`: pdf s. 17–35 (tisk. 14–32, týden 2: definice, tečna/normála, jednostranné derivace, pravidla, inverzní funkce, tabulka, slovní úlohy př. 45–47; důkazy zhuštěny, `f^g` doplněno).
 
 ## Otevřené položky (chybí od uživatele)

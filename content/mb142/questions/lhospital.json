@@ -1,0 +1,74 @@
+[
+  {
+    "id": "lh-exp",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{e^x-1}{x}$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac00$. L'Hospital: $\\lim\\frac{e^x}{1}=1$."
+  },
+  {
+    "id": "lh-cos",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\cos x-1}{x^2}$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac00$. $\\frac{-\\sin x}{2x}$ je opět $\\frac00$, tedy $\\frac{-\\cos x}{2}\\to-\\frac12$."
+  },
+  {
+    "id": "lh-x-sin",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{x-\\sin x}{x^3}$ (3 desetinná místa).",
+    "answer": 0.16667,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac00$. Třikrát: $\\frac{1-\\cos x}{3x^2}\\to\\frac{\\sin x}{6x}\\to\\frac{\\cos x}{6}\\to\\frac16\\approx0{,}1667$."
+  },
+  {
+    "id": "lh-ln-x",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\frac{\\ln x}{x}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac\\infty\\infty$: $\\lim\\frac{1/x}{1}=0$. (Logaritmus roste pomaleji než jakákoli mocnina.)"
+  },
+  {
+    "id": "lh-poly-exp",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\frac{x^2}{e^x}$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac\\infty\\infty$: $\\frac{2x}{e^x}$ je opět $\\frac\\infty\\infty$, pak $\\frac{2}{e^x}\\to0$."
+  },
+  {
+    "id": "lh-xlnx",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0^+}x^x$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$x^x=e^{x\\ln x}$ a $\\lim_{x\\to0^+}x\\ln x=\\lim\\frac{\\ln x}{1/x}=\\lim(-x)=0$. Tedy limita je $e^0=1$."
+  },
+  {
+    "id": "lh-e",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\left(1+\\frac1x\\right)^x$ (3 desetinná místa).",
+    "answer": 2.71828,
+    "tolerance": 0.001,
+    "solution": "Typ $1^\\infty$: $=e^{x\\ln(1+1/x)}$. Exponent $\\frac{\\ln(1+1/x)}{1/x}\\overset{\\text{l'H}}=\\frac{\\frac{1}{1+1/x}\\cdot(-\\frac1{x^2})}{-\\frac1{x^2}}=\\frac1{1+1/x}\\to1$. Limita je $e\\approx2{,}718$."
+  },
+  {
+    "id": "lh-diff",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac1x-\\frac1{\\sin x}\\right)$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Typ $\\infty-\\infty$: $\\frac{\\sin x-x}{x\\sin x}$ ($\\frac00$) $\\to\\frac{\\cos x-1}{\\sin x+x\\cos x}$ ($\\frac00$) $\\to\\frac{-\\sin x}{2\\cos x-x\\sin x}\\to\\frac02=0$."
+  },
+  {
+    "id": "lh-sin-over-x",
+    "type": "choice",
+    "prompt": "Platí $\\displaystyle\\lim_{x\\to\\infty}\\frac{\\sin x}{x}=0$. Proč nelze použít l'Hospitala?",
+    "options": ["nejde o typ $\\frac00$ ani $\\frac\\infty\\infty$ (čitatel je omezený) a $\\lim\\cos x$ neexistuje", "protože $\\sin x$ nemá derivaci", "protože limita neexistuje", "l'Hospital lze použít a dá $\\cos x\\to1$"],
+    "answer": 0,
+    "solution": "Čitatel je omezený, jmenovatel jde do $\\infty$, tedy typ je $\\frac{\\text{omezená}}{\\infty}=0$. Podíl derivací $\\cos x$ limitu nemá, takže pravidlo nic netvrdí."
+  }
+]

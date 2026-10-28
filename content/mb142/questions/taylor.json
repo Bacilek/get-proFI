@@ -1,0 +1,66 @@
+[
+  {
+    "id": "tay-exp-t2",
+    "type": "numeric",
+    "prompt": "Urči $T_2(1)$ pro $f(x)=e^x$ se středem $x_0=0$.",
+    "answer": 2.5,
+    "tolerance": 0.001,
+    "solution": "$T_2(x)=1+x+\\frac{x^2}2$, $T_2(1)=1+1+\\frac12=2{,}5$ (přesně $e\\approx2{,}718$)."
+  },
+  {
+    "id": "tay-sin-t3",
+    "type": "numeric",
+    "prompt": "Urči $T_3(0{,}5)$ pro $f(x)=\\sin x$ se středem $0$ (4 desetinná místa).",
+    "answer": 0.479167,
+    "tolerance": 0.0005,
+    "solution": "$T_3(x)=x-\\frac{x^3}6$, $T_3(0{,}5)=0{,}5-\\frac{0{,}125}6=0{,}5-0{,}020833=0{,}479167$ (přesně $\\sin0{,}5=0{,}479426$)."
+  },
+  {
+    "id": "tay-ln-t2",
+    "type": "numeric",
+    "prompt": "Pro $f(x)=\\ln x$ a střed $x_0=1$ urči $T_2(1{,}2)$.",
+    "answer": 0.18,
+    "tolerance": 0.001,
+    "solution": "$f(1)=0$, $f'(1)=1$, $f''(1)=-1$. $T_2(x)=(x-1)-\\frac{(x-1)^2}2$. $T_2(1{,}2)=0{,}2-\\frac{0{,}04}2=0{,}18$ (přesně $\\ln1{,}2=0{,}1823$)."
+  },
+  {
+    "id": "tay-sqrt-t2",
+    "type": "numeric",
+    "prompt": "Pro $f(x)=\\sqrt x$ a $x_0=4$ urči $T_2(4{,}2)$ (6 desetinných míst).",
+    "answer": 2.049375,
+    "tolerance": 0.0005,
+    "solution": "$T_2(x)=2+\\frac14(x-4)-\\frac1{64}(x-4)^2$. Pro $x=4{,}2$: $2+0{,}05-\\frac{0{,}04}{64}=2+0{,}05-0{,}000625=2{,}049375$."
+  },
+  {
+    "id": "tay-error-exp",
+    "type": "numeric",
+    "prompt": "Odhadni horní mez chyby $|R_4(1)|$ polynomu $T_4$ funkce $e^x$ (střed $0$) v bodě $x=1$. Použij $e^c<e$ a výsledek zaokrouhli na 4 desetinná místa.",
+    "answer": 0.0227,
+    "tolerance": 0.0005,
+    "solution": "$R_4(1)=\\frac{e^c}{5!}\\cdot1^5\\le\\frac e{120}\\approx0{,}02265$."
+  },
+  {
+    "id": "tay-terms-e",
+    "type": "numeric",
+    "prompt": "Jaký nejmenší stupeň $n$ musí mít Maclaurinův polynom funkce $e^x$, aby $|R_n(1)|<0{,}001$? (Použij odhad $e^c<e<2{,}72$.)",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "$|R_n(1)|\\le\\frac{2{,}72}{(n+1)!}$. Pro $n=5$: $\\frac{2{,}72}{720}\\approx0{,}0038$ (málo). Pro $n=6$: $\\frac{2{,}72}{5040}\\approx0{,}00054<0{,}001$. Tedy $n=6$."
+  },
+  {
+    "id": "tay-coefficient",
+    "type": "choice",
+    "prompt": "Jaký je koeficient u $x^4$ v Maclaurinově polynomu funkce $\\cos x$?",
+    "options": ["$\\frac1{24}$", "$-\\frac1{24}$", "$\\frac1{12}$", "$0$"],
+    "answer": 0,
+    "solution": "$\\cos^{(4)}(0)=\\cos0=1$, koeficient je $\\frac{1}{4!}=\\frac1{24}$. (Členy: $1-\\frac{x^2}2+\\frac{x^4}{24}-\\dots$)"
+  },
+  {
+    "id": "tay-t1-tangent",
+    "type": "choice",
+    "prompt": "Čemu odpovídá Taylorův polynom $T_1$ se středem $x_0$?",
+    "options": ["rovnici tečny v bodě $x_0$", "rovnici normály v bodě $x_0$", "konstantní funkci $f(x_0)$", "parabole procházející bodem $x_0$"],
+    "answer": 0,
+    "solution": "$T_1(x)=f(x_0)+f'(x_0)(x-x_0)$ je přesně tečna (a také aproximace pomocí diferenciálu)."
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "imp-circle",
+    "type": "numeric",
+    "prompt": "Urči směrnici tečny ke kružnici $x^2+y^2=25$ v bodě $[3,-4]$.",
+    "answer": 0.75,
+    "tolerance": 0.001,
+    "solution": "$2x+2yy'=0$, $y'=-\\frac xy=-\\frac3{-4}=\\frac34$."
+  },
+  {
+    "id": "imp-parabola",
+    "type": "numeric",
+    "prompt": "Rovnice $y^2=x$ určuje v bodě $[4,2]$ funkci $y(x)$. Urči $y'(4)$.",
+    "answer": 0.25,
+    "tolerance": 0.001,
+    "solution": "$2yy'=1$, $y'=\\frac1{2y}=\\frac14$ (souhlasí s $(\\sqrt x)'=\\frac1{2\\sqrt x}$)."
+  },
+  {
+    "id": "imp-cubes",
+    "type": "numeric",
+    "prompt": "Urči $y'$ v bodě $[1,1]$ pro křivku $x^3+y^3=2$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$3x^2+3y^2y'=0$, $y'=-\\frac{x^2}{y^2}=-1$."
+  },
+  {
+    "id": "imp-ellipse",
+    "type": "numeric",
+    "prompt": "Urči směrnici tečny k elipse $x^2+4y^2=8$ v bodě $[2,1]$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "$2x+8yy'=0$, $y'=-\\frac{x}{4y}=-\\frac24=-\\frac12$."
+  },
+  {
+    "id": "imp-product",
+    "type": "numeric",
+    "prompt": "Urči $y'$ v bodě $[1,1]$ pro křivku $x^2+xy+y^2=3$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$2x+y+xy'+2yy'=0$, $y'=-\\frac{2x+y}{x+2y}=-\\frac33=-1$."
+  },
+  {
+    "id": "imp-second",
+    "type": "numeric",
+    "prompt": "Urči $y''$ v bodě $[3,4]$ pro kružnici $x^2+y^2=25$ (3 desetinná místa).",
+    "answer": -0.390625,
+    "tolerance": 0.001,
+    "solution": "$y'=-\\frac xy=-\\frac34$. Z $2x+2yy'=0$ derivací $1+(y')^2+yy''=0$, tedy $y''=-\\frac{1+(y')^2}{y}=-\\frac{25/16}{4}=-\\frac{25}{64}\\approx-0{,}3906$ (konkávní horní půlkružnice)."
+  },
+  {
+    "id": "imp-chain",
+    "type": "choice",
+    "prompt": "Čemu se rovná derivace $\\dfrac{d}{dx}\\big(y^3\\big)$, kde $y=y(x)$?",
+    "options": ["$3y^2y'$", "$3y^2$", "$3x^2y'$", "$y^3y'$"],
+    "answer": 0,
+    "solution": "Složená funkce: vnější $u^3$, vnitřní $y(x)$, tedy $3y^2\\cdot y'$."
+  }
+]

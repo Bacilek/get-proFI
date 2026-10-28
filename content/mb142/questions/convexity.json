@@ -1,0 +1,56 @@
+[
+  {
+    "id": "cvx-inflect-cubic",
+    "type": "numeric",
+    "prompt": "Najdi $x$-ovou souřadnici inflexního bodu funkce $f(x)=x^3-6x^2+9x$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$f''=6x-12=0\\Rightarrow x=2$. $f''$ mění znaménko z $-$ na $+$ ⇒ inflexe."
+  },
+  {
+    "id": "cvx-inflect-gauss",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=e^{-x^2}$ má inflexe v $x=\\pm a$, $a>0$. Urči $a$ (4 desetinná místa).",
+    "answer": 0.7071,
+    "tolerance": 0.001,
+    "solution": "$f'=-2xe^{-x^2}$, $f''=(4x^2-2)e^{-x^2}=0\\Rightarrow x^2=\\frac12$, $a=\\frac1{\\sqrt2}\\approx0{,}7071$. $f''$ mění znaménko, takže jde o inflexe."
+  },
+  {
+    "id": "cvx-inflect-y",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=x^4-6x^2$ má inflexi v $x=1$ a $x=-1$. Jakou hodnotu má $f(1)$?",
+    "answer": -5,
+    "tolerance": 0.001,
+    "solution": "$f''=12x^2-12=0\\Rightarrow x=\\pm1$; $f''$ mění znaménko ($+,-,+$). $f(1)=1-6=-5$."
+  },
+  {
+    "id": "cvx-x4",
+    "type": "choice",
+    "prompt": "Pro $f(x)=x^4$ je $f''(0)=0$. Má $f$ v bodě $0$ inflexi?",
+    "options": ["ne, $f''=12x^2\\ge0$ nemění znaménko (konvexní na $\\mathbb R$)", "ano, protože $f''(0)=0$", "ano, protože $f'(0)=0$", "ne, protože $f$ není spojitá"],
+    "answer": 0,
+    "solution": "Nulová druhá derivace je jen nutná podmínka. $f''$ je po obou stranách nuly kladná, takže $f$ je konvexní na celém $\\mathbb R$ a inflexe tam není."
+  },
+  {
+    "id": "cvx-ln",
+    "type": "choice",
+    "prompt": "Je funkce $f(x)=\\ln x$ na $(0,\\infty)$ konvexní, nebo konkávní?",
+    "options": ["konkávní ($f''=-\\frac1{x^2}<0$)", "konvexní ($f''=\\frac1{x^2}>0$)", "konvexní i konkávní", "ani jedno, má inflexi"],
+    "answer": 0,
+    "solution": "$f'=\\frac1x$ klesá, $f''=-\\frac1{x^2}<0$ ⇒ konkávní (tečny leží nad grafem, proto $\\ln x\\le x-1$)."
+  },
+  {
+    "id": "cvx-tangents",
+    "type": "choice",
+    "prompt": "Funkce $f$ je na intervalu $I$ konvexní. Jak leží tečny vzhledem k grafu?",
+    "options": ["pod grafem", "nad grafem", "protínají graf", "tečny existují jen v extrémech"],
+    "answer": 0,
+    "solution": "Konvexní ($f'$ neklesá, tvar $\\cup$) ⇒ tečny leží pod grafem. U konkávní funkce leží nad grafem."
+  },
+  {
+    "id": "cvx-free",
+    "type": "free",
+    "prompt": "Pro $f(x)=x+\\sin x$ na $[0,4\\pi]$ urči monotonii, extrémy, konvexnost a inflexe.",
+    "solution": "$f'=1+\\cos x\\ge0$, rovnost jen v izolovaných bodech $\\pi,3\\pi$ ⇒ $f$ je rostoucí na $[0,4\\pi]$, žádné lokální extrémy. $f''=-\\sin x$: $f''>0$ na $(\\pi,2\\pi)$ a $(3\\pi,4\\pi)$ (konvexní), $f''<0$ na $(0,\\pi)$ a $(2\\pi,3\\pi)$ (konkávní). Inflexe v $x=\\pi,2\\pi,3\\pi$."
+  }
+]

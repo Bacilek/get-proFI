@@ -1,0 +1,58 @@
+[
+  {
+    "id": "asy-vertical",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\dfrac1{x-3}$ má svislou asymptotu $x=x_0$. Urči $x_0$.",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "$\\lim_{x\\to3^+}\\frac1{x-3}=+\\infty$, $\\lim_{x\\to3^-}=-\\infty$ ⇒ $x=3$."
+  },
+  {
+    "id": "asy-oblique-b",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\dfrac{2x^2+3x}{x+1}$ má asymptotu $y=ax+b$ v $+\\infty$. Urči $b$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$a=\\lim\\frac{2x^2+3x}{x(x+1)}=2$. $b=\\lim\\left[\\frac{2x^2+3x}{x+1}-2x\\right]=\\lim\\frac{x}{x+1}=1$. Asymptota $y=2x+1$."
+  },
+  {
+    "id": "asy-sqrt-minus",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\sqrt{x^2+1}$ má v $-\\infty$ asymptotu $y=a^-x+b^-$. Urči $a^-$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "Pro $x\\to-\\infty$ je $\\sqrt{x^2+1}\\approx|x|=-x$. $a^-=\\lim\\frac{\\sqrt{x^2+1}}{x}=\\lim\\frac{|x|\\sqrt{1+1/x^2}}{x}=-1$, $b^-=0$. Asymptota je $y=-x$ (v $+\\infty$ je $y=x$)."
+  },
+  {
+    "id": "asy-arctan",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\operatorname{arctg}x$ má vodorovnou asymptotu $y=b^+$ v $+\\infty$. Urči $b^+$ (4 desetinná místa).",
+    "answer": 1.5708,
+    "tolerance": 0.001,
+    "solution": "$\\lim_{x\\to\\infty}\\operatorname{arctg}x=\\frac\\pi2\\approx1{,}5708$ ($a=0$). V $-\\infty$ je asymptota $y=-\\frac\\pi2$."
+  },
+  {
+    "id": "asy-count",
+    "type": "numeric",
+    "prompt": "Kolik asymptot (svislých i vodorovných/šikmých, každou přímku jednou) má funkce $f(x)=\\dfrac{x^2-1}{x^2-4}$?",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "Svislé: $x=2$ a $x=-2$ (nuly jmenovatele, čitatel tam nenulový). V $\\pm\\infty$ je $f\\to1$, tedy $y=1$ (obě strany stejná přímka). Celkem 3."
+  },
+  {
+    "id": "asy-ln",
+    "type": "choice",
+    "prompt": "Jaké asymptoty má $f(x)=\\ln x$ na $(0,\\infty)$?",
+    "options": ["jen svislou $x=0$", "svislou $x=0$ a vodorovnou $y=0$", "jen šikmou $y=x$", "žádnou"],
+    "answer": 0,
+    "solution": "$\\lim_{x\\to0^+}\\ln x=-\\infty$ ⇒ $x=0$. V $\\infty$: $a=\\lim\\frac{\\ln x}x=0$, ale $b=\\lim\\ln x=\\infty$ není vlastní ⇒ asymptota v $\\infty$ není."
+  },
+  {
+    "id": "asy-sin-over-x",
+    "type": "choice",
+    "prompt": "Funkce $f(x)=\\dfrac{\\sin x}{x}$ je nespojitá v $x=0$. Má tam svislou asymptotu?",
+    "options": ["ne, $\\lim_{x\\to0}\\frac{\\sin x}{x}=1$ je vlastní", "ano, $x=0$", "ano, ale jen zprava", "nelze určit"],
+    "answer": 0,
+    "solution": "Svislá asymptota vyžaduje alespoň jednu nevlastní jednostrannou limitu; zde jsou obě rovny $1$. Nespojitost (odstranitelná) tedy asymptotu nedává. Vodorovná asymptota je $y=0$ v $\\pm\\infty$."
+  }
+]
