@@ -11,11 +11,11 @@
 0. [x] Scaffold (Vite/React/TS, Tailwind, Vitest), struktura složek
 1. [x] Datový model + Dexie + export/import + testy (`src/core`: types, prereq, progress, srs, milestones, db, backup)
 2. [x] Shell: routing (HashRouter), dashboard (milníky, odpočty, bodové hranice, varování o chybějících info), stránka kurzu (zatím seznam lekcí), Settings se zálohou
-3. [ ] Skill tree/roadmapa + zamykání prerekvizit
+3. [x] Skill tree/roadmapa (vrstvy podle prerekvizit, zamčené = přerušovaně, aktuální týden zvýrazněn, boss readiness; hvězdy zatím ručně)
 4. [ ] Lesson renderer (MD + KaTeX + diagramy) + cvičení + hvězdy
 5. [ ] Mezery + spaced repetition + math drill generátory
 6. [ ] Achievementy
 7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), pak PB006, PB016, VB001, PV028
 
 ## Aktuální stav
-Fáze 0–2 hotové (25 testů). Další: fáze 3 (skill tree + zamykání prerekvizit). MB142 má kostru 34 lekcí v `content/mb142/course.json` (bez obsahu lekcí).
+Fáze 0–3 hotové (31 testů). Další: fáze 4 (lesson renderer: MD + KaTeX + cvičení; hvězdy z cvičení). MB142 má kostru 34 lekcí v `content/mb142/course.json` (bez obsahu lekcí).
