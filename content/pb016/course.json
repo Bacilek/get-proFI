@@ -1,0 +1,292 @@
+{
+  "code": "PB016",
+  "title": "Úvod do umělé inteligence",
+  "semester": "podzim 2026",
+  "semesterStart": "2026-09-14",
+  "modules": [
+    {
+      "id": "intro",
+      "title": "1. Úvod do UI, řešení problémů (př. 1)",
+      "lessons": [
+        {
+          "id": "pb016:ai-intro",
+          "title": "Co je UI, Turingův test, inteligentní agent",
+          "week": 1,
+          "prerequisites": [],
+          "topics": [
+            "pb016:ai-intro"
+          ]
+        },
+        {
+          "id": "pb016:problem-formulation",
+          "title": "Formulace problému, optimalizace, n dam",
+          "week": 1,
+          "prerequisites": [
+            "pb016:ai-intro"
+          ],
+          "topics": [
+            "pb016:problem-formulation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "title": "2. Prohledávání stavového prostoru (př. 2)",
+      "lessons": [
+        {
+          "id": "pb016:uninformed-search",
+          "title": "Neinformované prohledávání (DFS, BFS, UCS, IDS)",
+          "week": 2,
+          "prerequisites": [
+            "pb016:problem-formulation"
+          ],
+          "topics": [
+            "pb016:uninformed-search"
+          ]
+        },
+        {
+          "id": "pb016:informed-search",
+          "title": "Informované prohledávání: greedy a A*",
+          "week": 2,
+          "prerequisites": [
+            "pb016:uninformed-search"
+          ],
+          "topics": [
+            "pb016:informed-search"
+          ]
+        },
+        {
+          "id": "pb016:heuristics",
+          "title": "Návrh heuristik, kvalita, relaxace",
+          "week": 2,
+          "prerequisites": [
+            "pb016:informed-search"
+          ],
+          "topics": [
+            "pb016:heuristics"
+          ]
+        },
+        {
+          "id": "pb016:dijkstra",
+          "title": "Dijkstrův algoritmus a A* na grafu",
+          "week": 2,
+          "prerequisites": [
+            "pb016:uninformed-search"
+          ],
+          "topics": [
+            "pb016:dijkstra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decomp",
+      "title": "3. Dekompozice a omezující podmínky (př. 3)",
+      "lessons": [
+        {
+          "id": "pb016:and-or-graphs",
+          "title": "Dekompozice problému, AND/OR grafy, AO*",
+          "week": 3,
+          "prerequisites": [
+            "pb016:uninformed-search"
+          ],
+          "topics": [
+            "pb016:and-or-graphs"
+          ]
+        },
+        {
+          "id": "pb016:csp",
+          "title": "Problémy s omezujícími podmínkami (CSP, CLP)",
+          "week": 3,
+          "prerequisites": [
+            "pb016:uninformed-search"
+          ],
+          "topics": [
+            "pb016:csp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "games",
+      "title": "4. Hry a herní strategie (př. 4)",
+      "lessons": [
+        {
+          "id": "pb016:minimax",
+          "title": "Hry a algoritmus Minimax",
+          "week": 4,
+          "prerequisites": [
+            "pb016:and-or-graphs"
+          ],
+          "topics": [
+            "pb016:minimax"
+          ]
+        },
+        {
+          "id": "pb016:alpha-beta",
+          "title": "Alfa-beta prořezávání",
+          "week": 4,
+          "prerequisites": [
+            "pb016:minimax"
+          ],
+          "topics": [
+            "pb016:alpha-beta"
+          ]
+        },
+        {
+          "id": "pb016:games-advanced",
+          "title": "Ohodnocovací funkce, náhoda, Monte Carlo",
+          "week": 4,
+          "prerequisites": [
+            "pb016:alpha-beta"
+          ],
+          "topics": [
+            "pb016:games-advanced"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "logic",
+      "title": "5. Logický agent, výroková logika (př. 5)",
+      "lessons": [
+        {
+          "id": "pb016:logic-agent",
+          "title": "Logický agent, báze znalostí, Wumpusova jeskyně",
+          "week": 5,
+          "prerequisites": [],
+          "topics": [
+            "pb016:logic-agent"
+          ]
+        },
+        {
+          "id": "pb016:propositional",
+          "title": "Výroková logika: syntaxe, sémantika, vyplývání",
+          "week": 5,
+          "prerequisites": [
+            "pb016:logic-agent"
+          ],
+          "topics": [
+            "pb016:propositional"
+          ]
+        },
+        {
+          "id": "pb016:normal-forms",
+          "title": "Ekvivalence a normální formy (CNF, DNF)",
+          "week": 5,
+          "prerequisites": [
+            "pb016:propositional"
+          ],
+          "topics": [
+            "pb016:normal-forms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fol",
+      "title": "6. Predikátová logika 1. řádu (př. 6)",
+      "lessons": [
+        {
+          "id": "pb016:fol-basics",
+          "title": "PL1: syntaxe, sémantika, kvantifikátory",
+          "week": 6,
+          "prerequisites": [
+            "pb016:propositional"
+          ],
+          "topics": [
+            "pb016:fol-basics"
+          ]
+        },
+        {
+          "id": "pb016:fol-forms",
+          "title": "PL1: proměnné, substituce, CNF a Skolemizace",
+          "week": 6,
+          "prerequisites": [
+            "pb016:fol-basics",
+            "pb016:normal-forms"
+          ],
+          "topics": [
+            "pb016:fol-forms"
+          ]
+        },
+        {
+          "id": "pb016:other-logics",
+          "title": "Další logiky, znalostní inženýrství",
+          "week": 6,
+          "prerequisites": [
+            "pb016:fol-basics"
+          ],
+          "topics": [
+            "pb016:other-logics"
+          ]
+        }
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "minitests",
+      "title": "Odpovědníky na cvičení (12× max 2 b)",
+      "type": "quiz",
+      "date": "2026-12-14",
+      "maxPoints": 24,
+      "minPoints": 10,
+      "info": "Na začátku každého cvičení 6 min v ISu, 4 otázky (+0,5 / −0,25). Potřeba ≥ 10 b ze 24 k připuštění ke zkoušce. Odpovědník je z tématu předchozí přednášky. Max 3 neomluvené absence."
+    },
+    {
+      "id": "midterm",
+      "title": "Průběžná písemka (př. 1–5)",
+      "type": "midterm",
+      "maxPoints": 20,
+      "boss": true,
+      "coversModules": [
+        "intro",
+        "search",
+        "decomp",
+        "games",
+        "logic"
+      ],
+      "info": "V týdnu po 7. přednášce, jediný termín pro všechny (pravděpodobně úterý). Max 20 b. Rozsah přednášky 1–5. Délka, minimum: TBD."
+    },
+    {
+      "id": "exam",
+      "title": "Závěrečná písemka",
+      "type": "exam",
+      "maxPoints": 60,
+      "boss": true,
+      "coversModules": [
+        "intro",
+        "search",
+        "decomp",
+        "games",
+        "logic",
+        "fol"
+      ],
+      "info": "Max 60 b, dva řádné a jeden opravný termín. Celkem max 104 b (24 + 20 + 60): A > 95, E > 63. Podmínka: ≥ 10 b z odpovědníků."
+    }
+  ],
+  "openItems": [
+    {
+      "id": "midterm-date",
+      "text": "Přesné datum, čas, délka a minimum průběžné písemky (týden po 7. přednášce, pravděpodobně úterý) – dopsat do milníku midterm."
+    },
+    {
+      "id": "exam-dates",
+      "text": "Termíny závěrečné písemky (2 řádné + opravný) a případné minimum bodů ze zkoušky."
+    },
+    {
+      "id": "lectures-7-12",
+      "text": "Slidy přednášek 7–12 (inference/rezoluce, reprezentace znalostí, NLP, strojové učení, hluboké učení, generativní modely) – zatím jen sbírka ch. 7–12 bez slidů; nahrát do sources/PB016/Lectures/slides."
+    },
+    {
+      "id": "seminars",
+      "text": "Materiály z cvičení: PDF zadání logiky (týdny 6–8) a notebooky týdnů 6+ (Syllabus); složka Seminars je prázdná."
+    },
+    {
+      "id": "ropots-rest",
+      "text": "Odpovědníky (ROPOTs) z cvičení 5+ (hry, logika...) – zatím jen 01–03 zpracované; výsledky sbírat do složky ROPOTs."
+    }
+  ]
+}

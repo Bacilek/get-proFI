@@ -1,0 +1,87 @@
+[
+  {
+    "id": "dj-order",
+    "type": "choice",
+    "prompt": "Neorientovaný graf: S–A 7, S–B 2, B–A 3, A–C 1, B–C 8, C–T 4, A–T 9, B–D 5, D–T 6. V jakém pořadí Dijkstrův algoritmus ze startu $S$ **zafixuje** (finalizuje) uzly?",
+    "options": [
+      "S, B, A, C, D, T",
+      "S, A, B, C, D, T",
+      "S, B, D, A, C, T",
+      "S, B, A, D, C, T"
+    ],
+    "answer": 0,
+    "solution": "Vzdálenosti: S=0, B=2, A=5 (přes B), C=6, D=7, T=10. Zafixuje se vždy nezafixovaný uzel s nejmenší vzdáleností: S(0), B(2), A(5), C(6), D(7), T(10).",
+    "hints": [
+      "Seřaď uzly podle finální vzdálenosti od $S$.",
+      "A je blíž přes B (2+3) než přímo (7)."
+    ]
+  },
+  {
+    "id": "dj-shortest",
+    "type": "numeric",
+    "prompt": "V grafu S–A 7, S–B 2, B–A 3, A–C 1, B–C 8, C–T 4, A–T 9, B–D 5, D–T 6: jaká je délka nejkratší cesty z $S$ do $T$?",
+    "answer": 10,
+    "tolerance": 0.001,
+    "solution": "Cesta S–B–A–C–T: $2+3+1+4=10$. Alternativy: S–B–D–T = 13, S–A–T = 16.",
+    "hints": [
+      "Hlídej zkratku přes B.",
+      "Před T vede nejlevněji uzel C."
+    ]
+  },
+  {
+    "id": "dj-negative",
+    "type": "choice",
+    "prompt": "Proč Dijkstrův algoritmus nemusí fungovat pro grafy se zápornými hranami?",
+    "options": [
+      "protože graf by byl neorientovaný",
+      "protože zafixovaný uzel by se mohl později zlepšit přes zápornou hranu",
+      "protože by nešlo použít prioritní frontu",
+      "ve skutečnosti funguje vždy"
+    ],
+    "answer": 1,
+    "solution": "Dijkstra předpokládá, že vzdálenost vybraného uzlu je definitivní, protože ostatní cesty by byly aspoň tak dlouhé. Záporná hrana to porušuje – delší cesta se může „zkrátit“ později.",
+    "hints": [
+      "Na čem je postavena správnost zafixování?",
+      "Cesta nemůže být kratší než její prefix – ale jen pro nezáporné hrany."
+    ]
+  },
+  {
+    "id": "dj-vs-astar",
+    "type": "choice",
+    "prompt": "Jaký je vztah Dijkstrova algoritmu a A\\*?",
+    "options": [
+      "Dijkstra je A\\* s heuristikou $h(n)=0$.",
+      "A\\* je Dijkstra s $g(n)=0$.",
+      "Jsou to nesouvisející algoritmy.",
+      "Dijkstra je A\\* s heuristikou $h(n)=h^*(n)$."
+    ],
+    "answer": 0,
+    "solution": "$f=g+h$ s $h\\equiv0$ je $f=g$, tedy řazení podle ceny cesty = prohledávání podle ceny = Dijkstra. $h=h^*$ je naopak ideální heuristika (A\\* jde přímo k cíli).",
+    "hints": [
+      "Co se stane s $f=g+h$, když $h$ nic neříká?",
+      "Heuristika $h=h^*$ je opačný extrém."
+    ]
+  },
+  {
+    "id": "dj-tasks",
+    "type": "free",
+    "prompt": "Jaké dva úkoly na grafu řeší Dijkstra a A\\*? Který algoritmus použiješ pro navigaci auta z bodu A do bodu B a proč?",
+    "solution": "Úkol 1: nejkratší cesty z jednoho uzlu do všech ostatních (Dijkstra – např. dojezdové časy z hlavního nádraží na všechny adresy, směrování v síti). Úkol 2: nejkratší cesta mezi dvěma uzly (Dijkstra, nebo lépe A\\*). Pro navigaci A→B volíme A\\* s heuristikou (vzdušná vzdálenost), protože nepotřebuje prohledávat uzly „v opačném směru“; zůstává optimální díky přípustné heuristice.",
+    "hints": [
+      "Jedna úloha má jeden cíl, druhá všechny.",
+      "Vzdušná čára je přípustná heuristika."
+    ]
+  },
+  {
+    "id": "dj-relax",
+    "type": "numeric",
+    "prompt": "Při Dijkstrovi je zafixován uzel $u$ s `dist[u]=5`. Hrana $u\\to v$ má cenu 9 a aktuálně je `dist[v]=12`. Jaká bude `dist[v]` po relaxaci hrany?",
+    "answer": 12,
+    "tolerance": 0.001,
+    "solution": "Relaxace: `dist[v]=min(12, 5+9)=min(12,14)=12`. Nová cesta přes $u$ je delší, takže se nic nemění.",
+    "hints": [
+      "Porovnej starou hodnotu s `dist[u]+w`.",
+      "Bereš minimum."
+    ]
+  }
+]

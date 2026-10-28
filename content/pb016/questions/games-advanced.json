@@ -1,0 +1,136 @@
+[
+  {
+    "id": "ga-expecti",
+    "type": "numeric",
+    "prompt": "MAX volí mezi dvěma uzly náhody. Uzel 1: s pravd. 0,5 následuje MIN uzel s hodnotou 2, s pravd. 0,5 MIN uzel s hodnotou 4. Uzel 2: s pravd. 0,5 MIN s hodnotou 0, s pravd. 0,5 MIN s hodnotou −2. Jaká je expectiminimaxová hodnota kořene?",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "Uzel 1: $0{,}5\\cdot2+0{,}5\\cdot4=3$. Uzel 2: $0{,}5\\cdot0+0{,}5\\cdot(-2)=-1$. Kořen (MAX): $\\max(3,-1)=3$.",
+    "hints": [
+      "V uzlu náhody je vážený průměr.",
+      "Kořen je MAX."
+    ]
+  },
+  {
+    "id": "ga-chance-formula",
+    "type": "choice",
+    "prompt": "Která hodnota se v algoritmu expectiminimax přiřadí **uzlu náhody** $n$?",
+    "options": [
+      "$\\max_s \\text{expectiminimax}(s)$",
+      "$\\min_s \\text{expectiminimax}(s)$",
+      "$\\sum_s P(s)\\cdot \\text{expectiminimax}(s)$",
+      "$\\prod_s P(s)\\cdot\\text{expectiminimax}(s)$"
+    ],
+    "answer": 2,
+    "solution": "Uzel náhody se vyhodnotí jako očekávaná hodnota: součet hodnot potomků vážených jejich pravděpodobnostmi.",
+    "hints": [
+      "Náhoda = střední hodnota.",
+      "Pravděpodobnosti dávají součet 1."
+    ]
+  },
+  {
+    "id": "ga-monotone",
+    "type": "free",
+    "prompt": "Uzel A: s pravd. 0,9 výnos 2, s pravd. 0,1 výnos 3. Uzel B: s pravd. 0,9 výnos 1, s pravd. 0,1 výnos 4. Který uzel zvolí MAX? Co se změní, když výnosy přeznačíme monotónně $1\\to1$, $2\\to20$, $3\\to30$, $4\\to400$? Co z toho plyne pro Eval u her s náhodou?",
+    "solution": "Původně: A = $0{,}9\\cdot2+0{,}1\\cdot3=2{,}1$, B = $0{,}9\\cdot1+0{,}1\\cdot4=1{,}3$ ⇒ MAX volí A. Po přeznačení: A = $0{,}9\\cdot20+0{,}1\\cdot30=21$, B = $0{,}9\\cdot1+0{,}1\\cdot400=40{,}9$ ⇒ MAX volí B. Pořadí hodnot se zachovalo, rozhodnutí se změnilo. V nedeterministických hrách se proto chování zachovává jen při **pozitivní lineární** transformaci Eval; Eval musí odpovídat očekávanému výnosu. V deterministických hrách stačí monotónní transformace.",
+    "hints": [
+      "Spočítej očekávané hodnoty před a po přeznačení.",
+      "Linearita zachovává průměry."
+    ]
+  },
+  {
+    "id": "ga-eval-invariance",
+    "type": "choice",
+    "prompt": "V **deterministické** hře (minimax) se chování programu nezmění při…",
+    "options": [
+      "libovolné monotónní transformaci ohodnocovací funkce",
+      "jen pozitivní lineární transformaci",
+      "žádné transformaci",
+      "přičtení náhodného šumu"
+    ],
+    "answer": 0,
+    "solution": "Minimax používá jen operace max/min, takže záleží jen na uspořádání hodnot – Eval je v deterministické hře ordinální funkce.",
+    "hints": [
+      "Max a min porovnávají hodnoty.",
+      "Aritmetické průměry se nepoužívají."
+    ]
+  },
+  {
+    "id": "ga-linear-eval",
+    "type": "numeric",
+    "prompt": "Eval(s) = $9f_1+5f_2+3f_3$, kde $f_1$ = rozdíl počtu dam (bílé − černé), $f_2$ = rozdíl věží, $f_3$ = rozdíl střelců. Bílý má o 1 dámu méně, o 1 věž víc a o 2 střelce víc než černý. Hodnota Eval pro bílého?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$f_1=-1$, $f_2=+1$, $f_3=+2$. $\\text{Eval}=9\\cdot(-1)+5\\cdot1+3\\cdot2=-9+5+6=2$.",
+    "hints": [
+      "Dosaď rozdíly do lineární kombinace.",
+      "Znaménko $f_1$ je záporné."
+    ]
+  },
+  {
+    "id": "ga-mcts-phases",
+    "type": "choice",
+    "prompt": "Správné pořadí čtyř fází Monte Carlo Tree Search:",
+    "options": [
+      "simulace, výběr, expanze, zpětná propagace",
+      "výběr, expanze, simulace, zpětná propagace",
+      "expanze, výběr, zpětná propagace, simulace",
+      "výběr, simulace, expanze, zpětná propagace"
+    ],
+    "answer": 1,
+    "solution": "Opakuje se: (1) výběr uzlu stromem, (2) expanze – přidání nového uzlu, (3) simulace – náhodné dohrání do konce, (4) zpětná propagace – aktualizace skóre od nového uzlu ke kořeni.",
+    "hints": [
+      "Nejdřív musíš někam dojít, než můžeš simulovat.",
+      "Propagace je poslední."
+    ]
+  },
+  {
+    "id": "ga-mcts-pros",
+    "type": "free",
+    "prompt": "Uveď výhody a nevýhody MCTS a kdy se hodí.",
+    "solution": "Výhody: obecnost (nepotřebuje heuristiku ani Eval), přizpůsobivost (strom se rozrůstá podle simulovaných her), kdykoliv poskytne aktuální nejlepší odhad, jednoduchost. Nevýhody: nemusí vždy najít nejlepší tahy (statistický odhad), může potřebovat hodně simulací. Používá se v současných špičkových herních strategiích (např. Go, spolu s neuronovými sítěmi).",
+    "hints": [
+      "Co MCTS nepotřebuje?",
+      "Kvalita odhadu roste s počtem simulací."
+    ]
+  },
+  {
+    "id": "ga-monte-carlo-bridge",
+    "type": "free",
+    "prompt": "Jak program Jack (bridž) používá metodu Monte Carlo pro hru s nepřesnou znalostí? Co z toho vybírá?",
+    "solution": "Vygeneruje např. 100 rozdání karet konzistentních s dosavadním podáním (pravděpodobnosti rozdání lze spočítat). Pro každé rozdání řeší hru jako s perfektní informací a vybere akci, která je **v průměru nejlepší**. Prohledává tak „domnělý“ stavový prostor, ne reálný.",
+    "hints": [
+      "Neznáme karty soupeře.",
+      "Vzorkování + průměr."
+    ]
+  },
+  {
+    "id": "ga-horizon",
+    "type": "choice",
+    "prompt": "„Efekt horizontu“ při prohledávání her znamená, že…",
+    "options": [
+      "algoritmus nevidí zvraty, které nastanou těsně za hloubkou prohledávání",
+      "algoritmus nevidí nepřítomnost soupeře",
+      "pro velké $b$ se nedá použít alfa-beta",
+      "program se zacyklí"
+    ],
+    "answer": 0,
+    "solution": "Při ořezání v pevné hloubce může Eval ohodnotit pozici příznivě, ale těsně za horizontem následuje zvrat (např. ztráta figury). Řešení: prohledávat do klidných stavů (quiescence search).",
+    "hints": [
+      "Co se děje mimo prohledanou oblast?",
+      "Lék: quiescence search."
+    ]
+  },
+  {
+    "id": "ga-game-types",
+    "type": "choice",
+    "prompt": "Která z her patří do kategorie „s náhodou a nepřesnými znalostmi“?",
+    "options": ["šachy", "backgammon", "poker", "Go"],
+    "answer": 2,
+    "solution": "Poker (stejně jako bridž a scrabble) má náhodu i nepřesnou znalost (skryté karty). Šachy a Go jsou deterministické s perfektní informací, backgammon je s náhodou, ale s perfektní informací.",
+    "hints": [
+      "Hráč zde nevidí soupeřovy karty.",
+      "Backgammon sice kostky používá, ale všechny stavy jsou vidět."
+    ]
+  }
+]

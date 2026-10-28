@@ -1,0 +1,146 @@
+[
+  {
+    "id": "la-peas",
+    "type": "free",
+    "prompt": "Co znamená zkratka PEAS? Rozepiš ji pro automatické taxi.",
+    "solution": "**P**erformance measure (míra výkonnosti): doprava na místo, vzdálenost, bezpečnost, bez přestupků, komfort. **E**nvironment (prostředí): ulice, křižovatky, ostatní účastníci provozu, chodci, počasí. **A**ctuators (akční prvky): řízení, plyn, brzda, houkačka, blinkry. **S**ensors (senzory): kamera, tachometr, počítač kilometrů, senzory motoru, GPS.",
+    "hints": [
+      "Čtyři složky: co měříme, kde jsme, čím jednáme, čím vnímáme.",
+      "Zkratka vychází z anglických názvů."
+    ]
+  },
+  {
+    "id": "la-wumpus-props",
+    "type": "choice",
+    "prompt": "Které tvrzení o prostředí Wumpusovy jeskyně je správné?",
+    "options": [
+      "Je plně pozorovatelné.",
+      "Je statické (Wumpus a jámy se nehýbou) a deterministické.",
+      "Je epizodické.",
+      "Je to hra více soupeřících agentů."
+    ],
+    "answer": 1,
+    "solution": "Wumpus je deterministická, statická, diskrétní úloha pro jednoho agenta, částečně pozorovatelná (agent vnímá jen lokálně) a sekvenční (ne epizodická).",
+    "hints": [
+      "Co agent vidí z celé mapy?",
+      "Wumpus je spíš vlastnost prostředí než soupeř."
+    ]
+  },
+  {
+    "id": "la-entailment",
+    "type": "choice",
+    "prompt": "Jaký je vztah mezi množinami modelů při $KB\\models\\alpha$?",
+    "options": [
+      "$M(\\alpha)\\subseteq M(KB)$",
+      "$M(KB)\\subseteq M(\\alpha)$",
+      "$M(KB)=M(\\alpha)$",
+      "$M(KB)\\cap M(\\alpha)=\\emptyset$"
+    ],
+    "answer": 1,
+    "solution": "$\\alpha$ je pravdivá ve všech světech (modelech), kde je pravdivá KB, tedy $M(KB)\\subseteq M(\\alpha)$. Příklad: KB = „Češi vyhráli ∧ Slováci vyhráli“, $\\alpha$ = „Češi vyhráli“.",
+    "hints": [
+      "Čím víc vět v KB, tím méně modelů.",
+      "Důsledek může být pravdivý i ve více světech."
+    ]
+  },
+  {
+    "id": "la-model-count",
+    "type": "numeric",
+    "prompt": "Kolik modelů (přiřazení pravdivostních hodnot symbolům $P,Q,R$) má formule $P\\vee Q$?",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "Pro $(P,Q)$ je $P\\vee Q$ pravdivá ve 3 ze 4 přiřazení; $R$ je libovolné (2 hodnoty). Celkem $3\\cdot2=6$ z $2^3=8$ interpretací.",
+    "hints": [
+      "Symbol $R$ ve formuli není, ale je v interpretaci.",
+      "Spočti nejdřív modely nad $P,Q$."
+    ]
+  },
+  {
+    "id": "la-deduction",
+    "type": "choice",
+    "prompt": "Podle dedukční věty $KB\\models\\alpha$ platí právě tehdy, když…",
+    "options": [
+      "$KB\\wedge\\alpha$ je tautologie",
+      "$(KB\\Rightarrow\\alpha)$ je platná formule (tautologie)",
+      "$KB\\vee\\alpha$ je nesplnitelná",
+      "$KB\\Leftrightarrow\\alpha$ je kontradikce"
+    ],
+    "answer": 1,
+    "solution": "$KB\\models\\alpha\\iff(KB\\Rightarrow\\alpha)$ je platná. Podobně důkaz sporem: $KB\\models\\alpha\\iff KB\\wedge\\neg\\alpha$ je nesplnitelné.",
+    "hints": [
+      "Implikace je nepravdivá jen když KB platí a $\\alpha$ ne.",
+      "Souvisí s tautologií."
+    ]
+  },
+  {
+    "id": "la-contradiction-proof",
+    "type": "choice",
+    "prompt": "Jak se dokazuje $KB\\models\\alpha$ důkazem sporem?",
+    "options": [
+      "ukáže se, že $KB\\wedge\\neg\\alpha$ je nesplnitelné",
+      "ukáže se, že $KB\\wedge\\alpha$ je nesplnitelné",
+      "ukáže se, že $\\neg KB\\vee\\alpha$ je nesplnitelné",
+      "ukáže se, že $KB\\Rightarrow\\neg\\alpha$ je platné"
+    ],
+    "answer": 0,
+    "solution": "Pokud $KB\\wedge\\neg\\alpha$ nemá model, pak v každém modelu KB je $\\neg\\alpha$ nepravdivé, tedy $\\alpha$ pravdivé: $KB\\models\\alpha$ (reductio ad absurdum).",
+    "hints": [
+      "Předpokládej opak závěru.",
+      "Spor = žádný model."
+    ]
+  },
+  {
+    "id": "la-wumpus-safe",
+    "type": "choice",
+    "prompt": "Agent ve Wumpusově jeskyni je v $[1,1]$ (bezpečné), nevnímá vánek ani zápach. KB: $\\neg P_{1,1}$, $\\neg B_{1,1}$, $B_{1,1}\\Leftrightarrow(P_{1,2}\\vee P_{2,1})$. Co lze odvodit?",
+    "options": [
+      "$P_{1,2}$ (jáma na $[1,2]$)",
+      "$\\neg P_{1,2}\\wedge\\neg P_{2,1}$ – obě sousední políčka jsou bez jámy (bezpečná)",
+      "nelze odvodit nic",
+      "$P_{2,1}$"
+    ],
+    "answer": 1,
+    "solution": "Z $\\neg B_{1,1}$ a ekvivalence: $\\neg(P_{1,2}\\vee P_{2,1})$, tj. podle de Morgana $\\neg P_{1,2}\\wedge\\neg P_{2,1}$. Obě sousední místnosti jsou bezpečné.",
+    "hints": [
+      "Použij ekvivalenci $B\\Leftrightarrow(P\\vee Q)$ s negací levé strany.",
+      "De Morgan."
+    ]
+  },
+  {
+    "id": "la-wumpus-breeze",
+    "type": "free",
+    "prompt": "Agent ve Wumpusově jeskyni cítí vánek v $[1,2]$ i $[2,1]$, odkud přišel z $[1,1]$. Proč nemá bezpečný tah a co mu zbývá? A jak postupovat při zápachu v $[1,1]$?",
+    "solution": "Vánek na obou polích znamená, že jáma je v sousedství jednoho z nich ($[2,2]$ nebo některé z $[1,3]$/$[3,1]$), ale agent neví kde; žádné políčko není prokazatelně bezpečné. Zbývá riziko podle pravděpodobnosti (jáma na $[2,2]$ má při uniformním rozložení ≈ 0,86, na krajích ≈ 0,31). Při zápachu v $[1,1]$ se použije donucovací strategie: vystřelit do jednoho směru; chroptění ⇒ Wumpus mrtev a směr bezpečný, žádné chroptění ⇒ Wumpus tam nebyl ⇒ směr bezpečný.",
+    "hints": [
+      "Kolik kandidátních míst pro jámu zůstává?",
+      "Šíp lze využít k získání informace."
+    ]
+  },
+  {
+    "id": "la-kb-agent",
+    "type": "free",
+    "prompt": "Popiš cyklus logického agenta (`KB-Agent`) pomocí operací `tell` a `ask`.",
+    "solution": "Agent v čase $t$: (1) `tell(KB, percept_sentence(percept,t))` – přidá pozorování; (2) `ask(KB, action_query(t))` – zeptá se na další akci; (3) `tell(KB, action_sentence(action,t))` – zaznamená zvolenou akci; (4) vrátí akci a $t+1$. Báze KB obsahuje znalosti pozadí (axiomy) a průběžně doplňované znalosti.",
+    "hints": [
+      "Tři volání: dvakrát `tell`, jednou `ask`.",
+      "Co dělá agent s pozorováním?"
+    ]
+  },
+  {
+    "id": "la-advantage",
+    "type": "choice",
+    "prompt": "Čím se logický agent liší od prohledávacího algoritmu?",
+    "options": [
+      "Může odpovědět v principu na libovolnou otázku z KB, ne jen na předem zakódovaný cíl.",
+      "Je vždy rychlejší.",
+      "Pracuje jen v plně pozorovatelném prostředí.",
+      "Nepotřebuje žádné znalosti pozadí."
+    ],
+    "answer": 0,
+    "solution": "U prohledávání je „otázka“ pevně v zadání (přechodová funkce, cílový test). Logický agent drží obecné znalosti a odvozuje odpovědi; hodí se pro částečně pozorovatelná prostředí a umožňuje učit se nové znalosti.",
+    "hints": [
+      "Kde je u prohledávání uložena otázka?",
+      "Logický agent má KB."
+    ]
+  }
+]

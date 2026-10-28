@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ol-fuzzy-prob",
+    "type": "choice",
+    "prompt": "Tvrzení „Brno je velké město“ má míru pravdivosti 0,7. Který přístup to vyjadřuje?",
+    "options": [
+      "fuzzy logika (částečná pravdivost)",
+      "pravděpodobnost (míra jistoty, že je pravdivé)",
+      "modální logika",
+      "temporální logika"
+    ],
+    "answer": 0,
+    "solution": "Fuzzy logika pracuje s mírou pravdivosti $\\in[0,1]$ a lépe se hodí pro jazykové, subjektivní hodnoty. Pravděpodobnost by říkala „s pravd. 0,8 hodnotí občané Brno jako velké město“ – hodnoty zůstávají true/false, měří se jistota/frekvence.",
+    "hints": [
+      "Je město „částečně“ velké, nebo se jen nevíme?",
+      "Fuzzy = stupně pravdivosti."
+    ]
+  },
+  {
+    "id": "ol-modal",
+    "type": "choice",
+    "prompt": "V modální logice platí $\\Box\\varphi\\equiv\\dots$",
+    "options": ["$\\Diamond\\neg\\varphi$", "$\\neg\\Diamond\\neg\\varphi$", "$\\neg\\Box\\varphi$", "$\\Diamond\\varphi$"],
+    "answer": 1,
+    "solution": "Nutnost = nemožnost opaku: $\\Box\\varphi\\equiv\\neg\\Diamond\\neg\\varphi$ a $\\Diamond\\varphi\\equiv\\neg\\Box\\neg\\varphi$ (obdoba duality $\\forall$/$\\exists$).",
+    "hints": [
+      "Nutně platí = není možné, aby neplatilo.",
+      "Analogie s $\\forall x\\equiv\\neg\\exists x\\neg$."
+    ]
+  },
+  {
+    "id": "ol-which-logic",
+    "type": "choice",
+    "prompt": "„Petr Pavel je prezident ČR“ je v roce 2026 pravdivé a v roce 2020 nepravdivé. Jaký druh logiky explicitně pracuje s časem jako parametrem pravdivosti?",
+    "options": ["fuzzy", "temporální", "výroková", "HOL"],
+    "answer": 1,
+    "solution": "Temporální logiky vyhodnocují pravdivost ve vztahu k času. Výroková logika dává každému výroku jednu hodnotu bez ohledu na čas.",
+    "hints": [
+      "Co se mění mezi 2020 a 2026?",
+      "Název napovídá."
+    ]
+  },
+  {
+    "id": "ol-hol",
+    "type": "choice",
+    "prompt": "Co je typické pro logiky vyšších řádů (HOL)?",
+    "options": [
+      "Kvantifikují jen objekty, jako PL1.",
+      "Kvantifikují i predikáty a funkce; mají větší expresivitu, ale od 2. řádu pro ně neexistuje úplná inference.",
+      "Jsou vždy rozhodnutelné.",
+      "Používají jen výrokové symboly."
+    ],
+    "answer": 1,
+    "solution": "Příklad: $\\exists P\\forall x\\,(\\text{člověk}(x)\\Rightarrow P(x))$ – „existuje vlastnost, kterou mají všichni lidé“. Cena za expresivitu: neexistuje úplný dokazovací systém.",
+    "hints": [
+      "PL1 kvantifikuje jen objekty.",
+      "Co je cenou za expresivitu?"
+    ]
+  },
+  {
+    "id": "ol-kengineering",
+    "type": "free",
+    "prompt": "Vyjmenuj kroky znalostního inženýrství (knowledge engineering) z přednášky.",
+    "solution": "1) identifikovat otázky; 2) shromáždit příslušné znalosti (knowledge acquisition); 3) určit slovník predikátů, funkcí a konstant (ontologii) – ovlivňuje efektivitu; 4) zakódovat obecné znalosti o doméně; 5) zakódovat popis instance problému; 6) položit dotazy inferenční proceduře a získat odpovědi; 7) ladit a evaluovat bázi znalostí (jde odvodit nepravdivé / nejde odvodit pravdivé závěry?).",
+    "hints": [
+      "Začíná se otázkami, končí laděním.",
+      "Mezi nimi je ontologie a kódování znalostí."
+    ]
+  },
+  {
+    "id": "ol-propositional-pros",
+    "type": "free",
+    "prompt": "Uveď dvě výhody a dvě nevýhody výrokové logiky (podle přednášky).",
+    "solution": "Výhody: deklarativní (syntaxe odpovídá faktům); umí částečné, disjunktivní a negované informace (víc než většina datových struktur); kompoziční (význam $P_1\\wedge P_2$ plyne z významu $P_1$, $P_2$); význam je kontextově nezávislý. Nevýhoda: velmi omezená expresivita – nelze říct „jámy způsobují vánek ve vedlejších místnostech“ jinak než vyjmenováním výroku pro každé pole. (Přirozený jazyk je expresivní, ale víceznačný a kontextově závislý.)",
+    "hints": [
+      "Co umí výrokovka lépe než databáze?",
+      "Co nejde říct obecně?"
+    ]
+  }
+]

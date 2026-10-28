@@ -1,0 +1,105 @@
+[
+  {
+    "id": "he-h1",
+    "type": "numeric",
+    "prompt": "8-posunovačka, cíl `1 2 3 / 4 5 6 / 7 8 _`. Stav: `7 2 4 / 5 _ 6 / 8 3 1`. Kolik je $h_1$ (počet dlaždic 1–8, které nejsou na svém místě)?",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "Na svém místě jsou jen dlaždice 2 (horní střed) a 6 (pravý střed). Mimo místo: 7, 4, 5, 8, 3, 1 ⇒ $h_1=6$.",
+    "hints": [
+      "Mezeru nepočítej.",
+      "Porovnej políčko po políčku s cílem."
+    ]
+  },
+  {
+    "id": "he-h2",
+    "type": "numeric",
+    "prompt": "Stejná posunovačka (cíl `1 2 3 / 4 5 6 / 7 8 _`, stav `7 2 4 / 5 _ 6 / 8 3 1`). Spočítej $h_2$ = součet manhattanských vzdáleností dlaždic od cílových pozic.",
+    "answer": 14,
+    "tolerance": 0.001,
+    "solution": "Vzdálenosti: 7→2, 2→0, 4→3, 5→1, 6→0, 8→1, 3→3, 1→4. Součet $2+0+3+1+0+1+3+4=14$.",
+    "hints": [
+      "Vzdálenost dlaždice = |Δ řádek| + |Δ sloupec|.",
+      "Dlaždice 1 je v pravém dolním rohu, cíl je levý horní."
+    ]
+  },
+  {
+    "id": "he-relaxed",
+    "type": "choice",
+    "prompt": "Jak vzniká přípustná heuristika $h_1$ (počet dlaždic mimo místo) pro posunovačku jako cena optimálního řešení **relaxovaného** problému?",
+    "options": [
+      "dlaždici lze přesunout kamkoliv (i na obsazené pole)",
+      "dlaždici lze posunout o 1 pole i na obsazené pole",
+      "dlaždici lze přesunout pouze na prázdné pole kamkoliv"
+    ],
+    "answer": 0,
+    "solution": "(c) přesun kamkoliv ⇒ každá dlaždice mimo místo potřebuje právě jeden tah ⇒ $h_1$. (a) posun o 1 pole kamkoliv ⇒ Manhattan $h_2$; (b) přesun na prázdné pole ⇒ Gaschnigova heuristika.",
+    "hints": [
+      "Kolik tahů potřebuje jedna dlaždice, když se smí přesunout kamkoliv?",
+      "Pro $h_2$ je relaxace „o jedno pole“."
+    ]
+  },
+  {
+    "id": "he-dominance",
+    "type": "choice",
+    "prompt": "Heuristika $h_2$ **dominuje** $h_1$. Co z toho plyne pro A\\*?",
+    "options": [
+      "A\\* s $h_2$ nikdy nerozšíří víc uzlů než A\\* s $h_1$ (obě přípustné).",
+      "A\\* s $h_2$ není optimální.",
+      "$h_2$ nemusí být přípustná.",
+      "A\\* s $h_2$ je vždy pomalejší."
+    ],
+    "answer": 0,
+    "solution": "Dominance: $h_2(n)\\ge h_1(n)$ pro všechna $n$. Při přípustnosti obou je $h_2$ blíž k $h^*$, A\\* expanduje (podmnožinu) uzlů, které expanduje s $h_1$. Cena: výpočet $h_2$ bývá dražší.",
+    "hints": [
+      "Čím vyšší přípustná heuristika, tím méně uzlů má $f<C^*$.",
+      "Dominance je jen nerovnost $h_2\\ge h_1$."
+    ]
+  },
+  {
+    "id": "he-bstar",
+    "type": "numeric",
+    "prompt": "A\\* nalezl řešení v hloubce $d=5$ po vygenerování $N=52$ uzlů. Efektivní faktor větvení $b^*$ splňuje $N+1=1+b^*+(b^*)^2+\\dots+(b^*)^d$. Určete $b^*$ (2 desetinná místa).",
+    "answer": 1.92,
+    "tolerance": 0.01,
+    "solution": "Řešíme $53=1+b+b^2+b^3+b^4+b^5$ numericky: $b=1{,}92$ dává $1+1{,}92+3{,}69+7{,}08+13{,}59+26{,}10\\approx53{,}4$; přesněji $b^*\\approx1{,}917$. Čím blíž 1, tím lepší heuristika.",
+    "hints": [
+      "Zkus $b=2$: $1+2+4+8+16+32=63>53$.",
+      "Hodnota bude o trochu menší než 2."
+    ]
+  },
+  {
+    "id": "he-bstar-meaning",
+    "type": "choice",
+    "prompt": "Heuristika je tím **lepší**, čím je její efektivní faktor větvení $b^*$…",
+    "options": ["větší", "blíž k 1", "blíž k $b$ (skutečnému faktoru větvení)", "blíž k 0"],
+    "answer": 1,
+    "solution": "$b^*=1$ znamená, že A* jde přímo po optimální cestě bez zbytečných uzlů (ideální heuristika $h=h^*$). Velké $b^*$ se blíží slepému prohledávání.",
+    "hints": [
+      "$b^*=1$ = strom bez větvení.",
+      "Slepé strategie mají $b^*$ velké."
+    ]
+  },
+  {
+    "id": "he-processor",
+    "type": "numeric",
+    "prompt": "Rozvrh práce procesorů: $m=3$ procesory, úlohy s dobami $D=4,2,2,20,20,11,11$ (součet 70). V počátečním stavu žádná úloha neběží (všechny $F_j=0$, $\\text{Fin}=0$). Kolik je hodnota heuristiky $h=\\max\\!\\big(0,\\,\\frac{\\sum D_i+\\sum F_j}{m}-\\text{Fin}\\big)$ (1 desetinné místo)?",
+    "answer": 23.3,
+    "tolerance": 0.05,
+    "solution": "$\\frac{70+0}{3}-0\\approx23{,}3$. Je to ideální čas při dokonalém rozložení práce na 3 procesory – dolní odhad skutečného času (skutečně 24).",
+    "hints": [
+      "Celková práce / počet procesorů.",
+      "Procesory zatím nemají naplánovanou žádnou práci."
+    ]
+  },
+  {
+    "id": "he-gaschnig",
+    "type": "free",
+    "prompt": "Proč je cena optimálního řešení relaxovaného problému vždy přípustnou heuristikou původního problému?",
+    "solution": "Relaxace odstraňuje omezení na akce, proto jsou všechna řešení původního problému i řešeními relaxovaného. Optimální řešení původního problému je tedy jedním z kandidátů na optimum relaxovaného, takže cena optima relaxovaného problému je **nanejvýš** tak velká jako cena optima původního. To je přesně podmínka $h(n)\\le h^*(n)$.",
+    "hints": [
+      "Má relaxovaný problém víc, nebo míň řešení než původní?",
+      "Minimum přes větší množinu je menší nebo stejné."
+    ]
+  }
+]

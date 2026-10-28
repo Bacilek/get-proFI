@@ -1,0 +1,126 @@
+[
+  {
+    "id": "mm-slide",
+    "type": "numeric",
+    "prompt": "MAX kořen má tři MIN následníky s listy: $a_1:(3,12,8)$, $a_2:(2,4,6)$, $a_3:(14,5,2)$. Jaká je minimaxová hodnota kořene?",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "MIN uzly: $\\min(3,12,8)=3$, $\\min(2,4,6)=2$, $\\min(14,5,2)=2$. MAX: $\\max(3,2,2)=3$.",
+    "hints": [
+      "Nejprve vyhodnoť MIN uzly (minimum jejich listů).",
+      "Kořen je MAX."
+    ]
+  },
+  {
+    "id": "mm-best-move",
+    "type": "choice",
+    "prompt": "V předchozím stromu ($a_1:(3,12,8)$, $a_2:(2,4,6)$, $a_3:(14,5,2)$, kořen MAX) – který tah vybere MAX?",
+    "options": [
+      "$a_1$",
+      "$a_2$",
+      "$a_3$",
+      "je jedno"
+    ],
+    "answer": 0,
+    "solution": "Hodnoty MIN uzlů: $a_1=3$, $a_2=2$, $a_3=2$. MAX volí maximum ⇒ $a_1$.",
+    "hints": [
+      "MAX vybírá potomka s nejvyšší minimaxovou hodnotou.",
+      "Viz hodnoty 3, 2, 2."
+    ]
+  },
+  {
+    "id": "mm-3level",
+    "type": "numeric",
+    "prompt": "Strom: kořen MAX → $A$ (MIN), $B$ (MIN). $A$ má MAX potomky $A_1$ (listy 3, 5) a $A_2$ (listy 6, 9). $B$ má MAX potomky $B_1$ (listy 1, 2) a $B_2$ (listy 0, −1). Hodnota kořene?",
+    "answer": 5,
+    "tolerance": 0.001,
+    "solution": "$A_1=5$, $A_2=9$ ⇒ $A=\\min(5,9)=5$. $B_1=2$, $B_2=0$ ⇒ $B=0$. Kořen $=\\max(5,0)=5$.",
+    "hints": [
+      "Od listů: MAX uzly berou maximum.",
+      "Pak MIN, nakonec MAX."
+    ]
+  },
+  {
+    "id": "mm-properties",
+    "type": "choice",
+    "prompt": "Který výrok o algoritmu Minimax je správný?",
+    "options": [
+      "Je optimální proti libovolnému protivníkovi.",
+      "Je optimální proti optimálnímu protivníkovi; čas $O(b^m)$, prostor $O(bm)$.",
+      "Má časovou složitost $O(b^{m/2})$.",
+      "Je úplný i pro nekonečné stromy."
+    ],
+    "answer": 1,
+    "solution": "Minimax je DFS ⇒ čas $O(b^m)$, prostor $O(bm)$; zaručuje nejlepší výsledek *proti nejlepšímu* protivníkovi. $O(b^{m/2})$ je nejlepší případ alfa-beta.",
+    "hints": [
+      "Minimax je prohledávání do hloubky.",
+      "$b^{m/2}$ patří k prořezávání."
+    ]
+  },
+  {
+    "id": "mm-chess-depth",
+    "type": "numeric",
+    "prompt": "Šachy: $b\\approx35$. Kolik půltahů (hloubku $m$) lze plně prohledat minimaxem, má-li být $b^m\\approx10^6$ uzlů? (zaokrouhli na celé číslo)",
+    "answer": 4,
+    "tolerance": 0.5,
+    "solution": "$35^4=1\\,500\\,625\\approx10^6$, takže $m\\approx4$ (úroveň nováčka). Hloubka 8 odpovídá mistrovi / PC, 12 Deep Blue (s prořezáváním a ohodnocovací funkcí).",
+    "hints": [
+      "Řeš $35^m\\approx10^6$.",
+      "$\\log_{35}10^6=6/\\log_{10}35$."
+    ]
+  },
+  {
+    "id": "mm-andor-vs-minimax",
+    "type": "free",
+    "prompt": "Proč na hry s výsledkem typu skóre nestačí AND/OR graf a použije se minimax? Jaký je vztah typů uzlů?",
+    "solution": "V AND/OR grafu jsou listy jen splněné/nesplněné (výhra/prohra), nelze v nich uložit číselné skóre a vyhodnocovat s ním vnitřní uzly. Minimax zobecňuje myšlenku: listy mají reálné hodnoty, MAX bere maximum, MIN minimum. Uzel „já na tahu“ odpovídá OR (stačí jeden dobrý tah) a MAX; uzel „soupeř na tahu“ odpovídá AND (musí vyhrávat všechny jeho tahy) a MIN.",
+    "hints": [
+      "Co může být v listu AND/OR grafu?",
+      "Porovnej OR ↔ MAX a AND ↔ MIN."
+    ]
+  },
+  {
+    "id": "mm-cutoff",
+    "type": "choice",
+    "prompt": "Při omezeném čase se v minimaxu (cutoff) nahrazuje…",
+    "options": [
+      "koncový test ořezávacím testem a utilitární funkce ohodnocovací funkcí",
+      "MAX uzly MIN uzly",
+      "hloubka prohledávání faktorem větvení",
+      "minimax náhodným výběrem tahu"
+    ],
+    "answer": 0,
+    "solution": "Hra se prohledává jen do určité hloubky (cutoff test, např. hloubka nebo stabilita pozice), a v listech ořezání se používá odhad (ohodnocovací funkce), protože skutečná utilita není známa.",
+    "hints": [
+      "Strom se nedá projít do konce.",
+      "V uříznutém listu neznáme výsledek hry – co tam dosadíme?"
+    ]
+  },
+  {
+    "id": "mm-zero-sum",
+    "type": "choice",
+    "prompt": "Minimax strom korektně modeluje hry, kde…",
+    "options": [
+      "hráči spolupracují",
+      "obsah skóre MAXe je opačný než skóre MINa (hra s nulovým součtem)",
+      "je ve hře náhoda",
+      "nejsou známa pravidla"
+    ],
+    "answer": 1,
+    "solution": "Každý list ohodnotíme jen skóre MAXe; MIN skóre je $-s$. Když MAX maximalizuje své skóre, MIN minimalizuje (a tím maximalizuje své). Pro hry s náhodou se používá expectiminimax, pro kooperativní hry jiné modely.",
+    "hints": [
+      "Co je nulový součet?",
+      "Stačí jedno číslo na list."
+    ]
+  },
+  {
+    "id": "mm-code-tictactoe",
+    "type": "free",
+    "prompt": "(Cvičení 5, Python) Načrtni funkce pro výběr tahu AI a člověka v piškvorkách pomocí minimaxu (`maxi`, `mini`). Jaké hodnoty mají koncové stavy?",
+    "solution": "Koncové hodnoty: výhra AI (X) = +1, remíza = 0, prohra = −1. `maxi(board)`: pokud konec, vrať hodnotu; jinak `best=-2`, pro každý volný tah ulož značku, `v=mini(board)`, vrať značku zpět, `best=max(best,v)`. `mini` symetricky s `best=2` a `min`. Funkce výběru tahu AI volá `mini` pro každý tah a volí tah s maximem; člověk (simulace) volí tah s minimem. Alfa-beta: stejné, navíc parametry `alpha`, `beta` (−2, 2 stačí) a `break` při `v>=beta` (v maxi) resp. `v<=alpha` (v mini).",
+    "hints": [
+      "Dvě vzájemně rekurzivní funkce.",
+      "Neutrální počáteční hodnoty −2 / 2."
+    ]
+  }
+]

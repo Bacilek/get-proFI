@@ -1,0 +1,163 @@
+[
+  {
+    "id": "csp-count-zero",
+    "type": "choice",
+    "prompt": "Kolik různých řešení má následující CSP zadané pseudokódem?\n\n```\nA in 2..8\nB in 0..4\nA + B == A - B\n0 < A * B\n```",
+    "options": [
+      "6",
+      "0",
+      "7"
+    ],
+    "answer": 1,
+    "solution": "$A+B=A-B\\Rightarrow B=0$. Pak ale $A\\cdot B=0$ a omezení $0<A\\cdot B$ neplatí. Omezení si odporují ⇒ **0 řešení**.",
+    "hints": [
+      "Zjednoduš první omezení.",
+      "Co řekne $B$ druhé omezení?"
+    ]
+  },
+  {
+    "id": "csp-count-xy",
+    "type": "numeric",
+    "prompt": "`X in 1..7`, `Y in 1..7`, `X + Y = 7`. Kolik má CSP řešení?",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "Dvojice $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$. $X=7$ nemá odpovídající $Y\\ge1$, proto 6.",
+    "hints": [
+      "Pro každé $X$ je $Y=7-X$.",
+      "Zkontroluj, že $Y$ je v doméně."
+    ]
+  },
+  {
+    "id": "csp-count-xy-even",
+    "type": "numeric",
+    "prompt": "Přidej k předchozímu CSP omezení „$X\\cdot Y$ je sudé“. Kolik má CSP řešení?",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "Součet 7 je lichý, takže právě jedno z čísel je sudé a součin je vždy sudý. Omezení řešení nemění: 6.",
+    "hints": [
+      "Jaká je parita součtu $X+Y=7$?",
+      "Dvě lichá čísla dávají sudý součet."
+    ]
+  },
+  {
+    "id": "csp-australia-count",
+    "type": "numeric",
+    "prompt": "Kolika způsoby lze obarvit mapu Austrálie (7 oblastí WA, NT, Q, NSW, V, SA, T; sousedé WA–NT, WA–SA, NT–SA, NT–Q, SA–Q, SA–NSW, Q–NSW, SA–V, NSW–V) třemi barvami tak, aby sousedé měli různou barvu?",
+    "answer": 18,
+    "tolerance": 0.001,
+    "solution": "SA: 3 možnosti. Pak jsou NT, WA, Q, NSW, V určeny až na dvě volby: WA a NT se obarví 2 způsoby (zbývající dvě barvy), a vše ostatní je pak vynuceno (Q ≠ SA, NT; NSW ≠ SA, Q; V ≠ SA, NSW). Pevninská část: $3\\cdot2=6$. Tasmánie je nezávislá: ×3. Celkem 18.",
+    "hints": [
+      "Začni nejvíce omezující oblastí, SA.",
+      "T nemá žádné sousedy."
+    ]
+  },
+  {
+    "id": "csp-queens-model",
+    "type": "choice",
+    "prompt": "Kterou z následujících úloh **nelze** přirozeně modelovat a řešit jako CSP?",
+    "options": [
+      "problém umístit $N$ dam na šachovnici tak, aby se všechny ohrožovaly",
+      "piškvorky",
+      "sudoku"
+    ],
+    "answer": 1,
+    "solution": "Piškvorky jsou hra se soupeřem (adversarial) – řešením je strategie proti oponentovi (AND/OR graf, minimax), ne jednoduché přiřazení proměnných. Sudoku a rozmístění dam jsou typické CSP. (Pozn.: u dam v otázce se ohrožovaní stejně jako „neohrožovaní“ dá zapsat omezeními.)",
+    "hints": [
+      "Kdo nebo co mění stav mezi tahy?",
+      "CSP nezná soupeře."
+    ]
+  },
+  {
+    "id": "csp-definition",
+    "type": "free",
+    "prompt": "Definuj CSP (problém s omezujícími podmínkami) a co je jeho **řešení**. Uveď i, co je COP.",
+    "solution": "CSP = proměnné $X_1..X_n$ s neprázdnými doménami $D_i$ + omezení $C_1..C_m$. Řešení je úplné (všechny proměnné) konzistentní (žádné omezení neporušeno) přiřazení. COP (constraint optimization problem) navíc obsahuje účelovou funkci $f$; hledáme řešení, které ji maximalizuje/minimalizuje.",
+    "hints": [
+      "Tři složky: proměnné, domény, omezení.",
+      "Úplné + konzistentní."
+    ]
+  },
+  {
+    "id": "csp-mrv",
+    "type": "choice",
+    "prompt": "Která strategie pro backtracking vybírá proměnnou s **nejméně** zbývajícími možnými hodnotami?",
+    "options": [
+      "nejvíce omezující proměnná",
+      "nejomezenější proměnná (MRV / fail-first)",
+      "nejméně omezující hodnota",
+      "dopředná kontrola"
+    ],
+    "answer": 1,
+    "solution": "Nejomezenější proměnná (minimum remaining values): proměnná s nejmenší doménou – nejdřív řešíš to, co nejspíš selže. „Nejvíce omezující proměnná“ vybírá tu s nejvíc omezeními na ostatní; „nejméně omezující hodnota“ řadí *hodnoty* a dopředná kontrola udržuje domény.",
+    "hints": [
+      "Je to heuristika pro výběr proměnné podle velikosti domény.",
+      "Anglicky: fail-first."
+    ]
+  },
+  {
+    "id": "csp-least-constraining",
+    "type": "choice",
+    "prompt": "Heuristika **nejméně omezující hodnota** při backtrackingu…",
+    "options": [
+      "vybírá proměnnou s nejmenší doménou",
+      "vybírá pro vybranou proměnnou hodnotu, která zruší nejméně hodnot v doménách ostatních proměnných",
+      "vybírá proměnnou s nejvíce omezeními",
+      "vždy vybere nejmenší hodnotu"
+    ],
+    "answer": 1,
+    "solution": "Zkoušíme nejdřív hodnotu, která nejméně omezuje sousedy – ponechává nejvíc šancí na dokončení konzistentního přiřazení.",
+    "hints": [
+      "Týká se pořadí hodnot, ne proměnných.",
+      "Nech sousedům co nejvíc možností."
+    ]
+  },
+  {
+    "id": "csp-sendmore",
+    "type": "numeric",
+    "prompt": "V algebrogramu SEND + MORE = MONEY (každé písmeno jiná cifra, $S,M>0$) existuje jediné řešení. Jakou hodnotu má $Y$?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "Řešení: $S=9,E=5,N=6,D=7,M=1,O=0,R=8,Y=2$: $9567+1085=10652$. Tedy $Y=2$. (Z posledního sloupce $D+E=Y+10c$: $7+5=12$.)",
+    "hints": [
+      "$M$ je přenos z tisícovek, tedy $M=1$.",
+      "$S=9$ a $O=0$."
+    ]
+  },
+  {
+    "id": "csp-backtracking",
+    "type": "choice",
+    "prompt": "Prohledávání s navracením (backtracking) pro CSP je…",
+    "options": [
+      "prohledávání do šířky nad částečnými přiřazeními",
+      "prohledávání do hloubky, které přiřazuje po jedné proměnné a vrací se při porušení omezení",
+      "A\\* s heuristikou počtu porušených omezení",
+      "náhodné zkoušení všech úplných přiřazení"
+    ],
+    "answer": 1,
+    "solution": "Backtracking = DFS v prostoru částečných přiřazení; stavem je přiřazení, akce přiřazuje další proměnné. Hloubka řešení je $n$ (počet proměnných), proto se hodí DFS. Při konfliktu se vrací zpět.",
+    "hints": [
+      "Řešení má pevnou hloubku $d=n$.",
+      "Backtracking = DFS + kontrola omezení."
+    ]
+  },
+  {
+    "id": "csp-clp-queens",
+    "type": "free",
+    "prompt": "Zapiš (pseudokódem nebo v CLP stylu) model problému $N$ dam jako CSP: proměnné, domény, omezení.",
+    "solution": "Proměnné $q_1,\\dots,q_N$ ($q_i$ = řádek dámy ve sloupci $i$), domény $1..N$. Pro každé $i<j$ omezení: $q_i\\neq q_j$ (různé řádky) a $q_i+(j-i)\\neq q_j$, $q_i-(j-i)\\neq q_j$ (ne na stejné diagonále). V CLP: `L ins 1..N`, pro $i<j$ `NoThreat(L[i],L[j],j-i)`, `labeling(L)`. Pro $N=4$ jsou řešení $[2,4,1,3]$ a $[3,1,4,2]$.",
+    "hints": [
+      "Každá dáma má vlastní sloupec – co zbývá rozhodnout?",
+      "Tři podmínky: řádek, diagonála dolů, diagonála nahoru."
+    ]
+  },
+  {
+    "id": "csp-code-python",
+    "type": "free",
+    "prompt": "(Cvičení 4, python-constraint) Napiš kostru řešení obarvení mapy Austrálie třemi barvami pomocí knihovny `constraint` (`Problem`, `addVariables`, `addConstraint`, `getSolutions`).",
+    "solution": "```python\nfrom constraint import Problem\np = Problem()\np.addVariables([\"WA\",\"NT\",\"SA\",\"Q\",\"NSW\",\"V\",\"T\"], [\"red\",\"green\",\"blue\"])\nfor a, b in [(\"WA\",\"NT\"),(\"WA\",\"SA\"),(\"NT\",\"SA\"),(\"NT\",\"Q\"),(\"SA\",\"Q\"),(\"SA\",\"NSW\"),(\"Q\",\"NSW\"),(\"SA\",\"V\"),(\"NSW\",\"V\")]:\n    p.addConstraint(lambda x, y: x != y, (a, b))\nsolutions = p.getSolutions()   # 18 řešení\n```\nPro 8 dam: proměnné = sloupce $0..7$, domény = řádky $0..7$, pro $i<j$ omezení `lambda a,b,d=j-i: a!=b and abs(a-b)!=d`. Výsledek: 92 řešení.",
+    "hints": [
+      "Proměnné s doménou barev, pak binární omezení „různé“.",
+      "Pro sousedy použij smyčku nad dvojicemi."
+    ]
+  }
+]

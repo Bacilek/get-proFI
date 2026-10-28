@@ -1,0 +1,89 @@
+[
+  {
+    "id": "ai-turing-players",
+    "type": "choice",
+    "prompt": "Základní varianta Turingova testu je navržena jako hra…",
+    "options": [
+      "dvou hráčů – testovaného počítače a rozhodčího",
+      "tří hráčů – testovaného počítače, člověka a rozhodčího",
+      "tří hráčů – testovaného počítače a dvou rozhodčích"
+    ],
+    "answer": 1,
+    "solution": "Rozhodčí (C) píše textové zprávy se dvěma neviditelnými partnery: strojem (A) a člověkem (B). Má poznat, kdo je stroj. Stroj uspěl, pokud ho rozhodčí spolehlivě nerozezná.",
+    "hints": [
+      "Rozhodčí musí mít s kým porovnávat.",
+      "Kromě testovaného stroje je tam i obyčejný člověk a rozhodčí."
+    ]
+  },
+  {
+    "id": "ai-turing-needs",
+    "type": "choice",
+    "prompt": "Která z oblastí **není** nutná ke složení (základního) Turingova testu?",
+    "options": [
+      "zpracování přirozeného jazyka",
+      "strojové učení",
+      "robotická manipulace a počítačové vidění",
+      "reprezentace a vyvozování znalostí"
+    ],
+    "answer": 2,
+    "solution": "Komunikace probíhá výhradně textem, takže vidění a robotika nejsou potřeba (patří až do totálního Turingova testu). Potřebné jsou NLP, reprezentace a vyvozování znalostí a strojové učení.",
+    "hints": [
+      "Rozhodčí vidí jen text.",
+      "Ze čtyř možností jsou tři o jazyce, znalostech a učení."
+    ]
+  },
+  {
+    "id": "ai-four-views",
+    "type": "choice",
+    "prompt": "Přístup „systém, který se chová jako člověk“ odpovídá…",
+    "options": ["kognitivní vědě", "Turingovu testu", "logice (zákony myšlení)", "inteligentnímu agentovi"],
+    "answer": 1,
+    "solution": "Chovat se jako člověk = Turingův test; myslet jako člověk = kognitivní věda; myslet rozumně = logika; chovat se rozumně = inteligentní agent.",
+    "hints": [
+      "Rozlišuj dvě osy: myšlení × chování a člověk × ideál (rozum).",
+      "Turing testuje jen to, co je vidět navenek."
+    ]
+  },
+  {
+    "id": "ai-agent-props",
+    "type": "free",
+    "prompt": "Vyjmenuj pět vlastností **inteligentního agenta** z přednášky.",
+    "solution": "Inteligentní agent: (1) jedná za nějakým účelem, (2) jedná samostatně, (3) jedná na základě vstupů ze svého prostředí, (4) pracuje delší dobu, (5) adaptuje se na změny.",
+    "hints": [
+      "Začni otázkou „proč“ agent jedná.",
+      "Vlastnosti se týkají účelu, samostatnosti, vstupů, času a změn."
+    ]
+  },
+  {
+    "id": "ai-optimization-which",
+    "type": "choice",
+    "prompt": "Který z následujících problémů **není** optimalizační problém (dle definice ve sbírce)?",
+    "options": [
+      "plánování rozmístění prodejen řetězce za účelem maximalizace zisku",
+      "hledání nejkratší cesty z vlaku na zastávku šaliny",
+      "hledání platného řešení sudoku"
+    ],
+    "answer": 2,
+    "solution": "Optimalizační problém hledá konfiguraci *nejlepší* podle kritéria. U sudoku stačí *jakékoliv* platné řešení (nejsou „lepší“ a „horší“), proto optimalizační není. Zisk a délka cesty jsou kritéria, která se maximalizují/minimalizují.",
+    "hints": [
+      "Ptej se: existuje u řešení nějaké „lepší“ a „horší“?",
+      "Dvě možnosti mají číselné kritérium."
+    ]
+  },
+  {
+    "id": "ai-loebner",
+    "type": "choice",
+    "prompt": "Co se stalo s hlavní cenou Loebnerovy soutěže (úspěšné složení Turingova testu)?",
+    "options": [
+      "Byla vyplacena v roce 2014 programu Eugene Goostman.",
+      "Nikdy nebyla vyplacena – žádný program test (podle pravidel soutěže) nesložil.",
+      "Byla vyplacena v roce 1991 prvnímu vítězi."
+    ],
+    "answer": 1,
+    "solution": "Loebner Prize (1991–2019) vyplácela jen cenu $4\\,000$ za „nejlidštější“ program; $25\\,000$ (základní test) a $100\\,000$ (pokročilý test) nebyly nikdy získány.",
+    "hints": [
+      "Soutěž běžela skoro třicet let.",
+      "Roční cena za nejlepšího se vyplácela, ale hlavní ceny ne."
+    ]
+  }
+]

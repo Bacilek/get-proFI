@@ -1,0 +1,139 @@
+[
+  {
+    "id": "is-astar-f",
+    "type": "choice",
+    "prompt": "Které tvrzení platí o hledání nejlepší cesty algoritmem A\\*? Pozn.: $g(n)$ je cena cesty do $n$, $h(n)$ odhad ceny cesty z $n$ do cíle a $C^*$ cena optimálního řešení.",
+    "options": [
+      "Jeho ohodnocovací funkce má tvar $f(n)=g(n)+h(n)$.",
+      "V průběhu výpočtu může expandovat uzly s $f(n)>C^*$.",
+      "Hodnota jeho ohodnocovací funkce $f(n)$ závisí pouze na odhadu ceny z $n$ do cíle."
+    ],
+    "answer": 0,
+    "solution": "A\\* řadí uzly podle $f(n)=g(n)+h(n)$. Při přípustné $h$ expanduje všechny uzly s $f<C^*$, některé s $f=C^*$ a žádný s $f>C^*$. Závislost jen na $h$ je greedy best-first.",
+    "hints": [
+      "Čím se A* liší od greedy?",
+      "Uzly s horším odhadem než optimální řešení se nikdy nedostanou na řadu."
+    ]
+  },
+  {
+    "id": "is-greedy-pick",
+    "type": "choice",
+    "prompt": "Graf: $A\\to B$ (cena 2), $A\\to C$ (4), $A\\to D$ (5), $B\\to E$ (11), $C\\to E$ (8), $D\\to E$ (8). Heuristika: $h(A)=10$, $h(B)=9$, $h(C)=8$, $h(D)=7$, $h(E)=0$. Hladové heuristické hledání (greedy best-first) právě expandovalo $A$. Který uzel expanduje jako následující?",
+    "options": ["B", "C", "D", "E"],
+    "answer": 2,
+    "solution": "Greedy řadí jen podle $h$: $h(B)=9$, $h(C)=8$, $h(D)=7$. Nejmenší je $D$ (7). (Ceny cest $g$ ignoruje.)",
+    "hints": [
+      "Greedy: $f(n)=h(n)$.",
+      "Porovnej $h$ u následníků $B,C,D$."
+    ]
+  },
+  {
+    "id": "is-astar-pick",
+    "type": "choice",
+    "prompt": "Stejný graf (A→B 2, A→C 4, A→D 5; B→E 11, C→E 8, D→E 8; $h$: A 10, B 9, C 8, D 7, E 0). Který uzel expanduje **A\\*** jako první po $A$?",
+    "options": ["B", "C", "D"],
+    "answer": 0,
+    "solution": "$f(B)=2+9=11$, $f(C)=4+8=12$, $f(D)=5+7=12$. Nejmenší je $B$. (Greedy by vybral $D$.)",
+    "hints": [
+      "A*: $f=g+h$.",
+      "Spočítej $g$ z ceny hrany z $A$."
+    ]
+  },
+  {
+    "id": "is-astar-optimal-cost",
+    "type": "numeric",
+    "prompt": "V grafu (A→B 2, A→C 4, A→D 5; B→E 11, C→E 8, D→E 8) je počáteční uzel $A$ a cíl $E$. Jakou cenu má optimální cesta z $A$ do $E$?",
+    "answer": 12,
+    "tolerance": 0.001,
+    "solution": "Cesty: A-B-E = 13, A-C-E = 12, A-D-E = 13. Optimální je A-C-E s cenou 12. Greedy by našel A-D-E (13), není optimální.",
+    "hints": [
+      "Jsou jen tři cesty.",
+      "Sečti ceny obou hran na každé cestě."
+    ]
+  },
+  {
+    "id": "is-romania-greedy",
+    "type": "numeric",
+    "prompt": "Greedy best-first search hledá cestu Arad → Bukurešť s $h$ = vzdušná vzdálenost do Bukurešti (Arad 366, Sibiu 253, Timisoara 329, Zerind 374, Fagaras 176, Rimnicu Vilcea 193, Oradea 380, Bukurešť 0). Nalezená cesta je Arad–Sibiu–Fagaras–Bukurešť (140 + 99 + 211). Jakou má cenu?",
+    "answer": 450,
+    "tolerance": 0.001,
+    "solution": "$140+99+211=450$. Optimální cesta Arad–Sibiu–Rimnicu Vilcea–Pitesti–Bukurešť má $140+80+97+101=418$, takže greedy není optimální.",
+    "hints": [
+      "Sečti ceny hran nalezené cesty.",
+      "Optimum je 418."
+    ]
+  },
+  {
+    "id": "is-romania-astar-order",
+    "type": "choice",
+    "prompt": "A\\* z Aradu do Bukurešti. Po expanzi Aradu jsou ve frontě Sibiu ($f=140+253=393$), Timisoara ($118+329=447$) a Zerind ($75+374=449$). Sibiu má následníky Fagaras (cena 99, $h=176$) a Rimnicu Vilcea (80, $h=193$). Která hodnota $f$ patří Rimnicu Vilcea?",
+    "options": ["413", "417", "449", "193"],
+    "answer": 0,
+    "solution": "$g(\\text{Rimnicu})=140+80=220$, $f=220+193=413$. (Fagaras: $g=239$, $f=239+176=415$.)",
+    "hints": [
+      "$g$ je cena cesty Arad → Sibiu → Rimnicu.",
+      "$f=g+h$."
+    ]
+  },
+  {
+    "id": "is-admissible",
+    "type": "choice",
+    "prompt": "Heuristika $h$ je **přípustná**, jestliže…",
+    "options": [
+      "$h(n)\\le c(n,m)+h(m)$ pro každý přechod $n\\to m$",
+      "$0\\le h(n)\\le h^*(n)$ pro každý stav $n$, kde $h^*$ je skutečná cena nejlevnější cesty do cíle",
+      "$h(n)\\ge h^*(n)$ pro každý stav $n$",
+      "$h(n)=0$ pro cílové stavy"
+    ],
+    "answer": 1,
+    "solution": "Přípustná = nikdy nepřeceňuje skutečnou cenu. První možnost je definice konzistentní (monotónní) heuristiky, třetí je opačná nerovnost, čtvrtá je jen jedna z obecných podmínek na heuristiky.",
+    "hints": [
+      "Přípustný odhad je optimistický.",
+      "Nerovnost s $c(n,m)$ patří k jinému pojmu."
+    ]
+  },
+  {
+    "id": "is-consistency-example",
+    "type": "free",
+    "prompt": "Graf $S\\to A$ (cena 1), $A\\to G$ (3), $S\\to G$ (5). $h(S)=4$, $h(A)=1$, $h(G)=0$. Je $h$ přípustná? Je konzistentní?",
+    "solution": "Skutečné ceny do cíle: $h^*(S)=\\min(1+3,\\,5)=4$, $h^*(A)=3$, $h^*(G)=0$. Přípustná: $4\\le4$, $1\\le3$, $0\\le0$ ✓. Konzistence: pro $S\\to A$ by mělo platit $h(S)\\le c(S,A)+h(A)=1+1=2$, ale $h(S)=4>2$ ✗. Heuristika je **přípustná, ale ne konzistentní**.",
+    "hints": [
+      "Nejdřív spočítej $h^*$ pro každý uzel.",
+      "U konzistence testuj hrany: $h(n)\\le c(n,m)+h(m)$."
+    ]
+  },
+  {
+    "id": "is-consistent-implies",
+    "type": "choice",
+    "prompt": "Jaký je vztah mezi konzistencí a přípustností heuristiky?",
+    "options": [
+      "Každá přípustná heuristika je konzistentní.",
+      "Každá konzistentní heuristika (s $h(\\text{cíl})=0$) je přípustná, opak obecně neplatí.",
+      "Žádný vztah mezi nimi není.",
+      "Jsou ekvivalentní."
+    ],
+    "answer": 1,
+    "solution": "Indukcí podél optimální cesty z $n$ do cíle: $h(n)\\le\\sum c+h(\\text{cíl})=h^*(n)$. Opak neplatí – viz příklad $h(S)=4$, $h(A)=1$.",
+    "hints": [
+      "Sečti nerovnost konzistence podél cesty do cíle.",
+      "Existuje protipříklad v předchozí otázce."
+    ]
+  },
+  {
+    "id": "is-goal-test",
+    "type": "choice",
+    "prompt": "Kdy A\\* ukončí hledání (správně pro optimalitu)?",
+    "options": [
+      "když je cílový uzel poprvé vygenerován jako následník",
+      "když je cílový uzel vybrán z prioritní fronty k expanzi",
+      "když $h$ klesne na nulu",
+      "když jsou prozkoumány všechny uzly"
+    ],
+    "answer": 1,
+    "solution": "Cíl se testuje při výběru z fronty (nejmenší $f$). Při vygenerování by mohla existovat levnější cesta, kterou fronta ještě drží – např. Fagaras → Bukurešť (450) je vygenerován dřív, než je vybrán Pitesti → Bukurešť (418).",
+    "hints": [
+      "Podívej se na příklad s Rumunskem: 450 vs. 418.",
+      "Prioritní fronta zaručuje, že vybraný uzel má nejmenší $f$."
+    ]
+  }
+]

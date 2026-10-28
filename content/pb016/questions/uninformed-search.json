@@ -1,0 +1,166 @@
+[
+  {
+    "id": "us-bfs-order",
+    "type": "choice",
+    "prompt": "Neorientovaný graf má sousedy: A: B,C,D; B: A,E; C: A,E,F; D: A,G; E: B,C,H; F: C,H; G: D; H: E,F. Start A, cíl H, sousedi se zpracovávají abecedně, výpočet končí **expandováním** cíle. V jakém pořadí navštíví uzly **BFS**?",
+    "options": [
+      "A-B-C-D-E-F-G-H",
+      "A-B-E-C-F-H",
+      "A-B-E-H",
+      "A-D-G-C-B-E-F-H"
+    ],
+    "answer": 0,
+    "solution": "BFS jde po úrovních: A; B,C,D; E (od B), F (od C), G (od D); nakonec H. Pořadí A-B-C-D-E-F-G-H.",
+    "hints": [
+      "BFS používá frontu: nejdřív všichni sousedé startu.",
+      "Úroveň 1: B,C,D. Úroveň 2: E,F,G. Úroveň 3: H."
+    ]
+  },
+  {
+    "id": "us-dfs-order",
+    "type": "choice",
+    "prompt": "Stejný graf (A: B,C,D; B: A,E; C: A,E,F; D: A,G; E: B,C,H; F: C,H; G: D; H: E,F), start A, cíl H, abecedně. V jakém pořadí navštíví uzly **DFS** (s detekcí již navštívených uzlů)?",
+    "options": [
+      "A-B-C-D-E-F-G-H",
+      "A-B-E-C-F-H",
+      "A-D-G-C-F-H",
+      "A-B-E-H"
+    ],
+    "answer": 1,
+    "solution": "DFS jde vždy do nejlevějšího nenavštíveného souseda: A → B → (A už byl) E → (B už byl) C → (A, E byly) F → (C byl) H = cíl. Pořadí A-B-E-C-F-H.",
+    "hints": [
+      "Z uzlu jdi do prvního (abecedně) dosud nenavštíveného souseda.",
+      "Z B pokračuj do E, z E do C (H je až třetí soused)."
+    ]
+  },
+  {
+    "id": "us-dfs-optimal",
+    "type": "free",
+    "prompt": "V grafu (A: B,C,D; B: A,E; C: A,E,F; D: A,G; E: B,C,H; F: C,H; G: D; H: E,F) najde DFS z A do H cestu A-B-E-C-F-H. Je tato cesta optimální? Jaká cesta je nejkratší a který algoritmus ji najde?",
+    "solution": "DFS cesta má 5 hran a **není optimální**. Nejkratší cesta má 3 hrany, např. A-B-E-H (nebo A-C-E-H, A-C-F-H). Nalezne ji BFS i IDS, DFS obecně ne – DFS není optimální, jen úplný v konečných prostorech bez cyklů.",
+    "hints": [
+      "Spočítej hrany: z A do E vede i cesta přes B a z E rovnou do H.",
+      "BFS hledá nejmělčí cíl."
+    ]
+  },
+  {
+    "id": "us-tree-bfs",
+    "type": "free",
+    "prompt": "Stavový prostor: počáteční stav 1, každý stav $k$ má dva následníky $2k$ a $2k+1$. Cíl je 11. Uveď pořadí navštívených stavů pro **BFS** a pro **DFS s limitem $\\ell=3$** (limit počítaný v hranách, výpočet končí nalezením cíle).",
+    "solution": "BFS: 1 2 3 4 5 6 7 8 9 10 11.\nDFS s limitem 3: 1 2 4 8 9 5 10 11 (z 4 vedou 8, 9; po návratu 5 → 10, 11 = cíl).\nIDS by prošel iterace: 1 | 1 2 3 | 1 2 4 5 3 6 7 | 1 2 4 8 9 5 10 11.\nBonus: bez prohledávání – binární zápis cíle $11=1011_2$, první jedničku ignoruj a bity 011 určují tahy: 0 = vlevo, 1 = vpravo (tedy vlevo, vpravo, vpravo).",
+    "hints": [
+      "Strom: 1 → 2,3; 2 → 4,5; 3 → 6,7; 4 → 8,9; 5 → 10,11.",
+      "DFS jde vždy doleva a vrací se."
+    ]
+  },
+  {
+    "id": "us-ids-count",
+    "type": "numeric",
+    "prompt": "Faktor větvení $b=10$, cíl v hloubce $d=5$. Kolik uzlů vygeneruje **IDS**, počítáme-li $\\sum_{i=1}^{d}(d-i+1)\\,b^i$ (uzly hloubky $i$ se generují $(d-i+1)$krát)?",
+    "answer": 123450,
+    "tolerance": 0.5,
+    "solution": "$5\\cdot10+4\\cdot100+3\\cdot1000+2\\cdot10^4+1\\cdot10^5=50+400+3000+20000+100000=123\\,450$. BFS by vygeneroval $1\\,111\\,100$ uzlů – IDS je i rychlejší, protože nepočítá následníky poslední vrstvy.",
+    "hints": [
+      "Kořen se negeneruje; uzly hloubky 1 se generují v každé z 5 iterací.",
+      "Hloubka 5 se generuje jen v poslední iteraci."
+    ]
+  },
+  {
+    "id": "us-properties",
+    "type": "choice",
+    "prompt": "Které tvrzení o prohledávání do hloubky (DFS) s maximální hloubkou větve $m$ je pravdivé?",
+    "options": [
+      "Algoritmus je úplný pro libovolný stavový prostor.",
+      "Časová složitost je polynomiální v $m$.",
+      "Algoritmus obecně není optimální.",
+      "Prostorová složitost je $O(b^m)$."
+    ],
+    "answer": 2,
+    "solution": "DFS není úplný (nekonečná větev, cykly), čas je $O(b^m)$ (exponenciální), prostor jen $O(bm)$ (lineární). Není ani optimální – najde první, ne nutně nejlepší řešení.",
+    "hints": [
+      "Paměť DFS je jeho hlavní výhoda.",
+      "První nalezené řešení nemusí být nejkratší."
+    ]
+  },
+  {
+    "id": "us-dls-complete",
+    "type": "choice",
+    "prompt": "Kdy je DFS s limitem hloubky $\\ell$ úplné?",
+    "options": [
+      "vždy",
+      "jen pokud $\\ell \\ge d$",
+      "jen pokud $\\ell \\le d$",
+      "nikdy"
+    ],
+    "answer": 1,
+    "solution": "Cíl v hloubce $d$ je dosažitelný jen pokud limit $\\ell\\ge d$. Pro $\\ell>d$ ovšem může najít horší (hlubší) řešení, takže optimální není.",
+    "hints": [
+      "Co se stane, když je cíl hlouběji než limit?",
+      "Porovnej $\\ell$ a $d$."
+    ]
+  },
+  {
+    "id": "us-bfs-optimal",
+    "type": "choice",
+    "prompt": "BFS je optimální…",
+    "options": [
+      "vždy",
+      "jen pro rovnoměrně ohodnocené hrany (optimální podle délky cesty)",
+      "jen pro heuristiku, která je přípustná",
+      "nikdy"
+    ],
+    "answer": 1,
+    "solution": "BFS najde nejmělčí cíl, což je nejkratší cesta v počtu hran. Pro obecné ceny hran je optimální až prohledávání podle ceny (Uniform-cost search).",
+    "hints": [
+      "BFS nezná ceny hran.",
+      "Která strategie řadí uzly podle ceny cesty?"
+    ]
+  },
+  {
+    "id": "us-ids-vs-dfs",
+    "type": "free",
+    "prompt": "Popiš stavový prostor, ve kterém má IDS řádově větší časovou složitost než DFS (např. $O(n^2)$ vs. $O(n)$).",
+    "solution": "Prostor s faktorem větvení 1 (cesta délky $n$) a cílem na jejím konci. DFS projde každý uzel jednou: $O(n)$. IDS v iteraci $i$ prohledá $i$ uzlů, celkem $1+2+\\dots+n=O(n^2)$. U prostorů s větším $b$ je režie IDS zanedbatelná (dominuje poslední vrstva).",
+    "hints": [
+      "Zvol nejjednodušší možný strom – bez větvení.",
+      "Kolik uzlů projde IDS v $i$-té iteraci?"
+    ]
+  },
+  {
+    "id": "us-ucs-complete",
+    "type": "choice",
+    "prompt": "Podmínka úplnosti prohledávání podle ceny (Uniform-cost search) je, že…",
+    "options": [
+      "heuristika je přípustná",
+      "cena každé hrany je alespoň $\\epsilon>0$ a $b$ je konečné",
+      "strom je binární",
+      "cena je rovnoměrná"
+    ],
+    "answer": 1,
+    "solution": "UCS expanduje uzly podle $g(n)$; při hranách s cenou $\\ge\\epsilon>0$ a konečném $b$ je uzlů s $g\\le C^*$ konečně mnoho, takže cíl najde. Složitost $O(b^{1+\\lfloor C^*/\\epsilon\\rfloor})$.",
+    "hints": [
+      "UCS heuristiku nepoužívá.",
+      "Nulové hrany by mohly způsobit nekonečné cykly."
+    ]
+  },
+  {
+    "id": "us-code-dfs-stack",
+    "type": "free",
+    "prompt": "(Cvičení 2, Python) Nerekurzivní DFS má zásobník `stack=[start]`, seznam `visited=[]` a smyčku `while stack: current=stack.pop(); if current not in visited: visited.append(current); for n in graph[current]: stack.append(n)`. Graf má hrany (1,2),(2,3),(3,4),(3,5),(2,6),(1,7),(1,8),(8,9),(9,10),(9,11),(8,12) (sousedi v pořadí vložení hran). V jakém pořadí navštíví uzly z uzlu 1? V čem se liší od rekurzivní verze?",
+    "solution": "Pořadí návštěv: 1 8 12 9 11 10 7 2 6 3 5 4. Sousedé se vkládají na zásobník v pořadí hran a vybírají se **opačně** (LIFO), proto se jde do posledního souseda jako první. Rekurzivní verze (volá se pro sousedy ve vloženém pořadí) navštíví 1 2 3 4 5 6 7 8 9 10 11 12. Obě jsou DFS – pořadí závisí na uspořádání sousedů; stejný výsledek dostaneš, když na zásobník vkládáš sousedy v opačném pořadí.",
+    "hints": [
+      "Zásobník je LIFO.",
+      "Poslední vložený soused se zpracuje první."
+    ]
+  },
+  {
+    "id": "us-code-bfs-queue",
+    "type": "free",
+    "prompt": "(Cvičení 2, Python) Jak implementuješ BFS pomocí seznamu jako fronty? Čím se liší od DFS se zásobníkem v kódu?",
+    "solution": "`queue=[start]`, `visited=[]`; `while queue: current=queue.pop(0)` (prvek z **čela** fronty); `if current not in visited: visited.append(current); for n in graph[current]: queue.append(n)`. Jediný rozdíl proti DFS se zásobníkem je odebírání: BFS `pop(0)` (FIFO), DFS `pop()` (LIFO). (Efektivněji `collections.deque` a `popleft()`.)",
+    "hints": [
+      "Dvě datové struktury: zásobník a fronta.",
+      "Co se odebírá – poslední, nebo první prvek?"
+    ]
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "id": "fb-formalize-all",
+    "type": "choice",
+    "prompt": "Která formule správně vyjadřuje „Každý student je pilný“ (`stud(x)`, `pilný(x)`)?",
+    "options": [
+      "$\\forall x\\,(\\text{stud}(x)\\wedge\\text{pilný}(x))$",
+      "$\\forall x\\,(\\text{stud}(x)\\Rightarrow\\text{pilný}(x))$",
+      "$\\exists x\\,(\\text{stud}(x)\\Rightarrow\\text{pilný}(x))$",
+      "$\\exists x\\,(\\text{stud}(x)\\wedge\\text{pilný}(x))$"
+    ],
+    "answer": 1,
+    "solution": "U $\\forall$ patří implikace. První varianta by znamenala „každý (objekt) je student a pilný“.",
+    "hints": [
+      "„Každý“ ↔ $\\forall$ a implikace.",
+      "Konjunkce by tvrdila, že všechny objekty jsou studenti."
+    ]
+  },
+  {
+    "id": "fb-formalize-exists",
+    "type": "choice",
+    "prompt": "Která formule správně vyjadřuje „Někdo na MFF UK je inteligentní“?",
+    "options": [
+      "$\\exists x\\,(\\text{Na}(x,\\text{MFF})\\Rightarrow\\text{intel}(x))$",
+      "$\\forall x\\,(\\text{Na}(x,\\text{MFF})\\wedge\\text{intel}(x))$",
+      "$\\exists x\\,(\\text{Na}(x,\\text{MFF})\\wedge\\text{intel}(x))$",
+      "$\\forall x\\,(\\text{Na}(x,\\text{MFF})\\Rightarrow\\text{intel}(x))$"
+    ],
+    "answer": 2,
+    "solution": "U $\\exists$ patří konjunkce. $\\exists x\\,(P\\Rightarrow Q)$ je triviálně pravdivé, existuje-li libovolný objekt, který není na MFF.",
+    "hints": [
+      "„Někdo“ ↔ $\\exists$ a konjunkce.",
+      "Existenční s implikací platí i pro objekt mimo MFF."
+    ]
+  },
+  {
+    "id": "fb-quant-order",
+    "type": "choice",
+    "prompt": "Co vyjadřuje $\\forall y\\,\\exists x\\,\\text{ráda}(x,y)$?",
+    "options": [
+      "Existuje osoba, která má ráda všechny lidi.",
+      "Každého má alespoň jedna osoba ráda (pro každého potenciálně jiná).",
+      "Každý má rád sám sebe.",
+      "Nikoho nemá nikdo rád."
+    ],
+    "answer": 1,
+    "solution": "$\\forall y\\exists x$: pro každé $y$ najdeme (nějaké) $x$, které ho má rádo. $\\exists x\\forall y$ by znamenalo jednu osobu, která má ráda všechny.",
+    "hints": [
+      "Čti zleva doprava: „pro každé $y$ existuje $x$“.",
+      "Zde může $x$ záviset na $y$."
+    ]
+  },
+  {
+    "id": "fb-negation",
+    "type": "choice",
+    "prompt": "Čemu je ekvivalentní „Není pravda, že všichni lidé jsou spokojení“, tj. $\\neg\\forall x\\,(\\text{člověk}(x)\\Rightarrow\\text{spokojený}(x))$?",
+    "options": [
+      "$\\forall x\\,(\\text{člověk}(x)\\Rightarrow\\neg\\text{spokojený}(x))$",
+      "$\\exists x\\,(\\text{člověk}(x)\\wedge\\neg\\text{spokojený}(x))$",
+      "$\\exists x\\,(\\text{člověk}(x)\\Rightarrow\\neg\\text{spokojený}(x))$",
+      "$\\forall x\\,(\\text{člověk}(x)\\wedge\\neg\\text{spokojený}(x))$"
+    ],
+    "answer": 1,
+    "solution": "$\\neg\\forall x\\,\\varphi\\equiv\\exists x\\,\\neg\\varphi$ a $\\neg(P\\Rightarrow Q)\\equiv P\\wedge\\neg Q$. Tedy existuje člověk, který není spokojený.",
+    "hints": [
+      "Negace přeskočí kvantifikátor a změní ho.",
+      "$\\neg(P\\Rightarrow Q)\\equiv P\\wedge\\neg Q$."
+    ]
+  },
+  {
+    "id": "fb-finite-forall-exists",
+    "type": "choice",
+    "prompt": "Doména $D=\\{1,2,3\\}$, $I(P)=\\{(1,2),(1,3),(2,3)\\}$ (relace „menší než“). Jak je to s formulí $\\forall x\\,\\exists y\\,P(x,y)$?",
+    "options": ["pravdivá", "nepravdivá (pro $x=3$ neexistuje $y$)", "nelze rozhodnout"],
+    "answer": 1,
+    "solution": "Pro $x=3$ není žádné $y$ s $(3,y)\\in I(P)$ ⇒ nepravdivá.",
+    "hints": [
+      "Hledej $x$, pro které neexistuje $y$.",
+      "Největší prvek nemá nic většího."
+    ]
+  },
+  {
+    "id": "fb-finite-exists-forall",
+    "type": "choice",
+    "prompt": "Stejná interpretace ($D=\\{1,2,3\\}$, $P=\\{(1,2),(1,3),(2,3)\\}$). Je pravdivá formule $\\exists x\\,\\forall y\\,(x=y\\vee P(x,y))$?",
+    "options": ["ano, pro $x=1$", "ne", "ano, pro $x=3$"],
+    "answer": 0,
+    "solution": "Pro $x=1$: $y=1$ (rovnost), $y=2$ ($P(1,2)$), $y=3$ ($P(1,3)$) – splněno. Pro $x=3$ by to nešlo.",
+    "hints": [
+      "Který prvek je menší než všechny ostatní?",
+      "Rovnost pokrývá $y=x$."
+    ]
+  },
+  {
+    "id": "fb-term-formula",
+    "type": "choice",
+    "prompt": "Který výraz je **term**?",
+    "options": [
+      "$x+2\\ge y$",
+      "$\\text{Add}(x,\\text{Sqrt}(y))$",
+      "$\\forall x\\,P(x)$",
+      "$\\text{Brother}(\\text{John},\\text{Richard})$"
+    ],
+    "answer": 1,
+    "solution": "Term popisuje objekt (proměnná, konstanta, funkce aplikovaná na termy). Ostatní jsou formule (tvrzení).",
+    "hints": [
+      "Term nabývá hodnoty z domény.",
+      "Formule je pravdivá/nepravdivá."
+    ]
+  },
+  {
+    "id": "fb-vs-propositional",
+    "type": "free",
+    "prompt": "Uveď dvě věci, které umí PL1 a výroková logika ne, na příkladu Wumpusovy jeskyně.",
+    "solution": "PL1 umí: (1) strukturovat výroky (predikáty nad objekty) – lze říct „Jámy způsobují vánek v sousedních místnostech“ jednou formulí $\\forall x,y\\,(\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)\\Rightarrow\\text{S_vánkem}(y))$, kdežto ve výrokové logice by se musel vypsat výrok pro každé pole mapy; (2) kvantifikovat („pro všechny“, „existuje“) a mluvit o objektech, relacích a funkcích; (3) pracovat se situacemi/časem (Result). Silnější expresivita, nižší složitost než přirozený jazyk.",
+    "hints": [
+      "Kolik formulí potřebuješ pro celou mapu ve výrokové logice?",
+      "Objekty, relace, funkce."
+    ]
+  },
+  {
+    "id": "fb-interpretation",
+    "type": "free",
+    "prompt": "Z čeho se skládá interpretace jazyka PL1 a k čemu je valuace?",
+    "solution": "Interpretace = neprázdná doména (univerzum) $D$ + přiřazení: konstantám prvky $D$, $n$-árním funkčním symbolům funkce $D^n\\to D$, $n$-árním predikátovým symbolům relace $I(P)\\subseteq D^n$. Valuace $V$ přiřazuje proměnným prvky domény a umožní vyhodnotit termy a formule s (volnými) proměnnými. Formule je pravdivá v interpretaci, je-li pravdivá pro každou valuaci.",
+    "hints": [
+      "Co musí interpretace přiřadit každému druhu symbolu?",
+      "Valuace se týká jen proměnných."
+    ]
+  }
+]

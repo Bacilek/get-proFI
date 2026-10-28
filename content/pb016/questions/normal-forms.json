@@ -1,0 +1,112 @@
+[
+  {
+    "id": "nf-cnf-1",
+    "type": "choice",
+    "prompt": "Který z následujících tvarů je ekvivalentní formuli $(A\\Rightarrow B)\\Rightarrow C$ a je v CNF?",
+    "options": [
+      "$(A\\vee C)\\wedge(\\neg B\\vee C)$",
+      "$(\\neg A\\vee B)\\wedge C$",
+      "$(A\\wedge\\neg B)\\vee C$",
+      "$(\\neg A\\vee C)\\wedge(B\\vee C)$"
+    ],
+    "answer": 0,
+    "solution": "$(A\\Rightarrow B)\\Rightarrow C\\equiv\\neg(\\neg A\\vee B)\\vee C\\equiv(A\\wedge\\neg B)\\vee C\\equiv(A\\vee C)\\wedge(\\neg B\\vee C)$. Třetí možnost je ekvivalentní, ale je to DNF (ne CNF).",
+    "hints": [
+      "Eliminuj obě implikace (vnější a vnitřní).",
+      "Pak roznásob $\\vee$ přes $\\wedge$."
+    ]
+  },
+  {
+    "id": "nf-demorgan",
+    "type": "choice",
+    "prompt": "Čemu je ekvivalentní $\\neg(a\\wedge(b\\vee c))$?",
+    "options": [
+      "$\\neg a\\wedge(\\neg b\\vee\\neg c)$",
+      "$\\neg a\\vee(\\neg b\\wedge\\neg c)$",
+      "$\\neg a\\vee\\neg b\\vee\\neg c$",
+      "$\\neg a\\wedge\\neg b\\wedge\\neg c$"
+    ],
+    "answer": 1,
+    "solution": "De Morgan: $\\neg(a\\wedge X)\\equiv\\neg a\\vee\\neg X$ a $\\neg(b\\vee c)\\equiv\\neg b\\wedge\\neg c$. Výsledek $\\neg a\\vee(\\neg b\\wedge\\neg c)$.",
+    "hints": [
+      "Negace prohazuje $\\wedge$ a $\\vee$.",
+      "Aplikuj na vnější, pak na vnitřní operátor."
+    ]
+  },
+  {
+    "id": "nf-clauses-count",
+    "type": "numeric",
+    "prompt": "Převeď $V\\Leftrightarrow(J_1\\vee J_2)$ do CNF. Z kolika klauzulí se výsledná CNF skládá?",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "$(\\neg V\\vee J_1\\vee J_2)\\wedge(\\neg J_1\\vee V)\\wedge(\\neg J_2\\vee V)$ – tři klauzule.",
+    "hints": [
+      "Ekvivalence = dvě implikace.",
+      "Druhá implikace $(J_1\\vee J_2)\\Rightarrow V$ se rozpadne na dvě klauzule."
+    ]
+  },
+  {
+    "id": "nf-ukn",
+    "type": "free",
+    "prompt": "Převeď $(p\\vee\\neg q)\\wedge(\\neg p\\vee\\neg q\\vee r)$ do **úplné** KNF nad $p,q,r$.",
+    "solution": "První klauzule neobsahuje $r$: $(p\\vee\\neg q)\\equiv(p\\vee\\neg q\\vee r)\\wedge(p\\vee\\neg q\\vee\\neg r)$ (přidáme $r\\wedge\\neg r$ resp. rozdělíme podle $r$). Druhá klauzule už je úplná. Výsledek: $(p\\vee\\neg q\\vee r)\\wedge(p\\vee\\neg q\\vee\\neg r)\\wedge(\\neg p\\vee\\neg q\\vee r)$.",
+    "hints": [
+      "Do klauzule bez symbolu $r$ doplň $r$ a $\\neg r$ (dvě klauzule).",
+      "Úplná = každý symbol v každé klauzuli."
+    ]
+  },
+  {
+    "id": "nf-dnf-models",
+    "type": "free",
+    "prompt": "Sestav úplnou DNF pro $(p\\vee q)\\wedge r$.",
+    "solution": "Pravdivé interpretace $(p,q,r)$: $(0,1,1),(1,0,1),(1,1,1)$. ÚDNF: $(\\neg p\\wedge q\\wedge r)\\vee(p\\wedge\\neg q\\wedge r)\\vee(p\\wedge q\\wedge r)$. Každý pravdivý řádek tabulky dá jednu duální klauzuli.",
+    "hints": [
+      "Najdi modely formule.",
+      "Pro každý model jedna konjunkce všech literálů."
+    ]
+  },
+  {
+    "id": "nf-cnf-def",
+    "type": "choice",
+    "prompt": "Která formule je v CNF?",
+    "options": [
+      "$(p\\wedge q)\\vee r$",
+      "$(\\neg p\\vee q)\\wedge(r\\vee\\neg s)$",
+      "$p\\Rightarrow(q\\wedge r)$",
+      "$\\neg(p\\vee q)$"
+    ],
+    "answer": 1,
+    "solution": "CNF = konjunkce klauzulí (disjunkcí literálů). Druhá formule je konjunkce dvou klauzulí. První je DNF, třetí obsahuje implikaci a čtvrtá negaci složené formule.",
+    "hints": [
+      "Negace smí být jen u symbolů.",
+      "Vnější spojka je $\\wedge$ nad klauzulemi."
+    ]
+  },
+  {
+    "id": "nf-equiv-contrapos",
+    "type": "choice",
+    "prompt": "Která formule je ekvivalentní $\\alpha\\Rightarrow\\beta$?",
+    "options": [
+      "$\\beta\\Rightarrow\\alpha$",
+      "$\\neg\\alpha\\Rightarrow\\neg\\beta$",
+      "$\\neg\\beta\\Rightarrow\\neg\\alpha$",
+      "$\\neg\\alpha\\wedge\\beta$"
+    ],
+    "answer": 2,
+    "solution": "Kontrapozice: $(\\alpha\\Rightarrow\\beta)\\equiv(\\neg\\beta\\Rightarrow\\neg\\alpha)\\equiv(\\neg\\alpha\\vee\\beta)$. Obrácená a inverzní implikace ekvivalentní nejsou.",
+    "hints": [
+      "Převeď na $\\neg\\alpha\\vee\\beta$.",
+      "Prohoď a znegovat obě strany."
+    ]
+  },
+  {
+    "id": "nf-tautology-derivation",
+    "type": "free",
+    "prompt": "Ekvivalentními úpravami dokaž, že $(A\\wedge(A\\Rightarrow B))\\Rightarrow B$ je tautologie.",
+    "solution": "$(A\\wedge(\\neg A\\vee B))\\Rightarrow B\\equiv\\neg(A\\wedge(\\neg A\\vee B))\\vee B\\equiv\\neg A\\vee\\neg(\\neg A\\vee B)\\vee B\\equiv\\neg A\\vee(A\\wedge\\neg B)\\vee B\\equiv((\\neg A\\vee A)\\wedge(\\neg A\\vee\\neg B))\\vee B\\equiv(\\neg A\\vee\\neg B)\\vee B\\equiv\\neg A\\vee(\\neg B\\vee B)\\equiv\\neg A\\vee\\text{true}\\equiv\\text{true}$. (Modus ponens.)",
+    "hints": [
+      "Eliminuj implikace, použij de Morgana a distributivitu.",
+      "Konec: $\\neg B\\vee B\\equiv\\text{true}$."
+    ]
+  }
+]

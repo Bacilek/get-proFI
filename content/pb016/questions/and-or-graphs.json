@@ -1,0 +1,125 @@
+[
+  {
+    "id": "ao-solutions-rn",
+    "type": "choice",
+    "prompt": "Kolik má následující AND/OR graf různých stromů řešení pro problém reprezentovaný uzlem 1? Počítejte jen řešení, kde mají všechny koncové vrcholy hodnotu *true*. Konvence: čtverce jsou OR, kulaté vrcholy AND. Uzel 1 (OR) má následníky 2 (AND), 3 (OR) a list *true*; uzel 2 má listy *false* a *true*; uzel 3 má listy *true* a *false*.",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "answer": 2,
+    "solution": "Přes list *true* přímo z 1 (1 strom). Přes uzel 2 (AND) – nelze, protože jeden jeho list je *false*. Přes uzel 3 (OR) – list *true* (1 strom). Celkem $1+0+1=2$ stromy řešení.",
+    "hints": [
+      "OR: sečti řešení následníků; AND: vynásob.",
+      "AND uzel s listem false nemá řešení."
+    ]
+  },
+  {
+    "id": "ao-count-3",
+    "type": "numeric",
+    "prompt": "Kořen $R$ (OR) má následníky $A$ a $B$. $A$ (AND) má následníky $C$ a $D$. $C$ (OR) má listy *true* a *false*. $D$ (AND) má dva listy *true*. $B$ (OR) má následníky $E$ (list *false*) a $F$ (OR se dvěma listy *true*). Kolik existuje stromů řešení (všechny listy *true*)?",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "Přes $A$: $C$ má 1 řešení (list *true*), $D$ 1 ⇒ $1\\cdot1=1$. Přes $B$: $E$ 0, $F$ 2 (každý ze dvou listů) ⇒ $0+2=2$. Celkem $1+2=3$.",
+    "hints": [
+      "OR sčítá, AND násobí.",
+      "$E$ je list *false*."
+    ]
+  },
+  {
+    "id": "ao-tictactoe",
+    "type": "choice",
+    "prompt": "Uvažme AND/OR strom konfigurací pro piškvorky na desce $3\\times3$, kde začíná hráč kreslící kolečka (O). Strom $T$ má kořen s prázdnou konfigurací, listy jsou konfigurace, kde hra končí. Řešením je výherní strategie O. Který typ uzlu odpovídá stavu, kdy je na tahu hráč O?",
+    "options": [
+      "AND",
+      "OR",
+      "záleží na hloubce, ale obvykle AND",
+      "žádný, je to list"
+    ],
+    "answer": 1,
+    "solution": "Stav „já na tahu“ je OR – stačí **jeden** tah, který vede k výhře. Stav „soupeř na tahu“ je AND – musíme vyhrát **po všech** jeho možných odpovědích.",
+    "hints": [
+      "Kolik mých tahů stačí k výhře?",
+      "A kolik tahů soupeře musím ošetřit?"
+    ]
+  },
+  {
+    "id": "ao-tictactoe-leaves",
+    "type": "choice",
+    "prompt": "Uvažme AND/OR strom $T$ pro piškvorky na desce $3\\times3$, ve kterém začíná hráč kreslící křížky. Kořen odpovídá prázdné konfiguraci. Které tvrzení platí?",
+    "options": [
+      "Většina listů podstromu $T$ odpovídá výhře hráče kreslícího křížky.",
+      "Většina listů podstromu $T$ odpovídá výhře hráče kreslícího kolečka.",
+      "Většina listů podstromu $T$ odpovídá remíze."
+    ],
+    "answer": 0,
+    "solution": "Z 255 168 možných her piškvorek 3×3 vyhraje začínající hráč 131 184, druhý hráč 77 904 a 46 080 her skončí remízou. Začínající hráč dává značky o jednu víc a poslední tah ve hře o 9 tazích je jeho, proto většina listů stromu = výhra křížků (začínajícího).",
+    "hints": [
+      "Kdo má v koncových konfiguracích víc značek?",
+      "Začínající hráč dá poslední (5.) značku."
+    ]
+  },
+  {
+    "id": "ao-hanoi",
+    "type": "numeric",
+    "prompt": "Hanojské věže rozkladem $n(A,B,C)$: přesuň $n-1$ disků, 1 disk, $n-1$ disků. Kolik tahů celkem potřebuje řešení pro $n=4$?",
+    "answer": 15,
+    "tolerance": 0.001,
+    "solution": "$T(n)=2T(n-1)+1$, $T(1)=1$ ⇒ $T(n)=2^n-1$. Pro $n=4$: $2^4-1=15$ (pro $n=3$: 7).",
+    "hints": [
+      "Rekurze: $T(n)=2T(n-1)+1$.",
+      "$T(1)=1$, $T(2)=3$, $T(3)=7$."
+    ]
+  },
+  {
+    "id": "ao-solution-tree-def",
+    "type": "free",
+    "prompt": "Definuj **strom řešení** problému $P$ v AND/OR grafu $G$.",
+    "solution": "Strom řešení $T$ má: kořen = $P$; je-li $P$ (resp. obecný uzel) typu OR, pak je v $T$ právě jeden jeho následník se svým stromem řešení; je-li typu AND, pak jsou v $T$ všichni jeho následníci se svými stromy řešení; každý list $T$ je cílovým uzlem v $G$. Strom nemusí být podgrafem $G$ (uzel se může opakovat ve více kopiích).",
+    "hints": [
+      "Rozlišuj AND a OR uzly.",
+      "Co musí platit o listech?"
+    ]
+  },
+  {
+    "id": "ao-fn",
+    "type": "numeric",
+    "prompt": "AO\\*: AND uzel $A$ je dosažen hranou o ceně 1. Jeho následníci: $B$ (hrana 1, neexpandovaný, $h(B)=3$) a $C$ (hrana 2, neexpandovaný, $h(C)=4$). Spočti $F(A)$ podle $F(N)=c(M,N)+\\{h(N),\\ 0,\\ \\min F(N_i)\\ \\text{(OR)},\\ \\sum F(N_i)\\ \\text{(AND)}\\}$.",
+    "answer": 11,
+    "tolerance": 0.001,
+    "solution": "$F(B)=1+3=4$, $F(C)=2+4=6$. Uzel $A$ je AND: $F(A)=1+(F(B)+F(C))=1+10=11$.",
+    "hints": [
+      "Nejdřív $F$ listů: cena hrany + $h$.",
+      "AND = součet."
+    ]
+  },
+  {
+    "id": "ao-dfs-fail",
+    "type": "choice",
+    "prompt": "Při prohledávání AND/OR grafu do hloubky se v AND uzlu zjistí, že jeden z jeho následníků je neřešitelný. Co algoritmus vrátí pro tento AND uzel?",
+    "options": [
+      "řešení tvořené ostatními následníky",
+      "`failure` (neúspěch) pro celý AND uzel",
+      "pokračuje do dalšího AND uzlu",
+      "vrátí prázdné řešení"
+    ],
+    "answer": 1,
+    "solution": "AND vyžaduje vyřešit všechny následníky, proto selhání jediného znamená selhání celého AND uzlu (OR uzel pak zkouší dalšího následníka).",
+    "hints": [
+      "Co znamená AND?",
+      "Zbytek může uspět, ale stačí to?"
+    ]
+  },
+  {
+    "id": "ao-code-dragon",
+    "type": "free",
+    "prompt": "(Cvičení 3, NetworkX) Navrhni AND/OR strom problému „osvobodit království od draka-tyrana“: lze to buď čelit tyranovi, nebo se modlit, aby drak odletěl; postavit se drakovi = jít do jeho doupěte a konfrontovat ho; konfrontace = zabít draka silou, nebo ho přesvědčit výmluvností. Uveď typy uzlů a plán řešení.",
+    "solution": "Kořen „zbavit se draka“ (OR): potomci „postavit se drakovi“ a „modlit se, aby odletěl“ (list). „Postavit se drakovi“ (AND): „jít do doupěte“ (list) a „konfrontovat draka“ (OR): „zabít silou“ / „přesvědčit výmluvností“ (listy). Plán: Zbavit se draka ← (Postavit se drakovi ← (Jít do doupěte AND (Zabít silou OR Přesvědčit))) OR Modlit se. Algoritmus: DFS, v OR uzlu stačí jeden úspěšný potomek, v AND všichni.",
+    "hints": [
+      "Co musíš udělat vždy dohromady (AND)?",
+      "Co jsou alternativy (OR)?"
+    ]
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "pl-eval-1",
+    "type": "choice",
+    "prompt": "Formule $\\varphi=(p\\vee q)\\Rightarrow(\\neg p\\wedge q)$, interpretace $I(p)=1$, $I(q)=1$. Jaká je hodnota $I(\\varphi)$?",
+    "options": ["1 (pravda)", "0 (nepravda)"],
+    "answer": 1,
+    "solution": "$p\\vee q=1$; $\\neg p\\wedge q=0\\wedge1=0$. Implikace $1\\Rightarrow0$ je nepravdivá ⇒ $I(\\varphi)=0$.",
+    "hints": [
+      "Vyhodnoť nejdřív obě strany implikace.",
+      "$1\\Rightarrow0$ je jediný nepravdivý případ."
+    ]
+  },
+  {
+    "id": "pl-models-count",
+    "type": "numeric",
+    "prompt": "Kolik modelů (interpretací nad $\\{p,q\\}$, ve kterých je pravdivá) má formule $\\varphi\\equiv p\\wedge(q\\Rightarrow\\neg p)$?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$p$ musí být 1; pak $q\\Rightarrow\\neg p=q\\Rightarrow0$ je pravdivé jen pro $q=0$. Jediný model $I(p)=1,I(q)=0$.",
+    "hints": [
+      "$p$ musí být pravdivé.",
+      "Pak se musí $q\\Rightarrow\\neg p$ splnit pro $\\neg p=0$."
+    ]
+  },
+  {
+    "id": "pl-classify-taut",
+    "type": "choice",
+    "prompt": "Formule $p\\Rightarrow(\\neg p\\Rightarrow q)$ je…",
+    "options": ["tautologie", "kontradikce", "splnitelná, ale ne tautologie", "nelze rozhodnout"],
+    "answer": 0,
+    "solution": "Pro $p=0$ je implikace pravdivá (nepravdivá premisa). Pro $p=1$ je $\\neg p=0$, tedy $\\neg p\\Rightarrow q$ pravdivé a celá implikace pravdivá. Pravdivá ve všech 4 interpretacích ⇒ tautologie.",
+    "hints": [
+      "Rozlišuj případy $p=0$ a $p=1$.",
+      "Nepravdivá premisa dává pravdivou implikaci."
+    ]
+  },
+  {
+    "id": "pl-classify-sat",
+    "type": "choice",
+    "prompt": "Formule $(p\\vee q)\\wedge(\\neg p\\vee r)$ je…",
+    "options": ["tautologie", "kontradikce", "splnitelná, ale není tautologie"],
+    "answer": 2,
+    "solution": "Např. $p=1,r=1$ ji splňuje (modelů je 4 z 8). Naopak $p=0,q=0$ dává první závorku nepravdivou. Splnitelná, ne tautologie.",
+    "hints": [
+      "Najdi jednu splňující interpretaci.",
+      "Najdi jednu, která formuli nesplňuje."
+    ]
+  },
+  {
+    "id": "pl-models-3vars",
+    "type": "numeric",
+    "prompt": "Kolik modelů nad symboly $\\{p,q,r\\}$ má formule $(p\\Rightarrow q)\\wedge(q\\Rightarrow r)$?",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "Hodnoty musí být neklesající řetěz $p\\le q\\le r$: $(0,0,0),(0,0,1),(0,1,1),(1,1,1)$ ⇒ 4 modely.",
+    "hints": [
+      "Implikace $a\\Rightarrow b$ znamená $a\\le b$.",
+      "Vypiš všechny trojice s $p\\le q\\le r$."
+    ]
+  },
+  {
+    "id": "pl-entail-1",
+    "type": "choice",
+    "prompt": "Které vyplývání **platí**?",
+    "options": [
+      "$\\{p\\Rightarrow q,\\ q\\}\\models p$",
+      "$\\{p\\Rightarrow q,\\ q\\Rightarrow r\\}\\models p\\Rightarrow r$",
+      "$\\{p\\vee q\\}\\models p$",
+      "$\\{p\\Rightarrow q\\}\\models q\\Rightarrow p$"
+    ],
+    "answer": 1,
+    "solution": "Tranzitivita implikace platí. První varianta je klam (potvrzení důsledku): $p=0,q=1$ je protipříklad. Třetí: $p=0,q=1$. Čtvrtá: $p=0,q=1$ splňuje $p\\Rightarrow q$, ale $q\\Rightarrow p$ je nepravdivé.",
+    "hints": [
+      "Hledej protipříklad – interpretaci, kde premisy platí a závěr ne.",
+      "Tranzitivita je pravidlo hypotetického sylogismu."
+    ]
+  },
+  {
+    "id": "pl-entail-modus-tollens",
+    "type": "choice",
+    "prompt": "Z $\\{p\\Rightarrow q,\\ \\neg q\\}$ vyplývá…",
+    "options": ["$p$", "$\\neg p$", "$q$", "nic"],
+    "answer": 1,
+    "solution": "Modus tollens: jediný model množiny je $p=0,q=0$, v něm je $\\neg p$ pravdivé. (Ekvivalentně kontrapozice $\\neg q\\Rightarrow\\neg p$.)",
+    "hints": [
+      "Najdi modely obou premis.",
+      "$q$ je nepravdivé."
+    ]
+  },
+  {
+    "id": "pl-nand",
+    "type": "free",
+    "prompt": "Vyjádři $\\neg p$ a $p\\wedge q$ pomocí samotné spojky NAND ($a\\,\\text{nand}\\,b=\\neg(a\\wedge b)$). Co to říká o NAND?",
+    "solution": "$\\neg p\\equiv p\\,\\text{nand}\\,p$. $p\\wedge q\\equiv\\neg(p\\,\\text{nand}\\,q)\\equiv(p\\,\\text{nand}\\,q)\\,\\text{nand}\\,(p\\,\\text{nand}\\,q)$. (Také $p\\vee q\\equiv(p\\,\\text{nand}\\,p)\\,\\text{nand}\\,(q\\,\\text{nand}\\,q)$.) NAND tvoří jednoprvkový **úplný systém spojek** (stejně NOR).",
+    "hints": [
+      "$p\\,\\text{nand}\\,p=\\neg(p\\wedge p)$.",
+      "Konjunkce = negace NANDu."
+    ]
+  },
+  {
+    "id": "pl-implication-lang",
+    "type": "choice",
+    "prompt": "Výrok „5 je lichá ⇒ Praha je hlavní město ČR“ je ve výrokové logice…",
+    "options": [
+      "nepravdivý, protože mezi premisou a závěrem není příčinný vztah",
+      "pravdivý (pravdivá premisa i závěr)",
+      "není dobře utvořená věta",
+      "nelze rozhodnout"
+    ],
+    "answer": 1,
+    "solution": "Pravda ⇒ pravda je pravda; implikace v logice nevyžaduje příčinný vztah ani souvislost obsahu. (A „5 je sudá ⇒ cokoliv“ je pravdivé, protože premisa je nepravdivá.)",
+    "hints": [
+      "Hodnotíš jen pravdivostní hodnoty části.",
+      "Žádná příčinnost se nehodnotí."
+    ]
+  },
+  {
+    "id": "pl-sat",
+    "type": "choice",
+    "prompt": "Co víme o problému SAT?",
+    "options": [
+      "je polynomiální",
+      "je NP-úplný; řešení problémů s omezujícími podmínkami lze na SAT převést",
+      "je nerozhodnutelný",
+      "je rozhodnutelný pouze pro Hornovy formule"
+    ],
+    "answer": 1,
+    "solution": "SAT (je formule splnitelná?) je NP-úplný problém. Pro velké instance existují SAT solvery. Hledání řešení CSP odpovídá SAT na zadaných podmínkách.",
+    "hints": [
+      "Je to klasický NP-úplný problém.",
+      "Souvisí s CSP."
+    ]
+  },
+  {
+    "id": "pl-empty-set",
+    "type": "choice",
+    "prompt": "Je prázdná množina formulí $\\emptyset$ splnitelná a co plyne z $\\emptyset\\models\\varphi$?",
+    "options": [
+      "Je splnitelná; $\\varphi$ je tautologie.",
+      "Není splnitelná; $\\varphi$ je kontradikce.",
+      "Je splnitelná; $\\varphi$ je kontradikce.",
+      "Není definována."
+    ],
+    "answer": 0,
+    "solution": "Prázdná množina je pravdivá v každé interpretaci (není co porušit), tedy splnitelná. $\\emptyset\\models\\varphi$ znamená, že $\\varphi$ platí ve všech interpretacích, tedy je tautologie.",
+    "hints": [
+      "Všechny formule z prázdné množiny jsou pravdivé triviálně.",
+      "Všech interpretací = tautologie."
+    ]
+  }
+]

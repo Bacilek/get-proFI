@@ -1,0 +1,134 @@
+[
+  {
+    "id": "ff-free-bound",
+    "type": "choice",
+    "prompt": "Ve formuli $\\exists x\\,\\big((\\forall y\\,P(z))\\Rightarrow R(x,y)\\big)$ je…",
+    "options": [
+      "$x$ vázané, $y$ a $z$ volné",
+      "$x$ a $y$ vázané, $z$ volné",
+      "všechny proměnné vázané",
+      "$x$ a $z$ volné, $y$ vázané"
+    ],
+    "answer": 0,
+    "solution": "$x$ leží v dosahu $\\exists x$ ⇒ vázané. $\\forall y$ kvantifikuje jen $P(z)$, takže $y$ v $R(x,y)$ je volné; $z$ není vázáno žádným kvantifikátorem ⇒ volné.",
+    "hints": [
+      "Dosah kvantifikátoru končí u své podformule.",
+      "Vázání $\\forall y$ se týká jen $P(z)$."
+    ]
+  },
+  {
+    "id": "ff-sentence",
+    "type": "choice",
+    "prompt": "Která formule je **uzavřená** (sentence)?",
+    "options": [
+      "$\\forall x\\,(P(x)\\Rightarrow Q(y))$",
+      "$\\forall x\\,\\exists y\\,(P(x)\\Rightarrow Q(y))$",
+      "$P(x)\\wedge\\forall x\\,Q(x)$",
+      "$\\exists x\\,R(x,z)$"
+    ],
+    "answer": 1,
+    "solution": "Uzavřená = bez volných výskytů proměnných. V druhé jsou $x,y$ vázané. V první je $y$ volné, ve třetí je první výskyt $x$ volný, ve čtvrté $z$.",
+    "hints": [
+      "Každý výskyt každé proměnné musí být v dosahu kvantifikátoru.",
+      "Ve třetí je $P(x)$ mimo kvantifikátor."
+    ]
+  },
+  {
+    "id": "ff-subst",
+    "type": "choice",
+    "prompt": "Pro $S=\\exists x\\,P(x,y)$ je substituce $\\{y/f(x,x)\\}$…",
+    "options": [
+      "v pořádku: $\\exists x\\,P(x,f(x,x))$",
+      "nepřípustná – kolize: volné $x$ z termu by se stalo vázaným",
+      "nepřípustná, protože $f$ je funkce",
+      "přípustná, jen když $y$ je konstanta"
+    ],
+    "answer": 1,
+    "solution": "Term $f(x,x)$ obsahuje proměnnou $x$, která by po dosazení spadla pod $\\exists x$ – změnil by se význam (kolize). Řešení: přejmenovat vázané $x$ ve $S$ (např. na $x'$).",
+    "hints": [
+      "Kontrolu dělej podle volných proměnných termu.",
+      "Který kvantifikátor by je zachytil?"
+    ]
+  },
+  {
+    "id": "ff-skolem-1",
+    "type": "choice",
+    "prompt": "Jak vypadá Skolemizace formule $\\forall x\\,\\exists y\\,\\text{Otec}(y,x)$?",
+    "options": [
+      "$\\forall x\\,\\text{Otec}(c,x)$ pro novou konstantu $c$",
+      "$\\forall x\\,\\text{Otec}(f(x),x)$ pro novou funkci $f$",
+      "$\\text{Otec}(f,c)$",
+      "$\\exists y\\,\\forall x\\,\\text{Otec}(y,x)$"
+    ],
+    "answer": 1,
+    "solution": "Existenčně vázané $y$ závisí na $x$, proto se nahradí **novým funkčním symbolem** $f(x)$. Konstanta $c$ by tvrdila, že všichni mají stejného otce (ztráta obecnosti).",
+    "hints": [
+      "Na čem závisí $y$?",
+      "Čím závislost vyjádřit?"
+    ]
+  },
+  {
+    "id": "ff-skolem-2",
+    "type": "free",
+    "prompt": "Proveď Skolemizaci formule $\\exists x\\,\\forall y\\,\\exists z\\,P(x,y,z)$.",
+    "solution": "$x$ není pod žádným $\\forall$ ⇒ nová konstanta $c$. $z$ je pod $\\forall y$ ⇒ $z\\to f(y)$. Výsledek: $\\forall y\\,P(c,y,f(y))$, po odstranění kvantifikátoru: $P(c,y,f(y))$.",
+    "hints": [
+      "Funkce závisí jen na univerzálně vázaných proměnných před existenčním kvantifikátorem.",
+      "Pro $x$ nikdo vlevo není."
+    ]
+  },
+  {
+    "id": "ff-cnf-steps",
+    "type": "choice",
+    "prompt": "Správné pořadí kroků převodu formule PL1 do CNF:",
+    "options": [
+      "Skolemizace → odstranění ⇒ → přejmenování → přesun negace → roznásobení",
+      "odstranění ⇒ → přesun negace dovnitř → přejmenování proměnných → přesun kvantifikátorů → Skolemizace → zahození ∀ → roznásobení",
+      "přesun kvantifikátorů → odstranění ⇒ → Skolemizace → přejmenování",
+      "roznásobení → Skolemizace → odstranění ⇒"
+    ],
+    "answer": 1,
+    "solution": "Algoritmus: (1) odstraň ⇒, (2) negace dovnitř, (3) přejmenuj proměnné, (4) kvantifikátory doleva, (5) Skolemizace, (6) zahoď ∀, (7) roznásob ∨ přes ∧.",
+    "hints": [
+      "Skolemizace potřebuje prenexový tvar.",
+      "Roznásobení je až na konci."
+    ]
+  },
+  {
+    "id": "ff-neg-quant",
+    "type": "free",
+    "prompt": "Převeď negaci $\\neg\\forall x\\,\\exists y\\,(P(x,y)\\Rightarrow Q(y))$ do tvaru, kde je negace jen u predikátů (bez $\\Rightarrow$).",
+    "solution": "$\\neg\\forall x\\,\\exists y\\,(\\neg P(x,y)\\vee Q(y))\\to\\exists x\\,\\neg\\exists y\\,(\\neg P\\vee Q)\\to\\exists x\\,\\forall y\\,\\neg(\\neg P\\vee Q)\\to\\exists x\\,\\forall y\\,(P(x,y)\\wedge\\neg Q(y))$.",
+    "hints": [
+      "Nejdřív $\\Rightarrow$ na $\\vee$.",
+      "Negace kvantifikátory střídá a pak de Morgan."
+    ]
+  },
+  {
+    "id": "ff-causal-diagnostic",
+    "type": "choice",
+    "prompt": "Pravidlo $\\text{S\\_vánkem}(y)\\Rightarrow\\exists x\\,(\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y))$ je…",
+    "options": [
+      "příčinné pravidlo",
+      "diagnostické pravidlo (z následku na příčinu)",
+      "definice vztahu vánku a jámy (ekvivalence)",
+      "axiom rovnosti"
+    ],
+    "answer": 1,
+    "solution": "Diagnostické pravidlo odvozuje příčinu z pozorovaného následku. Příčinné jde z příčiny (jáma vedle) na následek (vánek). Úplná definice je ekvivalence obou.",
+    "hints": [
+      "Co je pozorování a co skrytá příčina?",
+      "Šipka míří od následku."
+    ]
+  },
+  {
+    "id": "ff-wumpus-def",
+    "type": "free",
+    "prompt": "Proč nestačí samotné příčinné nebo samotné diagnostické pravidlo a jak vypadá úplná definice vánku v PL1?",
+    "solution": "Příčinné pravidlo ($\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)\\Rightarrow\\text{S\\_vánkem}(y)$) neříká, že vánek nemůže být na poli daleko od jámy; diagnostické ($\\text{S\\_vánkem}(y)\\Rightarrow\\exists x\\ldots$) neříká, že vedle jámy vánek **je**. Úplná definice je ekvivalence: $\\forall y\\,\\text{S\\_vánkem}(y)\\Leftrightarrow[\\exists x\\,\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)]$.",
+    "hints": [
+      "Každé pravidlo je jednosměrná implikace.",
+      "Jak zapsat „právě tehdy“?"
+    ]
+  }
+]

@@ -1,0 +1,119 @@
+[
+  {
+    "id": "pf-sort-configs",
+    "type": "choice",
+    "prompt": "Lojzík má seřadit $n$ různých čísel vzestupně. Nezná žádný řadicí algoritmus, proto hrubou silou generuje všechny možné sekvence čísel a testuje jejich seřazenost. Kolik konfigurací (stavů k prohledání) má tento problém?",
+    "options": [
+      "$n!$",
+      "$\\binom{n}{2}$",
+      "$n^2$"
+    ],
+    "answer": 0,
+    "solution": "Konfigurace jsou všechny posloupnosti $n$ různých čísel, tj. permutace: $n!$.",
+    "hints": [
+      "Kolika způsoby lze uspořádat $n$ různých prvků?",
+      "Prvním prvkem může být $n$ čísel, druhým $n-1$, …"
+    ]
+  },
+  {
+    "id": "pf-queens-n3",
+    "type": "numeric",
+    "prompt": "Kolik **řešení** má problém $n$ dam pro $n=3$?",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Na desce $3\\times3$ nelze rozestavit 3 neohrožující se dámy. Počty řešení pro $n=1,\\dots,8$: $1,0,0,2,10,4,40,92$.",
+    "hints": [
+      "Zkus umístit první dámu doprostřed – kolik polí zůstane volných?",
+      "Počet řešení pro $n=2$ a $n=3$ je stejný."
+    ]
+  },
+  {
+    "id": "pf-queens-8-configs",
+    "type": "choice",
+    "prompt": "Kolik konfigurací má **první** (naivní) formulace problému 8 dam, kde každá z 8 dam může být na libovolném z 64 polí (pozice se mohou opakovat)?",
+    "options": [
+      "$8!=40\\,320$",
+      "$64^8\\approx 2{,}8\\cdot10^{14}$",
+      "$64\\cdot63\\cdots57\\approx 1{,}8\\cdot10^{14}$",
+      "$8^8$"
+    ],
+    "answer": 1,
+    "solution": "Každá z 8 dam má 64 možností: $64^8=8^{16}\\approx2{,}8\\cdot10^{14}$. Možnost $64\\cdot63\\cdots57$ je verze *bez opakování pozic* (množina souřadnic), $8!$ je verze s dámou na sloupec.",
+    "hints": [
+      "Dámy jsou nezávislé a mohou stát i na stejném poli.",
+      "$64^8=8^{16}$."
+    ]
+  },
+  {
+    "id": "pf-queens-8-cols",
+    "type": "numeric",
+    "prompt": "Formulaci 8 dam upravíš tak, že každá dáma má **svůj sloupec** a ukládá se jen seznam řádků $[y_1,\\dots,y_8]$ bez opakování hodnot. Kolik konfigurací nyní prostor obsahuje?",
+    "answer": 40320,
+    "tolerance": 0.5,
+    "solution": "Jde o permutace čísel $1,\\dots,8$: $8!=40\\,320$. Řešení jsme neztratili, protože dvě dámy v jednom sloupci/řádku by se ohrožovaly.",
+    "hints": [
+      "Seznam $y$ bez opakování = permutace.",
+      "Spočti $8\\cdot7\\cdot6\\cdots1$."
+    ]
+  },
+  {
+    "id": "pf-queens-bdm",
+    "type": "numeric",
+    "prompt": "Přechodový graf pro 8 dam: dámy se přidávají jednu po druhé na libovolné volné pole, cílem je 8 dam bez ohrožení. Jaký je **faktor větvení** $b$ (největší počet následníků některého uzlu)?",
+    "answer": 64,
+    "tolerance": 0.5,
+    "solution": "Do prázdné desky lze první dámu postavit na kterékoli z 64 polí; žádný jiný stav nemá víc následníků, tedy $b=64$. (Hloubka cíle $d=8$, maximální hloubka $m=8$.)",
+    "hints": [
+      "Který stav má nejvíc možných tahů?",
+      "Prázdná deska."
+    ]
+  },
+  {
+    "id": "pf-8puzzle-states",
+    "type": "numeric",
+    "prompt": "Kolik navzájem dosažitelných stavů má 8-posunovačka? (Všech konfigurací je $9!$, polovina z nich je nedosažitelná.)",
+    "answer": 181440,
+    "tolerance": 0.5,
+    "solution": "$9!/2=362\\,880/2=181\\,440$.",
+    "hints": [
+      "Všech uspořádání 9 polí (8 kamenů + mezera) je $9!$.",
+      "Polovinu nelze z počátečního stavu dosáhnout (parita permutace)."
+    ]
+  },
+  {
+    "id": "pf-tictactoe-bdm",
+    "type": "free",
+    "prompt": "Pro piškvorky $3\\times3$ urči faktor větvení $b$, hloubku cíle $d$ (nejmenší možný počet tahů do výhry) a maximální hloubku $m$.",
+    "solution": "$b=9$ (první tah má 9 možností). $d=5$: výhra nejdříve po 5. tahu (první hráč potřebuje 3 své značky, tedy 5 tahů celkem). $m=9$: plná deska po 9 tazích. (Pozor: počet různých her není $9!$, mnoho jich skončí dříve.)",
+    "hints": [
+      "První hráč dá značku do řady nejdříve ve svém 3. tahu.",
+      "Kolik polí je na desce?"
+    ]
+  },
+  {
+    "id": "pf-optimization-vs-feasibility",
+    "type": "free",
+    "prompt": "Vysvětli rozdíl mezi *optimalizačním* problémem a problémem hledání *libovolného řešení* na příkladech („plánování semestru“, „nákup do lednice“).",
+    "solution": "Optimalizační problém hledá mezi konfiguracemi tu **nejlepší** podle kritéria – plánování semestru: co nejvíc kreditů a co nejvíc volného času. Při skládání nákupu do lednice stačí **jakékoliv** řešení, které umožní zavřít dveře, proto optimalizační není. Podobně: nejkratší cesta = optimalizace, sudoku/n dam = jen platné řešení.",
+    "hints": [
+      "Existuje u řešení pojem „lepší“?",
+      "Spokojíš se s libovolným řešením?"
+    ]
+  },
+  {
+    "id": "pf-4queens-actions",
+    "type": "choice",
+    "prompt": "Uvažte problém 4 dam: počáteční stav je prázdná hrací plocha $4\times4$, přechodová akce spočívá v umístění dámy na volné místo na ploše, cílová podmínka vyžaduje, aby byly na ploše 4 dámy tak, aby se neohrožovaly. Kolik různých přechodových akcí (v jednom kroku) lze provést ze stavu, kde jsou umístěny právě 3 dámy?",
+    "options": [
+      "13",
+      "1",
+      "16"
+    ],
+    "answer": 0,
+    "solution": "Ve stavu s 3 dámami je z 16 polí obsazeno 3, volných je $16-3=13$ a dámu lze (v tomto modelu bez ohledu na ohrožování) umístit na kterékoli z nich ⇒ 13 akcí.",
+    "hints": [
+      "Kolik polí je volných?",
+      "$16-3$."
+    ]
+  }
+]
