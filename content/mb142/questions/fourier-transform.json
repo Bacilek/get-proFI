@@ -1,0 +1,145 @@
+[
+  {
+    "id": "ft-conv0",
+    "type": "numeric",
+    "prompt": "Pro $f(x)=(1-x^2)\\mathbf 1_{[-1,1]}$ a $g=\\mathbf 1_{[-1,1]}$ je $(f*g)(y)=\\frac{|y|^3}3-y^2+\\frac43$ pro $|y|<2$. Kolik je $(f*g)(0)$ (4 des.)?",
+    "answer": 1.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "$(f*g)(0)=\\frac43$ (to je $\\int_{-1}^1(1-x^2)dx$, protože $g(0-x)=1$ na celém nosiči $f$).",
+    "hints": [
+      "Dosaď $y=0$.",
+      "Nebo spočítej $\\int_{-1}^1(1-x^2)dx$.",
+      "$2-\\frac23$."
+    ]
+  },
+  {
+    "id": "ft-conv1",
+    "type": "numeric",
+    "prompt": "Stejná konvoluce, kolik je $(f*g)(1)$ (4 des.)?",
+    "answer": 0.6666666666666666,
+    "tolerance": 0.0005,
+    "solution": "$\\frac13-1+\\frac43=\\frac23\\approx0{,}6667$. Kontrola: $\\int_0^1(1-x^2)dx=\\frac23$.",
+    "hints": [
+      "Dosaď $y=1$.",
+      "$\\frac13-1+\\frac43$.",
+      "Kontrola: nosič $g(1-x)$ je $x\\in[0,2]$, průnik s $[-1,1]$ je $[0,1]$."
+    ]
+  },
+  {
+    "id": "ft-tri",
+    "type": "numeric",
+    "prompt": "Spočítej $(\\mathbf 1_{[0,1]}*\\mathbf 1_{[0,1]})(1{,}5)$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "Pro $y\\in[1,2]$ je $\\int_{y-1}^{1}1\\,dx=2-y=0{,}5$. (Výsledkem je „trojúhelník“ s vrcholem $1$ v $y=1$.)",
+    "hints": [
+      "Nosič $\\mathbf 1_{[0,1]}(y-x)$ je $x\\in[y-1,y]$.",
+      "Průnik s $[0,1]$ pro $y=1{,}5$ je $[0{,}5;\\,1]$.",
+      "Délka průniku."
+    ]
+  },
+  {
+    "id": "ft-rect0",
+    "type": "numeric",
+    "prompt": "Kolik je $\\mathcal F(\\mathbf 1_{[-1,1]})(0)=\\frac1{\\sqrt{2\\pi}}\\int_{-1}^1dt$ (4 des.)?",
+    "answer": 0.7978845608028654,
+    "tolerance": 0.0005,
+    "solution": "$\\frac{2}{\\sqrt{2\\pi}}=\\sqrt{\\tfrac2\\pi}\\approx0{,}7979$.",
+    "hints": [
+      "Pro $\\omega=0$ je $e^{-i\\omega t}=1$.",
+      "Integrál z $1$ přes $[-1,1]$ je $2$.",
+      "$\\frac{2}{\\sqrt{2\\pi}}$."
+    ]
+  },
+  {
+    "id": "ft-rect",
+    "type": "numeric",
+    "prompt": "Pro $\\tilde f(\\omega)=\\sqrt{\\tfrac2\\pi}\\dfrac{\\sin\\omega}{\\omega}$ (transformace $\\mathbf 1_{[-1,1]}$) spočti $\\tilde f(\\pi/2)$ (4 des.).",
+    "answer": 0.5079490874739279,
+    "tolerance": 0.0005,
+    "solution": "$\\sqrt{\\tfrac2\\pi}\\cdot\\frac{\\sin(\\pi/2)}{\\pi/2}=\\sqrt{\\tfrac2\\pi}\\cdot\\frac2\\pi\\approx0{,}5080$.",
+    "hints": [
+      "$\\sin\\frac\\pi2=1$.",
+      "Podíl $\\frac{1}{\\pi/2}=\\frac2\\pi$.",
+      "Vynásob $\\sqrt{2/\\pi}\\approx0{,}7979$."
+    ]
+  },
+  {
+    "id": "ft-deriv",
+    "type": "choice",
+    "prompt": "Fourierova transformace derivace $f'$ je (při definici s $e^{-i\\omega t}$):",
+    "options": [
+      "$-i\\omega\\,\\tilde f(\\omega)$",
+      "$i\\omega\\,\\tilde f(\\omega)$",
+      "$\\omega^2\\tilde f(\\omega)$",
+      "$\\tilde f'(\\omega)$"
+    ],
+    "answer": 1,
+    "solution": "Per partes: $\\frac1{\\sqrt{2\\pi}}\\int f'e^{-i\\omega t}dt=\\frac{i\\omega}{\\sqrt{2\\pi}}\\int fe^{-i\\omega t}dt=i\\omega\\tilde f$.",
+    "hints": [
+      "Použij per partes s $u=e^{-i\\omega t}$.",
+      "Derivace $e^{-i\\omega t}$ je $-i\\omega e^{-i\\omega t}$, per partes přidá další znaménko.",
+      "Hraniční člen zmizí."
+    ]
+  },
+  {
+    "id": "ft-deriv2",
+    "type": "choice",
+    "prompt": "Transformace $f''$ je:",
+    "options": [
+      "$i\\omega\\tilde f$",
+      "$-\\omega^2\\tilde f$",
+      "$\\omega^2\\tilde f$",
+      "$-i\\omega^2\\tilde f$"
+    ],
+    "answer": 1,
+    "solution": "Dvojím použitím: $(i\\omega)^2\\tilde f=-\\omega^2\\tilde f$.",
+    "hints": [
+      "Aplikuj pravidlo pro derivaci dvakrát.",
+      "$(i\\omega)^2=i^2\\omega^2$.",
+      "$i^2=-1$."
+    ]
+  },
+  {
+    "id": "ft-prod",
+    "type": "numeric",
+    "prompt": "Je-li $\\tilde f(\\omega_0)=2$ a $\\tilde g(\\omega_0)=3$, kolik je $\\mathcal F(f*g)(\\omega_0)$ (při definici s $\\frac1{\\sqrt{2\\pi}}$, 3 des.)?",
+    "answer": 15.039769647786002,
+    "tolerance": 0.01,
+    "solution": "$\\mathcal F(f*g)=\\sqrt{2\\pi}\\,\\tilde f\\tilde g=\\sqrt{2\\pi}\\cdot6\\approx15{,}040$.",
+    "hints": [
+      "Transformace konvoluce je součin transformací s konstantou.",
+      "Konstanta je $\\sqrt{2\\pi}$.",
+      "$\\sqrt{2\\pi}\\approx2{,}5066$."
+    ]
+  },
+  {
+    "id": "ft-complex",
+    "type": "choice",
+    "prompt": "Je-li $a_n=2$ a $b_n=4$, jaký je komplexní koeficient $c_n=\\frac12(a_n-ib_n)$?",
+    "options": [
+      "$2-4i$",
+      "$1-2i$",
+      "$1+2i$",
+      "$4-2i$"
+    ],
+    "answer": 1,
+    "solution": "$c_n=\\frac12(2-4i)=1-2i$ (a $c_{-n}=1+2i$ je komplexně sdružený).",
+    "hints": [
+      "Dosaď do $\\frac12(a_n-ib_n)$.",
+      "$\\frac12\\cdot2=1$, $\\frac12\\cdot4=2$.",
+      "Znaménko u $i$ je minus."
+    ]
+  },
+  {
+    "id": "ft-deconv",
+    "type": "free",
+    "prompt": "Jak se pomocí Fourierovy transformace provádí dekonvoluce, tj. obnovení $f$ z pozorování $h=f*g$ se známým jádrem $g$?",
+    "solution": "Protože $\\mathcal F(f*g)=\\sqrt{2\\pi}\\,\\mathcal F(f)\\mathcal F(g)$, spočteme $\\mathcal F(h)$, podělíme $\\sqrt{2\\pi}\\,\\mathcal F(g)$ (tam, kde je $\\ne0$) a použijeme inverzní transformaci: $f=\\mathcal F^{-1}\\!\\left(\\dfrac{\\mathcal F(h)}{\\sqrt{2\\pi}\\mathcal F(g)}\\right)$. Konvoluce se tak změní na prosté násobení a dělit lze bodově podle frekvence.",
+    "hints": [
+      "Co udělá Fourierova transformace s konvolucí?",
+      "Vyjádři $\\mathcal F(f)$.",
+      "Pak použij $\\mathcal F^{-1}$."
+    ]
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "id": "fs-orth",
+    "type": "choice",
+    "prompt": "Kolik je $\\displaystyle\\int_{-\\pi}^{\\pi}\\sin x\\cos2x\\,dx$?",
+    "options": [
+      "$0$",
+      "$\\pi$",
+      "$2\\pi$",
+      "$-\\pi$"
+    ],
+    "answer": 0,
+    "solution": "Funkce $\\sin x\\cos2x$ je lichá, integrál přes symetrický interval je $0$ (navíc jde o dvě různé funkce ortogonálního systému).",
+    "hints": [
+      "Posuď paritu: $\\sin$ lichá, $\\cos$ sudá.",
+      "Lichá funkce má na $[-\\pi,\\pi]$ integrál $0$.",
+      "Je to skalární součin dvou prvků ortogonálního systému."
+    ]
+  },
+  {
+    "id": "fs-norm",
+    "type": "numeric",
+    "prompt": "Kolik je $\\|1\\|=\\sqrt{\\int_{-\\pi}^{\\pi}1\\,dx}$? (4 des.)",
+    "answer": 2.5066282746310002,
+    "tolerance": 0.001,
+    "solution": "$\\|1\\|=\\sqrt{2\\pi}\\approx2{,}5066$ (zatímco $\\|\\sin nx\\|=\\|\\cos nx\\|=\\sqrt\\pi$).",
+    "hints": [
+      "Integrál z $1$ přes interval délky $2\\pi$ je $2\\pi$.",
+      "Odmocni.",
+      "$\\sqrt{6{,}2832}$."
+    ]
+  },
+  {
+    "id": "fs-sin2",
+    "type": "numeric",
+    "prompt": "Kolik je $\\displaystyle\\int_{-\\pi}^{\\pi}\\sin^2(2x)\\,dx$? (4 des.)",
+    "answer": 3.141592653589793,
+    "tolerance": 0.001,
+    "solution": "$\\sin^2 2x=\\frac{1-\\cos4x}2\\Rightarrow\\int_{-\\pi}^\\pi=\\pi$ (stejně jako $\\|\\sin nx\\|^2=\\pi$).",
+    "hints": [
+      "Použij $\\sin^2t=\\frac{1-\\cos2t}2$.",
+      "Integrál $\\cos4x$ přes celé periody je $0$.",
+      "Zbývá $\\frac12\\cdot2\\pi$."
+    ]
+  },
+  {
+    "id": "fs-bn",
+    "type": "numeric",
+    "prompt": "Pro $g(x)=x$ na $(-\\pi,\\pi)$ je $b_n=\\frac{2(-1)^{n+1}}n$. Kolik je $b_3$? (4 des.)",
+    "answer": 0.6666666666666666,
+    "tolerance": 0.0005,
+    "solution": "$b_3=\\frac{2(-1)^4}{3}=\\frac23\\approx0{,}6667$.",
+    "hints": [
+      "Dosaď $n=3$.",
+      "$(-1)^{n+1}=(-1)^4=1$.",
+      "$\\frac23$."
+    ]
+  },
+  {
+    "id": "fs-abs-a0",
+    "type": "numeric",
+    "prompt": "Pro $g(x)=|x|$ na $[-\\pi,\\pi]$ spočítej $a_0=\\frac1\\pi\\int_{-\\pi}^\\pi g$ (4 des.).",
+    "answer": 3.141592653589793,
+    "tolerance": 0.001,
+    "solution": "Sudá funkce: $a_0=\\frac2\\pi\\int_0^\\pi x\\,dx=\\frac2\\pi\\cdot\\frac{\\pi^2}2=\\pi$.",
+    "hints": [
+      "$|x|$ je sudá – zdvojnásob integrál přes $[0,\\pi]$.",
+      "$\\int_0^\\pi x\\,dx=\\frac{\\pi^2}2$.",
+      "Nezapomeň na faktor $\\frac1\\pi$."
+    ]
+  },
+  {
+    "id": "fs-abs-a1",
+    "type": "numeric",
+    "prompt": "Pro $g(x)=|x|$ je $a_n=\\frac{2((-1)^n-1)}{\\pi n^2}$. Kolik je $a_1$? (4 des.)",
+    "answer": -1.2732395447351628,
+    "tolerance": 0.001,
+    "solution": "$a_1=\\frac{2(-1-1)}{\\pi}=-\\frac4\\pi\\approx-1{,}2732$.",
+    "hints": [
+      "Dosaď $n=1$.",
+      "$(-1)^1-1=-2$.",
+      "$-\\frac4\\pi$."
+    ]
+  },
+  {
+    "id": "fs-x2",
+    "type": "numeric",
+    "prompt": "Pro $g(x)=x^2$ na $[-\\pi,\\pi]$ je $a_n=\\frac{4(-1)^n}{n^2}$ pro $n\\ge1$. Kolik je $a_2$?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$a_2=\\frac{4\\cdot1}{4}=1$.",
+    "hints": [
+      "Dosaď $n=2$.",
+      "$(-1)^2=1$.",
+      "$\\frac44$."
+    ]
+  },
+  {
+    "id": "fs-basel",
+    "type": "numeric",
+    "prompt": "Řada funkce $x^2$ je $F(x)=\\frac{\\pi^2}3+\\sum\\frac{4(-1)^n}{n^2}\\cos nx$ a platí $F(\\pi)=\\pi^2$ (spojité periodické rozšíření). Odtud spočti $\\sum_{n=1}^\\infty\\frac1{n^2}$ (4 des.).",
+    "answer": 1.6449340668482264,
+    "tolerance": 0.001,
+    "solution": "$\\pi^2=\\frac{\\pi^2}3+\\sum\\frac{4(-1)^n(-1)^n}{n^2}=\\frac{\\pi^2}3+4\\sum\\frac1{n^2}\\Rightarrow\\sum\\frac1{n^2}=\\frac{\\pi^2}6\\approx1{,}6449$.",
+    "hints": [
+      "Dosaď $x=\\pi$: $\\cos n\\pi=(-1)^n$.",
+      "Součin $(-1)^n(-1)^n=1$.",
+      "Vyřeš pro $\\sum\\frac1{n^2}$."
+    ]
+  },
+  {
+    "id": "fs-jump",
+    "type": "numeric",
+    "prompt": "Funkce $g=1$ na $(0,\\pi)$ a $g=0$ na $(-\\pi,0)$. Čemu se rovná součet její Fourierovy řady v $x=0$?",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "V bodě nespojitosti je $F(0)=\\frac12(g(0^+)+g(0^-))=\\frac12(1+0)=\\frac12$.",
+    "hints": [
+      "V bodě nespojitosti konverguje řada k průměru jednostranných limit.",
+      "Zprava je $1$, zleva $0$.",
+      "Průměr."
+    ]
+  },
+  {
+    "id": "fs-endpoint",
+    "type": "choice",
+    "prompt": "Pro $g(x)=x$ na $(-\\pi,\\pi)$ je součet Fourierovy řady v $x=\\pi$ roven:",
+    "options": [
+      "$\\pi$",
+      "$-\\pi$",
+      "$0$",
+      "$2\\pi$"
+    ],
+    "answer": 2,
+    "solution": "$F(\\pi)=\\frac12\\big(g(-\\pi^+)+g(\\pi^-)\\big)=\\frac12(-\\pi+\\pi)=0$ (periodické rozšíření má v $\\pi$ skok).",
+    "hints": [
+      "Použij Větu 90, bod 3.",
+      "Jednostranné limity: $g(\\pi^-)=\\pi$, $g(-\\pi^+)=-\\pi$.",
+      "Vezmi průměr."
+    ]
+  },
+  {
+    "id": "fs-parity",
+    "type": "choice",
+    "prompt": "Fourierova řada **sudé** funkce na $[-\\pi,\\pi]$ obsahuje:",
+    "options": [
+      "jen členy $\\sin nx$",
+      "jen konstantu a členy $\\cos nx$",
+      "obojí, je to jedno",
+      "jen členy s $e^{inx}$"
+    ],
+    "answer": 1,
+    "solution": "Pro sudou $g$ je $g(x)\\sin nx$ lichá, tedy $b_n=0$; zůstanou $a_0$ a $a_n\\cos nx$ (kosinový rozvoj).",
+    "hints": [
+      "Zkontroluj paritu $g(x)\\sin nx$.",
+      "Integrál liché funkce přes $[-\\pi,\\pi]$ je $0$.",
+      "Které koeficienty tím zmizí?"
+    ]
+  },
+  {
+    "id": "fs-gen",
+    "type": "numeric",
+    "prompt": "Funkce $g(x)=x$ na intervalu $[0,2]$ (délka $b-a=2$). Kolik je koeficient $a_0=\\frac2{b-a}\\int_0^2g\\,dx$?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$a_0=\\frac22\\int_0^2x\\,dx=2$, tedy konstantní člen řady $\\frac{a_0}2=1$ (průměrná hodnota $g$).",
+    "hints": [
+      "Dosaď $b-a=2$.",
+      "$\\int_0^2x\\,dx=2$.",
+      "$a_0=1\\cdot2$."
+    ]
+  },
+  {
+    "id": "fs-sgn",
+    "type": "numeric",
+    "prompt": "Pro $g=\\operatorname{sgn}x$ na $(-1,1)$ je $b_n=\\frac{2(1-(-1)^n)}{n\\pi}$. Kolik je $b_3$? (4 des.)",
+    "answer": 0.4244131815783876,
+    "tolerance": 0.0005,
+    "solution": "$b_3=\\frac{2\\cdot2}{3\\pi}=\\frac4{3\\pi}\\approx0{,}4244$.",
+    "hints": [
+      "Dosaď $n=3$.",
+      "$1-(-1)^3=2$.",
+      "$\\frac{4}{3\\pi}$."
+    ]
+  }
+]

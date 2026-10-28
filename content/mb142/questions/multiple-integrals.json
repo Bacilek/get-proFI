@@ -1,0 +1,205 @@
+[
+  {
+    "id": "mi-rect",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iint_{[0,2]\\times[0,1]}(x+y)\\,dx\\,dy$.",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^2\\!\\int_0^1(x+y)\\,dy\\,dx=\\int_0^2\\left(x+\\tfrac12\\right)dx=2+1=3$.",
+    "hints": [
+      "Použij Fubiniho větu: nejdřív integruj podle $y$.",
+      "Vnitřní integrál: $\\int_0^1(x+y)dy=x+\\frac12$.",
+      "Pak integruj podle $x$ od $0$ do $2$."
+    ]
+  },
+  {
+    "id": "mi-triangle",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iint_A xy\\,dx\\,dy$, kde $A=\\{0\\le x\\le1,\\ 0\\le y\\le x\\}$.",
+    "answer": 0.125,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^1x\\left[\\frac{y^2}2\\right]_0^x dx=\\int_0^1\\frac{x^3}2dx=\\frac18$.",
+    "hints": [
+      "Meze vnitřního integrálu podle $y$ jsou $0$ a $x$.",
+      "Vnitřní integrál: $x\\cdot\\frac{x^2}{2}$.",
+      "Zbývá $\\int_0^1\\frac{x^3}2dx$."
+    ]
+  },
+  {
+    "id": "mi-swap-exp",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\int_0^1\\!\\int_y^1e^{x^2}\\,dx\\,dy$ (3 des. místa) – změň pořadí integrace.",
+    "answer": 0.8591409142295225,
+    "tolerance": 0.0015,
+    "solution": "Oblast $0\\le y\\le x\\le1$. Po záměně: $\\int_0^1\\!\\int_0^xe^{x^2}dy\\,dx=\\int_0^1xe^{x^2}dx=\\left[\\frac{e^{x^2}}2\\right]_0^1=\\frac{e-1}2\\approx0{,}859$.",
+    "hints": [
+      "$e^{x^2}$ nemá elementární primitivní funkci, takže nejde integrovat nejdřív podle $x$.",
+      "Nakresli oblast: trojúhelník $0\\le y\\le x\\le1$; popiš ho jako $0\\le x\\le1$, $0\\le y\\le x$.",
+      "Pak je vnitřní integrál konstanta vůči $y$ a vnější je substituce $t=x^2$."
+    ]
+  },
+  {
+    "id": "mi-swap",
+    "type": "choice",
+    "prompt": "Jak zní $\\displaystyle\\int_0^1\\!\\int_x^1f(x,y)\\,dy\\,dx$ po změně pořadí integrace?",
+    "options": [
+      "$\\displaystyle\\int_0^1\\!\\int_0^y f\\,dx\\,dy$",
+      "$\\displaystyle\\int_0^1\\!\\int_y^1 f\\,dx\\,dy$",
+      "$\\displaystyle\\int_0^1\\!\\int_0^x f\\,dx\\,dy$",
+      "$\\displaystyle\\int_x^1\\!\\int_0^1 f\\,dx\\,dy$"
+    ],
+    "answer": 0,
+    "solution": "Oblast je $0\\le x\\le y\\le1$. Pro pevné $y\\in[0,1]$ probíhá $x$ od $0$ do $y$.",
+    "hints": [
+      "Nakresli trojúhelník s vrcholy $(0,0),(0,1),(1,1)$.",
+      "Vnější proměnná má konstantní meze $0$ a $1$.",
+      "Pro pevné $y$ vyjde $0\\le x\\le y$."
+    ]
+  },
+  {
+    "id": "mi-area",
+    "type": "numeric",
+    "prompt": "Spočítej obsah oblasti mezi $y=x^2$ a $y=x$ (3 des. místa).",
+    "answer": 0.16666666666666666,
+    "tolerance": 0.0005,
+    "solution": "$\\int_0^1\\!\\int_{x^2}^{x}dy\\,dx=\\int_0^1(x-x^2)dx=\\frac12-\\frac13=\\frac16$.",
+    "hints": [
+      "Průsečíky: $x^2=x\\Rightarrow x=0,1$.",
+      "Obsah $=\\iint1\\,dx\\,dy$ s mezemi $x^2\\le y\\le x$.",
+      "$\\int_0^1(x-x^2)dx$."
+    ]
+  },
+  {
+    "id": "mi-volume",
+    "type": "numeric",
+    "prompt": "Spočítej objem tělesa pod grafem $z=x^2+y^2$ nad čtvercem $[0,1]^2$ (3 des.).",
+    "answer": 0.6666666666666666,
+    "tolerance": 0.0007,
+    "solution": "$\\int_0^1\\!\\int_0^1(x^2+y^2)dy\\,dx=\\int_0^1\\left(x^2+\\frac13\\right)dx=\\frac13+\\frac13=\\frac23$.",
+    "hints": [
+      "Objem = dvojný integrál z funkce nad oblastí.",
+      "Vnitřní integrál: $x^2+\\frac13$.",
+      "Ještě jednou integruj podle $x$."
+    ]
+  },
+  {
+    "id": "mi-tetra",
+    "type": "numeric",
+    "prompt": "Spočítej objem tělesa $\\{x,y,z\\ge0,\\ x+y+z\\le1\\}$ (3 des.).",
+    "answer": 0.16666666666666666,
+    "tolerance": 0.0005,
+    "solution": "$\\int_0^1\\!\\int_0^{1-x}\\!\\int_0^{1-x-y}dz\\,dy\\,dx=\\int_0^1\\frac{(1-x)^2}2dx=\\frac16$.",
+    "hints": [
+      "Horní mez pro $z$ je $1-x-y$, pro $y$ je $1-x$.",
+      "Vnitřní dva integrály dají $\\frac{(1-x)^2}2$.",
+      "Poslední integrál $\\frac12\\int_0^1(1-x)^2dx$."
+    ]
+  },
+  {
+    "id": "mi-simplex5",
+    "type": "numeric",
+    "prompt": "Jednotkový simplex $\\{x_i\\ge0,\\ x_1+\\dots+x_n\\le1\\}$ má objem $\\frac1{n!}$. Kolik je objem pro $n=5$ (5 des.)?",
+    "answer": 0.008333333333333333,
+    "tolerance": 0.0001,
+    "solution": "$\\frac1{5!}=\\frac1{120}\\approx0{,}00833$.",
+    "hints": [
+      "Pro $n=2$ je $\\frac12$ (trojúhelník), pro $n=3$ je $\\frac16$.",
+      "Obecně $\\frac1{n!}$.",
+      "$5!=120$."
+    ]
+  },
+  {
+    "id": "mi-centroid",
+    "type": "numeric",
+    "prompt": "Spočítej $x_T$ těžiště trojúhelníku s vrcholy $(0,0),(1,0),(0,1)$ ($\\sigma=1$, 3 des.).",
+    "answer": 0.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "Obsah $S=\\frac12$. $\\iint x\\,dx\\,dy=\\int_0^1x(1-x)dx=\\frac16$. $x_T=\\frac{1/6}{1/2}=\\frac13$.",
+    "hints": [
+      "$x_T=\\frac{\\iint x\\,dx\\,dy}{S}$.",
+      "Oblast: $0\\le x\\le1$, $0\\le y\\le1-x$.",
+      "Obsah $S=\\frac12$."
+    ]
+  },
+  {
+    "id": "mi-avg",
+    "type": "numeric",
+    "prompt": "Střední hodnota $f(x,y)=x+y$ na obdélníku $[0,2]\\times[0,1]$ je:",
+    "answer": 1.5,
+    "tolerance": 0.001,
+    "solution": "$\\iint f=3$ (viz první příklad), $m(A)=2$, tedy $\\mathrm{av}(f)=\\frac32$.",
+    "hints": [
+      "Střední hodnota = integrál ÷ obsah oblasti.",
+      "Integrál vyšel $3$.",
+      "Obsah obdélníku $2\\cdot1$."
+    ]
+  },
+  {
+    "id": "mi-mass",
+    "type": "numeric",
+    "prompt": "Hmotnost obdélníkové desky $[0,1]\\times[0,2]$ s plošnou hustotou $\\sigma(x,y)=x$ je:",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$m=\\iint x\\,dx\\,dy=\\int_0^1x\\,dx\\cdot\\int_0^2dy=\\frac12\\cdot2=1$.",
+    "hints": [
+      "Hmotnost $=\\iint\\sigma$.",
+      "Integrand závisí jen na $x$, integrál se rozpadne na součin.",
+      "$\\int_0^1x\\,dx=\\frac12$, $\\int_0^2dy=2$."
+    ]
+  },
+  {
+    "id": "mi-inertia",
+    "type": "numeric",
+    "prompt": "Moment setrvačnosti $J_x=\\iint y^2\\sigma$ jednotkového čtverce $[0,1]^2$ s $\\sigma=1$ (3 des.):",
+    "answer": 0.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "$J_x=\\int_0^1\\!\\int_0^1y^2\\,dy\\,dx=\\frac13$.",
+    "hints": [
+      "Moment vůči ose $x$ používá $y^2$.",
+      "Integrand závisí jen na $y$.",
+      "$\\int_0^1y^2dy=\\frac13$."
+    ]
+  },
+  {
+    "id": "mi-sin",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iint_Ay\\,dx\\,dy$, $A=\\{0\\le x\\le\\pi,\\ 0\\le y\\le\\sin x\\}$ (4 des.).",
+    "answer": 0.7853981633974483,
+    "tolerance": 0.0005,
+    "solution": "$\\int_0^\\pi\\frac{\\sin^2x}2dx=\\frac12\\cdot\\frac\\pi2=\\frac\\pi4\\approx0{,}7854$.",
+    "hints": [
+      "Vnitřní integrál podle $y$: $\\frac{\\sin^2x}2$.",
+      "Použij $\\sin^2x=\\frac{1-\\cos2x}2$.",
+      "$\\int_0^\\pi\\sin^2x\\,dx=\\frac\\pi2$."
+    ]
+  },
+  {
+    "id": "mi-null",
+    "type": "choice",
+    "prompt": "Změníme-li omezenou integrovatelnou funkci $f$ na úsečce v rovině (množině míry nula), integrál $\\iint_Af$:",
+    "options": [
+      "se změní",
+      "se nezmění",
+      "přestane existovat",
+      "bude nulový"
+    ],
+    "answer": 1,
+    "solution": "Dvě funkce, které se shodují skoro všude (mimo množinu míry nula), mají stejný integrál.",
+    "hints": [
+      "Úsečka v $\\mathbb R^2$ má plochu $0$.",
+      "Pojem „skoro všude“.",
+      "Příspěvek množiny míry nula je nulový."
+    ]
+  },
+  {
+    "id": "mi-fubini",
+    "type": "free",
+    "prompt": "Formuluj Fubiniho větu pro oblast $A=\\{a\\le x\\le b,\\ g(x)\\le y\\le h(x)\\}$ a řekni, co musí platit o mezích vnitřního a vnějšího integrálu.",
+    "solution": "$\\iint_Af\\,dx\\,dy=\\int_a^b\\left(\\int_{g(x)}^{h(x)}f(x,y)\\,dy\\right)dx$ pro $f$ spojitou na $A$ a $g,h$ spojité na $[a,b]$. Vnější integrál (podle $x$) má konstantní meze $a,b$, vnitřní (podle $y$) může mít meze závislé na $x$.",
+    "hints": [
+      "Vnitřní integrál se počítá při pevném $x$.",
+      "Vnější mezí smí být jen konstanta.",
+      "Zapiš $\\int_a^b\\int_{g(x)}^{h(x)}$."
+    ]
+  }
+]

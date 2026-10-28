@@ -420,6 +420,207 @@
           ]
         }
       ]
+    },
+    {
+      "id": "ode",
+      "title": "5. Diferenciální rovnice",
+      "lessons": [
+        {
+          "id": "mb142:ode-separable",
+          "title": "Úvod do DR, separované proměnné, substituce y/x",
+          "week": 11,
+          "prerequisites": [
+            "mb142:integration-methods"
+          ],
+          "topics": [
+            "mb142:ode-separable"
+          ]
+        },
+        {
+          "id": "mb142:ode-linear1",
+          "title": "Lineární DR 1. řádu, Bernoulli",
+          "week": 11,
+          "prerequisites": [
+            "mb142:ode-separable"
+          ],
+          "topics": [
+            "mb142:ode-linear1"
+          ]
+        },
+        {
+          "id": "mb142:ode-applications",
+          "title": "Aplikace: rozpad, ochlazování, mísení",
+          "week": 11,
+          "prerequisites": [
+            "mb142:ode-linear1"
+          ],
+          "topics": [
+            "mb142:ode-applications"
+          ]
+        },
+        {
+          "id": "mb142:ode-linear2",
+          "title": "Lineární DR 2. řádu (řady, charakteristická rovnice)",
+          "week": 11,
+          "prerequisites": [
+            "mb142:ode-linear1",
+            "mb142:power-series"
+          ],
+          "topics": [
+            "mb142:ode-linear2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multiint",
+      "title": "6. Integrály více proměnných",
+      "lessons": [
+        {
+          "id": "mb142:multiple-integrals",
+          "title": "Dvojný a trojný integrál, Fubini",
+          "week": 11,
+          "prerequisites": [
+            "mb142:definite-integral-methods",
+            "mb142:partial-derivatives"
+          ],
+          "topics": [
+            "mb142:multiple-integrals"
+          ]
+        },
+        {
+          "id": "mb142:integral-transform",
+          "title": "Transformace: polární, válcové, sférické",
+          "week": 11,
+          "prerequisites": [
+            "mb142:multiple-integrals"
+          ],
+          "topics": [
+            "mb142:integral-transform"
+          ]
+        },
+        {
+          "id": "mb142:gamma-function",
+          "title": "Eulerova gama a beta funkce",
+          "week": 11,
+          "prerequisites": [
+            "mb142:integral-transform",
+            "mb142:improper-integrals"
+          ],
+          "topics": [
+            "mb142:gamma-function"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fourier",
+      "title": "7. Fourierovy řady a transformace",
+      "lessons": [
+        {
+          "id": "mb142:uniform-convergence",
+          "title": "Stejnoměrná konvergence",
+          "week": 12,
+          "prerequisites": [
+            "mb142:power-series"
+          ],
+          "topics": [
+            "mb142:uniform-convergence"
+          ]
+        },
+        {
+          "id": "mb142:fourier-series",
+          "title": "Fourierovy řady",
+          "week": 12,
+          "prerequisites": [
+            "mb142:uniform-convergence",
+            "mb142:definite-integral-methods"
+          ],
+          "topics": [
+            "mb142:fourier-series"
+          ]
+        },
+        {
+          "id": "mb142:fourier-transform",
+          "title": "Konvoluce a Fourierova transformace",
+          "week": 12,
+          "prerequisites": [
+            "mb142:fourier-series",
+            "mb142:improper-integrals"
+          ],
+          "topics": [
+            "mb142:fourier-transform"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "metric",
+      "title": "8. Metrické prostory",
+      "lessons": [
+        {
+          "id": "mb142:metric-spaces",
+          "title": "Metrika, norma, úplnost, otevřené a uzavřené množiny",
+          "week": 12,
+          "prerequisites": [
+            "mb142:limits"
+          ],
+          "topics": [
+            "mb142:metric-spaces"
+          ]
+        },
+        {
+          "id": "mb142:p-norms",
+          "title": "p-normy, Hölder a Minkowski",
+          "week": 12,
+          "prerequisites": [
+            "mb142:metric-spaces"
+          ],
+          "topics": [
+            "mb142:p-norms"
+          ]
+        },
+        {
+          "id": "mb142:completion-contraction",
+          "title": "Zúplnění, Banachova věta, kompaktnost",
+          "week": 12,
+          "prerequisites": [
+            "mb142:p-norms"
+          ],
+          "topics": [
+            "mb142:completion-contraction"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interp",
+      "title": "9. Interpolace",
+      "lessons": [
+        {
+          "id": "mb142:interpolation",
+          "title": "Polynomiální interpolace, Lagrange",
+          "week": 12,
+          "prerequisites": [
+            "mb142:basics"
+          ],
+          "topics": [
+            "mb142:interpolation"
+          ]
+        },
+        {
+          "id": "mb142:hermite-splines",
+          "title": "Hermitova interpolace, kubické splajny",
+          "week": 12,
+          "prerequisites": [
+            "mb142:interpolation",
+            "mb142:derivative-def"
+          ],
+          "topics": [
+            "mb142:hermite-splines"
+          ]
+        }
+      ]
     }
   ],
   "milestones": [

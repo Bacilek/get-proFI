@@ -1,0 +1,181 @@
+[
+  {
+    "id": "it-jac",
+    "type": "choice",
+    "prompt": "Jacobián polárních souřadnic ($x=\\rho\\cos\\varphi$, $y=\\rho\\sin\\varphi$) je:",
+    "options": [
+      "$1$",
+      "$\\rho$",
+      "$\\rho^2$",
+      "$\\rho\\sin\\varphi$"
+    ],
+    "answer": 1,
+    "solution": "$J=\\begin{vmatrix}\\cos\\varphi&-\\rho\\sin\\varphi\\\\\\sin\\varphi&\\rho\\cos\\varphi\\end{vmatrix}=\\rho\\cos^2\\varphi+\\rho\\sin^2\\varphi=\\rho$.",
+    "hints": [
+      "Spočti determinant matice parciálních derivací $x_\\rho,x_\\varphi,y_\\rho,y_\\varphi$.",
+      "$x_\\varphi=-\\rho\\sin\\varphi$, $y_\\varphi=\\rho\\cos\\varphi$.",
+      "Využij $\\sin^2+\\cos^2=1$."
+    ]
+  },
+  {
+    "id": "it-disk",
+    "type": "numeric",
+    "prompt": "Spočítej obsah kruhu $x^2+y^2\\le4$ pomocí polárních souřadnic (3 des.).",
+    "answer": 12.566370614359172,
+    "tolerance": 0.002,
+    "solution": "$\\int_0^{2\\pi}\\!\\int_0^2\\rho\\,d\\rho\\,d\\varphi=2\\pi\\cdot2=4\\pi\\approx12{,}566$.",
+    "hints": [
+      "Meze: $\\rho\\in[0,2]$, $\\varphi\\in[0,2\\pi]$.",
+      "Nezapomeň faktor $\\rho$.",
+      "$\\int_0^2\\rho\\,d\\rho=2$."
+    ]
+  },
+  {
+    "id": "it-r2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iint_{x^2+y^2\\le1}(x^2+y^2)\\,dx\\,dy$ (4 des.).",
+    "answer": 1.5707963267948966,
+    "tolerance": 0.0005,
+    "solution": "$\\int_0^{2\\pi}\\!\\int_0^1\\rho^2\\cdot\\rho\\,d\\rho\\,d\\varphi=2\\pi\\cdot\\frac14=\\frac\\pi2\\approx1{,}5708$.",
+    "hints": [
+      "Dosaď $x^2+y^2=\\rho^2$.",
+      "S Jacobiánem je integrand $\\rho^3$.",
+      "$\\int_0^1\\rho^3d\\rho=\\frac14$."
+    ]
+  },
+  {
+    "id": "it-ring",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iint_{1\\le x^2+y^2\\le4}\\dfrac{1}{x^2+y^2}\\,dx\\,dy$ (4 des.).",
+    "answer": 4.355172180607204,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^{2\\pi}\\!\\int_1^2\\frac1{\\rho^2}\\rho\\,d\\rho\\,d\\varphi=2\\pi\\ln2\\approx4{,}3552$.",
+    "hints": [
+      "Mezikruží: $\\rho\\in[1,2]$.",
+      "Integrand po transformaci: $\\frac{1}{\\rho^2}\\cdot\\rho=\\frac1\\rho$.",
+      "$\\int_1^2\\frac{d\\rho}{\\rho}=\\ln2$."
+    ]
+  },
+  {
+    "id": "it-quarter",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iint xy\\,dx\\,dy$ přes čtvrtkruh $x^2+y^2\\le1$, $x,y\\ge0$.",
+    "answer": 0.125,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^{\\pi/2}\\cos\\varphi\\sin\\varphi\\,d\\varphi\\cdot\\int_0^1\\rho^3d\\rho=\\frac12\\cdot\\frac14=\\frac18$.",
+    "hints": [
+      "$xy=\\rho^2\\cos\\varphi\\sin\\varphi$, s Jacobiánem $\\rho^3\\cos\\varphi\\sin\\varphi$.",
+      "Integrál se rozpadne na součin.",
+      "$\\int_0^{\\pi/2}\\sin\\varphi\\cos\\varphi\\,d\\varphi=\\frac12$."
+    ]
+  },
+  {
+    "id": "it-shift",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iint_{x^2+y^2\\le2x}x\\,dx\\,dy$ (4 des.). Použij $\\rho\\le2\\cos\\varphi$, $\\varphi\\in[-\\frac\\pi2,\\frac\\pi2]$.",
+    "answer": 3.141592653589793,
+    "tolerance": 0.001,
+    "solution": "$\\int_{-\\pi/2}^{\\pi/2}\\int_0^{2\\cos\\varphi}\\rho\\cos\\varphi\\cdot\\rho\\,d\\rho\\,d\\varphi=\\int\\cos\\varphi\\frac{8\\cos^3\\varphi}3d\\varphi=\\frac83\\cdot\\frac{3\\pi}8=\\pi$. (Kontrola: obsah $\\pi$ krát $x_T=1$.)",
+    "hints": [
+      "Kruh se středem $(1,0)$ a poloměrem $1$.",
+      "Integrand $x\\cdot\\rho=\\rho^2\\cos\\varphi$.",
+      "$\\int_{-\\pi/2}^{\\pi/2}\\cos^4\\varphi\\,d\\varphi=\\frac{3\\pi}8$."
+    ]
+  },
+  {
+    "id": "it-ball",
+    "type": "numeric",
+    "prompt": "Objem koule o poloměru $2$ pomocí sférických souřadnic (3 des.).",
+    "answer": 33.510321638291124,
+    "tolerance": 0.005,
+    "solution": "$\\int_0^{2\\pi}\\!\\int_0^\\pi\\!\\int_0^2\\rho^2\\sin\\vartheta\\,d\\rho\\,d\\vartheta\\,d\\varphi=2\\pi\\cdot2\\cdot\\frac83=\\frac{32\\pi}3\\approx33{,}510$.",
+    "hints": [
+      "Jacobián je $\\rho^2\\sin\\vartheta$.",
+      "$\\int_0^\\pi\\sin\\vartheta\\,d\\vartheta=2$.",
+      "$\\int_0^2\\rho^2d\\rho=\\frac83$."
+    ]
+  },
+  {
+    "id": "it-ball2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iiint_{x^2+y^2+z^2\\le1}(x^2+y^2+z^2)\\,dx\\,dy\\,dz$ (4 des.).",
+    "answer": 2.5132741228718345,
+    "tolerance": 0.001,
+    "solution": "Sférické souřadnice: $\\int_0^{2\\pi}\\!\\int_0^\\pi\\!\\int_0^1\\rho^2\\cdot\\rho^2\\sin\\vartheta\\,d\\rho\\,d\\vartheta\\,d\\varphi=2\\pi\\cdot2\\cdot\\frac15=\\frac{4\\pi}5\\approx2{,}5133$.",
+    "hints": [
+      "Integrand $\\rho^2$, Jacobián $\\rho^2\\sin\\vartheta$.",
+      "Dostaneš $\\rho^4\\sin\\vartheta$.",
+      "$\\int_0^1\\rho^4d\\rho=\\frac15$."
+    ]
+  },
+  {
+    "id": "it-cone",
+    "type": "numeric",
+    "prompt": "Objem tělesa $\\{x^2+y^2\\le1,\\ \\sqrt{x^2+y^2}\\le z\\le1\\}$ (kužel s vrcholem v počátku) válcovými souřadnicemi (4 des.).",
+    "answer": 1.0471975511965976,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^{2\\pi}\\!\\int_0^1\\!\\int_\\rho^1\\rho\\,dz\\,d\\rho\\,d\\varphi=2\\pi\\int_0^1\\rho(1-\\rho)d\\rho=2\\pi\\cdot\\frac16=\\frac\\pi3\\approx1{,}0472$.",
+    "hints": [
+      "Ve válcových souřadnicích je $|J|=\\rho$ a $\\sqrt{x^2+y^2}=\\rho$.",
+      "Meze $z$: $\\rho\\le z\\le1$.",
+      "$\\int_0^1(\\rho-\\rho^2)d\\rho=\\frac16$."
+    ]
+  },
+  {
+    "id": "it-cardioid",
+    "type": "numeric",
+    "prompt": "Obsah kardioidy $\\rho=1+\\cos\\varphi$, $\\varphi\\in[0,2\\pi]$ (4 des.). Použij $P=\\frac12\\int\\rho^2d\\varphi$.",
+    "answer": 4.71238898038469,
+    "tolerance": 0.001,
+    "solution": "$P=\\frac12\\int_0^{2\\pi}(1+2\\cos\\varphi+\\cos^2\\varphi)\\,d\\varphi=\\frac12(2\\pi+0+\\pi)=\\frac{3\\pi}2\\approx4{,}7124$.",
+    "hints": [
+      "Rozviň $(1+\\cos\\varphi)^2$.",
+      "$\\int_0^{2\\pi}\\cos\\varphi=0$, $\\int_0^{2\\pi}\\cos^2\\varphi=\\pi$.",
+      "Nezapomeň faktor $\\frac12$."
+    ]
+  },
+  {
+    "id": "it-gauss",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\iint_{\\mathbb R^2}e^{-(x^2+y^2)}\\,dx\\,dy$ (4 des.).",
+    "answer": 3.141592653589793,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^{2\\pi}\\!\\int_0^\\infty e^{-\\rho^2}\\rho\\,d\\rho\\,d\\varphi=2\\pi\\cdot\\frac12=\\pi$ (a tedy $\\left(\\int_{-\\infty}^\\infty e^{-x^2}dx\\right)^2=\\pi$).",
+    "hints": [
+      "Polární souřadnice; Jacobián $\\rho$.",
+      "$\\int_0^\\infty\\rho e^{-\\rho^2}d\\rho=\\frac12$.",
+      "Hodnota je druhá mocnina Gaussova integrálu."
+    ]
+  },
+  {
+    "id": "it-jac2",
+    "type": "numeric",
+    "prompt": "Pro substituci $x=\\frac{u+v}2$, $y=\\frac{u-v}2$ spočti $|J(u,v)|$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "$J=\\begin{vmatrix}\\frac12&\\frac12\\\\\\frac12&-\\frac12\\end{vmatrix}=-\\frac14-\\frac14=-\\frac12$, tedy $|J|=\\frac12$.",
+    "hints": [
+      "$J=x_uy_v-x_vy_u$.",
+      "$x_u=x_v=\\frac12$, $y_u=\\frac12$, $y_v=-\\frac12$.",
+      "Vem absolutní hodnotu."
+    ]
+  },
+  {
+    "id": "it-sph",
+    "type": "choice",
+    "prompt": "Co je Jacobián sférických souřadnic (v absolutní hodnotě, $\\vartheta$ od osy $z$)?",
+    "options": [
+      "$\\rho$",
+      "$\\rho^2$",
+      "$\\rho^2\\sin\\vartheta$",
+      "$\\rho\\sin\\vartheta$"
+    ],
+    "answer": 2,
+    "solution": "$|J|=\\rho^2\\sin\\vartheta$ (objemový element koule). U válcových je to $\\rho$.",
+    "hints": [
+      "Dimenze: objem má rozměr délka³.",
+      "Úhel $\\vartheta$ měřený od osy $z$ dává faktor $\\sin\\vartheta$.",
+      "Zkus ověřit objem koule: $\\int_0^\\pi\\sin\\vartheta=2$."
+    ]
+  }
+]

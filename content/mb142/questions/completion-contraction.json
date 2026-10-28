@@ -1,0 +1,137 @@
+[
+  {
+    "id": "cc-fixed",
+    "type": "numeric",
+    "prompt": "Najdi pevný bod kontrakce $F(x)=\\frac x2+1$ na $\\mathbb R$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$z=\\frac z2+1\\Rightarrow z=2$. $|F(x)-F(y)|=\\frac12|x-y|$, $C=\\frac12<1$.",
+    "hints": [
+      "Pevný bod: $F(z)=z$.",
+      "Řeš $\\frac z2+1=z$.",
+      "Vynásob dvěma."
+    ]
+  },
+  {
+    "id": "cc-const",
+    "type": "numeric",
+    "prompt": "Jaká je nejmenší konstanta $C$ kontrakce $F(x)=\\frac{x}{3}-5$ na $\\mathbb R$ (tj. $|F(x)-F(y)|\\le C|x-y|$)? (4 des.)",
+    "answer": 0.3333333333333333,
+    "tolerance": 0.0005,
+    "solution": "$|F(x)-F(y)|=\\frac13|x-y|$, tedy $C=\\frac13$.",
+    "hints": [
+      "Konstanta $-5$ se při rozdílu zruší.",
+      "$|F(x)-F(y)|=\\left|\\frac{x-y}{3}\\right|$.",
+      "$C=\\frac13$."
+    ]
+  },
+  {
+    "id": "cc-iter",
+    "type": "numeric",
+    "prompt": "Pro $F(x)=\\cos x$ a $x_0=1$ spočti $x_2=\\cos(\\cos1)$ (4 des.).",
+    "answer": 0.8575532158463934,
+    "tolerance": 0.0005,
+    "solution": "$x_1=\\cos1\\approx0{,}5403$, $x_2=\\cos(0{,}5403)\\approx0{,}8576$.",
+    "hints": [
+      "$x_1=\\cos x_0$.",
+      "V radiánech.",
+      "$x_2=\\cos x_1$."
+    ]
+  },
+  {
+    "id": "cc-cos",
+    "type": "numeric",
+    "prompt": "Pevný bod $\\cos z=z$ (Banachova věta na $[0,1]$) leží zhruba v: (4 des.)",
+    "answer": 0.7390851332,
+    "tolerance": 0.0005,
+    "solution": "Iterace $x_{n+1}=\\cos x_n$ konverguje k $z\\approx0{,}7391$.",
+    "hints": [
+      "Iteruj $\\cos$ z libovolné počáteční hodnoty.",
+      "Po ~20 krocích se hodnota ustálí.",
+      "Kontrola: $\\cos0{,}7391\\approx0{,}7391$."
+    ]
+  },
+  {
+    "id": "cc-thm",
+    "type": "choice",
+    "prompt": "Co zaručuje Banachova věta o kontrakci?",
+    "options": [
+      "existenci pevného bodu pro každé spojité zobrazení",
+      "jednoznačnou existenci pevného bodu kontrakce na **úplném** prostoru",
+      "konvergenci každé posloupnosti",
+      "existenci inverzního zobrazení"
+    ],
+    "answer": 1,
+    "solution": "Kontrakce ($C<1$) na úplném metrickém prostoru má právě jeden pevný bod.",
+    "hints": [
+      "Potřebné předpoklady: kontrakce a úplnost.",
+      "Spojitost sama nestačí.",
+      "Pevný bod je také jediný."
+    ]
+  },
+  {
+    "id": "cc-comp",
+    "type": "choice",
+    "prompt": "Který prostor (s eukleidovskou metrikou) je kompaktní?",
+    "options": [
+      "$\\mathbb R$",
+      "$(0,1)$",
+      "$[0,1]\\times[0,1]$",
+      "$\\mathbb Q\\cap[0,1]$"
+    ],
+    "answer": 2,
+    "solution": "V $\\mathbb R^n$ je kompaktní právě uzavřená a omezená množina: čtverec ano. $(0,1)$ není uzavřená, $\\mathbb R$ není omezená, $\\mathbb Q\\cap[0,1]$ není úplná.",
+    "hints": [
+      "V $\\mathbb R^n$: uzavřená a omezená.",
+      "Zkontroluj oba požadavky.",
+      "Kompaktní = úplný + totálně omezený."
+    ]
+  },
+  {
+    "id": "cc-dense",
+    "type": "choice",
+    "prompt": "Která množina je hustá v $\\mathbb R$?",
+    "options": [
+      "$\\mathbb Z$",
+      "$\\mathbb Q$",
+      "$[0,1]$",
+      "$\\mathbb N$"
+    ],
+    "answer": 1,
+    "solution": "Každý otevřený interval obsahuje racionální číslo, $\\overline{\\mathbb Q}=\\mathbb R$.",
+    "hints": [
+      "Hustá: uzávěr je celé $\\mathbb R$.",
+      "Ve kterém intervalu je vždy nějaké číslo z množiny?",
+      "Racionální čísla jsou všude."
+    ]
+  },
+  {
+    "id": "cc-completion",
+    "type": "choice",
+    "prompt": "Zúplnění prostoru $\\mathbb Q$ (s $|x-y|$) je:",
+    "options": [
+      "$\\mathbb Z$",
+      "$\\mathbb R$",
+      "$\\mathbb C$",
+      "$\\mathbb Q$ samo"
+    ],
+    "answer": 1,
+    "solution": "Reálná čísla vznikají z $\\mathbb Q$ právě jako třídy cauchyovských posloupností (zúplnění).",
+    "hints": [
+      "Doplň limity cauchyovských posloupností.",
+      "Co dostaneš po přidání $\\sqrt2,\\pi,\\dots$?",
+      "Hustota $\\mathbb Q$ v $\\mathbb R$."
+    ]
+  },
+  {
+    "id": "cc-banach",
+    "type": "free",
+    "prompt": "Proč je v Banachově větě nutný předpoklad úplnosti? Uveď protipříklad.",
+    "solution": "Iterace $x_{n+1}=F(x_n)$ tvoří cauchyovskou posloupnost, ale musí mít limitu uvnitř prostoru – to zaručuje právě úplnost. Protipříklad: $F(x)=\\frac x2$ na $(0,1]$ je kontrakce ($C=\\frac12$), ale nemá pevný bod, protože jediné řešení $z=\\frac z2$ je $z=0\\notin(0,1]$ (a $(0,1]$ není úplný).",
+    "hints": [
+      "Zamysli se, kde vznikne limita iterací.",
+      "Zkus $F(x)=x/2$ na $(0,1]$.",
+      "Kde by byl pevný bod?"
+    ]
+  }
+]

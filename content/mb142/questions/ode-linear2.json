@@ -1,0 +1,103 @@
+[
+  {
+    "id": "ode-l2-rec",
+    "type": "choice",
+    "prompt": "Dosazením $y=\\sum a_nx^n$ do $y''-y=0$ vyjde rekurence:",
+    "options": [
+      "$a_{n+2}=-\\dfrac{a_n}{(n+2)(n+1)}$",
+      "$a_{n+2}=\\dfrac{a_n}{(n+2)(n+1)}$",
+      "$a_{n+1}=\\dfrac{a_n}{n+1}$",
+      "$a_{n+2}=a_n$"
+    ],
+    "answer": 1,
+    "solution": "$\\sum[(n+2)(n+1)a_{n+2}-a_n]x^n=0$, tedy $a_{n+2}=\\frac{a_n}{(n+2)(n+1)}$ (u $y''+y$ by bylo minus).",
+    "hints": [
+      "Dosaď $y''=\\sum(n+2)(n+1)a_{n+2}x^n$ a $y=\\sum a_nx^n$.",
+      "Koeficienty u $x^n$ musí být nulové.",
+      "Znaménko plyne z $-y$ v rovnici."
+    ]
+  },
+  {
+    "id": "ode-l2-a4",
+    "type": "numeric",
+    "prompt": "Pro $y''-y=0$ s $y(0)=1$, $y'(0)=0$ spočti koeficient $a_4$ (desetinné číslo, 4 des. místa).",
+    "answer": 0.041666666666666664,
+    "tolerance": 0.0005,
+    "solution": "$a_{n+2}=\\frac{a_n}{(n+2)(n+1)}$, $a_0=1$: $a_2=\\frac12$, $a_4=\\frac{a_2}{4\\cdot3}=\\frac1{24}\\approx0{,}0417$. (Jde o $\\cosh x$.)",
+    "hints": [
+      "Koeficienty $a_0=y(0)$, $a_1=y'(0)$.",
+      "$a_2=\\frac{a_0}{2\\cdot1}$.",
+      "$a_4=\\frac{a_2}{4\\cdot3}$."
+    ]
+  },
+  {
+    "id": "ode-l2-cos",
+    "type": "numeric",
+    "prompt": "Řeš $y''+y=0$, $y(0)=2$, $y'(0)=1$. Kolik je $y(\\pi/3)$? (3 des.)",
+    "answer": 1.8660254037844386,
+    "tolerance": 0.002,
+    "solution": "$y=C\\cos x+D\\sin x$, $C=y(0)=2$, $D=y'(0)=1$. $y(\\pi/3)=2\\cdot\\frac12+\\frac{\\sqrt3}2\\approx1{,}866$.",
+    "hints": [
+      "Obecné řešení $C\\cos x+D\\sin x$.",
+      "$y'=-C\\sin x+D\\cos x$, tedy $y'(0)=D$.",
+      "Dosaď $x=\\frac\\pi3$."
+    ]
+  },
+  {
+    "id": "ode-l2-char",
+    "type": "choice",
+    "prompt": "Obecné řešení $y''-3y'+2y=0$ je:",
+    "options": [
+      "$C_1e^{x}+C_2e^{2x}$",
+      "$C_1e^{-x}+C_2e^{-2x}$",
+      "$(C_1+C_2x)e^{x}$",
+      "$C_1\\cos x+C_2\\sin 2x$"
+    ],
+    "answer": 0,
+    "solution": "Charakteristická rovnice $\\lambda^2-3\\lambda+2=0$ má kořeny $1,2$.",
+    "hints": [
+      "Dosaď $y=e^{\\lambda x}$.",
+      "Řeš $\\lambda^2-3\\lambda+2=0$.",
+      "Dva různé reálné kořeny."
+    ]
+  },
+  {
+    "id": "ode-l2-cosh",
+    "type": "numeric",
+    "prompt": "Řeš $y''-4y=0$, $y(0)=1$, $y'(0)=0$. Kolik je $y(1)$? (4 des.)",
+    "answer": 3.7621956910836314,
+    "tolerance": 0.001,
+    "solution": "$\\lambda=\\pm2$, $y=C_1e^{2x}+C_2e^{-2x}$. $C_1+C_2=1$, $2C_1-2C_2=0$ ⇒ $C_1=C_2=\\frac12$, $y=\\cosh2x$. $y(1)=\\cosh2\\approx3{,}7622$.",
+    "hints": [
+      "Kořeny $\\lambda=\\pm2$.",
+      "Dvě podmínky pro $C_1,C_2$: $y(0)$ a $y'(0)$.",
+      "$y=\\frac12(e^{2x}+e^{-2x})$."
+    ]
+  },
+  {
+    "id": "ode-l2-double",
+    "type": "numeric",
+    "prompt": "Řeš $y''+4y'+4y=0$, $y(0)=1$, $y'(0)=0$. Kolik je $y(1)$? (4 des.)",
+    "answer": 0.4060058497098381,
+    "tolerance": 0.0005,
+    "solution": "$\\lambda=-2$ dvojnásobný, $y=(C_1+C_2x)e^{-2x}$. $C_1=1$, $y'(0)=C_2-2C_1=0\\Rightarrow C_2=2$. $y(1)=3e^{-2}\\approx0{,}4060$.",
+    "hints": [
+      "Dvojný kořen $\\lambda=-2$: $(C_1+C_2x)e^{-2x}$.",
+      "$y'=\\big(C_2-2C_1-2C_2x\\big)e^{-2x}$.",
+      "Z $y(0)=1$ a $y'(0)=0$ najdi $C_1,C_2$."
+    ]
+  },
+  {
+    "id": "ode-l2-osc",
+    "type": "numeric",
+    "prompt": "Řeš $y''+2y'+5y=0$, $y(0)=1$, $y'(0)=1$. Kolik je $y(\\pi/4)$? (4 des.)",
+    "answer": 0.45593812776599624,
+    "tolerance": 0.0005,
+    "solution": "$\\lambda=-1\\pm2i$, $y=e^{-x}(C_1\\cos2x+C_2\\sin2x)$. $C_1=1$, $y'(0)=-C_1+2C_2=1\\Rightarrow C_2=1$. $y(\\pi/4)=e^{-\\pi/4}(\\cos\\frac\\pi2+\\sin\\frac\\pi2)=e^{-\\pi/4}\\approx0{,}4559$.",
+    "hints": [
+      "Kořeny $-1\\pm2i$: $\\alpha=-1$, $\\beta=2$.",
+      "Derivace: $y'=e^{-x}[(-C_1+2C_2)\\cos2x+(-C_2-2C_1)\\sin2x]$.",
+      "Pro $x=\\frac\\pi4$ je $2x=\\frac\\pi2$."
+    ]
+  }
+]

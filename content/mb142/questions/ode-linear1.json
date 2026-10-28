@@ -1,0 +1,163 @@
+[
+  {
+    "id": "ode-lin-mu",
+    "type": "choice",
+    "prompt": "Integrační faktor rovnice $y'+2y=x$ je:",
+    "options": [
+      "$e^{-2x}$",
+      "$e^{2x}$",
+      "$2x$",
+      "$e^{x^2}$"
+    ],
+    "answer": 1,
+    "solution": "Pro $y'+p(x)y=b(x)$ je $\\mu=e^{\\int p\\,dx}=e^{2x}$.",
+    "hints": [
+      "Rovnice už je ve tvaru $y'+p(x)y=b$ s $p=2$.",
+      "Faktor je $e^{\\int p\\,dx}$.",
+      "Po vynásobení $(ye^{2x})'=xe^{2x}$."
+    ]
+  },
+  {
+    "id": "ode-lin-1",
+    "type": "numeric",
+    "prompt": "Řeš $y'+y=x$, $y(0)=0$. Kolik je $y(1)$? (4 des. místa)",
+    "answer": 0.36787944117144233,
+    "tolerance": 0.0005,
+    "solution": "$\\mu=e^x$, $(ye^x)'=xe^x\\Rightarrow ye^x=xe^x-e^x+C$, $y=x-1+Ce^{-x}$. Z $y(0)=0$: $C=1$, $y(1)=e^{-1}\\approx0{,}3679$.",
+    "hints": [
+      "Integrační faktor $e^x$.",
+      "Per partes: $\\int xe^xdx=xe^x-e^x$.",
+      "Z $y(0)=0$ je $0=-1+C$."
+    ]
+  },
+  {
+    "id": "ode-lin-2",
+    "type": "numeric",
+    "prompt": "Řeš $y'+\\dfrac2xy=x$, $y(1)=1$ ($x>0$). Kolik je $y(2)$?",
+    "answer": 1.1875,
+    "tolerance": 0.001,
+    "solution": "$\\mu=e^{2\\ln x}=x^2$, $(yx^2)'=x^3\\Rightarrow yx^2=\\frac{x^4}4+C$. Z $y(1)=1$: $C=\\frac34$. $y=\\frac{x^2}4+\\frac3{4x^2}$, $y(2)=1+\\frac3{16}=1{,}1875$.",
+    "hints": [
+      "Integrační faktor $x^2$ (pro $x>0$).",
+      "Po vynásobení $(x^2y)'=x^3$.",
+      "Urči $C$ z $y(1)=1$."
+    ]
+  },
+  {
+    "id": "ode-lin-3",
+    "type": "numeric",
+    "prompt": "Řeš $y'=y+e^{2x}$, $y(0)=0$. Kolik je $y(1)$? (4 des. místa)",
+    "answer": 4.670774270471604,
+    "tolerance": 0.0005,
+    "solution": "$y'-y=e^{2x}$, $\\mu=e^{-x}$: $(ye^{-x})'=e^x\\Rightarrow ye^{-x}=e^x+C$, z podmínky $C=-1$. $y=e^{2x}-e^x$, $y(1)=e^2-e\\approx4{,}6708$.",
+    "hints": [
+      "Převeď na $y'-y=e^{2x}$, tedy $p=-1$.",
+      "Faktor $e^{-x}$ dá pravou stranu $e^{x}$.",
+      "Z $y(0)=0$: $0=1+C$."
+    ]
+  },
+  {
+    "id": "ode-lin-4",
+    "type": "numeric",
+    "prompt": "Řeš $y'=-3x^2y$, $y(0)=2$ (homogenní). Kolik je $y(1)$? (4 des. místa)",
+    "answer": 0.7357588823428847,
+    "tolerance": 0.0005,
+    "solution": "Separace: $\\frac{dy}y=-3x^2dx\\Rightarrow y=Ce^{-x^3}$. $C=2$, $y(1)=2e^{-1}\\approx0{,}7358$.",
+    "hints": [
+      "Homogenní lineární: $y=Ce^{\\int a\\,dx}$ s $a=-3x^2$.",
+      "$\\int-3x^2dx=-x^3$.",
+      "Dosaď $y(0)=2$."
+    ]
+  },
+  {
+    "id": "ode-lin-5",
+    "type": "numeric",
+    "prompt": "Řeš $y'+y\\cos x=\\cos x$, $y(0)=3$. Kolik je $y(\\pi/2)$? (4 des. místa)",
+    "answer": 1.7357588823428847,
+    "tolerance": 0.0005,
+    "solution": "$\\mu=e^{\\sin x}$, $(ye^{\\sin x})'=\\cos x\\,e^{\\sin x}\\Rightarrow ye^{\\sin x}=e^{\\sin x}+C$, $y=1+Ce^{-\\sin x}$. $C=2$, $y(\\pi/2)=1+2e^{-1}\\approx1{,}7358$.",
+    "hints": [
+      "Faktor $e^{\\sin x}$ (protože $\\int\\cos x=\\sin x$).",
+      "Pravá strana po vynásobení je $(e^{\\sin x})'$.",
+      "Z $y(0)=3$: $3=1+C$."
+    ]
+  },
+  {
+    "id": "ode-lin-bern",
+    "type": "choice",
+    "prompt": "Rovnici $y'=y+xy^3$ převedeš na lineární substitucí:",
+    "options": [
+      "$u=y^3$",
+      "$u=y^{-2}$",
+      "$u=\\frac yx$",
+      "$u=\\ln y$"
+    ],
+    "answer": 1,
+    "solution": "Je to Bernoulliho rovnice s $r=3$, substituce $u=y^{1-r}=y^{-2}$.",
+    "hints": [
+      "Rozpoznej tvar $y'=a(x)y+b(x)y^r$.",
+      "Zde $r=3$.",
+      "Substituce je $u=y^{1-r}$."
+    ]
+  },
+  {
+    "id": "ode-lin-bern2",
+    "type": "numeric",
+    "prompt": "Řeš $y'=3y-xy^2$, $y(0)=1$. Kolik je $y(1)$? (3 des. místa)",
+    "answer": 3.603068829306091,
+    "tolerance": 0.002,
+    "solution": "Pro $u=y^{-1}$ je $u'=-3u+x$, $u=\\frac x3-\\frac19+Ce^{-3x}$. Z $u(0)=1$: $C=\\frac{10}9$. $y(1)=\\dfrac1{\\frac29+\\frac{10}9e^{-3}}\\approx3{,}603$.",
+    "hints": [
+      "Substituce $u=1/y$ dá $u'=-3u+x$.",
+      "Řešení je $u=\\frac x3-\\frac19+Ce^{-3x}$ (příklad z lekce).",
+      "Z $y(0)=1$ je $u(0)=1$; na konci $y=1/u$."
+    ]
+  },
+  {
+    "id": "ode-lin-zero",
+    "type": "choice",
+    "prompt": "U Bernoulliho rovnice $y'=a(x)y+b(x)y^r$ s $r>0$ platí:",
+    "options": [
+      "$y\\equiv0$ je vždy součástí obecného řešení",
+      "$y\\equiv0$ je řešení, které se ztratí substitucí $u=y^{1-r}$",
+      "rovnice nemá konstantní řešení",
+      "rovnice je vždy lineární"
+    ],
+    "answer": 1,
+    "solution": "Dosazením $y\\equiv0$ je rovnice splněna (obě strany nula). Řešení $y=u^{1/(1-r)}$ ho ale nikdy nedá, proto se přidává zvlášť.",
+    "hints": [
+      "Dosaď $y\\equiv0$ do rovnice.",
+      "Substituce zahrnuje $y^{1-r}$ se záporným exponentem – $y=0$ tam nejde.",
+      "Odtud „nezapomeň na $y\\equiv0$“."
+    ]
+  },
+  {
+    "id": "ode-lin-swap",
+    "type": "choice",
+    "prompt": "Kdy se hodí **záměna** $x\\leftrightarrow y$ (hledání $x=x(y)$)?",
+    "options": [
+      "když je rovnice homogenní",
+      "když rovnice není lineární v $y$, ale je lineární v $x$ jako funkci $y$ (např. $y'=\\frac1{y^2-2x}$)",
+      "vždy u rovnic 2. řádu",
+      "když je $y\\equiv0$ řešením"
+    ],
+    "answer": 1,
+    "solution": "Z $\\frac{dx}{dy}=\\frac1{y'}$ dostaneme $x'=y^2-2x$, lineární v $x(y)$.",
+    "hints": [
+      "Zkus psát $\\frac{dx}{dy}=1/y'$.",
+      "Podívej se, zda vznikne lineární rovnice pro $x(y)$.",
+      "Příklad z lekce: $y'=\\frac1{y^2-2x}$."
+    ]
+  },
+  {
+    "id": "ode-lin-derive",
+    "type": "free",
+    "prompt": "Odvoď vzorec pro řešení $y'=a(x)y+b(x)$: proč se násobí faktorem $\\mu=e^{-\\int a}$?",
+    "solution": "Násobíme $y'-ay=b$ faktorem $\\mu=e^{-\\int a\\,dx}$. Protože $\\mu'=-a\\mu$, je $(y\\mu)'=y'\\mu+y\\mu'=\\mu(y'-ay)=b\\mu$. Integrací $y\\mu=\\int b\\mu\\,dx+C$, tedy $y=e^{\\int a\\,dx}\\big(\\int b\\,e^{-\\int a\\,dx}dx+C\\big)$. Faktor je zvolen tak, aby levá strana byla derivací součinu.",
+    "hints": [
+      "Cíl: levá strana má být $(y\\cdot\\mu)'$.",
+      "Spočítej $\\mu'$ pro $\\mu=e^{-\\int a}$.",
+      "Pak integruj obě strany."
+    ]
+  }
+]

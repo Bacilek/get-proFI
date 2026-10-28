@@ -1,0 +1,137 @@
+[
+  {
+    "id": "ode-app-halflife",
+    "type": "numeric",
+    "prompt": "Poločas rozpadu látky je 8 dní. Za jak dlouho (ve dnech) zbude jen $\\frac18$ původního množství?",
+    "answer": 24,
+    "tolerance": 0.001,
+    "solution": "$Q=Q_0\\left(\\tfrac12\\right)^{t/8}$; $\\frac18=\\left(\\tfrac12\\right)^3\\Rightarrow t=24$ dní. (Ekvivalentně $r=\\frac{\\ln2}8$, $t=\\frac{\\ln8}r=24$.)",
+    "hints": [
+      "Za každých 8 dní se množství zmenší na polovinu.",
+      "$\\frac18=\\left(\\frac12\\right)^3$.",
+      "Tři poločasy."
+    ]
+  },
+  {
+    "id": "ode-app-decay",
+    "type": "numeric",
+    "prompt": "Radioaktivní materiál: ze 100 g zbylo za 3 roky 80 g. Za jak dlouho (v letech) zbude 50 g? (2 des. místa)",
+    "answer": 9.318851158516168,
+    "tolerance": 0.01,
+    "solution": "$Q=Q_0e^{-rt}$, $0{,}8=e^{-3r}\\Rightarrow r=\\frac{\\ln1{,}25}{3}\\approx0{,}0744$. $0{,}5=e^{-rt}\\Rightarrow t=\\frac{\\ln2}r=\\frac{3\\ln2}{\\ln1{,}25}\\approx9{,}32$ let.",
+    "hints": [
+      "Z první informace urči $r$: $0{,}8=e^{-3r}$.",
+      "Pro polovinu platí $e^{-rt}=\\frac12$.",
+      "$t=\\frac{\\ln2}{r}$."
+    ]
+  },
+  {
+    "id": "ode-app-ra",
+    "type": "numeric",
+    "prompt": "Ra-226 má poločas 1620 let. Za kolik let (zaokrouhli na 1 des.) zbude $\\frac34$ původního množství?",
+    "answer": 672.3607488317268,
+    "tolerance": 0.1,
+    "solution": "$r=\\frac{\\ln2}{1620}$, $\\frac34=e^{-rt}\\Rightarrow t=1620\\frac{\\ln(4/3)}{\\ln2}\\approx672{,}4$ let.",
+    "hints": [
+      "Urči $r=\\frac{\\ln2}{T_{1/2}}$.",
+      "Řeš $\\frac34=e^{-rt}$.",
+      "$t=\\frac{\\ln(4/3)}{r}$."
+    ]
+  },
+  {
+    "id": "ode-app-cool1",
+    "type": "numeric",
+    "prompt": "Káva má 90 °C, okolí 20 °C, za 10 min klesla na 60 °C. Jakou teplotu (°C) bude mít za dalších 10 min (tj. v čase 20 min)? (2 des. místa)",
+    "answer": 42.857142857142854,
+    "tolerance": 0.01,
+    "solution": "$\\Theta=20+70e^{-kt}$, $e^{-10k}=\\frac{40}{70}=\\frac47$. V čase $20$: $20+70\\left(\\frac47\\right)^2=20+\\frac{160}{7}\\approx42{,}86$ °C.",
+    "hints": [
+      "Řešení Newtonova zákona: $\\Theta=T+Ce^{-kt}$, $C=\\Theta(0)-T=70$.",
+      "Z $\\Theta(10)=60$ spočti $e^{-10k}$.",
+      "$e^{-20k}=(e^{-10k})^2$."
+    ]
+  },
+  {
+    "id": "ode-app-cool2",
+    "type": "numeric",
+    "prompt": "Stejná káva ($\\Theta=20+70e^{-kt}$, $e^{-10k}=\\frac47$). Za kolik minut klesne na 30 °C? (2 des. místa)",
+    "answer": 34.772252516933335,
+    "tolerance": 0.01,
+    "solution": "$20+70e^{-kt}=30\\Rightarrow e^{-kt}=\\frac17$. Z $e^{-10k}=\\frac47$: $k=\\frac{\\ln(7/4)}{10}$, $t=\\frac{\\ln7}{k}=\\frac{10\\ln7}{\\ln(7/4)}\\approx34{,}77$ min.",
+    "hints": [
+      "Dosaď $\\Theta=30$: $70e^{-kt}=10$.",
+      "Hodnotu $k$ máš z $e^{-10k}=\\frac47$.",
+      "$t=-\\frac{\\ln(1/7)}{k}$."
+    ]
+  },
+  {
+    "id": "ode-app-body",
+    "type": "numeric",
+    "prompt": "Tělo má při nalezení 26,6 °C, za 3 h 21,1 °C, okolí 18,3 °C. Kolik hodin před nalezením nastala smrt (tělesná teplota 37 °C)? (2 des. místa)",
+    "answer": 2.242520778122537,
+    "tolerance": 0.02,
+    "solution": "$\\Theta=18{,}3+8{,}3e^{-kt}$, $e^{-3k}=\\frac{2{,}8}{8{,}3}$, $k\\approx0{,}362$. $37=\\Theta\\Rightarrow e^{-kt}=\\frac{18{,}7}{8{,}3}>1\\Rightarrow t=-\\frac{\\ln2{,}253}{k}\\approx-2{,}24$, tedy 2,24 h před nalezením.",
+    "hints": [
+      "Urči $C=26{,}6-18{,}3$ a $k$ z druhého měření.",
+      "Hledáš $t$ s $\\Theta(t)=37$.",
+      "Záporný čas = před nalezením."
+    ]
+  },
+  {
+    "id": "ode-app-mix",
+    "type": "numeric",
+    "prompt": "Nádrž 500 l, čistá voda ($Q_0=0$), přitéká roztok 10 g/l rychlostí 5 l/min, stejně odtéká. Kolik gramů soli bude v čase $t=100$ min? (1 des.)",
+    "answer": 3160.6027941427883,
+    "tolerance": 0.2,
+    "solution": "$Q'=cv-\\frac QLv=50-0{,}01Q$, $Q(t)=cL(1-e^{-vt/L})=5000(1-e^{-0{,}01t})$. $Q(100)=5000(1-e^{-1})\\approx3160{,}6$ g.",
+    "hints": [
+      "$Q'=$ přítok soli − odtok soli.",
+      "Přítok $cv=50$ g/min, odtok $\\frac{Q}{500}\\cdot5=0{,}01Q$.",
+      "Řešení $Q=5000(1-e^{-0{,}01t})$."
+    ]
+  },
+  {
+    "id": "ode-app-limit",
+    "type": "numeric",
+    "prompt": "V nádrži 500 l je na začátku 2000 g soli; přitéká roztok 10 g/l (5 l/min), stejnou rychlostí odtéká. Jaké množství soli (g) bude pro $t\\to\\infty$?",
+    "answer": 5000,
+    "tolerance": 0.001,
+    "solution": "$Q\\to cL=10\\cdot500=5000$ g, bez ohledu na $Q_0$ (koncentrace se ustálí na koncentraci přitékajícího roztoku).",
+    "hints": [
+      "Limitní množství nezávisí na $Q_0$.",
+      "Pro $t\\to\\infty$ je $Q'=0$, tedy $cv=\\frac QLv$.",
+      "$Q=cL$."
+    ]
+  },
+  {
+    "id": "ode-app-half",
+    "type": "numeric",
+    "prompt": "V situaci $Q(t)=5000(1-e^{-0{,}01t})$ za kolik minut bude v nádrži polovina limitního množství? (2 des. místa)",
+    "answer": 69.31471805599453,
+    "tolerance": 0.01,
+    "solution": "$5000(1-e^{-0{,}01t})=2500\\Rightarrow e^{-0{,}01t}=\\frac12\\Rightarrow t=100\\ln2\\approx69{,}31$ min.",
+    "hints": [
+      "Polovina limitu je $2500$ g.",
+      "Vyjde $e^{-0{,}01t}=\\frac12$.",
+      "$t=\\frac{\\ln2}{0{,}01}$."
+    ]
+  },
+  {
+    "id": "ode-app-volume",
+    "type": "choice",
+    "prompt": "Do nádrže přitéká $v=20$ l/min, odtéká jen $w=19$ l/min. Jak zní člen odtoku soli, je-li $L$ počáteční objem?",
+    "options": [
+      "$\\dfrac{Q}{L}\\,w$",
+      "$\\dfrac{Q}{L+(v-w)t}\\,w$",
+      "$\\dfrac{Q}{L}\\,v$",
+      "$Q\\,w$"
+    ],
+    "answer": 1,
+    "solution": "Objem roste: $L(t)=L+(v-w)t$, koncentrace je $Q/L(t)$ a odtéká rychlostí $w$.",
+    "hints": [
+      "Mění se objem roztoku v nádrži.",
+      "Koncentrace = množství soli / aktuální objem.",
+      "Odtok soli = koncentrace · rychlost odtoku."
+    ]
+  }
+]

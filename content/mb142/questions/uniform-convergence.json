@@ -1,0 +1,93 @@
+[
+  {
+    "id": "uc-xn",
+    "type": "choice",
+    "prompt": "Konverguje posloupnost $f_n(x)=x^n$ stejnoměrně na $[0,1]$?",
+    "options": [
+      "ano, k $0$",
+      "ano, k funkci rovné $1$",
+      "ne – bodová limita $(0$ pro $x<1$, $1$ pro $x=1)$ není spojitá",
+      "ne – nekonverguje ani bodově"
+    ],
+    "answer": 2,
+    "solution": "Bodová limita je $f=0$ na $[0,1)$ a $f(1)=1$, tedy nespojitá, přitom $f_n$ jsou spojité. Stejnoměrná limita spojitých funkcí by byla spojitá, proto konvergence není stejnoměrná.",
+    "hints": [
+      "Najdi bodovou limitu $f(x)=\\lim x^n$.",
+      "Je $f$ spojitá na $[0,1]$?",
+      "Věta: stejnoměrná limita spojitých funkcí je spojitá."
+    ]
+  },
+  {
+    "id": "uc-weier",
+    "type": "choice",
+    "prompt": "Která řada konverguje stejnoměrně na celém $\\mathbb R$ podle Weierstrassova testu?",
+    "options": [
+      "$\\displaystyle\\sum\\frac{\\sin nx}{n}$",
+      "$\\displaystyle\\sum\\frac{\\sin nx}{n^2}$",
+      "$\\displaystyle\\sum x^n$",
+      "$\\displaystyle\\sum\\frac{x^n}{n!}$"
+    ],
+    "answer": 1,
+    "solution": "$\\left|\\frac{\\sin nx}{n^2}\\right|\\le\\frac1{n^2}$ a $\\sum\\frac1{n^2}<\\infty$. U $\\frac{\\sin nx}n$ by vyšla harmonická řada (diverguje); $\\sum\\frac{x^n}{n!}$ konverguje stejnoměrně jen na omezených intervalech.",
+    "hints": [
+      "Hledej odhad $|f_n(x)|\\le a_n$ nezávislý na $x$.",
+      "Potřebuješ konvergentní $\\sum a_n$.",
+      "$\\sum\\frac1n$ diverguje, $\\sum\\frac1{n^2}$ konverguje."
+    ]
+  },
+  {
+    "id": "uc-int",
+    "type": "numeric",
+    "prompt": "Řada $\\sum_{n=0}^\\infty x^n$ konverguje stejnoměrně na $[0,\\tfrac12]$. Spočítej $\\displaystyle\\sum_{n=0}^\\infty\\int_0^{1/2}x^n\\,dx$ (4 des.).",
+    "answer": 0.6931471805599453,
+    "tolerance": 0.0005,
+    "solution": "Integrace člen po členu je dovolená: $\\int_0^{1/2}\\sum x^n=\\int_0^{1/2}\\frac{dx}{1-x}=\\left[-\\ln(1-x)\\right]_0^{1/2}=\\ln2\\approx0{,}6931$.",
+    "hints": [
+      "Součet řady je $\\frac1{1-x}$.",
+      "Záměnu sumy a integrálu zaručuje stejnoměrná konvergence.",
+      "Integruj $\\frac1{1-x}$ od $0$ do $\\frac12$."
+    ]
+  },
+  {
+    "id": "uc-sup",
+    "type": "numeric",
+    "prompt": "Pro $f_n(x)=x^n$ na $[0,\\tfrac12]$ je $\\sup|f_n-0|=2^{-n}$. Od kterého nejmenšího $n$ platí $\\sup<0{,}001$?",
+    "answer": 10,
+    "tolerance": 0.001,
+    "solution": "$2^{-n}<0{,}001\\Leftrightarrow 2^n>1000\\Leftrightarrow n\\ge10$ ($2^{10}=1024$).",
+    "hints": [
+      "Supremum je dosaženo v $x=\\frac12$.",
+      "Řeš $2^n>1000$.",
+      "$2^{10}=1024$."
+    ]
+  },
+  {
+    "id": "uc-power",
+    "type": "choice",
+    "prompt": "Mocninná řada s poloměrem konvergence $r=2$ a středem $0$ konverguje stejnoměrně na:",
+    "options": [
+      "$(-2,2)$",
+      "$[-1{,}9;\\,1{,}9]$",
+      "$\\mathbb R$",
+      "pouze v bodě $0$"
+    ],
+    "answer": 1,
+    "solution": "Stejnoměrná konvergence platí na každém kompaktním intervalu uvnitř $(-r,r)$. Na celém $(-2,2)$ nemusí.",
+    "hints": [
+      "Použij Větu 89.",
+      "Interval musí být uzavřený a ležet uvnitř $(-2,2)$.",
+      "Hranice $\\pm2$ do intervalu nepatří."
+    ]
+  },
+  {
+    "id": "uc-vs",
+    "type": "free",
+    "prompt": "Vysvětli rozdíl mezi bodovou a stejnoměrnou konvergencí a uveď, proč na něm záleží.",
+    "solution": "Bodová: pro každé $x$ zvlášť $f_n(x)\\to f(x)$, přičemž $N$ může záviset na $x$. Stejnoměrná: $N$ lze zvolit jedno pro všechna $x$ najednou, tj. $\\sup_x|f_n-f|\\to0$. Důležité je, že jen stejnoměrná konvergence zaručuje spojitost limity a smí se zaměnit limita s integrálem (a s derivací, pokud konverguje i řada derivací). Příklad: $x^n$ na $[0,1]$ konverguje bodově, ale ne stejnoměrně.",
+    "hints": [
+      "Zamysli se, kde v kvantifikátorech je $N$ vzhledem k $x$.",
+      "Sup-norma: $\\sup_x|f_n(x)-f(x)|$.",
+      "Příklad $x^n$ na $[0,1]$."
+    ]
+  }
+]

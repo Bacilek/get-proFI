@@ -1,0 +1,171 @@
+[
+  {
+    "id": "ode-sep-which",
+    "type": "choice",
+    "prompt": "Která z rovnic má **separovatelné proměnné**?",
+    "options": [
+      "$y'=x+y$",
+      "$y'=x^2y$",
+      "$y'=\\sin(x+y)$",
+      "$y'=x+y^2$"
+    ],
+    "answer": 1,
+    "solution": "$y'=x^2y=f(x)g(y)$ s $f=x^2$, $g=y$. U ostatních se $x$ a $y$ nedají rozdělit do součinu.",
+    "hints": [
+      "Hledáš tvar $y'=f(x)\\cdot g(y)$ (součin).",
+      "Součet $x+y$ ani $\\sin(x+y)$ na součin rozdělit nejde.",
+      "Pro $x^2y$ je $f(x)=x^2$ a $g(y)=y$."
+    ]
+  },
+  {
+    "id": "ode-sep-order",
+    "type": "numeric",
+    "prompt": "Jakého řádu je rovnice $x\\,y''' + (y')^2 = e^x$?",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "Řád je nejvyšší derivace v rovnici: $y'''$, tedy $3$.",
+    "hints": [
+      "Řád = nejvyšší derivace, která se v rovnici vyskytuje.",
+      "Mocnina derivace ($(y')^2$) řád nezvyšuje.",
+      "Nejvyšší je $y'''$."
+    ]
+  },
+  {
+    "id": "ode-sep-2xy",
+    "type": "numeric",
+    "prompt": "Řeš $y'=2xy$, $y(0)=3$. Kolik je $y(1)$? (zaokrouhli na 3 des. místa)",
+    "answer": 8.154845485377136,
+    "tolerance": 0.001,
+    "solution": "$\\frac{dy}{y}=2x\\,dx\\Rightarrow\\ln|y|=x^2+C\\Rightarrow y=Ce^{x^2}$. Z $y(0)=3$ je $C=3$, $y(1)=3e\\approx8{,}155$.",
+    "hints": [
+      "Rovnice je separovaná: $\\frac{dy}{y}=2x\\,dx$.",
+      "Po integraci $y=Ce^{x^2}$.",
+      "Konstantu urči z $y(0)=3$ a dosaď $x=1$."
+    ]
+  },
+  {
+    "id": "ode-sep-y2",
+    "type": "numeric",
+    "prompt": "Řeš $y'=y^2$, $y(0)=1$. Kolik je $y(0{,}5)$?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$\\frac{dy}{y^2}=dx\\Rightarrow-\\frac1y=x+C$. Z $y(0)=1$: $C=-1$, tedy $y=\\frac1{1-x}$ a $y(0{,}5)=2$.",
+    "hints": [
+      "Separuj: $y^{-2}dy=dx$.",
+      "Integrál $\\int y^{-2}dy=-\\frac1y$.",
+      "Z $y(0)=1$ dostaneš $C=-1$; řešení $\\frac1{1-x}$ existuje jen pro $x<1$."
+    ]
+  },
+  {
+    "id": "ode-sep-xy",
+    "type": "numeric",
+    "prompt": "Řeš $y'=\\dfrac xy$, $y(0)=1$ (kladné $y$). Kolik je $y(2)$? (3 des. místa)",
+    "answer": 2.23606797749979,
+    "tolerance": 0.002,
+    "solution": "$y\\,dy=x\\,dx\\Rightarrow\\frac{y^2}2=\\frac{x^2}2+C\\Rightarrow y^2=x^2+1$ (z $y(0)=1$), $y(2)=\\sqrt5\\approx2{,}236$.",
+    "hints": [
+      "Separuj: $y\\,dy=x\\,dx$.",
+      "Po integraci $y^2=x^2+C$.",
+      "Z $y(0)=1$ je $C=1$; vezmi kladnou odmocninu."
+    ]
+  },
+  {
+    "id": "ode-sep-sub",
+    "type": "numeric",
+    "prompt": "Řeš $y'=\\dfrac yx+x$, $y(1)=2$ ($x>0$). Kolik je $y(2)$?",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "Pro $u=\\frac yx$: $u'x+u=u+x\\Rightarrow u'=1\\Rightarrow u=x+C$, tedy $y=x^2+Cx$. Z $y(1)=2$ je $C=1$, $y(2)=4+2=6$.",
+    "hints": [
+      "Zaveď $u=\\frac yx$, $y=ux$, $y'=u'x+u$.",
+      "Po dosazení se $u$ zkrátí a zbude $u'=1$.",
+      "Vrať $y=ux$ a dosaď podmínku."
+    ]
+  },
+  {
+    "id": "ode-sep-sub2",
+    "type": "numeric",
+    "prompt": "Řeš $y'=\\dfrac yx+\\left(\\dfrac yx\\right)^2$, $y(1)=1$. Kolik je $y(\\sqrt e)$? (3 des. místa)",
+    "answer": 3.2974425414002564,
+    "tolerance": 0.002,
+    "solution": "$u=\\frac yx$: $u'x+u=u+u^2\\Rightarrow\\frac{du}{u^2}=\\frac{dx}x\\Rightarrow-\\frac1u=\\ln x+C$. Z $u(1)=1$: $C=-1$, tedy $u=\\frac1{1-\\ln x}$, $y=\\frac{x}{1-\\ln x}$. Pro $x=\\sqrt e$: $\\frac{\\sqrt e}{1/2}=2\\sqrt e\\approx3{,}297$.",
+    "hints": [
+      "Substituce $u=\\frac yx$ zjednoduší rovnici na $u'x=u^2$.",
+      "Separuj: $u^{-2}du=\\frac{dx}x$.",
+      "Vrať se k $y=ux$ a dosaď $x=\\sqrt e$ (pak $\\ln x=\\frac12$)."
+    ]
+  },
+  {
+    "id": "ode-sep-exp",
+    "type": "numeric",
+    "prompt": "Řeš $y'=e^{x-y}$, $y(0)=\\ln2$. Kolik je $y(1)$? (3 des. místa)",
+    "answer": 1.3132616875182228,
+    "tolerance": 0.001,
+    "solution": "$e^y\\,dy=e^x\\,dx\\Rightarrow e^y=e^x+C$. Z $y(0)=\\ln2$: $2=1+C$, $C=1$. $y(1)=\\ln(e+1)\\approx1{,}313$.",
+    "hints": [
+      "Přepiš $e^{x-y}=e^xe^{-y}$ a separuj.",
+      "Dostaneš $e^ydy=e^xdx$.",
+      "Integruj, urči $C$ z $e^{y(0)}=2$ a zlogaritmuj."
+    ]
+  },
+  {
+    "id": "ode-sep-tan",
+    "type": "numeric",
+    "prompt": "Řeš $y'=1+y^2$, $y(0)=0$. Kolik je $y(1)$? (3 des. místa)",
+    "answer": 1.5574077246549023,
+    "tolerance": 0.001,
+    "solution": "$\\frac{dy}{1+y^2}=dx\\Rightarrow\\arctan y=x+C$, z podmínky $C=0$, tedy $y=\\tan x$ a $y(1)=\\tan1\\approx1{,}557$.",
+    "hints": [
+      "Separuj: $\\frac{dy}{1+y^2}=dx$.",
+      "Integrál levé strany je $\\arctan y$.",
+      "Řešení je $y=\\tan(x+C)$."
+    ]
+  },
+  {
+    "id": "ode-sep-const",
+    "type": "choice",
+    "prompt": "Kolik **konstantních řešení** má rovnice $y'=y(1-y)$?",
+    "options": [
+      "žádné",
+      "jedno ($y=0$)",
+      "dvě ($y=0$ a $y=1$)",
+      "nekonečně mnoho"
+    ],
+    "answer": 2,
+    "solution": "Konstantní řešení splňují $y'=0$, tj. $y(1-y)=0$: $y=0$ a $y=1$. Při dělení $y(1-y)$ se ztrácejí.",
+    "hints": [
+      "Konstantní řešení má $y'=0$.",
+      "Řeš $y(1-y)=0$.",
+      "Tyto dvě konstanty při separaci dělením $g(y)$ snadno ztratíš."
+    ]
+  },
+  {
+    "id": "ode-sep-unique",
+    "type": "choice",
+    "prompt": "Počáteční úloha $y'=3\\sqrt[3]{y^2}$, $y(0)=0$ má:",
+    "options": [
+      "právě jedno řešení",
+      "právě dvě řešení",
+      "nekonečně mnoho řešení (např. $y=0$ a $y=x^3$)",
+      "žádné řešení"
+    ],
+    "answer": 2,
+    "solution": "Obě $y\\equiv0$ i $y=x^3$ splňují rovnici i podmínku (a lze je lepit). Pravá strana není lipschitzovská v $y$ v okolí $0$, takže jednoznačnost neplatí.",
+    "hints": [
+      "Zkus dosadit $y=0$ a $y=x^3$.",
+      "Pro $y=x^3$ je $y'=3x^2=3\\sqrt[3]{x^6}$.",
+      "Existenci i jednoznačnost zaručuje spojitost + lipschitzovskost, tady chybí druhá."
+    ]
+  },
+  {
+    "id": "ode-sep-lost",
+    "type": "free",
+    "prompt": "Proč se při řešení $y'=f(x)g(y)$ dělením $g(y)$ může „ztratit“ řešení a jak ho najdeš?",
+    "solution": "Dělení $g(y)$ je možné jen tam, kde $g(y)\\ne0$. Když $g(y_0)=0$, je $y\\equiv y_0$ konstantní řešení ($y'=0=f(x)\\cdot0$), které ve vzorci $\\int\\frac{dy}{g(y)}=\\int f\\,dx+C$ nevyjde pro žádné $C$ (např. $y\\equiv0$ u $y'=y^2$). Musíme ho přidat zvlášť, vyřešením $g(y)=0$.",
+    "hints": [
+      "Kdy nesmíš dělit $g(y)$?",
+      "Dosaď do rovnice konstantní funkci $y\\equiv y_0$ s $g(y_0)=0$.",
+      "Příklad: $y'=y^2$ a $y\\equiv0$."
+    ]
+  }
+]

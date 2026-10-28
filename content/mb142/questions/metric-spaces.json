@@ -1,0 +1,145 @@
+[
+  {
+    "id": "ms-axiom",
+    "type": "choice",
+    "prompt": "Která vlastnost **není** axiomem metriky?",
+    "options": [
+      "$d(x,y)=d(y,x)$",
+      "$d(x,z)\\le d(x,y)+d(y,z)$",
+      "$d(x,y)=0\\Leftrightarrow x=y$",
+      "$d(\\lambda x,\\lambda y)=|\\lambda|\\,d(x,y)$"
+    ],
+    "answer": 3,
+    "solution": "Poslední je homogenita, vlastnost metriky odvozené z normy, ne axiom obecné metriky (na obecné množině násobení skalárem ani nemusí existovat).",
+    "hints": [
+      "Axiomy: kladnost, symetrie, trojúhelníková nerovnost.",
+      "Která vlastnost potřebuje vektorový prostor?",
+      "To je vlastnost normy."
+    ]
+  },
+  {
+    "id": "ms-complete",
+    "type": "choice",
+    "prompt": "Který prostor s metrikou $d(x,y)=|x-y|$ je **úplný**?",
+    "options": [
+      "$\\mathbb Q$",
+      "$(0,1)$",
+      "$[0,1]$",
+      "$\\mathbb R\\setminus\\{0\\}$"
+    ],
+    "answer": 2,
+    "solution": "$[0,1]$ je uzavřená podmnožina úplného $\\mathbb R$. Ostatní mají cauchyovskou posloupnost bez limity v prostoru ($\\sqrt2$ pro $\\mathbb Q$, $0$ pro $(0,1)$ a $\\mathbb R\\setminus\\{0\\}$).",
+    "hints": [
+      "Hledej cauchyovskou posloupnost, jejíž limita v prostoru leží mimo.",
+      "Uzavřená podmnožina úplného prostoru je úplná.",
+      "Pro $\\mathbb Q$ zkus desetinná přiblížení $\\sqrt2$."
+    ]
+  },
+  {
+    "id": "ms-cauchy",
+    "type": "choice",
+    "prompt": "Každá konvergentní posloupnost v metrickém prostoru je:",
+    "options": [
+      "cauchyovská",
+      "monotónní",
+      "omezená jen v $\\mathbb R$",
+      "konstantní od jistého indexu"
+    ],
+    "answer": 0,
+    "solution": "$d(x_i,x_j)\\le d(x_i,x)+d(x,x_j)<2\\varepsilon$. Opak platí jen v úplném prostoru.",
+    "hints": [
+      "Použij trojúhelníkovou nerovnost přes limitu.",
+      "Obě vzdálenosti jsou menší než $\\varepsilon$.",
+      "Opačná implikace je právě úplnost."
+    ]
+  },
+  {
+    "id": "ms-discrete",
+    "type": "numeric",
+    "prompt": "V diskrétní metrice ($d=1$ pro $x\\ne y$) je $d(a,c)\\le d(a,b)+d(b,c)$. Kolik je nejvýše $d(a,c)$, jsou-li $a,b,c$ navzájem různé? (Zadej hodnotu $d(a,c)$.)",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Pro různé body je $d(a,c)=1$ (a $1\\le1+1$ trojúhelníková nerovnost platí).",
+    "hints": [
+      "Diskrétní metrika má jen hodnoty $0$ a $1$.",
+      "Různé body mají vzdálenost $1$.",
+      "$1\\le 2$ je splněno."
+    ]
+  },
+  {
+    "id": "ms-closure",
+    "type": "choice",
+    "prompt": "Uzávěr intervalu $(0,1)\\cup\\{2\\}$ v $\\mathbb R$ je:",
+    "options": [
+      "$[0,1]\\cup\\{2\\}$",
+      "$(0,1)\\cup\\{2\\}$",
+      "$[0,2]$",
+      "$[0,1)$"
+    ],
+    "answer": 0,
+    "solution": "Uzávěr = množina + hromadné body: přidají se $0$ a $1$. Bod $2$ je izolovaný a již v množině.",
+    "hints": [
+      "Hromadné body $(0,1)$ jsou $[0,1]$.",
+      "Bod $2$ patří do množiny.",
+      "Sjednoť množinu s hromadnými body."
+    ]
+  },
+  {
+    "id": "ms-interior",
+    "type": "choice",
+    "prompt": "Vnitřek množiny $[0,1]$ v $\\mathbb R$ je:",
+    "options": [
+      "$[0,1]$",
+      "$(0,1)$",
+      "$\\{0,1\\}$",
+      "$\\emptyset$"
+    ],
+    "answer": 1,
+    "solution": "Krajní body $0,1$ nemají okolí obsažené v $[0,1]$.",
+    "hints": [
+      "Bod patří do vnitřku, má-li s sebou okolí.",
+      "Krajní body takové okolí nemají.",
+      "Zůstane otevřený interval."
+    ]
+  },
+  {
+    "id": "ms-closed",
+    "type": "choice",
+    "prompt": "Množina $A$ je uzavřená právě tehdy, když:",
+    "options": [
+      "je omezená",
+      "obsahuje všechny své hromadné body",
+      "neobsahuje žádný hromadný bod",
+      "je konečná"
+    ],
+    "answer": 1,
+    "solution": "Věta 91.",
+    "hints": [
+      "Uzavřená = její doplněk je otevřený.",
+      "Ekvivalentní formulace přes hromadné body.",
+      "Např. $[0,1]$ obsahuje $0$ i $1$."
+    ]
+  },
+  {
+    "id": "ms-q",
+    "type": "free",
+    "prompt": "Ukaž na posloupnosti, že $\\mathbb Q$ s metrikou $|x-y|$ není úplný.",
+    "solution": "Posloupnost desetinných aproximací $\\sqrt2$: $x_1=1$, $x_2=1{,}4$, $x_3=1{,}41,\\dots$ je tvořena racionálními čísly a je cauchyovská (v $\\mathbb R$ konverguje k $\\sqrt2$), ale její limita $\\sqrt2\\notin\\mathbb Q$. Cauchyovská posloupnost bez limity v $\\mathbb Q$ ⇒ $\\mathbb Q$ není úplný.",
+    "hints": [
+      "Vezmi racionální aproximace iracionálního čísla.",
+      "Je posloupnost cauchyovská?",
+      "Leží limita v $\\mathbb Q$?"
+    ]
+  },
+  {
+    "id": "ms-norm-metric",
+    "type": "free",
+    "prompt": "Ukaž, že norma $\\|\\cdot\\|$ definuje metriku $d(x,y)=\\|x-y\\|$.",
+    "solution": "$d(x,y)=\\|x-y\\|\\ge0$ a $=0$ jen pro $x-y=0$. Symetrie: $\\|x-y\\|=\\|(-1)(y-x)\\|=|-1|\\|y-x\\|=\\|y-x\\|$. Trojúhelníková nerovnost: $\\|x-z\\|=\\|(x-y)+(y-z)\\|\\le\\|x-y\\|+\\|y-z\\|$.",
+    "hints": [
+      "Ověř tři axiomy metriky.",
+      "Symetrie plyne z homogenity normy s $\\lambda=-1$.",
+      "Trojúhelníková nerovnost normy pro $x-y$ a $y-z$."
+    ]
+  }
+]

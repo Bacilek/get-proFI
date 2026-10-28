@@ -1,0 +1,160 @@
+[
+  {
+    "id": "pn-1",
+    "type": "numeric",
+    "prompt": "Pro $z=(3,-4)$ spočti $\\|z\\|_1$.",
+    "answer": 7,
+    "tolerance": 0.001,
+    "solution": "$\\|z\\|_1=|3|+|-4|=7$.",
+    "hints": [
+      "Součet absolutních hodnot.",
+      "$|{-4}|=4$.",
+      "$3+4$."
+    ]
+  },
+  {
+    "id": "pn-2",
+    "type": "numeric",
+    "prompt": "Pro $z=(3,-4)$ spočti $\\|z\\|_2$.",
+    "answer": 5,
+    "tolerance": 0.001,
+    "solution": "$\\sqrt{3^2+4^2}=5$.",
+    "hints": [
+      "Euklidovská norma.",
+      "$9+16=25$.",
+      "Odmocni."
+    ]
+  },
+  {
+    "id": "pn-inf",
+    "type": "numeric",
+    "prompt": "Pro $z=(3,-4,1)$ spočti $\\|z\\|_\\infty$.",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "Maximum absolutních hodnot: $\\max(3,4,1)=4$.",
+    "hints": [
+      "$p=\\infty$ je maximum.",
+      "Pracuj s absolutními hodnotami.",
+      "$|{-4}|=4$."
+    ]
+  },
+  {
+    "id": "pn-3",
+    "type": "numeric",
+    "prompt": "Pro $z=(1,2,2)$ spočti $\\|z\\|_3$ (3 des.).",
+    "answer": 2.571281590658235,
+    "tolerance": 0.002,
+    "solution": "$\\|z\\|_3=(1+8+8)^{1/3}=17^{1/3}\\approx2{,}571$.",
+    "hints": [
+      "Sečti třetí mocniny absolutních hodnot.",
+      "$1^3+2^3+2^3=17$.",
+      "Třetí odmocnina z $17$."
+    ]
+  },
+  {
+    "id": "pn-q",
+    "type": "numeric",
+    "prompt": "Pro $p=3$ najdi sdružený exponent $q$ z $\\frac1p+\\frac1q=1$ (desetinné číslo).",
+    "answer": 1.5,
+    "tolerance": 0.001,
+    "solution": "$\\frac1q=1-\\frac13=\\frac23\\Rightarrow q=\\frac32$.",
+    "hints": [
+      "$\\frac1q=1-\\frac1p$.",
+      "Pro $p=3$ je to $\\frac23$.",
+      "Převrať zlomek."
+    ]
+  },
+  {
+    "id": "pn-fn",
+    "type": "numeric",
+    "prompt": "Spočti $\\|f\\|_2$ pro $f(x)=x$ na $[0,1]$ (4 des.).",
+    "answer": 0.5773502691896258,
+    "tolerance": 0.0005,
+    "solution": "$\\|f\\|_2=\\sqrt{\\int_0^1x^2dx}=\\frac1{\\sqrt3}\\approx0{,}5774$.",
+    "hints": [
+      "$\\|f\\|_2=(\\int|f|^2)^{1/2}$.",
+      "$\\int_0^1x^2dx=\\frac13$.",
+      "Odmocni."
+    ]
+  },
+  {
+    "id": "pn-fn1",
+    "type": "numeric",
+    "prompt": "Spočti $\\|f\\|_1$ pro $f(x)=\\sin x$ na $[0,\\pi]$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$\\int_0^\\pi|\\sin x|dx=2$.",
+    "hints": [
+      "Na $[0,\\pi]$ je $\\sin\\ge0$.",
+      "Primitivní funkce je $-\\cos x$.",
+      "$-\\cos\\pi+\\cos0=2$."
+    ]
+  },
+  {
+    "id": "pn-holder",
+    "type": "numeric",
+    "prompt": "Pro $x=(1,2)$, $y=(3,1)$ a $p=q=2$ spočti pravou stranu Höldera $\\|x\\|_2\\|y\\|_2$ (3 des.).",
+    "answer": 7.0710678118654755,
+    "tolerance": 0.002,
+    "solution": "$\\|x\\|_2=\\sqrt5$, $\\|y\\|_2=\\sqrt{10}$, součin $\\sqrt{50}\\approx7{,}071\\ge\\sum|x_iy_i|=5$.",
+    "hints": [
+      "$\\|x\\|_2^2=1+4$, $\\|y\\|_2^2=9+1$.",
+      "Vynásob normy.",
+      "$\\sqrt5\\cdot\\sqrt{10}$."
+    ]
+  },
+  {
+    "id": "pn-order",
+    "type": "choice",
+    "prompt": "Pro libovolný vektor $z\\in\\mathbb R^n$ platí:",
+    "options": [
+      "$\\|z\\|_\\infty\\le\\|z\\|_2\\le\\|z\\|_1$",
+      "$\\|z\\|_1\\le\\|z\\|_2\\le\\|z\\|_\\infty$",
+      "$\\|z\\|_2\\le\\|z\\|_\\infty\\le\\|z\\|_1$",
+      "všechny normy jsou stejné"
+    ],
+    "answer": 0,
+    "solution": "Zkus $z=(3,-4)$: $4\\le5\\le7$. Obecně $\\|z\\|_p$ klesá s rostoucím $p$.",
+    "hints": [
+      "Vyzkoušej $(3,-4)$.",
+      "Největší složka nepřekročí euklidovskou délku.",
+      "Euklidovská délka nepřekročí součet."
+    ]
+  },
+  {
+    "id": "pn-ball",
+    "type": "choice",
+    "prompt": "Jednotková koule $\\{\\|z\\|_1\\le1\\}$ v $\\mathbb R^2$ je:",
+    "options": [
+      "kruh",
+      "čtverec s vrcholy $(\\pm1,\\pm1)$",
+      "kosočtverec s vrcholy $(\\pm1,0),(0,\\pm1)$",
+      "úsečka"
+    ],
+    "answer": 2,
+    "solution": "$|x|+|y|\\le1$ je kosočtverec. $p=2$ kruh, $p=\\infty$ čtverec $|x|,|y|\\le1$.",
+    "hints": [
+      "Ve všech kvadrantech je to přímka $\\pm x\\pm y=1$.",
+      "Průsečíky s osami jsou $(\\pm1,0)$, $(0,\\pm1)$.",
+      "Čtverec patří normě $\\infty$."
+    ]
+  },
+  {
+    "id": "pn-p",
+    "type": "choice",
+    "prompt": "Pro $0<p<1$ vzorec $(\\sum|z_i|^p)^{1/p}$:",
+    "options": [
+      "je norma",
+      "není norma – porušuje trojúhelníkovou nerovnost",
+      "není definovaný",
+      "je norma jen na $\\mathbb R^1$"
+    ],
+    "answer": 1,
+    "solution": "Například $x=(1,0)$, $y=(0,1)$, $p=\\frac12$: $\\|x+y\\|=(1+1)^2=4>1+1=\\|x\\|+\\|y\\|$.",
+    "hints": [
+      "Vyzkoušej $x=(1,0)$ a $y=(0,1)$.",
+      "Spočti $\\|x+y\\|_p$ pro $p=\\frac12$.",
+      "Je $4\\le2$?"
+    ]
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "hs-tangent",
+    "type": "numeric",
+    "prompt": "Hermitův polynom pro $P(1)=2$, $P'(1)=3$ je $P(x)=2+3(x-1)$. Kolik je $P(4)$?",
+    "answer": 11,
+    "tolerance": 0.001,
+    "solution": "$2+3\\cdot3=11$.",
+    "hints": [
+      "Stupeň $1$ – tečna.",
+      "$P(x)=P(1)+P'(1)(x-1)$.",
+      "Dosaď $x=4$."
+    ]
+  },
+  {
+    "id": "hs-deg",
+    "type": "numeric",
+    "prompt": "Hermitova interpolace předepisuje hodnotu i první derivaci ve třech bodech ($m=2$). Jakého stupně je polynom ($n=2m+1$)?",
+    "answer": 5,
+    "tolerance": 0.001,
+    "solution": "$6$ podmínek, $n+1=6$ koeficientů ⇒ $n=5$.",
+    "hints": [
+      "Počet podmínek $2(m+1)=6$.",
+      "Polynom stupně $n$ má $n+1$ koeficientů.",
+      "$n=2m+1$."
+    ]
+  },
+  {
+    "id": "hs-p3",
+    "type": "numeric",
+    "prompt": "Hermitův polynom $P(1)=0,P'(1)=1,P(2)=3,P'(2)=3$ je $P(x)=-2x^3+10x^2-13x+5$. Kolik je $P(3)$?",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$-54+90-39+5=2$.",
+    "hints": [
+      "$x^3=27$, $x^2=9$.",
+      "$-2\\cdot27=-54$, $10\\cdot9=90$.",
+      "Sečti všechny členy."
+    ]
+  },
+  {
+    "id": "hs-cubic",
+    "type": "numeric",
+    "prompt": "Pro $x_0=0$, $x_1=1$ použij $f=(2y_0-2y_1+y_0'+y_1')x^3+(-3y_0+3y_1-2y_0'-y_1')x^2+y_0'x+y_0$ s $y_0=0,y_1=1,y_0'=y_1'=0$. Kolik je $f(\\frac12)$?",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "$f=-2x^3+3x^2$, $f(\\frac12)=-\\frac14+\\frac34=\\frac12$.",
+    "hints": [
+      "Dosaď hodnoty do koeficientů: $a_3=-2$, $a_2=3$.",
+      "$f(x)=-2x^3+3x^2$.",
+      "Dosaď $x=\\frac12$."
+    ]
+  },
+  {
+    "id": "hs-spline-cond",
+    "type": "numeric",
+    "prompt": "Kubický splajn přes $n=5$ intervalů: kolik je neznámých koeficientů ($4n$)?",
+    "answer": 20,
+    "tolerance": 0.001,
+    "solution": "Každý ze $5$ polynomů 3. stupně má $4$ koeficienty ⇒ $20$.",
+    "hints": [
+      "Počet intervalů krát koeficienty kubiky.",
+      "$4n$.",
+      "$4\\cdot5$."
+    ]
+  },
+  {
+    "id": "hs-spline-free",
+    "type": "numeric",
+    "prompt": "Pro kubický splajn s $n$ intervaly zbývá po podmínkách interpolace a spojitosti $S'$, $S''$ volných parametrů:",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$4n-(2n+(n-1)+(n-1))=2$. Proto se přidávají okrajové podmínky.",
+    "hints": [
+      "Podmínky interpolace: $2n$.",
+      "Spojitost $S'$ a $S''$ v $n-1$ vnitřních uzlech: $2(n-1)$.",
+      "Rozdíl proti $4n$."
+    ]
+  },
+  {
+    "id": "hs-natural",
+    "type": "choice",
+    "prompt": "Přirozený kubický splajn je splajn, pro který:",
+    "options": [
+      "$S'(x_0)=S'(x_n)=0$",
+      "$S''(x_0)=S''(x_n)=0$",
+      "$S(x_0)=S(x_n)$",
+      "všechny $S_i$ jsou stejné"
+    ],
+    "answer": 1,
+    "solution": "Okrajové podmínky přirozeného splajnu: nulová druhá derivace v krajních bodech.",
+    "hints": [
+      "Jde o doplnění dvou chybějících podmínek.",
+      "Splajn se na krajích „narovná“ (nulové zakřivení).",
+      "Která derivace popisuje zakřivení?"
+    ]
+  },
+  {
+    "id": "hs-smooth",
+    "type": "choice",
+    "prompt": "Kubický splajn je v uzlech spojitý spolu s:",
+    "options": [
+      "pouze funkční hodnotou",
+      "hodnotou a první derivací",
+      "hodnotou, první i druhou derivací",
+      "všemi derivacemi"
+    ],
+    "answer": 2,
+    "solution": "Podmínky: $S_i(x_i)=S_{i+1}(x_i)$, $S_i'=S_{i+1}'$, $S_i''=S_{i+1}''$ (třetí derivace se může skokem měnit).",
+    "hints": [
+      "Podmínky definice splajnu.",
+      "Kolik rovností pro derivace je v definici?",
+      "Třetí derivace je po částech konstantní."
+    ]
+  }
+]
