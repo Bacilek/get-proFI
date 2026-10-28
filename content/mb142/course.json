@@ -430,14 +430,22 @@
       "date": "2026-10-20",
       "maxPoints": 12,
       "minPoints": 8,
-      "boss": true
+      "boss": true,
+      "coversModules": [
+        "diff",
+        "multivar"
+      ]
     },
     {
       "id": "midterm2",
       "title": "2. zápočtová písemka (integrály, řady)",
       "type": "midterm",
       "maxPoints": 12,
-      "boss": true
+      "boss": true,
+      "coversModules": [
+        "integral",
+        "series"
+      ]
     },
     {
       "id": "exam",
@@ -445,7 +453,13 @@
       "type": "exam",
       "maxPoints": 40,
       "minPoints": 15,
-      "boss": true
+      "boss": true,
+      "coversModules": [
+        "diff",
+        "multivar",
+        "integral",
+        "series"
+      ]
     }
   ],
   "openItems": [
