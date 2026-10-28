@@ -1,0 +1,80 @@
+[
+  {
+    "id": "da-tangent-sqrt",
+    "type": "numeric",
+    "prompt": "Tečna ke grafu $f(x)=\\sqrt x$ v bodě $x_0=4$ protíná osu $y$ v bodě $[0,\\,q]$. Urči $q$.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "$f'(4)=\\frac1{2\\sqrt4}=\\frac14$, $f(4)=2$: $y-2=\\frac14(x-4)$, tj. $y=\\frac x4+1$. Pro $x=0$: $q=1$."
+  },
+  {
+    "id": "da-tangent-ln",
+    "type": "numeric",
+    "prompt": "Tečna ke grafu $f(x)=\\ln x$ v bodě $x_0=e$ protíná osu $y$ v bodě $[0,\\,q]$. Urči $q$.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "$f'(e)=\\frac1e$, $f(e)=1$: $y-1=\\frac1e(x-e)$, tj. $y=\\frac xe$. Pro $x=0$: $q=0$ (tečna prochází počátkem)."
+  },
+  {
+    "id": "da-normal-slope",
+    "type": "numeric",
+    "prompt": "Urči směrnici normály ke grafu $f(x)=x^3$ v bodě $x_0=2$.",
+    "answer": -0.083333,
+    "tolerance": 0.001,
+    "solution": "$f'(2)=12$, směrnice normály je $-\\frac1{12}\\approx-0{,}0833$."
+  },
+  {
+    "id": "da-velocity-accel",
+    "type": "numeric",
+    "prompt": "Dráha je $s(t)=5t^2$ (m, s). Urči rychlost v čase $t=3$ s (m/s).",
+    "answer": 30,
+    "tolerance": 0.001,
+    "solution": "$v=s'=10t$, $v(3)=30$ m/s (zrychlení $a=v'=10$ m/s²)."
+  },
+  {
+    "id": "da-tank",
+    "type": "numeric",
+    "prompt": "Z válcové nádrže o poloměru $r=1$ m vytéká $3\\ \\mathrm{m^3/min}$. Urči $h'(t)$ v m/min (3 desetinná místa, záporné = klesání).",
+    "answer": -0.955,
+    "tolerance": 0.002,
+    "solution": "$V=\\pi r^2h\\Rightarrow V'=\\pi r^2h'$, $h'=\\frac{-3}{\\pi}\\approx-0{,}955$ m/min."
+  },
+  {
+    "id": "da-police",
+    "type": "numeric",
+    "prompt": "Policejní auto jede ke křižovatce rychlostí $120$ km/h a je $0{,}6$ km od ní; auto lupičů je $0{,}8$ km od křižovatky a vzdaluje se kolmo na východ. Vzdálenost mezi auty roste rychlostí $40$ km/h. Jak rychle (km/h) jede auto lupičů?",
+    "answer": 140,
+    "tolerance": 0.5,
+    "solution": "$s^2=x^2+y^2$, $s=1$. $ss'=xx'+yy'$: $1\\cdot40=0{,}8x'+0{,}6(-120)$, $0{,}8x'=112$, $x'=140$ km/h."
+  },
+  {
+    "id": "da-shadow",
+    "type": "numeric",
+    "prompt": "Člověk vysoký $1{,}8$ m jde rychlostí $1{,}5$ m/s k lampě ve výšce $4{,}8$ m. Jak rychle (m/s, velikost) se pohybuje špička jeho stínu?",
+    "answer": 2.4,
+    "tolerance": 0.01,
+    "solution": "Z podobnosti: $\\frac{4{,}8}{y}=\\frac{1{,}8}{y-x}$, odtud $y=1{,}6x$. Tedy $|y'|=1{,}6\\cdot1{,}5=2{,}4$ m/s."
+  },
+  {
+    "id": "da-shadow-len",
+    "type": "numeric",
+    "prompt": "V téže situaci (člověk $1{,}8$ m, lampa $4{,}8$ m, rychlost $1{,}5$ m/s k lampě) urči $(y-x)'$, tedy změnu délky stínu v m/s (záporné = zkracování).",
+    "answer": -0.9,
+    "tolerance": 0.01,
+    "solution": "$y-x=0{,}6x$ (protože $y=1{,}6x$), derivace $0{,}6\\cdot(-1{,}5)=-0{,}9$ m/s."
+  },
+  {
+    "id": "da-sign",
+    "type": "choice",
+    "prompt": "Auto se blíží ke křižovatce; $y(t)$ je jeho vzdálenost od ní. Co platí pro $y'(t)$?",
+    "options": ["$y'(t)<0$", "$y'(t)>0$", "$y'(t)=0$", "znaménko nelze určit"],
+    "answer": 0,
+    "solution": "Vzdálenost se zmenšuje, tedy $y'<0$."
+  },
+  {
+    "id": "da-normal-free",
+    "type": "free",
+    "prompt": "Napiš rovnici tečny i normály ke grafu $f(x)=\\frac1x$ v bodě $x_0=2$.",
+    "solution": "$f(2)=\\frac12$, $f'(2)=-\\frac14$. Tečna: $y-\\frac12=-\\frac14(x-2)$, tj. $y=-\\frac14x+1$. Normála má směrnici $4$: $y-\\frac12=4(x-2)$, tj. $y=4x-\\frac{15}2$."
+  }
+]

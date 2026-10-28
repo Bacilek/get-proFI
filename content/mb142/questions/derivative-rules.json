@@ -1,0 +1,78 @@
+[
+  {
+    "id": "dr-quotient",
+    "type": "numeric",
+    "prompt": "Spočítej $f'(2)$ pro $f(x)=\\dfrac{x^2+1}{x^2-1}$ (desetinné číslo).",
+    "answer": -0.888889,
+    "tolerance": 0.001,
+    "solution": "$f'(x)=\\frac{-4x}{(x^2-1)^2}$, tedy $f'(2)=\\frac{-8}{9}\\approx-0{,}8889$."
+  },
+  {
+    "id": "dr-chain-sqrt",
+    "type": "numeric",
+    "prompt": "Spočítej derivaci $\\sqrt{x^2+x}$ v bodě $x=2$ (3 desetinná místa).",
+    "answer": 1.0206,
+    "tolerance": 0.002,
+    "solution": "$\\frac{2x+1}{2\\sqrt{x^2+x}}=\\frac5{2\\sqrt6}\\approx\\frac5{4{,}899}\\approx1{,}0206$."
+  },
+  {
+    "id": "dr-chain-square",
+    "type": "numeric",
+    "prompt": "Spočítej derivaci funkce $(x^2+x)^2$ v bodě $x=1$.",
+    "answer": 12,
+    "tolerance": 0.001,
+    "solution": "$2(x^2+x)(2x+1)$ v $x=1$: $2\\cdot2\\cdot3=12$ (kontrola: $4x^3+6x^2+2x=12$)."
+  },
+  {
+    "id": "dr-product",
+    "type": "choice",
+    "prompt": "Derivace $\\sqrt x\\cdot x^2$ je:",
+    "options": ["$\\dfrac{5}{2}x^{3/2}$", "$\\dfrac1{2\\sqrt x}\\cdot2x$", "$\\dfrac{1}{2}x^{3/2}$", "$\\dfrac52x^{1/2}$"],
+    "answer": 0,
+    "solution": "$\\sqrt x\\,x^2=x^{5/2}$, derivace $\\frac52x^{3/2}$. Podle součinu: $\\frac1{2\\sqrt x}x^2+\\sqrt x\\,2x=\\frac12x^{3/2}+2x^{3/2}=\\frac52x^{3/2}$."
+  },
+  {
+    "id": "dr-chain-forgot",
+    "type": "choice",
+    "prompt": "Derivace funkce $\\sin(x^2)$ je:",
+    "options": ["$2x\\cos(x^2)$", "$\\cos(x^2)$", "$2x\\cos x$", "$\\cos^2 x$"],
+    "answer": 0,
+    "solution": "Vnější $\\sin\\to\\cos(x^2)$, vnitřní $x^2\\to2x$; výsledek $2x\\cos(x^2)$."
+  },
+  {
+    "id": "dr-inverse",
+    "type": "numeric",
+    "prompt": "Funkce $f(y)=y^3+y$ je rostoucí. Urči $(f^{-1})'(2)$.",
+    "answer": 0.25,
+    "tolerance": 0.001,
+    "solution": "$f(1)=2$, tedy $y_0=1$. $f'(y)=3y^2+1$, $f'(1)=4$. $(f^{-1})'(2)=\\frac1{f'(1)}=\\frac14$."
+  },
+  {
+    "id": "dr-second",
+    "type": "numeric",
+    "prompt": "Urči $f''(4)$ pro $f(x)=\\sqrt x$.",
+    "answer": -0.03125,
+    "tolerance": 0.001,
+    "solution": "$f'=\\frac12x^{-1/2}$, $f''=-\\frac14x^{-3/2}$. Pro $x=4$: $-\\frac14\\cdot\\frac18=-\\frac1{32}=-0{,}03125$."
+  },
+  {
+    "id": "dr-slope-quot-wrong",
+    "type": "choice",
+    "prompt": "Která rovnost je pravidlo pro derivaci podílu?",
+    "options": ["$\\left(\\frac fg\\right)'=\\frac{f'g-fg'}{g^2}$", "$\\left(\\frac fg\\right)'=\\frac{f'}{g'}$", "$\\left(\\frac fg\\right)'=\\frac{fg'-f'g}{g^2}$", "$\\left(\\frac fg\\right)'=\\frac{f'g+fg'}{g^2}$"],
+    "answer": 0,
+    "solution": "Čitatel je „derivace čitatele krát jmenovatel minus čitatel krát derivace jmenovatele“, jmenovatel $g^2$."
+  },
+  {
+    "id": "dr-cbrt-free",
+    "type": "free",
+    "prompt": "Pomocí věty o derivaci inverzní funkce odvoď $(\\sqrt[3]x)'$.",
+    "solution": "Označ $y=\\sqrt[3]x$, $x=f(y)=y^3$, $f'(y)=3y^2$. Pak $(\\sqrt[3]x)'=\\frac1{3y^2}=\\frac1{3(\\sqrt[3]x)^2}=\\frac13x^{-2/3}$ pro $x\\ne0$."
+  },
+  {
+    "id": "dr-inverse-chain-free",
+    "type": "free",
+    "prompt": "Odvoď vzorec pro derivaci inverzní funkce z pravidla pro složenou funkci.",
+    "solution": "Pro $x\\in D(f^{-1})$ platí $x=f(f^{-1}(x))$. Derivováním: $1=f'(f^{-1}(x))\\cdot(f^{-1})'(x)$, tedy $(f^{-1})'(x)=\\frac1{f'(f^{-1}(x))}$ (pokud $f'\\ne0$)."
+  }
+]
