@@ -120,5 +120,18 @@
       "Věta požaduje spojitost na uzavřeném a omezeném intervalu.",
       "Je $(0,\\infty)$ takový interval?"
     ]
+  },
+  {
+    "id": "exam-3",
+    "type": "numeric",
+    "prompt": "Do půlkruhu o poloměru $r$ vepište obdélník (jedna strana leží na průměru) s největším možným obvodem. Určete poměr $o/r$ největšího obvodu k poloměru (na 3 desetinná místa).",
+    "answer": 4.472,
+    "tolerance": 0.005,
+    "solution": "Obdélník má polovinu základny $x$ a výšku $y=\\sqrt{r^2-x^2}$, obvod $o(x)=4x+2\\sqrt{r^2-x^2}$ na $[0,r]$. $o'=4-\\frac{2x}{\\sqrt{r^2-x^2}}=0\\Rightarrow\\sqrt{r^2-x^2}=\\frac x2\\Rightarrow x=\\frac{2r}{\\sqrt5}$, $y=\\frac r{\\sqrt5}$. $o=\\frac{8r}{\\sqrt5}+\\frac{2r}{\\sqrt5}=2\\sqrt5\\,r\\approx4{,}472\\,r$. Krajní hodnoty $o(0)=2r$, $o(r)=4r$ jsou menší, jde tedy o maximum.",
+    "hints": [
+      "Zvol $x$ jako polovinu základny; výška plyne z rovnice kružnice $x^2+y^2=r^2$.",
+      "$o(x)=4x+2\\sqrt{r^2-x^2}$ na $[0,r]$; najdi nulu derivace.",
+      "Z $o'=0$ vyjde $\\sqrt{r^2-x^2}=\\frac x2$; dosaď zpět a porovnej s krajními hodnotami."
+    ]
   }
 ]

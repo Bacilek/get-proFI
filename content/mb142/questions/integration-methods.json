@@ -104,5 +104,77 @@
       "Součin polynomu a exponenciální funkce → per partes.",
       "$u=x$, $v'=3^x$, $v=\\frac{3^x}{\\ln3}$."
     ]
+  },
+  {
+    "id": "g09-im-1",
+    "type": "choice",
+    "prompt": "Per partes: $\\displaystyle\\int\\frac{x}{\\cos^2x}\\,\\mathrm{d}x=$",
+    "options": [
+      "$x\\operatorname{tg}x+\\ln|\\cos x|+C$",
+      "$x\\operatorname{tg}x-\\ln|\\cos x|+C$",
+      "$\\dfrac{x^2}{2}\\operatorname{tg}x+C$",
+      "$-x\\operatorname{cotg}x+C$"
+    ],
+    "answer": 0,
+    "solution": "Volíme $u=x$, $v'=\\frac1{\\cos^2x}$, $v=\\operatorname{tg}x$: $x\\operatorname{tg}x-\\int\\operatorname{tg}x\\,dx=x\\operatorname{tg}x+\\ln|\\cos x|+C$.",
+    "hints": [
+      "Zvol $u=x$ (derivováním se zjednoduší) a $v'=\\frac1{\\cos^2x}$.",
+      "Primitivní funkce k $\\frac1{\\cos^2x}$ je $\\operatorname{tg}x$; zbývá $\\int\\operatorname{tg}x\\,dx$.",
+      "$\\int\\operatorname{tg}x\\,dx=-\\ln|\\cos x|$; pozor na znaménko před integrálem."
+    ]
+  },
+  {
+    "id": "g09-im-2",
+    "type": "choice",
+    "prompt": "Per partes: $\\displaystyle\\int(2x-7)\\ln x\\,\\mathrm{d}x=$",
+    "options": [
+      "$(x^2-7x)\\ln x-\\dfrac{x^2}2+7x+C$",
+      "$(x^2-7x)\\ln x+\\dfrac{x^2}2-7x+C$",
+      "$(2x-7)(x\\ln x-x)+C$",
+      "$(x^2-7x)\\dfrac1x+C$"
+    ],
+    "answer": 0,
+    "solution": "$u=\\ln x$, $v'=2x-7$, $v=x^2-7x$: $(x^2-7x)\\ln x-\\int\\frac{x^2-7x}{x}dx=(x^2-7x)\\ln x-\\int(x-7)dx=(x^2-7x)\\ln x-\\frac{x^2}2+7x+C$.",
+    "hints": [
+      "Zderivuj logaritmus, polynom integruj ($u=\\ln x$).",
+      "Zbývající integrál je $\\int\\frac{x^2-7x}{x}\\,dx$; zkrať.",
+      "Odečítá se celý integrál, takže se obrátí znaménka."
+    ]
+  },
+  {
+    "id": "g09-im-3",
+    "type": "choice",
+    "prompt": "Substituce $t=\\sqrt x$ a per partes: $\\displaystyle\\int e^{\\sqrt x}\\,\\mathrm{d}x=$",
+    "options": [
+      "$2e^{\\sqrt x}(\\sqrt x-1)+C$",
+      "$2e^{\\sqrt x}(\\sqrt x+1)+C$",
+      "$\\dfrac{e^{\\sqrt x}}{2\\sqrt x}+C$",
+      "$e^{\\sqrt x}\\sqrt x+C$"
+    ],
+    "answer": 0,
+    "solution": "$t=\\sqrt x$, $x=t^2$, $dx=2t\\,dt$: $\\int2te^t\\,dt=2(te^t-e^t)+C=2e^t(t-1)+C=2e^{\\sqrt x}(\\sqrt x-1)+C$.",
+    "hints": [
+      "Zaveď $t=\\sqrt x$; vyjádři $dx$.",
+      "Dostaneš $\\int2te^t\\,dt$ – per partes.",
+      "Nezapomeň na zpětnou substituci $t=\\sqrt x$."
+    ]
+  },
+  {
+    "id": "g09-im-4",
+    "type": "choice",
+    "prompt": "Substituce $t=x+1$: $\\displaystyle\\int x\\sqrt{x+1}\\,\\mathrm{d}x=$",
+    "options": [
+      "$\\dfrac25(x+1)^{5/2}-\\dfrac23(x+1)^{3/2}+C$",
+      "$\\dfrac23(x+1)^{3/2}-\\dfrac25(x+1)^{5/2}+C$",
+      "$\\dfrac{x^2}{2}\\cdot\\dfrac23(x+1)^{3/2}+C$",
+      "$\\dfrac25(x+1)^{5/2}+\\dfrac23(x+1)^{3/2}+C$"
+    ],
+    "answer": 0,
+    "solution": "$t=x+1$, $x=t-1$: $\\int(t-1)\\sqrt t\\,dt=\\int(t^{3/2}-t^{1/2})dt=\\frac25t^{5/2}-\\frac23t^{3/2}+C$.",
+    "hints": [
+      "Zaveď $t=x+1$ a vyjádři i samotné $x$ pomocí $t$.",
+      "Výraz $(t-1)\\sqrt t$ roznásob na mocniny $t$.",
+      "Integruj mocniny: $\\int t^a\\,dt=\\frac{t^{a+1}}{a+1}$."
+    ]
   }
 ]

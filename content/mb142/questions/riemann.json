@@ -86,5 +86,29 @@
       "Plocha pod grafem pro $x<0$ je záporná a stejně velká jako plocha pro $x>0$.",
       "Nebo spočti $\\left[\\frac{x^4}{4}\\right]_{-1}^{1}$ a porovnej hodnoty v krajních bodech."
     ]
+  },
+  {
+    "id": "exam-5",
+    "type": "free",
+    "prompt": "Pro $f(x)=|x|$ na $[-1,1]$ a dělení $D_n=\\{-1,-\\frac{n-1}n,\\dots,-\\frac1n,0,\\frac1n,\\dots,\\frac{n-1}n,1\\}$ určete dolní součet $s(D_n,f)$ a horní součet $S(D_n,f)$. Je $f$ riemannovsky integrovatelná?",
+    "solution": "Všechny dílky mají délku $\\frac1n$. Na pravé polovině je $f$ rostoucí: infimum na $[\\frac{k-1}n,\\frac kn]$ je $\\frac{k-1}n$, supremum $\\frac kn$; levá polovina je symetrická. Proto $s(D_n,f)=2\\cdot\\frac1n\\sum_{k=1}^n\\frac{k-1}n=\\frac2{n^2}\\cdot\\frac{n(n-1)}2=\\frac{n-1}n$ a $S(D_n,f)=2\\cdot\\frac1n\\sum_{k=1}^n\\frac kn=\\frac{n+1}n$. Rozdíl $S-s=\\frac2n\\to0$ a obě limity jsou $1$, tedy $\\sup_D s=\\inf_D S=1$: funkce je integrovatelná a $\\int_{-1}^1|x|\\,dx=1$ (obsah dvou trojúhelníků).",
+    "hints": [
+      "Všechny dílky mají stejnou šířku $\\frac1n$; na každém dílku je $|x|$ monotónní, takže infimum a supremum jsou v krajních bodech.",
+      "Na pravé polovině dává dolní součet sčítance $\\frac{k-1}n$, horní $\\frac kn$ ($k=1,\\dots,n$); levá polovina je symetrická. Použij $\\sum_{k=1}^nk=\\frac{n(n+1)}2$.",
+      "Integrovatelnost: ověř, zda $S(D_n)-s(D_n)\\to0$ (nebo zda mají obě limity společnou hodnotu)."
+    ]
+  },
+  {
+    "id": "g09-riem-1",
+    "type": "numeric",
+    "prompt": "Pro $f(x)=|x|$ na $[-1,1]$ a dělení na $10$ stejných dílků (délka $\\frac15$) určete horní součet $S(D,f)$.",
+    "answer": 1.2,
+    "tolerance": 0.001,
+    "solution": "Na každém dílku je supremum v krajním bodě dál od nuly: hodnoty $1,\\frac45,\\frac35,\\frac25,\\frac15$ na každé polovině, jejich součet je $3$. $S=\\frac15\\cdot2\\cdot3=\\frac65=1{,}2$ (souhlasí se vzorcem $\\frac{n+1}n$ pro $n=5$).",
+    "hints": [
+      "Dílky mají šířku $\\frac15$; na každém dílku najdi největší hodnotu $|x|$.",
+      "Supremum je v tom krajním bodě dílku, který je dál od $0$.",
+      "Sečti hodnoty suprema na jedné polovině, vynásob dvěma (symetrie) a šířkou dílku."
+    ]
   }
 ]

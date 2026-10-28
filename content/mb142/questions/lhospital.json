@@ -137,5 +137,174 @@
       "Přepiš $\\operatorname{cotg}x=\\frac1{\\operatorname{tg}x}$.",
       "Podívej se na znaménka a limity čitatele a jmenovatele – je to opravdu neurčitý výraz?"
     ]
+  },
+  {
+    "id": "g78-lh-1",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos x}{x\\sin x}$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac00$: $\\frac{\\sin x}{\\sin x+x\\cos x}$, opět $\\frac00$: $\\frac{\\cos x}{2\\cos x-x\\sin x}\\to\\frac12$.",
+    "hints": [
+      "Typ $\\frac00$, použij l'Hospitalovo pravidlo.",
+      "Po první derivaci je stále $\\frac00$, zderivuj znovu.",
+      "Dosaď $x=0$ po druhém kroku."
+    ]
+  },
+  {
+    "id": "g78-lh-2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{x-\\sin x}{x-\\operatorname{tg}x}$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "Typ $\\frac00$, l'Hospital: $\\frac{1-\\cos x}{1-\\frac1{\\cos^2x}}=\\frac{\\cos^2x\\,(1-\\cos x)}{\\cos^2x-1}=-\\frac{\\cos^2x}{1+\\cos x}\\to-\\frac12$.",
+    "hints": [
+      "Typ $\\frac00$, derivuj čitatele i jmenovatele.",
+      "$(\\operatorname{tg}x)'=\\frac1{\\cos^2x}$; zlomek uprav na společný jmenovatel.",
+      "Použij $1-\\cos^2x=(1-\\cos x)(1+\\cos x)$."
+    ]
+  },
+  {
+    "id": "g78-lh-3",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\left(\\frac1{x\\sin x}-\\frac1{x^2}\\right)$ (na 3 desetinná místa).",
+    "answer": 0.167,
+    "tolerance": 0.001,
+    "solution": "Společný jmenovatel: $\\frac{x-\\sin x}{x^2\\sin x}$. Typ $\\frac00$; $\\sin x\\sim x$, proto $\\sim\\frac{x-\\sin x}{x^3}\\to\\frac16$ (l'Hospital třikrát).",
+    "hints": [
+      "Typ $\\infty-\\infty$, převeď na jediný zlomek.",
+      "Ve jmenovateli nahraď $\\sin x$ činitelem $x$ (základní limita) a uprav na známý tvar.",
+      "Známá limita $\\frac{x-\\sin x}{x^3}$."
+    ]
+  },
+  {
+    "id": "g78-lh-4",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\frac\\pi4^-}(\\operatorname{tg}x)^{\\operatorname{tg}2x}$ (na 3 desetinná místa).",
+    "answer": 0.368,
+    "tolerance": 0.002,
+    "solution": "Typ $1^\\infty$: $\\exp\\!\\big(\\operatorname{tg}2x\\cdot\\ln\\operatorname{tg}x\\big)=\\exp\\!\\Big(\\frac{\\ln\\operatorname{tg}x}{\\operatorname{cotg}2x}\\Big)$, typ $\\frac00$. L'Hospital: $\\frac{\\frac{1}{\\sin x\\cos x}}{-\\frac{2}{\\sin^22x}}\\to\\frac{2}{-2}=-1$. Limita je $e^{-1}\\approx0{,}368$.",
+    "hints": [
+      "Typ $1^\\infty$; přepiš $f^g=e^{g\\ln f}$.",
+      "Exponent převeď na podíl: $\\operatorname{tg}2x=\\frac1{\\operatorname{cotg}2x}$.",
+      "Dosaď $x=\\frac\\pi4$ po derivování; $\\sin\\frac\\pi2=1$."
+    ]
+  },
+  {
+    "id": "g78-lh-5",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\left(\\frac2\\pi\\operatorname{arctg}x\\right)^x$ (na 3 desetinná místa).",
+    "answer": 0.529,
+    "tolerance": 0.002,
+    "solution": "Typ $1^\\infty$: $\\exp\\!\\Big(\\frac{\\ln(\\frac2\\pi\\operatorname{arctg}x)}{1/x}\\Big)$, typ $\\frac00$. L'Hospital: $\\frac{\\frac{1}{\\operatorname{arctg}x(1+x^2)}}{-1/x^2}=-\\frac{x^2}{(1+x^2)\\operatorname{arctg}x}\\to-\\frac{2}{\\pi}$. Limita $e^{-2/\\pi}\\approx0{,}529$.",
+    "hints": [
+      "Typ $1^\\infty$; použij $e^{g\\ln f}$.",
+      "Exponent $x\\ln(\\dots)$ přepiš na zlomek se $\\frac1x$ ve jmenovateli.",
+      "$\\operatorname{arctg}x\\to\\frac\\pi2$ pro $x\\to\\infty$."
+    ]
+  },
+  {
+    "id": "g78-lh-6",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}(\\cos3x)^{1/x^2}$ (na 5 desetinných míst).",
+    "answer": 0.01111,
+    "tolerance": 0.00002,
+    "solution": "Typ $1^\\infty$: $\\exp\\!\\Big(\\frac{\\ln\\cos3x}{x^2}\\Big)$. L'Hospital: $\\frac{-3\\operatorname{tg}3x}{2x}\\to\\frac{-9}{2}$ (druhý l'Hospital nebo $\\operatorname{tg}3x\\sim3x$). Limita $e^{-9/2}\\approx0{,}01111$.",
+    "hints": [
+      "Typ $1^\\infty$; přepiš na $e^{\\frac{\\ln\\cos3x}{x^2}}$.",
+      "Exponent je typu $\\frac00$; použij l'Hospitala.",
+      "Po první derivaci se objeví $\\operatorname{tg}3x$, použij $\\operatorname{tg}u\\sim u$ nebo l'Hospital znovu."
+    ]
+  },
+  {
+    "id": "g09-lh-1",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{5^x-1}{x}$ (na 3 desetinná místa).",
+    "answer": 1.6094,
+    "tolerance": 0.002,
+    "solution": "Typ $\\frac00$. L'Hospital: $\\frac{5^x\\ln5}{1}\\to\\ln5\\approx1{,}609$.",
+    "hints": [
+      "Dosazením vyjde $\\frac00$; lze použít L'Hospitalovo pravidlo.",
+      "Pamatuj $(a^x)'=a^x\\ln a$.",
+      "Dosaď $x=0$ do zderivovaného zlomku."
+    ]
+  },
+  {
+    "id": "g09-lh-2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos x}{x\\sin x}$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "$\\frac00$: $\\frac{\\sin x}{\\sin x+x\\cos x}$, opět $\\frac00$: $\\frac{\\cos x}{2\\cos x-x\\sin x}\\to\\frac12$.",
+    "hints": [
+      "Typ $\\frac00$, L'Hospital (možná dvakrát).",
+      "Derivace jmenovatele je $\\sin x+x\\cos x$.",
+      "Po druhé derivaci lze už dosadit $x=0$."
+    ]
+  },
+  {
+    "id": "g09-lh-3",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{x-\\sin x}{x-\\operatorname{tg}x}$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "$\\frac00$; derivace: $\\frac{1-\\cos x}{1-\\frac1{\\cos^2x}}=\\frac{(1-\\cos x)\\cos^2x}{\\cos^2x-1}=-\\frac{\\cos^2x}{1+\\cos x}\\to-\\frac12$. (Alternativně Taylor: $x-\\sin x\\sim\\frac{x^3}{6}$, $x-\\operatorname{tg}x\\sim-\\frac{x^3}{3}$.)",
+    "hints": [
+      "Typ $\\frac00$; po jedné derivaci stále $\\frac00$, ale lze zlomek upravit.",
+      "$(\\operatorname{tg}x)'=\\frac1{\\cos^2x}$; nahraď $1-\\frac1{\\cos^2x}=\\frac{\\cos^2x-1}{\\cos^2x}$.",
+      "Použij $\\cos^2x-1=-(1-\\cos x)(1+\\cos x)$ a zkrať."
+    ]
+  },
+  {
+    "id": "g09-lh-4",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\Bigl(\\frac1{x\\sin x}-\\frac1{x^2}\\Bigr)$ (na 3 desetinná místa).",
+    "answer": 0.1667,
+    "tolerance": 0.002,
+    "solution": "Společný jmenovatel: $\\frac{x-\\sin x}{x^2\\sin x}$, typ $\\frac00$. L'Hospital třikrát (nebo $x-\\sin x\\sim\\frac{x^3}6$, $x^2\\sin x\\sim x^3$) dává $\\frac16\\approx0{,}167$.",
+    "hints": [
+      "Typ $\\infty-\\infty$; převeď na jeden zlomek.",
+      "Vznikne $\\frac{x-\\sin x}{x^2\\sin x}$ typu $\\frac00$.",
+      "Zlomek je řádu $\\frac{x^3}{x^3}$; použij L'Hospital opakovaně nebo Taylorův rozvoj sinu."
+    ]
+  },
+  {
+    "id": "g09-lh-5",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}x\\ln\\Bigl(\\frac2\\pi\\operatorname{arctg}x\\Bigr)$ (na 3 desetinná místa).",
+    "answer": -0.6366,
+    "tolerance": 0.002,
+    "solution": "Typ $\\infty\\cdot0$. Zlomek: $\\frac{\\ln(\\frac2\\pi\\operatorname{arctg}x)}{1/x}$, typ $\\frac00$. Derivace: $\\frac{\\frac{1}{\\operatorname{arctg}x}\\cdot\\frac1{1+x^2}}{-1/x^2}=-\\frac{x^2}{(1+x^2)\\operatorname{arctg}x}\\to-\\frac1{\\pi/2}=-\\frac2\\pi\\approx-0{,}637$.",
+    "hints": [
+      "Typ $\\infty\\cdot0$ – přepiš $x=\\frac1{1/x}$ a dostaň zlomek.",
+      "Derivace logaritmu je $\\frac{(\\ldots)'}{(\\ldots)}$, tedy se objeví $\\frac1{\\operatorname{arctg}x}\\cdot\\frac1{1+x^2}$.",
+      "$\\frac{x^2}{1+x^2}\\to1$ a $\\operatorname{arctg}x\\to\\frac\\pi2$."
+    ]
+  },
+  {
+    "id": "g09-lh-6",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}(\\cos3x)^{1/x^2}$ (na 4 desetinná místa).",
+    "answer": 0.0111,
+    "tolerance": 0.0005,
+    "solution": "Typ $1^\\infty$: $e^{\\lim\\frac{\\ln\\cos3x}{x^2}}$. L'Hospital: $\\frac{-3\\operatorname{tg}3x}{2x}\\to\\frac{-9}{2}$ (použijeme $\\operatorname{tg}3x\\sim3x$). Výsledek $e^{-9/2}\\approx0{,}0111$.",
+    "hints": [
+      "Typ $1^\\infty$ – napiš jako $e^{\\ln(\\ldots)}$ a počítej limitu exponentu.",
+      "Exponent: $\\lim\\frac{\\ln\\cos3x}{x^2}$, typ $\\frac00$.",
+      "Derivace čitatele je $-3\\operatorname{tg}3x$; pak $\\operatorname{tg}3x\\sim3x$ nebo druhý L'Hospital."
+    ]
+  },
+  {
+    "id": "g09-lh-7",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\pi/4}(\\operatorname{tg}x)^{\\operatorname{tg}2x}$ (na 3 desetinná místa).",
+    "answer": 0.3679,
+    "tolerance": 0.002,
+    "solution": "Typ $1^\\infty$: exponent $\\lim\\operatorname{tg}2x\\cdot\\ln\\operatorname{tg}x=\\lim\\frac{\\ln\\operatorname{tg}x}{\\operatorname{cotg}2x}$ ($\\frac00$). Derivace: $\\frac{\\frac1{\\sin x\\cos x}}{-\\frac2{\\sin^22x}}=-\\frac{\\sin^22x}{2\\sin x\\cos x}=-\\sin2x\\to-1$. Výsledek $e^{-1}\\approx0{,}368$.",
+    "hints": [
+      "Typ $1^\\infty$ – exponent: $\\operatorname{tg}2x\\cdot\\ln\\operatorname{tg}x$, typ $0\\cdot\\infty$.",
+      "Přepiš jako $\\frac{\\ln\\operatorname{tg}x}{\\operatorname{cotg}2x}$ a použij L'Hospital.",
+      "$\\frac{1}{\\operatorname{tg}x\\cos^2x}=\\frac1{\\sin x\\cos x}$ a $\\sin2x=2\\sin x\\cos x$."
+    ]
   }
 ]

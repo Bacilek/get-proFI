@@ -69,5 +69,23 @@
       "$\\sqrt x=x^{1/2}$ a $\\frac3{x^2}=3x^{-2}$.",
       "$\\int x^\\alpha\\,\\mathrm{d}x=\\frac{x^{\\alpha+1}}{\\alpha+1}$ pro $\\alpha\\ne-1$; použij pro $\\alpha=\\frac12$ a $\\alpha=-2$."
     ]
+  },
+  {
+    "id": "g09-ad-1",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\int(\\operatorname{tg}x+\\operatorname{cotg}x)\\,\\mathrm{d}x$ (na intervalu, kde je vše definováno)?",
+    "options": [
+      "$\\ln|\\sin x|-\\ln|\\cos x|+C$",
+      "$\\ln|\\sin x|+\\ln|\\cos x|+C$",
+      "$\\ln|\\cos x|-\\ln|\\sin x|+C$",
+      "$\\dfrac{1}{\\cos^2x}-\\dfrac1{\\sin^2x}+C$"
+    ],
+    "answer": 0,
+    "solution": "$\\int\\operatorname{tg}x\\,dx=-\\ln|\\cos x|$ (typ $\\int\\frac{f'}{f}$ s $f=\\cos x$) a $\\int\\operatorname{cotg}x\\,dx=\\int\\frac{\\cos x}{\\sin x}dx=\\ln|\\sin x|$. Součet: $\\ln|\\sin x|-\\ln|\\cos x|+C$ $(=\\ln|\\operatorname{tg}x|+C)$.",
+    "hints": [
+      "Přepiš $\\operatorname{tg}$ a $\\operatorname{cotg}$ pomocí sinu a kosinu; oba integrály jsou typu $\\int\\frac{f'}{f}$.",
+      "V jednom případě je čitatel derivací jmenovatele, v druhém její opačná hodnota.",
+      "Zkontroluj znaménka derivováním kandidáta."
+    ]
   }
 ]

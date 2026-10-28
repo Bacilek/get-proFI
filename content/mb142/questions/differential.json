@@ -75,5 +75,31 @@
       "Vyjdi z bodu $x=1$, $\\Delta x=0{,}05$.",
       "$f'(x)=\\frac1{1+x^2}$, tedy $f'(1)=\\frac12$."
     ]
+  },
+  {
+    "id": "g78-diff-1",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu přibližně vypočti $\\sin32^\\circ$ (na 4 desetinná místa).",
+    "answer": 0.5302,
+    "tolerance": 0.0002,
+    "solution": "$x_0=30^\\circ=\\frac\\pi6$, $dx=2^\\circ=\\frac{\\pi}{90}$. $\\sin32^\\circ\\approx\\sin\\frac\\pi6+\\cos\\frac\\pi6\\cdot\\frac\\pi{90}=\\frac12+\\frac{\\sqrt3}{2}\\cdot\\frac{\\pi}{90}\\approx0{,}5302$ (přesně $0{,}5299$).",
+    "hints": [
+      "Zvol blízký úhel se známým sinem a převeď přírůstek do radiánů.",
+      "$f(x)\\approx f(x_0)+f'(x_0)(x-x_0)$ s $f=\\sin$, $f'=\\cos$.",
+      "Přírůstek $2^\\circ$ je $\\frac{2\\pi}{180}$ rad."
+    ]
+  },
+  {
+    "id": "g78-diff-2",
+    "type": "numeric",
+    "prompt": "Pomocí diferenciálu aproximuj $\\sqrt{28}$ (na 1 desetinné místo, volba $x_0=25$).",
+    "answer": 5.3,
+    "tolerance": 0.01,
+    "solution": "$f(x)=\\sqrt x$, $f'(x)=\\frac1{2\\sqrt x}$, $x_0=25$: $\\sqrt{28}\\approx5+\\frac1{10}\\cdot3=5{,}3$ (přesně $5{,}2915$).",
+    "hints": [
+      "Odhad $f(x_0)+f'(x_0)(x-x_0)$ pro $f=\\sqrt x$.",
+      "$f'(25)=\\frac1{2\\cdot5}$.",
+      "Přírůstek je $x-x_0=3$."
+    ]
   }
 ]

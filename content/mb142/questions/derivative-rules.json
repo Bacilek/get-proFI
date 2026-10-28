@@ -139,5 +139,114 @@
       "Zderivuj obě strany pravidlem pro složenou funkci (předpokládej, že $f^{-1}$ je diferencovatelná).",
       "Z rovnice $1=f'(f^{-1}(x))\\cdot(f^{-1})'(x)$ vyjádři $(f^{-1})'(x)$ a poznamenej podmínku $f'\\ne0$."
     ]
+  },
+  {
+    "id": "g78-dr-1",
+    "type": "numeric",
+    "prompt": "Pro $f(x)=(x^3-3x^2+6x)e^x$ spočítej $f'(1)$ (na 3 desetinná místa).",
+    "answer": 19.028,
+    "tolerance": 0.002,
+    "solution": "$f'(x)=(3x^2-6x+6)e^x+(x^3-3x^2+6x)e^x=e^x(x^3+6)$, tedy $f'(1)=7e\\approx19{,}028$.",
+    "hints": [
+      "Pravidlo pro derivaci součinu.",
+      "Po zderivování lze vytknout $e^x$ a hodně členů se vyruší.",
+      "Zbyde $e^x$ krát jednoduchý polynom; dosaď $x=1$."
+    ]
+  },
+  {
+    "id": "g78-dr-2",
+    "type": "numeric",
+    "prompt": "Spočítej $f'\\!\\left(\\frac\\pi2\\right)$ pro $f(x)=\\dfrac{\\cos x}{2\\sin^2x}$.",
+    "answer": -0.5,
+    "tolerance": 0.001,
+    "solution": "$f'(x)=\\frac{-\\sin x\\cdot2\\sin^2x-\\cos x\\cdot4\\sin x\\cos x}{4\\sin^4x}=-\\frac{1+\\cos^2x}{2\\sin^3x}$. Pro $x=\\frac\\pi2$: $-\\frac{1+0}{2}=-\\frac12$.",
+    "hints": [
+      "Pravidlo pro podíl; v čitateli dostaneš $\\sin^2$ a $\\cos^2$.",
+      "Zkrať společný činitel $\\sin x$ a použij $\\sin^2x+\\cos^2x=1$.",
+      "Pro $x=\\frac\\pi2$ je $\\cos x=0$, $\\sin x=1$."
+    ]
+  },
+  {
+    "id": "g78-dr-3",
+    "type": "numeric",
+    "prompt": "Spočítej $f'(1)$ pro $f(x)=\\dfrac{x^2+1}{2}\\operatorname{arctg}x-\\dfrac x2$ (na 4 desetinná místa).",
+    "answer": 0.7854,
+    "tolerance": 0.0005,
+    "solution": "$f'(x)=x\\operatorname{arctg}x+\\frac{x^2+1}{2}\\cdot\\frac1{1+x^2}-\\frac12=x\\operatorname{arctg}x$. Tedy $f'(1)=\\frac\\pi4\\approx0{,}7854$.",
+    "hints": [
+      "Součin dvou funkcí $\\frac{x^2+1}{2}$ a $\\operatorname{arctg}x$.",
+      "Člen s $\\frac1{1+x^2}$ se vykrátí s $\\frac{x^2+1}2$.",
+      "Po zjednodušení zbude velmi krátký výraz."
+    ]
+  },
+  {
+    "id": "g78-dr-4",
+    "type": "numeric",
+    "prompt": "Spočítej $f'(0)$ pro $f(x)=\\ln\\!\\left(e^x+\\sqrt{1+e^{2x}}\\right)$ (na 4 desetinná místa).",
+    "answer": 0.7071,
+    "tolerance": 0.0005,
+    "solution": "$f'(x)=\\frac{e^x+\\frac{e^{2x}}{\\sqrt{1+e^{2x}}}}{e^x+\\sqrt{1+e^{2x}}}=\\frac{e^x\\left(\\sqrt{1+e^{2x}}+e^x\\right)}{\\sqrt{1+e^{2x}}\\left(e^x+\\sqrt{1+e^{2x}}\\right)}=\\frac{e^x}{\\sqrt{1+e^{2x}}}$. Pro $x=0$: $\\frac1{\\sqrt2}\\approx0{,}7071$.",
+    "hints": [
+      "Derivace logaritmu: vnitřní derivace děleno vnitřní funkce.",
+      "Vnitřní derivace obsahuje člen $\\frac{e^{2x}}{\\sqrt{1+e^{2x}}}$; sjednoť na společný jmenovatel.",
+      "V čitateli lze vytknout výraz, který je i ve jmenovateli, a zkrátit."
+    ]
+  },
+  {
+    "id": "g78-dr-5",
+    "type": "numeric",
+    "prompt": "Spočítej $y'(1{,}5)$ pro $y=2\\arcsin\\sqrt{\\tfrac x2}-\\sqrt{2x-x^2}$, $x\\in(0,2)$ (na 3 desetinná místa).",
+    "answer": 1.732,
+    "tolerance": 0.002,
+    "solution": "První člen: $\\frac{2}{\\sqrt{1-x/2}}\\cdot\\frac{1}{2\\sqrt{2x}}=\\frac{1}{\\sqrt{x(2-x)}}$. Druhý: $\\frac{1-x}{\\sqrt{2x-x^2}}$. Rozdíl $\\frac{1-(1-x)}{\\sqrt{x(2-x)}}=\\sqrt{\\frac{x}{2-x}}$. Pro $x=1{,}5$: $\\sqrt3\\approx1{,}732$.",
+    "hints": [
+      "Derivuj člen po členu, použij řetízkové pravidlo (arcsin, odmocnina).",
+      "Oba členy mají ve jmenovateli $\\sqrt{x(2-x)}$.",
+      "Po odečtení v čitateli zbyde jen $x$."
+    ]
+  },
+  {
+    "id": "g78-dr-6",
+    "type": "choice",
+    "prompt": "Pro $f(x)=x\\sqrt{1-x^2}+\\arcsin x$ je $f'(x)=2\\sqrt{1-x^2}$. Jaké jsou $D(f)$ a $D(f')$?",
+    "options": [
+      "$D(f)=[-1,1]$, $D(f')=(-1,1)$",
+      "$D(f)=(-1,1)$, $D(f')=(-1,1)$",
+      "$D(f)=[-1,1]$, $D(f')=[-1,1]$",
+      "$D(f)=\\mathbb R$, $D(f')=(-1,1)$"
+    ],
+    "answer": 0,
+    "solution": "$f$ je definována pro $1-x^2\\ge0$, tj. $[-1,1]$. V krajních bodech $\\pm1$ má $\\arcsin$ i odmocnina svislou tečnu, derivace tam není konečná, takže $D(f')=(-1,1)$. Platí $D(f')\\subseteq D(f)$.",
+    "hints": [
+      "Definiční obor $f$: argument odmocniny i arcsin musí být v $[-1,1]$.",
+      "Dosaď krajní body do vzorce pro derivaci podle součinu (objeví se $\\frac{x^2}{\\sqrt{1-x^2}}$).",
+      "Derivace v krajních bodech nemá konečnou hodnotu."
+    ]
+  },
+  {
+    "id": "g09-dr-1",
+    "type": "numeric",
+    "prompt": "Spočítej derivaci $f(x)=\\dfrac{1-\\cos x}{1+\\cos x}$ v bodě $x=\\frac\\pi2$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "$f'=\\frac{\\sin x(1+\\cos x)+(1-\\cos x)\\sin x}{(1+\\cos x)^2}=\\frac{2\\sin x}{(1+\\cos x)^2}$. Pro $x=\\frac\\pi2$: $\\frac{2}{1}=2$.",
+    "hints": [
+      "Použij pravidlo pro derivaci podílu.",
+      "Čitatel po zderivování: $\\sin x(1+\\cos x)-(1-\\cos x)(-\\sin x)$.",
+      "Dosaď $\\sin\\frac\\pi2=1$, $\\cos\\frac\\pi2=0$."
+    ]
+  },
+  {
+    "id": "g09-dr-2",
+    "type": "numeric",
+    "prompt": "Spočítej $f'(3)$ pro $f(x)=\\ln\\dfrac{x-2}{x+1}$ (na 2 desetinná místa).",
+    "answer": 0.75,
+    "tolerance": 0.001,
+    "solution": "$f=\\ln(x-2)-\\ln(x+1)$, $f'=\\frac1{x-2}-\\frac1{x+1}=\\frac3{(x-2)(x+1)}$. $f'(3)=\\frac{3}{1\\cdot4}=0{,}75$.",
+    "hints": [
+      "Zlomek v logaritmu rozděl na rozdíl logaritmů.",
+      "$(\\ln u)'=\\frac{u'}{u}$.",
+      "Dosaď $x=3$ do výrazu po sloučení zlomků."
+    ]
   }
 ]

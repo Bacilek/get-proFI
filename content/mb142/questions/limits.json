@@ -280,5 +280,264 @@
       "Typ $0\\cdot(-\\infty)$: převeď na zlomek $\\frac{\\ln x}{x^{-2}}$.",
       "Teď $\\frac{-\\infty}{\\infty}$ → l'Hospital."
     ]
+  },
+  {
+    "id": "g78-lim-1",
+    "type": "choice",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to3}\\frac{(x+1)^2}{(x-3)^3}$.",
+    "options": [
+      "$+\\infty$",
+      "$-\\infty$",
+      "neexistuje",
+      "$0$"
+    ],
+    "answer": 2,
+    "solution": "Čitatel jde k $16>0$, jmenovatel $(x-3)^3$ mění znaménko: pro $x\\to3^+$ je $\\to0^+$, pro $x\\to3^-$ je $\\to0^-$. Jednostranné limity jsou $+\\infty$ a $-\\infty$, tedy limita neexistuje.",
+    "hints": [
+      "Dosazením vyjde $\\frac{16}{0}$, nutno vyšetřit jednostranné limity.",
+      "Jak se chová znaménko $(x-3)^3$ vlevo a vpravo od trojky?",
+      "Pokud se jednostranné limity liší, výsledek je jasný."
+    ]
+  },
+  {
+    "id": "g78-lim-2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\frac{x^6-2x^3+7x-3}{5-x^2+4x^3-3x^6}$.",
+    "answer": -0.3333333333333333,
+    "tolerance": 0.001,
+    "solution": "Dělíme čitatele i jmenovatele $x^6$: $\\frac{1-2x^{-3}+7x^{-5}-3x^{-6}}{5x^{-6}-x^{-4}+4x^{-3}-3}\\to\\frac{1}{-3}=-\\frac13$.",
+    "hints": [
+      "Stejný stupeň (6) v čitateli i jmenovateli.",
+      "Vytkni nejvyšší mocninu $x^6$ z čitatele i jmenovatele.",
+      "Všechny ostatní členy po vydělení jdou k nule, zůstanou vedoucí koeficienty."
+    ]
+  },
+  {
+    "id": "g78-lim-3",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\frac{3^{x+1}+2x^4-3x^2}{-3^x+7x^2-x^3}$.",
+    "answer": -3,
+    "tolerance": 0.001,
+    "solution": "Exponenciála roste rychleji než každý polynom. Vydělíme $3^x$: $\\frac{3+2x^43^{-x}-3x^23^{-x}}{-1+7x^23^{-x}-x^33^{-x}}\\to\\frac{3}{-1}=-3$.",
+    "hints": [
+      "Porovnej rychlost růstu $3^x$ a polynomů pro $x\\to\\infty$.",
+      "Vydělíme čitatel i jmenovatel dominantním členem $3^x$.",
+      "Poznamenej, že $3^{x+1}=3\\cdot3^x$."
+    ]
+  },
+  {
+    "id": "g78-lim-4",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{(x+3)(x+1)}-x\\right)$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "Rozšíříme sdruženým výrazem: $\\frac{x^2+4x+3-x^2}{\\sqrt{x^2+4x+3}+x}=\\frac{4x+3}{\\sqrt{x^2+4x+3}+x}\\to\\frac{4}{1+1}=2$.",
+    "hints": [
+      "Typ $\\infty-\\infty$ s odmocninou; rozšiř sdruženým výrazem.",
+      "Po rozšíření zbude v čitateli lineární výraz, který dělíš $x$.",
+      "Ve jmenovateli $\\sqrt{x^2+\\dots}\\sim x$ pro $x\\to\\infty$."
+    ]
+  },
+  {
+    "id": "g78-lim-5",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{n\\to\\infty}n\\left(\\sqrt{3+\\tfrac1n}-\\sqrt3\\right)$ (na 4 desetinná místa).",
+    "answer": 0.288675,
+    "tolerance": 0.0002,
+    "solution": "Rozšíření: $n\\cdot\\frac{\\frac1n}{\\sqrt{3+\\frac1n}+\\sqrt3}=\\frac{1}{\\sqrt{3+\\frac1n}+\\sqrt3}\\to\\frac{1}{2\\sqrt3}\\approx0{,}2887$.",
+    "hints": [
+      "Typ $\\infty\\cdot0$; rozšiř sdruženým výrazem.",
+      "Rozdíl odmocnin se po rozšíření změní na $\\frac1n$, které se zkrátí s činitelem $n$.",
+      "Zbyde zlomek se jmenovatelem $\\sqrt{3+\\frac1n}+\\sqrt3$."
+    ]
+  },
+  {
+    "id": "g78-lim-6",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to3}\\frac{\\sqrt{x+1}-2}{x^2-5x+6}$.",
+    "answer": 0.25,
+    "tolerance": 0.001,
+    "solution": "Rozšíříme: $\\sqrt{x+1}-2=\\frac{x-3}{\\sqrt{x+1}+2}$ a $x^2-5x+6=(x-3)(x-2)$. Po zkrácení $\\frac{1}{(\\sqrt{x+1}+2)(x-2)}\\to\\frac{1}{4\\cdot1}=\\frac14$.",
+    "hints": [
+      "Typ $\\frac00$; v čitateli odmocnina, ve jmenovateli polynom.",
+      "Rozlož jmenovatel na kořenové činitele a rozšiř čitatel sdruženým výrazem.",
+      "V obou případech se objeví činitel $x-3$."
+    ]
+  },
+  {
+    "id": "g78-lim-7",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to1}\\left(\\frac1{1-x}-\\frac3{1-x^3}\\right)$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "Společný jmenovatel, $1-x^3=(1-x)(1+x+x^2)$: $\\frac{1+x+x^2-3}{1-x^3}=\\frac{(x-1)(x+2)}{(1-x)(1+x+x^2)}=-\\frac{x+2}{1+x+x^2}\\to-\\frac33=-1$.",
+    "hints": [
+      "Typ $\\infty-\\infty$; převeď na společný jmenovatel.",
+      "Rozlož $1-x^3$ podle vzorce pro rozdíl třetích mocnin.",
+      "Čitatel $x^2+x-2$ má kořen $x=1$, zkrať."
+    ]
+  },
+  {
+    "id": "g78-lim-8",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\lim_{n\\to\\infty}\\left(1+\\frac1{\\sqrt n}\\right)^n$?",
+    "options": [
+      "$e$",
+      "$1$",
+      "$+\\infty$",
+      "$e^2$"
+    ],
+    "answer": 2,
+    "solution": "Je $\\left(1+\\frac1{\\sqrt n}\\right)^n=\\left[\\left(1+\\frac1{\\sqrt n}\\right)^{\\sqrt n}\\right]^{\\sqrt n}\\to e^{\\sqrt n}\\to+\\infty$. Vzorec $(1+\\frac an)^n\\to e^a$ platí jen pro exponent shodný se jmenovatelem.",
+    "hints": [
+      "Exponent $n$ neodpovídá jmenovateli $\\sqrt n$ ve zlomku.",
+      "Přepiš $n=\\sqrt n\\cdot\\sqrt n$.",
+      "Co udělá vnitřní závorka (blíží se $e$) při umocnění na rostoucí $\\sqrt n$?"
+    ]
+  },
+  {
+    "id": "g09-lim-1",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\infty}\\Bigl(\\sqrt{(x+3)(x+1)}-x\\Bigr)$.",
+    "answer": 2,
+    "tolerance": 0.001,
+    "solution": "Typ $\\infty-\\infty$. Rozšíříme sdruženým výrazem: $\\frac{(x+3)(x+1)-x^2}{\\sqrt{(x+3)(x+1)}+x}=\\frac{4x+3}{\\sqrt{x^2+4x+3}+x}$. Dělíme $x$: $\\frac{4+3/x}{\\sqrt{1+4/x+3/x^2}+1}\\to\\frac{4}{2}=2$.",
+    "hints": [
+      "Dosazením vyjde $\\infty-\\infty$, odmocninu je třeba odstranit.",
+      "Vynásob a vyděl výrazem $\\sqrt{(x+3)(x+1)}+x$.",
+      "Po úpravě čitatele vyděl čitatel i jmenovatel nejvyšší mocninou $x$."
+    ]
+  },
+  {
+    "id": "g09-lim-2",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{n\\to\\infty}n\\Bigl(\\sqrt{3+\\tfrac1n}-\\sqrt3\\Bigr)$ (na 3 desetinná místa).",
+    "answer": 0.2887,
+    "tolerance": 0.002,
+    "solution": "Typ $\\infty\\cdot0$. Rozšíříme: $n\\cdot\\frac{\\frac1n}{\\sqrt{3+1/n}+\\sqrt3}=\\frac{1}{\\sqrt{3+1/n}+\\sqrt3}\\to\\frac1{2\\sqrt3}\\approx0{,}2887$.",
+    "hints": [
+      "Součin $\\infty\\cdot 0$; rozdíl odmocnin napiš jako zlomek.",
+      "Rozšiř výrazem $\\sqrt{3+\\frac1n}+\\sqrt3$, čitatel se zjednoduší na $\\frac1n$.",
+      "Faktor $n$ se pokrátí; zbývá limita jmenovatele."
+    ]
+  },
+  {
+    "id": "g09-lim-3",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to\\pi/4}\\frac{\\cos2x}{\\cos x-\\sin x}$ (na 3 desetinná místa).",
+    "answer": 1.4142,
+    "tolerance": 0.002,
+    "solution": "$\\cos2x=\\cos^2x-\\sin^2x=(\\cos x-\\sin x)(\\cos x+\\sin x)$. Po zkrácení zbývá $\\cos x+\\sin x\\to\\frac{\\sqrt2}{2}+\\frac{\\sqrt2}{2}=\\sqrt2\\approx1{,}414$.",
+    "hints": [
+      "Dosazením vyjde $\\frac00$.",
+      "Rozlož $\\cos2x$ pomocí vzorce pro dvojnásobný úhel tak, aby se objevil jmenovatel.",
+      "Zkrať a dosaď $x=\\frac\\pi4$."
+    ]
+  },
+  {
+    "id": "g09-lim-4",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{e^{5x}-1}{\\sin2x}$.",
+    "answer": 2.5,
+    "tolerance": 0.001,
+    "solution": "$\\frac{e^{5x}-1}{\\sin2x}=\\frac{e^{5x}-1}{5x}\\cdot\\frac{2x}{\\sin2x}\\cdot\\frac52\\to1\\cdot1\\cdot\\frac52=2{,}5$.",
+    "hints": [
+      "Použij základní limity $\\frac{e^u-1}{u}\\to1$ a $\\frac{\\sin u}{u}\\to1$.",
+      "Uprav, aby v čitateli bylo $5x$ a ve jmenovateli $2x$.",
+      "Zbytek je konstanta $\\frac{5x}{2x}$."
+    ]
+  },
+  {
+    "id": "g09-lim-5",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{n\\to\\infty}\\Bigl(1+\\frac1n\\Bigr)^{4n}$ (na 2 desetinná místa).",
+    "answer": 54.6,
+    "tolerance": 0.02,
+    "solution": "$\\bigl(1+\\frac1n\\bigr)^{4n}=\\Bigl[\\bigl(1+\\frac1n\\bigr)^n\\Bigr]^4\\to e^4\\approx54{,}60$.",
+    "hints": [
+      "Připomeň si definici čísla $e$ jako limity.",
+      "Exponent $4n$ rozlož jako $n\\cdot4$.",
+      "Limita mocniny je mocnina limity."
+    ]
+  },
+  {
+    "id": "g09-lim-6",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to1}\\Bigl(\\frac1{1-x}-\\frac3{1-x^3}\\Bigr)$.",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$1-x^3=(1-x)(1+x+x^2)$. Společný jmenovatel: $\\frac{1+x+x^2-3}{(1-x)(1+x+x^2)}=\\frac{(x-1)(x+2)}{(1-x)(1+x+x^2)}=-\\frac{x+2}{1+x+x^2}\\to-\\frac33=-1$.",
+    "hints": [
+      "Typ $\\infty-\\infty$ – převeď na společný jmenovatel.",
+      "Rozlož $1-x^3$ podle vzorce $a^3-b^3$.",
+      "Čitatel je kvadratický a má kořen $x=1$; vytkni $(x-1)$ a zkrať."
+    ]
+  },
+  {
+    "id": "g09-lim-7",
+    "type": "numeric",
+    "prompt": "Spočítej $\\displaystyle\\lim_{x\\to0}\\frac{\\operatorname{tg}x}{\\sin2x}$.",
+    "answer": 0.5,
+    "tolerance": 0.001,
+    "solution": "$\\frac{\\operatorname{tg}x}{\\sin2x}=\\frac{\\sin x}{\\cos x\\cdot2\\sin x\\cos x}=\\frac1{2\\cos^2x}\\to\\frac12$.",
+    "hints": [
+      "Vyjádři $\\operatorname{tg}x$ pomocí sinu a kosinu.",
+      "Použij $\\sin2x=2\\sin x\\cos x$ a zkrať $\\sin x$.",
+      "Dosaď $x=0$ do zbylého výrazu."
+    ]
+  },
+  {
+    "id": "g09-lim-8",
+    "type": "choice",
+    "prompt": "Vyšetři nespojitost funkce $f(x)=\\dfrac{\\ln(1+x)}{|x|}$ v bodě $x=0$.",
+    "options": [
+      "odstranitelná",
+      "skok (1. druhu)",
+      "2. druhu (nevlastní limity)",
+      "funkce je v $0$ spojitá"
+    ],
+    "answer": 1,
+    "solution": "Pro $x\\to0^+$ je $\\frac{\\ln(1+x)}{x}\\to1$, pro $x\\to0^-$ je $|x|=-x$, tedy $-\\frac{\\ln(1+x)}{x}\\to-1$. Jednostranné limity jsou vlastní, ale různé: skok velikosti $2$.",
+    "hints": [
+      "Spočti zvlášť limity zprava a zleva; absolutní hodnotu rozepiš podle znaménka $x$.",
+      "Použij $\\lim_{x\\to0}\\frac{\\ln(1+x)}{x}=1$.",
+      "Jsou jednostranné limity vlastní? Rovnají se?"
+    ]
+  },
+  {
+    "id": "g09-lim-9",
+    "type": "choice",
+    "prompt": "Vyšetři nespojitost funkce $f(x)=\\operatorname{arctg}\\dfrac{x+2}{x^4}$ v bodě $x=0$.",
+    "options": [
+      "odstranitelná",
+      "skok (1. druhu)",
+      "2. druhu",
+      "funkce je v $0$ spojitá"
+    ],
+    "answer": 0,
+    "solution": "$\\frac{x+2}{x^4}\\to+\\infty$ z obou stran (čitatel $\\to2$, jmenovatel $\\to0^+$), takže $f(x)\\to\\frac\\pi2$ z obou stran. Limita existuje a je vlastní, ale $f(0)$ není definována: odstranitelná nespojitost.",
+    "hints": [
+      "Zkoumej chování argumentu $\\frac{x+2}{x^4}$ pro $x\\to0^\\pm$ (pozor na znaménko $x^4$).",
+      "Co dělá $\\operatorname{arctg}$ v $+\\infty$?",
+      "Jsou obě jednostranné limity vlastní a stejné? Je funkce v $0$ definovaná?"
+    ]
+  },
+  {
+    "id": "g09-lim-10",
+    "type": "choice",
+    "prompt": "Vyšetři nespojitost funkce $f(x)=\\dfrac{1+\\sin x}{x}$ v bodě $x=0$.",
+    "options": [
+      "odstranitelná",
+      "skok (1. druhu)",
+      "2. druhu (nevlastní jednostranné limity)",
+      "funkce je v $0$ spojitá"
+    ],
+    "answer": 2,
+    "solution": "Čitatel $\\to1$, jmenovatel $\\to0$: $\\lim_{x\\to0^+}f=+\\infty$, $\\lim_{x\\to0^-}f=-\\infty$. Nevlastní jednostranné limity znamenají nespojitost 2. druhu.",
+    "hints": [
+      "Čitatel se v $x=0$ nerovná nule.",
+      "Zjisti znaménko zlomku zprava a zleva.",
+      "Nevlastní limity patří k nespojitosti 2. druhu."
+    ]
   }
 ]

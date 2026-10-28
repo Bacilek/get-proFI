@@ -77,5 +77,23 @@
       "Ansatz $\\frac A{x-1}+\\frac B{(x-2)^2}+\\frac C{x-2}$, po vynásobení $x+1=A(x-2)^2+B(x-1)+C(x-1)(x-2)$.",
       "$x=1$ dá $A$, $x=2$ dá $B$; $C$ dopočti dosazením třetí hodnoty (např. $x=0$) nebo porovnáním koeficientů u $x^2$."
     ]
+  },
+  {
+    "id": "g09-pf-1",
+    "type": "choice",
+    "prompt": "Rozklad na parciální zlomky funkce $\\dfrac{2x^3+x^2+x+2}{x^4+x^2}$ je",
+    "options": [
+      "$\\dfrac1x+\\dfrac2{x^2}+\\dfrac{x-1}{x^2+1}$",
+      "$\\dfrac1x+\\dfrac2{x^2}+\\dfrac{x+1}{x^2+1}$",
+      "$\\dfrac2x+\\dfrac1{x^2}+\\dfrac{x-1}{x^2+1}$",
+      "$\\dfrac2x+\\dfrac1{x^2}+\\dfrac{1}{x^2+1}$"
+    ],
+    "answer": 0,
+    "solution": "$x^4+x^2=x^2(x^2+1)$. Ansatz $\\frac A{x}+\\frac B{x^2}+\\frac{Cx+D}{x^2+1}$. Společný jmenovatel: $Ax(x^2+1)+B(x^2+1)+(Cx+D)x^2=2x^3+x^2+x+2$. Pro $x=0$: $B=2$. Koeficient u $x$: $A=1$. U $x^3$: $A+C=2\\Rightarrow C=1$. U $x^2$: $B+D=1\\Rightarrow D=-1$. Výsledek $\\frac1x+\\frac2{x^2}+\\frac{x-1}{x^2+1}$.",
+    "hints": [
+      "Jmenovatel rozlož: $x^4+x^2=x^2(x^2+1)$; kořen $0$ je dvojnásobný.",
+      "Ansatz: $\\frac A x+\\frac B{x^2}+\\frac{Cx+D}{x^2+1}$; dosaď $x=0$ pro nalezení $B$.",
+      "Zbylé koeficienty porovnej u $x$, $x^2$, $x^3$."
+    ]
   }
 ]

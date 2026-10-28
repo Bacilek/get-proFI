@@ -148,5 +148,31 @@
       "Dosaď $x=1{,}05$, tedy $x-1=0{,}05$, do $T_2$.",
       "$\\frac\\pi4\\approx0{,}7854$."
     ]
+  },
+  {
+    "id": "g78-tay-1",
+    "type": "numeric",
+    "prompt": "Taylorův polynom $T_3$ funkce $f(x)=\\operatorname{arccotg}x$ se středem $x_0=1$ je $T_3(x)=\\frac\\pi4-\\frac12(x-1)+\\frac14(x-1)^2-\\frac1{12}(x-1)^3$. Pomocí něj přibližně spočítej $\\operatorname{arccotg}(1{,}03)$ (na 6 desetinných míst).",
+    "answer": 0.770621,
+    "tolerance": 0.000002,
+    "solution": "$T_3(1{,}03)=\\frac\\pi4-\\frac{0{,}03}2+\\frac{0{,}03^2}4-\\frac{0{,}03^3}{12}\\approx0{,}785398-0{,}015+0{,}000225-0{,}00000225\\approx0{,}770621$.",
+    "hints": [
+      "Dosaď $x=1{,}03$, tedy $x-1=0{,}03$.",
+      "Vypočti postupně jednotlivé členy; $\\frac\\pi4\\approx0{,}785398$.",
+      "Poslední člen je řádu $10^{-6}$."
+    ]
+  },
+  {
+    "id": "g78-tay-2",
+    "type": "numeric",
+    "prompt": "Odvoď koeficient u $(x-1)^3$ v Taylorově polynomu funkce $\\operatorname{arccotg}x$ se středem $x_0=1$ (desetinné číslo na 4 místa).",
+    "answer": -0.0833,
+    "tolerance": 0.0002,
+    "solution": "$f'=-\\frac1{1+x^2}$, $f''=\\frac{2x}{(1+x^2)^2}$, $f'''=\\frac{2}{(1+x^2)^2}-\\frac{8x^2}{(1+x^2)^3}$. $f'''(1)=\\frac24-\\frac88=-\\frac12$. Koeficient je $\\frac{f'''(1)}{3!}=-\\frac1{12}\\approx-0{,}0833$.",
+    "hints": [
+      "Koeficient u $(x-x_0)^k$ je $\\frac{f^{(k)}(x_0)}{k!}$.",
+      "$(\\operatorname{arccotg}x)'=-\\frac1{1+x^2}$; derivace počítej po řadě.",
+      "Pro třetí derivaci potřebuješ pravidlo pro podíl nebo součin s $(1+x^2)^{-2}$."
+    ]
   }
 ]

@@ -156,5 +156,41 @@
       "Napiš $\\lim_{x\\to x_0}f(x)=f(x_0)$ a rozeber, co musí platit, aby měla obě strany smysl.",
       "Typy nespojitosti rozliš podle jednostranných limit: vlastní a shodné (jen se liší od $f(x_0)$), vlastní a různé, nevlastní/neexistující."
     ]
+  },
+  {
+    "id": "g78-cont-1",
+    "type": "choice",
+    "prompt": "Jaký typ nespojitosti má $f(x)=\\dfrac{\\ln(1+x)}{|x|}$ v $x_0=0$?",
+    "options": [
+      "odstranitelná",
+      "1. druhu (skok)",
+      "2. druhu",
+      "spojitá"
+    ],
+    "answer": 1,
+    "solution": "Pro $x\\to0^+$: $\\frac{\\ln(1+x)}{x}\\to1$; pro $x\\to0^-$: $\\frac{\\ln(1+x)}{-x}\\to-1$. Jednostranné limity jsou konečné, ale různé, jde o skok (1. druh).",
+    "hints": [
+      "Spočítej obě jednostranné limity zvlášť.",
+      "Jak se $|x|$ přepíše pro $x>0$ a pro $x<0$?",
+      "Použij $\\lim_{x\\to0}\\frac{\\ln(1+x)}{x}=1$."
+    ]
+  },
+  {
+    "id": "g78-cont-2",
+    "type": "choice",
+    "prompt": "Jaký typ nespojitosti má $f(x)=\\dfrac{x+2}{\\operatorname{arctg}x^4}$ v $x_0=0$?",
+    "options": [
+      "odstranitelná",
+      "1. druhu (skok)",
+      "2. druhu",
+      "spojitá"
+    ],
+    "answer": 2,
+    "solution": "Čitatel $\\to2$, jmenovatel $\\operatorname{arctg}x^4\\to0^+$ z obou stran (je kladný), tedy $f\\to+\\infty$ z obou stran. Nevlastní limita, tj. nespojitost 2. druhu.",
+    "hints": [
+      "Jaké znaménko má $\\operatorname{arctg}(x^4)$ pro malá $x\\ne0$?",
+      "Čitatel se blíží konstantě $2$, jmenovatel nule.",
+      "Je jednostranná limita konečná?"
+    ]
   }
 ]

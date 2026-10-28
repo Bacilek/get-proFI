@@ -116,5 +116,96 @@
       "Derivace podílu, pak zkrať $(x-1)$.",
       "$f'=\\frac{-x-1}{(x-1)^3}$; stacionární bod $x=-1$, dosaď do $f$."
     ]
+  },
+  {
+    "id": "g78-cs-1",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\dfrac1{x^2+4x+3}$ má lokální maximum v bodě $x=-2$. Jaká je jeho hodnota?",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$f'(x)=-\\frac{2x+4}{(x^2+4x+3)^2}$, nulová pro $x=-2$; zde se $f'$ mění z $+$ na $-$ (max). $f(-2)=\\frac1{4-8+3}=-1$.",
+    "hints": [
+      "Lokální extrém hledej z $f'(x)=0$.",
+      "Čitatel $f'$ je $-(2x+4)$.",
+      "Hodnotu spočítej dosazením do původní funkce, jmenovatel vyjde záporný."
+    ]
+  },
+  {
+    "id": "g78-cs-2",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=x+2\\operatorname{arccotg}x$ má lokální maximum v $x=-1$. Urči jeho hodnotu (na 3 desetinná místa). Připomeň: $\\operatorname{arccotg}(-1)=\\frac{3\\pi}4$.",
+    "answer": 3.712,
+    "tolerance": 0.002,
+    "solution": "$f'(x)=1-\\frac{2}{1+x^2}=\\frac{x^2-1}{x^2+1}$; $f'>0$ pro $x<-1$, $f'<0$ na $(-1,1)$, proto max v $x=-1$: $f(-1)=-1+2\\cdot\\frac{3\\pi}{4}=-1+\\frac{3\\pi}2\\approx3{,}712$.",
+    "hints": [
+      "Derivace $\\operatorname{arccotg}x$ je $-\\frac1{1+x^2}$.",
+      "Znaménko $f'$ určuje $x^2-1$.",
+      "Dosaď $x=-1$ do $f$ a použij uvedenou hodnotu arccotg."
+    ]
+  },
+  {
+    "id": "g78-cs-3",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=x+2\\operatorname{arccotg}x$ má lokální minimum v $x=1$. Urči jeho hodnotu (na 3 desetinná místa). Připomeň: $\\operatorname{arccotg}1=\\frac\\pi4$.",
+    "answer": 2.571,
+    "tolerance": 0.002,
+    "solution": "Z $f'(x)=\\frac{x^2-1}{x^2+1}$ se v $x=1$ mění znaménko z $-$ na $+$ (min). $f(1)=1+2\\cdot\\frac\\pi4=1+\\frac\\pi2\\approx2{,}571$.",
+    "hints": [
+      "Znaménko $f'$ vlevo a vpravo od $x=1$.",
+      "$f'(x)=\\frac{x^2-1}{x^2+1}$.",
+      "Dosaď do původní funkce."
+    ]
+  },
+  {
+    "id": "g78-cs-4",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=x+2\\operatorname{arccotg}x$ má pro $x\\to-\\infty$ šikmou asymptotu $y=x+b$. Urči $b$ (na 3 desetinná místa).",
+    "answer": 6.283,
+    "tolerance": 0.002,
+    "solution": "$a=\\lim\\frac{f(x)}x=1$ (arccotg je omezený). $b=\\lim(f(x)-x)=2\\lim_{x\\to-\\infty}\\operatorname{arccotg}x=2\\pi\\approx6{,}283$. (Pro $x\\to+\\infty$ je $b=0$.)",
+    "hints": [
+      "Šikmá asymptota: $a=\\lim\\frac{f(x)}{x}$, $b=\\lim(f(x)-ax)$.",
+      "Jak se chová $\\operatorname{arccotg}x$ pro $x\\to-\\infty$ (obor hodnot $(0,\\pi)$)?",
+      "Limita $\\operatorname{arccotg}x$ v $-\\infty$ je horní mez oboru hodnot."
+    ]
+  },
+  {
+    "id": "g09-cs-1",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=\\dfrac1{x^2+4x+3}$ má lokální extrém v bodě $x=-2$. Jaká je hodnota $f(-2)$?",
+    "answer": -1,
+    "tolerance": 0.001,
+    "solution": "$f'=-\\frac{2x+4}{(x^2+4x+3)^2}=0\\iff x=-2$; $f(-2)=\\frac1{4-8+3}=-1$. Na $(-3,-1)$ je jmenovatel záporný, $f$ roste pro $x<-2$ a klesá pro $x>-2$ – jde o lokální maximum (obor hodnot je $(-\\infty,-1]\\cup(0,\\infty)$).",
+    "hints": [
+      "Najdi nulu derivace; využij $\\bigl(\\frac1u\\bigr)'=-\\frac{u'}{u^2}$.",
+      "Stačí řešit $2x+4=0$.",
+      "Dosaď $x=-2$ do $f$."
+    ]
+  },
+  {
+    "id": "g09-cs-2",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=x+2\\operatorname{arccotg}x$ má lokální maximum v $x=-1$. Jaká je hodnota $f(-1)$ (na 3 desetinná místa)? (Použij $\\operatorname{arccotg}x\\in(0,\\pi)$.)",
+    "answer": 3.712,
+    "tolerance": 0.002,
+    "solution": "$f'=1-\\frac2{1+x^2}=\\frac{x^2-1}{x^2+1}$, extrémy v $x=\\pm1$ (max v $-1$, min v $1$). $\\operatorname{arccotg}(-1)=\\frac{3\\pi}4$, tedy $f(-1)=-1+\\frac{3\\pi}2\\approx3{,}712$.",
+    "hints": [
+      "$(\\operatorname{arccotg}x)'=-\\frac1{1+x^2}$.",
+      "$\\operatorname{arccotg}(-1)$ leží v $(0,\\pi)$; který úhel má kotangens $-1$?",
+      "Dosaď $\\operatorname{arccotg}(-1)=\\frac{3\\pi}4$ do $f$."
+    ]
+  },
+  {
+    "id": "g09-cs-3",
+    "type": "numeric",
+    "prompt": "Funkce $f(x)=x+2\\operatorname{arccotg}x$ má pro $x\\to-\\infty$ asymptotu se směrnicí $y=x+c$. Urči $c$ (na 3 desetinná místa).",
+    "answer": 6.283,
+    "tolerance": 0.002,
+    "solution": "Směrnice $k=\\lim\\frac{f(x)}x=1$. Pro $x\\to-\\infty$ je $\\operatorname{arccotg}x\\to\\pi$, takže $c=\\lim(f(x)-x)=2\\pi\\approx6{,}283$. (Pro $x\\to+\\infty$ je $\\operatorname{arccotg}x\\to0$, asymptota $y=x$.)",
+    "hints": [
+      "Směrnice je $\\lim\\frac{f(x)}x$; absolutní člen $c=\\lim(f(x)-x)$.",
+      "Jaká je limita $\\operatorname{arccotg}x$ pro $x\\to-\\infty$ s oborem hodnot $(0,\\pi)$?",
+      "Dosaď limitu do $2\\operatorname{arccotg}x$."
+    ]
   }
 ]

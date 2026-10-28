@@ -179,5 +179,171 @@
       "Zrychlení je druhá derivace dráhy: $a=s''(t)$.",
       "$s'=-24(t+1)^{-3}+4$."
     ]
+  },
+  {
+    "id": "g78-da-1",
+    "type": "numeric",
+    "prompt": "Tečna ke grafu $f(x)=2\\sqrt2\\sin x$ v bodě $x_0=\\frac\\pi4$ protíná osu $y$ v bodě $[0,q]$. Urči $q$ (na 3 desetinná místa).",
+    "answer": 0.429,
+    "tolerance": 0.002,
+    "solution": "$f(\\frac\\pi4)=2$, $f'(x)=2\\sqrt2\\cos x$, $f'(\\frac\\pi4)=2$. Tečna $y-2=2(x-\\frac\\pi4)$, tedy $q=2-\\frac\\pi2\\approx0{,}429$.",
+    "hints": [
+      "Rovnice tečny: $y-f(x_0)=f'(x_0)(x-x_0)$.",
+      "Spočítej $f(\\frac\\pi4)$ a $f'(\\frac\\pi4)$; hodnoty jsou celá čísla.",
+      "Osa $y$ odpovídá $x=0$."
+    ]
+  },
+  {
+    "id": "g78-da-2",
+    "type": "choice",
+    "prompt": "Najdi normálu ke grafu $f(x)=e^{x^2}(x^2+2x+1)$ v bodě $x_0=-1$.",
+    "options": [
+      "$y=0$",
+      "$x=-1$",
+      "$y=x+1$",
+      "$x=0$"
+    ],
+    "answer": 1,
+    "solution": "$f(x)=e^{x^2}(x+1)^2$, $f(-1)=0$. $f'(x)=2xe^{x^2}(x+1)^2+e^{x^2}\\cdot2(x+1)$, tedy $f'(-1)=0$. Tečna je vodorovná, $y=0$, a normála je svislá: $x=-1$.",
+    "hints": [
+      "Spočítej $f(-1)$ a $f'(-1)$; všimni si $(x+1)^2$.",
+      "Co znamená nulová derivace pro směr tečny?",
+      "K vodorovné přímce je normála kolmá."
+    ]
+  },
+  {
+    "id": "g78-da-3",
+    "type": "numeric",
+    "prompt": "Dráha hmotného bodu je $s(t)=2t^3-\\dfrac1{t^2+1}+1$ (m, s). Urči rychlost v čase $t=1$ s (m/s).",
+    "answer": 6.5,
+    "tolerance": 0.001,
+    "solution": "$v=s'(t)=6t^2+\\frac{2t}{(t^2+1)^2}$, $v(1)=6+\\frac24=6{,}5$ m/s.",
+    "hints": [
+      "Rychlost je derivace dráhy.",
+      "Zlomek $\\frac1{t^2+1}$ derivuj jako $(t^2+1)^{-1}$ řetízkovým pravidlem.",
+      "Pozor na znaménko mínus před zlomkem."
+    ]
+  },
+  {
+    "id": "g78-da-4",
+    "type": "numeric",
+    "prompt": "Dráha $s(t)=2t^3-\\dfrac1{t^2+1}+1$ (m, s). Urči zrychlení v čase $t=1$ s (m/s$^2$).",
+    "answer": 11.5,
+    "tolerance": 0.001,
+    "solution": "$a=v'(t)=12t+\\frac{2(1-3t^2)}{(t^2+1)^3}$, $a(1)=12+\\frac{2\\cdot(-2)}{8}=11{,}5$ m/s$^2$.",
+    "hints": [
+      "Zrychlení je druhá derivace dráhy.",
+      "Zderivuj $v(t)=6t^2+2t(t^2+1)^{-2}$ pravidlem pro součin.",
+      "Po zderivování dosaď $t=1$."
+    ]
+  },
+  {
+    "id": "g78-da-5",
+    "type": "numeric",
+    "prompt": "Žebřík délky 13 ft je opřen o zeď, spodní konec se od zdi vzdaluje rychlostí 5 ft/s. Jak rychle (ft/s, se znaménkem) se mění výška horního konce, když je spodní konec 12 ft od zdi?",
+    "answer": -12,
+    "tolerance": 0.01,
+    "solution": "$x^2+y^2=169$, derivace dle $t$: $2xx'+2yy'=0$. Pro $x=12$ je $y=5$: $2\\cdot12\\cdot5+2\\cdot5\\,y'=0\\Rightarrow y'=-12$ ft/s (horní konec klesá).",
+    "hints": [
+      "Vztah mezi $x$ a $y$ plyne z Pythagorovy věty (délka žebříku je konstantní).",
+      "Zderivuj rovnici podle času.",
+      "Výšku $y$ v daném okamžiku dopočítej ze vztahu pro $x=12$."
+    ]
+  },
+  {
+    "id": "g78-da-6",
+    "type": "numeric",
+    "prompt": "V situaci s žebříkem (13 ft, spodní konec se vzdaluje rychlostí 5 ft/s, právě je 12 ft od zdi) urči rychlost změny obsahu trojúhelníku zeď–žebřík–podlaha (ft$^2$/s, se znaménkem).",
+    "answer": -59.5,
+    "tolerance": 0.05,
+    "solution": "$S=\\frac12xy$, $S'=\\frac12(x'y+xy')$. Je $x=12$, $y=5$, $x'=5$, $y'=-12$: $S'=\\frac12(25-144)=-59{,}5$ ft$^2$/s.",
+    "hints": [
+      "Obsah pravoúhlého trojúhelníku je $\\frac12xy$.",
+      "Derivuj součin $xy$ podle času.",
+      "Potřebuješ $x,y,x',y'$; $y'$ vyjde z předchozí úlohy."
+    ]
+  },
+  {
+    "id": "g78-da-7",
+    "type": "numeric",
+    "prompt": "V téže situaci (žebřík 13 ft, $x=12$ ft, $x'=5$ ft/s) urči rychlost změny úhlu $\\alpha$, který žebřík svírá s podlahou (rad/s, se znaménkem).",
+    "answer": -1,
+    "tolerance": 0.01,
+    "solution": "$\\cos\\alpha=\\frac x{13}$, tedy $-\\sin\\alpha\\cdot\\alpha'=\\frac{x'}{13}$. Pro $\\sin\\alpha=\\frac5{13}$: $-\\frac5{13}\\alpha'=\\frac5{13}\\Rightarrow\\alpha'=-1$ rad/s.",
+    "hints": [
+      "Vyjádři $\\alpha$ pomocí $x$ a délky žebříku, např. přes $\\cos\\alpha$.",
+      "Zderivuj $\\cos\\alpha=\\frac{x}{13}$ podle času (řetízkové pravidlo).",
+      "$\\sin\\alpha=\\frac y{13}$, kde $y=5$."
+    ]
+  },
+  {
+    "id": "g09-da-1",
+    "type": "numeric",
+    "prompt": "Tečna ke grafu $f(x)=2\\sqrt2\\sin x$ v bodě $x_0=\\frac\\pi4$ protíná osu $y$ v bodě $[0,q]$. Urči $q$ (na 3 desetinná místa).",
+    "answer": 0.4292,
+    "tolerance": 0.002,
+    "solution": "$f(\\frac\\pi4)=2\\sqrt2\\cdot\\frac{\\sqrt2}2=2$, $f'(x)=2\\sqrt2\\cos x$, $f'(\\frac\\pi4)=2$. Tečna: $y=2x-\\frac\\pi2+2$, tedy $q=2-\\frac\\pi2\\approx0{,}429$.",
+    "hints": [
+      "Tečna: $y=f(x_0)+f'(x_0)(x-x_0)$; $q$ je hodnota pro $x=0$.",
+      "Spočti $f(\\frac\\pi4)$ a $f'(\\frac\\pi4)$ (sinus i kosinus mají v $\\frac\\pi4$ stejnou hodnotu).",
+      "Dosaď $x=0$ do rovnice tečny."
+    ]
+  },
+  {
+    "id": "g09-da-2",
+    "type": "choice",
+    "prompt": "Funkce $f(x)=e^{x^2}(x^2+2x+1)$. Která přímka je normála ke grafu v bodě $x_0=-1$?",
+    "options": [
+      "$y=0$",
+      "$x=-1$",
+      "$y=-1$",
+      "$y=x+1$"
+    ],
+    "answer": 1,
+    "solution": "$f(-1)=0$ a $f'(x)=e^{x^2}\\bigl(2x(x+1)^2+2(x+1)\\bigr)$, takže $f'(-1)=0$: tečna je vodorovná, $y=0$. Normála je kolmá, tedy svislá přímka $x=-1$.",
+    "hints": [
+      "Spočti $f(-1)$ a $f'(-1)$.",
+      "Pokud je $f'(-1)=0$, je tečna vodorovná.",
+      "Normála je kolmá na tečnu: jak vypadá přímka kolmá na vodorovnou?"
+    ]
+  },
+  {
+    "id": "g09-da-3",
+    "type": "numeric",
+    "prompt": "Dráha hmotného bodu je $s(t)=2t^3-\\dfrac1{t^2+1}+t$ (v metrech). Určete okamžitou rychlost v čase $t=1$ (m/s).",
+    "answer": 7.5,
+    "tolerance": 0.001,
+    "solution": "$v=s'=6t^2+\\frac{2t}{(t^2+1)^2}+1$. $v(1)=6+\\frac2{4}+1=7{,}5$ m/s.",
+    "hints": [
+      "Rychlost je derivace dráhy podle času.",
+      "$\\bigl(-\\frac1{t^2+1}\\bigr)'=\\frac{2t}{(t^2+1)^2}$.",
+      "Dosaď $t=1$."
+    ]
+  },
+  {
+    "id": "g09-da-4",
+    "type": "numeric",
+    "prompt": "Pro dráhu $s(t)=2t^3-\\dfrac1{t^2+1}+t$ určete zrychlení v čase $t=1$ (m/s$^2$).",
+    "answer": 11.5,
+    "tolerance": 0.001,
+    "solution": "$a=s''=12t+\\frac{2(1-3t^2)}{(t^2+1)^3}$ (derivace podílu $\\frac{2t}{(t^2+1)^2}$). $a(1)=12+\\frac{2\\cdot(-2)}{8}=11{,}5$ m/s$^2$.",
+    "hints": [
+      "Zrychlení je druhá derivace dráhy.",
+      "Zderivuj $v=6t^2+\\frac{2t}{(t^2+1)^2}+1$; druhý člen jako podíl.",
+      "Dosaď $t=1$ až na konci."
+    ]
+  },
+  {
+    "id": "exam-2",
+    "type": "numeric",
+    "prompt": "Vrtulník dálniční hlídky letí $3$ km nad rovnou silnicí rychlostí $120$ km/h. Pilot zaměří radarem auto jedoucí proti směru letu a naměří, že se auto při vzdušné vzdálenosti $5$ km od vrtulníku k němu přibližuje rychlostí $160$ km/h. Jaká je rychlost auta vůči silnici (km/h)? (Auto je před vrtulníkem a ještě ho nepřekonalo.)",
+    "answer": 80,
+    "tolerance": 0.001,
+    "solution": "Výška $h=3$, vzdušná vzdálenost $D=5$, tedy vodorovná vzdálenost $x=\\sqrt{25-9}=4$. Z $D^2=x^2+h^2$ je $DD'=xx'$, takže $x'=\\frac{5\\cdot(-160)}{4}=-200$ km/h (vodorovná vzdálenost klesá rychlostí 200 km/h). Auto jede proti směru letu rychlostí $c$, takže $x'=-(120+c)$ a $c=200-120=80$ km/h. Radar měří $D'$, nikoli vodorovnou složku – proto je nutné ji přepočítat.",
+    "hints": [
+      "Radar měří změnu vzdušné vzdálenosti $D$, nikoli vodorovné. Nakresli pravoúhlý trojúhelník s výškou $3$ km.",
+      "Vztah $D^2=x^2+3^2$ zderivuj podle času; vodorovnou vzdálenost $x$ spočti pro $D=5$.",
+      "Vodorovná vzdálenost se zmenšuje součtem rychlostí vrtulníku a auta (jedou proti sobě)."
+    ]
   }
 ]

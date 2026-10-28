@@ -100,5 +100,23 @@
       "$(x^2+2x+2)'=2x+2$, tedy $3x+4=\\frac32(2x+2)+1$.",
       "Zbytek: $x^2+2x+2=(x+1)^2+1$ → arctg."
     ]
+  },
+  {
+    "id": "g09-ri-1",
+    "type": "choice",
+    "prompt": "$\\displaystyle\\int\\frac{3x^2+2x+1}{x^3+x}\\,\\mathrm{d}x=$",
+    "options": [
+      "$\\ln|x|+\\ln(x^2+1)+2\\operatorname{arctg}x+C$",
+      "$\\ln|x|+\\ln(x^2+1)+\\operatorname{arctg}x+C$",
+      "$3\\ln|x|+2\\operatorname{arctg}x+C$",
+      "$\\ln|x^3+x|+C$"
+    ],
+    "answer": 0,
+    "solution": "$x^3+x=x(x^2+1)$. Rozklad: $\\frac{3x^2+2x+1}{x(x^2+1)}=\\frac1x+\\frac{2x+2}{x^2+1}$ (z $x=0$: $A=1$, pak $B=2$, $C=2$). Integrál: $\\ln|x|+\\ln(x^2+1)+2\\operatorname{arctg}x+C$.",
+    "hints": [
+      "Rozlož jmenovatel: $x^3+x=x(x^2+1)$.",
+      "Ansatz $\\frac Ax+\\frac{Bx+C}{x^2+1}$; $A$ najdeš dosazením $x=0$.",
+      "$\\int\\frac{2x}{x^2+1}\\,dx=\\ln(x^2+1)$ a $\\int\\frac2{x^2+1}\\,dx=2\\operatorname{arctg}x$."
+    ]
   }
 ]
