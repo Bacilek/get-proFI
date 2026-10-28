@@ -5,7 +5,8 @@ import { semesterWeek } from '../core/milestones'
 import { ExamStatus } from '../features/course/ExamStatus'
 import { MilestoneRow } from '../features/course/Milestones'
 import { MissingInfoBox } from '../features/course/MissingInfoBox'
-import { useCourseResults } from '../hooks'
+import { Roadmap } from '../features/course/Roadmap'
+import { useCourseResults, useLessonProgress } from '../hooks'
 
 export default function CourseView() {
   const { slug } = useParams()
@@ -17,6 +18,7 @@ export default function CourseView() {
 function CourseBody({ course }: { course: NonNullable<ReturnType<typeof getCourse>> }) {
   const [now] = useState(() => new Date())
   const results = useCourseResults(course)
+  const progress = useLessonProgress()
   const week = semesterWeek(course, now)
   return (
     <div className="space-y-5">
@@ -38,19 +40,10 @@ function CourseBody({ course }: { course: NonNullable<ReturnType<typeof getCours
           <ExamStatus course={course} results={results} />
         </div>
       </section>
-      {course.modules.map((mod) => (
-        <section key={mod.id}>
-          <h2 className="mb-1 font-semibold">{mod.title}</h2>
-          <ul className="space-y-0.5 text-sm">
-            {mod.lessons.map((l) => (
-              <li key={l.id} className={l.week === week ? 'font-medium' : ''}>
-                <span className="mr-2 inline-block w-10 text-slate-400">w{l.week}</span>
-                {l.title}
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+      <section>
+        <h2 className="mb-1 font-semibold">Roadmap</h2>
+        <Roadmap course={course} progress={progress} week={week} />
+      </section>
     </div>
   )
 }
