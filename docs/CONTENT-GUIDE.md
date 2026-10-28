@@ -21,3 +21,9 @@ Pevná struktura: `## Intuice` (1–3 věty) → `## Vzorec` / definice → `## 
   "solution": "md+KaTeX" }                      // free: sebehodnocení po zobrazení řešení
 ```
 V JSON dvojitě escapovat zpětná lomítka (`\sqrt`). Hvězdy: 90 % správně = 3, 70 % = 2, 50 % = 1 (nikdy se neodebírají).
+
+## Praktické poznámky k tvorbě lekcí
+- **Čtení slidů:** `prednasky_MB142.pdf` má PDF stranu = tištěné číslo + 3 (README předmětu uvádí obě). `pdftotext` kazí diakritiku (`ˇ`, `´`) a zlomky/integrály se rozpadají na více řádků; vzorce proto dohledávat a přepočítat ručně, ne slepě přepisovat. Dlouhý výstup omezit (`grep -v '^\s*$' | cut -c1-150`).
+- **Ověřování:** u každé numerické otázky přepočítat odpověď ručně (a zapsat postup do `solution`); tolerance 0.001 (u zaokrouhlení na 3 místa dát podle potřeby 0.002).
+- **Zápis souborů:** na Windows psát lekce a JSON nástrojem Write (složené Bash heredocy s uvozovkami a `\` padají).
+- **Po každé lekci:** README předmětu (sekce Zpracováno), `docs/ROADMAP.md` (Aktuální stav), `npm test && npm run lint && npm run build`, commit + push.
