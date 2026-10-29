@@ -73,7 +73,77 @@ export function parseNumber(input: string): number | null {
   return /^-?\d+(?:\.\d+)?(?:e-?\d+)?$/i.test(s) ? Number(s) : null
 }
 
-const normCode = (s: string) => s.replace(/\s+/g, '').toLowerCase()
+/**
+ * Like `parseNumber`, but also evaluates simple expressions such as "8!", "4*3*2", "2^9", "(16*15)/2".
+ * Supports + - * × · / ^ ! and parentheses; decimal comma is accepted.
+ */
+export function parseExpression(input: string): number | null {
+  const plain = parseNumber(input)
+  if (plain !== null) return plain
+  const s = input.trim().replace(/\s+/g, '').replace(/[×·]/g, '*').replace(/,/g, '.')
+  if (s === '' || !/^[\d.+\-*/^!()]+$/.test(s)) return null
+  let pos = 0
+  let ok = true
+  const peek = () => s[pos]
+  function factor(): number {
+    let v: number
+    if (peek() === '(') {
+      pos++
+      v = sum()
+      if (peek() === ')') pos++
+      else ok = false
+    } else if (peek() === '-') {
+      pos++
+      return -factor()
+    } else {
+      const m = /^\d+(?:\.\d+)?/.exec(s.slice(pos))
+      if (!m) {
+        ok = false
+        return NaN
+      }
+      pos += m[0].length
+      v = Number(m[0])
+    }
+    while (peek() === '!') {
+      pos++
+      if (!Number.isInteger(v) || v < 0 || v > 170) {
+        ok = false
+        return NaN
+      }
+      let f = 1
+      for (let i = 2; i <= v; i++) f *= i
+      v = f
+    }
+    return v
+  }
+  function power(): number {
+    const base = factor()
+    if (peek() === '^') {
+      pos++
+      return base ** power()
+    }
+    return base
+  }
+  function product(): number {
+    let v = power()
+    while (peek() === '*' || peek() === '/') {
+      const op = s[pos++]
+      const r = power()
+      if (op === '/' && r === 0) ok = false
+      v = op === '*' ? v * r : v / r
+    }
+    return v
+  }
+  function sum(): number {
+    let v = product()
+    while (peek() === '+' || peek() === '-') v = s[pos++] === '+' ? v + product() : v - product()
+    return v
+  }
+  const v = sum()
+  return ok && pos === s.length && Number.isFinite(v) ? v : null
+}
+
+const normCode =(s: string) => s.replace(/\s+/g, '').toLowerCase()
 
 /** Splits fill-in code into text parts around its `___` blanks (n blanks -> n + 1 parts). */
 export const fillParts = (code: string) => code.split('___')
@@ -84,7 +154,7 @@ export function checkFill(q: FillQuestion, inputs: string[]): boolean[] {
 }
 
 export function checkNumeric(q: NumericQuestion, input: string): boolean {
-  const n = parseNumber(input)
+  const n = parseExpression(input)
   return n !== null && Math.abs(n - q.answer) <= (q.tolerance ?? 1e-6)
 }
 
