@@ -30,8 +30,15 @@
   },
   {
     "id": "ga-monotone",
-    "type": "free",
-    "prompt": "Uzel A: s pravd. 0,9 výnos 2, s pravd. 0,1 výnos 3. Uzel B: s pravd. 0,9 výnos 1, s pravd. 0,1 výnos 4. Který uzel zvolí MAX? Co se změní, když výnosy přeznačíme monotónně $1\\to1$, $2\\to20$, $3\\to30$, $4\\to400$? Co z toho plyne pro Eval u her s náhodou?",
+    "type": "choice",
+    "prompt": "Uzel A: s pravd. 0,9 výnos 2, s pravd. 0,1 výnos 3. Uzel B: s pravd. 0,9 výnos 1, s pravd. 0,1 výnos 4. MAX původně volí A. Po monotónním přeznačení $1\\to1$, $2\\to20$, $3\\to30$, $4\\to400$ se rozhodnutí změní. Co z toho plyne pro Eval u her s náhodou?",
+    "options": [
+      "MAX dál volí A; u her s náhodou stačí jakákoli monotónní transformace Eval.",
+      "MAX zvolí B (A = 21, B = 40,9); u her s náhodou se rozhodnutí zachová při libovolné monotónní transformaci Eval.",
+      "MAX zvolí A (A = 21, B = 4,5); Eval musí být vždy kladné.",
+      "MAX zvolí B (A = 21, B = 40,9); u her s náhodou se rozhodnutí zachová jen při pozitivní lineární transformaci Eval, nestačí monotónní."
+    ],
+    "answer": 3,
     "solution": "Původně: A = $0{,}9\\cdot2+0{,}1\\cdot3=2{,}1$, B = $0{,}9\\cdot1+0{,}1\\cdot4=1{,}3$ ⇒ MAX volí A. Po přeznačení: A = $0{,}9\\cdot20+0{,}1\\cdot30=21$, B = $0{,}9\\cdot1+0{,}1\\cdot400=40{,}9$ ⇒ MAX volí B. Pořadí hodnot se zachovalo, rozhodnutí se změnilo. V nedeterministických hrách se proto chování zachovává jen při **pozitivní lineární** transformaci Eval; Eval musí odpovídat očekávanému výnosu. V deterministických hrách stačí monotónní transformace.",
     "hints": [
       "Spočítej očekávané hodnoty před a po přeznačení.",
@@ -111,8 +118,15 @@
   },
   {
     "id": "ga-monte-carlo-bridge",
-    "type": "free",
-    "prompt": "Jak program Jack (bridž) používá metodu Monte Carlo pro hru s nepřesnou znalostí? Co z toho vybírá?",
+    "type": "choice",
+    "prompt": "Jak program Jack (bridž) používá metodu Monte Carlo pro hru s nepřesnou znalostí?",
+    "options": [
+      "Spočítá nejhorší možné rozdání karet a zvolí akci, která v něm vychází nejlépe (minimax přes všechna rozdání).",
+      "Vygeneruje jedno náhodné rozdání a zahraje tah, který je v něm nejlepší.",
+      "Zvolí akci, která vyhrává ve všech vygenerovaných rozdáních.",
+      "Vygeneruje řadu rozdání karet konzistentních s dosavadním podáním, každé řeší jako hru s perfektní informací a vybere akci, která je v průměru nejlepší."
+    ],
+    "answer": 3,
     "solution": "Vygeneruje např. 100 rozdání karet konzistentních s dosavadním podáním (pravděpodobnosti rozdání lze spočítat). Pro každé rozdání řeší hru jako s perfektní informací a vybere akci, která je **v průměru nejlepší**. Prohledává tak „domnělý“ stavový prostor, ne reálný.",
     "hints": [
       "Neznáme karty soupeře.",

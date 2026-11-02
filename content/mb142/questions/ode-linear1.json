@@ -151,8 +151,15 @@
   },
   {
     "id": "ode-lin-derive",
-    "type": "free",
-    "prompt": "Odvoď vzorec pro řešení $y'=a(x)y+b(x)$: proč se násobí faktorem $\\mu=e^{-\\int a}$?",
+    "type": "choice",
+    "prompt": "Proč se $y'=a(x)y+b(x)$ násobí faktorem $\\mu=e^{-\\int a}$?",
+    "options": [
+      "Protože $\\mu$ převede rovnici na separovatelnou s $y=0$.",
+      "Protože $\\mu'=-a\\mu$, takže $(y\\mu)'=\\mu(y'-ay)=b\\mu$: levá strana je derivací součinu.",
+      "Protože $\\mu'=a\\mu$, takže $(y\\mu)'=\\mu(y'+ay)=b\\mu$.",
+      "Protože faktor $\\mu$ zruší konstantu $C$ v řešení."
+    ],
+    "answer": 1,
     "solution": "Násobíme $y'-ay=b$ faktorem $\\mu=e^{-\\int a\\,dx}$. Protože $\\mu'=-a\\mu$, je $(y\\mu)'=y'\\mu+y\\mu'=\\mu(y'-ay)=b\\mu$. Integrací $y\\mu=\\int b\\mu\\,dx+C$, tedy $y=e^{\\int a\\,dx}\\big(\\int b\\,e^{-\\int a\\,dx}dx+C\\big)$. Faktor je zvolen tak, aby levá strana byla derivací součinu.",
     "hints": [
       "Cíl: levá strana má být $(y\\cdot\\mu)'$.",

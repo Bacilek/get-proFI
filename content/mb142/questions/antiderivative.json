@@ -50,8 +50,15 @@
   },
   {
     "id": "antiderivative-free-sum",
-    "type": "free",
+    "type": "choice",
     "prompt": "Spočtěte $\\displaystyle\\int\\left(2^x-\\frac{2}{x}\\right)\\mathrm{d}x$.",
+    "options": [
+      "$2^x\\ln 2-2\\ln\\lvert x\\rvert+C$",
+      "$x2^{x-1}-2\\ln\\lvert x\\rvert+C$",
+      "$\\frac{2^x}{\\ln 2}+\\frac{2}{x^2}+C$",
+      "$\\frac{2^x}{\\ln 2}-2\\ln\\lvert x\\rvert+C$"
+    ],
+    "answer": 3,
     "solution": "Integrujeme člen po členu: $\\int2^x\\,\\mathrm{d}x=\\frac{2^x}{\\ln2}$ a $\\int\\frac2x\\,\\mathrm{d}x=2\\ln\\lvert x\\rvert$.\n\nVýsledek: $\\frac{2^x}{\\ln 2}-2\\ln\\lvert x\\rvert+C$.",
     "hints": [
       "Integruj člen po členu (linearita) pomocí tabulkových vzorců.",
@@ -61,8 +68,15 @@
   },
   {
     "id": "antiderivative-free-sqrt",
-    "type": "free",
+    "type": "choice",
     "prompt": "Spočtěte $\\displaystyle\\int\\left(\\sqrt{x}+\\frac{3}{x^2}\\right)\\mathrm{d}x$.",
+    "options": [
+      "$\\frac12\\frac1{\\sqrt x}-6x^{-3}+C$",
+      "$\\frac23x\\sqrt{x}+\\frac3x+C$",
+      "$\\frac23x\\sqrt{x}-\\frac3x+C$",
+      "$\\frac32x\\sqrt{x}-\\frac3x+C$"
+    ],
+    "answer": 2,
     "solution": "$\\int x^{1/2}\\mathrm{d}x=\\frac23x^{3/2}$, $\\int 3x^{-2}\\mathrm{d}x=-\\frac3x$. Výsledek: $\\frac23x\\sqrt{x}-\\frac3x+C$.",
     "hints": [
       "Přepiš odmocninu a zlomek na mocniny $x^{\\alpha}$ a použij mocninný vzorec.",

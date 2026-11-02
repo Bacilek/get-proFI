@@ -1,8 +1,15 @@
 [
   {
     "id": "la-peas",
-    "type": "free",
-    "prompt": "Co znamená zkratka PEAS? Rozepiš ji pro automatické taxi.",
+    "type": "choice",
+    "prompt": "Co znamená zkratka PEAS? Který rozpis je správný pro automatické taxi?",
+    "options": [
+      "Performance (doprava, bezpečnost, bez přestupků), Environment (ulice, chodci, počasí), Actuators (řízení, plyn, brzda), Sensors (kamera, tachometr, GPS).",
+      "Performance (kamera, GPS), Environment (řízení, plyn), Actuators (ulice, chodci), Sensors (bezpečnost, komfort).",
+      "Planning, Evaluation, Actions, Search: plánování cesty, ohodnocení, akce, prohledávání.",
+      "Performance (řízení, plyn, brzda), Environment (kamera, GPS), Actuators (ulice, chodci), Sensors (bezpečnost, komfort)."
+    ],
+    "answer": 0,
     "solution": "**P**erformance measure (míra výkonnosti): doprava na místo, vzdálenost, bezpečnost, bez přestupků, komfort. **E**nvironment (prostředí): ulice, křižovatky, ostatní účastníci provozu, chodci, počasí. **A**ctuators (akční prvky): řízení, plyn, brzda, houkačka, blinkry. **S**ensors (senzory): kamera, tachometr, počítač kilometrů, senzory motoru, GPS.",
     "hints": [
       "Čtyři složky: co měříme, kde jsme, čím jednáme, čím vnímáme.",
@@ -108,8 +115,15 @@
   },
   {
     "id": "la-wumpus-breeze",
-    "type": "free",
-    "prompt": "Agent ve Wumpusově jeskyni cítí vánek v $[1,2]$ i $[2,1]$, odkud přišel z $[1,1]$. Proč nemá bezpečný tah a co mu zbývá? A jak postupovat při zápachu v $[1,1]$?",
+    "type": "choice",
+    "prompt": "Agent ve Wumpusově jeskyni cítí vánek v $[1,2]$ i $[2,1]$, odkud přišel z $[1,1]$. Proč nemá bezpečný tah a jak postupovat při zápachu v $[1,1]$?",
+    "options": [
+      "Jáma je u jednoho z nich, ale není jasné kde, nic není prokazatelně bezpečné. Při zápachu se vystřelí do jednoho směru: chroptění = Wumpus mrtev, ticho = tam nebyl, směr je bezpečný.",
+      "Vánek znamená Wumpuse, takže agent má vystřelit na $[2,2]$. Při zápachu jde na pole s nejvyšší pravděpodobností jámy.",
+      "Agent má bezpečný tah na $[2,2]$, protože vánek ze dvou polí se vzájemně vyruší. Při zápachu stačí jít dál.",
+      "Jáma je přímo na $[1,2]$ nebo $[2,1]$, takže agent má jít na $[2,2]$. Při zápachu se vrátí na začátek a hru vzdá."
+    ],
+    "answer": 0,
     "solution": "Vánek na obou polích znamená, že jáma je v sousedství jednoho z nich ($[2,2]$ nebo některé z $[1,3]$/$[3,1]$), ale agent neví kde; žádné políčko není prokazatelně bezpečné. Zbývá riziko podle pravděpodobnosti (jáma na $[2,2]$ má při uniformním rozložení ≈ 0,86, na krajích ≈ 0,31). Při zápachu v $[1,1]$ se použije donucovací strategie: vystřelit do jednoho směru; chroptění ⇒ Wumpus mrtev a směr bezpečný, žádné chroptění ⇒ Wumpus tam nebyl ⇒ směr bezpečný.",
     "hints": [
       "Kolik kandidátních míst pro jámu zůstává?",
@@ -118,8 +132,15 @@
   },
   {
     "id": "la-kb-agent",
-    "type": "free",
-    "prompt": "Popiš cyklus logického agenta (`KB-Agent`) pomocí operací `tell` a `ask`.",
+    "type": "choice",
+    "prompt": "Jaký je cyklus logického agenta (`KB-Agent`) pomocí operací `tell` a `ask` v čase $t$?",
+    "options": [
+      "`tell` zvolené akce, `ask` na pozorování, `tell` času, vrátit KB.",
+      "`ask` na akci, vrátit akci; pozorování se do KB nezapisují.",
+      "`tell` pozorování, `ask` na další akci, `tell` zvolené akce, vrátit akci a $t+1$.",
+      "`ask` na pozorování, `tell` zvolené akce, `ask` na čas $t+1$, vrátit pozorování."
+    ],
+    "answer": 2,
     "solution": "Agent v čase $t$: (1) `tell(KB, percept_sentence(percept,t))` – přidá pozorování; (2) `ask(KB, action_query(t))` – zeptá se na další akci; (3) `tell(KB, action_sentence(action,t))` – zaznamená zvolenou akci; (4) vrátí akci a $t+1$. Báze KB obsahuje znalosti pozadí (axiomy) a průběžně doplňované znalosti.",
     "hints": [
       "Tři volání: dvakrát `tell`, jednou `ask`.",

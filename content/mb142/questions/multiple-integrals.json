@@ -193,8 +193,15 @@
   },
   {
     "id": "mi-fubini",
-    "type": "free",
-    "prompt": "Formuluj Fubiniho větu pro oblast $A=\\{a\\le x\\le b,\\ g(x)\\le y\\le h(x)\\}$ a řekni, co musí platit o mezích vnitřního a vnějšího integrálu.",
+    "type": "choice",
+    "prompt": "Jaké meze má Fubiniho věta pro $A=\\{a\\le x\\le b,\\ g(x)\\le y\\le h(x)\\}$?",
+    "options": [
+      "$\\iint_Af=\\int_a^b f\\,dx\\cdot\\int_{g}^{h}f\\,dy$: integrál rozpadne na součin.",
+      "$\\iint_Af=\\int_a^b\\!\\big(\\int_{g(y)}^{h(y)}f\\,dy\\big)dx$: obě meze závisí na $y$.",
+      "$\\iint_Af=\\int_{g(x)}^{h(x)}\\!\\big(\\int_a^bf\\,dy\\big)dx$: vnější meze závisí na $x$.",
+      "$\\iint_Af=\\int_a^b\\!\\big(\\int_{g(x)}^{h(x)}f\\,dy\\big)dx$: vnější meze konstantní, vnitřní závisí na $x$."
+    ],
+    "answer": 3,
     "solution": "$\\iint_Af\\,dx\\,dy=\\int_a^b\\left(\\int_{g(x)}^{h(x)}f(x,y)\\,dy\\right)dx$ pro $f$ spojitou na $A$ a $g,h$ spojité na $[a,b]$. Vnější integrál (podle $x$) má konstantní meze $a,b$, vnitřní (podle $y$) může mít meze závislé na $x$.",
     "hints": [
       "Vnitřní integrál se počítá při pevném $x$.",

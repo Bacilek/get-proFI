@@ -76,8 +76,15 @@
   },
   {
     "id": "pb-bn-def",
-    "type": "free",
+    "type": "choice",
     "prompt": "Co je Bayesovská síť a co obsahují její uzly a hrany?",
+    "options": [
+      "Acyklický orientovaný graf: uzly jsou náhodné proměnné, hrana $A\\to B$ říká, že $B$ přímo závisí na rodiči $A$; u uzlu je tabulka $P(X_i\\mid\\text{Parents}(X_i))$.",
+      "Strom rozhodnutí: uzly jsou akce, hrany jsou jejich pravděpodobnosti.",
+      "Orientovaný graf s cykly; uzly jsou náhodné proměnné, hrany vyjadřují kauzalitu a tabulky $P(\\text{Parents}\\mid X_i)$.",
+      "Neorientovaný graf, kde uzly jsou události a hrany říkají, že události jsou nezávislé; u uzlu je pravděpodobnost $P(X_i)$."
+    ],
+    "answer": 0,
     "solution": "Acyklický orientovaný graf; uzly jsou náhodné proměnné, hrana $A\\to B$ znamená, že $B$ přímo závisí na rodiči $A$. U každého uzlu je tabulka $P(X_i\\mid\\text{Parents}(X_i))$; společné rozdělení je součin těchto podmíněných pravděpodobností.",
     "hints": [
       "Graf bez cyklů.",

@@ -71,8 +71,15 @@
   },
   {
     "id": "mv-sin-bound",
-    "type": "free",
-    "prompt": "Dokaž pomocí Lagrangeovy věty, že $|\\sin a-\\sin b|\\le|a-b|$ pro všechna $a,b\\in\\mathbb R$.",
+    "type": "choice",
+    "prompt": "Jak se pomocí Lagrangeovy věty dokáže $|\\sin a-\\sin b|\\le|a-b|$?",
+    "options": [
+      "Rolleovou větou na $\\sin$ mezi dvěma nulami $a,b$.",
+      "Z Taylorova rozvoje $\\sin x=x-\\frac{x^3}{6}+\\dots$ ve všech bodech současně.",
+      "Existuje $c$ mezi $a,b$ s $\\frac{\\sin a-\\sin b}{a-b}=\\cos c$ a $|\\cos c|\\le1$.",
+      "Existuje $c$ mezi $a,b$ s $\\frac{\\sin a-\\sin b}{a-b}=\\sin c$ a $|\\sin c|\\le1$ (pro $a=b$ nelze použít)."
+    ],
+    "answer": 2,
     "solution": "Pro $a\\ne b$ je $\\sin$ spojitá a diferencovatelná na $[a,b]$, tedy existuje $c$ mezi $a$ a $b$ s $\\frac{\\sin a-\\sin b}{a-b}=\\cos c$. Protože $|\\cos c|\\le1$, platí $|\\sin a-\\sin b|=|\\cos c|\\,|a-b|\\le|a-b|$. Pro $a=b$ platí rovnost triviálně.",
     "hints": [
       "Použij Lagrangeovu větu na funkci $\\sin$ na intervalu mezi $a$ a $b$.",
@@ -100,8 +107,15 @@
   },
   {
     "id": "pk-ln-ineq",
-    "type": "free",
-    "prompt": "Dokaž, že $\\dfrac x{1+x}<\\ln(1+x)<x$ pro $x>0$.",
+    "type": "choice",
+    "prompt": "Jak se pomocí Lagrangeovy věty dokáže $\\frac x{1+x}<\\ln(1+x)<x$ pro $x>0$?",
+    "options": [
+      "Z Rolleovy věty, protože $\\ln(1+0)=0$.",
+      "Pro $f(t)=\\ln(1+t)$ na $[0,x]$ je $\\ln(1+x)=\\frac x{1+c}$, $0<c<x$, a $\\frac x{1+x}<\\frac x{1+c}<x$.",
+      "Pro $f(t)=\\ln(1+t)$ na $[0,x]$ je $\\ln(1+x)=x(1+c)$, $0<c<x$, a odhadneme $c$.",
+      "Pro $f(t)=\\frac t{1+t}$ na $[0,x]$ vyjde $\\ln(1+x)$ přímo integrací."
+    ],
+    "answer": 1,
     "solution": "Lagrangeova věta pro $f(t)=\\ln(1+t)$ na $[0,x]$: existuje $c\\in(0,x)$ s $\\ln(1+x)-\\ln1=\\frac{x}{1+c}$. Protože $0<c<x$, je $\\frac x{1+x}<\\frac x{1+c}<x$, tedy $\\frac x{1+x}<\\ln(1+x)<x$.",
     "hints": [
       "Použij Lagrangeovu větu na $\\ln(1+t)$, $t\\in[0,x]$.",

@@ -64,8 +64,15 @@
   },
   {
     "id": "dj-tasks",
-    "type": "free",
-    "prompt": "Jaké dva úkoly na grafu řeší Dijkstra a A\\*? Který algoritmus použiješ pro navigaci auta z bodu A do bodu B a proč?",
+    "type": "choice",
+    "prompt": "Jaké dva úkoly na grafu řeší Dijkstra a A\\*? Který algoritmus použiješ pro navigaci auta z A do B?",
+    "options": [
+      "Dijkstra: nejkratší cesty z jednoho uzlu do všech; A\\*: cesta mezi dvěma uzly. Pro navigaci A\\* s přípustnou heuristikou (vzdušná vzdálenost).",
+      "Oba řeší jen cestu mezi dvěma uzly. Pro navigaci Dijkstra, protože A\\* není optimální.",
+      "Oba hledají minimální kostru grafu. Pro navigaci A\\*.",
+      "Dijkstra: cesta mezi dvěma uzly; A\\*: nejkratší cesty z jednoho uzlu do všech. Pro navigaci Dijkstra."
+    ],
+    "answer": 0,
     "solution": "Úkol 1: nejkratší cesty z jednoho uzlu do všech ostatních (Dijkstra – např. dojezdové časy z hlavního nádraží na všechny adresy, směrování v síti). Úkol 2: nejkratší cesta mezi dvěma uzly (Dijkstra, nebo lépe A\\*). Pro navigaci A→B volíme A\\* s heuristikou (vzdušná vzdálenost), protože nepotřebuje prohledávat uzly „v opačném směru“; zůstává optimální díky přípustné heuristice.",
     "hints": [
       "Jedna úloha má jeden cíl, druhá všechny.",

@@ -139,8 +139,15 @@
   },
   {
     "id": "fb-interpretation",
-    "type": "free",
+    "type": "choice",
     "prompt": "Z čeho se skládá interpretace jazyka PL1 a k čemu je valuace?",
+    "options": [
+      "Neprázdná doména + přiřazení prvků konstantám, funkcí funkčním symbolům a relací predikátům; valuace přiřazuje prvky domény proměnným.",
+      "Neprázdná doména + přiřazení; valuace přiřazuje relace predikátům.",
+      "Pouze přiřazení pravdivostních hodnot predikátům; valuace přiřazuje pravdivostní hodnoty formulím.",
+      "Množina klauzulí; valuace určuje, které klauzule jsou splněné."
+    ],
+    "answer": 0,
     "solution": "Interpretace = neprázdná doména (univerzum) $D$ + přiřazení: konstantám prvky $D$, $n$-árním funkčním symbolům funkce $D^n\\to D$, $n$-árním predikátovým symbolům relace $I(P)\\subseteq D^n$. Valuace $V$ přiřazuje proměnným prvky domény a umožní vyhodnotit termy a formule s (volnými) proměnnými. Formule je pravdivá v interpretaci, je-li pravdivá pro každou valuaci.",
     "hints": [
       "Co musí interpretace přiřadit každému druhu symbolu?",

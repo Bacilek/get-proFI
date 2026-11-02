@@ -159,8 +159,15 @@
   },
   {
     "id": "ode-sep-lost",
-    "type": "free",
-    "prompt": "Proč se při řešení $y'=f(x)g(y)$ dělením $g(y)$ může „ztratit“ řešení a jak ho najdeš?",
+    "type": "choice",
+    "prompt": "Proč se při řešení $y'=f(x)g(y)$ dělením $g(y)$ může ztratit řešení a jak se najde?",
+    "options": [
+      "Dělením se ztratí řešení $y\\equiv0$ vždy; stačí zkusit $y=0$.",
+      "Dělit lze jen pro $g(y)\\ne0$; z $g(y_0)=0$ plyne konstantní řešení $y\\equiv y_0$, které vzorec nedá, a musí se přidat zvlášť.",
+      "Ztratí se řešení pro $f(x)=0$, které se dopočítá integrací.",
+      "Ztratí se konstanta $C$, najde se z počáteční podmínky."
+    ],
+    "answer": 1,
     "solution": "Dělení $g(y)$ je možné jen tam, kde $g(y)\\ne0$. Když $g(y_0)=0$, je $y\\equiv y_0$ konstantní řešení ($y'=0=f(x)\\cdot0$), které ve vzorci $\\int\\frac{dy}{g(y)}=\\int f\\,dx+C$ nevyjde pro žádné $C$ (např. $y\\equiv0$ u $y'=y^2$). Musíme ho přidat zvlášť, vyřešením $g(y)=0$.",
     "hints": [
       "Kdy nesmíš dělit $g(y)$?",

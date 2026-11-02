@@ -1,0 +1,934 @@
+{
+ "app": "get-profi",
+ "version": 1,
+ "exportedAt": "2026-11-02T21:58:39.567Z",
+ "lessons": [
+  {
+   "lessonId": "mb142:basics",
+   "stars": 1,
+   "updatedAt": 1793148539480
+  },
+  {
+   "lessonId": "pb016:ai-intro",
+   "stars": 3,
+   "updatedAt": 1793204643622
+  },
+  {
+   "lessonId": "pb016:problem-formulation",
+   "stars": 2,
+   "updatedAt": 1793222960040
+  },
+  {
+   "lessonId": "pb016:uninformed-search",
+   "stars": 2,
+   "updatedAt": 1793578851475
+  }
+ ],
+ "attempts": [
+  {
+   "questionId": "pb016:ai-turing-players",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793203467410,
+   "id": 1
+  },
+  {
+   "questionId": "pb016:ai-turing-needs",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793203631087,
+   "id": 2
+  },
+  {
+   "questionId": "pb016:ai-four-views",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793203663002,
+   "id": 3
+  },
+  {
+   "questionId": "pb016:ai-agent-props",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793203847391,
+   "id": 4
+  },
+  {
+   "questionId": "pb016:ai-optimization-which",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793203884945,
+   "id": 5
+  },
+  {
+   "questionId": "pb016:ai-loebner",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793204120437,
+   "id": 6
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-1",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793204129624,
+   "id": 7
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-2",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793204155947,
+   "id": 8
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-3",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793204314565,
+   "id": 9
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-4",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793204394275,
+   "id": 10
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-5",
+   "topic": "pb016:ai-intro",
+   "lessonId": "pb016:ai-intro",
+   "correct": true,
+   "at": 1793204617774,
+   "id": 11
+  },
+  {
+   "questionId": "pb016:pf-sort-configs",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793221217877,
+   "id": 12
+  },
+  {
+   "questionId": "pb016:pf-queens-n3",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793221232723,
+   "id": 13
+  },
+  {
+   "questionId": "pb016:pf-queens-8-configs",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793221267923,
+   "id": 14
+  },
+  {
+   "questionId": "pb016:pf-queens-8-cols",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": false,
+   "at": 1793221394282,
+   "id": 15
+  },
+  {
+   "questionId": "pb016:pf-queens-bdm",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793221536421,
+   "id": 16
+  },
+  {
+   "questionId": "pb016:pf-8puzzle-states",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": false,
+   "at": 1793221545381,
+   "id": 17
+  },
+  {
+   "questionId": "pb016:pf-tictactoe-bdm",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793221680618,
+   "id": 18
+  },
+  {
+   "questionId": "pb016:pf-optimization-vs-feasibility",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793221691890,
+   "id": 19
+  },
+  {
+   "questionId": "pb016:pf-4queens-actions",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793221743462,
+   "id": 20
+  },
+  {
+   "questionId": "pb016:ro-problem-formulation-1",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793221854504,
+   "id": 21
+  },
+  {
+   "questionId": "pb016:ro-problem-formulation-2",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": false,
+   "at": 1793221965281,
+   "id": 22
+  },
+  {
+   "questionId": "pb016:ro-problem-formulation-3",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793222279882,
+   "id": 23
+  },
+  {
+   "questionId": "pb016:ai-optimization-which",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793222469800,
+   "id": 24
+  },
+  {
+   "questionId": "pb016:pf-sudoku-count",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793222711338,
+   "id": 25
+  },
+  {
+   "questionId": "pb016:pf-assignment-reduce",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": false,
+   "at": 1793222769980,
+   "id": 26
+  },
+  {
+   "questionId": "pb016:pf-knapsack-reps",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793222784711,
+   "id": 27
+  },
+  {
+   "questionId": "pb016:pf-no3-naive",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": false,
+   "at": 1793222853864,
+   "id": 28
+  },
+  {
+   "questionId": "pb016:pf-no3-rows",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": false,
+   "at": 1793222919910,
+   "id": 29
+  },
+  {
+   "questionId": "pb016:pf-classify-opt",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793222942491,
+   "id": 30
+  },
+  {
+   "questionId": "pb016:pf-queens-graph",
+   "topic": "pb016:problem-formulation",
+   "lessonId": "pb016:problem-formulation",
+   "correct": true,
+   "at": 1793222958433,
+   "id": 31
+  },
+  {
+   "questionId": "pb016:us-bfs-order",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793564750572,
+   "id": 32
+  },
+  {
+   "questionId": "pb016:us-dfs-order",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": false,
+   "at": 1793564813507,
+   "id": 33
+  },
+  {
+   "questionId": "pb016:us-dfs-optimal",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578409377,
+   "id": 34
+  },
+  {
+   "questionId": "pb016:us-tree-bfs",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578448575,
+   "id": 35
+  },
+  {
+   "questionId": "pb016:us-ids-count",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578467763,
+   "id": 36
+  },
+  {
+   "questionId": "pb016:us-properties",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578500807,
+   "id": 37
+  },
+  {
+   "questionId": "pb016:us-dls-complete",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578544856,
+   "id": 38
+  },
+  {
+   "questionId": "pb016:us-bfs-optimal",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578591373,
+   "id": 39
+  },
+  {
+   "questionId": "pb016:us-ids-vs-dfs",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578604623,
+   "id": 40
+  },
+  {
+   "questionId": "pb016:us-ucs-complete",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": false,
+   "at": 1793578622542,
+   "id": 41
+  },
+  {
+   "questionId": "pb016:us-code-dfs-stack",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578654835,
+   "id": 42
+  },
+  {
+   "questionId": "pb016:us-code-bfs-queue",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578687330,
+   "id": 43
+  },
+  {
+   "questionId": "pb016:ro-uninformed-search-1",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": false,
+   "at": 1793578714849,
+   "id": 44
+  },
+  {
+   "questionId": "pb016:ro-uninformed-search-2",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578748148,
+   "id": 45
+  },
+  {
+   "questionId": "pb016:ro-uninformed-search-3",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": false,
+   "at": 1793578776574,
+   "id": 46
+  },
+  {
+   "questionId": "pb016:ro-uninformed-search-4",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578795453,
+   "id": 47
+  },
+  {
+   "questionId": "pb016:us-binary-path",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": false,
+   "at": 1793578825886,
+   "id": 48
+  },
+  {
+   "questionId": "pb016:us-dfs-vs-bfs-claim",
+   "topic": "pb016:uninformed-search",
+   "lessonId": "pb016:uninformed-search",
+   "correct": true,
+   "at": 1793578850422,
+   "id": 49
+  },
+  {
+   "questionId": "pb016:is-astar-f",
+   "topic": "pb016:informed-search",
+   "lessonId": "pb016:informed-search",
+   "correct": true,
+   "at": 1793656041355,
+   "id": 50
+  },
+  {
+   "questionId": "pb016:is-greedy-pick",
+   "topic": "pb016:informed-search",
+   "lessonId": "pb016:informed-search",
+   "correct": false,
+   "at": 1793656270077,
+   "id": 51
+  },
+  {
+   "questionId": "pb016:is-astar-pick",
+   "topic": "pb016:informed-search",
+   "lessonId": "pb016:informed-search",
+   "correct": true,
+   "at": 1793656416417,
+   "id": 52
+  },
+  {
+   "questionId": "pb016:is-astar-optimal-cost",
+   "topic": "pb016:informed-search",
+   "lessonId": "pb016:informed-search",
+   "correct": true,
+   "at": 1793656482764,
+   "id": 53
+  },
+  {
+   "questionId": "pb016:is-romania-greedy",
+   "topic": "pb016:informed-search",
+   "lessonId": "pb016:informed-search",
+   "correct": false,
+   "at": 1793656531513,
+   "id": 54
+  },
+  {
+   "questionId": "pb016:is-romania-astar-order",
+   "topic": "pb016:informed-search",
+   "lessonId": "pb016:informed-search",
+   "correct": false,
+   "at": 1793656677460,
+   "id": 55
+  },
+  {
+   "questionId": "pb016:is-admissible",
+   "topic": "pb016:informed-search",
+   "lessonId": "pb016:informed-search",
+   "correct": true,
+   "at": 1793656718751,
+   "id": 56
+  }
+ ],
+ "ratings": [
+  {
+   "topic": "pb016:ai-intro",
+   "rating": 5,
+   "at": 1793203459148
+  },
+  {
+   "topic": "pb016:problem-formulation",
+   "rating": 4,
+   "at": 1793221184114
+  },
+  {
+   "topic": "pb016:uninformed-search",
+   "rating": 3,
+   "at": 1793564550248
+  }
+ ],
+ "reviews": [
+  {
+   "questionId": "pb016:ai-agent-props",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793290247478
+  },
+  {
+   "questionId": "pb016:ai-four-views",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793290063012
+  },
+  {
+   "questionId": "pb016:ai-loebner",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793290520511
+  },
+  {
+   "questionId": "pb016:ai-optimization-which",
+   "ease": 2.5,
+   "interval": 3,
+   "reps": 2,
+   "due": 1793481669815
+  },
+  {
+   "questionId": "pb016:ai-turing-needs",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793290031103
+  },
+  {
+   "questionId": "pb016:ai-turing-players",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793289867425
+  },
+  {
+   "questionId": "pb016:is-admissible",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793743118766
+  },
+  {
+   "questionId": "pb016:is-astar-f",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793742441399
+  },
+  {
+   "questionId": "pb016:is-astar-optimal-cost",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793742882781
+  },
+  {
+   "questionId": "pb016:is-astar-pick",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793742816432
+  },
+  {
+   "questionId": "pb016:is-greedy-pick",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793742670100
+  },
+  {
+   "questionId": "pb016:is-romania-astar-order",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793743077478
+  },
+  {
+   "questionId": "pb016:is-romania-greedy",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793742931524
+  },
+  {
+   "questionId": "pb016:pf-4queens-actions",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793308143477
+  },
+  {
+   "questionId": "pb016:pf-8puzzle-states",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793307945392
+  },
+  {
+   "questionId": "pb016:pf-assignment-reduce",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793309169997
+  },
+  {
+   "questionId": "pb016:pf-classify-opt",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793309342503
+  },
+  {
+   "questionId": "pb016:pf-knapsack-reps",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793309184732
+  },
+  {
+   "questionId": "pb016:pf-no3-naive",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793309253878
+  },
+  {
+   "questionId": "pb016:pf-no3-rows",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793309319930
+  },
+  {
+   "questionId": "pb016:pf-optimization-vs-feasibility",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793308091898
+  },
+  {
+   "questionId": "pb016:pf-queens-8-cols",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793307794294
+  },
+  {
+   "questionId": "pb016:pf-queens-8-configs",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793307667943
+  },
+  {
+   "questionId": "pb016:pf-queens-bdm",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793307936446
+  },
+  {
+   "questionId": "pb016:pf-queens-graph",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793309358448
+  },
+  {
+   "questionId": "pb016:pf-queens-n3",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793307632740
+  },
+  {
+   "questionId": "pb016:pf-sort-configs",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793307617925
+  },
+  {
+   "questionId": "pb016:pf-sudoku-count",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793309111364
+  },
+  {
+   "questionId": "pb016:pf-tictactoe-bdm",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793308080627
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-1",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793290529681
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-2",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793290555986
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-3",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793290714585
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-4",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793290794285
+  },
+  {
+   "questionId": "pb016:ro-ai-intro-5",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793291017783
+  },
+  {
+   "questionId": "pb016:ro-problem-formulation-1",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793308254520
+  },
+  {
+   "questionId": "pb016:ro-problem-formulation-2",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793308365313
+  },
+  {
+   "questionId": "pb016:ro-problem-formulation-3",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793308679906
+  },
+  {
+   "questionId": "pb016:ro-uninformed-search-1",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793665114863
+  },
+  {
+   "questionId": "pb016:ro-uninformed-search-2",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793665148165
+  },
+  {
+   "questionId": "pb016:ro-uninformed-search-3",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793665176599
+  },
+  {
+   "questionId": "pb016:ro-uninformed-search-4",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793665195465
+  },
+  {
+   "questionId": "pb016:us-bfs-optimal",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793664991393
+  },
+  {
+   "questionId": "pb016:us-bfs-order",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793651150586
+  },
+  {
+   "questionId": "pb016:us-binary-path",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793665225908
+  },
+  {
+   "questionId": "pb016:us-code-bfs-queue",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793665087344
+  },
+  {
+   "questionId": "pb016:us-code-dfs-stack",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793665054846
+  },
+  {
+   "questionId": "pb016:us-dfs-optimal",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793664809420
+  },
+  {
+   "questionId": "pb016:us-dfs-order",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793651213523
+  },
+  {
+   "questionId": "pb016:us-dfs-vs-bfs-claim",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793665250441
+  },
+  {
+   "questionId": "pb016:us-dls-complete",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793664944884
+  },
+  {
+   "questionId": "pb016:us-ids-count",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793664867783
+  },
+  {
+   "questionId": "pb016:us-ids-vs-dfs",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793665004638
+  },
+  {
+   "questionId": "pb016:us-properties",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793664900830
+  },
+  {
+   "questionId": "pb016:us-tree-bfs",
+   "ease": 2.5,
+   "interval": 1,
+   "reps": 1,
+   "due": 1793664848590
+  },
+  {
+   "questionId": "pb016:us-ucs-complete",
+   "ease": 2.3,
+   "interval": 1,
+   "reps": 0,
+   "due": 1793665022565
+  }
+ ],
+ "results": [
+  {
+   "milestoneId": "mb142:midterm1",
+   "points": 8.25,
+   "at": 1793148335888
+  },
+  {
+   "milestoneId": "pb006:homework",
+   "points": 6,
+   "at": 1793197876466
+  },
+  {
+   "milestoneId": "pb016:minitests",
+   "points": 6.5,
+   "at": 1793188297452
+  }
+ ],
+ "skips": [
+  {
+   "id": "pb016:ropot:4",
+   "at": 1793188269042
+  }
+ ],
+ "parts": [
+  {
+   "id": "pb006:homework:1",
+   "points": 3
+  },
+  {
+   "id": "pb006:homework:2",
+   "points": 3
+  },
+  {
+   "id": "pb016:minitests:1",
+   "points": 2
+  },
+  {
+   "id": "pb016:minitests:2",
+   "points": 1.25
+  },
+  {
+   "id": "pb016:minitests:3",
+   "points": 2
+  },
+  {
+   "id": "pb016:minitests:4",
+   "points": 0
+  },
+  {
+   "id": "pb016:minitests:5",
+   "points": 1.25
+  }
+ ]
+}

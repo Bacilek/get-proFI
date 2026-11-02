@@ -89,8 +89,15 @@
   },
   {
     "id": "mon-abs",
-    "type": "free",
-    "prompt": "Má funkce $f(x)=|x|$ lokální extrém v $x=0$? Zdůvodni, i když $f'(0)$ neexistuje.",
+    "type": "choice",
+    "prompt": "Má $f(x)=|x|$ lokální extrém v $x=0$, i když $f'(0)$ neexistuje?",
+    "options": [
+      "Ano, ale jde o maximum, protože $f'$ mění znaménko z $+$ na $-$.",
+      "Ne, protože $f(0)=0$ není nejmenší hodnota.",
+      "Ano, ostré (i globální) minimum: $|x|>0=f(0)$ pro $x\\ne0$; $f'$ mění znaménko z $-$ na $+$.",
+      "Ne, protože derivace v $0$ neexistuje, a tedy extrém být nemůže."
+    ],
+    "answer": 2,
     "solution": "Ano, ostré lokální (i globální) minimum: $f(x)=|x|>0=f(0)$ pro $x\\ne0$. Derivace v $0$ neexistuje, takže jde o kandidáta z druhé skupiny (bod bez derivace); $f'=-1$ vlevo a $+1$ vpravo, znaménko se mění z $-$ na $+$.",
     "hints": [
       "Extrém může být i v bodě, kde derivace neexistuje; vyšetři přímo definici.",

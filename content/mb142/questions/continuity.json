@@ -148,8 +148,15 @@
   },
   {
     "id": "cont-free-def",
-    "type": "free",
-    "prompt": "Vyjmenuj tři podmínky spojitosti funkce $f$ v bodě $x_0$ a tři typy bodů nespojitosti.",
+    "type": "choice",
+    "prompt": "Které tvrzení správně uvádí podmínky spojitosti funkce $f$ v bodě $x_0$ a typy bodů nespojitosti?",
+    "options": [
+      "Spojitost: existuje vlastní $\\lim_{x\\to x_0}f(x)$, existuje $f(x_0)$ a rovnají se. Nespojitost: odstranitelná, skok, 2. druhu.",
+      "Spojitost: existuje vlastní limita (nezávisle na $f(x_0)$). Nespojitost: jen skok a nekonečno.",
+      "Spojitost: existují jednostranné limity, i různé. Nespojitost: odstranitelná, spojitá, 2. druhu.",
+      "Spojitost: existuje $f(x_0)$ a funkce je v něm diferencovatelná. Nespojitost: odstranitelná, skok, 2. druhu."
+    ],
+    "answer": 0,
     "solution": "Spojitost: existuje vlastní $\\lim_{x\\to x_0}f(x)$, existuje $f(x_0)$, obojí se rovná. Nespojitost: odstranitelná (limita vlastní, ale $\\ne f(x_0)$ / nedefinováno), skok (vlastní, různé jednostranné limity), 2. druhu (aspoň jedna jednostranná limita nevlastní nebo neexistuje).",
     "hints": [
       "Spojitost v bodě má tři části: limita, hodnota funkce, jejich rovnost.",

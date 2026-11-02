@@ -43,8 +43,15 @@
   },
   {
     "id": "differential-free-cos61",
-    "type": "free",
-    "prompt": "Pomocí diferenciálu aproximuj $\\cos(61^\\circ)$. Nezapomeň na radiány.",
+    "type": "choice",
+    "prompt": "Pomocí diferenciálu aproximuj $\\cos(61^\\circ)$ (pozor na radiány).",
+    "options": [
+      "$\\frac12-\\frac{\\sqrt3}{2}\\cdot\\frac{\\pi}{180}\\approx0{,}4849$",
+      "$\\frac12-\\frac{\\sqrt3}{2}\\cdot1\\approx-0{,}366$",
+      "$\\frac12+\\frac{\\sqrt3}{2}\\cdot\\frac{\\pi}{180}\\approx0{,}5151$",
+      "$\\frac{\\sqrt3}{2}-\\frac12\\cdot\\frac{\\pi}{180}\\approx0{,}8573$"
+    ],
+    "answer": 0,
     "solution": "$f=\\cos$, $x_0=\\frac{\\pi}{3}$ ($60^\\circ$), $h=\\frac{\\pi}{180}$, $f'(x_0)=-\\sin\\frac{\\pi}{3}=-\\frac{\\sqrt3}{2}$.\n\n$\\cos 61^\\circ\\approx\\frac12-\\frac{\\sqrt3}{2}\\cdot\\frac{\\pi}{180}\\approx 0{,}4849$",
     "hints": [
       "Použij diferenciál $f(x_0+h)\\approx f(x_0)+f'(x_0)h$; úhly musí být v radiánech.",

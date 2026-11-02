@@ -122,8 +122,15 @@
   },
   {
     "id": "ms-q",
-    "type": "free",
-    "prompt": "Ukaž na posloupnosti, že $\\mathbb Q$ s metrikou $|x-y|$ není úplný.",
+    "type": "choice",
+    "prompt": "Jak se ukáže, že $\\mathbb Q$ s metrikou $|x-y|$ není úplný?",
+    "options": [
+      "Posloupnost $\\frac1n$ je cauchyovská a její limita $0$ není v $\\mathbb Q$.",
+      "Posloupnost $n$ je cauchyovská, ale nemá limitu.",
+      "Racionální aproximace $\\sqrt2$ nejsou cauchyovské, protože jejich členy se stále mění.",
+      "Racionální aproximace $\\sqrt2$ (1; 1,4; 1,41; …) je cauchyovská, ale její limita $\\sqrt2\\notin\\mathbb Q$."
+    ],
+    "answer": 3,
     "solution": "Posloupnost desetinných aproximací $\\sqrt2$: $x_1=1$, $x_2=1{,}4$, $x_3=1{,}41,\\dots$ je tvořena racionálními čísly a je cauchyovská (v $\\mathbb R$ konverguje k $\\sqrt2$), ale její limita $\\sqrt2\\notin\\mathbb Q$. Cauchyovská posloupnost bez limity v $\\mathbb Q$ ⇒ $\\mathbb Q$ není úplný.",
     "hints": [
       "Vezmi racionální aproximace iracionálního čísla.",
@@ -133,8 +140,15 @@
   },
   {
     "id": "ms-norm-metric",
-    "type": "free",
-    "prompt": "Ukaž, že norma $\\|\\cdot\\|$ definuje metriku $d(x,y)=\\|x-y\\|$.",
+    "type": "choice",
+    "prompt": "Jak se ukáže, že norma definuje metriku $d(x,y)=\\|x-y\\|$ (symetrie a trojúhelníková nerovnost)?",
+    "options": [
+      "Oba vlastnosti plynou jen z $\\|x\\|\\ge0$.",
+      "Symetrie: $\\|x-y\\|=|-1|\\,\\|y-x\\|$; trojúhelníková: $\\|x-z\\|=\\|(x-y)+(y-z)\\|\\le\\|x-y\\|+\\|y-z\\|$.",
+      "Symetrie plyne z $\\|x-y\\|=-\\|y-x\\|$; trojúhelníková: $\\|x-z\\|=\\|x-y\\|+\\|y-z\\|$.",
+      "Symetrie je zadarmo z $\\|x\\|=\\|y\\|$; trojúhelníková: $\\|x-z\\|\\ge\\|x-y\\|+\\|y-z\\|$."
+    ],
+    "answer": 1,
     "solution": "$d(x,y)=\\|x-y\\|\\ge0$ a $=0$ jen pro $x-y=0$. Symetrie: $\\|x-y\\|=\\|(-1)(y-x)\\|=|-1|\\|y-x\\|=\\|y-x\\|$. Trojúhelníková nerovnost: $\\|x-z\\|=\\|(x-y)+(y-z)\\|\\le\\|x-y\\|+\\|y-z\\|$.",
     "hints": [
       "Ověř tři axiomy metriky.",

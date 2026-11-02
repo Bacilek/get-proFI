@@ -94,8 +94,15 @@
   },
   {
     "id": "cvx-free",
-    "type": "free",
-    "prompt": "Pro $f(x)=x+\\sin x$ na $[0,4\\pi]$ urči monotonii, extrémy, konvexnost a inflexe.",
+    "type": "choice",
+    "prompt": "Pro $f(x)=x+\\sin x$ na $[0,4\\pi]$ platí:",
+    "options": [
+      "$f$ je rostoucí a konvexní na celém $[0,4\\pi]$, bez inflexí.",
+      "$f$ je rostoucí bez lokálních extrémů; konvexní na $(\\pi,2\\pi)$ a $(3\\pi,4\\pi)$; inflexe v $\\pi,2\\pi,3\\pi$.",
+      "$f$ má lokální maxima v $\\pi,3\\pi$; konvexní na $(0,\\pi)$ a $(2\\pi,3\\pi)$; inflexe v $\\frac\\pi2,\\frac{3\\pi}2$.",
+      "$f$ je rostoucí bez lokálních extrémů; konvexní na $(0,\\pi)$ a $(2\\pi,3\\pi)$; inflexe v $\\pi,2\\pi,3\\pi$."
+    ],
+    "answer": 1,
     "solution": "$f'=1+\\cos x\\ge0$, rovnost jen v izolovaných bodech $\\pi,3\\pi$ ⇒ $f$ je rostoucí na $[0,4\\pi]$, žádné lokální extrémy. $f''=-\\sin x$: $f''>0$ na $(\\pi,2\\pi)$ a $(3\\pi,4\\pi)$ (konvexní), $f''<0$ na $(0,\\pi)$ a $(2\\pi,3\\pi)$ (konkávní). Inflexe v $x=\\pi,2\\pi,3\\pi$.",
     "hints": [
       "Vyšetři znaménko $f'$ (monotonie, extrémy) a $f''$ (konvexnost, inflexe).",

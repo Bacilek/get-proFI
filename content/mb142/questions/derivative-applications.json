@@ -123,8 +123,15 @@
   },
   {
     "id": "da-normal-free",
-    "type": "free",
-    "prompt": "Napiš rovnici tečny i normály ke grafu $f(x)=\\frac1x$ v bodě $x_0=2$.",
+    "type": "choice",
+    "prompt": "Jaká je rovnice tečny a normály ke grafu $f(x)=\\frac1x$ v bodě $x_0=2$?",
+    "options": [
+      "Tečna $y=-\\frac14x+\\frac12$, normála $y=4x+\\frac12$.",
+      "Tečna $y=4x-\\frac{15}2$, normála $y=-\\frac14x+1$.",
+      "Tečna $y=-\\frac12x+\\frac32$, normála $y=2x-\\frac72$.",
+      "Tečna $y=-\\frac14x+1$, normála $y=4x-\\frac{15}2$."
+    ],
+    "answer": 3,
     "solution": "$f(2)=\\frac12$, $f'(2)=-\\frac14$. Tečna: $y-\\frac12=-\\frac14(x-2)$, tj. $y=-\\frac14x+1$. Normála má směrnici $4$: $y-\\frac12=4(x-2)$, tj. $y=4x-\\frac{15}2$.",
     "hints": [
       "Potřebuješ $f(x_0)$ a $f'(x_0)$; tečna: $y-f(x_0)=f'(x_0)(x-x_0)$.",

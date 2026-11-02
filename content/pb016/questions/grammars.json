@@ -59,8 +59,15 @@
   },
   {
     "id": "gr-derive",
-    "type": "free",
-    "prompt": "Odvoď větu „starý člověk mluví“ v gramatice z předchozích příkladů a popiš syntaktický strom.",
+    "type": "choice",
+    "prompt": "Gramatika z předchozích příkladů má pravidla $S\\to NP\\,VP$, $NP\\to Adj\\,NP\\mid Noun$, $VP\\to Verb$. Který syntaktický strom odpovídá větě „starý člověk mluví“?",
+    "options": [
+      "$S$ → ($NP$ → ($Adj$ starý, $NP$ → $Noun$ člověk), $VP$ → $Verb$ mluví)",
+      "$S$ → ($VP$ → ($Adj$ starý, $NP$ → $Noun$ člověk), $NP$ → $Verb$ mluví)",
+      "$S$ → ($NP$ → $Noun$ starý člověk, $VP$ → ($Adj$, $Verb$ mluví))",
+      "$S$ → ($NP$ → ($Adj$ starý, $Noun$ člověk, $Verb$ mluví))"
+    ],
+    "answer": 0,
     "solution": "$S\\Rightarrow NP\\,VP\\Rightarrow Adj\\,NP\\,VP\\Rightarrow$ starý $NP\\,VP\\Rightarrow$ starý $Noun\\,VP\\Rightarrow$ starý člověk $VP\\Rightarrow$ starý člověk $Verb\\Rightarrow$ starý člověk mluví. Strom: $S$ → ($NP$ → ($Adj$ starý, $NP$ → $Noun$ člověk), $VP$ → $Verb$ mluví).",
     "hints": [
       "Rozepisuj vždy nejlevější neterminál.",

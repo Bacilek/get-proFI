@@ -59,8 +59,15 @@
   },
   {
     "id": "ab-alpha-beta-def",
-    "type": "free",
-    "prompt": "Co znamenají $\\alpha$ a $\\beta$ v alfa-beta prořezávání a s jakými hodnotami algoritmus začíná? Kdy dojde k řezu?",
+    "type": "choice",
+    "prompt": "Co znamenají $\\alpha$ a $\\beta$ v alfa-beta prořezávání, s jakými hodnotami algoritmus začíná a kdy dojde k řezu?",
+    "options": [
+      "$\\alpha$ = nejlepší hodnota zaručená pro MAX, $\\beta$ = nejlepší zaručená pro MIN; start $\\langle-\\infty,+\\infty\\rangle$; řez nastane, jakmile $\\beta>\\alpha$.",
+      "$\\alpha$ = nejlepší hodnota zaručená pro MIN, $\\beta$ = nejlepší zaručená pro MAX; start $\\langle+\\infty,-\\infty\\rangle$; řez nastane, jakmile $\\beta\\le\\alpha$.",
+      "$\\alpha$ = nejlepší hodnota zaručená pro MAX, $\\beta$ = nejlepší (nejnižší) zaručená pro MIN; start $\\langle-\\infty,+\\infty\\rangle$; řez nastane, jakmile $\\beta\\le\\alpha$.",
+      "$\\alpha$ a $\\beta$ jsou hloubky, do kterých se prohledává MAX a MIN; start $\\langle0,0\\rangle$; řez nastane v největší hloubce."
+    ],
+    "answer": 2,
     "solution": "$\\alpha$ = doposud nejlepší hodnota zaručená pro MAX, $\\beta$ = doposud nejlepší (nejnižší) hodnota zaručená pro MIN. Začíná se s $\\langle-\\infty,+\\infty\\rangle$. MAX uzel zvyšuje $\\alpha$, MIN uzel snižuje $\\beta$. Řez nastane, jakmile $\\beta\\le\\alpha$ (tj. MAX uzel: $v\\ge\\beta$; MIN uzel: $v\\le\\alpha$) – zbývající potomky nemusíme prohledávat.",
     "hints": [
       "$\\alpha$ patří MAXovi.",

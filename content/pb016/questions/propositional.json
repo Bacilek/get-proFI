@@ -107,8 +107,15 @@
   },
   {
     "id": "pl-nand",
-    "type": "free",
-    "prompt": "Vyjádři $\\neg p$ a $p\\wedge q$ pomocí samotné spojky NAND ($a\\,\\text{nand}\\,b=\\neg(a\\wedge b)$). Co to říká o NAND?",
+    "type": "choice",
+    "prompt": "Jak vyjádřit $\\neg p$ a $p\\wedge q$ pomocí samotné spojky NAND ($a\\,\\text{nand}\\,b=\\neg(a\\wedge b)$)?",
+    "options": [
+      "$\\neg p\\equiv p\\,\\text{nand}\\,q$; $p\\wedge q\\equiv p\\,\\text{nand}\\,p$. NAND je úplný systém spojek.",
+      "$\\neg p\\equiv(p\\,\\text{nand}\\,p)\\,\\text{nand}\\,p$; $p\\wedge q\\equiv(p\\,\\text{nand}\\,p)\\,\\text{nand}\\,(q\\,\\text{nand}\\,q)$. NAND je úplný systém spojek.",
+      "$\\neg p\\equiv p\\,\\text{nand}\\,p$; $p\\wedge q\\equiv p\\,\\text{nand}\\,q$. NAND ale úplný systém spojek není.",
+      "$\\neg p\\equiv p\\,\\text{nand}\\,p$; $p\\wedge q\\equiv(p\\,\\text{nand}\\,q)\\,\\text{nand}\\,(p\\,\\text{nand}\\,q)$. NAND je úplný systém spojek."
+    ],
+    "answer": 3,
     "solution": "$\\neg p\\equiv p\\,\\text{nand}\\,p$. $p\\wedge q\\equiv\\neg(p\\,\\text{nand}\\,q)\\equiv(p\\,\\text{nand}\\,q)\\,\\text{nand}\\,(p\\,\\text{nand}\\,q)$. (Také $p\\vee q\\equiv(p\\,\\text{nand}\\,p)\\,\\text{nand}\\,(q\\,\\text{nand}\\,q)$.) NAND tvoří jednoprvkový **úplný systém spojek** (stejně NOR).",
     "hints": [
       "$p\\,\\text{nand}\\,p=\\neg(p\\wedge p)$.",

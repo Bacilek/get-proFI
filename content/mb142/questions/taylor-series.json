@@ -138,8 +138,15 @@
   },
   {
     "id": "ts-exp-neg",
-    "type": "free",
-    "prompt": "Najdi Maclaurinovu řadu funkce $\\dfrac{1}{1+x^2}$ a uveď, pro která $x$ platí.",
+    "type": "choice",
+    "prompt": "Maclaurinova řada funkce $\\frac1{1+x^2}$ a obor platnosti:",
+    "options": [
+      "$\\sum_{n=0}^\\infty(-1)^n\\frac{x^{2n}}{n!}$ pro všechna $x$",
+      "$\\sum_{n=0}^\\infty(-1)^nx^{2n}=1-x^2+x^4-\\dots$ pro $|x|<1$",
+      "$\\sum_{n=0}^\\infty x^{2n}=1+x^2+x^4+\\dots$ pro $|x|<1$",
+      "$\\sum_{n=0}^\\infty(-1)^nx^{n}$ pro $|x|<1$"
+    ],
+    "answer": 1,
     "solution": "V $\\frac1{1+t}=\\sum(-1)^nt^n$ ($|t|<1$) dosaď $t=x^2$: $\\frac1{1+x^2}=\\sum_{n=0}^\\infty(-1)^nx^{2n}=1-x^2+x^4-\\dots$ pro $|x|<1$.",
     "hints": [
       "Použij geometrickou řadu $\\frac1{1+t}$.",
@@ -149,8 +156,15 @@
   },
   {
     "id": "ts-arctan",
-    "type": "free",
-    "prompt": "Z řady pro $\\frac1{1+x^2}$ odvoď Maclaurinovu řadu funkce $\\operatorname{arctg}x$.",
+    "type": "choice",
+    "prompt": "Integrací řady pro $\\frac1{1+x^2}$ člen po členu vyjde Maclaurinova řada $\\operatorname{arctg}x$:",
+    "options": [
+      "$x-\\frac{x^3}3+\\frac{x^5}5-\\dots$ pro $|x|<1$",
+      "$1-\\frac{x^2}2+\\frac{x^4}4-\\dots$ pro $|x|<1$",
+      "$x-\\frac{x^3}{3!}+\\frac{x^5}{5!}-\\dots$ pro všechna $x$",
+      "$x+\\frac{x^3}3+\\frac{x^5}5+\\dots$ pro $|x|<1$"
+    ],
+    "answer": 0,
     "solution": "Integrací člen po členu: $\\operatorname{arctg}x=\\int_0^x\\frac{dt}{1+t^2}=\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{2n+1}=x-\\frac{x^3}3+\\frac{x^5}5-\\dots$ pro $|x|<1$ (konverguje i v $x=\\pm1$ podle Leibnize).",
     "hints": [
       "Vyjdi z $\\operatorname{arctg}x=\\int_0^x\\frac{dt}{1+t^2}$.",

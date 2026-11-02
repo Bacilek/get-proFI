@@ -71,8 +71,15 @@
   },
   {
     "id": "pd-free-derivs",
-    "type": "free",
-    "prompt": "Spočti $f_x$ a $f_y$ pro $f(x,y)=\\mathrm e^{x}y^2\\sin(xy)$.",
+    "type": "choice",
+    "prompt": "Parciální derivace $f(x,y)=\\mathrm e^{x}y^2\\sin(xy)$ jsou:",
+    "options": [
+      "$f_x=y^2\\mathrm e^x(\\sin xy+y\\cos xy)$, $f_y=\\mathrm e^xy(2\\sin xy+xy\\cos xy)$",
+      "$f_x=y^2\\mathrm e^x(\\sin xy-y\\cos xy)$, $f_y=\\mathrm e^xy(2\\sin xy-xy\\cos xy)$",
+      "$f_x=\\mathrm e^xy^2\\sin xy$, $f_y=2\\mathrm e^xy\\sin xy$",
+      "$f_x=y^2\\mathrm e^x\\cos xy$, $f_y=2y\\mathrm e^x\\sin xy$"
+    ],
+    "answer": 0,
     "solution": "$f_x=y^2\\mathrm e^x(\\sin xy+y\\cos xy)$, $f_y=\\mathrm e^x y(2\\sin xy+xy\\cos xy)$ (součin a složená funkce, druhá proměnná je konstanta).",
     "hints": [
       "Při derivování podle jedné proměnné je druhá konstanta; použij pravidlo součinu a řetězové pravidlo.",

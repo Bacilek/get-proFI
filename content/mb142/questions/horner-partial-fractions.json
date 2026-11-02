@@ -58,8 +58,15 @@
   },
   {
     "id": "pf-free-simple",
-    "type": "free",
-    "prompt": "Rozlož na parciální zlomky $\\dfrac{3x+5}{(x+1)(x+2)}$.",
+    "type": "choice",
+    "prompt": "Rozklad na parciální zlomky $\\dfrac{3x+5}{(x+1)(x+2)}$ je:",
+    "options": [
+      "$\\dfrac{1}{x+1}+\\dfrac{2}{x+2}$",
+      "$\\dfrac{3}{x+1}+\\dfrac{5}{x+2}$",
+      "$\\dfrac{2}{x+1}+\\dfrac{1}{x+2}$",
+      "$\\dfrac{2}{x+1}-\\dfrac{1}{x+2}$"
+    ],
+    "answer": 2,
     "solution": "$3x+5=A(x+2)+B(x+1)$. $x=-1$: $A=2$; $x=-2$: $-1=-B\\Rightarrow B=1$. Výsledek: $\\dfrac{2}{x+1}+\\dfrac{1}{x+2}$.",
     "hints": [
       "Jmenovatel má dva různé reálné kořeny, použij ansatz $\\frac A{x+1}+\\frac B{x+2}$.",
@@ -69,8 +76,15 @@
   },
   {
     "id": "pf-free-double",
-    "type": "free",
-    "prompt": "Rozlož na parciální zlomky $\\dfrac{x+1}{(x-1)(x-2)^2}$.",
+    "type": "choice",
+    "prompt": "Rozklad na parciální zlomky $\\dfrac{x+1}{(x-1)(x-2)^2}$ je:",
+    "options": [
+      "$\\frac{-2}{x-1}+\\frac3{(x-2)^2}+\\frac2{x-2}$",
+      "$\\frac2{x-1}+\\frac3{(x-2)^2}+\\frac2{x-2}$",
+      "$\\frac2{x-1}+\\frac3{(x-2)^2}-\\frac2{x-2}$",
+      "$\\frac2{x-1}+\\frac{3}{x-2}$"
+    ],
+    "answer": 2,
     "solution": "$\\frac A{x-1}+\\frac B{(x-2)^2}+\\frac C{x-2}$, $x+1=A(x-2)^2+B(x-1)+C(x-1)(x-2)$. $x=1$: $A=2$; $x=2$: $B=3$; $x=0$: $1=4A-B+2C\\Rightarrow C=-2$. Výsledek: $\\frac2{x-1}+\\frac3{(x-2)^2}-\\frac2{x-2}$.",
     "hints": [
       "Kořen $2$ je dvojnásobný, takže potřebuješ zlomky s $(x-2)^2$ i $(x-2)$.",
@@ -163,8 +177,15 @@
   },
   {
     "id": "cv5-pf-10-free",
-    "type": "free",
-    "prompt": "Rozlož na parciální zlomky $\\dfrac{1}{x^3(x+1)}$ a zkontroluj výsledek zpětným sečtením.",
+    "type": "choice",
+    "prompt": "Rozklad $\\dfrac{1}{x^3(x+1)}$ na parciální zlomky je:",
+    "options": [
+      "$\\frac1x+\\frac1{x^2}+\\frac1{x^3}-\\frac1{x+1}$",
+      "$-\\frac1x+\\frac1{x^2}-\\frac1{x^3}+\\frac1{x+1}$",
+      "$\\frac1{x^3}-\\frac1{x+1}$",
+      "$\\frac1x-\\frac1{x^2}+\\frac1{x^3}-\\frac1{x+1}$"
+    ],
+    "answer": 3,
     "solution": "Tvar: $\\frac{A}{x}+\\frac{B}{x^2}+\\frac{C}{x^3}+\\frac{D}{x+1}$. Z $1=Ax^2(x+1)+Bx(x+1)+C(x+1)+Dx^3$: $x=0\\Rightarrow C=1$, $x=-1\\Rightarrow D=-1$, koeficient u $x^3$: $A+D=0\\Rightarrow A=1$, u $x^2$: $A+B=0\\Rightarrow B=-1$. Výsledek: $\\frac1x-\\frac1{x^2}+\\frac1{x^3}-\\frac1{x+1}$. Kontrola: společný jmenovatel $x^3(x+1)$, čitatel $x^2(x+1)-x(x+1)+(x+1)-x^3=1$.",
     "hints": [
       "Vícenásobný kořen $0$ dává členy pro všechny mocniny $x,x^2,x^3$.",

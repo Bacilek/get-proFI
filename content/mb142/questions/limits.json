@@ -164,8 +164,15 @@
   },
   {
     "id": "lim-free-def",
-    "type": "free",
-    "prompt": "Napiš definici $\\lim_{x\\to x_0}f(x)=L$ pomocí $\\varepsilon$ a $\\delta$ a řekni, proč v ní stojí $0<|x-x_0|$.",
+    "type": "choice",
+    "prompt": "Která definice $\\lim_{x\\to x_0}f(x)=L$ je správná a proč v ní stojí $0<|x-x_0|$?",
+    "options": [
+      "$\\forall\\varepsilon\\ \\exists\\delta\\ \\forall x:\\ 0<|x-x_0|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$; limita tak nezávisí na hodnotě $f(x_0)$.",
+      "$\\forall\\delta\\ \\exists\\varepsilon\\ \\forall x:\\ 0<|x-x_0|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$; $0<$ vylučuje $L=0$.",
+      "$\\exists\\delta\\ \\forall\\varepsilon\\ \\forall x:\\ 0<|x-x_0|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$; $0<$ zajišťuje spojitost.",
+      "$\\forall\\varepsilon\\ \\exists\\delta\\ \\forall x:\\ |x-x_0|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$; podmínka $0<$ je jen zbytečná."
+    ],
+    "answer": 0,
     "solution": "$\\forall\\varepsilon>0\\ \\exists\\delta>0\\ \\forall x:\\ 0<|x-x_0|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$. Podmínka $0<|x-x_0|$ (tj. $x\\ne x_0$) znamená, že limita nezávisí na hodnotě $f(x_0)$ (ani na tom, zda existuje).",
     "hints": [
       "Definice má tvar $\\forall\\varepsilon\\ \\exists\\delta\\ \\forall x$ s implikací.",

@@ -102,8 +102,15 @@
   },
   {
     "id": "ip-unique",
-    "type": "free",
-    "prompt": "Proč je interpolační polynom (stupně $\\le n$) pro $n+1$ různých uzlů určen jednoznačně?",
+    "type": "choice",
+    "prompt": "Proč je interpolační polynom stupně $\\le n$ pro $n+1$ různých uzlů určen jednoznačně?",
+    "options": [
+      "Protože soustava má $n+2$ rovnic o $n+1$ neznámých, a proto má nejvýše jedno řešení.",
+      "Protože Vandermondova matice má vždy nulový determinant.",
+      "Soustava pro koeficienty má Vandermondovu matici s determinantem $\\prod_{i>j}(x_i-x_j)\\ne0$, tedy právě jedno řešení.",
+      "Protože každé dva body leží na právě jedné přímce, a to se přenáší na vyšší stupně."
+    ],
+    "answer": 2,
     "solution": "Koeficienty splňují soustavu $n+1$ lineárních rovnic o $n+1$ neznámých s Vandermondovou maticí, jejíž determinant je $\\prod_{i>j}(x_i-x_j)\\ne0$ (uzly jsou různé), takže soustava má právě jedno řešení. (Alternativa: rozdíl dvou řešení je polynom stupně $\\le n$ s $n+1$ kořeny, tedy nulový.)",
     "hints": [
       "Napiš soustavu pro koeficienty.",

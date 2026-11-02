@@ -71,8 +71,15 @@
   },
   {
     "id": "mm-andor-vs-minimax",
-    "type": "free",
+    "type": "choice",
     "prompt": "Proč na hry s výsledkem typu skóre nestačí AND/OR graf a použije se minimax? Jaký je vztah typů uzlů?",
+    "options": [
+      "AND/OR graf nepodporuje cykly; minimax ano. „Já na tahu“ = OR = MIN, „soupeř na tahu“ = AND = MAX.",
+      "AND/OR graf lze použít vždy; minimax je jen jeho jiný název.",
+      "AND/OR listy jsou jen splněno/nesplněno, bez čísla; minimax má v listech reálné hodnoty. „Já na tahu“ = OR = MAX, „soupeř na tahu“ = AND = MIN.",
+      "AND/OR graf je příliš pomalý; minimax má stejné listy. „Já na tahu“ = AND = MAX, „soupeř na tahu“ = OR = MIN."
+    ],
+    "answer": 2,
     "solution": "V AND/OR grafu jsou listy jen splněné/nesplněné (výhra/prohra), nelze v nich uložit číselné skóre a vyhodnocovat s ním vnitřní uzly. Minimax zobecňuje myšlenku: listy mají reálné hodnoty, MAX bere maximum, MIN minimum. Uzel „já na tahu“ odpovídá OR (stačí jeden dobrý tah) a MAX; uzel „soupeř na tahu“ odpovídá AND (musí vyhrávat všechny jeho tahy) a MIN.",
     "hints": [
       "Co může být v listu AND/OR grafu?",
@@ -115,8 +122,15 @@
   },
   {
     "id": "mm-code-tictactoe",
-    "type": "free",
-    "prompt": "(Cvičení 5, Python) Načrtni funkce pro výběr tahu AI a člověka v piškvorkách pomocí minimaxu (`maxi`, `mini`). Jaké hodnoty mají koncové stavy?",
+    "type": "choice",
+    "prompt": "(Cvičení 5, Python) Minimax pro piškvorky s funkcemi `maxi`, `mini`. Jaké hodnoty mají koncové stavy a jak vypadá `maxi`?",
+    "options": [
+      "Výhra AI +1, remíza 0, prohra −1. `maxi`: na konci vrať hodnotu, jinak `best=-2`, pro každý volný tah ulož značku, `v=mini(board)`, vrať značku, `best=max(best,v)`.",
+      "Výhra AI +1, remíza 0, prohra −1. `maxi`: pro každý volný tah ulož značku a `v=maxi(board)`, `best=max(best,v)` (značka se nevrací).",
+      "Výhra AI 0, remíza 1, prohra 2. `maxi`: `best=2`, `v=mini(board)`, `best=min(best,v)`.",
+      "Výhra AI +1, remíza +1, prohra −1. `maxi`: vrátí první nalezený tah s hodnotou +1."
+    ],
+    "answer": 0,
     "solution": "Koncové hodnoty: výhra AI (X) = +1, remíza = 0, prohra = −1. `maxi(board)`: pokud konec, vrať hodnotu; jinak `best=-2`, pro každý volný tah ulož značku, `v=mini(board)`, vrať značku zpět, `best=max(best,v)`. `mini` symetricky s `best=2` a `min`. Funkce výběru tahu AI volá `mini` pro každý tah a volí tah s maximem; člověk (simulace) volí tah s minimem. Alfa-beta: stejné, navíc parametry `alpha`, `beta` (−2, 2 stačí) a `break` při `v>=beta` (v maxi) resp. `v<=alpha` (v mini).",
     "hints": [
       "Dvě vzájemně rekurzivní funkce.",

@@ -63,8 +63,15 @@
   },
   {
     "id": "ratint-free-diff-squares",
-    "type": "free",
-    "prompt": "Spočtěte $\\displaystyle\\int\\frac{1}{x^2-1}\\,\\mathrm{d}x$.",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\int\\frac{1}{x^2-1}\\,\\mathrm{d}x$?",
+    "options": [
+      "$\\frac12\\ln\\left\\lvert\\frac{x+1}{x-1}\\right\\rvert+C$",
+      "$\\operatorname{arctg}x+C$",
+      "$\\ln\\lvert x^2-1\\rvert+C$",
+      "$\\frac12\\ln\\left\\lvert\\frac{x-1}{x+1}\\right\\rvert+C$"
+    ],
+    "answer": 3,
     "solution": "$\\frac{1}{x^2-1}=\\frac12\\left(\\frac{1}{x-1}-\\frac{1}{x+1}\\right)$, tedy $\\frac12\\ln\\lvert x-1\\rvert-\\frac12\\ln\\lvert x+1\\rvert+C=\\frac12\\ln\\left\\lvert\\frac{x-1}{x+1}\\right\\rvert+C$.",
     "hints": [
       "Jmenovatel se rozkládá jako rozdíl čtverců, použij parciální zlomky.",
@@ -74,8 +81,15 @@
   },
   {
     "id": "ratint-free-divide",
-    "type": "free",
-    "prompt": "Spočtěte $\\displaystyle\\int\\frac{x^3+x^2}{x^2+1}\\,\\mathrm{d}x$.",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\int\\frac{x^3+x^2}{x^2+1}\\,\\mathrm{d}x$?",
+    "options": [
+      "$\\frac{x^2}{2}+x-\\frac12\\ln(x^2+1)-\\operatorname{arctg}x+C$",
+      "$\\frac{x^2}{2}+x+C$",
+      "$\\frac{x^2}{2}+x-\\ln(x^2+1)-\\operatorname{arctg}x+C$",
+      "$\\frac{x^2}{2}+x+\\frac12\\ln(x^2+1)+\\operatorname{arctg}x+C$"
+    ],
+    "answer": 0,
     "solution": "Dělení: $x+1-\\frac{x+1}{x^2+1}$.\n\n$\\int(x+1)\\mathrm{d}x=\\frac{x^2}{2}+x$, $\\int\\frac{x}{x^2+1}=\\frac12\\ln(x^2+1)$, $\\int\\frac{1}{x^2+1}=\\operatorname{arctg}x$.\n\nVýsledek: $\\frac{x^2}{2}+x-\\frac12\\ln(x^2+1)-\\operatorname{arctg}x+C$.",
     "hints": [
       "Stupeň čitatele je větší než jmenovatele: nejdřív dělení polynomů se zbytkem.",

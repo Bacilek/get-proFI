@@ -120,8 +120,15 @@
   },
   {
     "id": "dr-cbrt-free",
-    "type": "free",
-    "prompt": "Pomocí věty o derivaci inverzní funkce odvoď $(\\sqrt[3]x)'$.",
+    "type": "choice",
+    "prompt": "Pomocí věty o derivaci inverzní funkce ($x=y^3$) vyjde $(\\sqrt[3]x)'$ rovno:",
+    "options": [
+      "$\\frac13x^{-2/3}$ pro $x\\ne0$",
+      "$\\frac13x^{2/3}$",
+      "$3x^{2/3}$",
+      "$\\frac13x^{-1/3}$"
+    ],
+    "answer": 0,
     "solution": "Označ $y=\\sqrt[3]x$, $x=f(y)=y^3$, $f'(y)=3y^2$. Pak $(\\sqrt[3]x)'=\\frac1{3y^2}=\\frac1{3(\\sqrt[3]x)^2}=\\frac13x^{-2/3}$ pro $x\\ne0$.",
     "hints": [
       "Použij větu o derivaci inverzní funkce: $\\sqrt[3]x$ je inverze k $y\\mapsto y^3$.",
@@ -131,8 +138,15 @@
   },
   {
     "id": "dr-inverse-chain-free",
-    "type": "free",
-    "prompt": "Odvoď vzorec pro derivaci inverzní funkce z pravidla pro složenou funkci.",
+    "type": "choice",
+    "prompt": "Jak se z pravidla pro složenou funkci odvodí vzorec pro derivaci inverzní funkce?",
+    "options": [
+      "Derivováním $x=f^{-1}(f(x))$: $1=(f^{-1})'(x)\\cdot f'(x)$, tedy $(f^{-1})'(x)=\\frac1{f'(x)}$.",
+      "Derivováním $y=f(x)$: $(f^{-1})'(x)=-f'(x)$.",
+      "Derivováním $f(f^{-1}(x))=x$: $f'(x)+(f^{-1})'(x)=1$.",
+      "Derivováním $x=f(f^{-1}(x))$: $1=f'(f^{-1}(x))\\cdot(f^{-1})'(x)$, tedy $(f^{-1})'(x)=\\frac1{f'(f^{-1}(x))}$."
+    ],
+    "answer": 3,
     "solution": "Pro $x\\in D(f^{-1})$ platí $x=f(f^{-1}(x))$. Derivováním: $1=f'(f^{-1}(x))\\cdot(f^{-1})'(x)$, tedy $(f^{-1})'(x)=\\frac1{f'(f^{-1}(x))}$ (pokud $f'\\ne0$).",
     "hints": [
       "Vyjdi z identity $f(f^{-1}(x))=x$.",

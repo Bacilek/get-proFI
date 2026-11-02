@@ -153,8 +153,15 @@
   },
   {
     "id": "control-explain-short",
-    "type": "free",
-    "prompt": "Co je zkrácené vyhodnocování, k čemu je dobré a jaké je jeho nebezpečí? Uveď příklad.",
+    "type": "choice",
+    "prompt": "Co je zkrácené vyhodnocování, k čemu je dobré a jaké je jeho nebezpečí?",
+    "options": [
+      "`a && b` nevyhodnotí `b`, je-li `a` pravda. Hodí se na ochranné podmínky, nebezpečí: přetečení zásobníku.",
+      "Operandy se vyhodnocují vždy všechny, ale výsledek se uloží do cache. Nebezpečí: zastaralá hodnota.",
+      "Vyhodnotí se vždy jen levý operand. Hodí se na urychlení cyklů, nebezpečí: pravý operand se nikdy nezkontroluje překladačem.",
+      "`a && b` nevyhodnotí `b`, je-li `a` nepravda (u `||` je-li pravda). Hodí se na ochranné podmínky (`i < len && list[i] != key`), nebezpečí: vedlejší efekty v pravém operandu se nemusí provést."
+    ],
+    "answer": 3,
     "solution": "Výsledek lze určit bez vyhodnocení všech operandů: `a && b` nevyhodnotí `b`, když `a` je nepravda (u `||` když je pravda). Dobré pro ochranné podmínky: `index < len && list[index] != key` nepřečte mimo pole. Nebezpečí: **vedlejší efekty** v pravém operandu se nemusí provést (`a || (b++ / 3)`). Jazyky: C, C#, Python, ML; v C# nezkrácené `&`, `|`; Ada má `and then`, `or else`.",
     "hints": [
       "Příklad s kontrolou meze pole."

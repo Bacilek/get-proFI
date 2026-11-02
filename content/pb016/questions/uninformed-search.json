@@ -35,9 +35,16 @@
   },
   {
     "id": "us-dfs-optimal",
-    "type": "free",
-    "prompt": "V grafu (A: B,C,D; B: A,E; C: A,E,F; D: A,G; E: B,C,H; F: C,H; G: D; H: E,F) najde DFS z A do H cestu A-B-E-C-F-H. Je tato cesta optimální? Jaká cesta je nejkratší a který algoritmus ji najde?",
-    "solution": "DFS cesta má 5 hran a **není optimální**. Nejkratší cesta má 3 hrany, např. A-B-E-H (nebo A-C-E-H, A-C-F-H). Nalezne ji BFS i IDS, DFS obecně ne – DFS není optimální, jen úplný v konečných prostorech bez cyklů.",
+    "type": "choice",
+    "prompt": "V grafu (A: B,C,D; B: A,E; C: A,E,F; D: A,G; E: B,C,H; F: C,H; G: D; H: E,F) najde DFS z A do H cestu A-B-E-C-F-H. Které tvrzení je pravdivé?",
+    "options": [
+      "Cesta není optimální, nejkratší má 3 hrany (např. A-B-E-H) a najde ji BFS i IDS.",
+      "Cesta je optimální, protože DFS vždy najde nejkratší cestu.",
+      "Cesta není optimální, nejkratší má 3 hrany a najde ji pouze DFS s jiným pořadím sousedů.",
+      "Cesta je optimální, protože žádná kratší než 5 hran v grafu neexistuje."
+    ],
+    "answer": 0,
+    "solution": "DFS cesta má 5 hran a **není optimální**. Nejkratší cesta má 3 hrany, např. A-B-E-H (nebo A-C-E-H, A-C-F-H). Nalezne ji BFS i IDS, DFS obecně ne: DFS není optimální, jen úplný v konečných prostorech bez cyklů.",
     "hints": [
       "Spočítej hrany: z A do E vede i cesta přes B a z E rovnou do H.",
       "BFS hledá nejmělčí cíl."
@@ -45,9 +52,16 @@
   },
   {
     "id": "us-tree-bfs",
-    "type": "free",
-    "prompt": "Stavový prostor: počáteční stav 1, každý stav $k$ má dva následníky $2k$ a $2k+1$. Cíl je 11. Uveď pořadí navštívených stavů pro **BFS** a pro **DFS s limitem $\\ell=3$** (limit počítaný v hranách, výpočet končí nalezením cíle).",
-    "solution": "BFS: 1 2 3 4 5 6 7 8 9 10 11.\nDFS s limitem 3: 1 2 4 8 9 5 10 11 (z 4 vedou 8, 9; po návratu 5 → 10, 11 = cíl).\nIDS by prošel iterace: 1 | 1 2 3 | 1 2 4 5 3 6 7 | 1 2 4 8 9 5 10 11.\nBonus: bez prohledávání – binární zápis cíle $11=1011_2$, první jedničku ignoruj a bity 011 určují tahy: 0 = vlevo, 1 = vpravo (tedy vlevo, vpravo, vpravo).",
+    "type": "choice",
+    "prompt": "Stavový prostor: počáteční stav 1, každý stav $k$ má dva následníky $2k$ a $2k+1$ (v tomto pořadí). Cíl je 11. V jakém pořadí navštíví stavy **DFS s limitem $\\ell=3$** (limit v hranách, výpočet končí nalezením cíle)?",
+    "options": [
+      "1 2 4 8 9 5 10 11",
+      "1 2 3 4 5 6 7 8 9 10 11",
+      "1 2 4 8 5 10 11",
+      "1 3 6 12 13 7 14 15"
+    ],
+    "answer": 0,
+    "solution": "DFS jde vždy doleva a vrací se: 1 → 2 → 4 → 8 (hloubka 3, limit, bez následníků) → zpět 9 → zpět do 2 → 5 → 10 → 11 = cíl. Pořadí 1 2 4 8 9 5 10 11. Druhá možnost je pořadí BFS. IDS by prošel iterace: 1 | 1 2 3 | 1 2 4 5 3 6 7 | 1 2 4 8 9 5 10 11.",
     "hints": [
       "Strom: 1 → 2,3; 2 → 4,5; 3 → 6,7; 4 → 8,9; 5 → 10,11.",
       "DFS jde vždy doleva a vrací se."
@@ -118,9 +132,16 @@
   },
   {
     "id": "us-ids-vs-dfs",
-    "type": "free",
-    "prompt": "Popiš stavový prostor, ve kterém má IDS řádově větší časovou složitost než DFS (např. $O(n^2)$ vs. $O(n)$).",
-    "solution": "Prostor s faktorem větvení 1 (cesta délky $n$) a cílem na jejím konci. DFS projde každý uzel jednou: $O(n)$. IDS v iteraci $i$ prohledá $i$ uzlů, celkem $1+2+\\dots+n=O(n^2)$. U prostorů s větším $b$ je režie IDS zanedbatelná (dominuje poslední vrstva).",
+    "type": "choice",
+    "prompt": "Ve kterém stavovém prostoru má IDS řádově větší časovou složitost než DFS (např. $O(n^2)$ vs. $O(n)$)?",
+    "options": [
+      "V prostoru s faktorem větvení 1 (cesta délky $n$) a cílem na jejím konci.",
+      "V binárním stromu hloubky $n$ s cílem v listu.",
+      "V prostoru s velkým faktorem větvení $b$ a cílem v poslední vrstvě.",
+      "V libovolném prostoru, IDS je vždy řádově pomalejší než DFS."
+    ],
+    "answer": 0,
+    "solution": "Při faktoru větvení 1 DFS projde každý uzel jednou: $O(n)$. IDS v iteraci $i$ prohledá $i$ uzlů, celkem $1+2+\\dots+n=O(n^2)$. U prostorů s větším $b$ je režie IDS zanedbatelná (dominuje poslední vrstva), takže řád zůstává $O(b^d)$.",
     "hints": [
       "Zvol nejjednodušší možný strom – bez větvení.",
       "Kolik uzlů projde IDS v $i$-té iteraci?"
@@ -145,9 +166,16 @@
   },
   {
     "id": "us-code-dfs-stack",
-    "type": "free",
-    "prompt": "(Cvičení 2, Python) Nerekurzivní DFS má zásobník `stack=[start]`, seznam `visited=[]` a smyčku `while stack: current=stack.pop(); if current not in visited: visited.append(current); for n in graph[current]: stack.append(n)`. Graf má hrany (1,2),(2,3),(3,4),(3,5),(2,6),(1,7),(1,8),(8,9),(9,10),(9,11),(8,12) (sousedi v pořadí vložení hran). V jakém pořadí navštíví uzly z uzlu 1? V čem se liší od rekurzivní verze?",
-    "solution": "Pořadí návštěv: 1 8 12 9 11 10 7 2 6 3 5 4. Sousedé se vkládají na zásobník v pořadí hran a vybírají se **opačně** (LIFO), proto se jde do posledního souseda jako první. Rekurzivní verze (volá se pro sousedy ve vloženém pořadí) navštíví 1 2 3 4 5 6 7 8 9 10 11 12. Obě jsou DFS – pořadí závisí na uspořádání sousedů; stejný výsledek dostaneš, když na zásobník vkládáš sousedy v opačném pořadí.",
+    "type": "choice",
+    "prompt": "(Cvičení 2, Python) Nerekurzivní DFS má zásobník `stack=[start]`, seznam `visited=[]` a smyčku `while stack: current=stack.pop(); if current not in visited: visited.append(current); for n in graph[current]: stack.append(n)`. Graf má hrany (1,2),(2,3),(3,4),(3,5),(2,6),(1,7),(1,8),(8,9),(9,10),(9,11),(8,12) (sousedi v pořadí vložení hran). V jakém pořadí navštíví uzly z uzlu 1?",
+    "options": [
+      "1 8 12 9 11 10 7 2 6 3 5 4",
+      "1 2 3 4 5 6 7 8 9 10 11 12",
+      "1 2 7 8 3 6 9 12 4 5 10 11",
+      "1 7 8 2 6 3 5 4 12 9 11 10"
+    ],
+    "answer": 0,
+    "solution": "Sousedé se vkládají na zásobník v pořadí hran a vybírají se **opačně** (LIFO), proto se jde do posledního souseda jako první: 1 → 8 → 12 → (zpět) 9 → 11 → 10 → 7 → 2 → 6 → 3 → 5 → 4. Rekurzivní verze (volá se pro sousedy ve vloženém pořadí) by navštívila 1 2 3 4 5 6 7 8 9 10 11 12 (druhá možnost). Obě jsou DFS, pořadí závisí na uspořádání sousedů.",
     "hints": [
       "Zásobník je LIFO.",
       "Poslední vložený soused se zpracuje první."
@@ -155,8 +183,15 @@
   },
   {
     "id": "us-code-bfs-queue",
-    "type": "free",
-    "prompt": "(Cvičení 2, Python) Jak implementuješ BFS pomocí seznamu jako fronty? Čím se liší od DFS se zásobníkem v kódu?",
+    "type": "choice",
+    "prompt": "(Cvičení 2, Python) BFS se píše stejně jako DFS se zásobníkem (`current=stack.pop()`, přidávání sousedů pomocí `append`). Čím se v kódu liší?",
+    "options": [
+      "Prvek se odebírá z čela seznamu: `queue.pop(0)` (FIFO) místo `pop()` (LIFO).",
+      "Sousedé se přidávají na začátek seznamu pomocí `insert(0, n)` a odebírá se `pop(0)`.",
+      "BFS místo seznamu `visited` používá počítadlo hloubky.",
+      "Rozdíl není žádný, BFS i DFS používají `pop()`."
+    ],
+    "answer": 0,
     "solution": "`queue=[start]`, `visited=[]`; `while queue: current=queue.pop(0)` (prvek z **čela** fronty); `if current not in visited: visited.append(current); for n in graph[current]: queue.append(n)`. Jediný rozdíl proti DFS se zásobníkem je odebírání: BFS `pop(0)` (FIFO), DFS `pop()` (LIFO). (Efektivněji `collections.deque` a `popleft()`.)",
     "hints": [
       "Dvě datové struktury: zásobník a fronta.",

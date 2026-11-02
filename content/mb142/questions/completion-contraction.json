@@ -125,8 +125,15 @@
   },
   {
     "id": "cc-banach",
-    "type": "free",
-    "prompt": "Proč je v Banachově větě nutný předpoklad úplnosti? Uveď protipříklad.",
+    "type": "choice",
+    "prompt": "Proč je v Banachově větě o pevném bodu nutný předpoklad úplnosti? Který protipříklad to ukazuje?",
+    "options": [
+      "Bez úplnosti není $F$ spojitá; protipříklad $F(x)=\\frac x2$ na $\\mathbb R$.",
+      "Limita iterací musí ležet v prostoru; $F(x)=\\frac x2$ na $(0,1]$ je kontrakce, ale pevný bod $0$ v $(0,1]$ není.",
+      "Úplnost zaručuje, že kontrakční konstanta je $C<1$; protipříklad $F(x)=x$ na $\\mathbb R$.",
+      "Bez úplnosti iterace nejsou cauchyovské; protipříklad $F(x)=2x$ na $[0,1]$."
+    ],
+    "answer": 1,
     "solution": "Iterace $x_{n+1}=F(x_n)$ tvoří cauchyovskou posloupnost, ale musí mít limitu uvnitř prostoru – to zaručuje právě úplnost. Protipříklad: $F(x)=\\frac x2$ na $(0,1]$ je kontrakce ($C=\\frac12$), ale nemá pevný bod, protože jediné řešení $z=\\frac z2$ je $z=0\\notin(0,1]$ (a $(0,1]$ není úplný).",
     "hints": [
       "Zamysli se, kde vznikne limita iterací.",

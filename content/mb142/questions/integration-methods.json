@@ -68,8 +68,15 @@
   },
   {
     "id": "intmethods-free-xlnx",
-    "type": "free",
-    "prompt": "Spočtěte $\\displaystyle\\int x\\ln x\\,\\mathrm{d}x$.",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\int x\\ln x\\,\\mathrm{d}x$?",
+    "options": [
+      "$\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C$",
+      "$\\frac{x^2}{2}\\ln x+\\frac{x^2}{4}+C$",
+      "$\\frac{x^2}{2}\\ln x-\\frac{x^2}{2}+C$",
+      "$x\\ln x-x+C$"
+    ],
+    "answer": 0,
     "solution": "Per partes: $u'=x$, $u=\\frac{x^2}{2}$, $v=\\ln x$, $v'=\\frac1x$.\n\n$\\frac{x^2}{2}\\ln x-\\int\\frac{x}{2}\\mathrm{d}x=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C$.",
     "hints": [
       "Součin mocniny a logaritmu: per partes, derivovat budeme logaritmus.",
@@ -79,8 +86,15 @@
   },
   {
     "id": "intmethods-free-x2cos",
-    "type": "free",
-    "prompt": "Spočtěte $\\displaystyle\\int x^2\\cos x^3\\,\\mathrm{d}x$.",
+    "type": "choice",
+    "prompt": "Čemu se rovná $\\displaystyle\\int x^2\\cos x^3\\,\\mathrm{d}x$?",
+    "options": [
+      "$3\\sin x^3+C$",
+      "$\\frac13x^3\\sin x^3+C$",
+      "$\\frac13\\sin x^3+C$",
+      "$-\\frac13\\sin x^3+C$"
+    ],
+    "answer": 2,
     "solution": "Substituce $t=x^3$, $\\mathrm{d}t=3x^2\\mathrm{d}x$: $\\frac13\\int\\cos t\\,\\mathrm{d}t=\\frac13\\sin x^3+C$.",
     "hints": [
       "Uvnitř kosinu je $x^3$ a mimo ní jeho derivace až na konstantu; substituce.",

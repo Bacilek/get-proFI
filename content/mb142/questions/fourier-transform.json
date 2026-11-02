@@ -133,8 +133,15 @@
   },
   {
     "id": "ft-deconv",
-    "type": "free",
-    "prompt": "Jak se pomocí Fourierovy transformace provádí dekonvoluce, tj. obnovení $f$ z pozorování $h=f*g$ se známým jádrem $g$?",
+    "type": "choice",
+    "prompt": "Jak se pomocí Fourierovy transformace provádí dekonvoluce, tj. obnovení $f$ z $h=f*g$ se známým jádrem $g$?",
+    "options": [
+      "$f=\\mathcal F^{-1}\\!\\big(\\mathcal F(h)-\\mathcal F(g)\\big)$: konvoluce se mění na sčítání.",
+      "$f=h/g$ bodově v původní oblasti, Fourierova transformace není potřeba.",
+      "$f=\\mathcal F^{-1}\\!\\big(\\mathcal F(h)\\cdot\\mathcal F(g)\\big)$: konvoluce se mění na násobení.",
+      "$f=\\mathcal F^{-1}\\!\\big(\\mathcal F(h)\\,/\\,(\\sqrt{2\\pi}\\,\\mathcal F(g))\\big)$: konvoluce se mění na násobení, dělí se bodově podle frekvence."
+    ],
+    "answer": 3,
     "solution": "Protože $\\mathcal F(f*g)=\\sqrt{2\\pi}\\,\\mathcal F(f)\\mathcal F(g)$, spočteme $\\mathcal F(h)$, podělíme $\\sqrt{2\\pi}\\,\\mathcal F(g)$ (tam, kde je $\\ne0$) a použijeme inverzní transformaci: $f=\\mathcal F^{-1}\\!\\left(\\dfrac{\\mathcal F(h)}{\\sqrt{2\\pi}\\mathcal F(g)}\\right)$. Konvoluce se tak změní na prosté násobení a dělit lze bodově podle frekvence.",
     "hints": [
       "Co udělá Fourierova transformace s konvolucí?",

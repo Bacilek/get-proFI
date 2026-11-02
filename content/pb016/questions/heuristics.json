@@ -99,8 +99,15 @@
   },
   {
     "id": "he-gaschnig",
-    "type": "free",
+    "type": "choice",
     "prompt": "Proč je cena optimálního řešení relaxovaného problému vždy přípustnou heuristikou původního problému?",
+    "options": [
+      "Relaxovaný problém je vždy jednodušší na výpočet, a proto je jeho heuristika konzistentní.",
+      "Řešení původního problému jsou i řešeními relaxovaného, takže optimum relaxovaného je nanejvýš tak drahé jako optimum původního: $h(n)\\le h^*(n)$.",
+      "Relaxace vždy zvyšuje ceny akcí, takže optimum relaxovaného je alespoň tak drahé jako původní: $h(n)\\ge h^*(n)$.",
+      "Relaxovaný problém má vždy stejné optimum jako původní, proto je $h$ přesná."
+    ],
+    "answer": 1,
     "solution": "Relaxace odstraňuje omezení na akce, proto jsou všechna řešení původního problému i řešeními relaxovaného. Optimální řešení původního problému je tedy jedním z kandidátů na optimum relaxovaného, takže cena optima relaxovaného problému je **nanejvýš** tak velká jako cena optima původního. To je přesně podmínka $h(n)\\le h^*(n)$.",
     "hints": [
       "Má relaxovaný problém víc, nebo míň řešení než původní?",

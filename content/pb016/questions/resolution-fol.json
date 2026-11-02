@@ -137,8 +137,15 @@
   },
   {
     "id": "rf-rename",
-    "type": "free",
-    "prompt": "Najdi rezolventu klauzulí $\\{Q(x),\\neg P(c)\\}$ a $\\{P(y),\\neg R(y,x)\\}$. Na co si musíš dát pozor?",
+    "type": "choice",
+    "prompt": "Najdi rezolventu klauzulí $\\{Q(x),\\neg P(c)\\}$ a $\\{P(y),\\neg R(y,x)\\}$. Na co je třeba dát pozor?",
+    "options": [
+      "Nejdřív přejmenovat $x$ ve druhé klauzuli na $x_1$, unifikovat $P(c)$ s $P(y)$ ($y/c$); rezolventa $\\{Q(x),\\neg R(c,x_1)\\}$.",
+      "Přejmenovat $x$ na $x_1$ a unifikovat ($c/y$); rezolventa $\\{Q(x_1),\\neg R(y,x)\\}$.",
+      "Unifikovat rovnou ($y/c$) bez přejmenování; rezolventa $\\{Q(x),\\neg R(c,x)\\}$.",
+      "Rezolvovat nelze, protože $c$ je konstanta a $y$ proměnná."
+    ],
+    "answer": 0,
     "solution": "Klauzule sdílejí proměnnou $x$ ⇒ nejprve přejmenuj $x$ ve druhé klauzuli na $x_1$: $\\{P(y),\\neg R(y,x_1)\\}$. Rezolvuj na $P$: unifikuj $P(c)$ a $P(y)$: $\\Phi=\\{y/c\\}$. Rezolventa: $\\{Q(x),\\neg R(c,x_1)\\}$.",
     "hints": [
       "Společné proměnné před rezolucí přejmenuj.",
@@ -147,8 +154,15 @@
   },
   {
     "id": "rf-dragons",
-    "type": "free",
-    "prompt": "Z předpokladů „Existuje drak.“, „Draci spí nebo loví.“, „Když mají draci hlad, nespí.“ dokaž rezolucí „Když má drak hlad, loví.“ (formalizace, skolemizace, vyvrácení).",
+    "type": "choice",
+    "prompt": "Z předpokladů „Existuje drak.“, „Draci spí nebo loví.“, „Když mají draci hlad, nespí.“ chceme rezolucí dokázat „Když má drak hlad, loví.“ Jaká je klauzulární forma negace závěru po skolemizaci?",
+    "options": [
+      "$\\{D(b)\\},\\ \\{H(b)\\},\\ \\{\\neg L(b)\\}$",
+      "$\\{\\neg D(b),\\neg H(b),L(b)\\}$",
+      "$\\{D(x)\\},\\ \\{H(x)\\},\\ \\{\\neg L(x)\\}$",
+      "$\\{\\neg D(x),\\neg H(x),L(x)\\}$"
+    ],
+    "answer": 0,
     "solution": "Predikáty: $D(x)$ drak, $H(x)$ má hlad, $L(x)$ loví, $S(x)$ spí. Předpoklady: $\\exists x\\,D(x)$; $\\forall x\\,(D\\Rightarrow S\\vee L)$; $\\forall x\\,(D\\wedge H\\Rightarrow\\neg S)$. Závěr $\\forall x\\,(D\\wedge H\\Rightarrow L)$, negace $\\exists x\\,(D\\wedge H\\wedge\\neg L)$. Klauzule: $\\{D(a)\\}$, $\\{\\neg D(x),S(x),L(x)\\}$, $\\{\\neg D(x),\\neg H(x),\\neg S(x)\\}$, negace: $\\{D(b)\\}$, $\\{H(b)\\}$, $\\{\\neg L(b)\\}$. Vyvrácení: $\\{\\neg D(x),S(x),L(x)\\}+\\{\\neg L(b)\\}\\ (x/b)\\to\\{\\neg D(b),S(b)\\}$; $\\{\\neg D(x),\\neg H(x),\\neg S(x)\\}+\\{H(b)\\}\\ (x/b)\\to\\{\\neg D(b),\\neg S(b)\\}$; $\\to\\{\\neg D(b)\\}$; $+\\{D(b)\\}\\to\\square$. Přímé odvození: první dvě klauzule rezolvovat na $S$ ⇒ $\\{\\neg D(x),\\neg H(x),L(x)\\}$.",
     "hints": [
       "Negace závěru zavádí novou konstantu $b$.",

@@ -47,8 +47,15 @@
   },
   {
     "id": "nf-ukn",
-    "type": "free",
+    "type": "choice",
     "prompt": "Převeď $(p\\vee\\neg q)\\wedge(\\neg p\\vee\\neg q\\vee r)$ do **úplné** KNF nad $p,q,r$.",
+    "options": [
+      "$(p\\vee\\neg q\\vee r)\\wedge(p\\vee\\neg q\\vee\\neg r)\\wedge(\\neg p\\vee q\\vee r)$",
+      "$(p\\vee\\neg q\\vee r)\\wedge(\\neg p\\vee\\neg q\\vee r)$",
+      "$(p\\vee\\neg q\\vee r)\\wedge(p\\vee\\neg q\\vee\\neg r)\\wedge(\\neg p\\vee\\neg q\\vee r)$",
+      "$(p\\vee\\neg q)\\wedge(\\neg p\\vee\\neg q\\vee r)\\wedge(p\\vee r)$"
+    ],
+    "answer": 2,
     "solution": "První klauzule neobsahuje $r$: $(p\\vee\\neg q)\\equiv(p\\vee\\neg q\\vee r)\\wedge(p\\vee\\neg q\\vee\\neg r)$ (přidáme $r\\wedge\\neg r$ resp. rozdělíme podle $r$). Druhá klauzule už je úplná. Výsledek: $(p\\vee\\neg q\\vee r)\\wedge(p\\vee\\neg q\\vee\\neg r)\\wedge(\\neg p\\vee\\neg q\\vee r)$.",
     "hints": [
       "Do klauzule bez symbolu $r$ doplň $r$ a $\\neg r$ (dvě klauzule).",
@@ -57,8 +64,15 @@
   },
   {
     "id": "nf-dnf-models",
-    "type": "free",
-    "prompt": "Sestav úplnou DNF pro $(p\\vee q)\\wedge r$.",
+    "type": "choice",
+    "prompt": "Jaká je úplná DNF formule $(p\\vee q)\\wedge r$?",
+    "options": [
+      "$(\\neg p\\wedge q\\wedge r)\\vee(p\\wedge\\neg q\\wedge r)\\vee(p\\wedge q\\wedge\\neg r)$",
+      "$(\\neg p\\wedge q\\wedge r)\\vee(p\\wedge\\neg q\\wedge r)\\vee(p\\wedge q\\wedge r)$",
+      "$(p\\wedge r)\\vee(q\\wedge r)$",
+      "$(\\neg p\\wedge\\neg q\\wedge r)\\vee(p\\wedge q\\wedge r)$"
+    ],
+    "answer": 1,
     "solution": "Pravdivé interpretace $(p,q,r)$: $(0,1,1),(1,0,1),(1,1,1)$. ÚDNF: $(\\neg p\\wedge q\\wedge r)\\vee(p\\wedge\\neg q\\wedge r)\\vee(p\\wedge q\\wedge r)$. Každý pravdivý řádek tabulky dá jednu duální klauzuli.",
     "hints": [
       "Najdi modely formule.",
@@ -101,8 +115,15 @@
   },
   {
     "id": "nf-tautology-derivation",
-    "type": "free",
-    "prompt": "Ekvivalentními úpravami dokaž, že $(A\\wedge(A\\Rightarrow B))\\Rightarrow B$ je tautologie.",
+    "type": "choice",
+    "prompt": "Chceme ekvivalentními úpravami dokázat, že $(A\\wedge(A\\Rightarrow B))\\Rightarrow B$ je tautologie. Který postup je správný?",
+    "options": [
+      "Odstranit $\\Rightarrow$, De Morgan, distribuovat: $\\neg A\\vee(A\\wedge\\neg B)\\vee B\\equiv\\neg A\\vee\\neg B\\vee B\\equiv\\text{true}$.",
+      "Dosadit $A=1$ a $B=0$ a ověřit, že formule vyjde 1; tím je dokázáno pro všechny interpretace.",
+      "Použít $A\\Rightarrow B\\equiv B\\Rightarrow A$ a zkrátit $A$ s $B$.",
+      "Odstranit $\\Rightarrow$ a zjednodušit $A\\wedge\\neg A\\equiv\\text{true}$, tedy celá formule je true."
+    ],
+    "answer": 0,
     "solution": "$(A\\wedge(\\neg A\\vee B))\\Rightarrow B\\equiv\\neg(A\\wedge(\\neg A\\vee B))\\vee B\\equiv\\neg A\\vee\\neg(\\neg A\\vee B)\\vee B\\equiv\\neg A\\vee(A\\wedge\\neg B)\\vee B\\equiv((\\neg A\\vee A)\\wedge(\\neg A\\vee\\neg B))\\vee B\\equiv(\\neg A\\vee\\neg B)\\vee B\\equiv\\neg A\\vee(\\neg B\\vee B)\\equiv\\neg A\\vee\\text{true}\\equiv\\text{true}$. (Modus ponens.)",
     "hints": [
       "Eliminuj implikace, použij de Morgana a distributivitu.",

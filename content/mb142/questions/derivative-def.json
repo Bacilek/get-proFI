@@ -120,8 +120,15 @@
   },
   {
     "id": "dd-def-x2",
-    "type": "free",
-    "prompt": "Odvoď z definice derivaci funkce $f(x)=x^2$ v bodě $x_0$.",
+    "type": "choice",
+    "prompt": "Z definice vyjde derivace $f(x)=x^2$ v bodě $x_0$ jako $\\lim_{x\\to x_0}\\frac{x^2-x_0^2}{x-x_0}$. Čemu se rovná?",
+    "options": [
+      "$2x_0^2$",
+      "$x_0$",
+      "$2x_0$",
+      "$x_0^2$"
+    ],
+    "answer": 2,
     "solution": "$f'(x_0)=\\lim_{x\\to x_0}\\frac{x^2-x_0^2}{x-x_0}=\\lim\\frac{(x-x_0)(x+x_0)}{x-x_0}=\\lim(x+x_0)=2x_0$.",
     "hints": [
       "Vyjdi z definice $f'(x_0)=\\lim_{x\\to x_0}\\frac{f(x)-f(x_0)}{x-x_0}$.",
@@ -131,8 +138,15 @@
   },
   {
     "id": "dd-def-sqrt",
-    "type": "free",
-    "prompt": "Z definice odvoď $(\\sqrt x)'$ pro $x_0>0$ a vysvětli, co se děje v $x_0=0$.",
+    "type": "choice",
+    "prompt": "Z definice: $(\\sqrt x)'$ pro $x_0>0$ a co se děje v $x_0=0$?",
+    "options": [
+      "$\\frac1{2\\sqrt{x_0}}$; v $0$ je jen pravostranná derivace $+\\infty$ (svislá tečna).",
+      "$\\frac1{2\\sqrt{x_0}}$; v $0$ je derivace rovna $0$.",
+      "$2\\sqrt{x_0}$; v $0$ derivace neexistuje, protože funkce není spojitá.",
+      "$\\frac1{\\sqrt{x_0}}$; v $0$ derivace existuje a je rovna $0$."
+    ],
+    "answer": 0,
     "solution": "$\\lim_{x\\to x_0}\\frac{\\sqrt x-\\sqrt{x_0}}{x-x_0}\\cdot\\frac{\\sqrt x+\\sqrt{x_0}}{\\sqrt x+\\sqrt{x_0}}=\\lim\\frac1{\\sqrt x+\\sqrt{x_0}}=\\frac1{2\\sqrt{x_0}}$. V $0$ je jen pravostranná derivace $\\lim_{x\\to0+}\\frac1{\\sqrt x}=+\\infty$ (svislá tečna, krajní bod oboru).",
     "hints": [
       "Použij definici derivace a rozšiř zlomek výrazem $\\sqrt x+\\sqrt{x_0}$ (konjugovaný výraz).",

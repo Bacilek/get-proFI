@@ -84,8 +84,15 @@
   },
   {
     "id": "cs-free",
-    "type": "free",
-    "prompt": "Vyšetři celkový průběh funkce $f(x)=x e^{-x}$ (definiční obor, extrémy, inflexe, asymptoty) a načrtni graf.",
+    "type": "choice",
+    "prompt": "Co platí o průběhu funkce $f(x)=xe^{-x}$?",
+    "options": [
+      "Maximum $f(1)=\\frac1e$, inflexe v $x=2$, vodorovná asymptota $y=0$ v $\\pm\\infty$.",
+      "Maximum $f(2)=\\frac2{e^2}$, inflexe v $x=1$, žádné asymptoty.",
+      "Maximum $f(1)=\\frac1e$, inflexe v $x=2$, vodorovná asymptota $y=0$ pouze v $+\\infty$.",
+      "Minimum $f(1)=\\frac1e$, inflexe v $x=1$, vodorovná asymptota $y=0$ v $\\pm\\infty$."
+    ],
+    "answer": 2,
     "solution": "$D=\\mathbb R$. $f'=(1-x)e^{-x}$ ⇒ roste na $(-\\infty,1]$, klesá na $[1,\\infty)$, max $f(1)=\\frac1e$. $f''=(x-2)e^{-x}$ ⇒ konkávní na $(-\\infty,2]$, konvexní na $[2,\\infty)$, inflexe v $x=2$ ($f=\\frac2{e^2}$). Limity: $x\\to\\infty$: $xe^{-x}\\to0$ (l'Hospital) ⇒ $y=0$ vodorovná asymptota v $+\\infty$; $x\\to-\\infty$: $f\\to-\\infty$, $a=\\lim e^{-x}=\\infty$ ⇒ asymptota v $-\\infty$ není. Graf prochází počátkem, nejdřív strmě roste, vrchol $(1,\\frac1e)$, pak klesá k ose $x$.",
     "hints": [
       "Postupuj podle schématu: $D(f)$, limity v krajích, $f'$, $f''$, asymptoty, graf.",

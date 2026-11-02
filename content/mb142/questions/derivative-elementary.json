@@ -154,8 +154,15 @@
   },
   {
     "id": "de-xx-free",
-    "type": "free",
-    "prompt": "Najdi derivaci funkce $f(x)=x^{\\sin x}$ pro $x>0$.",
+    "type": "choice",
+    "prompt": "Derivace funkce $f(x)=x^{\\sin x}$ pro $x>0$ je:",
+    "options": [
+      "$x^{\\sin x}\\ln x\\cos x$",
+      "$\\sin x\\cdot x^{\\sin x-1}$",
+      "$x^{\\sin x}\\big(\\cos x\\ln x+\\frac{\\sin x}x\\big)$",
+      "$x^{\\sin x}\\big(\\cos x\\ln x-\\frac{\\sin x}x\\big)$"
+    ],
+    "answer": 2,
     "solution": "$x^{\\sin x}=e^{\\sin x\\ln x}$, tedy $f'(x)=x^{\\sin x}\\Big(\\cos x\\ln x+\\frac{\\sin x}x\\Big)$.",
     "hints": [
       "Proměnná je v základu i exponentu; použij přepis $a^b=e^{b\\ln a}$.",

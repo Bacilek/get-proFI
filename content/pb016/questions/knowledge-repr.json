@@ -35,8 +35,15 @@
   },
   {
     "id": "kr-frame",
-    "type": "free",
-    "prompt": "Převeď na rámce: *ovoce* (chuť: sladká, do zmrzliny: ano jako výchozí hodnoty), *maliny* (podtřída ovoce), *maliny v kuchyni* (instance malin, barva červená).",
+    "type": "choice",
+    "prompt": "Převeď na rámce: *ovoce* (výchozí hodnoty: chuť sladká, do zmrzliny ano), *maliny* (podtřída ovoce), *maliny v kuchyni* (instance malin, barva červená). Který zápis je správný?",
+    "options": [
+      "ovoce: *chuť: sladká, *do_zmrzliny: ano. maliny: instance: ovoce. maliny v kuchyni: podtřída: maliny, *barva: červená.",
+      "ovoce: podtřída: maliny, *chuť: sladká. maliny: *do_zmrzliny: ano. maliny v kuchyni: *barva: červená.",
+      "ovoce: *chuť: sladká, *do_zmrzliny: ano. maliny: podtřída: ovoce. maliny v kuchyni: instance: maliny, *barva: červená.",
+      "ovoce: chuť: sladká, do_zmrzliny: ano. maliny: instance: ovoce. maliny v kuchyni: podtřída: maliny, barva: červená."
+    ],
+    "answer": 2,
     "solution": "ovoce: *chuť: sladká, *do_zmrzliny: ano. maliny: podtřída: ovoce. maliny v kuchyni: instance: maliny, *barva: červená. Hvězdička označuje vzorovou hodnotu, kterou lze při dědění přepsat výjimkou. Objekty a hodnoty slotů odpovídají uzlům sítě, sloty hranám.",
     "hints": [
       "Objekt, slot, hodnota slotu.",

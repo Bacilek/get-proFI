@@ -18,6 +18,8 @@
 7. [ ] Předměty: MB142 (rozpracováno, viz `content/mb142/README.md`), PB016 (př. 1–6 hotové, př. 7–12 rozpracované ze sbírky, čekají na slidy, viz `content/pb016/README.md`), PB006 (př. 1-5 hotové, kódový drill, viz `content/pb006/README.md`), pak VB001, PV028
 
 ## Aktuální stav
+**Typy otázek (2. 11. 2026):** všechny otevřené `free` otázky (83: MB142 44, PB016 33, PB006 6) převedeny na ABCD (`choice`); nové otázky psát jen jako `choice`/`multi`. `numeric` zůstávají.
+
 **UI (28. 10. 2026):** lekce se renderují jako karty (sekce Intuice/Vzorec/Příklad/Pozor/Praxe, vzorce v rámečcích, `src/components/prettify.ts`); roadmapa: dvojklik otevře lekci, legenda barev, bez zvýraznění aktuálního týdne; milníky: čas, info jako odrážky, body k minimu + ruční zadání bodů (`cumulative` milníky); upozornění na chybějící materiály po týdnech se Skip (`materials`, tabulka `skips`); ROPOT trainer (`/c/pb016/ropot`, 9 generátorů + 76 ručních otázek `ro-*`).
 
 **PB006 (28. 10. 2026):** kurz `pb006` – 5 lekcí / 61 otázek z přednášek 1–5 (úvod, jména a rozsahy, typy a unifikace, tok řízení, podprogramy). Nové typy otázek pro kódovací předměty: `fill` (kód s mezerami `___`, auto-check) a `code` (napiš vlastní kód, odhal referenční řešení, odškrtni checklist). Kód se nespouští. Milníky: DÚ 6× max 3 b (min 12, týdenní body), zkouška (teorie + praxe, min 50 % každé části). Chybí: datum zkoušky, termíny DÚ3–6, přednášky 6+ (viz `openItems`).

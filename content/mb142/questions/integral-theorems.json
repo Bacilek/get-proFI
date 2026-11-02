@@ -94,8 +94,15 @@
   },
   {
     "id": "inttheorems-free-G",
-    "type": "free",
-    "prompt": "Určete derivaci $G(x)=\\displaystyle\\int_{\\sin x}^{1}\\arcsin t\\,\\mathrm{d}t$.",
+    "type": "choice",
+    "prompt": "Derivace $G(x)=\\displaystyle\\int_{\\sin x}^{1}\\arcsin t\\,\\mathrm{d}t$ je (pro $x\\in[-\\frac\\pi2,\\frac\\pi2]$):",
+    "options": [
+      "$-x\\cos x$",
+      "$-\\arcsin(\\cos x)$",
+      "$\\arcsin 1-x\\cos x$",
+      "$x\\cos x$"
+    ],
+    "answer": 0,
     "solution": "Dolní mez $\\sin x$ dává mínus a řetízkové pravidlo:\n\n$G'(x)=-\\arcsin(\\sin x)\\cdot\\cos x=-x\\cos x$ (pro $x\\in[-\\frac\\pi2,\\frac\\pi2]$).",
     "hints": [
       "Proměnná mez je dole a je to funkce $\\sin x$: fundamentální věta a řetízkové pravidlo.",

@@ -69,8 +69,15 @@
   },
   {
     "id": "ff-skolem-2",
-    "type": "free",
-    "prompt": "Proveď Skolemizaci formule $\\exists x\\,\\forall y\\,\\exists z\\,P(x,y,z)$.",
+    "type": "choice",
+    "prompt": "Jaký je výsledek Skolemizace formule $\\exists x\\,\\forall y\\,\\exists z\\,P(x,y,z)$ (po odstranění kvantifikátoru)?",
+    "options": [
+      "$P(f(y),y,c)$",
+      "$P(c,y,z)$",
+      "$P(c,y,f(y))$",
+      "$P(c,y,f(x,y))$"
+    ],
+    "answer": 2,
     "solution": "$x$ není pod žádným $\\forall$ ⇒ nová konstanta $c$. $z$ je pod $\\forall y$ ⇒ $z\\to f(y)$. Výsledek: $\\forall y\\,P(c,y,f(y))$, po odstranění kvantifikátoru: $P(c,y,f(y))$.",
     "hints": [
       "Funkce závisí jen na univerzálně vázaných proměnných před existenčním kvantifikátorem.",
@@ -96,8 +103,15 @@
   },
   {
     "id": "ff-neg-quant",
-    "type": "free",
-    "prompt": "Převeď negaci $\\neg\\forall x\\,\\exists y\\,(P(x,y)\\Rightarrow Q(y))$ do tvaru, kde je negace jen u predikátů (bez $\\Rightarrow$).",
+    "type": "choice",
+    "prompt": "Převeď negaci $\\neg\\forall x\\,\\exists y\\,(P(x,y)\\Rightarrow Q(y))$ do tvaru, kde je negace jen u predikátů (bez $\\Rightarrow$). Který výsledek je správný?",
+    "options": [
+      "$\\exists x\\,\\forall y\\,(P(x,y)\\wedge\\neg Q(y))$",
+      "$\\exists x\\,\\exists y\\,(P(x,y)\\wedge\\neg Q(y))$",
+      "$\\forall x\\,\\exists y\\,(P(x,y)\\wedge\\neg Q(y))$",
+      "$\\exists x\\,\\forall y\\,(\\neg P(x,y)\\vee\\neg Q(y))$"
+    ],
+    "answer": 0,
     "solution": "$\\neg\\forall x\\,\\exists y\\,(\\neg P(x,y)\\vee Q(y))\\to\\exists x\\,\\neg\\exists y\\,(\\neg P\\vee Q)\\to\\exists x\\,\\forall y\\,\\neg(\\neg P\\vee Q)\\to\\exists x\\,\\forall y\\,(P(x,y)\\wedge\\neg Q(y))$.",
     "hints": [
       "Nejdřív $\\Rightarrow$ na $\\vee$.",
@@ -123,8 +137,15 @@
   },
   {
     "id": "ff-wumpus-def",
-    "type": "free",
+    "type": "choice",
     "prompt": "Proč nestačí samotné příčinné nebo samotné diagnostické pravidlo a jak vypadá úplná definice vánku v PL1?",
+    "options": [
+      "$\\forall y\\,\\text{S\\_vánkem}(y)\\Rightarrow[\\exists x\\,\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)]$: stačí jednosměrná implikace, druhý směr plyne automaticky.",
+      "$\\forall x\\,\\forall y\\,\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)\\Rightarrow\\text{S\\_vánkem}(y)$: stačí příčinné pravidlo, diagnostické je zbytečné.",
+      "$\\forall y\\,\\text{S\\_vánkem}(y)\\Leftrightarrow\\text{Jáma}(y)$: vánek je na poli s jámou.",
+      "$\\forall y\\,\\text{S\\_vánkem}(y)\\Leftrightarrow[\\exists x\\,\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)]$: příčinné pravidlo nevylučuje vánek daleko od jámy, diagnostické nezaručuje vánek vedle jámy."
+    ],
+    "answer": 3,
     "solution": "Příčinné pravidlo ($\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)\\Rightarrow\\text{S\\_vánkem}(y)$) neříká, že vánek nemůže být na poli daleko od jámy; diagnostické ($\\text{S\\_vánkem}(y)\\Rightarrow\\exists x\\ldots$) neříká, že vedle jámy vánek **je**. Úplná definice je ekvivalence: $\\forall y\\,\\text{S\\_vánkem}(y)\\Leftrightarrow[\\exists x\\,\\text{Jáma}(x)\\wedge\\text{Vedle}(x,y)]$.",
     "hints": [
       "Každé pravidlo je jednosměrná implikace.",

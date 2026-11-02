@@ -54,8 +54,15 @@
   },
   {
     "id": "pc-and",
-    "type": "free",
+    "type": "choice",
     "prompt": "Najdi váhy perceptronu pro logické AND dvou binárních vstupů. Proč nelze stejně realizovat XOR?",
+    "options": [
+      "Např. $\\vec w=\\langle-1{,}5,1,1\\rangle$. XOR není lineárně separabilní: body $(0,1),(1,0)$ a $(0,0),(1,1)$ nelze oddělit jednou přímkou.",
+      "Např. $\\vec w=\\langle0,1,1\\rangle$. XOR nejde, protože perceptron pracuje jen s jedním vstupem.",
+      "Např. $\\vec w=\\langle-1{,}5,1,1\\rangle$. XOR nejde, protože perceptron neumí záporné váhy.",
+      "Např. $\\vec w=\\langle1{,}5,1,1\\rangle$. XOR nejde, protože má dva výstupy místo jednoho."
+    ],
+    "answer": 0,
     "solution": "Např. $\\vec w=\\langle-1{,}5,1,1\\rangle$: $-1{,}5+x_1+x_2\\ge0$ jen pro $(1,1)$. XOR není lineárně separabilní – body $(0,1),(1,0)$ (třída 1) a $(0,0),(1,1)$ (třída 0) nelze oddělit jednou přímkou; potřebuješ víc vrstev.",
     "hints": [
       "Zkus práh mezi 1 a 2.",

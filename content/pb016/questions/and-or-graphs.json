@@ -75,8 +75,15 @@
   },
   {
     "id": "ao-solution-tree-def",
-    "type": "free",
-    "prompt": "Definuj **strom řešení** problému $P$ v AND/OR grafu $G$.",
+    "type": "choice",
+    "prompt": "Který popis správně definuje **strom řešení** problému $P$ v AND/OR grafu $G$?",
+    "options": [
+      "Kořen je $P$; u OR uzlu je v $T$ právě jeden následník, u AND uzlu všichni; každý list $T$ je cílový uzel v $G$.",
+      "Kořen je $P$; u každého uzlu je v $T$ právě jeden následník; každý list $T$ je cílový uzel v $G$.",
+      "Je to libovolný podgraf $G$ obsahující $P$ a alespoň jeden cílový uzel.",
+      "Kořen je $P$; u OR uzlu jsou v $T$ všichni následníci, u AND uzlu právě jeden; každý list $T$ je cílový uzel v $G$."
+    ],
+    "answer": 0,
     "solution": "Strom řešení $T$ má: kořen = $P$; je-li $P$ (resp. obecný uzel) typu OR, pak je v $T$ právě jeden jeho následník se svým stromem řešení; je-li typu AND, pak jsou v $T$ všichni jeho následníci se svými stromy řešení; každý list $T$ je cílovým uzlem v $G$. Strom nemusí být podgrafem $G$ (uzel se může opakovat ve více kopiích).",
     "hints": [
       "Rozlišuj AND a OR uzly.",
@@ -114,8 +121,15 @@
   },
   {
     "id": "ao-code-dragon",
-    "type": "free",
-    "prompt": "(Cvičení 3, NetworkX) Navrhni AND/OR strom problému „osvobodit království od draka-tyrana“: lze to buď čelit tyranovi, nebo se modlit, aby drak odletěl; postavit se drakovi = jít do jeho doupěte a konfrontovat ho; konfrontace = zabít draka silou, nebo ho přesvědčit výmluvností. Uveď typy uzlů a plán řešení.",
+    "type": "choice",
+    "prompt": "(Cvičení 3, NetworkX) Problém „osvobodit království od draka-tyrana“: buď čelit tyranovi, nebo se modlit, aby drak odletěl; postavit se drakovi = jít do jeho doupěte a konfrontovat ho; konfrontace = zabít draka silou, nebo ho přesvědčit výmluvností. Který AND/OR strom to modeluje?",
+    "options": [
+      "Zbavit se draka (AND): {Postavit se drakovi (OR): {Jít do doupěte, Konfrontovat (AND): {Zabít silou, Přesvědčit}}, Modlit se}.",
+      "Zbavit se draka (OR): {Postavit se drakovi (AND): {Jít do doupěte, Zabít silou, Přesvědčit}, Modlit se}.",
+      "Zbavit se draka (OR): {Postavit se drakovi (OR): {Jít do doupěte, Konfrontovat (OR): {Zabít silou, Přesvědčit}}, Modlit se}.",
+      "Zbavit se draka (OR): {Postavit se drakovi (AND): {Jít do doupěte, Konfrontovat (OR): {Zabít silou, Přesvědčit}}, Modlit se}."
+    ],
+    "answer": 3,
     "solution": "Kořen „zbavit se draka“ (OR): potomci „postavit se drakovi“ a „modlit se, aby odletěl“ (list). „Postavit se drakovi“ (AND): „jít do doupěte“ (list) a „konfrontovat draka“ (OR): „zabít silou“ / „přesvědčit výmluvností“ (listy). Plán: Zbavit se draka ← (Postavit se drakovi ← (Jít do doupěte AND (Zabít silou OR Přesvědčit))) OR Modlit se. Algoritmus: DFS, v OR uzlu stačí jeden úspěšný potomek, v AND všichni.",
     "hints": [
       "Co musíš udělat vždy dohromady (AND)?",

@@ -3,98 +3,189 @@
     "id": "sub-value-vs-ref",
     "type": "choice",
     "prompt": "Fiktivní jazyk:\n\n```\nx := 2\nprocedure foo(y) { y := 3; print x }\nfoo(x)\nprint x\n```\n\nCo vypíše při předávání **odkazem**?",
-    "options": ["2 2", "3 3", "3 2", "2 3"],
+    "options": [
+      "2 2",
+      "3 3",
+      "3 2",
+      "2 3"
+    ],
     "answer": 1,
     "solution": "Odkazem je `y` alias `x`, takže `y := 3` změní `x`: uvnitř se vypíše 3 a po návratu také 3. Hodnotou by `y` byla kopie a vypsalo by se `2 2`.",
-    "hints": ["Je `y` kopie, nebo jiné jméno téže proměnné?"]
+    "hints": [
+      "Je `y` kopie, nebo jiné jméno téže proměnné?"
+    ]
   },
   {
     "id": "sub-sharing",
     "type": "choice",
     "prompt": "C#:\n\n```csharp\nstatic void F(int[] a) { a[0] = 9; a = new int[] { 7 }; }\nvar arr = new[] { 1, 2 };\nF(arr);\nConsole.WriteLine(arr[0]);\n```\n\nCo vypíše?",
-    "options": ["1", "9", "7", "chyba"],
+    "options": [
+      "1",
+      "9",
+      "7",
+      "chyba"
+    ],
     "answer": 1,
     "solution": "Pole je odkazový typ, předává se **sdílením**: `a[0] = 9` změní sdílený objekt. Přiřazení `a = new ...` jen přesměruje lokální kopii odkazu a `arr` nezmění. Výsledek 9. S `ref` by bylo 7.",
-    "hints": ["Mění se obsah objektu, nebo odkaz v proměnné volajícího?"]
+    "hints": [
+      "Mění se obsah objektu, nebo odkaz v proměnné volajícího?"
+    ]
   },
   {
     "id": "sub-out-collision",
     "type": "choice",
     "prompt": "```csharp\nstatic void Foo(out int x, out int y) { x = 1; y = 2; }\nint a;\nFoo(out a, out a);\nConsole.WriteLine(a);\n```\n\nCo vypíše?",
-    "options": ["1", "2", "0", "chyba překladu"],
+    "options": [
+      "1",
+      "2",
+      "0",
+      "chyba překladu"
+    ],
     "answer": 1,
     "solution": "V C# jsou `x` i `y` aliasy téže proměnné `a` (předání odkazem), přiřazení probíhají za sebou: nejdřív 1, pak 2. Vypíše se **2**.",
-    "hints": ["Obě `out` jsou aliasy stejné proměnné.", "Která se přiřadí jako poslední?"]
+    "hints": [
+      "Obě `out` jsou aliasy stejné proměnné.",
+      "Která se přiřadí jako poslední?"
+    ]
   },
   {
     "id": "sub-ref-index",
     "type": "choice",
     "prompt": "```csharp\nstatic void Bar(ref int i, out int x) { x = 42; i = 2; }\nint j = 1;\nint[] list = new int[4];\nBar(ref j, out list[j]);\n```\n\nKterý prvek pole se nastaví na 42?",
-    "options": ["`list[0]`", "`list[1]`", "`list[2]`", "žádný, chyba"],
+    "options": [
+      "`list[0]`",
+      "`list[1]`",
+      "`list[2]`",
+      "žádný, chyba"
+    ],
     "answer": 1,
     "solution": "V C# se výraz `list[j]` předaný jako `out` vyhodnotí v okamžiku **volání** (tehdy `j == 1`). Že metoda později změní `j` na 2, už to neovlivní. Mění se `list[1]`.",
-    "hints": ["Kdy se určí, který prvek pole je aktuálním parametrem: při volání, nebo při návratu?"]
+    "hints": [
+      "Kdy se určí, který prvek pole je aktuálním parametrem: při volání, nebo při návratu?"
+    ]
   },
   {
     "id": "sub-overload-return",
     "type": "choice",
     "prompt": "Mohou v C# existovat ve stejné třídě tyto dvě metody?\n\n```csharp\nstatic int F(int x) { return x; }\nstatic double F(int x) { return x; }\n```",
-    "options": ["ano, liší se návratovým typem", "ne, přetížení se rozlišuje jen profilem parametrů", "ano, ale s varováním", "ano, pokud jsou `static`"],
+    "options": [
+      "ano, liší se návratovým typem",
+      "ne, přetížení se rozlišuje jen profilem parametrů",
+      "ano, ale s varováním",
+      "ano, pokud jsou `static`"
+    ],
     "answer": 1,
     "solution": "Přetížené podprogramy se musí lišit **profilem parametrů** (počet, pořadí, typy). Samotný návratový typ k rozlišení nestačí (volání `F(1)` by bylo nejednoznačné).",
-    "hints": ["Co překladač vidí při volání `F(1)`?"]
+    "hints": [
+      "Co překladač vidí při volání `F(1)`?"
+    ]
   },
   {
     "id": "sub-python-overload",
     "type": "choice",
     "prompt": "Python:\n\n```python\ndef f(x): return \"one\"\ndef f(x, y): return \"two\"\nprint(f(1, 2))\nprint(f(1))\n```",
-    "options": ["one, two", "two, chyba (TypeError)", "two, one", "chyba už u druhé definice"],
+    "options": [
+      "one, two",
+      "two, chyba (TypeError)",
+      "two, one",
+      "chyba už u druhé definice"
+    ],
     "answer": 1,
     "solution": "Python nemá přetěžování: druhá definice `f` **přepíše** první. `f(1, 2)` vypíše `two`, `f(1)` skončí `TypeError` (chybí argument `y`).",
-    "hints": ["Co udělá druhý `def` se jménem `f`?"]
+    "hints": [
+      "Co udělá druhý `def` se jménem `f`?"
+    ]
   },
   {
     "id": "sub-polymorphism",
     "type": "choice",
     "prompt": "Jaký druh polymorfismu je `T Max<T>(T a, T b) where T : IComparable<T>` v C#?",
-    "options": ["ad hoc (přetížení)", "parametrický (generika)", "podtypový", "duck typing"],
+    "options": [
+      "ad hoc (přetížení)",
+      "parametrický (generika)",
+      "podtypový",
+      "duck typing"
+    ],
     "answer": 1,
     "solution": "Jedna definice funguje pro libovolný typ `T` (omezení `where` jen zužuje množinu): **parametrický** polymorfismus. Ad hoc = přetížení stejného jména s různými profily, podtypový = podtřídy v OOP, duck typing = dynamická kontrola za běhu.",
-    "hints": ["Typ je parametrem definice."]
+    "hints": [
+      "Typ je parametrem definice."
+    ]
   },
   {
     "id": "sub-const-ptr",
     "type": "choice",
     "prompt": "V C: `int * const p`. Co smíme?",
-    "options": ["měnit `*p`, ale ne `p`", "měnit `p`, ale ne `*p`", "nic z toho", "obojí"],
+    "options": [
+      "měnit `*p`, ale ne `p`",
+      "měnit `p`, ale ne `*p`",
+      "nic z toho",
+      "obojí"
+    ],
     "answer": 0,
     "solution": "`int *const p` je **konstantní ukazatel** na `int`: nelze do `p` přiřadit jinou adresu, ale lze měnit `*p`. `const int *p` je opak (ukazatel na konstantu). `const int *const p`: nelze nic.",
-    "hints": ["Čti deklaraci zprava doleva."]
+    "hints": [
+      "Čti deklaraci zprava doleva."
+    ]
   },
   {
     "id": "sub-fill-ref",
     "type": "fill",
     "prompt": "Doplň prohazování dvou čísel předáním odkazem.",
     "code": "static void Swap(___ int a, ___ int b)\n{\n    int t = a; a = b; b = t;\n}\n...\nSwap(___ x, ___ y);",
-    "blanks": [["ref"], ["ref"], ["ref"], ["ref"]],
+    "blanks": [
+      [
+        "ref"
+      ],
+      [
+        "ref"
+      ],
+      [
+        "ref"
+      ],
+      [
+        "ref"
+      ]
+    ],
     "solution": "`ref` se píše u formálních **i** aktuálních parametrů. Proměnné `x`, `y` musí být před voláním inicializované (u `out` by to nebylo nutné, ale hodnoty by se nedaly číst).",
-    "hints": ["Klíčové slovo pro in-out předání odkazem v C#."]
+    "hints": [
+      "Klíčové slovo pro in-out předání odkazem v C#."
+    ]
   },
   {
     "id": "sub-fill-generic",
     "type": "fill",
     "prompt": "Doplň generickou metodu, která vrací větší z dvou prvků.",
     "code": "static T Max<T>(T a, T b) where T : ___<T>\n{\n    return a.___(b) >= 0 ? a : b;\n}",
-    "blanks": [["IComparable"], ["CompareTo"]],
+    "blanks": [
+      [
+        "IComparable"
+      ],
+      [
+        "CompareTo"
+      ]
+    ],
     "solution": "Omezení `where T : IComparable<T>` zaručuje metodu `CompareTo`. Bez omezení by `a.CompareTo(b)` ani `a > b` nešlo přeložit, protože `T` může být cokoli.",
-    "hints": ["Rozhraní pro porovnatelné typy.", "Metoda z něj, která vrací záporné/nulové/kladné číslo."]
+    "hints": [
+      "Rozhraní pro porovnatelné typy.",
+      "Metoda z něj, která vrací záporné/nulové/kladné číslo."
+    ]
   },
   {
     "id": "sub-explain-sharing",
-    "type": "free",
-    "prompt": "Čím se liší předávání **sdílením** (by sharing) od předávání **odkazem** (by reference) a **hodnotou** (by value)? Uveď příklad v C# nebo Pythonu.",
+    "type": "choice",
+    "prompt": "Čím se liší předávání **sdílením** (by sharing) od předávání odkazem a hodnotou?",
+    "options": [
+      "Sdílením lze změnit stav objektu i přesměrovat proměnnou volajícího, stejně jako u hodnoty.",
+      "Sdílením se předá kopie celého objektu, takže změny uvnitř nejsou vidět ven. Hodnotou se předá odkaz na objekt.",
+      "Sdílením se předá kopie odkazu na objekt: lze měnit stav objektu (je vidět ven), ale přiřazením `l = new ...` se proměnná volajícího nepřesměruje. Odkazem (`ref`) by se přesměrovat dala.",
+      "Sdílení je jen jiný název pro předávání hodnotou; mezi reference types a value types není rozdíl."
+    ],
+    "answer": 2,
     "solution": "**Hodnotou**: kopie hodnoty, změna formálního parametru se do volajícího nepromítne. **Odkazem**: formální je alias proměnné volajícího, lze změnit obsah i **přesměrovat** proměnnou (`ref`). **Sdílením** (reference types v C#/Javě, Python): předá se kopie odkazu na objekt: lze měnit **stav objektu** (viditelné ven), ale **přiřazením** `a = new ...` proměnnou volajícího nepřesměruji. Příklad: `void F(List<int> l) { l.Add(1); l = new List<int>(); }` přidá prvek ven, nový seznam zůstane uvnitř.",
-    "hints": ["Co všechno smí volaná funkce s proměnnou volajícího?"]
+    "hints": [
+      "Co všechno smí volaná funkce s proměnnou volajícího?"
+    ]
   },
   {
     "id": "sub-write-trydiv",
@@ -108,7 +199,10 @@
       "Volání: `if (TryDivide(7, 2, out int r)) ...` (`out` i u aktuálního parametru)."
     ],
     "solution": "```csharp\nstatic bool TryDivide(int a, int b, out int result)\n{\n    if (b == 0) { result = 0; return false; }\n    result = a / b;\n    return true;\n}\n\nif (TryDivide(7, 2, out int r)) Console.WriteLine(r);  // 3\n```",
-    "hints": ["Co musí platit pro `out` parametr před `return`?", "Ošetři dělení nulou před samotným dělením."]
+    "hints": [
+      "Co musí platit pro `out` parametr před `return`?",
+      "Ošetři dělení nulou před samotným dělením."
+    ]
   },
   {
     "id": "sub-write-params",
@@ -122,6 +216,10 @@
       "`Sum(1, 2, 3)` volá `int` verzi, `Sum(1.5, 2)` `double` verzi (`2` se implicitně převede na `double`)."
     ],
     "solution": "```csharp\nstatic int Sum(params int[] xs)\n{\n    int s = 0;\n    foreach (int x in xs) s += x;\n    return s;\n}\nstatic double Sum(params double[] xs)\n{\n    double s = 0;\n    foreach (double x in xs) s += x;\n    return s;\n}\n```\n`Sum(1, 2, 3)` = 6 (int), `Sum(1.5, 2)` = 3.5 (double, koerce `2` → `2.0`).",
-    "hints": ["Kolik argumentů při volání bez parametrů dostane `xs`?", "Přetížení potřebuje jiný profil parametrů.", "Která verze je použitelná pro `1.5`?"]
+    "hints": [
+      "Kolik argumentů při volání bez parametrů dostane `xs`?",
+      "Přetížení potřebuje jiný profil parametrů.",
+      "Která verze je použitelná pro `1.5`?"
+    ]
   }
 ]

@@ -125,8 +125,15 @@
   },
   {
     "id": "ps-arctan",
-    "type": "free",
-    "prompt": "Odvoď mocninnou řadu pro $\\operatorname{arctg}x$ a pomocí ní sečti $1-\\frac13+\\frac15-\\frac17+\\dots$",
+    "type": "choice",
+    "prompt": "Co dává mocninná řada $\\operatorname{arctg}x=\\sum\\frac{(-1)^nx^{2n+1}}{2n+1}$ v bodě $x=1$ a čemu se rovná $1-\\frac13+\\frac15-\\dots$?",
+    "options": [
+      "Řada konverguje (Leibniz) a součet je $\\frac\\pi4$.",
+      "Řada konverguje a součet je $\\frac\\pi2$.",
+      "Řada konverguje a součet je $1$.",
+      "Řada diverguje, protože $R=1$ a $x=1$ je na kraji."
+    ],
+    "answer": 0,
     "solution": "$\\frac1{1+t^2}=\\sum_{n=0}^\\infty(-1)^nt^{2n}$ pro $|t|<1$. Integrace od $0$ do $x$: $\\operatorname{arctg}x=\\sum_{n=0}^\\infty\\frac{(-1)^nx^{2n+1}}{2n+1}$, $R=1$. V $x=1$ řada konverguje (Leibniz), podle spojitosti zleva (Abel) platí rovnost i tam: $1-\\frac13+\\frac15-\\dots=\\operatorname{arctg}1=\\frac\\pi4$.",
     "hints": [
       "Vyjdi z geometrické řady pro $\\frac1{1+t^2}$ a integruj člen po členu.",

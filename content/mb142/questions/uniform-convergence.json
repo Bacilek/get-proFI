@@ -81,8 +81,15 @@
   },
   {
     "id": "uc-vs",
-    "type": "free",
-    "prompt": "Vysvětli rozdíl mezi bodovou a stejnoměrnou konvergencí a uveď, proč na něm záleží.",
+    "type": "choice",
+    "prompt": "Jaký je rozdíl mezi bodovou a stejnoměrnou konvergencí a proč na něm záleží?",
+    "options": [
+      "Bodová: jedno $N$ pro všechna $x$; stejnoměrná: $N$ závisí na $x$. Příklad: $x^n$ na $[0,1]$ konverguje stejnoměrně.",
+      "Bodová konverguje vždy k spojité funkci; stejnoměrná jen k nespojité.",
+      "Rozdíl je jen formální, obě zaručují záměnu limity a integrálu.",
+      "Stejnoměrná: jedno $N$ pro všechna $x$ (tj. $\\sup|f_n-f|\\to0$); jen ta zachovává spojitost limity a dovoluje zaměnit limitu s integrálem. Příklad: $x^n$ na $[0,1]$ konverguje jen bodově."
+    ],
+    "answer": 3,
     "solution": "Bodová: pro každé $x$ zvlášť $f_n(x)\\to f(x)$, přičemž $N$ může záviset na $x$. Stejnoměrná: $N$ lze zvolit jedno pro všechna $x$ najednou, tj. $\\sup_x|f_n-f|\\to0$. Důležité je, že jen stejnoměrná konvergence zaručuje spojitost limity a smí se zaměnit limita s integrálem (a s derivací, pokud konverguje i řada derivací). Příklad: $x^n$ na $[0,1]$ konverguje bodově, ale ne stejnoměrně.",
     "hints": [
       "Zamysli se, kde v kvantifikátorech je $N$ vzhledem k $x$.",

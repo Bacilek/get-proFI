@@ -6,10 +6,11 @@
     "options": [
       "$n!$",
       "$\\binom{n}{2}$",
-      "$n^2$"
+      "$n^2$",
+      "$n^n$"
     ],
     "answer": 0,
-    "solution": "Konfigurace jsou všechny posloupnosti $n$ různých čísel, tj. permutace: $n!$.",
+    "solution": "Konfigurace jsou všechny posloupnosti $n$ různých čísel, tj. permutace: $n!$. ($n^n$ by platilo, kdyby se čísla mohla opakovat.)",
     "hints": [
       "Kolika způsoby lze uspořádat $n$ různých prvků?",
       "Prvním prvkem může být $n$ čísel, druhým $n-1$, …"
@@ -17,13 +18,18 @@
   },
   {
     "id": "pf-queens-n3",
-    "type": "numeric",
-    "prompt": "Kolik **řešení** má problém $n$ dam pro $n=3$?",
+    "type": "choice",
+    "prompt": "Kolik **řešení** (rozestavení bez ohrožení) má problém $n$ dam pro $n=3$?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "84"
+    ],
     "answer": 0,
-    "tolerance": 0.001,
-    "solution": "Na desce $3\\times3$ nelze rozestavit 3 neohrožující se dámy. Počty řešení pro $n=1,\\dots,8$: $1,0,0,2,10,4,40,92$.",
+    "solution": "Na desce $3\\times3$ nelze rozestavit 3 neohrožující se dámy. Rozmístění (konfigurací) je $\\binom{9}{3}=84$, ale řešení 0. Počty řešení pro $n=1,\\dots,8$: $1,0,0,2,10,4,40,92$.",
     "hints": [
-      "Zkus umístit první dámu doprostřed – kolik polí zůstane volných?",
+      "Zkus umístit první dámu doprostřed: kolik polí zůstane volných?",
       "Počet řešení pro $n=2$ a $n=3$ je stejný."
     ]
   },
@@ -46,22 +52,32 @@
   },
   {
     "id": "pf-queens-8-cols",
-    "type": "numeric",
-    "prompt": "Formulaci 8 dam upravíš tak, že každá dáma má **svůj sloupec** a ukládá se jen seznam řádků $[y_1,\\dots,y_8]$ bez opakování hodnot. Kolik konfigurací nyní prostor obsahuje?",
-    "answer": 40320,
-    "tolerance": 0.5,
-    "solution": "Jde o permutace čísel $1,\\dots,8$: $8!=40\\,320$. Řešení jsme neztratili, protože dvě dámy v jednom sloupci/řádku by se ohrožovaly.",
+    "type": "choice",
+    "prompt": "Formulaci 8 dam upravíš tak, že každá dáma má **svůj sloupec** a ukládá se jen seznam řádků $[y_1,\\dots,y_8]$ **bez opakování hodnot**. Kolik konfigurací nyní prostor obsahuje?",
+    "options": [
+      "$8^8=16\\,777\\,216$",
+      "$8!=40\\,320$",
+      "$\\binom{64}{8}$",
+      "$64\\cdot63\\cdots57$"
+    ],
+    "answer": 1,
+    "solution": "Seznam $y$ bez opakování hodnot z $\\{1,\\dots,8\\}$ je permutace: $8!=40\\,320$. Řešení jsme neztratili, protože dvě dámy v jednom sloupci nebo řádku by se ohrožovaly. (Kdyby se řádky směly opakovat, bylo by to $8^8$.)",
     "hints": [
       "Seznam $y$ bez opakování = permutace.",
-      "Spočti $8\\cdot7\\cdot6\\cdots1$."
+      "První dáma má 8 řádků, druhá už jen 7, …"
     ]
   },
   {
     "id": "pf-queens-bdm",
-    "type": "numeric",
+    "type": "choice",
     "prompt": "Přechodový graf pro 8 dam: dámy se přidávají jednu po druhé na libovolné volné pole, cílem je 8 dam bez ohrožení. Jaký je **faktor větvení** $b$ (největší počet následníků některého uzlu)?",
-    "answer": 64,
-    "tolerance": 0.5,
+    "options": [
+      "8",
+      "56",
+      "64",
+      "40 320"
+    ],
+    "answer": 2,
     "solution": "Do prázdné desky lze první dámu postavit na kterékoli z 64 polí; žádný jiný stav nemá víc následníků, tedy $b=64$. (Hloubka cíle $d=8$, maximální hloubka $m=8$.)",
     "hints": [
       "Který stav má nejvíc možných tahů?",
@@ -69,11 +85,49 @@
     ]
   },
   {
+    "id": "pf-queens-bdm-n4",
+    "type": "choice",
+    "prompt": "Problém 4 dam jako prohledávání: počátek je prázdná deska $4\\times4$, akce přidá jednu dámu na libovolné volné pole, cíl je 4 dámy bez ohrožení. Určete $b$, $d$ a $m$.",
+    "options": [
+      "$b=16,\\ d=4,\\ m=4$",
+      "$b=4,\\ d=16,\\ m=16$",
+      "$b=16,\\ d=16,\\ m=4$",
+      "$b=4,\\ d=4,\\ m=4$"
+    ],
+    "answer": 0,
+    "solution": "Z prázdné desky vede 16 akcí ($b=16$). Cíl má 4 dámy, takže leží v hloubce $d=4$, a víc než 4 dámy se přidat nesmí, tedy $m=4$. Obecně $b=n^2$, $d=n$, $m=n$.",
+    "hints": [
+      "Kolik akcí má prázdná deska?",
+      "Každá akce přidá právě jednu dámu."
+    ]
+  },
+  {
+    "id": "pf-queens-reduction-legal",
+    "type": "choice",
+    "prompt": "Při úpravě formulace 8 dam na „každá dáma má svůj sloupec“ se prostor zmenšil, ale žádné řešení nezmizelo. Proč?",
+    "options": [
+      "V řešení stojí každá dáma v jiném sloupci, protože dvě dámy v jednom sloupci by se ohrožovaly.",
+      "Každé rozmístění 8 dam má dámu v každém sloupci.",
+      "Řešení je jen 8!, a ty jsme všechny ponechali.",
+      "Dámy jsou nerozlišitelné, takže na jejich pořadí nezáleží."
+    ],
+    "answer": 0,
+    "solution": "Redukce je legální, jen když z prostoru vyřadí pouze konfigurace, které řešením být nemohou. Dvě dámy ve stejném sloupci se ohrožují, takže žádné řešení nemá dámy ve sloupci dvě. Druhá možnost je nepravdivá (obecné rozmístění tuto vlastnost nemá), třetí tvrdí nesmysl (řešení je 92).",
+    "hints": [
+      "Může být dvojice dam ve stejném sloupci součástí řešení?"
+    ]
+  },
+  {
     "id": "pf-8puzzle-states",
-    "type": "numeric",
+    "type": "choice",
     "prompt": "Kolik navzájem dosažitelných stavů má 8-posunovačka? (Všech konfigurací je $9!$, polovina z nich je nedosažitelná.)",
-    "answer": 181440,
-    "tolerance": 0.5,
+    "options": [
+      "$9!/2=181\\,440$",
+      "$9!=362\\,880$",
+      "$8!=40\\,320$",
+      "$8!/2=20\\,160$"
+    ],
+    "answer": 0,
     "solution": "$9!/2=362\\,880/2=181\\,440$.",
     "hints": [
       "Všech uspořádání 9 polí (8 kamenů + mezera) je $9!$.",
@@ -82,9 +136,16 @@
   },
   {
     "id": "pf-tictactoe-bdm",
-    "type": "free",
+    "type": "choice",
     "prompt": "Pro piškvorky $3\\times3$ urči faktor větvení $b$, hloubku cíle $d$ (nejmenší možný počet tahů do výhry) a maximální hloubku $m$.",
-    "solution": "$b=9$ (první tah má 9 možností). $d=5$: výhra nejdříve po 5. tahu (první hráč potřebuje 3 své značky, tedy 5 tahů celkem). $m=9$: plná deska po 9 tazích. (Pozor: počet různých her není $9!$, mnoho jich skončí dříve.)",
+    "options": [
+      "$b=9,\\ d=5,\\ m=9$",
+      "$b=9,\\ d=3,\\ m=9$",
+      "$b=3,\\ d=5,\\ m=9$",
+      "$b=9,\\ d=5,\\ m=5$"
+    ],
+    "answer": 0,
+    "solution": "$b=9$ (první tah má 9 možností). $d=5$: první hráč potřebuje 3 své značky, tedy 5 tahů celkem (3 jeho, 2 soupeřovy). $m=9$: plná deska po 9 tazích. (Pozor: počet různých her není $9!$, mnoho jich skončí dříve.)",
     "hints": [
       "První hráč dá značku do řady nejdříve ve svém 3. tahu.",
       "Kolik polí je na desce?"
@@ -92,9 +153,16 @@
   },
   {
     "id": "pf-optimization-vs-feasibility",
-    "type": "free",
-    "prompt": "Vysvětli rozdíl mezi *optimalizačním* problémem a problémem hledání *libovolného řešení* na příkladech („plánování semestru“, „nákup do lednice“).",
-    "solution": "Optimalizační problém hledá mezi konfiguracemi tu **nejlepší** podle kritéria – plánování semestru: co nejvíc kreditů a co nejvíc volného času. Při skládání nákupu do lednice stačí **jakékoliv** řešení, které umožní zavřít dveře, proto optimalizační není. Podobně: nejkratší cesta = optimalizace, sudoku/n dam = jen platné řešení.",
+    "type": "choice",
+    "prompt": "Který výrok o „plánování semestru“ a „nákupu do lednice“ je správný?",
+    "options": [
+      "Plánování semestru je optimalizační problém (co nejvíc kreditů a volného času), nákup do lednice ne (stačí jakékoliv řešení, které umožní zavřít dveře).",
+      "Oba jsou optimalizační, protože v obou existuje víc řešení.",
+      "Nákup do lednice je optimalizační, plánování semestru ne.",
+      "Ani jeden není optimalizační, protože se nedají zapsat jako graf."
+    ],
+    "answer": 0,
+    "solution": "Optimalizační problém hledá mezi konfiguracemi tu **nejlepší** podle kritéria. Plánování semestru takové kritérium má. Při skládání nákupu do lednice stačí **jakékoliv** řešení, které umožní zavřít dveře. Podobně: nejkratší cesta = optimalizace, sudoku a $n$ dam = jen platné řešení. To, že existuje víc řešení, optimalizaci nedělá.",
     "hints": [
       "Existuje u řešení pojem „lepší“?",
       "Spokojíš se s libovolným řešením?"
@@ -107,7 +175,8 @@
     "options": [
       "13",
       "1",
-      "16"
+      "16",
+      "3"
     ],
     "answer": 0,
     "solution": "Ve stavu s 3 dámami je z 16 polí obsazeno 3, volných je $16-3=13$ a dámu lze (v tomto modelu bez ohledu na ohrožování) umístit na kterékoli z nich ⇒ 13 akcí.",
@@ -145,10 +214,27 @@
       "24"
     ],
     "answer": 0,
-    "solution": "Vybíráme 4 pole ze 16: $\\binom{16}{4}=\\frac{16\\cdot15\\cdot14\\cdot13}{24}=1820$.",
+    "solution": "Vybíráme 4 pole ze 16: $\\binom{16}{4}=\\frac{16\\cdot15\\cdot14\\cdot13}{4!}=\\frac{43\\,680}{24}=1820$. Součin $16\\cdot15\\cdot14\\cdot13=43\\,680$ počítá *uspořádané* čtveřice polí (jako by dámy byly rozlišené). Dámy jsou stejné, takže každou čtveřici polí jsme započítali $4!=24$krát a dělíme.",
     "hints": [
-      "Dámy jsou nerozlišitelné.",
+      "Dámy jsou nerozlišitelné, na pořadí jejich položení nezáleží.",
       "Je to kombinační číslo."
+    ]
+  },
+  {
+    "id": "pf-queens-ordered-vs-set",
+    "type": "choice",
+    "prompt": "Kolik rozmístění 3 **rozlišitelných** dam (např. různě barevných) na desku $4\\times4$ existuje, pokud každé pole nese nejvýše jednu dámu?",
+    "options": [
+      "$16\\cdot15\\cdot14=3360$",
+      "$\\binom{16}{3}=560$",
+      "$16^3=4096$",
+      "$3!=6$"
+    ],
+    "answer": 0,
+    "solution": "U rozlišitelných dam záleží na tom, která stojí kde: první dáma 16 polí, druhá 15, třetí 14, tedy $16\\cdot15\\cdot14=3360$. U *nerozlišitelných* dam bychom dělili $3!=6$ a dostali $\\binom{16}{3}=560$. Povolení stejného pole by dalo $16^3$.",
+    "hints": [
+      "Kolik polí zbývá druhé dámě po umístění první?",
+      "Liší se tento případ od nerozlišitelných dam?"
     ]
   },
   {
@@ -163,7 +249,7 @@
       "256"
     ],
     "answer": 3,
-    "solution": "Každý ze 4 sloupců má 4 možné řádky: $4^4=256$. (Permutace, tj. i různé řádky, by dalo $4!=24$.)",
+    "solution": "Každý ze 4 sloupců má 4 možné řádky: $4^4=256$. (Kdyby se řádky nesměly opakovat, tj. permutace, dostali bychom $4!=24$.)",
     "hints": [
       "Každý sloupec vybírá řádek nezávisle."
     ]
@@ -175,21 +261,28 @@
     "options": [
       "plánování rozmístění prodejen řetězce za účelem maximalizace zisku",
       "hledání nejkratší cesty z vlaku na zastávku šaliny",
-      "hledání platného řešení sudoku"
+      "hledání platného řešení sudoku",
+      "přiřazení pracovníků úkolům s minimální celkovou cenou"
     ],
     "answer": 2,
-    "solution": "Optimalizační problém hledá konfiguraci *nejlepší* podle kritéria. U sudoku stačí *jakékoliv* platné řešení (nejsou „lepší“ a „horší“), proto optimalizační není. Zisk a délka cesty jsou kritéria, která se maximalizují/minimalizují.",
+    "solution": "Optimalizační problém hledá konfiguraci *nejlepší* podle kritéria. U sudoku stačí *jakékoliv* platné řešení (nejsou „lepší“ a „horší“), proto optimalizační není. Zisk, délka cesty i celková cena jsou kritéria, která se maximalizují/minimalizují.",
     "hints": [
       "Ptej se: existuje u řešení nějaké „lepší“ a „horší“?",
-      "Dvě možnosti mají číselné kritérium."
+      "Tři možnosti mají číselné kritérium."
     ]
   },
   {
     "id": "pf-sudoku-count",
-    "type": "numeric",
+    "type": "choice",
     "prompt": "Sudoku $4\\times4$ (hodnoty 1 až 4) má zadáno $k=6$ políček. Kolik konfigurací musí naivní prohledávání projít, pokud doplňuje všechna zbývající políčka libovolnými hodnotami?",
-    "answer": 1048576,
-    "solution": "Zbývá $n^2-k=16-6=10$ políček, každé z $n=4$ hodnot: $4^{10}=1\\,048\\,576$.",
+    "options": [
+      "$4^{10}=1\\,048\\,576$",
+      "$10^4=10\\,000$",
+      "$4^{16}$",
+      "$4^{6}=4\\,096$"
+    ],
+    "answer": 0,
+    "solution": "Zbývá $n^2-k=16-6=10$ políček, každé z $n=4$ hodnot: $4^{10}=1\\,048\\,576$. Zadaná políčka se nemění, proto nejsou v exponentu.",
     "hints": [
       "Kolik políček zbývá doplnit?",
       "Každé políčko má $n$ možností."
@@ -197,9 +290,15 @@
   },
   {
     "id": "pf-assignment-reduce",
-    "type": "numeric",
+    "type": "choice",
     "prompt": "Problém přiřazení: 5 úkolů, 5 pracovníků, konfigurace = pole $A$, kde $A[i]$ je úkol pracovníka $i$. Kolik konfigurací zůstane, když zakážeš, aby jeden úkol dostalo víc pracovníků?",
-    "answer": 120,
+    "options": [
+      "$5^5=3125$",
+      "$5!=120$",
+      "$5\\cdot4=20$",
+      "$2^5=32$"
+    ],
+    "answer": 1,
     "solution": "Bez omezení $5^5=3125$. Bez opakování úkolů je pole permutací 5 čísel: $5!=120$. Tím navíc zmizí nepřípustné konfigurace, takže se nemusí kontrolovat přípustnost.",
     "hints": [
       "Bez opakování hodnot v poli…",
@@ -224,20 +323,33 @@
   },
   {
     "id": "pf-no3-naive",
-    "type": "numeric",
-    "prompt": "Problém „žádné tři v řadě“ na mřížce $3\\times3$: kolik různých rozmístění bodů (včetně nevyhovujících) existuje, pokud každé pole buď bod nese, nebo ne?",
-    "answer": 512,
-    "solution": "9 polí, každé 2 možnosti: $2^9=512$.",
+    "type": "choice",
+    "prompt": "Problém „žádné tři v řadě“ na mřížce $3\\times3$: na mřížku umisťujeme body (všechny stejné, žádné křížky a kolečka). Každé pole má dva stavy: obsahuje bod, nebo je prázdné. Kolik různých rozmístění bodů (včetně nevyhovujících) existuje?",
+    "options": [
+      "$2^9=512$",
+      "$3^9=19\\,683$",
+      "$9!=362\\,880$",
+      "$\\binom{9}{3}=84$"
+    ],
+    "answer": 0,
+    "solution": "9 polí, každé 2 možnosti (bod ano/ne): $2^9=512$. Hodnota $3^9$ by platila pro piškvorky (prázdné, křížek, kolečko), $\\binom93=84$ počítá jen rozmístění právě 3 bodů.",
     "hints": [
-      "Každé pole: bod ano/ne."
+      "Každé pole: bod ano/ne.",
+      "Počet možností pro jedno pole umocni na počet polí."
     ]
   },
   {
     "id": "pf-no3-rows",
-    "type": "numeric",
+    "type": "choice",
     "prompt": "Vylepši reprezentaci „žádné tři v řadě“ na $3\\times3$: v platném řešení jsou na řádku nejvýše 2 body, takže řádek uložíš jako 0, 1 nebo 2 souřadnice. Kolik konfigurací tak zůstane?",
-    "answer": 343,
-    "solution": "Na řádek: $1+3+\\binom32=7$ možností ($=\\frac{n^2+n+2}{2}=\\frac{14}{2}$). Tři řádky: $7^3=343$ (místo 512, a žádné platné řešení se neztratilo).",
+    "options": [
+      "$7^3=343$",
+      "$2^9=512$",
+      "$6^3=216$",
+      "$3^3=27$"
+    ],
+    "answer": 0,
+    "solution": "Na řádek: $1+3+\\binom32=7$ možností ($=\\frac{n^2+n+2}{2}=\\frac{14}{2}$): prázdný, jeden bod ze 3, dva body ze 3. Tři řádky: $7^3=343$ (místo 512, a žádné platné řešení se neztratilo).",
     "hints": [
       "Kolik je způsobů, jak obsadit řádek 0, 1 nebo 2 body ze 3 polí?"
     ]

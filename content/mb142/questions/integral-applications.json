@@ -97,8 +97,15 @@
   },
   {
     "id": "intapp-circumference",
-    "type": "free",
-    "prompt": "Odvoďte obvod kružnice o poloměru $r$ z parametrizace a vzorce pro délku křivky.",
+    "type": "choice",
+    "prompt": "Při odvození obvodu kružnice z parametrizace $[r\\cos t,r\\sin t]$, $t\\in[0,2\\pi]$ vyjde integrand $\\sqrt{x'^2+y'^2}$ rovný:",
+    "options": [
+      "$1$, tedy $d=\\int_0^{2\\pi}\\mathrm{d}t=2\\pi$",
+      "$r$, tedy $d=\\int_0^{2\\pi}r\\,\\mathrm{d}t=2\\pi r$",
+      "$r^2$, tedy $d=\\int_0^{2\\pi}r^2\\,\\mathrm{d}t=2\\pi r^2$",
+      "$r\\sin t$, tedy $d=\\int_0^{2\\pi}r\\sin t\\,\\mathrm{d}t=0$"
+    ],
+    "answer": 1,
     "solution": "$[x,y]=[r\\cos t,r\\sin t]$, $t\\in[0,2\\pi]$; $[x',y']=[-r\\sin t,r\\cos t]$; $\\sqrt{r^2\\sin^2t+r^2\\cos^2t}=r$; $d=\\int_0^{2\\pi}r\\,\\mathrm{d}t=2\\pi r$.",
     "hints": [
       "Použij vzorec pro délku parametricky zadané křivky $\\int\\sqrt{x'^2+y'^2}\\,\\mathrm{d}t$.",
@@ -108,8 +115,15 @@
   },
   {
     "id": "intapp-sphere-surface",
-    "type": "free",
-    "prompt": "Pomocí vzorce $S=2\\pi\\int_a^b f\\sqrt{1+f'^2}\\,\\mathrm{d}x$ odvoďte povrch koule o poloměru $r$.",
+    "type": "choice",
+    "prompt": "Pro $f=\\sqrt{r^2-x^2}$ na $[-r,r]$ vzorec $S=2\\pi\\int f\\sqrt{1+f'^2}\\,\\mathrm{d}x$ dává:",
+    "options": [
+      "integrand $f\\sqrt{1+f'^2}=r^2$, tedy $S=4\\pi r^3$",
+      "integrand $f\\sqrt{1+f'^2}=r$, tedy $S=2\\pi r^2$",
+      "integrand $f\\sqrt{1+f'^2}=\\sqrt{r^2-x^2}$, tedy $S=\\pi^2r^3$",
+      "integrand $f\\sqrt{1+f'^2}=r$, tedy $S=4\\pi r^2$"
+    ],
+    "answer": 3,
     "solution": "$f=\\sqrt{r^2-x^2}$ na $[-r,r]$, $f'=-x/\\sqrt{r^2-x^2}$, $1+f'^2=\\frac{r^2}{r^2-x^2}$, takže $f\\sqrt{1+f'^2}=r$. $S=2\\pi\\int_{-r}^{r}r\\,\\mathrm{d}x=4\\pi r^2$.",
     "hints": [
       "Kouli získáš rotací půlkružnice $f=\\sqrt{r^2-x^2}$ kolem osy $x$.",

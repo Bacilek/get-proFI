@@ -115,8 +115,15 @@
   },
   {
     "id": "defmethods-circle-area",
-    "type": "free",
-    "prompt": "Odvoďte obsah kruhu o poloměru $r$ jako $2\\int_{-r}^{r}\\sqrt{r^2-x^2}\\,\\mathrm{d}x$ pomocí substituce.",
+    "type": "choice",
+    "prompt": "Při odvození obsahu kruhu $2\\int_{-r}^{r}\\sqrt{r^2-x^2}\\,\\mathrm{d}x$ substitucí $x=r\\sin t$ dostaneme:",
+    "options": [
+      "$2r^2\\int_{-\\pi}^{\\pi}\\cos^2t\\,\\mathrm{d}t=2\\pi r^2$",
+      "$2r^2\\int_{-\\pi/2}^{\\pi/2}\\cos^2t\\,\\mathrm{d}t=\\pi r^2$",
+      "$2r^2\\int_{-\\pi/2}^{\\pi/2}\\sin^2t\\,\\mathrm{d}t=\\pi r^2$ (a $\\sqrt{r^2-x^2}=r\\sin t$)",
+      "$2r\\int_{-\\pi/2}^{\\pi/2}\\cos t\\,\\mathrm{d}t=4r$"
+    ],
+    "answer": 1,
     "solution": "$x=r\\sin t$, $\\mathrm{d}x=r\\cos t\\,\\mathrm{d}t$, meze $-r\\to-\\frac\\pi2$, $r\\to\\frac\\pi2$, $\\sqrt{r^2-r^2\\sin^2t}=r\\cos t$ (kladné na $[-\\frac\\pi2,\\frac\\pi2]$). Pak $P=2r^2\\int_{-\\pi/2}^{\\pi/2}\\cos^2t\\,\\mathrm{d}t=2r^2\\left[\\frac t2+\\frac{\\sin2t}{4}\\right]_{-\\pi/2}^{\\pi/2}=2r^2\\cdot\\frac\\pi2=\\pi r^2$.",
     "hints": [
       "Integrand $\\sqrt{r^2-x^2}$ je typický pro goniometrickou substituci.",

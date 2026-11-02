@@ -3,10 +3,18 @@
     "id": "intro-pragmatics",
     "type": "choice",
     "prompt": "Která charakteristika jazyka je hlavním tématem PB006 (a ne předmětů o překladačích či sémantikách)?",
-    "options": ["syntaxe", "sémantika", "pragmatika (jak konstrukce nejlépe použít)", "lexikální analýza"],
+    "options": [
+      "syntaxe",
+      "sémantika",
+      "pragmatika (jak konstrukce nejlépe použít)",
+      "lexikální analýza"
+    ],
     "answer": 2,
     "solution": "Syntaxi řeší překladače a formální jazyky, sémantiku IA011, PB006 se věnuje **pragmatice**: jak a kdy jednotlivé konstrukce používat.",
-    "hints": ["Přednáška to označila slovy „Tento předmět!“.", "Je to třetí z trojice syntaxe, sémantika, …"]
+    "hints": [
+      "Přednáška to označila slovy „Tento předmět!“.",
+      "Je to třetí z trojice syntaxe, sémantika, …"
+    ]
   },
   {
     "id": "intro-orthogonality",
@@ -20,7 +28,9 @@
     ],
     "answer": 1,
     "solution": "Ortogonalita = jednoduchá a spolehlivá kombinace pár základních konceptů bez zvláštních výjimek. Usnadňuje učení jazyka.",
-    "hints": ["Souvisí s kritériem „snadný k naučení“."]
+    "hints": [
+      "Souvisí s kritériem „snadný k naučení“."
+    ]
   },
   {
     "id": "intro-switch-break",
@@ -34,43 +44,83 @@
     ],
     "answer": 2,
     "solution": "C# zakazuje propadávání mezi větvemi `switch`: každá větev musí končit `break`, `return`, `throw` apod. V C by to propadlo a vypsalo „one two“.",
-    "hints": ["Porovnej s chováním v jazyce C.", "Chyba se hlásí při překladu."]
+    "hints": [
+      "Porovnej s chováním v jazyce C.",
+      "Chyba se hlásí při překladu."
+    ]
   },
   {
     "id": "intro-char-size",
     "type": "choice",
     "prompt": "Kolik bitů má `char` v C#?",
-    "options": ["8", "16", "32", "podle platformy"],
+    "options": [
+      "8",
+      "16",
+      "32",
+      "podle platformy"
+    ],
     "answer": 1,
     "solution": "`char` v C# je jeden 16bitový Unicode znak (UTF-16 jednotka). `byte` má 8 bitů, `int` 32.",
-    "hints": ["V C je `char` 8 bitů, C# je jiné."]
+    "hints": [
+      "V C je `char` 8 bitů, C# je jiné."
+    ]
   },
   {
     "id": "intro-format",
     "type": "choice",
     "prompt": "Co vypíše?\n\n```csharp\nConsole.WriteLine(\"{1}-{0}-{1}\", \"a\", \"b\");\n```",
-    "options": ["a-b-a", "b-a-b", "b-b-a", "{1}-{0}-{1}"],
+    "options": [
+      "a-b-a",
+      "b-a-b",
+      "b-b-a",
+      "{1}-{0}-{1}"
+    ],
     "answer": 1,
     "solution": "`{n}` se nahradí n-tým argumentem za formátovacím řetězcem (od 0): `{1}` = \"b\", `{0}` = \"a\", tedy `b-a-b`. Indexy lze opakovat i měnit pořadí.",
-    "hints": ["Číslování argumentů začíná od nuly."]
+    "hints": [
+      "Číslování argumentů začíná od nuly."
+    ]
   },
   {
     "id": "intro-fill-main",
     "type": "fill",
     "prompt": "Doplň kostru programu, který vypíše pozdrav a vrátí 0.",
     "code": "using System;\nclass Program\n{\n    static ___ Main(string[] args)\n    {\n        Console.___(\"Hello World!\");\n        ___ 0;\n    }\n}",
-    "blanks": [["int"], ["WriteLine"], ["return"]],
+    "blanks": [
+      [
+        "int"
+      ],
+      [
+        "WriteLine"
+      ],
+      [
+        "return"
+      ]
+    ],
     "solution": "```csharp\nstatic int Main(string[] args)\n{\n    Console.WriteLine(\"Hello World!\");\n    return 0;\n}\n```\n`Main` smí vracet `int` (návratový kód procesu) nebo `void`; `Console.Write` by nezalomil řádek.",
-    "hints": ["`Main` s návratovou hodnotou, kterou lze vrátit příkazem `return 0`.", "Výpis s koncem řádku."]
+    "hints": [
+      "`Main` s návratovou hodnotou, kterou lze vrátit příkazem `return 0`.",
+      "Výpis s koncem řádku."
+    ]
   },
   {
     "id": "intro-fill-verbatim",
     "type": "fill",
     "prompt": "Doplň tak, aby oba řetězce označovaly stejnou cestu.",
     "code": "string a = \"c:___dir\";\nstring b = ___\"c:\\dir\";",
-    "blanks": [["\\\\"], ["@"]],
+    "blanks": [
+      [
+        "\\\\"
+      ],
+      [
+        "@"
+      ]
+    ],
     "solution": "V běžném literálu se zpětné lomítko zdvojuje (`\"c:\\\\dir\"`), v **verbatim** literálu s předponou `@` se píše tak, jak je (`@\"c:\\dir\"`).",
-    "hints": ["Escape sekvence pro zpětné lomítko.", "Předpona, která vypíná escape sekvence."]
+    "hints": [
+      "Escape sekvence pro zpětné lomítko.",
+      "Předpona, která vypíná escape sekvence."
+    ]
   },
   {
     "id": "intro-write-count",
@@ -84,12 +134,23 @@
       "Vrací `int` a nemění vstup."
     ],
     "solution": "```csharp\nstatic int CountVowels(string s)\n{\n    int n = 0;\n    foreach (char c in s)\n        if (\"aeiouAEIOU\".IndexOf(c) >= 0) n++;\n    return n;\n}\n```\nAlternativa: `char.ToLower(c)` a `switch`.",
-    "hints": ["Co potřebuješ spočítat a čím projdeš řetězec?", "Pro každý znak ověř, zda je mezi samohláskami.", "`foreach (char c in s)` a pomocný řetězec `\"aeiou\"`."]
+    "hints": [
+      "Co potřebuješ spočítat a čím projdeš řetězec?",
+      "Pro každý znak ověř, zda je mezi samohláskami.",
+      "`foreach (char c in s)` a pomocný řetězec `\"aeiou\"`."
+    ]
   },
   {
     "id": "intro-hw-rules",
-    "type": "free",
-    "prompt": "Vyjmenuj podmínky předmětu: jak se skládá zkouška, kolik domácích úkolů je a co je k nim potřeba.",
+    "type": "choice",
+    "prompt": "Jaké jsou podmínky předmětu: zkouška a domácí úkoly?",
+    "options": [
+      "Zkouška: jen praktická na počítači, aspoň 50 %. 6 domácích úkolů, nutné všechny body, nadlimitní body se nepřičítají.",
+      "Zkouška: jen teoretická na papíře, aspoň 2/3 bodů. 6 domácích úkolů v Pythonu, bez bodového limitu.",
+      "Zkouška: praktická + teoretická, dohromady aspoň 50 %. 12 domácích úkolů, nutná polovina bodů.",
+      "Zkouška: praktická (počítač) + teoretická (papír), v každé aspoň 50 %. 6 domácích úkolů v C#, nutné 2/3 bodů (12 z 18), body nad limit se přičítají ke zkoušce."
+    ],
+    "answer": 3,
     "solution": "Zkouška: **praktická** část (počítač) + **teoretická** (papír), v každé aspoň 50 % bodů. **6 domácích úkolů** (nepravidelně, kratší programy v C#, automaticky hodnoceno), nutné **2/3 bodů** (u nás 12 z 18), body nad limit se přičítají ke zkoušce."
   }
 ]

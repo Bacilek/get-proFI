@@ -89,8 +89,15 @@
   },
   {
     "id": "exam-5",
-    "type": "free",
-    "prompt": "Pro $f(x)=|x|$ na $[-1,1]$ a dělení $D_n=\\{-1,-\\frac{n-1}n,\\dots,-\\frac1n,0,\\frac1n,\\dots,\\frac{n-1}n,1\\}$ určete dolní součet $s(D_n,f)$ a horní součet $S(D_n,f)$. Je $f$ riemannovsky integrovatelná?",
+    "type": "choice",
+    "prompt": "Pro $f(x)=|x|$ na $[-1,1]$ a dělení $D_n$ s kroky $\\frac1n$ je dolní součet $s(D_n,f)$, horní součet $S(D_n,f)$ a závěr o integrovatelnosti:",
+    "options": [
+      "$s=\\frac{n-1}n$, $S=\\frac{n+1}n$; $S-s=\\frac2n\\to0$, integrovatelná, $\\int_{-1}^1|x|=1$",
+      "$s=0$, $S=2$; není integrovatelná",
+      "$s=\\frac{n-1}n$, $S=\\frac{n+1}n$; $S-s\\to0$, ale integrál je $2$",
+      "$s=\\frac{n+1}n$, $S=\\frac{n-1}n$; integrovatelná, $\\int=1$"
+    ],
+    "answer": 0,
     "solution": "Všechny dílky mají délku $\\frac1n$. Na pravé polovině je $f$ rostoucí: infimum na $[\\frac{k-1}n,\\frac kn]$ je $\\frac{k-1}n$, supremum $\\frac kn$; levá polovina je symetrická. Proto $s(D_n,f)=2\\cdot\\frac1n\\sum_{k=1}^n\\frac{k-1}n=\\frac2{n^2}\\cdot\\frac{n(n-1)}2=\\frac{n-1}n$ a $S(D_n,f)=2\\cdot\\frac1n\\sum_{k=1}^n\\frac kn=\\frac{n+1}n$. Rozdíl $S-s=\\frac2n\\to0$ a obě limity jsou $1$, tedy $\\sup_D s=\\inf_D S=1$: funkce je integrovatelná a $\\int_{-1}^1|x|\\,dx=1$ (obsah dvou trojúhelníků).",
     "hints": [
       "Všechny dílky mají stejnou šířku $\\frac1n$; na každém dílku je $|x|$ monotónní, takže infimum a supremum jsou v krajních bodech.",
@@ -214,8 +221,15 @@
   },
   {
     "id": "pk-rm-bounds",
-    "type": "free",
-    "prompt": "Dokaž $\\dfrac{\\sqrt2}{20}\\le\\displaystyle\\int_0^1\\frac{x^9}{\\sqrt{1+x}}\\,dx\\le\\frac1{10}$.",
+    "type": "choice",
+    "prompt": "Jak se dokáže $\\frac{\\sqrt2}{20}\\le\\int_0^1\\frac{x^9}{\\sqrt{1+x}}\\,dx\\le\\frac1{10}$?",
+    "options": [
+      "Per partes dvakrát, přesná hodnota integrálu je $\\frac{\\sqrt2}{20}$.",
+      "Z nerovnosti $\\sqrt{1+x}\\le x$ na $[0,1]$.",
+      "Na $[0,1]$ je $1\\le\\sqrt{1+x}\\le\\sqrt2$, tedy $\\frac{x^9}{\\sqrt2}\\le\\frac{x^9}{\\sqrt{1+x}}\\le x^9$; integrací a $\\frac1{10\\sqrt2}=\\frac{\\sqrt2}{20}$.",
+      "Na $[0,1]$ je $1\\le\\sqrt{1+x}\\le\\sqrt2$, tedy $x^9\\le\\frac{x^9}{\\sqrt{1+x}}\\le\\sqrt2x^9$; integrací vyjde horní mez $\\frac{\\sqrt2}{10}$."
+    ],
+    "answer": 2,
     "solution": "Na $[0,1]$ je $1\\le\\sqrt{1+x}\\le\\sqrt2$, tedy $\\frac{x^9}{\\sqrt2}\\le\\frac{x^9}{\\sqrt{1+x}}\\le x^9$. Integrací (monotonie integrálu): $\\frac1{\\sqrt2}\\cdot\\frac1{10}\\le I\\le\\frac1{10}$, a $\\frac1{10\\sqrt2}=\\frac{\\sqrt2}{20}$.",
     "hints": [
       "Odhadni jmenovatel zdola a shora na $[0,1]$.",

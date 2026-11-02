@@ -18,8 +18,15 @@
   },
   {
     "id": "re-refute-chain",
-    "type": "free",
-    "prompt": "Rezolucí (vyvrácením negace závěru) dokaž, že z $\\{p\\Rightarrow q,\\ q\\Rightarrow r\\}$ plyne $p\\Rightarrow r$.",
+    "type": "choice",
+    "prompt": "Rezolucí dokazujeme, že z $\\{p\\Rightarrow q,\\ q\\Rightarrow r\\}$ plyne $p\\Rightarrow r$. Který postup je správný?",
+    "options": [
+      "Klauzule $\\{\\neg p,q\\},\\{\\neg q,r\\}$ + negace závěru $\\{p\\},\\{\\neg r\\}$; odvodíme $\\{q\\}$, $\\{r\\}$, pak $\\square$.",
+      "Klauzule $\\{p,\\neg q\\},\\{q,\\neg r\\}$ + negace závěru $\\{p\\},\\{\\neg r\\}$; odvodíme $\\square$ po jednom kroku.",
+      "Klauzule $\\{\\neg p,q\\},\\{\\neg q,r\\}$ + negace závěru $\\{p\\},\\{\\neg r\\}$; ty se rezolvují na $p$ a $r$ rovnou do $\\square$.",
+      "Klauzule $\\{\\neg p,q\\},\\{\\neg q,r\\}$ + negace závěru $\\{\\neg p,r\\}$; odvodíme $\\{\\neg p,r\\}$ a hotovo."
+    ],
+    "answer": 0,
     "solution": "Klauzule: $\\{\\neg p,q\\}$, $\\{\\neg q,r\\}$. Negace závěru: $\\neg(p\\Rightarrow r)\\equiv p\\wedge\\neg r$ ⇒ $\\{p\\}$, $\\{\\neg r\\}$. $\\{\\neg p,q\\}+\\{p\\}\\to\\{q\\}$; $\\{q\\}+\\{\\neg q,r\\}\\to\\{r\\}$; $\\{r\\}+\\{\\neg r\\}\\to\\square$. Množina je nesplnitelná ⇒ závěr plyne.",
     "hints": [
       "Přidej klauzule $\\{p\\}$ a $\\{\\neg r\\}$.",
@@ -62,8 +69,15 @@
   },
   {
     "id": "re-horn-types",
-    "type": "free",
-    "prompt": "Vysvětli intuitivní význam faktů, pravidel a cílů mezi Hornovými klauzulemi a zapiš, jak jim odpovídá Prolog.",
+    "type": "choice",
+    "prompt": "Jaký je význam faktů, pravidel a cílů mezi Hornovými klauzulemi a jak jim odpovídá Prolog?",
+    "options": [
+      "Fakt $[p]$ = `p.`; pravidlo $[p,\\neg q_1,\\dots,\\neg q_m]$ = `p :- q1, ..., qm.`; cíl $[\\neg p_1,\\dots,\\neg p_n]$ = negace dotazu `?- p1, ..., pn.`",
+      "Fakt $[\\neg p]$ = `p.`; pravidlo $[p,\\neg q]$ = `p :- not q.`; cíl = pravidlo bez hlavy.",
+      "Fakt $[p]$ = `?- p.`; pravidlo $[p,\\neg q]$ = `q :- p.`; cíl = fakt s negací.",
+      "Fakt $[p]$ = `p.`; pravidlo $[p,\\neg q]$ = `q :- p.`; cíl = fakt, který platí vždy."
+    ],
+    "answer": 0,
     "solution": "**Fakt** $[p]$: tvrzení, které platí (Prolog `p.`). **Pravidlo** $[p,\\neg q_1,\\dots,\\neg q_m]$ ≡ $p\\Leftarrow q_1\\wedge\\dots\\wedge q_m$: „$p$ platí, pokud platí všechna $q_i$“ (Prolog `p :- q1, ..., qm.`). **Cíl** $[\\neg p_1,\\dots,\\neg p_n]$: negace dotazu $p_1\\wedge\\dots\\wedge p_n$ – co chceme dokázat (Prolog `?- p1, ..., pn.`); vyvrácení cíle = dotaz plyne z programu.",
     "hints": [
       "Kolik pozitivních literálů má každý typ?",
@@ -89,8 +103,15 @@
   },
   {
     "id": "re-sld-tree",
-    "type": "free",
-    "prompt": "Program: `1: q :- r.  2: q :- t.  3: q.  4: r.  5: u :- q.  6: s.`  Dotaz `?- s, u.` Nakresli SLD odvození nejlevnější úspěšné větve a řekni, kolik větví vzniklo v uzlu `?- q`.",
+    "type": "choice",
+    "prompt": "Program: `1: q :- r.  2: q :- t.  3: q.  4: r.  5: u :- q.  6: s.`  Dotaz `?- s, u.` SLD strom dojde přes `?- u` k `?- q`. Kolik větví vznikne v uzlu `?- q` a kolik jich uspěje?",
+    "options": [
+      "3 větve, všechny úspěšné.",
+      "2 větve, obě úspěšné.",
+      "3 větve, 1 úspěšná (jen fakt 3).",
+      "3 větve, 2 úspěšné (přes pravidlo 1 a fakt 3), 1 neúspěšná (pravidlo 2, `t` nelze rezolvovat)."
+    ],
+    "answer": 3,
     "solution": "`?- s,u` →(6)→ `?- u` →(5)→ `?- q`. Zde se strom větví na tři pravidla: (1) `?- r` →(4)→ □ (úspěch), (2) `?- t` – nelze ničím rezolvovat (neúspěch), (3) fakt `q` → □ (úspěch). Prolog jde zleva a první větev (1,4) dá `true`. V uzlu `?- q` jsou **3 větve**, dvě úspěšné a jedna neúspěšná.",
     "hints": [
       "Rezolvuj vždy první cíl pravidlem se shodnou hlavou.",

@@ -108,8 +108,15 @@
   },
   {
     "id": "is-consistency-example",
-    "type": "free",
-    "prompt": "Graf $S\\to A$ (cena 1), $A\\to G$ (3), $S\\to G$ (5). $h(S)=4$, $h(A)=1$, $h(G)=0$. Je $h$ přípustná? Je konzistentní?",
+    "type": "choice",
+    "prompt": "Graf $S\\to A$ (cena 1), $A\\to G$ (3), $S\\to G$ (5). $h(S)=4$, $h(A)=1$, $h(G)=0$. Co platí o heuristice $h$?",
+    "options": [
+      "Přípustná i konzistentní.",
+      "Ani přípustná, ani konzistentní.",
+      "Konzistentní, ale ne přípustná.",
+      "Přípustná, ale ne konzistentní ($h(S)=4>c(S,A)+h(A)=2$)."
+    ],
+    "answer": 3,
     "solution": "Skutečné ceny do cíle: $h^*(S)=\\min(1+3,\\,5)=4$, $h^*(A)=3$, $h^*(G)=0$. Přípustná: $4\\le4$, $1\\le3$, $0\\le0$ ✓. Konzistence: pro $S\\to A$ by mělo platit $h(S)\\le c(S,A)+h(A)=1+1=2$, ale $h(S)=4>2$ ✗. Heuristika je **přípustná, ale ne konzistentní**.",
     "hints": [
       "Nejdřív spočítej $h^*$ pro každý uzel.",

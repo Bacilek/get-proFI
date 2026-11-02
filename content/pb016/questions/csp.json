@@ -69,8 +69,15 @@
   },
   {
     "id": "csp-definition",
-    "type": "free",
-    "prompt": "Definuj CSP (problém s omezujícími podmínkami) a co je jeho **řešení**. Uveď i, co je COP.",
+    "type": "choice",
+    "prompt": "Který popis správně definuje CSP, jeho **řešení** a COP?",
+    "options": [
+      "CSP = proměnné s doménami + omezení; řešení = libovolné přiřazení, které nepoužívá všechny proměnné; COP je CSP bez omezení.",
+      "CSP = proměnné s doménami + omezení; řešení = částečné konzistentní přiřazení; COP je CSP s nekonečnými doménami.",
+      "CSP = proměnné s neprázdnými doménami + omezení; řešení = úplné konzistentní přiřazení; COP navíc má účelovou funkci, kterou optimalizujeme.",
+      "CSP = proměnné s doménami + účelová funkce; řešení = přiřazení s nejlepší hodnotou funkce; COP je CSP s více omezeními."
+    ],
+    "answer": 2,
     "solution": "CSP = proměnné $X_1..X_n$ s neprázdnými doménami $D_i$ + omezení $C_1..C_m$. Řešení je úplné (všechny proměnné) konzistentní (žádné omezení neporušeno) přiřazení. COP (constraint optimization problem) navíc obsahuje účelovou funkci $f$; hledáme řešení, které ji maximalizuje/minimalizuje.",
     "hints": [
       "Tři složky: proměnné, domény, omezení.",
@@ -142,8 +149,15 @@
   },
   {
     "id": "csp-clp-queens",
-    "type": "free",
-    "prompt": "Zapiš (pseudokódem nebo v CLP stylu) model problému $N$ dam jako CSP: proměnné, domény, omezení.",
+    "type": "choice",
+    "prompt": "Jak správně modelovat problém $N$ dam jako CSP?",
+    "options": [
+      "Proměnné $q_1..q_N$ s doménami $1..N$; pro $i<j$ stačí $q_i\\neq q_j$ (různé řádky), diagonály hlídá doména.",
+      "Proměnné $q_1..q_N$ s doménami $1..N$; pro $i<j$: $q_i<q_j$ a $q_j-q_i\\neq j-i$.",
+      "Proměnné jsou pole šachovnice s doménou {dáma, prázdné}; jediné omezení: právě $N$ polí je obsazeno.",
+      "Proměnné $q_1..q_N$ (řádek dámy ve sloupci $i$), domény $1..N$; pro $i<j$: $q_i\\neq q_j$, $q_i+(j-i)\\neq q_j$, $q_i-(j-i)\\neq q_j$."
+    ],
+    "answer": 3,
     "solution": "Proměnné $q_1,\\dots,q_N$ ($q_i$ = řádek dámy ve sloupci $i$), domény $1..N$. Pro každé $i<j$ omezení: $q_i\\neq q_j$ (různé řádky) a $q_i+(j-i)\\neq q_j$, $q_i-(j-i)\\neq q_j$ (ne na stejné diagonále). V CLP: `L ins 1..N`, pro $i<j$ `NoThreat(L[i],L[j],j-i)`, `labeling(L)`. Pro $N=4$ jsou řešení $[2,4,1,3]$ a $[3,1,4,2]$.",
     "hints": [
       "Každá dáma má vlastní sloupec – co zbývá rozhodnout?",
@@ -152,8 +166,15 @@
   },
   {
     "id": "csp-code-python",
-    "type": "free",
-    "prompt": "(Cvičení 4, python-constraint) Napiš kostru řešení obarvení mapy Austrálie třemi barvami pomocí knihovny `constraint` (`Problem`, `addVariables`, `addConstraint`, `getSolutions`).",
+    "type": "choice",
+    "prompt": "(Cvičení 4, python-constraint) Jak se řeší obarvení mapy Austrálie třemi barvami knihovnou `constraint`?",
+    "options": [
+      "`addVariables` pro 7 oblastí s doménou 3 barev, pro každou dvojici sousedů `addConstraint(lambda x,y: x != y, (a,b))`, nakonec `getSolutions()`.",
+      "`addVariables` pro 7 oblastí a jedno omezení `addConstraint(AllDifferentConstraint())` na všechny, nakonec `getSolutions()`.",
+      "`addVariables` pro 3 barvy s doménou 7 oblastí, pro každou dvojici barev `addConstraint(lambda x,y: x == y, (a,b))`, nakonec `getSolutions()`.",
+      "`addVariables` pro 7 oblastí s doménou 3 barev a `addConstraint(lambda x,y: x == y, (a,b))` pro sousedy."
+    ],
+    "answer": 0,
     "solution": "```python\nfrom constraint import Problem\np = Problem()\np.addVariables([\"WA\",\"NT\",\"SA\",\"Q\",\"NSW\",\"V\",\"T\"], [\"red\",\"green\",\"blue\"])\nfor a, b in [(\"WA\",\"NT\"),(\"WA\",\"SA\"),(\"NT\",\"SA\"),(\"NT\",\"Q\"),(\"SA\",\"Q\"),(\"SA\",\"NSW\"),(\"Q\",\"NSW\"),(\"SA\",\"V\"),(\"NSW\",\"V\")]:\n    p.addConstraint(lambda x, y: x != y, (a, b))\nsolutions = p.getSolutions()   # 18 řešení\n```\nPro 8 dam: proměnné = sloupce $0..7$, domény = řádky $0..7$, pro $i<j$ omezení `lambda a,b,d=j-i: a!=b and abs(a-b)!=d`. Výsledek: 92 řešení.",
     "hints": [
       "Proměnné s doménou barev, pak binární omezení „různé“.",
